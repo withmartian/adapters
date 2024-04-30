@@ -42,6 +42,15 @@ MODELS = [
         completion_length=16385,
     ),
     OpenAIModel(
+        name="gpt-4-0314",
+        cost=Cost(prompt=30.0e-6, completion=60.0e-6),
+        context_length=32768,
+        completion_length=32768,
+        supports_json_output=False,
+        supports_functions=False,
+        supports_tools=False,
+    ),
+    OpenAIModel(
         name="gpt-4-32k-0613",
         cost=Cost(prompt=60.0e-6, completion=120.0e-6),
         context_length=32768,
