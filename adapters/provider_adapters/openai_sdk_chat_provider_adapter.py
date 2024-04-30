@@ -25,14 +25,14 @@ class OpenAIModel(Model):
 MODELS = [
     OpenAIModel(
         name="gpt-3.5-turbo-1106",
-        cost=Cost(prompt=0.5e-6, completion=1.5e-6),
+        cost=Cost(prompt=1.0e-6, completion=2.0e-6),
         context_length=16385,
         completion_length=16385,
     ),
     OpenAIModel(
         name="gpt-3.5-turbo",
         cost=Cost(prompt=0.5e-6, completion=1.5e-6),
-        context_length=4096,
+        context_length=16385,
         completion_length=16385,
     ),
     OpenAIModel(
@@ -49,6 +49,12 @@ MODELS = [
         supports_json_output=False,
         supports_functions=False,
         supports_tools=False,
+    ),
+    OpenAIModel(
+        name="gpt-4-0125-preview",
+        cost=Cost(prompt=10.0e-6, completion=30.0e-6),
+        context_length=128000,
+        completion_length=4096,
     ),
     OpenAIModel(
         name="gpt-4-32k-0613",
@@ -106,6 +112,20 @@ MODELS = [
         cost=Cost(prompt=10.0e-6, completion=30.0e-6),
         context_length=128000,
         completion_length=4096,
+    ),
+    OpenAIModel(
+        name="gpt-4-turbo-2024-04-09",
+        cost=Cost(prompt=10.0e-6, completion=30.0e-6),
+        context_length=128000,
+        completion_length=4096,
+        supports_vision=True,
+    ),
+    OpenAIModel(
+        name="gpt-4-turbo",
+        cost=Cost(prompt=10.0e-6, completion=30.0e-6),
+        context_length=128000,
+        completion_length=4096,
+        supports_vision=True,
     ),
 ]
 
