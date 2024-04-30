@@ -6,6 +6,7 @@ from typing import Any
 from adapters.abstract_adapters import BaseAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.concrete_adapters import *
+from adapters.provider_adapters import LeptonSDKChatProviderAdapter
 from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
     AnthropicSDKChatProviderAdapter,
 )
@@ -116,7 +117,10 @@ class AdapterFactory:
         if adapter_class is None:
             return None
 
-        adapter = adapter_class()
+        if adapter_class == LeptonSDKChatProviderAdapter:
+            adapter = adapter_class(model_name)  # type: ignore[call-arg]
+        else:
+            adapter = adapter_class()
 
         if isinstance(adapter, ProviderAdapterMixin):
             adapter._init_current_model(model_name)

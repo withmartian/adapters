@@ -15,7 +15,10 @@ class ApiKeyAdapterMixin:
             api_keys = api_keys.split(",")
             for key in api_keys:
                 if not self.get_api_key_pattern().match(key):
-                    raise ValueError(f"api_key {key} is not a valid key")
+                    raise ValueError(
+                        f"api_key {key[:4]}**********{key[-4:]} is not a valid key"
+                    )
+
             ApiKeyAdapterMixin._api_keys = api_keys
         else:
             self._api_keys = [os.environ.get(self.get_api_key_name())]
