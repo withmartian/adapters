@@ -1,0 +1,112 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"}]},
+      {"role": "user", "content": [{"type": "text", "text": "Test"}]}], "model": "mistralai/Mixtral-8x22B-Instruct-v0.1"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '192'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - AsyncOpenAI/Python 1.14.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.14.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.together.xyz/chat/completions
+  response:
+    body:
+      string: '{"id":"87985b4a48a5f9d4-SJC","object":"chat.completion","created":1713985446,"model":"mistralai/Mixtral-8x22B-Instruct-v0.1","prompt":[],"choices":[{"finish_reason":"eos","logprobs":null,"index":0,"message":{"role":"assistant","content":"
+        is a common output in JavaScript when trying to print an object directly to
+        the console or convert it to a string. It indicates that the object being
+        printed is not a primitive data type (like a number or string), but rather
+        a complex data type that contains properties and methods.\n\nTo view the contents
+        of an object, you can use the console.log() method and pass the object as
+        an argument. This will print the object''s properties and their values to
+        the console. Alternatively, you can use the JSON.stringify() method to convert
+        the object to a string representation that can be printed or displayed.\n\nHere''s
+        an example:\n```javascript\nlet obj = { name: \"John\", age: 30 };\nconsole.log(obj);
+        // Output: { name: ''John'', age: 30 }\nconsole.log(JSON.stringify(obj));
+        // Output: {\"name\":\"John\",\"age\":30}\n```\nIn the first console.log()
+        statement, the object is printed directly to the console, showing its properties
+        and values. In the second statement, the object is converted to a string using
+        JSON.stringify() and then printed to the console. The output is a string representation
+        of the object that can be easily read and understood."}}],"usage":{"prompt_tokens":18,"completion_tokens":268,"total_tokens":286}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 87985b4a48a5f9d4-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 24 Apr 2024 19:04:07 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '1465'
+      etag:
+      - '"n5n9ryhaya14p"'
+      vary:
+      - Accept-Encoding
+      x-api-call-end:
+      - '2024-04-24T19:04:06.984Z'
+      x-api-call-start:
+      - '2024-04-24T19:04:00.400Z'
+      x-api-received:
+      - '2024-04-24T19:04:00.394Z'
+      x-compute-characters:
+      - '80'
+      x-compute-time:
+      - '5751'
+      x-hostname:
+      - mistralai-mixtral-8x22b-instruct-v0-1-74c86487c8-npnml
+      x-inference-time:
+      - '5747'
+      x-inference-version:
+      - v2
+      x-queue-time:
+      - '2'
+      x-ratelimit-limit:
+      - '200'
+      x-ratelimit-remaining:
+      - '198'
+      x-ratelimit-reset:
+      - '2'
+      x-time-per-token:
+      - '21'
+      x-total-time:
+      - '5751'
+      x-validation-time:
+      - '0'
+    status:
+      code: 200
+      message: OK
+version: 1

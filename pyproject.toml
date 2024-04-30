@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "adapters"
+version = "4.0.9"
+description = "Adapters as API gateways to Different LLM Models"
+authors = ["Martian team <team@withmartian.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aiohttp = "^3.8.5"
+aiolimiter = "^1.1.0"
+aiosignal = "^1.3.1"
+anthropic = "0.16.0"
+async-timeout = "^4.0.3"
+attrs = "^23.1.0"
+certifi = "^2023.7.22"
+charset-normalizer = "^3.2.0"
+frozenlist = "^1.4.0"
+idna = "^3.4"
+isort = "^5.12.0"
+multidict = "^6.0.4"
+regex = "^2023.8.8"
+requests = "^2.31.0"
+yarl = "^1.9.2"
+asyncio = "^3.4.3"
+tiktoken = "^0.5.1"
+pydantic = "^2.4.2"
+together = "^0.2.6"
+transformers = "^4.35.0"
+sentencepiece = "^0.1.99"
+openai = "1.23.6"
+vcrpy = "^6.0.1"
+google-generativeai = "^0.3.2"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.3"
+pytest-dotenv = "^0.5.2"
+pytest-asyncio = "^0.21.1"
+pytest-recording = "^0.13.1"
+pylint = "^3.0.1"
+mypy = "^1.6.0"
+
+
+[tool.poetry.group.pre-commit.dependencies]
+pre-commit = "^3.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

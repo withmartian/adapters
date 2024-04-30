@@ -1,0 +1,83 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "accounts/fireworks/models/llama-v3-8b-instruct",
+      "stream": true}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '124'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.14.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.14.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.5
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: 'data: {"id":"8783b980-cf56-49d3-9b35-3ef21fc97894","object":"chat.completion.chunk","created":1714011743,"model":"accounts/fireworks/models/llama-v3-8b-instruct","choices":[{"index":0,"delta":{"role":"assistant"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"8783b980-cf56-49d3-9b35-3ef21fc97894","object":"chat.completion.chunk","created":1714011743,"model":"accounts/fireworks/models/llama-v3-8b-instruct","choices":[{"index":0,"delta":{"content":"Hi!"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"8783b980-cf56-49d3-9b35-3ef21fc97894","object":"chat.completion.chunk","created":1714011743,"model":"accounts/fireworks/models/llama-v3-8b-instruct","choices":[{"index":0,"delta":{"content":"
+        How''s it going? Is there something I can help you with?"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"8783b980-cf56-49d3-9b35-3ef21fc97894","object":"chat.completion.chunk","created":1714011743,"model":"accounts/fireworks/models/llama-v3-8b-instruct","choices":[{"index":0,"delta":{},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":28,"completion_tokens":17}}
+
+
+        data: [DONE]
+
+
+        '
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 879add72c94cf977-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Date:
+      - Thu, 25 Apr 2024 02:22:23 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google
+      x-request-id:
+      - 6d9a3194-aa07-44b6-a096-22350c17cab0
+      x-server-time-to-first-token:
+      - '0.031'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,84 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "togethercomputer/Llama-2-7B-32K-Instruct",
+      "stream": true}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '118'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - AsyncOpenAI/Python 1.14.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.14.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.together.xyz/chat/completions
+  response:
+    body:
+      string: 'data: {"id":"8790fab838b46800-SJC","object":"chat.completion.chunk","created":1713908084,"choices":[{"index":0,"text":"\n","logprobs":null,"finish_reason":null,"delta":{"token_id":13,"role":"assistant","content":"\n","tool_calls":null}}],"model":"togethercomputer/Llama-2-7B-32K-Instruct","usage":null}
+
+
+        data: {"id":"8790fab838b46800-SJC","object":"chat.completion.chunk","created":1713908084,"choices":[{"index":0,"text":"","logprobs":null,"finish_reason":"stop","delta":{"token_id":13,"role":"assistant","content":"","tool_calls":null}}],"model":"togethercomputer/Llama-2-7B-32K-Instruct","usage":{"prompt_tokens":10,"completion_tokens":2,"total_tokens":12}}
+
+
+        data: [DONE]
+
+
+        '
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8790fab838b46800-SJC
+      Cache-Control:
+      - no-cache, no-transform
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/event-stream;charset=utf-8
+      Date:
+      - Tue, 23 Apr 2024 21:34:44 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      x-api-call-start:
+      - '2024-04-23T21:34:44.546Z'
+      x-api-received:
+      - '2024-04-23T21:34:44.539Z'
+      x-inference-version:
+      - v2
+      x-ratelimit-limit:
+      - '200'
+      x-ratelimit-remaining:
+      - '196'
+      x-ratelimit-reset:
+      - '0'
+    status:
+      code: 200
+      message: OK
+version: 1

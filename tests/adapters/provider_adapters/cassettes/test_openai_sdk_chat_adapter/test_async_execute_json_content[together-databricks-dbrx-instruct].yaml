@@ -1,0 +1,116 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"}]},
+      {"role": "user", "content": [{"type": "text", "text": "Test"}]}], "model": "databricks/dbrx-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '179'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - AsyncOpenAI/Python 1.14.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.14.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.together.xyz/chat/completions
+  response:
+    body:
+      string: '{"id":"87985b757b7ef9d4-SJC","object":"chat.completion","created":1713985452,"model":"databricks/dbrx-instruct","prompt":[],"choices":[{"finish_reason":"stop","logprobs":null,"index":0,"message":{"role":"assistant","content":"
+        is a string representation of an object in JavaScript. It is the default string
+        value of an object that does not have a specified `toString()` method. When
+        you try to print an object to the console or convert it to a string, you will
+        see \"[object Object]\" if the object does not have a custom `toString()`
+        method.\n\nFor example, consider the following code:\n```javascript\nconst
+        obj = { name: ''John'', age: 30 };\nconsole.log(obj); // [object Object]\nconsole.log(obj.toString());
+        // [object Object]\n```\nIn this example, the `obj` variable is an object
+        with two properties: `name` and `age`. When we try to print the object to
+        the console or convert it to a string using the `toString()` method, we see
+        \"[object Object]\" because the object does not have a custom `toString()`
+        method.\n\nTo avoid seeing \"[object Object]\" when printing objects to the
+        console or converting them to strings, you can define a custom `toString()`
+        method for your objects. For example:\n```javascript\nconst obj = {\n  name:
+        ''John'',\n  age: 30,\n  toString() {\n    return `Name: ${this.name}, Age:
+        ${this.age}`;\n  }\n};\n\nconsole.log(obj); // Name: John, Age: 30\nconsole.log(obj.toString());
+        // Name: John, Age: 30\n```\nIn this example, we define a custom `toString()`
+        method for the `obj` object that returns a string representation of the object''s
+        properties. When we print the object to the console or convert it to a string,
+        we see the custom string representation instead of \"[object Object]\"."}}],"usage":{"prompt_tokens":25,"completion_tokens":343,"total_tokens":368}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 87985b757b7ef9d4-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 24 Apr 2024 19:04:12 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '1796'
+      etag:
+      - '"qoo28c74ax1dw"'
+      vary:
+      - Accept-Encoding
+      x-api-call-end:
+      - '2024-04-24T19:04:12.361Z'
+      x-api-call-start:
+      - '2024-04-24T19:04:07.309Z'
+      x-api-received:
+      - '2024-04-24T19:04:07.301Z'
+      x-compute-characters:
+      - '123'
+      x-compute-time:
+      - '4729'
+      x-hostname:
+      - databricks-dbrx-instruct-7fcf6f49dc-cchgf
+      x-inference-time:
+      - '4723'
+      x-inference-version:
+      - v2
+      x-queue-time:
+      - '5'
+      x-ratelimit-limit:
+      - '200'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-reset:
+      - '2'
+      x-time-per-token:
+      - '13'
+      x-total-time:
+      - '4729'
+      x-validation-time:
+      - '0'
+    status:
+      code: 200
+      message: OK
+version: 1
