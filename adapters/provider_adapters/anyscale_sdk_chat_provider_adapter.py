@@ -36,6 +36,20 @@ MODELS = [
         vendor_name="meta-llama",
     ),
     AnyscaleModel(
+        name="Meta-Llama-3-70B-Instruct",
+        cost=Cost(prompt=1.00e-6, completion=1.00e-6),
+        # https://docs.endpoints.anyscale.com/text-generation/supported-models/meta-llama-Meta-Llama-3-70B-Instruct/
+        context_length=8192,
+        vendor_name="meta-llama",
+    ),
+    AnyscaleModel(
+        name="Meta-Llama-3-8B-Instruct",
+        cost=Cost(prompt=0.15e-6, completion=0.15e-6),
+        # https://docs.endpoints.anyscale.com/text-generation/supported-models/meta-llama-Meta-Llama-3-8B-Instruct/
+        context_length=8192,
+        vendor_name="meta-llama",
+    ),
+    AnyscaleModel(
         name="Mistral-7B-OpenOrca",
         cost=Cost(prompt=0.15e-6, completion=0.15e-6),
         context_length=8192,
