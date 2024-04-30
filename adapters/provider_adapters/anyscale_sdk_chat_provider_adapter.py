@@ -18,6 +18,13 @@ class AnyscaleModel(Model):
 
 MODELS = [
     AnyscaleModel(
+        name="gemma-7b-it",
+        cost=Cost(prompt=0.15e-6, completion=0.15e-6),
+        # https://docs.endpoints.anyscale.com/text-generation/supported-models/google-gemma-7b-it/
+        context_length=8192,
+        vendor_name="google",
+    ),
+    AnyscaleModel(
         name="Llama-2-7b-chat-hf",
         cost=Cost(prompt=0.15e-6, completion=0.15e-6),
         context_length=4096,
@@ -33,6 +40,20 @@ MODELS = [
         name="Llama-2-70b-chat-hf",
         cost=Cost(prompt=1.00e-6, completion=1.00e-6),
         context_length=4096,
+        vendor_name="meta-llama",
+    ),
+    AnyscaleModel(
+        name="Meta-Llama-3-70B-Instruct",
+        cost=Cost(prompt=1.00e-6, completion=1.00e-6),
+        # https://docs.endpoints.anyscale.com/text-generation/supported-models/meta-llama-Meta-Llama-3-70B-Instruct/
+        context_length=8192,
+        vendor_name="meta-llama",
+    ),
+    AnyscaleModel(
+        name="Meta-Llama-3-8B-Instruct",
+        cost=Cost(prompt=0.15e-6, completion=0.15e-6),
+        # https://docs.endpoints.anyscale.com/text-generation/supported-models/meta-llama-Meta-Llama-3-8B-Instruct/
+        context_length=8192,
         vendor_name="meta-llama",
     ),
     AnyscaleModel(
