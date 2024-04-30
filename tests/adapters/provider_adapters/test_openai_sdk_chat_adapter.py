@@ -16,6 +16,9 @@ from adapters.provider_adapters.fireworks_sdk_chat_provider_adapter import (
 from adapters.provider_adapters.groq_sdk_chat_provider_adapter import (
     GroqSDKChatProviderAdapter,
 )
+from adapters.provider_adapters.lepton_sdk_chat_provider_adapter import (
+    LeptonSDKChatProviderAdapter,
+)
 from adapters.provider_adapters.moonshot_sdk_chat_provider_adapter import (
     MoonshotSDKChatProviderAdapter,
 )
@@ -52,6 +55,7 @@ MODELS: List[Model] = [
     *TogetherSDKChatProviderAdapter.get_supported_models(),
     *PerplexitySDKChatProviderAdapter.get_supported_models(),
     *GroqSDKChatProviderAdapter.get_supported_models(),
+    *LeptonSDKChatProviderAdapter.get_supported_models(),
     *MoonshotSDKChatProviderAdapter.get_supported_models(),
     *FireworksSDKChatProviderAdapter.get_supported_models(),
     *OctoaiSDKChatProviderAdapter.get_supported_models(),
