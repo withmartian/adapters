@@ -1,76 +1,128 @@
-# adapters
+# Adapters Package Documentation
 
-Package to easily route among different LLMs
+## Overview
 
-## Installing
+The Adapters package facilitates communication between different language model APIs by providing a unified interface for interaction. This ensures ease of use and flexibility in integrating multiple models from various providers.
 
-1. Setup Python `3.11.6`
-2. Install [Poetry](https://python-poetry.org/docs/#installation)
-3. Install dependencies - `poetry install`
-4. Install pre-commit hooks `poetry run pre-commit install`
-5. Run commands via poetry `poetry run pytest`
+## Getting Started
 
-## Setting up Pre-commit
+### Prerequisites
 
-Make sure to install the pre-commit plugins before contributing to the lib. `poetry run pre-commit install`. This should enable pre-commit plugin, and should be done after the install.
+- Python version: 3.11.6
+- [Poetry](https://python-poetry.org/docs/#installation)
 
-To run pre-commit manually: `poetry run pre-commit run --all-files`
+### Installation
 
-## Environment variables
+1. **Install Python:** Ensure Python `3.11.6` is installed on your system.
+2. **Install Poetry:** Follow the installation guide on the [official Poetry website](https://python-poetry.org/docs/#installation).
+3. **Install Dependencies:**
+   ```bash
+   poetry install
+   ```
+4. **Install Pre-commit Hooks:**
+   ```bash
+   poetry run pre-commit install
+   ```
+5. **Run Commands via Poetry:**
+   ```bash
+   poetry run pytest
+   ```
 
-Please note that the callers of this package would be responsible for setting up all the correct environment variables.
-For testing we use an env file. refer to .env-example as a template.
-This file needs to be copied to a .env file and then updated with the correct values.
-Other repo using this package should do the same and setup the correct environment variables.
-In this case you can just copy all the missing values from the .env-example into your own project and make sure you assign values.
+### Setting Up Pre-commit
 
-## Running Test
+Pre-commit hooks help maintain code quality and standards. Install them with the following command:
 
-This package depends on python 3.11 so you must have such a python interpreter.
+```bash
+poetry run pre-commit install
+```
 
-- Make sure you installed [poetry and dependencies](# Installing)
-- Run test: `poetry run pytest`
+To run pre-commit manually:
 
-## Disabling models
+```bash
+poetry run pre-commit run --all-files
+```
 
-You can also disable specific models by setting the environment variable `ADAPTER_DISABLED_MODELS` to either a single, or multiple models:
-`ADAPTER_DISABLED_MODELS=model1` or `ADAPTER_DISABLED_MODELS=model1,model2`.
-This will not prevent the factory from creating these models, however get supported models will return a list without the disabled models.
-So any automatic iteration will only use none disabled models
+### Environment Configuration
 
-### How to use adapters
+The package requires certain environment variables to be set by the users:
 
-To access the adapters, you can call:
+- Copy `.env-example` to `.env` and populate it with appropriate values.
 
-The new way suggested firs to create an adapter instance, rather than have one created on the fly.
-This make things more specific, removes some the abstraction and let's you interact directly withe the adapter.
-Also allowing you to re-use the adapter for subsequent calls.
-The new way uses the `AdapterFactor` to create adapters and use them.
+### Running Tests
 
-1. Create an adapter instance:
-   `adapter1 = AdapterFactory.get_adapter(<adapter_name>)` - - `adapter_name` - a martain adapter name (normally formatted as `provider/vendor/model_nameg`), for full names call `AdapterFactory.get_supported_models()`
-2. All adapter have a `.convert_to_input` that converts a Prompt or Conversation to the model specific input. (look at tests for examples)
-3. Use the newly created adapter instance `adapter1.execute_async` or `adapter1.execute_async`
+Ensure Python 3.11 is used:
 
-### Getting list of all models
+```bash
+poetry run pytest
+```
 
-`AdapterFactory.get_supported_models()`, `get_supported_models()` are identical ways to get the list of models, the second one being syntactic sugar for the first call.
+## Usage
 
-## Adding new Models / Contributions / Code Changes the lib
+### Creating and Using Adapters
 
-Feel free to develop your own models. Adding models is very simple.
+1. **Instantiate an Adapter:**
 
-1. Create a new model class, if it's an abstract base class please put in the abstractAdapters, if it's a concreteClass for a specific model, put it in the concreteAdapters.
-2. Add you new class to the concreteAdapters `__init__.py` file.
-3. That's it, you can now access this model, the AdapterFactory will load this adapter class automatically for you.
-4. Add the relevant tests:
+   ```python
+   adapter1 = AdapterFactory.get_adapter("adapter_name")
+   ```
 
-   4.1. if you're adding an OpenAI or Anthropic, make sure to add the new models to the list of models and token costs lists in the tests/utils.py file so they will get tested
-   4.2 if it's new tests make sure to add them in the relevant folder in the same tree as the source tree
-   4.3 If you run tests that make network requests make sure to decorate the tests with @pytest.mark.vcr, this will create a network cassette file for your test
+   Here, `"adapter_name"` should follow the format `provider/vendor/model_name`. Use `AdapterFactory.get_supported_models()` to retrieve all valid names.
 
-5. Run the test as described before `poetry run pytest`
-6. Make sure to also check in the newly created cassette yaml file, as test in circle have no network access.
-7. Verify tests pass and send a PR for review.
-8. If you need re-create cassette files ( change the pytest.ini or run pytest with --record-mode=rewrite)
-   **note that some models are accessable only from the US, in such cases to re-generate cassette files you might need to ask someone in the use to run, or use ssh into a us based machine**
+2. **Convert Input:**
+
+   ```python
+   adapter1.convert_to_input(prompt)
+   ```
+
+3. **Execute Adapter:**
+   ```python
+   adapter1.execute_async(input_data)
+   ```
+
+### Disabling Specific Models
+
+To disable models, set the `ADAPTER_DISABLED_MODELS` environment variable:
+
+```bash
+export ADAPTER_DISABLED_MODELS="model1,model2"
+```
+
+Disabled models will not appear in the supported models list.
+
+### Retrieving Supported Models
+
+```python
+AdapterFactory.get_supported_models()
+```
+
+## Contributing
+
+### Adding New Models
+
+1. **Existing Providers:**
+   Add new models to the `SUPPORTED_MODELS` array if the provider is already supported.
+
+2. **New Providers:**
+   - If the provider follows the OpenAI format, model integration is straightforward. See the "_Together_" provider class as an example.
+   - For providers with different schemas, see the "_Anthropic_" provider class for guidance.
+
+### Development Steps
+
+1. **Add the Provider and Model:** Update `provider_adapters/__init__.py` and test files accordingly.
+2. **Write Tests:** Add tests in the relevant directories. Use `@pytest.mark.vcr` for tests making network requests.
+3. **Run Tests:**
+   ```bash
+   poetry run pytest
+   ```
+4. **Check-in Cassette Files:** Include any new cassette YAML files in your commit.
+5. **Send a Pull Request:** Ensure all tests pass before requesting a review.
+
+### Re-creating Cassette Files
+
+Use the `--record-mode=rewrite` option with pytest to update cassette files.
+
+## Additional Notes
+
+Some models may only be accessible from specific locations (e.g., the U.S.). In such cases, running tests might require access to a U.S.-based server.
+
+This documentation provides a streamlined approach to using and contributing to the Adapters package, emphasizing practical steps and clear examples.
