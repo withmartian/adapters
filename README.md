@@ -12,7 +12,7 @@ Package to easily route among different LLMs
 
 ## Setting up Pre-commit
 
-Make sure to install the pre-commit plugins before contributing to the lib. `poetry run pre-commit install`. This should enable pre-commit plugin, and should be done after the install.
+Make sure to install the pre-commit plugins before contributing to the lib. `poetry run pre-commit install`. This should enable pre-commit plugin, and should be done after the installation.
 
 To run pre-commit manually: `poetry run pre-commit run --all-files`
 
@@ -26,7 +26,7 @@ In this case you can just copy all the missing values from the .env-example into
 
 ## Running Test
 
-This package depends on python 3.11 so you must have such a python interpreter.
+This package depends on python 3.11, so you must have such a python interpreter.
 
 - Make sure you installed [poetry and dependencies](# Installing)
 - Run test: `poetry run pytest`
