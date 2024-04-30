@@ -58,11 +58,22 @@ The new way uses the `AdapterFactor` to create adapters and use them.
 
 ## Adding new Models / Contributions / Code Changes the lib
 
-Feel free to develop your own models. Adding models is very simple.
+Feel free to add your own provider/models. Adding them is very simple.
 
-1. Create a new model class, if it's an abstract base class please put in the abstractAdapters, if it's a concreteClass for a specific model, put it in the concreteAdapters.
-2. Add you new class to the concreteAdapters `__init__.py` file.
+1. If it's model on already supported provider, just add your model in `SUPPORTED_MODELS` array
+
+2. If the model you're trying to add is offered by provider which we don't yet support you have to add new provider class with its own `SUPPORTED_MODELS`.
+
+   Mostly there are 2 types of providers:
+
+   1. The ones who support OPENAI format, which would be very easy to add (Take a look at _Together_ provider class)
+      In this case after you create the class you have to add your class in `provider_adapters/__init__.py` and then in `test_openai_sdk_chat_adapter.py`
+
+   2. And the ones who doesn't support OPENAI format and have their own schema (Take a look at _Anthropic_ provider class)
+      In this case you might need more work to add new class, so its compatible with OpenAI examples format, after finishing add it to `provider_adapters/__init__.py` and create new test suite for it.
+
 3. That's it, you can now access this model, the AdapterFactory will load this adapter class automatically for you.
+
 4. Add the relevant tests:
 
    4.1. if you're adding an OpenAI or Anthropic, make sure to add the new models to the list of models and token costs lists in the tests/utils.py file so they will get tested
@@ -72,5 +83,5 @@ Feel free to develop your own models. Adding models is very simple.
 5. Run the test as described before `poetry run pytest`
 6. Make sure to also check in the newly created cassette yaml file, as test in circle have no network access.
 7. Verify tests pass and send a PR for review.
-8. If you need re-create cassette files ( change the pytest.ini or run pytest with --record-mode=rewrite)
+8. If you need re-create cassette files ( change the pytest.ini or run pytest with `--record-mode=rewrite`)
    **note that some models are accessable only from the US, in such cases to re-generate cassette files you might need to ask someone in the use to run, or use ssh into a us based machine**
