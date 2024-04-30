@@ -1,0 +1,113 @@
+version: 2.1
+
+orbs:
+  slack: circleci/slack@4.12.1
+  python: circleci/python@2.1.1
+  gcp-cli: circleci/gcp-cli@3.1.1
+  github-cli: circleci/github-cli@2.2.0
+
+workflows:
+  branch-test-and-verify:
+    jobs:
+      - pre-commit
+      - tests:
+          context:
+            - llm_api_keys_circleci_context
+            - circle_ci_fingerprint
+      - publish-package:
+          requires:
+            - tests
+          context:
+            - gcp_code_repository_access
+            - circle_ci_fingerprint
+          filters:
+            branches:
+              only:
+                - main
+
+jobs:
+  pre-commit:
+    docker:
+      - image: cimg/python:3.11.5
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: poetry
+          args: --only pre-commit
+          cache-version: pre-commit-v1
+      - run:
+          name: Create cache key
+          command: |
+            cp .pre-commit-config.yaml pre-commit-cache-key.txt
+            python --version --version >> pre-commit-cache-key.txt
+      - restore_cache:
+          name: Restore pre-commit cache
+          keys:
+            - v1-pc-cache-{{ checksum "pre-commit-cache-key.txt" }}
+      - run:
+          name: Runs pre-commit
+          command: SKIP=no-commit-to-branch poetry run pre-commit run --all-files
+      - save_cache:
+          name: Save pre-commit cache
+          key: v1-pc-cache-{{ checksum "pre-commit-cache-key.txt" }}
+          paths:
+            - ~/.cache/pre-commit
+
+  tests:
+    parallelism: 10
+    docker:
+      - image: cimg/python:3.11.5
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - $SSH_FINGERPRINT
+      - checkout
+      - python/install-packages:
+          pkg-manager: poetry
+      - run:
+          name: Run backend unit tests
+          command: |
+            ENABLE_CACHE=no poetry run pytest --block-network --record-mode=none --junitxml=test-results/junit.xml --log-cli-level=DEBUG
+
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+
+  publish-package:
+    docker:
+      - image: cimg/python:3.11.5
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - $SSH_FINGERPRINT
+      - checkout
+      - gcp-cli/setup
+      - run:
+          name: Install keyring for poetry
+          command: |
+            pip install keyring
+            pip install keyrings.google-artifactregistry-auth
+            keyring --list-backends
+      - run:
+          command: gcloud auth print-access-token
+      - run:
+          name: Setup Poetry for private PyPI
+          command: |
+            poetry config repositories.adapters $PRIVATE_PYPI_URI
+            poetry config http-basic.adapters oauth2accesstoken $(gcloud auth print-access-token)
+      - run:
+          name: Update package version
+          command: poetry version patch
+      - run:
+          name: Publish package to PyPI
+          command: poetry publish --build -r adapters
+      - run:
+          name: Publish new package version to github
+          command: |
+            git config user.email "deployments@withmartian.com"
+            git config user.name "Deployment Bot"
+            git config --global --add --bool push.autoSetupRemote true
+            git add pyproject.toml
+            git commit -m "Updated package version [ci skip]"
+            git push

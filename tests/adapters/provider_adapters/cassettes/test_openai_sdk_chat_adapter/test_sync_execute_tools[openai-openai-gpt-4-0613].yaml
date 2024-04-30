@@ -1,0 +1,103 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "gpt-4-0613", "tool_choice": {"type": "function", "function": {"name": "generate"}},
+      "tools": [{"type": "function", "function": {"description": "Generate random
+      number", "name": "generate"}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '271'
+      content-type:
+      - application/json
+      cookie:
+      - __cf_bm=fR4FDqUKiagoBrfBLhP2UD53CVRNwBSOhn22Oe6bLqA-1713907664-1.0.1.1-g7tr2vzocjwMfZ0cS7MdrA2pyJEE8YAhxfvkPus01a9CGnTMsBjcQeDmNOmf4hDj_KzuxFi1.BCZakBv5nGjuQ;
+        _cfuvid=F_CYR3abpStbRFtZthMK.fuXa.3cO2STU5gHa.XDb80-1713907664041-0.0.1.1-604800000
+      host:
+      - api.openai.com
+      user-agent:
+      - OpenAI/Python 1.14.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.14.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.openai.com/v1/chat/completions
+  response:
+    body:
+      string: "{\n  \"id\": \"chatcmpl-9HI5LpMezNarRrINXJVOk0lfL8zly\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1713908123,\n  \"model\": \"gpt-4-0613\",\n
+        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
+        \"assistant\",\n        \"content\": null,\n        \"tool_calls\": [\n          {\n
+        \           \"id\": \"call_VmBeVPYRcJrXPdz2e5DsCjaJ\",\n            \"type\":
+        \"function\",\n            \"function\": {\n              \"name\": \"generate\",\n
+        \             \"arguments\": \"{}\"\n            }\n          }\n        ]\n
+        \     },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n
+        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 43,\n    \"completion_tokens\":
+        1,\n    \"total_tokens\": 44\n  },\n  \"system_fingerprint\": null\n}\n"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8790fbac1a28174b-SJC
+      Cache-Control:
+      - no-cache, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 23 Apr 2024 21:35:24 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '691'
+      openai-model:
+      - gpt-4-0613
+      openai-organization:
+      - martian-4
+      openai-processing-ms:
+      - '413'
+      openai-version:
+      - '2020-10-01'
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      x-ratelimit-limit-requests:
+      - '10000'
+      x-ratelimit-limit-tokens:
+      - '300000'
+      x-ratelimit-remaining-requests:
+      - '9999'
+      x-ratelimit-remaining-tokens:
+      - '299976'
+      x-ratelimit-reset-requests:
+      - 6ms
+      x-ratelimit-reset-tokens:
+      - 4ms
+      x-request-id:
+      - req_71a8439c9a082ebf51697d6ced0d0087
+    status:
+      code: 200
+      message: OK
+version: 1

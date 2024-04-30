@@ -1,0 +1,109 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"}]}],
+      "model": "zero-one-ai/Yi-34B-Chat"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '113'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - AsyncOpenAI/Python 1.14.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.14.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.together.xyz/chat/completions
+  response:
+    body:
+      string: '{"id":"8790fe5b8972cf8b-SJC","object":"chat.completion","created":1713908241,"model":"zero-one-ai/Yi-34B-Chat","prompt":[],"choices":[{"finish_reason":"stop","logprobs":null,"index":0,"message":{"role":"assistant","content":"It
+        seems like you''re trying to print an object, but the result is the string
+        `[object Object]`. This is because `console.log` or `print` is treating the
+        object as a string. To see the properties of the object, you can use `JSON.stringify`
+        to convert the object to a string and print it out. Here''s how you can do
+        it:\n\n```javascript\nconst myObject = {\n  property1: ''value1'',\n  property2:
+        ''value2''\n};\n\nconsole.log(JSON.stringify(myObject));\n```\n\nThis will
+        output something like:\n\n```json\n{\"property1\": \"value1\", \"property2\":
+        \"value2\"}\n```\n\nIf you want to see the object in a more readable format,
+        you can use `console.dir` or `console.table` if the object is an array or
+        has a list of properties that can be tabularized:\n\n```javascript\nconsole.dir(myObject);\n```\n\nor\n\n```javascript\nconsole.table(myObject);\n```\n\nIf
+        you''re using a browser console, you can also simply type the variable name
+        and press Enter to see the object''s properties."}}],"usage":{"prompt_tokens":13,"completion_tokens":270,"total_tokens":283}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8790fe5b8972cf8b-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 23 Apr 2024 21:37:21 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '1274'
+      etag:
+      - '"y7megmyreize"'
+      vary:
+      - Accept-Encoding
+      x-api-call-end:
+      - '2024-04-23T21:37:21.543Z'
+      x-api-call-start:
+      - '2024-04-23T21:37:13.560Z'
+      x-api-received:
+      - '2024-04-23T21:37:13.554Z'
+      x-compute-characters:
+      - '65'
+      x-compute-time:
+      - '7885'
+      x-hostname:
+      - zero-one-ai-yi-34b-chat-5dd4f9ddf8-zqj5p
+      x-inference-time:
+      - '7881'
+      x-inference-version:
+      - v2
+      x-queue-time:
+      - '4'
+      x-ratelimit-limit:
+      - '200'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-reset:
+      - '2'
+      x-time-per-token:
+      - '29'
+      x-total-time:
+      - '7885'
+      x-validation-time:
+      - '0'
+    status:
+      code: 200
+      message: OK
+version: 1

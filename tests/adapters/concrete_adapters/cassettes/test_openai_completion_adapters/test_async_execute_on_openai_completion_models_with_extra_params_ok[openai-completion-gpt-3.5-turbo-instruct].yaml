@@ -1,0 +1,85 @@
+interactions:
+- request:
+    body: !!python/object/new:adapters.types.RequestBody
+      dictitems:
+        max_tokens: 10
+        model: gpt-3.5-turbo-instruct
+        n: 2
+        presence_penalty: 0.5
+        prompt: !!python/object/new:adapters.types.Prompt
+        - Please tell me what to do today?
+        temperature: 0.5
+        top_p: 0.9
+    headers:
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.openai.com/v1/completions
+  response:
+    body:
+      string: "{\n  \"id\": \"cmpl-91j2xq2XibnbH7a3lYnjbbPNV7lXQ\",\n  \"object\":
+        \"text_completion\",\n  \"created\": 1710198515,\n  \"model\": \"gpt-3.5-turbo-instruct\",\n
+        \ \"choices\": [\n    {\n      \"text\": \"\\n1. Start your day with a healthy
+        breakfast\",\n      \"index\": 0,\n      \"logprobs\": null,\n      \"finish_reason\":
+        \"length\"\n    },\n    {\n      \"text\": \"\\n\\nUnfortunately, I cannot
+        give you specific instructions as\",\n      \"index\": 1,\n      \"logprobs\":
+        null,\n      \"finish_reason\": \"length\"\n    }\n  ],\n  \"usage\": {\n
+        \   \"prompt_tokens\": 8,\n    \"completion_tokens\": 20,\n    \"total_tokens\":
+        28\n  }\n}\n"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 862f350ea85824f7-SJC
+      Cache-Control:
+      - no-cache, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 11 Mar 2024 23:08:35 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=8Q9LZHtedVuDIlVH0MoYXRou35d3R4nHmD6NJ4JXL5M-1710198515-1.0.1.1-I87x_9HTkwATbhnH34yyOe5Gc0agu3WQn3Ah4KDODaKo0XtZDqfCrMfpaSK3eG_ykmrACvy01p_55d3dIhXudA;
+        path=/; expires=Mon, 11-Mar-24 23:38:35 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=st7rjZJDNaemoPmCRG.GdTzuIL43Zqy45az19NWtLh4-1710198515381-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '570'
+      openai-model:
+      - gpt-3.5-turbo-instruct
+      openai-organization:
+      - martian-4
+      openai-processing-ms:
+      - '309'
+      openai-version:
+      - '2020-10-01'
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      x-ratelimit-limit-requests:
+      - '3500'
+      x-ratelimit-limit-tokens:
+      - '90000'
+      x-ratelimit-remaining-requests:
+      - '3499'
+      x-ratelimit-remaining-tokens:
+      - '89972'
+      x-ratelimit-reset-requests:
+      - 17ms
+      x-ratelimit-reset-tokens:
+      - 18ms
+      x-request-id:
+      - req_37cbebb825e7dc6c44c5e82fd19de660
+    status:
+      code: 200
+      message: OK
+version: 1
