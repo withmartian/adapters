@@ -82,13 +82,6 @@ jobs:
           fingerprints:
             - $SSH_FINGERPRINT
       - checkout
-      - gcp-cli/setup
-      - run:
-          name: Install keyring for poetry
-          command: |
-            pip install keyring
-            pip install keyrings.google-artifactregistry-auth
-            keyring --list-backends
       - run:
           command: gcloud auth print-access-token
       - run:
