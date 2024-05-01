@@ -83,8 +83,6 @@ jobs:
             - $SSH_FINGERPRINT
       - checkout
       - run:
-          command: gcloud auth print-access-token
-      - run:
           name: Setup Poetry for private PyPI
           command: |
             poetry config pypi-token.pypi $PYPI_API_TOKEN
