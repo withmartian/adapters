@@ -18,8 +18,8 @@ workflows:
           requires:
             - tests
           context:
-            - gcp_code_repository_access
             - circle_ci_fingerprint
+            - martian-adapters
           filters:
             branches:
               only:
@@ -94,20 +94,7 @@ jobs:
       - run:
           name: Setup Poetry for private PyPI
           command: |
-            poetry config repositories.adapters $PRIVATE_PYPI_URI
-            poetry config http-basic.adapters oauth2accesstoken $(gcloud auth print-access-token)
-      - run:
-          name: Update package version
-          command: poetry version patch
+            poetry config pypi-token.pypi $PYPI_API_TOKEN
       - run:
           name: Publish package to PyPI
-          command: poetry publish --build -r adapters
-      - run:
-          name: Publish new package version to github
-          command: |
-            git config user.email "deployments@withmartian.com"
-            git config user.name "Deployment Bot"
-            git config --global --add --bool push.autoSetupRemote true
-            git add pyproject.toml
-            git commit -m "Updated package version [ci skip]"
-            git push
+          command: poetry publish --build
