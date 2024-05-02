@@ -24,9 +24,15 @@ MODELS = [
         vendor_name="mistralai",
     ),
     GroqModel(
-        name="llama2-70b-4096",
-        cost=Cost(prompt=0.7e-6, completion=0.8e-6),
-        context_length=4096,
+        name="llama3-70b-8192",
+        cost=Cost(prompt=0.59e-6, completion=0.79e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+    ),
+    GroqModel(
+        name="llama3-8b-8192",
+        cost=Cost(prompt=0.05e-6, completion=0.10e-6),
+        context_length=8192,
         vendor_name="meta-llama",
     ),
     GroqModel(

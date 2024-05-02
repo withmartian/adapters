@@ -18,6 +18,18 @@ class DeepInfraModel(Model):
 
 MODELS = [
     DeepInfraModel(
+        name="gemma-1.1-7b-it",
+        cost=Cost(prompt=0.07e-6, completion=0.07e-6),
+        context_length=8192,
+        vendor_name="google",
+    ),
+    DeepInfraModel(
+        name="Mistral-7B-Instruct-v0.2",
+        cost=Cost(prompt=0.07e-6, completion=0.07e-6),
+        context_length=32768,
+        vendor_name="mistralai",
+    ),
+    DeepInfraModel(
         name="Mixtral-8x7B-Instruct-v0.1",
         cost=Cost(prompt=0.27e-6, completion=0.27e-6),
         context_length=32000,
