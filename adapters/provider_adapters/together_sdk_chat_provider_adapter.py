@@ -25,15 +25,51 @@ MODELS = [
         vendor_name="zero-one-ai",
     ),
     TogetherModel(
+        name="OLMo-7B-Instruct",
+        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+        context_length=2048,
+        vendor_name="allenai",
+    ),
+    TogetherModel(
+        name="OLMo-7B-Twin-2T",
+        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+        context_length=2048,
+        vendor_name="allenai",
+    ),
+    TogetherModel(
+        name="OLMo-7B",
+        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+        context_length=2048,
+        vendor_name="allenai",
+    ),
+    TogetherModel(
         name="chronos-hermes-13b",
         cost=Cost(prompt=0.3e-6, completion=0.3e-6),
         context_length=2048,
         vendor_name="Austism",
     ),
     TogetherModel(
+        name="dolphin-2.5-mixtral-8x7b",
+        cost=Cost(prompt=0.6e-6, completion=0.6e-6),
+        context_length=32768,
+        vendor_name="cognitivecomputations",
+    ),
+    TogetherModel(
+        name="dbrx-instruct",
+        cost=Cost(prompt=1.2e-6, completion=1.2e-6),
+        context_length=32768,
+        vendor_name="databricks",
+    ),
+    TogetherModel(
         name="deepseek-coder-33b-instruct",
         cost=Cost(prompt=0.8e-6, completion=0.8e-6),
         context_length=16384,
+        vendor_name="deepseek-ai",
+    ),
+    TogetherModel(
+        name="deepseek-llm-67b-chat",
+        cost=Cost(prompt=0.9e-6, completion=0.9e-6),
+        context_length=4096,
         vendor_name="deepseek-ai",
     ),
     TogetherModel(
@@ -73,6 +109,12 @@ MODELS = [
         vendor_name="lmsys",
     ),
     TogetherModel(
+        name="CodeLlama-7b-Instruct-hf",
+        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+        context_length=16384,
+        vendor_name="codellama",
+    ),
+    TogetherModel(
         name="CodeLlama-13b-Instruct-hf",
         cost=Cost(prompt=0.3e-6, completion=0.3e-6),
         context_length=16384,
@@ -86,19 +128,13 @@ MODELS = [
     ),
     # TogetherModel(
     #     name="CodeLlama-70b-Instruct-hf",
-    #     token_cost=TokenCost(prompt=0.9e-6, completion=0.9e-6),
+    #     cost=Cost(prompt=0.9e-6, completion=0.9e-6),
     #     context_length=4096,
     #     vendor_name="codellama",
     # ),
     TogetherModel(
-        name="CodeLlama-7b-Instruct-hf",
+        name="Llama-2-7b-chat-hf",
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-        context_length=16384,
-        vendor_name="codellama",
-    ),
-    TogetherModel(
-        name="Llama-2-70b-chat-hf",
-        cost=Cost(prompt=0.9e-6, completion=0.9e-6),
         context_length=4096,
         vendor_name="meta-llama",
     ),
@@ -109,8 +145,8 @@ MODELS = [
         vendor_name="meta-llama",
     ),
     TogetherModel(
-        name="Llama-2-7b-chat-hf",
-        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+        name="Llama-2-70b-chat-hf",
+        cost=Cost(prompt=0.9e-6, completion=0.9e-6),
         context_length=4096,
         vendor_name="meta-llama",
     ),
@@ -135,12 +171,6 @@ MODELS = [
         vendor_name="mistralai",
     ),
     TogetherModel(
-        name="Mistral-7B-Instruct-v0.2",
-        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-        context_length=32768,
-        vendor_name="mistralai",
-    ),
-    TogetherModel(
         name="Mixtral-8x7B-Instruct-v0.1",
         cost=Cost(prompt=0.6e-6, completion=0.6e-6),
         context_length=32768,
@@ -151,6 +181,12 @@ MODELS = [
         name="Mixtral-8x22B-Instruct-v0.1",
         cost=Cost(prompt=1.2e-6, completion=1.2e-6),
         context_length=65536,
+        vendor_name="mistralai",
+    ),
+    TogetherModel(
+        name="Mistral-7B-Instruct-v0.2",
+        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+        context_length=32768,
         vendor_name="mistralai",
     ),
     TogetherModel(
@@ -232,6 +268,12 @@ MODELS = [
         vendor_name="Qwen",
     ),
     TogetherModel(
+        name="Qwen1.5-32B-Chat",
+        cost=Cost(prompt=0.8e-6, completion=0.8e-6),
+        context_length=32768,
+        vendor_name="Qwen",
+    ),
+    TogetherModel(
         name="Qwen1.5-72B-Chat",
         cost=Cost(prompt=0.9e-6, completion=0.9e-6),
         context_length=4096,
@@ -305,16 +347,10 @@ MODELS = [
     ),
     # TogetherModel(
     #     name="SOLAR-10.7B-Instruct-v1.0",
-    #     token_cost=TokenCost(prompt=0.3e-6, completion=0.3e-6),
+    #     cost=Cost(prompt=0.3e-6, completion=0.3e-6),
     #     context_length=4096,
     #     vendor_name="upstage",
     # ),
-    TogetherModel(
-        name="dbrx-instruct",
-        cost=Cost(prompt=1.2e-6, completion=1.2e-6),
-        context_length=32768,
-        vendor_name="databricks",
-    ),
 ]
 
 
