@@ -58,12 +58,6 @@ MODELS = [
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
         context_length=16384,
     ),
-    # PerplexityModel(  # Failing Auth
-    #     name="mixtral-8x22b-instruct",
-    #     cost=Cost(prompt=1.00e-6, completion=1.00e-6),
-    #     context_length=32768,
-    # ),
-    # <html>\r\n<head><title>401 Authorization Required</title></head>\r\n<body>\r\n<center><h1>401 Authorization Required</h1></center>\r\n<hr><center>openresty/1.21.4.3</center>\r\n</body>\r\n</html>\r\n
     PerplexityModel(
         name="mixtral-8x7b-instruct",
         cost=Cost(prompt=0.6e-6, completion=0.6e-6),

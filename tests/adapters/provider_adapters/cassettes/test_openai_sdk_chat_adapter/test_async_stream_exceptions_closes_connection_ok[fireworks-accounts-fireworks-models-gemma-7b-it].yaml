@@ -1,0 +1,74 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "accounts/fireworks/models/gemma-7b-it",
+      "stream": true}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '115'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.23.6
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.23.6
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: "data: {\"id\":\"f9bcb8fd-0ee3-4a5c-8d3b-4a75cdb41cbd\",\"object\":\"chat.completion.chunk\",\"created\":1714694565,\"model\":\"accounts/fireworks/models/gemma-7b-it\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"assistant\"},\"finish_reason\":null}],\"usage\":null}\n\ndata:
+        {\"id\":\"f9bcb8fd-0ee3-4a5c-8d3b-4a75cdb41cbd\",\"object\":\"chat.completion.chunk\",\"created\":1714694565,\"model\":\"accounts/fireworks/models/gemma-7b-it\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"Hi!\"},\"finish_reason\":null}],\"usage\":null}\n\ndata:
+        {\"id\":\"f9bcb8fd-0ee3-4a5c-8d3b-4a75cdb41cbd\",\"object\":\"chat.completion.chunk\",\"created\":1714694565,\"model\":\"accounts/fireworks/models/gemma-7b-it\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"
+        \U0001F44B\\n\\nIt's nice to hear from you.\"},\"finish_reason\":null}],\"usage\":null}\n\ndata:
+        {\"id\":\"f9bcb8fd-0ee3-4a5c-8d3b-4a75cdb41cbd\",\"object\":\"chat.completion.chunk\",\"created\":1714694565,\"model\":\"accounts/fireworks/models/gemma-7b-it\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"
+        What would you like to talk about today?\"},\"finish_reason\":null}],\"usage\":null}\n\ndata:
+        {\"id\":\"f9bcb8fd-0ee3-4a5c-8d3b-4a75cdb41cbd\",\"object\":\"chat.completion.chunk\",\"created\":1714694565,\"model\":\"accounts/fireworks/models/gemma-7b-it\",\"choices\":[{\"index\":0,\"delta\":{},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":10,\"total_tokens\":33,\"completion_tokens\":23}}\n\ndata:
+        [DONE]\n\n"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 87dbfbe40ac41ab8-GRU
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Date:
+      - Fri, 03 May 2024 00:02:45 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google
+      fireworks-server-time-to-first-token:
+      - '0.026'
+      x-request-id:
+      - 8026428a-f0db-45d5-9e67-9d3f0c950002
+    status:
+      code: 200
+      message: OK
+version: 1

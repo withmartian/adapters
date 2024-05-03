@@ -36,18 +36,6 @@ MODELS = [
         vendor_name="meta-llama",
     ),
     GroqModel(
-        name="llama3-70b-8192",
-        cost=Cost(prompt=0.59e-6, completion=0.79e-6),
-        context_length=8192,
-        vendor_name="meta-llama",
-    ),
-    GroqModel(
-        name="llama3-8b-8192",
-        cost=Cost(prompt=0.05e-6, completion=0.10e-6),
-        context_length=8192,
-        vendor_name="meta-llama",
-    ),
-    GroqModel(
         name="gemma-7b-it",
         cost=Cost(prompt=0.1e-6, completion=0.1e-6),
         context_length=8192,
