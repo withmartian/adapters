@@ -7,30 +7,8 @@ from adapters.types import Cost, Model
 class ProviderAdapterMixin:
     _current_model: Optional[Model] = None
 
-    """_summary_
-        init the current model as this is a meta adapter.
-        It will lock the current model to the one specified model
-        That cannot be changed later on for consistency.
-        Args:
-            model_name (_type_): _description_
-
-        Raises:
-            ValueError: _description_
-        """
-
-    def _init_current_model(self, model_name) -> None:
-        if self._current_model is not None:
-            raise ValueError("Current model already set")
-
-        for model in self.get_supported_models():
-            if model_name in (
-                f"{self.get_provider_name()}/{model.vendor_name}/{model.name}",
-                f"{model.vendor_name}/{model.name}",
-                model.name,
-            ):
-                self._current_model = model
-                return
-        raise ValueError(f"Model {model_name} not supported")
+    def _set_current_model(self, model: Model) -> None:
+        self._current_model = model
 
     def get_current_model(self) -> Optional[Model]:
         return self._current_model
