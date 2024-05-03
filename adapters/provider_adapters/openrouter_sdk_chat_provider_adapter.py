@@ -18,18 +18,52 @@ class OpenRouterModel(Model):
 
 MODELS = [
     OpenRouterModel(
-        name="mythalion-13b",
-        cost=Cost(prompt=1.125e-6, completion=1.125e-6),
+        name="dbrx-instruct",
+        cost=Cost(prompt=0.60e-6, completion=0.60e-6),
+        context_length=32_768,
+        vendor_name="databricks",
+    ),
+    OpenRouterModel(
+        name="gemma-7b-it",
+        cost=Cost(prompt=0.10e-6, completion=0.10e-6),
         context_length=8192,
-        completion_length=400,
-        vendor_name="pygmalionai",
+        vendor_name="google",
+    ),
+    OpenRouterModel(
+        name="llama-3-70b-instruct",
+        cost=Cost(prompt=0.81e-6, completion=0.81e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
     ),
     OpenRouterModel(
         name="llama-3-8b-instruct",
-        cost=Cost(prompt=0.1e-6, completion=0.1e-6),
+        cost=Cost(prompt=0.10e-6, completion=0.10e-6),
         context_length=8192,
-        completion_length=400,
         vendor_name="meta-llama",
+    ),
+    OpenRouterModel(
+        name="mistral-7b-instruct",
+        cost=Cost(prompt=0.10e-6, completion=0.25e-6),
+        context_length=32_768,
+        vendor_name="mistralai",
+    ),
+    OpenRouterModel(
+        name="mixtral-8x7b-instruct",
+        cost=Cost(prompt=0.24e-6, completion=0.24e-6),
+        context_length=32_768,
+        vendor_name="mistralai",
+    ),
+    OpenRouterModel(
+        name="mixtral-8x22b-instruct",
+        cost=Cost(prompt=0.65e-6, completion=0.65e-6),
+        context_length=65_536,
+        vendor_name="mistralai",
+    ),
+    OpenRouterModel(
+        name="mythalion-13b",
+        cost=Cost(prompt=1.125e-6, completion=1.125e-6),
+        context_length=8192,
+        vendor_name="pygmalionai",
     ),
 ]
 
