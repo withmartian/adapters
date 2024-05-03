@@ -1,0 +1,93 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "accounts/fireworks/models/mistral-7b-instruct-v0p2",
+      "stream": true}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '128'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.23.6
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.23.6
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.5
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: 'data: {"id":"c4eb814a-f884-4317-9de1-14864ece7bd8","object":"chat.completion.chunk","created":1714764205,"model":"accounts/fireworks/models/mistral-7b-instruct-v0p2","choices":[{"index":0,"delta":{"role":"assistant"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"c4eb814a-f884-4317-9de1-14864ece7bd8","object":"chat.completion.chunk","created":1714764205,"model":"accounts/fireworks/models/mistral-7b-instruct-v0p2","choices":[{"index":0,"delta":{"content":"Hello!"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"c4eb814a-f884-4317-9de1-14864ece7bd8","object":"chat.completion.chunk","created":1714764205,"model":"accounts/fireworks/models/mistral-7b-instruct-v0p2","choices":[{"index":0,"delta":{"content":"
+        I''m here to help answer any questions you might have or engage in friendly
+        conversation. I"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"c4eb814a-f884-4317-9de1-14864ece7bd8","object":"chat.completion.chunk","created":1714764205,"model":"accounts/fireworks/models/mistral-7b-instruct-v0p2","choices":[{"index":0,"delta":{"content":"''ll
+        always strive to provide accurate and useful information, as well as maintain
+        a positive"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"c4eb814a-f884-4317-9de1-14864ece7bd8","object":"chat.completion.chunk","created":1714764205,"model":"accounts/fireworks/models/mistral-7b-instruct-v0p2","choices":[{"index":0,"delta":{"content":"
+        and respectful attitude. Let me know how I can be of assistance today!"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"c4eb814a-f884-4317-9de1-14864ece7bd8","object":"chat.completion.chunk","created":1714764205,"model":"accounts/fireworks/models/mistral-7b-instruct-v0p2","choices":[{"index":0,"delta":{},"finish_reason":"stop"}],"usage":{"prompt_tokens":54,"total_tokens":110,"completion_tokens":56}}
+
+
+        data: [DONE]
+
+
+        '
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 87e2a0174909cf45-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Date:
+      - Fri, 03 May 2024 19:23:24 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google, 1.1 google
+      fireworks-server-time-to-first-token:
+      - '0.025'
+      x-request-id:
+      - c4eb814a-f884-4317-9de1-14864ece7bd8
+    status:
+      code: 200
+      message: OK
+version: 1
