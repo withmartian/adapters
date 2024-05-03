@@ -18,11 +18,47 @@ class FireworksModel(Model):
 
 MODELS = [
     FireworksModel(
+        name="gemma-7b-it",
+        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
+        context_length=8192,
+        vendor_name="accounts/fireworks/models",
+    ),
+    FireworksModel(
+        name="dbrx-instruct",
+        cost=Cost(prompt=1.60e-6, completion=1.60e-6),
+        context_length=32_768,
+        vendor_name="accounts/fireworks/models",
+    ),
+    FireworksModel(
         name="llama-v3-8b-instruct",
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
         context_length=8192,
         vendor_name="accounts/fireworks/models",
-    )
+    ),
+    FireworksModel(
+        name="llama-v3-70b-instruct",
+        cost=Cost(prompt=0.90e-6, completion=0.90e-6),
+        context_length=8192,
+        vendor_name="accounts/fireworks/models",
+    ),
+    FireworksModel(
+        name="mistral-7b-instruct-4k",
+        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
+        context_length=32_768,
+        vendor_name="accounts/fireworks/models",
+    ),
+    FireworksModel(
+        name="mixtral-8x22b-instruct",
+        cost=Cost(prompt=0.90e-6, completion=0.90e-6),
+        context_length=65_536,
+        vendor_name="accounts/fireworks/models",
+    ),
+    FireworksModel(
+        name="mixtral-8x7b-instruct",
+        cost=Cost(prompt=0.50e-6, completion=0.50e-6),
+        context_length=32_768,
+        vendor_name="accounts/fireworks/models",
+    ),
 ]
 
 
