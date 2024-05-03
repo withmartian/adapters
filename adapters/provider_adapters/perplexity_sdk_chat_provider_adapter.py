@@ -20,7 +20,7 @@ class PerplexityModel(Model):
 MODELS = [
     PerplexityModel(
         name="llama-3-70b-instruct",
-        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
+        cost=Cost(prompt=1.0e-6, completion=1.0e-6),
         context_length=8192,
     ),
     PerplexityModel(
