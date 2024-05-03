@@ -42,6 +42,12 @@ MODELS = [
         vendor_name="accounts/fireworks/models",
     ),
     FireworksModel(
+        name="mistral-7b-instruct-4k",
+        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
+        context_length=32_768,
+        vendor_name="accounts/fireworks/models",
+    ),
+    FireworksModel(
         name="mistral-7b-instruct-v0p2",
         cost=Cost(prompt=0.20e-6, completion=0.20e-6),
         context_length=32_768,
