@@ -6,6 +6,7 @@ from typing import Any
 from adapters.abstract_adapters import BaseAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.concrete_adapters import *
+from adapters.concrete_adapters.you_com_rag_chat_adapter import YOU_COM_MODEL
 from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
     AnthropicSDKChatProviderAdapter,
 )
@@ -84,6 +85,8 @@ class AdapterFactory:
 
         for model in GeminiSDKChatProviderAdapter.get_supported_models():
             models[model.name] = model
+
+        models[YOU_COM_MODEL.name] = YOU_COM_MODEL
 
         return models
 
