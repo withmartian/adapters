@@ -1,0 +1,91 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "accounts/fireworks/models/mistral-7b-instruct-4k",
+      "stream": true}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '126'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - OpenAI/Python 1.23.6
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.23.6
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: 'data: {"id":"35cf6484-b840-432a-8bf9-2ebf1579eba9","object":"chat.completion.chunk","created":1714694829,"model":"accounts/fireworks/models/mistral-7b-instruct-4k","choices":[{"index":0,"delta":{"role":"assistant"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"35cf6484-b840-432a-8bf9-2ebf1579eba9","object":"chat.completion.chunk","created":1714694829,"model":"accounts/fireworks/models/mistral-7b-instruct-4k","choices":[{"index":0,"delta":{"content":"Hello!"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"35cf6484-b840-432a-8bf9-2ebf1579eba9","object":"chat.completion.chunk","created":1714694829,"model":"accounts/fireworks/models/mistral-7b-instruct-4k","choices":[{"index":0,"delta":{"content":"
+        I''m here to assist you with any"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"35cf6484-b840-432a-8bf9-2ebf1579eba9","object":"chat.completion.chunk","created":1714694829,"model":"accounts/fireworks/models/mistral-7b-instruct-4k","choices":[{"index":0,"delta":{"content":"
+        questions or concerns you may have. How can"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"35cf6484-b840-432a-8bf9-2ebf1579eba9","object":"chat.completion.chunk","created":1714694829,"model":"accounts/fireworks/models/mistral-7b-instruct-4k","choices":[{"index":0,"delta":{"content":"
+        I help you today?"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"35cf6484-b840-432a-8bf9-2ebf1579eba9","object":"chat.completion.chunk","created":1714694829,"model":"accounts/fireworks/models/mistral-7b-instruct-4k","choices":[{"index":0,"delta":{},"finish_reason":"stop"}],"usage":{"prompt_tokens":54,"total_tokens":80,"completion_tokens":26}}
+
+
+        data: [DONE]
+
+
+        '
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 87dc025a1af41b29-GRU
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Date:
+      - Fri, 03 May 2024 00:07:09 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google
+      fireworks-server-time-to-first-token:
+      - '0.013'
+      x-request-id:
+      - ba2bea99-b3fb-4aee-bce3-5f26a786fd9f
+    status:
+      code: 200
+      message: OK
+version: 1
