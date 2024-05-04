@@ -12,7 +12,7 @@ from tests.utils import SIMPLE_CONVERSATION_YOU_RAG_QUESTION
 def test_sync_execute_on_you_com_rag_modal_with_extra_params_ok(vcr):
     # Get all abstract methods that are not implemented
 
-    adapter = AdapterFactory.get_adapter(
+    adapter = AdapterFactory.get_adapter_by_path(
         YouComRagChatAdapter().get_name()  # pylint: disable=abstract-class-instantiated
     )
     adapter_response = adapter.execute_sync(
@@ -35,7 +35,7 @@ def test_sync_execute_on_you_com_rag_modal_with_extra_params_ok(vcr):
 
 @pytest.mark.vcr
 async def test_async_execute_on_you_com_rag_models_with_extra_params_ok(vcr):
-    adapter = AdapterFactory.get_adapter(
+    adapter = AdapterFactory.get_adapter_by_path(
         YouComRagChatAdapter().get_name()  # pylint: disable=abstract-class-instantiated
     )
     adapter_response = await adapter.execute_async(
