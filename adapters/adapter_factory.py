@@ -117,10 +117,7 @@ class AdapterFactory:
         if adapter_class is None:
             return None
 
-        if adapter_class == LeptonSDKChatProviderAdapter:
-            adapter = adapter_class(model_name)  # type: ignore[call-arg]
-        else:
-            adapter = adapter_class()
+        adapter = adapter_class()
 
         if isinstance(adapter, ProviderAdapterMixin):
             adapter._init_current_model(model_name)
