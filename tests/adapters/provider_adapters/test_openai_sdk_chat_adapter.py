@@ -100,7 +100,7 @@ async def test_async_execute(vcr, model_name):
 def test_sync_execute_n(vcr, model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_n() is False:
+    if adapter.get_model().supports_n is False:
         return
 
     adapter_response = adapter.execute_sync(
@@ -120,7 +120,7 @@ def test_sync_execute_n(vcr, model_name):
 async def test_async_execute_n(vcr, model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_n() is False:
+    if adapter.get_model().supports_n is False:
         return
 
     adapter_response = await adapter.execute_async(
@@ -140,7 +140,7 @@ async def test_async_execute_n(vcr, model_name):
 def test_sync_execute_streaming(model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_streaming is False:
+    if adapter.get_model().supports_streaming is False:
         return
 
     adapter_response = adapter.execute_sync(
@@ -167,7 +167,7 @@ def test_sync_execute_streaming(model_name):
 async def test_async_execute_streaming(model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_streaming is False:
+    if adapter.get_model().supports_streaming is False:
         return
 
     adapter_response = await adapter.execute_async(
@@ -195,7 +195,7 @@ async def test_async_execute_streaming(model_name):
 def test_sync_execute_function_calls(vcr, model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_functions() is False:
+    if adapter.get_model().supports_functions is False:
         return
 
     adapter_response = adapter.execute_sync(
@@ -222,7 +222,7 @@ def test_sync_execute_function_calls(vcr, model_name):
 async def test_async_execute_function_calls(vcr, model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_functions() is False:
+    if adapter.get_model().supports_functions is False:
         return
 
     adapter_response = await adapter.execute_async(
@@ -249,7 +249,7 @@ async def test_async_execute_function_calls(vcr, model_name):
 def test_sync_execute_tools(vcr, model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_tools() is False:
+    if adapter.get_model().supports_tools is False:
         return
 
     adapter_response = adapter.execute_sync(
@@ -284,7 +284,7 @@ def test_sync_execute_tools(vcr, model_name):
 async def test_async_execute_tools(vcr, model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_tools() is False:
+    if adapter.get_model().supports_tools is False:
         return
 
     adapter_response = await adapter.execute_async(
@@ -319,7 +319,7 @@ async def test_async_execute_tools(vcr, model_name):
 def test_sync_execute_vision(vcr, model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_vision() is False:
+    if adapter.get_model().supports_vision is False:
         return
 
     adapter_response = adapter.execute_sync(
@@ -337,7 +337,7 @@ def test_sync_execute_vision(vcr, model_name):
 async def test_async_execute_vision(vcr, model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_vision() is False:
+    if adapter.get_model().supports_vision is False:
         return
 
     adapter_response = await adapter.execute_async(
@@ -355,7 +355,7 @@ async def test_async_execute_vision(vcr, model_name):
 def test_sync_execute_json_output(vcr, model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_json_output() is False:
+    if adapter.get_model().supports_json_output is False:
         return
 
     adapter_response = adapter.execute_sync(
@@ -375,7 +375,7 @@ def test_sync_execute_json_output(vcr, model_name):
 async def test_async_execute_json_output(vcr, model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_json_output() is False:
+    if adapter.get_model().supports_json_output is False:
         return
 
     adapter_response = await adapter.execute_async(
@@ -395,7 +395,7 @@ async def test_async_execute_json_output(vcr, model_name):
 def test_sync_execute_json_content(vcr, model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_json_content() is False:
+    if adapter.get_model().supports_json_content is False:
         return
 
     adapter_response = adapter.execute_sync(
@@ -413,7 +413,7 @@ def test_sync_execute_json_content(vcr, model_name):
 async def test_async_execute_json_content(vcr, model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_json_content() is False:
+    if adapter.get_model().supports_json_content is False:
         return
 
     adapter_response = await adapter.execute_async(
@@ -431,7 +431,7 @@ async def test_async_execute_json_content(vcr, model_name):
 async def test_async_stream_exceptions_closes_connection_ok(model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_streaming is False:
+    if adapter.get_model().supports_streaming is False:
         return
 
     # Monkey patch the extract_stream_response method to raise an exception

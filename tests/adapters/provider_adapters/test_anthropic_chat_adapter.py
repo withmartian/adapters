@@ -270,7 +270,7 @@ async def test_async_system_assistant(vcr, model_name):
 def test_sync_execute_json_content(vcr, model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_json_content() is False:
+    if adapter.get_model().supports_json_content is False:
         return
 
     adapter_response = adapter.execute_sync(
@@ -291,7 +291,7 @@ def test_sync_execute_json_content(vcr, model_name):
 async def test_async_execute_json_content(vcr, model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_json_content() is False:
+    if adapter.get_model().supports_json_content is False:
         return
 
     adapter_response = await adapter.execute_async(
@@ -313,7 +313,8 @@ async def test_async_execute_streaming(
     vcr, model_name  # pylint: disable=unused-argument
 ):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
-    if not adapter.supports_streaming():
+
+    if not adapter.get_model().supports_streaming:
         return
 
     response = await adapter.execute_async(
@@ -329,7 +330,8 @@ async def test_async_execute_streaming(
 @pytest.mark.vcr
 def test_sync_execute_streaming(vcr, model_name):  # pylint: disable=unused-argument
     adapter = AdapterFactory.get_adapter_by_path(model_name)
-    if not adapter.supports_streaming():
+
+    if not adapter.get_model().supports_streaming:
         return
 
     response = adapter.execute_sync(

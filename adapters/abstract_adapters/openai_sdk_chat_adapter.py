@@ -53,9 +53,9 @@ class OpenAISDKChatAdapter(ApiKeyAdapterMixin, SDKChatAdapter):
         prompt_tokens = response.usage.prompt_tokens if response.usage else 0
         completion_tokens = response.usage.completion_tokens if response.usage else 0
         cost = (
-            self.get_token_cost().prompt * prompt_tokens
-            + self.get_token_cost().completion * completion_tokens
-            + self.get_token_cost().request
+            self.get_model().cost.prompt * prompt_tokens
+            + self.get_model().cost.completion * completion_tokens
+            + self.get_model().cost.request
         )
 
         return OpenAIChatAdapterResponse(
