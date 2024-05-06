@@ -2,6 +2,7 @@ import json
 
 from openai import AsyncOpenAI, OpenAI
 from openai.types.chat import ChatCompletion
+from openai.types.chat.chat_completion_chunk import ChatCompletionChunk
 
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
@@ -13,9 +14,6 @@ from adapters.types import (
     Turn,
 )
 from adapters.utils.openai_client_factory import OpenAIClientFactory
-from openai.types.chat.chat_completion_chunk import (
-    ChatCompletionChunk,
-)
 
 
 class OpenAISDKChatAdapter(ApiKeyAdapterMixin, SDKChatAdapter):

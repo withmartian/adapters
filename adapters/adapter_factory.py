@@ -6,7 +6,6 @@ from typing import Any
 from adapters.abstract_adapters import BaseAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.concrete_adapters import *
-from adapters.provider_adapters import LeptonSDKChatProviderAdapter
 from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
     AnthropicSDKChatProviderAdapter,
 )

@@ -211,7 +211,7 @@ async def test_async_execute_streaming(model_name):
         json.loads(data_chunk[6:].strip())
         async for data_chunk in adapter_response.response
     ]
-    
+
     for chunk in chunks:
         if chunk["choices"][0]["delta"]["content"] is not None:
             print(chunk["choices"][0]["delta"]["content"], end="")
