@@ -212,10 +212,6 @@ async def test_async_execute_streaming(model_name):
         async for data_chunk in adapter_response.response
     ]
 
-    for chunk in chunks:
-        if chunk["choices"][0]["delta"]["content"] is not None:
-            print(chunk["choices"][0]["delta"]["content"], end="")
-
     response = "".join(
         [
             chunk["choices"][0]["delta"]["content"]
