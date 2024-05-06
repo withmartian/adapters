@@ -6,10 +6,6 @@ from typing import Any
 from adapters.abstract_adapters import BaseAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.concrete_adapters import *
-from adapters.concrete_adapters.you_com_rag_chat_adapter import (
-    ADAPTER_NAME as YOU_COM_ADAPTER_NAME,
-)
-from adapters.concrete_adapters.you_com_rag_chat_adapter import YOU_COM_MODEL
 from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
     AnthropicSDKChatProviderAdapter,
 )
@@ -56,8 +52,9 @@ class AdapterFactory:
 
         for _, obj in inspect.getmembers(sys.modules["adapters.concrete_adapters"]):
             if inspect.isclass(obj) and issubclass(obj, BaseAdapter):
+                model = obj().get_model()
                 adapters_classes[
-                    f"{obj().get_model().provider_name}/{obj().get_model().vendor_name}/{obj().get_model().name}"
+                    f"{model.provider_name}/{model.vendor_name}/{model.name}"
                 ] = obj
 
         return adapters_classes
@@ -91,7 +88,12 @@ class AdapterFactory:
         for model in GeminiSDKChatProviderAdapter.get_supported_models():
             models[model.name] = model
 
-        models[YOU_COM_ADAPTER_NAME] = YOU_COM_MODEL
+        for _, obj in inspect.getmembers(sys.modules["adapters.concrete_adapters"]):
+            if inspect.isclass(obj) and issubclass(obj, BaseAdapter):
+                model = obj().get_model()
+                models[
+                    f"{model.provider_name}/{model.vendor_name}/{model.name}"
+                ] = model
 
         return models
 

@@ -3,18 +3,19 @@ import json
 import pytest
 
 from adapters import AdapterFactory
-from adapters.concrete_adapters.you_com_rag_chat_adapter import YouComRagChatAdapter
+from adapters.concrete_adapters.you_com_rag_chat_adapter import YOU_COM_MODEL
 from adapters.types import ConversationRole
 from tests.utils import SIMPLE_CONVERSATION_YOU_RAG_QUESTION
+
+MODEL_PATH = (
+    f"{YOU_COM_MODEL.provider_name}/{YOU_COM_MODEL.vendor_name}/{YOU_COM_MODEL.name}"
+)
 
 
 @pytest.mark.vcr
 def test_sync_execute_on_you_com_rag_modal_with_extra_params_ok(vcr):
-    # Get all abstract methods that are not implemented
+    adapter = AdapterFactory.get_adapter_by_path(MODEL_PATH)
 
-    adapter = AdapterFactory.get_adapter_by_path(
-        YouComRagChatAdapter().get_name()  # pylint: disable=abstract-class-instantiated
-    )
     adapter_response = adapter.execute_sync(
         adapter.convert_to_input(SIMPLE_CONVERSATION_YOU_RAG_QUESTION),
         temperature=0,
@@ -35,9 +36,8 @@ def test_sync_execute_on_you_com_rag_modal_with_extra_params_ok(vcr):
 
 @pytest.mark.vcr
 async def test_async_execute_on_you_com_rag_models_with_extra_params_ok(vcr):
-    adapter = AdapterFactory.get_adapter_by_path(
-        YouComRagChatAdapter().get_name()  # pylint: disable=abstract-class-instantiated
-    )
+    adapter = AdapterFactory.get_adapter_by_path(MODEL_PATH)
+
     adapter_response = await adapter.execute_async(
         adapter.convert_to_input(SIMPLE_CONVERSATION_YOU_RAG_QUESTION),
         temperature=0,
