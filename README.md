@@ -16,14 +16,19 @@ The Adapters package facilitates communication between different language model 
 1. **Install Python:** Ensure Python `3.11.6` is installed on your system.
 2. **Install Poetry:** Follow the installation guide on the [official Poetry website](https://python-poetry.org/docs/#installation).
 3. **Install Dependencies:**
+
    ```bash
    poetry install
    ```
+
 4. **Install Pre-commit Hooks:**
+
    ```bash
    poetry run pre-commit install
    ```
+
 5. **Run Commands via Poetry:**
+
    ```bash
    poetry run pytest
    ```
@@ -41,6 +46,10 @@ To run pre-commit manually:
 ```bash
 poetry run pre-commit run --all-files
 ```
+
+### Semantic Versioning
+
+For versioning we follow [Semantic Versioning](https://semver.org)
 
 ### Environment Configuration
 
@@ -75,6 +84,7 @@ poetry run pytest
    ```
 
 3. **Execute Adapter:**
+
    ```python
    adapter1.execute_async(input_data)
    ```
@@ -111,9 +121,11 @@ AdapterFactory.get_supported_models()
 1. **Add the Provider and Model:** Update `provider_adapters/__init__.py` and test files accordingly.
 2. **Write Tests:** Add tests in the relevant directories. Use `@pytest.mark.vcr` for tests making network requests.
 3. **Run Tests:**
+
    ```bash
    poetry run pytest
    ```
+
 4. **Check-in Cassette Files:** Include any new cassette YAML files in your commit.
 5. **Send a Pull Request:** Ensure all tests pass before requesting a review.
 
