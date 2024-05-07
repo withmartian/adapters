@@ -2,6 +2,7 @@ import json
 
 from openai import AsyncOpenAI, OpenAI
 from openai.types.chat import ChatCompletion
+from openai.types.chat.chat_completion_chunk import ChatCompletionChunk
 
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
@@ -71,5 +72,5 @@ class OpenAISDKChatAdapter(ApiKeyAdapterMixin, SDKChatAdapter):
             ),
         )
 
-    def extract_stream_response(self, request, response):
+    def extract_stream_response(self, request, response: ChatCompletionChunk) -> str:
         return f"data: {json.dumps(response.dict())}\n\n"
