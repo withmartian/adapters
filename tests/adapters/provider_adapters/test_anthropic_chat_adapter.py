@@ -317,13 +317,25 @@ async def test_async_execute_streaming(
     if not adapter.get_model().supports_streaming:
         return
 
-    response = await adapter.execute_async(
+    adapter_response = await adapter.execute_async(
         adapter.convert_to_input(SIMPLE_CONVERSATION_USER_ONLY),
         stream=True,
     )
 
-    async for chunk in response.response:
-        assert chunk
+    chunks = [
+        json.loads(data_chunk[6:].strip())
+        async for data_chunk in adapter_response.response
+    ]
+
+    response = "".join(
+        [
+            chunk["choices"][0]["delta"]["content"]
+            for chunk in chunks
+            if chunk["choices"][0]["delta"]["content"]
+        ]
+    )
+
+    assert len(response) > 0
 
 
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
@@ -334,10 +346,21 @@ def test_sync_execute_streaming(vcr, model_name):  # pylint: disable=unused-argu
     if not adapter.get_model().supports_streaming:
         return
 
-    response = adapter.execute_sync(
+    adapter_response = adapter.execute_sync(
         adapter.convert_to_input(SIMPLE_CONVERSATION_USER_ONLY),
         stream=True,
     )
 
-    for chunk in response.response:
-        assert chunk
+    chunks = [
+        json.loads(data_chunk[6:].strip()) for data_chunk in adapter_response.response
+    ]
+
+    response = "".join(
+        [
+            chunk["choices"][0]["delta"]["content"]
+            for chunk in chunks
+            if chunk["choices"][0]["delta"]["content"]
+        ]
+    )
+
+    assert len(response) > 0
