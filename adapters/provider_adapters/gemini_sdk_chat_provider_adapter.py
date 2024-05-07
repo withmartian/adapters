@@ -122,9 +122,9 @@ class GeminiSDKChatProviderAdapter(
         completion_tokens = model.count_tokens(response.text).total_tokens
 
         cost = (
-            self.get_token_cost().prompt * prompt_tokens
-            + self.get_token_cost().completion * completion_tokens
-            + self.get_token_cost().request
+            self.get_model().cost.prompt * prompt_tokens
+            + self.get_model().cost.completion * completion_tokens
+            + self.get_model().cost.request
         )
 
         return OpenAIChatAdapterResponse(
@@ -163,9 +163,9 @@ class GeminiSDKChatProviderAdapter(
         completion_tokens = await model.count_tokens_async(response.text).total_tokens
 
         cost = (
-            self.get_token_cost().prompt * prompt_tokens
-            + self.get_token_cost().completion * completion_tokens
-            + self.get_token_cost().request
+            self.get_model().cost.prompt * prompt_tokens
+            + self.get_model().cost.completion * completion_tokens
+            + self.get_model().cost.request
         )
 
         return OpenAIChatAdapterResponse(

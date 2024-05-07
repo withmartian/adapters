@@ -68,13 +68,11 @@ MODEL_NAMES = [
 OPTIONS_TO_GENERATE = 2
 MAX_TOKENS = 5
 
-# Change response to choices
-
 
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 def test_sync_execute(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
     adapter_response = adapter.execute_sync(
         adapter.convert_to_input(SIMPLE_CONVERSATION_USER_ONLY)
     )
@@ -89,7 +87,7 @@ def test_sync_execute(vcr, model_name):
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 async def test_async_execute(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
     adapter_response = await adapter.execute_async(
         adapter.convert_to_input(SIMPLE_CONVERSATION_USER_ONLY)
     )
@@ -101,38 +99,12 @@ async def test_async_execute(vcr, model_name):
     assert adapter_response.cost > 0
 
 
-# @pytest.mark.parametrize("model_name", MODEL_NAMES)
-# @pytest.mark.vcr
-# def test_sync_execute_finish_reason(vcr, model_name):
-#     MAX_TOKENS_FINISH_LENGTH = 1
-#     MAX_TOKENS_FINISH_STOP = 100
-
-#     adapter = AdapterFactory.get_adapter(model_name)
-#     adapter.execute_sync(
-#         adapter.convert_to_input(SIMPLE_CONVERSATION_USER_ONLY),
-#         max_tokens=MAX_TOKENS_FINISH_LENGTH,
-#     )
-
-#     choices_finish_length = get_choices_from_vcr(vcr)
-
-#     assert choices_finish_length[0]["finish_reason"] == FinishReason.length
-
-#     adapter.execute_sync(
-#         adapter.convert_to_input(SIMPLE_CONVERSATION_USER_ONLY),
-#         max_tokens=MAX_TOKENS_FINISH_STOP,
-#     )
-
-#     choices_finish_stop = get_choices_from_vcr(vcr)
-
-#     assert choices_finish_stop[0]["finish_reason"] == FinishReason.stop
-
-
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 def test_sync_execute_n(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_n() is False:
+    if adapter.get_model().supports_n is False:
         return
 
     adapter_response = adapter.execute_sync(
@@ -150,9 +122,9 @@ def test_sync_execute_n(vcr, model_name):
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 async def test_async_execute_n(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_n() is False:
+    if adapter.get_model().supports_n is False:
         return
 
     adapter_response = await adapter.execute_async(
@@ -170,9 +142,9 @@ async def test_async_execute_n(vcr, model_name):
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 def test_sync_execute_streaming(model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_streaming() is False:
+    if adapter.get_model().supports_streaming is False:
         return
 
     adapter_response = adapter.execute_sync(
@@ -197,9 +169,9 @@ def test_sync_execute_streaming(model_name):
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 async def test_async_execute_streaming(model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_streaming() is False:
+    if adapter.get_model().supports_streaming is False:
         return
 
     adapter_response = await adapter.execute_async(
@@ -225,9 +197,9 @@ async def test_async_execute_streaming(model_name):
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 def test_sync_execute_function_calls(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_functions() is False:
+    if adapter.get_model().supports_functions is False:
         return
 
     adapter_response = adapter.execute_sync(
@@ -252,9 +224,9 @@ def test_sync_execute_function_calls(vcr, model_name):
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 async def test_async_execute_function_calls(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_functions() is False:
+    if adapter.get_model().supports_functions is False:
         return
 
     adapter_response = await adapter.execute_async(
@@ -279,9 +251,9 @@ async def test_async_execute_function_calls(vcr, model_name):
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 def test_sync_execute_tools(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_tools() is False:
+    if adapter.get_model().supports_tools is False:
         return
 
     adapter_response = adapter.execute_sync(
@@ -314,9 +286,9 @@ def test_sync_execute_tools(vcr, model_name):
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 async def test_async_execute_tools(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_tools() is False:
+    if adapter.get_model().supports_tools is False:
         return
 
     adapter_response = await adapter.execute_async(
@@ -349,9 +321,9 @@ async def test_async_execute_tools(vcr, model_name):
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 def test_sync_execute_vision(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_vision() is False:
+    if adapter.get_model().supports_vision is False:
         return
 
     adapter_response = adapter.execute_sync(
@@ -367,9 +339,9 @@ def test_sync_execute_vision(vcr, model_name):
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 async def test_async_execute_vision(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_vision() is False:
+    if adapter.get_model().supports_vision is False:
         return
 
     adapter_response = await adapter.execute_async(
@@ -385,9 +357,9 @@ async def test_async_execute_vision(vcr, model_name):
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 def test_sync_execute_json_output(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_json_output() is False:
+    if adapter.get_model().supports_json_output is False:
         return
 
     adapter_response = adapter.execute_sync(
@@ -405,9 +377,9 @@ def test_sync_execute_json_output(vcr, model_name):
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 async def test_async_execute_json_output(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_json_output() is False:
+    if adapter.get_model().supports_json_output is False:
         return
 
     adapter_response = await adapter.execute_async(
@@ -425,9 +397,9 @@ async def test_async_execute_json_output(vcr, model_name):
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 def test_sync_execute_json_content(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_json_content() is False:
+    if adapter.get_model().supports_json_content is False:
         return
 
     adapter_response = adapter.execute_sync(
@@ -443,9 +415,9 @@ def test_sync_execute_json_content(vcr, model_name):
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 async def test_async_execute_json_content(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_json_content() is False:
+    if adapter.get_model().supports_json_content is False:
         return
 
     adapter_response = await adapter.execute_async(
@@ -461,9 +433,9 @@ async def test_async_execute_json_content(vcr, model_name):
 @pytest.mark.parametrize("model_name", MODEL_NAMES)
 @pytest.mark.vcr
 async def test_async_stream_exceptions_closes_connection_ok(model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_streaming is False:
+    if adapter.get_model().supports_streaming is False:
         return
 
     # Monkey patch the extract_stream_response method to raise an exception

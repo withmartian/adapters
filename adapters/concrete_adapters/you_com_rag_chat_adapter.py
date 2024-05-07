@@ -26,7 +26,6 @@ from adapters.types import (
 
 YOU_COM_RAG_API_KEY_NAME = "YOU_COM_RAG_API_KEY"
 YOU_COM_RAG_API_KEY_HEADER_NAME = "X-API-Key"
-ADAPTER_NAME = "youcom/rag"
 MODEL_NAME = "rag"
 CONTEXT_LENGTH = 4096
 CALL_FIXED_COST = 0.0049
@@ -42,7 +41,7 @@ YOU_COM_MODEL = Model(
     vendor_name="you",
     provider_name="you",
     name=MODEL_NAME,
-    cost=Cost(prompt=0, completion=0, request=CALL_FIXED_COST),
+    cost=Cost(prompt=1.95e-6, completion=2.6e-6, request=CALL_FIXED_COST),
     context_length=CONTEXT_LENGTH,
 )
 
@@ -66,8 +65,8 @@ class YouComRagChatAdapter(ChatHttpApiAdapter[Conversation]):
     def get_model_name(self) -> str:
         return MODEL_NAME
 
-    def get_name(self) -> str:
-        return ADAPTER_NAME
+    def get_model(self) -> Model:
+        return YOU_COM_MODEL
 
     def _get_headers(self) -> Dict[str, str]:
         """returns the headers that are sent on each api call to the vendor

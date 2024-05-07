@@ -84,8 +84,8 @@ class LeptonSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
     def get_base_sdk_url() -> str:
         return BASE_URL
 
-    def _init_current_model(self, model_name: str) -> None:
-        super()._init_current_model(model_name)
+    def _set_current_model(self, model: Model) -> None:
+        super()._set_current_model(model)
 
         self._sync_client.base_url = URL(self._current_model.base_url)
         self._async_client.base_url = URL(self._current_model.base_url)

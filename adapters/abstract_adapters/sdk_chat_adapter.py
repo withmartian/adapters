@@ -64,51 +64,54 @@ class SDKChatAdapter(
     ) -> Dict[str, Any]:
         delete_none_values(kwargs)
 
-        completion_length = self.get_completion_length()  # pylint: disable=E1128
+        completion_length = self.get_model().completion_length
         if (
             kwargs.get("max_tokens")
             and completion_length
             and kwargs.get("max_tokens", 0) > completion_length
         ):
             raise AdapterException(
-                f"max_tokens {kwargs.get('max_tokens')} should be less than max completion length {completion_length} for {self.get_model_name()}"
+                f"max_tokens {kwargs.get('max_tokens')} should be less than max completion length {completion_length} for {self.get_model().name}"
             )
 
-        if self.supports_streaming() is False and kwargs.get("stream") is True:
+        if (
+            self.get_model().supports_streaming is False
+            and kwargs.get("stream") is True
+        ):
             raise AdapterException(
-                f"Streaming is not supported on {self.get_model_name()}"
+                f"Streaming is not supported on {self.get_model().name}"
             )
 
-        if self.supports_functions() is False and "functions" in kwargs:
+        if self.get_model().supports_functions is False and "functions" in kwargs:
             raise AdapterException(
-                f"Function calling is not supported on {self.get_model_name()}"
+                f"Function calling is not supported on {self.get_model().name}"
             )
 
-        if self.supports_tools() is False and "tools" in kwargs:
-            raise AdapterException(f"Tools is not supported on {self.get_model_name()}")
+        if self.get_model().supports_tools is False and "tools" in kwargs:
+            raise AdapterException(f"Tools is not supported on {self.get_model().name}")
 
-        if self.supports_n() is False and "n" in kwargs and kwargs["n"] >= 1:
+        if self.get_model().supports_n is False and "n" in kwargs and kwargs["n"] >= 1:
             if kwargs["n"] == 1:
                 del kwargs["n"]
             else:
-                raise AdapterException(f"n is not supported on {self.get_model_name()}")
+                raise AdapterException(f"n is not supported on {self.get_model().name}")
 
-        if self.supports_vision() is False:
+        if self.get_model().supports_vision is False:
             for turn in llm_input.turns:
                 if isinstance(turn, ContentTurn):
                     for content in turn.content:
                         if content.type == ContentType.image_url:
                             raise AdapterException(
-                                f"Image input is not supported on {self.get_model_name()}"
+                                f"Image input is not supported on {self.get_model().name}"
                             )
 
         if (
-            self.supports_json_output() is False
+            self.get_model().supports_json_output is False
             and "response_format" in kwargs
             and kwargs["response_format"]["type"] == "json_object"
         ):
             raise AdapterException(
-                f"JSON response format is not supported on {self.get_model_name()}"
+                f"JSON response format is not supported on {self.get_model().name}"
             )
 
         return {
@@ -129,7 +132,7 @@ class SDKChatAdapter(
         params = self.get_params(llm_input, **kwargs)
 
         response = await self.get_async_client()(
-            model=self.get_model_name(),
+            model=self.get_model().name,
             **params,
         )
 
@@ -159,7 +162,7 @@ class SDKChatAdapter(
         params = self.get_params(llm_input, **kwargs)
 
         response = self.get_sync_client()(
-            model=self.get_model_name(),
+            model=self.get_model().name,
             **params,
         )
 

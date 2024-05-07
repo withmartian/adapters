@@ -43,6 +43,6 @@ def test_get_supported_models_ok():
 def test_all_supported_models_work_ok():
     models = AdapterFactory.get_supported_models()
     for model in models:
-        assert AdapterFactory.get_adapter(
+        assert AdapterFactory.get_adapter_by_path(
             f"{model.provider_name}/{model.vendor_name}/{model.name}"
         )

@@ -35,7 +35,7 @@ class AdapterFactory:
                 for model in obj.get_supported_models():
                     adapters_classes[f"{model.vendor_name}/{model.name}"] = obj
                     adapters_classes[
-                        f"{obj.get_provider_name()}/{model.vendor_name}/{model.name}"
+                        f"{model.provider_name}/{model.vendor_name}/{model.name}"
                     ] = obj
 
         for model in OpenAISDKChatProviderAdapter.get_supported_models():
@@ -52,7 +52,10 @@ class AdapterFactory:
 
         for _, obj in inspect.getmembers(sys.modules["adapters.concrete_adapters"]):
             if inspect.isclass(obj) and issubclass(obj, BaseAdapter):
-                adapters_classes[obj().get_name()] = obj
+                model = obj().get_model()
+                adapters_classes[
+                    f"{model.provider_name}/{model.vendor_name}/{model.name}"
+                ] = obj
 
         return adapters_classes
 
@@ -70,7 +73,7 @@ class AdapterFactory:
                     models[model.name] = model
                     models[f"{model.vendor_name}/{model.name}"] = model
                     models[
-                        f"{obj.get_provider_name()}/{model.vendor_name}/{model.name}"
+                        f"{model.provider_name}/{model.vendor_name}/{model.name}"
                     ] = model
 
         for model in OpenAISDKChatProviderAdapter.get_supported_models():
@@ -84,6 +87,13 @@ class AdapterFactory:
 
         for model in GeminiSDKChatProviderAdapter.get_supported_models():
             models[model.name] = model
+
+        for _, obj in inspect.getmembers(sys.modules["adapters.concrete_adapters"]):
+            if inspect.isclass(obj) and issubclass(obj, BaseAdapter):
+                model = obj().get_model()
+                models[
+                    f"{model.provider_name}/{model.vendor_name}/{model.name}"
+                ] = model
 
         return models
 
@@ -110,8 +120,25 @@ class AdapterFactory:
     _model_list = _create_model_list()
 
     @staticmethod
-    def get_adapter(model_name: str) -> BaseAdapter | None:
-        adapter_class = AdapterFactory._adapter_registry.get(model_name)
+    def get_adapter_by_path(model_path: str) -> BaseAdapter | None:
+        adapter_class = AdapterFactory._adapter_registry.get(model_path)
+        model = AdapterFactory._model_registry.get(model_path)
+
+        if adapter_class is None or model is None:
+            return None
+
+        adapter = adapter_class()
+
+        if isinstance(adapter, ProviderAdapterMixin):
+            adapter._set_current_model(model)
+
+        return adapter
+
+    @staticmethod
+    def get_adapter(model: Model) -> BaseAdapter | None:
+        adapter_class = AdapterFactory._adapter_registry.get(
+            f"{model.provider_name}/{model.vendor_name}/{model.name}"
+        )
 
         if adapter_class is None:
             return None
@@ -119,13 +146,13 @@ class AdapterFactory:
         adapter = adapter_class()
 
         if isinstance(adapter, ProviderAdapterMixin):
-            adapter._init_current_model(model_name)
+            adapter._set_current_model(model)
 
         return adapter
 
     @staticmethod
-    def get_model(model_name: str) -> Model | None:
-        return AdapterFactory._model_registry.get(model_name)
+    def get_model_by_path(model_path: str) -> Model | None:
+        return AdapterFactory._model_registry.get(model_path)
 
     @staticmethod
     def get_supported_models(

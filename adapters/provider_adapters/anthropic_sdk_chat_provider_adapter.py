@@ -183,9 +183,9 @@ class AnthropicSDKChatProviderAdapter(
         )
         completion_tokens = self._sync_client.count_tokens(response.content[0].text)
         cost = (
-            self.get_token_cost().prompt * prompt_tokens
-            + self.get_token_cost().completion * completion_tokens
-            + self.get_token_cost().request
+            self.get_model().cost.prompt * prompt_tokens
+            + self.get_model().cost.completion * completion_tokens
+            + self.get_model().cost.request
         )
 
         return OpenAIChatAdapterResponse(
@@ -302,6 +302,6 @@ class AnthropicSDKChatProviderAdapter(
             "max_tokens": (
                 kwargs.get("max_tokens")
                 if kwargs.get("max_tokens")
-                else self.get_completion_length()
+                else self.get_model().completion_length
             ),
         }

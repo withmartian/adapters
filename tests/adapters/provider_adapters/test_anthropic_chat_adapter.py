@@ -23,8 +23,6 @@ ANTHROPIC_CHAT_MODELS = [
     for model in AnthropicSDKChatProviderAdapter.get_supported_models()
     for formatted in [
         f"{model.name}",
-        # f"{model.vendor_name}/{model.name}",
-        # f"{AnthropicSDKChatProviderAdapter.get_provider_name()}/{model.vendor_name}/{model.name}",
     ]
 ]
 
@@ -32,7 +30,7 @@ ANTHROPIC_CHAT_MODELS = [
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 def test_sync_execute(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
     adapter_response = adapter.execute_sync(
         adapter.convert_to_input(SIMPLE_CONVERSATION_USER_ONLY),
     )
@@ -49,7 +47,7 @@ def test_sync_execute(vcr, model_name):
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 async def test_async_execute(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
     adapter_response = await adapter.execute_async(
         adapter.convert_to_input(SIMPLE_CONVERSATION_USER_ONLY),
     )
@@ -66,7 +64,7 @@ async def test_async_execute(vcr, model_name):
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 def test_sync_repeating_roles(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
     adapter_response = adapter.execute_sync(
         adapter.convert_to_input(SIMPLE_CONVERSATION_REPEATING),
     )
@@ -83,7 +81,7 @@ def test_sync_repeating_roles(vcr, model_name):
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 async def test_async_repeating_roles(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
     adapter_response = await adapter.execute_async(
         adapter.convert_to_input(SIMPLE_CONVERSATION_REPEATING),
     )
@@ -100,7 +98,7 @@ async def test_async_repeating_roles(vcr, model_name):
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 def test_sync_assistant_first(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
     adapter_response = adapter.execute_sync(
         adapter.convert_to_input(SIMPLE_CONVERSATION_ASSISTANT_FIRST),
     )
@@ -117,7 +115,7 @@ def test_sync_assistant_first(vcr, model_name):
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 async def test_async_assistant_first(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
     adapter_response = await adapter.execute_async(
         adapter.convert_to_input(SIMPLE_CONVERSATION_ASSISTANT_FIRST),
     )
@@ -134,7 +132,7 @@ async def test_async_assistant_first(vcr, model_name):
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 def test_sync_multiple_system(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
     adapter_response = adapter.execute_sync(
         adapter.convert_to_input(SIMPLE_CONVERSATION_MULTIPLE_SYSTEM),
     )
@@ -151,7 +149,7 @@ def test_sync_multiple_system(vcr, model_name):
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 async def test_async_multiple_system(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
     adapter_response = await adapter.execute_async(
         adapter.convert_to_input(SIMPLE_CONVERSATION_MULTIPLE_SYSTEM),
     )
@@ -168,7 +166,7 @@ async def test_async_multiple_system(vcr, model_name):
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 def test_sync_empty_content(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
     adapter_response = adapter.execute_sync(
         adapter.convert_to_input(SIMPLE_CONVERSATION_EMPTY_CONTENT),
     )
@@ -185,7 +183,7 @@ def test_sync_empty_content(vcr, model_name):
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 async def test_async_empty_content(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
     adapter_response = await adapter.execute_async(
         adapter.convert_to_input(SIMPLE_CONVERSATION_EMPTY_CONTENT),
     )
@@ -202,7 +200,7 @@ async def test_async_empty_content(vcr, model_name):
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 def test_sync_trailing_whitespace(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
     adapter_response = adapter.execute_sync(
         adapter.convert_to_input(SIMPLE_CONVERSATION_TRAILING_WHITESPACE),
     )
@@ -219,7 +217,7 @@ def test_sync_trailing_whitespace(vcr, model_name):
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 async def test_async_trailing_whitespace(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
     adapter_response = await adapter.execute_async(
         adapter.convert_to_input(SIMPLE_CONVERSATION_TRAILING_WHITESPACE),
     )
@@ -236,7 +234,7 @@ async def test_async_trailing_whitespace(vcr, model_name):
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 def test_sync_system_assistant(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
     adapter_response = adapter.execute_sync(
         adapter.convert_to_input(SIMPLE_CONVERSATION_ASSISTANT_SYSTEM),
     )
@@ -253,7 +251,7 @@ def test_sync_system_assistant(vcr, model_name):
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 async def test_async_system_assistant(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
     adapter_response = await adapter.execute_async(
         adapter.convert_to_input(SIMPLE_CONVERSATION_ASSISTANT_SYSTEM),
     )
@@ -270,9 +268,9 @@ async def test_async_system_assistant(vcr, model_name):
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 def test_sync_execute_json_content(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_json_content() is False:
+    if adapter.get_model().supports_json_content is False:
         return
 
     adapter_response = adapter.execute_sync(
@@ -291,9 +289,9 @@ def test_sync_execute_json_content(vcr, model_name):
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 async def test_async_execute_json_content(vcr, model_name):
-    adapter = AdapterFactory.get_adapter(model_name)
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
 
-    if adapter.supports_json_content() is False:
+    if adapter.get_model().supports_json_content is False:
         return
 
     adapter_response = await adapter.execute_async(
@@ -314,8 +312,9 @@ async def test_async_execute_json_content(vcr, model_name):
 async def test_async_execute_streaming(
     vcr, model_name  # pylint: disable=unused-argument
 ):
-    adapter = AdapterFactory.get_adapter(model_name)
-    if not adapter.supports_streaming():
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
+
+    if not adapter.get_model().supports_streaming:
         return
 
     adapter_response = await adapter.execute_async(
@@ -342,8 +341,9 @@ async def test_async_execute_streaming(
 @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 @pytest.mark.vcr
 def test_sync_execute_streaming(vcr, model_name):  # pylint: disable=unused-argument
-    adapter = AdapterFactory.get_adapter(model_name)
-    if not adapter.supports_streaming():
+    adapter = AdapterFactory.get_adapter_by_path(model_name)
+
+    if not adapter.get_model().supports_streaming:
         return
 
     adapter_response = adapter.execute_sync(
