@@ -9,6 +9,9 @@ from adapters.concrete_adapters import *
 from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
     AnthropicSDKChatProviderAdapter,
 )
+from adapters.provider_adapters.cohere_sdk_chat_provider_adapter import (
+    CohereSDKChatProviderAdapter,
+)
 from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
     GeminiSDKChatProviderAdapter,
 )
@@ -41,6 +44,9 @@ class AdapterFactory:
         for model in AnthropicSDKChatProviderAdapter.get_supported_models():
             adapters_classes[model.name] = AnthropicSDKChatProviderAdapter  # type: ignore
 
+        for model in CohereSDKChatProviderAdapter.get_supported_models():
+            adapters_classes[model.name] = CohereSDKChatProviderAdapter  # type: ignore
+
         for model in TogetherSDKChatProviderAdapter.get_supported_models():
             adapters_classes[model.name] = TogetherSDKChatProviderAdapter  # type: ignore
 
@@ -70,6 +76,9 @@ class AdapterFactory:
             models[model.name] = model
 
         for model in AnthropicSDKChatProviderAdapter.get_supported_models():
+            models[model.name] = model
+
+        for model in CohereSDKChatProviderAdapter.get_supported_models():
             models[model.name] = model
 
         for model in TogetherSDKChatProviderAdapter.get_supported_models():

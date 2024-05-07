@@ -1,0 +1,76 @@
+interactions:
+- request:
+    body: '{"message": "Hi", "stream": false, "model": "command-r", "chat_history":
+      [{"role": "USER", "message": "Hi"}, {"role": "CHATBOT", "message": "Hi"}, {"role":
+      "SYSTEM", "message": "Hi"}], "return_prompt": true}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '207'
+      content-type:
+      - application/json
+      host:
+      - api.cohere.ai
+      user-agent:
+      - python-httpx/0.27.0
+      x-fern-language:
+      - Python
+      x-fern-sdk-name:
+      - cohere
+      x-fern-sdk-version:
+      - 5.4.0
+    method: POST
+    uri: https://api.cohere.ai/v1/chat
+  response:
+    body:
+      string: '{"response_id":"b54db4e8-1671-41ec-8898-de2599cff0e9","text":"Hello!
+        How''s your day been so far?","generation_id":"98bec34b-8b4d-4c36-86d3-899d5b690c89","chat_history":[{"role":"USER","message":"Hi"},{"role":"CHATBOT","message":"Hi"},{"role":"SYSTEM","message":"Hi"},{"role":"USER","message":"Hi"},{"role":"CHATBOT","message":"Hello!
+        How''s your day been so far?"}],"finish_reason":"COMPLETE","meta":{"api_version":{"version":"1"},"billed_units":{"input_tokens":4,"output_tokens":10},"tokens":{"input_tokens":79,"output_tokens":10}}}'
+    headers:
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Via:
+      - 1.1 google
+      access-control-expose-headers:
+      - X-Debug-Trace-ID
+      cache-control:
+      - no-cache, no-store, no-transform, must-revalidate, private, max-age=0
+      content-length:
+      - '532'
+      content-type:
+      - application/json
+      date:
+      - Tue, 14 May 2024 05:18:46 GMT
+      expires:
+      - Thu, 01 Jan 1970 00:00:00 UTC
+      num_chars:
+      - '601'
+      num_tokens:
+      - '14'
+      pragma:
+      - no-cache
+      server:
+      - envoy
+      vary:
+      - Origin
+      x-accel-expires:
+      - '0'
+      x-debug-trace-id:
+      - 8787c69668d6c6061797d7980fbdd003
+      x-endpoint-monthly-call-limit:
+      - '1000'
+      x-envoy-upstream-service-time:
+      - '226'
+      x-trial-endpoint-call-limit:
+      - '40'
+      x-trial-endpoint-call-remaining:
+      - '27'
+    status:
+      code: 200
+      message: OK
+version: 1

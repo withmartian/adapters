@@ -130,13 +130,15 @@ class SDKChatAdapter(
         **kwargs,
     ):
         params = self.get_params(llm_input, **kwargs)
+        stream = kwargs.get("stream", False)
+        client = self.get_async_client()
 
-        response = await self.get_async_client()(
-            model=self.get_model().name,
-            **params,
-        )
+        if getattr(self, "async_chat_stream", False):
+            response = client(model=self.get_model().name, **params)
+        else:
+            response = await client(model=self.get_model().name, **params)
 
-        if params.get("stream", False):
+        if stream:
 
             async def stream_response():
                 async with stream_generator_auto_close(response):
@@ -159,6 +161,7 @@ class SDKChatAdapter(
         llm_input: Conversation,
         **kwargs,
     ):
+        stream = kwargs.get("stream", False)
         params = self.get_params(llm_input, **kwargs)
 
         response = self.get_sync_client()(
@@ -166,7 +169,7 @@ class SDKChatAdapter(
             **params,
         )
 
-        if params.get("stream", False):
+        if stream:
 
             def stream_response():
                 try:

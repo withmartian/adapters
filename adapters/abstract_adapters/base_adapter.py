@@ -25,7 +25,7 @@ class BaseAdapter(
 
     @abstractmethod
     def get_model(self) -> Model:
-        """Returns the martain model object, this is used to identify the model which is used by the adapter
+        """Returns the martian model object, this is used to identify the model which is used by the adapter
 
         Returns:
             # Model: model object
