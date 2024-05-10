@@ -33,10 +33,7 @@ class AdapterFactory:
                 and issubclass(obj, BaseAdapter)
             ):
                 for model in obj.get_supported_models():
-                    adapters_classes[f"{model.vendor_name}/{model.name}"] = obj
-                    adapters_classes[
-                        f"{model.provider_name}/{model.vendor_name}/{model.name}"
-                    ] = obj
+                    adapters_classes[model.get_path()] = obj
 
         for model in OpenAISDKChatProviderAdapter.get_supported_models():
             adapters_classes[model.name] = OpenAISDKChatProviderAdapter  # type: ignore
@@ -52,10 +49,7 @@ class AdapterFactory:
 
         for _, obj in inspect.getmembers(sys.modules["adapters.concrete_adapters"]):
             if inspect.isclass(obj) and issubclass(obj, BaseAdapter):
-                model = obj().get_model()
-                adapters_classes[
-                    f"{model.provider_name}/{model.vendor_name}/{model.name}"
-                ] = obj
+                adapters_classes[obj().get_model().get_path()] = obj
 
         return adapters_classes
 
@@ -70,11 +64,7 @@ class AdapterFactory:
                 and issubclass(obj, BaseAdapter)
             ):
                 for model in obj.get_supported_models():
-                    models[model.name] = model
-                    models[f"{model.vendor_name}/{model.name}"] = model
-                    models[
-                        f"{model.provider_name}/{model.vendor_name}/{model.name}"
-                    ] = model
+                    models[model.get_path()] = model
 
         for model in OpenAISDKChatProviderAdapter.get_supported_models():
             models[model.name] = model
@@ -91,9 +81,7 @@ class AdapterFactory:
         for _, obj in inspect.getmembers(sys.modules["adapters.concrete_adapters"]):
             if inspect.isclass(obj) and issubclass(obj, BaseAdapter):
                 model = obj().get_model()
-                models[
-                    f"{model.provider_name}/{model.vendor_name}/{model.name}"
-                ] = model
+                models[model.get_path()] = model
 
         return models
 
@@ -136,9 +124,7 @@ class AdapterFactory:
 
     @staticmethod
     def get_adapter(model: Model) -> BaseAdapter | None:
-        adapter_class = AdapterFactory._adapter_registry.get(
-            f"{model.provider_name}/{model.vendor_name}/{model.name}"
-        )
+        adapter_class = AdapterFactory._adapter_registry.get(model.get_path())
 
         if adapter_class is None:
             return None

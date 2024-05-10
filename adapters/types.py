@@ -130,6 +130,9 @@ class Model(BaseModel):
     supports_json_content: bool = False
     completion_length: Optional[int] = None
 
+    def get_path(self) -> str:
+        return f"{self.provider_name}/{self.vendor_name}/{self.name}"
+
 
 class Conversation(BaseModel):
     turns: List[

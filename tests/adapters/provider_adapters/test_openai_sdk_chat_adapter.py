@@ -61,9 +61,7 @@ MODELS: List[Model] = [
     *OctoaiSDKChatProviderAdapter.get_supported_models(),
 ]
 
-MODEL_NAMES = [
-    f"{model.provider_name}/{model.vendor_name}/{model.name}" for model in MODELS
-]
+MODEL_NAMES = [model.get_path() for model in MODELS]
 
 OPTIONS_TO_GENERATE = 2
 MAX_TOKENS = 5
