@@ -113,12 +113,6 @@ MODELS = [
         context_length=8000,
         vendor_name="meta-llama",
     ),
-    AnyscaleModel(
-        name="gemma-7b-it",
-        cost=Cost(prompt=0.15e-6, completion=0.15e-6),
-        context_length=8192,
-        vendor_name="google",
-    ),
 ]
 
 
