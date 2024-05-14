@@ -62,9 +62,6 @@ class YouComRagChatAdapter(ChatHttpApiAdapter[Conversation]):
     def get_api_key_pattern() -> Pattern:
         return API_KEY_PATTERN
 
-    def get_model_name(self) -> str:
-        return MODEL_NAME
-
     def get_model(self) -> Model:
         return YOU_COM_MODEL
 
