@@ -15,6 +15,9 @@ class FireworksModel(Model):
     supports_streaming: bool = True
     provider_name: str = PROVIDER_NAME
 
+    def _get_api_path(self) -> str:
+        return f"{self.vendor_name}/{self.name}"
+
 
 MODELS = [
     FireworksModel(

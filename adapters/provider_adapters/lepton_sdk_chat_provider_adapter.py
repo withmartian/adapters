@@ -90,11 +90,6 @@ class LeptonSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
         self._sync_client.base_url = URL(self._current_model.base_url)
         self._async_client.base_url = URL(self._current_model.base_url)
 
-    def get_model_name(self) -> str:
-        if self._current_model is None:
-            raise ValueError("Model not set")
-        return self._current_model.name
-
     def extract_stream_response(self, request, response: ChatCompletionChunk) -> str:
         # It must be the last response from Lepton that is empty.
         if not response.choices:
