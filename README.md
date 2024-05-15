@@ -72,10 +72,10 @@ poetry run pytest
 1. **Instantiate an Adapter:**
 
    ```python
-   adapter1 = AdapterFactory.get_adapter("adapter_name")
+   adapter1 = AdapterFactory.get_adapter_by_path("adapter_path")
    ```
 
-   Here, `"adapter_name"` should follow the format `provider/vendor/model_name`. Use `AdapterFactory.get_supported_models()` to retrieve all valid names.
+   Here, `"adapter_path"` should follow the format `provider/vendor/model_name`. Use `AdapterFactory.get_supported_models()` to retrieve all supported models. In order to get path to the model use `model.get_path()`
 
 2. **Convert Input:**
 

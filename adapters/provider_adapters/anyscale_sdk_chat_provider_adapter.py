@@ -15,6 +15,9 @@ class AnyscaleModel(Model):
     supports_streaming: bool = True
     provider_name: str = PROVIDER_NAME
 
+    def _get_api_path(self) -> str:
+        return f"{self.vendor_name}/{self.name}"
+
 
 MODELS = [
     AnyscaleModel(
@@ -112,12 +115,6 @@ MODELS = [
         cost=Cost(prompt=1.0e-6, completion=1.0e-6),
         context_length=8000,
         vendor_name="meta-llama",
-    ),
-    AnyscaleModel(
-        name="gemma-7b-it",
-        cost=Cost(prompt=0.15e-6, completion=0.15e-6),
-        context_length=8192,
-        vendor_name="google",
     ),
 ]
 
