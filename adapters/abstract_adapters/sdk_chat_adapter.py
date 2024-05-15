@@ -132,7 +132,7 @@ class SDKChatAdapter(
         params = self.get_params(llm_input, **kwargs)
 
         response = await self.get_async_client()(
-            model=self.get_model().name,
+            model=self.get_model()._get_api_path(),
             **params,
         )
 
@@ -162,7 +162,7 @@ class SDKChatAdapter(
         params = self.get_params(llm_input, **kwargs)
 
         response = self.get_sync_client()(
-            model=self.get_model().name,
+            model=self.get_model()._get_api_path(),
             **params,
         )
 

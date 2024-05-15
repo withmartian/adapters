@@ -133,6 +133,9 @@ class Model(BaseModel):
     def get_path(self) -> str:
         return f"{self.provider_name}/{self.vendor_name}/{self.name}"
 
+    def _get_api_path(self) -> str:
+        return self.name
+
 
 class Conversation(BaseModel):
     turns: List[

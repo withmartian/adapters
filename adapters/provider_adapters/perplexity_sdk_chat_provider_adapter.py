@@ -86,8 +86,3 @@ class PerplexitySDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapte
     @staticmethod
     def get_api_key_pattern() -> Pattern:
         return API_KEY_PATTERN
-
-    def get_model_name(self) -> str:
-        if self._current_model is None:
-            raise ValueError("Model not set")
-        return self._current_model.name
