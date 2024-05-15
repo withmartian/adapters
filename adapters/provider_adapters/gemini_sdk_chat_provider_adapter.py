@@ -42,11 +42,6 @@ MODELS = [
         cost=Cost(prompt=3.5e-6, completion=10.5e-6),
         context_length=128000,
     ),
-    GeminiModel(
-        name="models/chat-bison-001",
-        cost=Cost(prompt=3.5e-6, completion=10.5e-6),
-        context_length=32000,
-    ),
 ]
 
 
