@@ -37,6 +37,16 @@ MODELS = [
         context_length=30720,
         completion_length=2048,
     ),
+    GeminiModel(
+        name="gemini-1.5-pro-latest",
+        cost=Cost(prompt=3.5e-6, completion=10.5e-6),
+        context_length=128000,
+    ),
+    GeminiModel(
+        name="models/chat-bison-001",
+        cost=Cost(prompt=3.5e-6, completion=10.5e-6),
+        context_length=32000,
+    ),
 ]
 
 
@@ -93,10 +103,10 @@ class GeminiSDKChatProviderAdapter(
         super().set_api_key(api_key)
 
         self._sync_client = GenerativeServiceClient(
-            client_options=ClientOptions(api_key=api_key),  # transport="rest"
+            client_options=ClientOptions(api_key=api_key), transport="rest"
         )
         self._async_client = GenerativeServiceAsyncClient(
-            client_options=ClientOptions(api_key=api_key),  # transport="rest"
+            client_options=ClientOptions(api_key=api_key), transport="rest"
         )
 
     def extract_response(
