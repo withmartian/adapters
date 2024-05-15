@@ -138,6 +138,11 @@ class SDKChatAdapter(
         else:
             response = await client(model=self.get_model().name, **params)
 
+        # response = await self.get_async_client()(
+        #     model=self.get_model()._get_api_path(),
+        #     **params,
+        # )
+
         if stream:
 
             async def stream_response():
@@ -165,7 +170,7 @@ class SDKChatAdapter(
         params = self.get_params(llm_input, **kwargs)
 
         response = self.get_sync_client()(
-            model=self.get_model().name,
+            model=self.get_model()._get_api_path(),
             **params,
         )
 

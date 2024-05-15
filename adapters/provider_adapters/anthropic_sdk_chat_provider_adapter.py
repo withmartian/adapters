@@ -143,11 +143,6 @@ class AnthropicSDKChatProviderAdapter(
             api_key=self.get_api_key(),
         )
 
-    def get_model_name(self) -> str:
-        if self._current_model is None:
-            raise ValueError("Model not set")
-        return self._current_model.name
-
     def get_async_client(self):
         return self._async_client.messages.create
 
