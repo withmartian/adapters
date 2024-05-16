@@ -1,4 +1,5 @@
 import json
+from typing import List
 
 from pytest import mark
 
@@ -6,7 +7,7 @@ from adapters import AdapterFactory
 from adapters.provider_adapters.cohere_sdk_chat_provider_adapter import (
     CohereSDKChatProviderAdapter,
 )
-from adapters.types import ConversationRole
+from adapters.types import ConversationRole, Model
 from tests.utils import (
     SIMPLE_CONVERSATION_ASSISTANT_FIRST,
     SIMPLE_CONVERSATION_ASSISTANT_SYSTEM,
@@ -18,11 +19,11 @@ from tests.utils import (
     SIMPLE_CONVERSATION_USER_ONLY,
 )
 
-COHERE_CHAT_MODELS = [
-    model_name
-    for model in CohereSDKChatProviderAdapter.get_supported_models()
-    for model_name in [model.name]
+MODELS: List[Model] = [
+    *CohereSDKChatProviderAdapter.get_supported_models(),
 ]
+
+COHERE_CHAT_MODELS = [model.get_path() for model in MODELS]
 
 
 @mark.parametrize("model_name", COHERE_CHAT_MODELS)
