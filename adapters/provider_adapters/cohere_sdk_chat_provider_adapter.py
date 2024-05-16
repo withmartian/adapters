@@ -101,17 +101,23 @@ class CohereSDKChatProviderAdapter(
 
     async def _async_client_wrapper(self, **kwargs: Any):
         stream = kwargs.get("stream", False)
-        if stream:
+
+        if "stream" in kwargs:
             del kwargs["stream"]
+
+        if stream:
             # Cohere uses a "sync" call to chat_stream, even if it is an async_client.
             return self._async_client.chat_stream(**kwargs)
 
-        return await self._async_client.chat(**kwargs)
+        return await self._async_client.chat(**kwargs)  # pylint: disable=missing-kwoa
 
     def _sync_client_wrapper(self, **kwargs: Any):
         stream = kwargs.get("stream", False)
-        if stream:
+
+        if "stream" in kwargs:
             del kwargs["stream"]
+
+        if stream:
             return self._sync_client.chat_stream(**kwargs)
 
         return self._sync_client.chat(**kwargs)
