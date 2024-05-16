@@ -11,4 +11,5 @@ class stream_generator_auto_close:
         return self._agen
 
     async def __aexit__(self, *args):
-        await self._agen.close()
+        if getattr(self._agen, "close", False):
+            await self._agen.close()

@@ -1,0 +1,78 @@
+interactions:
+- request:
+    body: '{"message": "Hi", "stream": true, "model": "command-r", "chat_history":
+      []}'
+    headers:
+      accept:
+      - '*/*, text/event-stream, application/stream+json'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '75'
+      content-type:
+      - application/json
+      host:
+      - api.cohere.ai
+      user-agent:
+      - python-httpx/0.27.0
+      x-fern-language:
+      - Python
+      x-fern-sdk-name:
+      - cohere
+      x-fern-sdk-version:
+      - 5.4.0
+    method: POST
+    uri: https://api.cohere.ai/v1/chat
+  response:
+    body:
+      string: "{\"is_finished\":false,\"event_type\":\"stream-start\",\"generation_id\":\"c3e98a5c-76d6-4155-9a2b-7715389f4d2b\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"Hello\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"!\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"
+        How\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"'s\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"
+        it\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"
+        going\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"?\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"
+        I\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"
+        hope\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"
+        you\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"'re\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"
+        having\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"
+        a\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"
+        fantastic\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"
+        day\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"
+        so\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"
+        far\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"!\"}\n{\"is_finished\":false,\"event_type\":\"text-generation\",\"text\":\"
+        \U0001F60A\"}\n{\"is_finished\":true,\"event_type\":\"stream-end\",\"response\":{\"response_id\":\"4e418e44-2872-490c-b8f9-3bd52a4629eb\",\"text\":\"Hello!
+        How's it going? I hope you're having a fantastic day so far! \U0001F60A\",\"generation_id\":\"c3e98a5c-76d6-4155-9a2b-7715389f4d2b\",\"chat_history\":[{\"role\":\"USER\",\"message\":\"Hi\"},{\"role\":\"CHATBOT\",\"message\":\"Hello!
+        How's it going? I hope you're having a fantastic day so far! \U0001F60A\"}],\"finish_reason\":\"COMPLETE\",\"meta\":{\"api_version\":{\"version\":\"1\"},\"billed_units\":{\"input_tokens\":1,\"output_tokens\":20},\"tokens\":{\"input_tokens\":67,\"output_tokens\":20}}},\"finish_reason\":\"COMPLETE\"}\n"
+    headers:
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Via:
+      - 1.1 google
+      access-control-expose-headers:
+      - X-Debug-Trace-ID
+      cache-control:
+      - no-cache, no-store, no-transform, must-revalidate, private, max-age=0
+      content-type:
+      - application/stream+json
+      date:
+      - Thu, 16 May 2024 19:21:29 GMT
+      expires:
+      - Thu, 01 Jan 1970 00:00:00 UTC
+      pragma:
+      - no-cache
+      server:
+      - envoy
+      transfer-encoding:
+      - chunked
+      vary:
+      - Origin
+      x-accel-expires:
+      - '0'
+      x-debug-trace-id:
+      - 7b49603c9ad2e62af9c30916a1d67401
+      x-envoy-upstream-service-time:
+      - '20'
+    status:
+      code: 200
+      message: OK
+version: 1
