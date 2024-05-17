@@ -1,0 +1,204 @@
+interactions:
+- request:
+    body: "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\":
+      \"Hi\"\n        }\n      ],\n      \"role\": \"user\"\n    },\n    {\n      \"parts\":
+      [\n        {\n          \"text\": \"Test\"\n        }\n      ],\n      \"role\":
+      \"user\"\n    }\n  ],\n  \"generationConfig\": {}\n}"
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '256'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.31.0
+      x-goog-api-client:
+      - gl-python/3.11.6 grpc/1.63.0 gax/2.19.0 gapic/0.6.3
+      x-goog-request-params:
+      - model=models/gemini-1.0-pro
+    method: POST
+    uri: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro:generateContent?%24alt=json%3Benum-encoding%3Dint
+  response:
+    body:
+      string: "{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"parts\":
+        [\n          {\n            \"text\": \"Sure, I can help you with a test.\\n\\n**Multiple
+        Choice**\\n\\n1. Which of the following is NOT a type of cloud?\\n    (a)
+        Cirrus\\n    (b) Stratus\\n    (c) Nebula\\n    (d) Cumulus\\n\\n2. What is
+        the name of the layer of the Earth's atmosphere where weather occurs?\\n    (a)
+        Troposphere\\n    (b) Stratosphere\\n    (c) Mesosphere\\n    (d) Thermosphere\\n\\n3.
+        Which of the following instruments is used to measure wind speed?\\n    (a)
+        Anemometer\\n    (b) Barometer\\n    (c) Thermometer\\n    (d) Hygrometer\\n\\n**True/False**\\n\\n4.
+        The sun is a star.\\n5. The Earth is flat.\\n6. Water boils at 100 degrees
+        Celsius.\\n\\n**Answer Key**\\n\\n1. (c)\\n2. (a)\\n3. (a)\\n4. True\\n5.
+        False\\n6. True\\n\\n**Grading Rubric**\\n\\n* 3 correct answers: Excellent\\n*
+        2 correct answers: Good\\n* 1 correct answer: Fair\\n* 0 correct answers:
+        Needs Improvement\\n\\nI hope this test was helpful. Please let me know if
+        you have any other questions.\"\n          }\n        ],\n        \"role\":
+        \"model\"\n      },\n      \"finishReason\": 1,\n      \"index\": 0,\n      \"safetyRatings\":
+        [\n        {\n          \"category\": 9,\n          \"probability\": 1\n        },\n
+        \       {\n          \"category\": 8,\n          \"probability\": 1\n        },\n
+        \       {\n          \"category\": 7,\n          \"probability\": 1\n        },\n
+        \       {\n          \"category\": 10,\n          \"probability\": 1\n        }\n
+        \     ]\n    }\n  ],\n  \"usageMetadata\": {\n    \"promptTokenCount\": 4,\n
+        \   \"candidatesTokenCount\": 279,\n    \"totalTokenCount\": 283\n  }\n}\n"
+    headers:
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Cache-Control:
+      - private
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Fri, 17 May 2024 22:31:37 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Server-Timing:
+      - gfet4t7; dur=5201
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Origin
+      - X-Origin
+      - Referer
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      content-length:
+      - '1556'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: "{\n  \"generateContentRequest\": {\n    \"model\": \"models/gemini-1.0-pro\",\n
+      \   \"contents\": [\n      {\n        \"parts\": [\n          {\n            \"text\":
+      \"Hi\"\n          },\n          {\n            \"text\": \"Test\"\n          }\n
+      \       ]\n      }\n    ],\n    \"generationConfig\": {}\n  }\n}"
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '273'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.31.0
+      x-goog-api-client:
+      - gl-python/3.11.6 grpc/1.63.0 gax/2.19.0 gapic/0.6.3
+      x-goog-request-params:
+      - model=models/gemini-1.0-pro
+    method: POST
+    uri: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro:countTokens?%24alt=json%3Benum-encoding%3Dint
+  response:
+    body:
+      string: "{\n  \"totalTokens\": 2\n}\n"
+    headers:
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Cache-Control:
+      - private
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Fri, 17 May 2024 22:31:37 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Server-Timing:
+      - gfet4t7; dur=145
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Origin
+      - X-Origin
+      - Referer
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      content-length:
+      - '23'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: "{\n  \"generateContentRequest\": {\n    \"model\": \"models/gemini-1.0-pro\",\n
+      \   \"contents\": [\n      {\n        \"parts\": [\n          {\n            \"text\":
+      \"Sure, I can help you with a test.\\n\\n**Multiple Choice**\\n\\n1. Which of
+      the following is NOT a type of cloud?\\n    (a) Cirrus\\n    (b) Stratus\\n
+      \   (c) Nebula\\n    (d) Cumulus\\n\\n2. What is the name of the layer of the
+      Earth's atmosphere where weather occurs?\\n    (a) Troposphere\\n    (b) Stratosphere\\n
+      \   (c) Mesosphere\\n    (d) Thermosphere\\n\\n3. Which of the following instruments
+      is used to measure wind speed?\\n    (a) Anemometer\\n    (b) Barometer\\n    (c)
+      Thermometer\\n    (d) Hygrometer\\n\\n**True/False**\\n\\n4. The sun is a star.\\n5.
+      The Earth is flat.\\n6. Water boils at 100 degrees Celsius.\\n\\n**Answer Key**\\n\\n1.
+      (c)\\n2. (a)\\n3. (a)\\n4. True\\n5. False\\n6. True\\n\\n**Grading Rubric**\\n\\n*
+      3 correct answers: Excellent\\n* 2 correct answers: Good\\n* 1 correct answer:
+      Fair\\n* 0 correct answers: Needs Improvement\\n\\nI hope this test was helpful.
+      Please let me know if you have any other questions.\"\n          }\n        ]\n
+      \     }\n    ],\n    \"generationConfig\": {}\n  }\n}"
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1127'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.31.0
+      x-goog-api-client:
+      - gl-python/3.11.6 grpc/1.63.0 gax/2.19.0 gapic/0.6.3
+      x-goog-request-params:
+      - model=models/gemini-1.0-pro
+    method: POST
+    uri: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro:countTokens?%24alt=json%3Benum-encoding%3Dint
+  response:
+    body:
+      string: "{\n  \"totalTokens\": 279\n}\n"
+    headers:
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Cache-Control:
+      - private
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Fri, 17 May 2024 22:31:38 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Server-Timing:
+      - gfet4t7; dur=555
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Origin
+      - X-Origin
+      - Referer
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      content-length:
+      - '25'
+    status:
+      code: 200
+      message: OK
+version: 1

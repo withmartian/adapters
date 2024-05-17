@@ -1,8 +1,10 @@
+import json
 import re
 from typing import Any, Dict, Pattern
 
 import google.generativeai as genai
 from google.ai.generativelanguage import (
+    GenerateContentResponse,
     GenerativeServiceAsyncClient,
     GenerativeServiceClient,
 )
@@ -12,6 +14,9 @@ from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
+    AdapterException,
+    AdapterStreamResponse,
+    ContentTurn,
     Conversation,
     ConversationRole,
     Cost,
@@ -19,6 +24,7 @@ from adapters.types import (
     OpenAIChatAdapterResponse,
     Turn,
 )
+from adapters.utils.adapter_stream_response import stream_generator_auto_close
 
 PROVIDER_NAME = "gemini"
 API_KEY_NAME = "GEMINI_API_KEY"
@@ -26,8 +32,13 @@ API_KEY_PATTERN = re.compile(r".*")
 
 
 class GeminiModel(Model):
+    supports_streaming: bool = True
+    supports_json_content: bool = True
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
+
+    def _get_api_path(self) -> str:
+        return self.name
 
 
 MODELS = [
@@ -75,9 +86,10 @@ class GeminiSDKChatProviderAdapter(
 
     def __init__(
         self,
-    ):
+    ) -> None:
         super().__init__()
         self.set_api_key(self.get_api_key())
+        self.model: genai.GenerativeModel | None = None
 
     def get_model_name(self) -> str:
         if self._current_model is None:
@@ -95,9 +107,10 @@ class GeminiSDKChatProviderAdapter(
 
     def set_api_key(self, api_key: str) -> None:
         super().set_api_key(api_key)
+        genai.configure(api_key=api_key)
 
         self._sync_client = GenerativeServiceClient(
-            client_options=ClientOptions(api_key=api_key)
+            client_options=ClientOptions(api_key=api_key), transport="rest"
         )
         self._async_client = GenerativeServiceAsyncClient(
             client_options=ClientOptions(api_key=api_key)
@@ -106,9 +119,6 @@ class GeminiSDKChatProviderAdapter(
     def extract_response(
         self, request: Any, response: Any
     ) -> OpenAIChatAdapterResponse:
-        model = genai.GenerativeModel(model_name=self.get_model_name())
-        model._client = self.get_sync_client()
-
         choices = [
             {
                 "message": {
@@ -120,10 +130,11 @@ class GeminiSDKChatProviderAdapter(
         ]
 
         # Optimize token count calculation, use async for async and parallelize
-        prompt_tokens = model.count_tokens(
-            [turn.content for turn in request.turns]
+        assert self.model
+        prompt_tokens = self.model.count_tokens(
+            [_map_turn_content_to_str(turn) for turn in request.turns]
         ).total_tokens
-        completion_tokens = model.count_tokens(response.text).total_tokens
+        completion_tokens = self.model.count_tokens(response.text).total_tokens
 
         cost = (
             self.get_model().cost.prompt * prompt_tokens
@@ -147,9 +158,6 @@ class GeminiSDKChatProviderAdapter(
     async def extract_response_async(
         self, request: Any, response: Any
     ) -> OpenAIChatAdapterResponse:
-        model = genai.GenerativeModel(model_name=self.get_model_name())
-        model._async_client = self.get_async_client()
-
         choices = [
             {
                 "message": {
@@ -160,10 +168,11 @@ class GeminiSDKChatProviderAdapter(
             }
         ]
 
-        prompt_tokens = await model.count_tokens_async(
-            [turn.content for turn in request.turns]
+        assert self.model
+        prompt_tokens = await self.model.count_tokens_async(
+            [_map_turn_content_to_str(turn) for turn in request.turns]
         )
-        completion_tokens = await model.count_tokens_async(response.text)
+        completion_tokens = await self.model.count_tokens_async(response.text)
 
         cost = (
             self.get_model().cost.prompt * prompt_tokens.total_tokens
@@ -184,8 +193,22 @@ class GeminiSDKChatProviderAdapter(
             ),
         )
 
-    def extract_stream_response(self, request, response):
-        return response
+    def extract_stream_response(
+        self, request: Any, response: GenerateContentResponse
+    ) -> str:
+        chunk = json.dumps(
+            {
+                "choices": [
+                    {
+                        "delta": {
+                            "role": ConversationRole.assistant,
+                            "content": " ".join(part.text for part in response.parts),
+                        },
+                    }
+                ]
+            }
+        )
+        return f"data: {chunk}\n\n"
 
     def get_params(
         self,
@@ -194,19 +217,16 @@ class GeminiSDKChatProviderAdapter(
     ) -> Dict[str, Any]:
         params = super().get_params(llm_input, **kwargs)
 
-        last_message = params["messages"].pop(-1)["content"]
+        last_message = params["messages"].pop()
+        last_content = last_message["content"] or " "
 
-        messages = [
-            {
-                **({"parts": [message["content"]]}),
-                **(
-                    {"role": ConversationRole.user}
-                    if message["role"] == ConversationRole.system
-                    else {"role": message["role"]}
-                ),
+        transformed_messages = []
+        for message in params["messages"]:
+            transformed_message = {
+                "parts": [_map_content_to_str(message["content"], message["role"])],
+                "role": _map_role(message["role"]),
             }
-            for message in params["messages"]
-        ]
+            transformed_messages.append(transformed_message)
 
         if "max_tokens" in params:
             params["max_output_tokens"] = params["max_tokens"]
@@ -214,7 +234,11 @@ class GeminiSDKChatProviderAdapter(
 
         del params["messages"]
 
-        return {"config": params, "history": messages, "prompt": last_message}
+        return {
+            "config": params,
+            "history": transformed_messages,
+            "prompt": _map_content_to_str(last_content, last_message["role"]),
+        }
 
     async def execute_async(
         self,
@@ -222,18 +246,42 @@ class GeminiSDKChatProviderAdapter(
         **kwargs,
     ):
         params = self.get_params(llm_input, **kwargs)
+        config = params.get("config")
+        assert isinstance(config, dict)
+        stream = False
+        if config.get("stream"):
+            stream = True
+            del config["stream"]
 
-        model = genai.GenerativeModel(
+        self.model = genai.GenerativeModel(
             model_name=self.get_model_name(),
-            generation_config=params["config"],
+            generation_config=params["config"] or None,
         )
-        model._async_client = self.get_async_client()
+        self.model._async_client = self.get_async_client()
 
-        convo = model.start_chat(history=params["history"])
+        chat = self.model.start_chat(history=params["history"])
 
-        result = await convo.send_message_async(params["prompt"])
+        if stream:
+            stream_response_ = await chat.send_message_async(
+                params["prompt"], stream=True
+            )
 
-        return await self.extract_response_async(request=llm_input, response=result)
+            async def stream_response():
+                async with stream_generator_auto_close(stream_response_):
+                    try:
+                        async for chunk in stream_response_:
+                            yield self.extract_stream_response(
+                                request=llm_input, response=chunk
+                            )
+                    except Exception as e:
+                        raise AdapterException(
+                            f"Error in streaming response: {e}"
+                        ) from e
+
+            return AdapterStreamResponse(response=stream_response())
+
+        response = await chat.send_message_async(params["prompt"])
+        return await self.extract_response_async(request=llm_input, response=response)
 
     def execute_sync(
         self,
@@ -241,14 +289,69 @@ class GeminiSDKChatProviderAdapter(
         **kwargs,
     ):
         params = self.get_params(llm_input, **kwargs)
+        config = params.get("config")
+        assert isinstance(config, dict)
+        stream = False
+        if config.get("stream"):
+            stream = True
+            del config["stream"]
 
-        model = genai.GenerativeModel(
-            model_name=self.get_model_name(), generation_config=params["config"]
+        self.model = genai.GenerativeModel(
+            model_name=self.get_model_name(),
+            generation_config=config or None,
         )
-        model._client = self.get_sync_client()
+        self.model._client = self.get_sync_client()
 
-        convo = model.start_chat(history=params["history"])
+        chat = self.model.start_chat(history=params["history"])
 
-        result = convo.send_message(params["prompt"])
+        if stream:
+            result = chat.send_message(params["prompt"], stream=True)
 
+            def stream_response():
+                try:
+                    for chunk in result:
+                        yield self.extract_stream_response(
+                            request=llm_input, response=chunk
+                        )
+                except Exception as e:
+                    raise AdapterException(f"Error in streaming response: {e}") from e
+
+            return AdapterStreamResponse(response=stream_response())
+
+        result = chat.send_message(params["prompt"])
         return self.extract_response(request=llm_input, response=result)
+
+
+def _map_content_to_str(
+    content: str | list[dict[str, Any]], role: str | ConversationRole
+) -> str:
+    if not content or content in [" ", "\n", "\t"]:
+        return "."
+
+    # Join content if it's a list
+    if isinstance(content, list):
+        return " ".join(content.get("text", "") for content in content)
+
+    if role != "system":
+        return content
+
+    # Simulate *system message*.
+    return f"*{content}*"
+
+
+def _map_role(role: str | ConversationRole) -> str:
+    match role:
+        case ConversationRole.user | ConversationRole.system | "user" | "system":
+            return "user"
+        case ConversationRole.assistant | "assistant":
+            return "model"
+        case _:
+            return "user"
+
+
+def _map_turn_content_to_str(turn: ContentTurn | Turn) -> str:
+    match turn:
+        case ContentTurn():
+            return " ".join(content.text for content in turn.content)  # type: ignore[union-attr]
+        case Turn():
+            return turn.content
