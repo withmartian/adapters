@@ -114,14 +114,16 @@ class SDKChatAdapter(
                 f"JSON response format is not supported on {self.get_model().name}"
             )
 
+        messages = [turn.model_dump() for turn in llm_input.turns]
+
         return {
-            "messages": [turn.model_dump() for turn in llm_input.turns],
+            "messages": messages,
+            **kwargs,
             **(
                 {"temperature": self.adjust_temperature(kwargs.get("temperature", 1))}
                 if kwargs.get("temperature") is not None
                 else {}
             ),
-            **kwargs,
         }
 
     async def execute_async(
