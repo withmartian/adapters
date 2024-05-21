@@ -46,7 +46,7 @@ MODELS = [
         name="gemini-1.5-flash-latest",
         cost=Cost(prompt=0.35e-6, completion=1.05e-6),
         context_length=128000,
-    )
+    ),
 ]
 
 
