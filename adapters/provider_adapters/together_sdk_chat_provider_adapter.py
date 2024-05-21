@@ -282,12 +282,13 @@ MODELS = [
         context_length=4096,
         vendor_name="Qwen",
     ),
-    TogetherModel(
-        name="Snorkel-Mistral-PairRM-DPO",
-        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-        context_length=32768,
-        vendor_name="snorkelai",
-    ),
+    # TogetherModel(
+    #     name="Snorkel-Mistral-PairRM-DPO",
+    #     cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+    #     context_length=32768,
+    #     vendor_name="snorkelai",
+    #     supports_first_assistant=False,
+    # ),
     TogetherModel(
         name="alpaca-7b",
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),

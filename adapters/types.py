@@ -128,6 +128,8 @@ class Model(BaseModel):
     supports_n: bool = False
     supports_json_output: bool = False
     supports_json_content: bool = False
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
     completion_length: Optional[int] = None
 
     def get_path(self) -> str:

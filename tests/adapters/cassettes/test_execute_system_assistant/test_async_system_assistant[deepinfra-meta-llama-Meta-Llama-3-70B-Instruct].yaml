@@ -1,0 +1,58 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content":
+      "Hi"}], "model": "meta-llama/Meta-Llama-3-70B-Instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '210'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - AsyncOpenAI/Python 1.23.6
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.23.6
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.7
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-04d1cb3c452640c8a14ac331b493eec8","object":"chat.completion","created":1716243867,"model":"meta-llama/Meta-Llama-3-70B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi
+        again! It''s nice to chat with you. Is there something on your mind that you''d
+        like to talk about, or is it just a casual hi?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":29,"total_tokens":62,"completion_tokens":33,"estimated_cost":4.3179999999999997e-05}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '503'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 20 May 2024 22:24:27 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1

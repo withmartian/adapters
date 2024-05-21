@@ -168,14 +168,6 @@ class HttpApiAdapterMixin(
     ) -> AdapterResponse:
         pass
 
-    def get_token_cost(self) -> Cost:
-        """returns the token cost for the adapter
-
-        Returns:
-            TokenCost: token cost as a dictionary
-        """
-        return Cost(prompt=0, completion=0)
-
     def get_rate_limiter(self) -> Optional[AbstractRateLimiter]:
         """returns a rate limiter for the adapter
 

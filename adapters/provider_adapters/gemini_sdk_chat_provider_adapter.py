@@ -31,17 +31,17 @@ class GeminiModel(Model):
 
 
 MODELS = [
-    GeminiModel(
-        name="gemini-1.0-pro",
-        cost=Cost(prompt=0.125e-6, completion=0.375e-6),
-        context_length=30720,
-        completion_length=2048,
-    ),
-    GeminiModel(
-        name="gemini-1.5-pro-latest",
-        cost=Cost(prompt=3.5e-6, completion=10.5e-6),
-        context_length=128000,
-    ),
+    # GeminiModel(
+    #     name="gemini-1.0-pro",
+    #     cost=Cost(prompt=0.125e-6, completion=0.375e-6),
+    #     context_length=30720,
+    #     completion_length=2048,
+    # ),
+    # GeminiModel(
+    #     name="gemini-1.5-pro-latest",
+    #     cost=Cost(prompt=3.5e-6, completion=10.5e-6),
+    #     context_length=128000,
+    # ),
 ]
 
 

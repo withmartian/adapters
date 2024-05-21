@@ -1,0 +1,76 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
+      "content": "Hi"}], "model": "mistral-7b"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '112'
+      content-type:
+      - application/json
+      host:
+      - mistral-7b.lepton.run
+      user-agent:
+      - OpenAI/Python 1.23.6
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.23.6
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://mistral-7b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-tZxBPoaVxbTbAPNuv84NmT","object":"chat.completion","created":1716251132,"model":"mistral-7b","choices":[{"index":0,"message":{"role":"assistant","content":"I
+        see you''re interested in creating a Python script to automate repetitive
+        tasks. To create a simple script, let''s assume we have multiple text files
+        with identical formats, and we want to extract data from specific lines and
+        save it into a new CSV file. Here''s how you can do it using Python''s `os`,
+        `re`, and `csv` modules.\n\nFirst, make sure you have Python installed on
+        your machine. Then create a new Python file, name it `automate_text_files.py`,
+        and paste the following code snippet into it:\n\n```python\nimport os\nimport
+        re\nimport csv\n\n# Set your desired input and output directories here\ninput_dir
+        = ''/path/to/input/directory/''\noutput_file = ''/path/to/output.csv''\n\noutput_data
+        = []\n\ndef process_file(file_path):\n    \"\"\"\n    Process a single file
+        by extracting data from specific lines.\n    :param file_path: the full path
+        to the input file\n    \"\"\"\n\n    with open(file_path, ''r'') as f:\n        lines
+        = f.readlines()","tool_calls":null},"finish_reason":"length"}],"usage":{"prompt_tokens":17,"total_tokens":273,"completion_tokens":256}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 88706e003aff1679-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 21 May 2024 00:25:32 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1240'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '1354'
+    status:
+      code: 200
+      message: OK
+version: 1

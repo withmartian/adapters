@@ -228,17 +228,6 @@ class AnthropicSDKChatProviderAdapter(
         messages = params["messages"]
         system_prompt = ""
 
-        # Convert json content to string
-        for message in messages:
-            if isinstance(message["content"], list):
-                message["content"] = "\n".join(
-                    [content["text"] for content in message["content"]]
-                )
-
-        if len(messages) > 0 and messages[0]["role"] == ConversationRole.system:
-            system_prompt = messages[0]["content"]
-            messages = messages[1:]
-
         # Extract system prompt if it's the first message
         if len(messages) > 0 and messages[0]["role"] == ConversationRole.system:
             system_prompt = messages[0]["content"]
@@ -250,22 +239,7 @@ class AnthropicSDKChatProviderAdapter(
                 message["role"] = ConversationRole.assistant
 
         # Join messages from the same role
-        processed_messages = []
-        current_role = messages[0]["role"]
-        current_content = messages[0]["content"]
-
-        for message in messages[1:]:
-            if message["role"] == current_role:
-                current_content += "\n" + message["content"]
-            else:
-                # Otherwise, add the collected messages and reset for the next role
-                processed_messages.append(
-                    {"role": current_role, "content": current_content}
-                )
-                current_role = message["role"]
-                current_content = message["content"]
-
-        processed_messages.append({"role": current_role, "content": current_content})
+        processed_messages = messages
 
         # Add empty user message if the first message is from the assistant
         if (

@@ -27,12 +27,14 @@ MODELS = [
         cost=Cost(prompt=0.20e-6, completion=0.20e-6),
         context_length=8192,
         vendor_name="accounts/fireworks/models",
+        supports_first_assistant=False,
     ),
     FireworksModel(
         name="dbrx-instruct",
         cost=Cost(prompt=1.60e-6, completion=1.60e-6),
         context_length=32_768,
         vendor_name="accounts/fireworks/models",
+        supports_first_assistant=False,
     ),
     FireworksModel(
         name="llama-v3-8b-instruct",
@@ -51,12 +53,14 @@ MODELS = [
         cost=Cost(prompt=0.20e-6, completion=0.20e-6),
         context_length=32_768,
         vendor_name="accounts/fireworks/models",
+        supports_first_assistant=False,
     ),
     FireworksModel(
         name="mistral-7b-instruct-v0p2",
         cost=Cost(prompt=0.20e-6, completion=0.20e-6),
         context_length=32_768,
         vendor_name="accounts/fireworks/models",
+        supports_first_assistant=False,
     ),
     FireworksModel(
         name="mixtral-8x22b-instruct",
@@ -69,6 +73,7 @@ MODELS = [
         cost=Cost(prompt=0.50e-6, completion=0.50e-6),
         context_length=32_768,
         vendor_name="accounts/fireworks/models",
+        supports_first_assistant=False,
     ),
 ]
 
