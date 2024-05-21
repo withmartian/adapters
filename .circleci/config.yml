@@ -24,6 +24,16 @@ workflows:
             branches:
               only:
                 - main
+      - update-supported-models-gateways-docs:
+          requires:
+            - publish-package
+          context:
+            - circle_ci_fingerprint
+            - martian-adapters
+          filters:
+            branches:
+              only:
+                - main
 
 jobs:
   pre-commit:
@@ -89,3 +99,29 @@ jobs:
       - run:
           name: Publish package to PyPI
           command: poetry publish --build
+
+  update-supported-models-gateways-docs:
+    docker:
+      - image: cimg/python:3.11.5
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - $SSH_FINGERPRINT
+      - checkout
+      - run:
+          name: Clone the gitbook docs repo
+          command: |
+            git clone git@github.com:withmartian/gitbook-docs.git ~/gitbook-docs
+      - run:
+          name: Run doc update
+          command: |
+            poetry run pip install pandas
+            poetry run python scripts/update_supported_models_gateway_docs.py ~/gitbook-docs/martian-model-router/model-gateway/supported-models-gateway.md
+      - run:
+          name: Push changes to github
+          command: |
+            cd ~/gitbook-docs
+            git checkout -b update/circle-ci-${CIRCLE_BUILD_NUM}
+            git add --all
+            git commit -m "Updated doc with newest models"
+            git push
