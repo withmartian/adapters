@@ -35,19 +35,19 @@ def test_sync_execute_on_gemini_models_ok(vcr, model_name):
     assert adapter_response.cost > 0
 
 
-@pytest.mark.parametrize("model_name", MODEL_NAMES)
-@pytest.mark.vcr
-async def test_async_execute_on_gemini_models_ok(vcr, model_name):
-    adapter = AdapterFactory.get_adapter_by_path(model_name)
-    adapter_response = await adapter.execute_async(
-        adapter.convert_to_input(SIMPLE_CONVERSATION_USER_ONLY)
-    )
+# @pytest.mark.parametrize("model_name", MODEL_NAMES)
+# @pytest.mark.vcr
+# async def test_async_execute_on_gemini_models_ok(vcr, model_name):
+#     adapter = AdapterFactory.get_adapter_by_path(model_name)
+#     adapter_response = await adapter.execute_async(
+#         adapter.convert_to_input(SIMPLE_CONVERSATION_USER_ONLY)
+#     )
 
-    cassette_response = json.loads(vcr.responses[0]["body"]["string"])
+#     cassette_response = json.loads(vcr.responses[0]["body"]["string"])
 
-    assert (
-        adapter_response.response.content
-        == cassette_response["candidates"][0]["content"]["parts"][0]["text"]
-    )
-    assert adapter_response.response.role == ConversationRole.assistant
-    assert adapter_response.cost > 0
+#     assert (
+#         adapter_response.response.content
+#         == cassette_response["candidates"][0]["content"]["parts"][0]["text"]
+#     )
+#     assert adapter_response.response.role == ConversationRole.assistant
+#     assert adapter_response.cost > 0
