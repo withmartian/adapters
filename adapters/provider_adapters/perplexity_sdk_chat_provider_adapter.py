@@ -15,15 +15,31 @@ class PerplexityModel(Model):
     supports_streaming: bool = True
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
+    supports_empty_content: bool = False
     supports_first_assistant: bool = False
     supports_last_assistant: bool = False
 
 
 MODELS = [
     PerplexityModel(
-        name="llama-3-70b-instruct",
+        name="llama-3-sonar-small-32k-chat",
+        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+        context_length=32768,
+    ),
+    PerplexityModel(
+        name="llama-3-sonar-small-32k-online",
+        cost=Cost(prompt=0.2e-6, completion=0.2e-6, request=0.005),
+        context_length=28000,
+    ),
+    PerplexityModel(
+        name="llama-3-sonar-large-32k-chat",
         cost=Cost(prompt=1.0e-6, completion=1.0e-6),
-        context_length=8192,
+        context_length=32768,
+    ),
+    PerplexityModel(
+        name="llama-3-sonar-large-32k-online",
+        cost=Cost(prompt=1.0e-6, completion=1.0e-6, request=0.005),
+        context_length=28000,
     ),
     PerplexityModel(
         name="llama-3-8b-instruct",
@@ -31,34 +47,9 @@ MODELS = [
         context_length=8192,
     ),
     PerplexityModel(
-        name="sonar-small-chat",
-        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-        context_length=16384,
-    ),
-    PerplexityModel(
-        name="sonar-small-online",
-        cost=Cost(prompt=0.2e-6, completion=0.2e-6, request=0.005),
-        context_length=12000,
-    ),
-    PerplexityModel(
-        name="sonar-medium-chat",
-        cost=Cost(prompt=0.6e-6, completion=0.6e-6),
-        context_length=16384,
-    ),
-    PerplexityModel(
-        name="sonar-medium-online",
-        cost=Cost(prompt=0.6e-6, completion=0.6e-6, request=0.005),
-        context_length=12000,
-    ),
-    PerplexityModel(
-        name="codellama-70b-instruct",
+        name="llama-3-70b-instruct",
         cost=Cost(prompt=1.0e-6, completion=1.0e-6),
-        context_length=16384,
-    ),
-    PerplexityModel(
-        name="mistral-7b-instruct",  # v0.2
-        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-        context_length=16384,
+        context_length=8192,
     ),
     PerplexityModel(
         name="mixtral-8x7b-instruct",
