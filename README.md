@@ -4,6 +4,11 @@
 
 The Adapters package facilitates communication between different language model APIs by providing a unified interface for interaction. This ensures ease of use and flexibility in integrating multiple models from various providers.
 
+The package can be installed an used via pip:
+```
+pip install martian-adapters
+```
+
 ## Getting Started
 
 ### Prerequisites
