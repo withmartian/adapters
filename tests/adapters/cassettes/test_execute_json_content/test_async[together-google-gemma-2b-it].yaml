@@ -1,0 +1,107 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "google/gemma-2b-it"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '140'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - AsyncOpenAI/Python 1.30.4
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.30.4
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.together.xyz/chat/completions
+  response:
+    body:
+      string: '{"id":"88b8b4d8389e7aa9-SJC","object":"chat.completion","created":1717009009,"model":"google/gemma-2b-it","prompt":[],"choices":[{"finish_reason":"eos","logprobs":null,"index":0,"message":{"role":"assistant","content":"The
+        difference between `[object Object]` and `[object Object]` is that the latter
+        is an array containing a single object.\n\n**Example:**\n\n```javascript\nconst
+        obj1 = { name: \"John\" };\nconst obj2 = { name: \"John\" };\n\nconsole.log([obj1,
+        obj2]); // Output: [object Object, object Object]\n\nconsole.log([obj1, obj1]);
+        // Output: [object Object, object Object]\n```\n\n**Explanation:**\n\n* `[object
+        Object]` is an array containing two objects, each with the same property name
+        `name`.\n* `[object Object]` is an array containing a single object, which
+        is the same object as `obj1`.\n\n**Note:**\n\n* The `Object` constructor can
+        be used to create objects that are equivalent to existing objects.\n* Arrays
+        of objects are not the same as objects in terms of inheritance."}}],"usage":{"prompt_tokens":14,"completion_tokens":194,"total_tokens":208}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 88b8b4d8389e7aa9-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 29 May 2024 18:56:49 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '1072'
+      etag:
+      - '"ofes9wsgvlts"'
+      vary:
+      - Accept-Encoding
+      x-api-call-end:
+      - '2024-05-29T18:56:49.286Z'
+      x-api-call-start:
+      - '2024-05-29T18:56:47.427Z'
+      x-api-received:
+      - '2024-05-29T18:56:47.419Z'
+      x-compute-characters:
+      - '75'
+      x-compute-time:
+      - '1702'
+      x-hostname:
+      - google-gemma-2b-it-9b5b4548b-6drdd
+      x-inference-time:
+      - '1701'
+      x-inference-version:
+      - v2
+      x-queue-time:
+      - '0'
+      x-ratelimit-limit:
+      - '200'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-reset:
+      - '2'
+      x-time-per-token:
+      - '8'
+      x-total-time:
+      - '1702'
+      x-validation-time:
+      - '0'
+    status:
+      code: 200
+      message: OK
+version: 1

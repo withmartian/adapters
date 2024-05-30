@@ -13,6 +13,7 @@ API_KEY_PATTERN = re.compile(r".*")
 
 class AnyscaleModel(Model):
     supports_streaming: bool = True
+    supports_multiple_system: bool = False
     provider_name: str = PROVIDER_NAME
 
     def _get_api_path(self) -> str:

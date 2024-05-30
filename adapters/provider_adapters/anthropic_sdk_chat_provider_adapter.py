@@ -25,6 +25,10 @@ API_KEY_PATTERN = re.compile(r"^sk-ant-api\d{2}-([a-zA-Z0-9_-]+)$")
 class AnthropicModel(Model):
     supports_streaming: bool = True
     supports_json_content: bool = True
+    supports_empty_content: bool = False
+    supports_first_assistant: bool = False
+    supports_multiple_system: bool = False
+    supports_repeating_roles: bool = False
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
 
@@ -233,40 +237,13 @@ class AnthropicSDKChatProviderAdapter(
             system_prompt = messages[0]["content"]
             messages = messages[1:]
 
-        # Change system prompt roles to assistant
-        for message in messages:
-            if message["role"] == ConversationRole.system:
-                message["role"] = ConversationRole.assistant
-
-        # Join messages from the same role
-        processed_messages = messages
-
-        # Add empty user message if the first message is from the assistant
-        if (
-            len(processed_messages) > 0
-            and processed_messages[0]["role"] == ConversationRole.assistant
-        ):
-            processed_messages.insert(
-                0, {"role": ConversationRole.user, "content": "."}
-            )
-
         # Remove trailing whitespace from the last assistant message
-        if (
-            len(processed_messages) > 0
-            and processed_messages[-1]["role"] == ConversationRole.assistant
-        ):
-            processed_messages[-1]["content"] = processed_messages[-1][
-                "content"
-            ].rstrip()
-
-        # If message is empty, use dot
-        for message in processed_messages:
-            if message["content"].strip() == "":
-                message["content"] = "."
+        if len(messages) > 0 and messages[-1]["role"] == ConversationRole.assistant:
+            messages[-1]["content"] = messages[-1]["content"].rstrip()
 
         return {
             **params,
-            "messages": processed_messages,
+            "messages": messages,
             "system": system_prompt,
             "max_tokens": (
                 kwargs.get("max_tokens")

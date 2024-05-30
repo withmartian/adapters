@@ -1,0 +1,109 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "mistralai/Mixtral-8x22B-Instruct-v0.1"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '159'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - OpenAI/Python 1.30.4
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.30.4
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.together.xyz/chat/completions
+  response:
+    body:
+      string: '{"id":"88b8ae49c86b2578-SJC","object":"chat.completion","created":1717008742,"model":"mistralai/Mixtral-8x22B-Instruct-v0.1","prompt":[],"choices":[{"finish_reason":"eos","logprobs":null,"index":0,"message":{"role":"assistant","content":"
+        It seems like you''re trying to display an object, but it''s showing up as
+        \"[object Object]\". This is because JavaScript is trying to convert the object
+        to a string, which doesn''t work as expected.\n\nTo view the contents of the
+        object, you can use `console.log()` or `JSON.stringify()`. Here''s an example:\n\n```javascript\nlet
+        obj1 = {name: \"John\", age: 30};\nlet obj2 = {city: \"New York\", country:
+        \"USA\"};\n\nconsole.log(obj1, obj2);\n// or\nconsole.log(JSON.stringify(obj1),
+        JSON.stringify(obj2));\n```\n\nThis will print the objects in a readable format
+        in the console. If you want to display them in the HTML, you can do something
+        like this:\n\n```javascript\ndocument.body.innerHTML = `<pre>${JSON.stringify(obj1,
+        null, 2)}</pre><pre>${JSON.stringify(obj2, null, 2)}</pre>`;\n```\n\nThis
+        will display the objects in the HTML body, with each property on a new line
+        for better readability."}}],"usage":{"prompt_tokens":11,"completion_tokens":268,"total_tokens":279}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 88b8ae49c86b2578-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 29 May 2024 18:52:22 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '1216'
+      etag:
+      - '"103h2slzg0zxs"'
+      vary:
+      - Accept-Encoding
+      x-api-call-end:
+      - '2024-05-29T18:52:22.140Z'
+      x-api-call-start:
+      - '2024-05-29T18:52:18.875Z'
+      x-api-received:
+      - '2024-05-29T18:52:18.870Z'
+      x-compute-characters:
+      - '50'
+      x-compute-time:
+      - '3149'
+      x-hostname:
+      - mistralai-mixtral-8x22b-instruct-v0-1-6559c78f64-4tt5w
+      x-inference-time:
+      - '3149'
+      x-inference-version:
+      - v2
+      x-queue-time:
+      - '0'
+      x-ratelimit-limit:
+      - '200'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-reset:
+      - '2'
+      x-time-per-token:
+      - '11'
+      x-total-time:
+      - '3149'
+      x-validation-time:
+      - '0'
+    status:
+      code: 200
+      message: OK
+version: 1

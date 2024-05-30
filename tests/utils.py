@@ -39,6 +39,13 @@ SIMPLE_CONVERSATION_USER_ONLY = Conversation(
     [Turn(role=ConversationRole.user, content="Hi")]
 )
 
+SIMPLE_CONVERSATION_SYSTEM_ONLY = Conversation(
+    [
+        Turn(role=ConversationRole.system, content="Hi"),
+        Turn(role=ConversationRole.user, content="Hi"),
+    ]
+)
+
 SIMPLE_CONVERSATION_EMPTY_CONTENT = Conversation(
     [
         Turn(role=ConversationRole.user, content=""),
@@ -96,11 +103,10 @@ SIMPLE_CONVERSATION_JSON_CONTENT = Conversation(
     [
         ContentTurn(
             role=ConversationRole.user,
-            content=[TextContentEntry(type=ContentType.text, text="Hi")],
-        ),
-        ContentTurn(
-            role=ConversationRole.user,
-            content=[TextContentEntry(type=ContentType.text, text="Test")],
+            content=[
+                TextContentEntry(type=ContentType.text, text="Hi"),
+                TextContentEntry(type=ContentType.text, text="Hi"),
+            ],
         ),
     ]
 )

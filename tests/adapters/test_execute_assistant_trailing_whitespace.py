@@ -8,13 +8,10 @@ from tests.utils import SIMPLE_CONVERSATION_TRAILING_WHITESPACE, get_choices_fro
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)
 @pytest.mark.vcr
-def test_sync_assistant_trailing_whitespace(vcr, model_path: str):
+def test_sync(vcr, model_path: str):
     adapter = AdapterFactory.get_adapter_by_path(model_path)
 
     assert adapter is not None
-
-    if adapter.get_model().supports_last_assistant is False:
-        return
 
     adapter_response = adapter.execute_sync(
         adapter.convert_to_input(SIMPLE_CONVERSATION_TRAILING_WHITESPACE),
@@ -28,13 +25,10 @@ def test_sync_assistant_trailing_whitespace(vcr, model_path: str):
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)
 @pytest.mark.vcr
-async def test_async_assistant_trailing_whitespace(vcr, model_path: str):
+async def test_async(vcr, model_path: str):
     adapter = AdapterFactory.get_adapter_by_path(model_path)
 
     assert adapter is not None
-
-    if adapter.get_model().supports_last_assistant is False:
-        return
 
     adapter_response = await adapter.execute_async(
         adapter.convert_to_input(SIMPLE_CONVERSATION_TRAILING_WHITESPACE),

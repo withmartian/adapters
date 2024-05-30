@@ -1,0 +1,67 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model": "llama-3-sonar-small-32k-chat"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '173'
+      content-type:
+      - application/json
+      host:
+      - api.perplexity.ai
+      user-agent:
+      - OpenAI/Python 1.30.4
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.30.4
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.perplexity.ai/chat/completions
+  response:
+    body:
+      string: '{"id": "aec457a3-3002-4d41-94da-615cc8e7ee7d", "model": "llama-3-sonar-small-32k-chat",
+        "created": 1717011263, "usage": {"prompt_tokens": 27, "completion_tokens":
+        4, "total_tokens": 31}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "Hi
+        back to you"}, "delta": {"role": "assistant", "content": ""}}]}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 88b8ebe9e8266429-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 29 May 2024 19:34:23 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=IwiP4SP65FXdWax5tJJk78SSMRi.xl620iPYc69DWFU-1717011263-1.0.1.1-Pa4JeEKvDuQakrLTzxsEd5FR0aqTy6JfRdfkv3GBK6rsujBAtV90iuJjs6bNVVCAaDFAXbYchjohhuOXIN8dRw;
+        path=/; expires=Wed, 29-May-24 20:04:23 GMT; domain=.perplexity.ai; HttpOnly;
+        Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '377'
+    status:
+      code: 200
+      message: OK
+version: 1

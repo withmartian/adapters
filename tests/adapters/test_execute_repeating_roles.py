@@ -8,7 +8,7 @@ from tests.utils import SIMPLE_CONVERSATION_REPEATING, get_choices_from_vcr
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)
 @pytest.mark.vcr
-def test_sync_repeating_roles(vcr, model_path):
+def test_sync(vcr, model_path):
     adapter = AdapterFactory.get_adapter_by_path(model_path)
 
     assert adapter is not None
@@ -26,7 +26,7 @@ def test_sync_repeating_roles(vcr, model_path):
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)
 @pytest.mark.vcr
-async def test_async_repeating_roles(vcr, model_path):
+async def test_async(vcr, model_path):
     adapter = AdapterFactory.get_adapter_by_path(model_path)
 
     assert adapter is not None

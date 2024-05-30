@@ -8,13 +8,10 @@ from tests.utils import SIMPLE_CONVERSATION_JSON_CONTENT, get_choices_from_vcr
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)
 @pytest.mark.vcr
-def test_sync_execute_json_content(vcr, model_path):
+def test_sync(vcr, model_path):
     adapter = AdapterFactory.get_adapter_by_path(model_path)
 
     assert adapter is not None
-
-    if adapter.get_model().supports_json_content is False:
-        return
 
     adapter_response = adapter.execute_sync(
         adapter.convert_to_input(SIMPLE_CONVERSATION_JSON_CONTENT),
@@ -29,13 +26,11 @@ def test_sync_execute_json_content(vcr, model_path):
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)
 @pytest.mark.vcr
-async def test_async_execute_json_content(vcr, model_path):
+async def test_async(vcr, model_path):
     adapter = AdapterFactory.get_adapter_by_path(model_path)
 
     assert adapter is not None
 
-    if adapter.get_model().supports_json_content is False:
-        return
 
     adapter_response = await adapter.execute_async(
         adapter.convert_to_input(SIMPLE_CONVERSATION_JSON_CONTENT),

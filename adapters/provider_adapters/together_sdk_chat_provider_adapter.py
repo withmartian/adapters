@@ -191,6 +191,8 @@ MODELS = [
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
         context_length=32768,
         vendor_name="mistralai",
+        supports_multiple_system=False,
+        supports_repeating_roles=False,
     ),
     TogetherModel(
         name="Nous-Capybara-7B-V1p9",
@@ -203,6 +205,7 @@ MODELS = [
         cost=Cost(prompt=0.6e-6, completion=0.6e-6),
         context_length=32768,
         vendor_name="NousResearch",
+        supports_multiple_system=False,
     ),
     TogetherModel(
         name="Nous-Hermes-2-Mixtral-8x7B-SFT",
@@ -330,6 +333,7 @@ MODELS = [
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
         context_length=32768,
         vendor_name="togethercomputer",
+        supports_empty_content=False,
     ),
     TogetherModel(
         name="ReMM-SLERP-L2-13B",

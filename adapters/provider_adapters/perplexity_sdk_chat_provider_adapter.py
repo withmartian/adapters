@@ -15,6 +15,7 @@ class PerplexityModel(Model):
     supports_streaming: bool = True
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
+    supports_multiple_system: bool = False
     supports_empty_content: bool = False
     supports_first_assistant: bool = False
     supports_last_assistant: bool = False

@@ -8,7 +8,7 @@ from tests.utils import SIMPLE_CONVERSATION_VISION, get_choices_from_vcr
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)
 @pytest.mark.vcr
-def test_sync_execute_vision(vcr, model_path: str):
+def test_sync(vcr, model_path: str):
     adapter = AdapterFactory.get_adapter_by_path(model_path)
 
     assert adapter is not None
@@ -28,7 +28,7 @@ def test_sync_execute_vision(vcr, model_path: str):
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)
 @pytest.mark.vcr
-async def test_async_execute_vision(vcr, model_path: str):
+async def test_async(vcr, model_path: str):
     adapter = AdapterFactory.get_adapter_by_path(model_path)
 
     assert adapter is not None

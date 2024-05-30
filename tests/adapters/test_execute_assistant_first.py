@@ -8,7 +8,7 @@ from tests.utils import SIMPLE_CONVERSATION_ASSISTANT_FIRST, get_choices_from_vc
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)
 @pytest.mark.vcr
-def test_sync_assistant_first(vcr, model_path: str):
+def test_sync(vcr, model_path: str):
     adapter = AdapterFactory.get_adapter_by_path(model_path)
 
     assert adapter is not None
@@ -25,7 +25,7 @@ def test_sync_assistant_first(vcr, model_path: str):
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)
 @pytest.mark.vcr
-async def test_async_assistant_first(vcr, model_path: str):
+async def test_async(vcr, model_path: str):
     adapter = AdapterFactory.get_adapter_by_path(model_path)
 
     assert adapter is not None

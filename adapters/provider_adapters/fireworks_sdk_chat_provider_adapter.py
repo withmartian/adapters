@@ -27,6 +27,7 @@ MODELS = [
         cost=Cost(prompt=0.20e-6, completion=0.20e-6),
         context_length=8192,
         vendor_name="accounts/fireworks/models",
+        supports_system=False,
         supports_first_assistant=False,
     ),
     FireworksModel(
@@ -34,6 +35,7 @@ MODELS = [
         cost=Cost(prompt=1.60e-6, completion=1.60e-6),
         context_length=32_768,
         vendor_name="accounts/fireworks/models",
+        supports_system=False,
         supports_first_assistant=False,
     ),
     FireworksModel(

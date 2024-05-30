@@ -1,0 +1,74 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model": "meta-llama-3-8b-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '169'
+      content-type:
+      - application/json
+      host:
+      - text.octoai.run
+      user-agent:
+      - AsyncOpenAI/Python 1.30.4
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.30.4
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://text.octoai.run/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-d56ce1eea9b2472a97f9e93c24cfd7eb","object":"chat.completion","created":1717011879,"model":"meta-llama-3-8b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi\nHi
+        back!","tool_calls":null},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":28,"completion_tokens":5,"total_tokens":33}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '339'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 29 May 2024 19:44:39 GMT
+      RateLimit-Limit:
+      - '1000'
+      RateLimit-Remaining:
+      - '999'
+      RateLimit-Reset:
+      - '1'
+      Server:
+      - uvicorn
+      Vary:
+      - Origin
+      Via:
+      - kong/3.2.2
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '439'
+      X-RateLimit-Limit-Second:
+      - '1000'
+      X-RateLimit-Remaining-Second:
+      - '999'
+      X-User-Request-Id:
+      - ''
+    status:
+      code: 200
+      message: OK
+version: 1

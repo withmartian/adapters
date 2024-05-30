@@ -1,0 +1,69 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model": "accounts/fireworks/models/mistral-7b-instruct-4k"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '193'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.30.4
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.30.4
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"0a105619-da12-4a3d-9fec-62997326e693","object":"chat.completion","created":1717011856,"model":"accounts/fireworks/models/mistral-7b-instruct-4k","choices":[{"index":0,"message":{"role":"assistant","content":"Hi\nHi\nHi"},"finish_reason":"stop"}],"usage":{"prompt_tokens":68,"total_tokens":74,"completion_tokens":6}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 88b8fa656faf17ea-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 29 May 2024 19:44:16 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google
+      content-length:
+      - '322'
+      fireworks-server-processing-time:
+      - '0.063'
+      x-request-id:
+      - aebaa039-dfe8-47c3-8b2a-8c39edefef5c
+    status:
+      code: 200
+      message: OK
+version: 1
