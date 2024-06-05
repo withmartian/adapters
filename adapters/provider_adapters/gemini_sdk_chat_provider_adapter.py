@@ -7,6 +7,7 @@ from google.ai.generativelanguage import (
     GenerativeServiceClient,
 )
 from google.api_core.client_options import ClientOptions
+
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
@@ -22,6 +23,7 @@ from adapters.types import (
 PROVIDER_NAME = "gemini"
 API_KEY_NAME = "GEMINI_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
+
 
 class GeminiModel(Model):
     vendor_name: str = PROVIDER_NAME
@@ -173,7 +175,7 @@ class GeminiSDKChatProviderAdapter(
         return OpenAIChatAdapterResponse(
             response=Turn(
                 role=ConversationRole.assistant,
-                content=choices[0]["message"]["content"],
+                content=choices[0]["message"]["content"],  # type: ignore
             ),
             choices=choices,
             cost=cost,
@@ -221,7 +223,7 @@ class GeminiSDKChatProviderAdapter(
         **kwargs,
     ):
         params = self.get_params(llm_input, **kwargs)
-        
+
         model = genai.GenerativeModel(
             model_name=self.get_model_name(),
             generation_config=params["config"],
