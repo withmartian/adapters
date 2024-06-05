@@ -7,7 +7,6 @@ from google.ai.generativelanguage import (
     GenerativeServiceClient,
 )
 from google.api_core.client_options import ClientOptions
-
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
@@ -23,7 +22,6 @@ from adapters.types import (
 PROVIDER_NAME = "gemini"
 API_KEY_NAME = "GEMINI_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
-
 
 class GeminiModel(Model):
     vendor_name: str = PROVIDER_NAME
@@ -98,10 +96,10 @@ class GeminiSDKChatProviderAdapter(
         super().set_api_key(api_key)
 
         self._sync_client = GenerativeServiceClient(
-            client_options=ClientOptions(api_key=api_key), transport="rest"
+            client_options=ClientOptions(api_key=api_key)
         )
         self._async_client = GenerativeServiceAsyncClient(
-            client_options=ClientOptions(api_key=api_key), transport="rest"
+            client_options=ClientOptions(api_key=api_key)
         )
 
     def extract_response(
@@ -149,7 +147,7 @@ class GeminiSDKChatProviderAdapter(
         self, request: Any, response: Any
     ) -> OpenAIChatAdapterResponse:
         model = genai.GenerativeModel(model_name=self.get_model_name())
-        model._client = self.get_async_client()
+        model._async_client = self.get_async_client()
 
         choices = [
             {
@@ -161,28 +159,27 @@ class GeminiSDKChatProviderAdapter(
             }
         ]
 
-        # Optimize token count calculation, use async for async and parallelize
         prompt_tokens = await model.count_tokens_async(
             [turn.content for turn in request.turns]
-        ).total_tokens
-        completion_tokens = await model.count_tokens_async(response.text).total_tokens
+        )
+        completion_tokens = await model.count_tokens_async(response.text)
 
         cost = (
-            self.get_model().cost.prompt * prompt_tokens
-            + self.get_model().cost.completion * completion_tokens
+            self.get_model().cost.prompt * prompt_tokens.total_tokens
+            + self.get_model().cost.completion * completion_tokens.total_tokens
             + self.get_model().cost.request
         )
 
         return OpenAIChatAdapterResponse(
             response=Turn(
                 role=ConversationRole.assistant,
-                content=choices[0]["message"]["content"],  # type: ignore
-            ),  # TODO: Refactor response
+                content=choices[0]["message"]["content"],
+            ),
             choices=choices,
             cost=cost,
             token_counts=Cost(
-                prompt=prompt_tokens,
-                completion=completion_tokens,
+                prompt=prompt_tokens.total_tokens,
+                completion=completion_tokens.total_tokens,
             ),
         )
 
@@ -224,7 +221,7 @@ class GeminiSDKChatProviderAdapter(
         **kwargs,
     ):
         params = self.get_params(llm_input, **kwargs)
-
+        
         model = genai.GenerativeModel(
             model_name=self.get_model_name(),
             generation_config=params["config"],
