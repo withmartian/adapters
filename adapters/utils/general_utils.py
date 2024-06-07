@@ -1,6 +1,6 @@
 from typing import Optional
-from adapters.types import RequestBody
 
+from adapters.types import RequestBody
 
 EMPTY_CONTENT = '""'
 

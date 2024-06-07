@@ -60,6 +60,7 @@ def vcr_config():
             "authorization",
             "x-api-key",
             "X-API-Key",
+            "x-goog-api-key",
             "Set-Cookie",
             "cookie",
         ],
