@@ -1,0 +1,71 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi\nHi"}, {"role": "user", "content": "Hi"}], "model": "accounts/fireworks/models/dbrx-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '180'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.30.4
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.30.4
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"27e4e94f-d0ad-4d35-ba06-1a985eb8452c","object":"chat.completion","created":1717199837,"model":"accounts/fireworks/models/dbrx-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today?\nHello! Hello!\nHello! Hello! How can I assist
+        you today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":239,"total_tokens":264,"completion_tokens":25}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 88cae7c64d90f95f-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 31 May 2024 23:57:17 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google
+      content-length:
+      - '398'
+      fireworks-server-processing-time:
+      - '0.429'
+      x-request-id:
+      - 3449346d-d22f-46d1-ab1b-a2db7449a26f
+    status:
+      code: 200
+      message: OK
+version: 1

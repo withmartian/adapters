@@ -1,0 +1,67 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi\nHi"}, {"role": "user", "content": "Hi"}], "model": "llama-3-sonar-small-32k-chat"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '169'
+      content-type:
+      - application/json
+      host:
+      - api.perplexity.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.30.4
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.30.4
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.perplexity.ai/chat/completions
+  response:
+    body:
+      string: '{"id": "7fedab18-c84d-4d6a-9d7b-5b23867339a6", "model": "llama-3-sonar-small-32k-chat",
+        "created": 1717199866, "usage": {"prompt_tokens": 25, "completion_tokens":
+        6, "total_tokens": 31}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "Hi
+        How''s it going?"}, "delta": {"role": "assistant", "content": ""}}]}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 88cae87d3e2f1746-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 31 May 2024 23:57:46 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=nIuCc6O02pFsEQChpXFG8rDQK.d7IF3Q0sePpXErCGQ-1717199866-1.0.1.1-1qFBKYBfh908pF3E8KO8aNPbASRCaPP.Bee8CWjjs0KJBZGUM565k4isZJLeFTb3fIeB8F8gE2LnaYQF.Ns3cw;
+        path=/; expires=Sat, 01-Jun-24 00:27:46 GMT; domain=.perplexity.ai; HttpOnly;
+        Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '381'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -45,13 +45,6 @@ MODELS = [
         vendor_name="mistralai",
     ),
     LeptonModel(
-        base_url=BASE_URL.format("mixtral-8x22b"),
-        name="mixtral-8x22b",
-        cost=Cost(prompt=0.80e-6, completion=0.80e-6),
-        context_length=65536,
-        vendor_name="mistralai",
-    ),
-    LeptonModel(
         base_url=BASE_URL.format("mixtral-8x7b"),
         name="mixtral-8x7b",
         cost=Cost(prompt=0.50e-6, completion=0.50e-6),

@@ -3,10 +3,7 @@ import pytest
 from adapters.adapter_factory import AdapterFactory
 from adapters.types import ConversationRole
 from tests.adapters.utils.contants import MODEL_PATHS
-from tests.utils import (
-    SIMPLE_CONVERSATION_SYSTEM_ONLY,
-    get_choices_from_vcr,
-)
+from tests.utils import SIMPLE_CONVERSATION_SYSTEM_ONLY, get_choices_from_vcr
 
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)

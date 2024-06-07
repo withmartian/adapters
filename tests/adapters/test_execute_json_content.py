@@ -31,7 +31,6 @@ async def test_async(vcr, model_path):
 
     assert adapter is not None
 
-
     adapter_response = await adapter.execute_async(
         adapter.convert_to_input(SIMPLE_CONVERSATION_JSON_CONTENT),
     )
