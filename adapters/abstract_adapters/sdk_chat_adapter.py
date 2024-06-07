@@ -1,5 +1,5 @@
 from abc import abstractmethod
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 from openai import AsyncStream, Stream
 from openai.types.chat import ChatCompletionChunk
@@ -30,6 +30,9 @@ class SDKChatAdapter(
     @abstractmethod
     def get_base_sdk_url() -> str:
         pass
+
+    def get_custom_sdk_url(self) -> Optional[str]:
+        return None
 
     @abstractmethod
     def get_async_client(self):
