@@ -14,6 +14,10 @@ class CustomAISDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter)
         super().__init__()
 
     @staticmethod
+    def get_supported_models():
+        return []
+
+    @staticmethod
     def get_api_key_pattern() -> re.Pattern:
         return API_KEY_PATTERN
 
