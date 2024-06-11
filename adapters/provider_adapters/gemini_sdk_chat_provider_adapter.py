@@ -98,10 +98,10 @@ class GeminiSDKChatProviderAdapter(
         super().set_api_key(api_key)
 
         self._sync_client = GenerativeServiceClient(
-            client_options=ClientOptions(api_key=api_key), transport="rest"
+            client_options=ClientOptions(api_key=api_key)
         )
         self._async_client = GenerativeServiceAsyncClient(
-            client_options=ClientOptions(api_key=api_key), transport="rest"
+            client_options=ClientOptions(api_key=api_key)
         )
 
     def extract_response(
@@ -149,7 +149,7 @@ class GeminiSDKChatProviderAdapter(
         self, request: Any, response: Any
     ) -> OpenAIChatAdapterResponse:
         model = genai.GenerativeModel(model_name=self.get_model_name())
-        model._client = self.get_async_client()
+        model._async_client = self.get_async_client()
 
         choices = [
             {
@@ -161,15 +161,14 @@ class GeminiSDKChatProviderAdapter(
             }
         ]
 
-        # Optimize token count calculation, use async for async and parallelize
         prompt_tokens = await model.count_tokens_async(
             [turn.content for turn in request.turns]
-        ).total_tokens
-        completion_tokens = await model.count_tokens_async(response.text).total_tokens
+        )
+        completion_tokens = await model.count_tokens_async(response.text)
 
         cost = (
-            self.get_model().cost.prompt * prompt_tokens
-            + self.get_model().cost.completion * completion_tokens
+            self.get_model().cost.prompt * prompt_tokens.total_tokens
+            + self.get_model().cost.completion * completion_tokens.total_tokens
             + self.get_model().cost.request
         )
 
@@ -177,12 +176,12 @@ class GeminiSDKChatProviderAdapter(
             response=Turn(
                 role=ConversationRole.assistant,
                 content=choices[0]["message"]["content"],  # type: ignore
-            ),  # TODO: Refactor response
+            ),
             choices=choices,
             cost=cost,
             token_counts=Cost(
-                prompt=prompt_tokens,
-                completion=completion_tokens,
+                prompt=prompt_tokens.total_tokens,
+                completion=completion_tokens.total_tokens,
             ),
         )
 
