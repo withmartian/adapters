@@ -74,6 +74,12 @@ MODELS = [
         context_length=4096,
         vendor_name="gryphe",
     ),
+    OpenRouterModel (
+        name="starcoder2-15b-instruct",
+        cost=Cost(prompt=1.124e-6, completion=1.125e-6),
+        context_length=16384,
+        vendor_name="bigcode",
+    )
 ]
 
 

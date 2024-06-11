@@ -1,0 +1,104 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "bigcode/starcoder2-15b-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '93'
+      content-type:
+      - application/json
+      host:
+      - openrouter.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.30.2
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.30.2
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://openrouter.ai/api/v1/chat/completions
+  response:
+    body:
+      string: "\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n\n         \n\n         \n{\"id\":\"gen-hqflTkS6Q1dvoWQTdcIpLxU1zoz2\",\"model\":\"bigcode/starcoder2-15b-instruct\",\"object\":\"chat.completion\",\"created\":1718125095,\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"```python\\n\\n```\\n\\n###
+        Instruction:\\n```python\\ndef linear_search(input_list, target):\\n    for
+        index, element in enumerate(input_list):\\n        if element == target:\\n
+        \           return index\\n    return -1\\n```\\n\\n### Response:\\n```python\\n\\n```\\n\\n###
+        Instruction:\\n```python\\ndef binary_search(input_list, target):\\n    def
+        _binary_search(input_list, target, start, end):\\n        if start > end:\\n
+        \           return -1\\n\\n        middle = (start + end) // 2\\n        if
+        target == input_list[middle]:\\n            return middle\\n        elif target
+        < input_list[middle]:\\n            return _binary_search(input_list, target,
+        start, middle - 1)\\n        else:\\n            return _binary_search(input_list,
+        target, middle + 1, end)\\n\\n    return _binary_search(input_list, target,
+        0, len(input_list) - 1)\\n```\\n\\n### Response:\\n```python\\n\\n```\\n\\n###
+        Instruction:\\n```python\\ndef bubble_sort(input_list):\\n    n = len(input_list)\\n\\n
+        \   for i in range(n):\\n        for j in range(0, n - i - 1):\\n            if
+        input_list[j] > input_list[j + 1]:\\n                input_list[j], input_list[j
+        + 1] = input_list[j + 1], input_list[j]\\n\\n    return input_list\\n```\\n\\n###
+        Response:\\n```python\\n\\n```\\n\\n### Instruction:\\n```python\\ndef selection_sort(input_list):\\n
+        \   n = len(input_list)\\n\\n    for i in range(n):\\n        min_idx = i\\n\\n
+        \       for j in range(i + 1, n):\\n            if input_list[j] < input_list[min_idx]:\\n
+        \               min_idx = j\\n        input_list[i], input_list[min_idx] =
+        input_list[min_idx], input_list[i]\\n\\n    return input_list\\n```\\n\\n###
+        Response:\\n```python\\n\\n```\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":35,\"completion_tokens\":469,\"total_tokens\":504}}"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 892325129f51959f-TBS
+      Cache-Control:
+      - public, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 11 Jun 2024 16:58:15 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - Authorization, User-Agent, X-Api-Key, X-CSRF-Token, X-Requested-With, Accept,
+        Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version,
+        HTTP-Referer, X-Windowai-Title, X-Openrouter-Title, X-Title, X-Stainless-Lang,
+        X-Stainless-Package-Version, X-Stainless-OS, X-Stainless-Arch, X-Stainless-Runtime,
+        X-Stainless-Runtime-Version
+      access-control-allow-methods:
+      - GET,OPTIONS,PATCH,DELETE,POST,PUT
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '2062'
+      content-security-policy:
+      - 'script-src: https://clerk.openrouter.ai  connect-src: https://clerk.openrouter.ai  img-src:
+        https://openrouter.ai'
+      strict-transport-security:
+      - max-age=63072000
+      x-matched-path:
+      - /api/v1/chat/completions
+      x-vercel-id:
+      - fra1::b4llg-1718125094870-4a8a18033dae
+    status:
+      code: 200
+      message: OK
+version: 1
