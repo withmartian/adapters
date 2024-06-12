@@ -76,7 +76,7 @@ MODELS = [
     ),
     OpenRouterModel(
         name="starcoder2-15b-instruct",
-        cost=Cost(prompt=1.124e-6, completion=1.125e-6),
+        cost=Cost(prompt=1.5e-7, completion=1.5e-7),
         context_length=16384,
         vendor_name="bigcode",
     ),
