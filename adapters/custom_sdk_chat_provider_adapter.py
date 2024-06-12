@@ -4,8 +4,7 @@ from typing import Optional
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 
-API_KEY_NAME = "CUSTOM_API_KEY"
-API_KEY_PATTERN = re.compile(r"^sk-[a-zA-Z0-9\-]+$")
+API_KEY_PATTERN = re.compile(r".*")
 
 
 class CustomAISDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
@@ -30,4 +29,4 @@ class CustomAISDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter)
 
     @staticmethod
     def get_api_key_name() -> str:
-        return API_KEY_NAME
+        return ""
