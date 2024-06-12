@@ -73,8 +73,7 @@ class CohereSDKChatProviderAdapter(
     def get_api_key_pattern() -> Pattern:
         return API_KEY_PATTERN
 
-    @staticmethod
-    def get_base_sdk_url() -> str:
+    def get_base_sdk_url(self) -> str:
         return BASE_URL
 
     @staticmethod
