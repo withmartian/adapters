@@ -26,11 +26,11 @@ class OpenAISDKChatAdapter(ApiKeyAdapterMixin, SDKChatAdapter):
         super().__init__()
         self._sync_client = OpenAIClientFactory.get_openai_sync_client(
             api_key=self.get_api_key(),
-            base_url=self.get_base_sdk_url() or self.get_custom_sdk_url(),
+            base_url=self.get_base_sdk_url(),
         )
         self._async_client = OpenAIClientFactory.get_openai_async_client(
             api_key=self.get_api_key(),
-            base_url=self.get_base_sdk_url() or self.get_custom_sdk_url(),
+            base_url=self.get_base_sdk_url(),
         )
 
     def get_async_client(self):
