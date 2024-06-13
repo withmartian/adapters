@@ -68,6 +68,12 @@ MODELS = [
         context_length=8192,
         vendor_name="pygmalionai",
     ),
+    OpenRouterModel(
+        name="mythomax-l2-13b",
+        cost=Cost(prompt=0.27e-6, completion=0.27e-6),
+        context_length=4096,
+        vendor_name="gryphe",
+    ),
 ]
 
 
