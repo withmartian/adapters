@@ -186,9 +186,17 @@ def setup_tiktoken_cache():
 
 def get_choices_from_vcr(vcr, adapter: BaseAdapter):
     if isinstance(adapter, OpenAISDKChatAdapter):
-        return json.loads(vcr.responses[-1]["body"]["string"])["choices"][0]["message"][
-            "content"
-        ]
+        if (
+            json.loads(vcr.responses[-1]["body"]["string"])["choices"][0]["message"][
+                "content"
+            ]
+            is None
+        ):
+            return json.loads(vcr.responses[-1]["body"]["string"])["choices"]
+        else:
+            return json.loads(vcr.responses[-1]["body"]["string"])["choices"][0][
+                "message"
+            ]["content"]
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
         return json.loads(vcr.responses[-1]["body"]["string"])["content"][0]["text"]
     elif isinstance(adapter, CohereSDKChatProviderAdapter):

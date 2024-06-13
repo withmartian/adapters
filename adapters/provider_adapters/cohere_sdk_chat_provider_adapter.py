@@ -108,7 +108,7 @@ class CohereSDKChatProviderAdapter(
             # Cohere uses a "sync" call to chat_stream, even if it is an async_client.
             return self._async_client.chat_stream(**kwargs)
 
-        return await self._async_client.chat(**kwargs)  # pylint: disable=missing-kwoa
+        return await self._async_client.chat(**kwargs)
 
     def _sync_client_wrapper(self, **kwargs: Any):
         stream = kwargs.get("stream", False)
