@@ -78,8 +78,7 @@ class DeepInfraSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter
     def get_provider_name() -> str:
         return PROVIDER_NAME
 
-    @staticmethod
-    def get_base_sdk_url() -> str:
+    def get_base_sdk_url(self) -> str:
         return DEEPINFRA_BASE_URL
 
     @staticmethod

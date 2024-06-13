@@ -1,5 +1,4 @@
 import re
-from typing import Optional
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
@@ -20,12 +19,8 @@ class CustomAISDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter)
     def get_api_key_pattern() -> re.Pattern:
         return API_KEY_PATTERN
 
-    def get_custom_sdk_url(self) -> Optional[str]:
+    def get_base_sdk_url(self) -> str:
         return self.base_url
-
-    @staticmethod
-    def get_base_sdk_url() -> str:
-        return ""
 
     @staticmethod
     def get_api_key_name() -> str:

@@ -48,8 +48,7 @@ class MoonshotSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter)
     def get_provider_name() -> str:
         return PROVIDER_NAME
 
-    @staticmethod
-    def get_base_sdk_url() -> str:
+    def get_base_sdk_url(self) -> str:
         return MOONSHOT_BASE_URL
 
     @staticmethod
