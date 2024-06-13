@@ -16,31 +16,32 @@ interactions:
       host:
       - openrouter.ai
       user-agent:
-      - AsyncOpenAI/Python 1.30.2
+      - AsyncOpenAI/Python 1.34.0
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
-      - 1.30.2
+      - 1.34.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://openrouter.ai/api/v1/chat/completions
   response:
     body:
-      string: '{"id":"gen-eOdvnDt2xHLsgdDHN4Ync6TlFDWk","model":"gryphe/mythomax-l2-13b","object":"chat.completion","created":1718297762,"choices":[{"index":0,"message":{"role":"assistant","content":""},"finish_reason":"stop"}],"usage":{"prompt_tokens":44,"completion_tokens":1,"total_tokens":45}}'
+      string: "{\"id\":\"gen-aaZjPBemUR36dmJGI0NnEMh1Ebry\",\"model\":\"gryphe/mythomax-l2-13b\",\"object\":\"chat.completion\",\"created\":1718307597,\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
+        \u263A\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":44,\"completion_tokens\":2,\"total_tokens\":46}}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 89339c981a4f1a42-TBS
+      - 89348cb278622314-SJC
       Cache-Control:
       - public, max-age=0, must-revalidate
       Connection:
@@ -48,7 +49,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 13 Jun 2024 16:56:02 GMT
+      - Thu, 13 Jun 2024 19:39:57 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -66,7 +67,7 @@ interactions:
       access-control-allow-origin:
       - '*'
       content-length:
-      - '282'
+      - '286'
       content-security-policy:
       - 'default-src ''self''; script-src ''self'' ''unsafe-eval'' ''unsafe-inline''
         https://clerk.openrouter.ai https://cunning-heron-18.clerk.accounts.dev https://checkout.stripe.com
@@ -82,10 +83,17 @@ interactions:
         sha256-0hAheEzaMe6uXIKV4EehS9pu1am1lj/KnnzrOYqckXk=; upgrade-insecure-requests'
       strict-transport-security:
       - max-age=63072000
+      x-clerk-auth-message:
+      - Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid,
+        token-carrier=header)
+      x-clerk-auth-reason:
+      - token-invalid
+      x-clerk-auth-status:
+      - signed-out
       x-matched-path:
       - /api/v1/chat/completions
       x-vercel-id:
-      - fra1::s7vrr-1718297762616-dd492b495048
+      - sfo1::rhzcn-1718307597210-3fe9132133be
     status:
       code: 200
       message: OK

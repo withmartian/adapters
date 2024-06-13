@@ -27,9 +27,8 @@ class SDKChatAdapter(
         AsyncStream[ChatCompletionChunk],
     ],
 ):
-    @staticmethod
     @abstractmethod
-    def get_base_sdk_url() -> str:
+    def get_base_sdk_url(self) -> str:
         pass
 
     def get_custom_sdk_url(self) -> Optional[str]:
