@@ -185,17 +185,23 @@ def setup_tiktoken_cache():
 
 
 def get_choices_from_vcr(vcr, adapter: BaseAdapter):
+    response = json.loads(vcr.responses[-1]["body"]["string"])
+
     if isinstance(adapter, OpenAISDKChatAdapter):
-        return json.loads(vcr.responses[-1]["body"]["string"])["choices"][0]["message"][
-            "content"
-        ]
+        choices = response["choices"]
+        if choices[0]["message"]["content"] is None:
+            return choices
+        else:
+            return choices[0]["message"]["content"]
+
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
-        return json.loads(vcr.responses[-1]["body"]["string"])["content"][0]["text"]
+        return response["content"][0]["text"]
+
     elif isinstance(adapter, CohereSDKChatProviderAdapter):
-        return json.loads(vcr.responses[-1]["body"]["string"])["text"]
+        return response["text"]
+
     elif isinstance(adapter, GeminiSDKChatProviderAdapter):
-        return json.loads(vcr.responses[0]["body"]["string"])["candidates"][0][
-            "content"
-        ]["parts"][0]["text"]
+        return response["candidates"][0]["content"]["parts"][0]["text"]
+
     else:
         raise ValueError("Unknown adapter")
