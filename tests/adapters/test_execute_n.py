@@ -24,7 +24,9 @@ def test_sync(vcr, model_path: str):
 
     assert adapter_response.response.content == cassete_response
     assert adapter_response.response.role == ConversationRole.assistant
-    # assert len(choices) == N_PARAM
+
+    # TODO: fix type of adapter_response to have an attr choices
+    assert len(adapter_response.choices) == N_PARAM  # type: ignore
 
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)
@@ -45,4 +47,6 @@ async def test_async(vcr, model_path: str):
 
     assert adapter_response.response.content == cassete_response
     assert adapter_response.response.role == ConversationRole.assistant
-    # assert len(cassete_response) == N_PARAM
+
+    # TODO: fix type of adapter_response to have an attr choices
+    assert len(adapter_response.choices) == N_PARAM  # type: ignore
