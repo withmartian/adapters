@@ -1,15 +1,8 @@
-import json
 from typing import Optional
 
 from adapters.types import RequestBody
 
-
-def is_json_serializable(obj):
-    try:
-        json.dumps(obj)
-        return True
-    except TypeError:
-        return False
+EMPTY_CONTENT = '""'
 
 
 def load_request_body_with_additional_params(

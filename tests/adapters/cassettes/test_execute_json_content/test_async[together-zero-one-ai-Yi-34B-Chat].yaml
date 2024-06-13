@@ -1,0 +1,111 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "zero-one-ai/Yi-34B-Chat"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '145'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - AsyncOpenAI/Python 1.30.4
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.30.4
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.together.xyz/chat/completions
+  response:
+    body:
+      string: '{"id":"88b8b32b1b9f7aa9-SJC","object":"chat.completion","created":1717008946,"model":"zero-one-ai/Yi-34B-Chat","prompt":[],"choices":[{"finish_reason":"stop","logprobs":null,"index":0,"message":{"role":"assistant","content":"It
+        seems like you''re trying to print two objects in JavaScript. However, when
+        you stringify an object with `console.log` or `console.dir`, you''ll see the
+        output `[object Object]` because objects in JavaScript are represented as
+        `Object` instances.\n\nTo see the properties of an object, you can use `console.dir`
+        or `JSON.stringify` with `console.log`. Here''s how you can do it:\n\n```javascript\nconst
+        person1 = { name: ''John Doe'', age: 30 };\nconst person2 = { name: ''Jane
+        Smith'', age: 25 };\n\nconsole.dir(person1); // Displays the object''s properties
+        in the console\nconsole.dir(person2); // Displays the object''s properties
+        in the console\n\nconsole.log(JSON.stringify(person1)); // Outputs the JSON
+        representation of the object\nconsole.log(JSON.stringify(person2)); // Outputs
+        the JSON representation of the object\n```\n\nUsing `console.dir` will give
+        you a more readable output in the console, while `JSON.stringify` will give
+        you the JSON representation of the object, which is useful for debugging and
+        logging."}}],"usage":{"prompt_tokens":18,"completion_tokens":273,"total_tokens":291}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 88b8b32b1b9f7aa9-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 29 May 2024 18:55:46 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '1323'
+      etag:
+      - '"7i5rsqnvqo10r"'
+      vary:
+      - Accept-Encoding
+      x-api-call-end:
+      - '2024-05-29T18:55:46.350Z'
+      x-api-call-start:
+      - '2024-05-29T18:55:38.772Z'
+      x-api-received:
+      - '2024-05-29T18:55:38.765Z'
+      x-compute-characters:
+      - '81'
+      x-compute-time:
+      - '7482'
+      x-hostname:
+      - zero-one-ai-yi-34b-chat-654d487b97-4hwxg
+      x-inference-time:
+      - '7475'
+      x-inference-version:
+      - v2
+      x-queue-time:
+      - '5'
+      x-ratelimit-limit:
+      - '200'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-reset:
+      - '2'
+      x-time-per-token:
+      - '27'
+      x-total-time:
+      - '7482'
+      x-validation-time:
+      - '0'
+    status:
+      code: 200
+      message: OK
+version: 1

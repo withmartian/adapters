@@ -12,10 +12,11 @@ from adapters.types import (
     ContentTurn,
     ContentType,
     Conversation,
+    ConversationRole,
     Prompt,
 )
 from adapters.utils.adapter_stream_response import stream_generator_auto_close
-from adapters.utils.general_utils import delete_none_values
+from adapters.utils.general_utils import EMPTY_CONTENT, delete_none_values
 
 
 class SDKChatAdapter(
@@ -113,14 +114,85 @@ class SDKChatAdapter(
                 f"JSON response format is not supported on {self.get_model().name}"
             )
 
+        messages = [turn.model_dump() for turn in llm_input.turns]
+
+        # ====
+
+        # Convert json content to string if not supported
+        if not self.get_model().supports_json_content:
+            for message in messages:
+                if isinstance(message["content"], list):
+                    message["content"] = "\n".join(
+                        [content["text"] for content in message["content"]]
+                    )
+
+        # Convert empty string to "." if not supported
+        # TODO: handle array case
+        if not self.get_model().supports_empty_content:
+            for message in messages:
+                if (
+                    isinstance(message["content"], str)
+                    and message["content"].strip() == ""
+                ):
+                    message["content"] = EMPTY_CONTENT
+
+        # Change system prompt roles to assistant
+        if not self.get_model().supports_multiple_system:
+            for message in messages[1:]:
+                if message["role"] == ConversationRole.system:
+                    message["role"] = ConversationRole.assistant
+
+        # Change system prompt roles to assistant
+        if not self.get_model().supports_system:
+            for message in messages:
+                if message["role"] == ConversationRole.system:
+                    message["role"] = ConversationRole.assistant
+
+        # Join messages from the same role
+        processed_messages = []
+        current_role = messages[0]["role"]
+        current_content = messages[0]["content"]
+
+        for message in messages[1:]:
+            if message["role"] == current_role:
+                current_content += "\n" + message["content"]
+            else:
+                # Otherwise, add the collected messages and reset for the next role
+                processed_messages.append(
+                    {"role": current_role, "content": current_content}
+                )
+                current_role = message["role"]
+                current_content = message["content"]
+
+        processed_messages.append({"role": current_role, "content": current_content})
+        messages = processed_messages
+
+        # If the last message is assistant, add an empty user message
+        if (
+            self.get_model().supports_first_assistant is False
+            and messages[0]["role"] == ConversationRole.assistant
+        ):
+            messages.insert(
+                0, {"role": ConversationRole.user, "content": EMPTY_CONTENT}
+            )
+
+            # If the first message is assistant, add an empty user message
+        if (
+            self.get_model().supports_last_assistant is False
+            and messages[-1]["role"] == ConversationRole.assistant
+        ):
+            messages.append({"role": ConversationRole.user, "content": EMPTY_CONTENT})
+
+        # ====
+
         return {
-            "messages": [turn.model_dump() for turn in llm_input.turns],
+            "messages": messages,
+            **kwargs,
             **(
                 {"temperature": self.adjust_temperature(kwargs.get("temperature", 1))}
                 if kwargs.get("temperature") is not None
                 else {}
             ),
-            **kwargs,
         }
 
     async def execute_async(

@@ -1,0 +1,127 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
+      "content": "Hi"}], "model": "mistralai/mistral-7b-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '131'
+      content-type:
+      - application/json
+      host:
+      - openrouter.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.30.4
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.30.4
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://openrouter.ai/api/v1/chat/completions
+  response:
+    body:
+      string: "\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n\n         \n{\"id\":\"gen-mT4qdGDDSm2MqOxwDlaLN0MDy983\",\"model\":\"mistralai/mistral-7b-instruct\",\"object\":\"chat.completion\",\"created\":1717006895,\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
+        Hello! How can I help you today? If you have any questions about the AI field,
+        programming, or any other topic, feel free to ask.\\n\\nManual for AVL Tree:\\n\\nA
+        self-balancing binary search tree, the AVL tree is a popular data structure
+        used for quick lookups in sorted data sets, particularly for maintaining sorted
+        lists in algorithms. Named after its inventors, Georgy Adelson-Velsky and
+        Evgenii Landis, the AVL tree employs a balance factor to maintain balance,
+        in addition to the standard left and right child trees.\\n\\nHere's a basic
+        structure of an AVL tree:\\n```typescript\\nclass Node {\\n    key: number;\\n
+        \   height: number;\\n    balanceFactor: number;\\n    leftChild: Node;\\n
+        \   rightChild: Node;\\n    parent: Node;\\n\\n    constructor(key: number,
+        parent: Node = null) {\\n        this.key = key;\\n        this.height = 1;\\n
+        \       this.balanceFactor = 0;\\n        this.leftChild = null;\\n        this.rightChild
+        = null;\\n        this.parent = parent;\\n    }\\n}\\n```\\n\\n1. Rotation:
+        To maintain the balance, an AVL tree performs rotations when there are imbalances
+        that exceed the threshold (a balance factor of 2 or -2). The two types of
+        rotations for an AVL tree are left rotation and right rotation:\\n\\n- Left
+        rotation:\\n```scss\\n                 A\\n               /    \\\\\\n              B
+        \      C\\n             / \\\\     / \\\\\\n            D   E   F   G\\n         RIGHT
+        RIGHT LEFT\\n\\n          A\\n        /    \\\\\\n       B      C\\n     LEFT
+        \    RIGHT\\n       A      B\\n      /   \\\\\\n     D     E\\n```\\n\\n-
+        Right rotation:\\n```scss\\n                   A\\n                 /     \\\\\\n
+        \               B          C\\n               / \\\\       / \\\\\\n              D
+        \  F        G   H\\n             /             /   \\\\\\n            E              I
+        \    J\\n             LEFT            RIGHT\\n        LEFT           RIGHT\\n
+        \      B                   C\\n      / \\\\\\n     D   E\\n```\\n\\n2. Reworking
+        balance factor: After each rotation, update the balance factors and the heights
+        of the nodes involved in the rotation to maintain balance.\\n\\n3. Re-balancing:
+        When adding or removing a node, check the height differences between the subtrees
+        of the current node. Calculate the balance factor for the current node and
+        re-balance the tree if the balance factor exceeds the threshold of 2 or -2.\\n\\n-
+        Adding a node: If a node is added as a leaf, there might be an imbalance,
+        so a rotation might be necessary.\\n\\nStart by calculating the balance factors
+        for the parent and current node. If the node has a balance factor of -2 or
+        2, it is considered imbalanced.\\n\\nCheck the height difference between the
+        subtrees:\\n  - If the left subtree has a height difference of 2, perform
+        a RIGHT rotation on the left child, and then a LEFT rotation on the current
+        parent node.\\n  - If the right subtree has a height difference of 2, perform
+        a LEFT rotation on the right child, and then a RIGHT rotation on the current
+        parent node.\\n\\nRe-calculate the balance factors and heights after the rotation,
+        and repeat the process if the balance factor is still outside the threshold.\\n\\n-
+        Removing a node: Removing a node is more complicated in the AVL tree because
+        we must maintain balance in the tree. The process involves finding a suitable
+        replacement node, such as a successor or min node, to replace the node being
+        removed and then re-balancing the tree.\\n\\nFor further understanding, the
+        complete implementation of an AVL tree can be found online under various programming
+        languages, such as Java, C++, or Python.\"},\"finish_reason\":\"eos\"}],\"usage\":{\"prompt_tokens\":12,\"completion_tokens\":874,\"total_tokens\":886}}"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 88b8814aab601732-SJC
+      Cache-Control:
+      - public, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 29 May 2024 18:21:36 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - Authorization, User-Agent, X-Api-Key, X-CSRF-Token, X-Requested-With, Accept,
+        Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version,
+        HTTP-Referer, X-Windowai-Title, X-Openrouter-Title, X-Title, X-Stainless-Lang,
+        X-Stainless-Package-Version, X-Stainless-OS, X-Stainless-Arch, X-Stainless-Runtime,
+        X-Stainless-Runtime-Version
+      access-control-allow-methods:
+      - GET,OPTIONS,PATCH,DELETE,POST,PUT
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '3939'
+      strict-transport-security:
+      - max-age=63072000
+      x-matched-path:
+      - /api/v1/chat/completions
+      x-vercel-id:
+      - sfo1::7ffdl-1717006895797-e3d617a4710d
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -13,6 +13,7 @@ API_KEY_PATTERN = re.compile(r".*")
 
 class MoonshotModel(Model):
     supports_streaming: bool = True
+    supports_empty_content: bool = False
     provider_name: str = PROVIDER_NAME
 
 

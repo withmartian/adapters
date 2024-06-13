@@ -1,0 +1,95 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "gpt-3.5-turbo-1106",
+      "response_format": {"type": "json_object"}}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '134'
+      content-type:
+      - application/json
+      host:
+      - api.openai.com
+      user-agent:
+      - OpenAI/Python 1.30.4
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.30.4
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.openai.com/v1/chat/completions
+  response:
+    body:
+      string: "{\n  \"id\": \"chatcmpl-9UImspLBRzJP5FDQwsjESRzZCqlYt\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1717009086,\n  \"model\": \"gpt-3.5-turbo-1106\",\n
+        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
+        \"assistant\",\n        \"content\": \"{\\n  \\\"name\\\": \\\"John\\\",\\n
+        \ \\\"age\\\": 30,\\n  \\\"city\\\": \\\"New York\\\",\\n  \\\"interests\\\":
+        [\\\"hiking\\\", \\\"reading\\\", \\\"traveling\\\"]\\n}\"\n      },\n      \"logprobs\":
+        null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
+        11,\n    \"completion_tokens\": 40,\n    \"total_tokens\": 51\n  },\n  \"system_fingerprint\":
+        null\n}\n"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 88b8b6c76e3d2509-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 29 May 2024 18:58:07 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=Dx3LctzUFJe_HO6gb11dBs_J8z3INGdFhEZqrY5m2v4-1717009087-1.0.1.1-1Y1hSBKI7XSwS5cPLyIuOR_NtY4MViZQRdqK_jkJkhpbY_Am8SMT1ryDCWFvG8AgYcz1_qWLZh271L9fXdc8fg;
+        path=/; expires=Wed, 29-May-24 19:28:07 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '579'
+      openai-organization:
+      - martian-4
+      openai-processing-ms:
+      - '584'
+      openai-version:
+      - '2020-10-01'
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      x-ratelimit-limit-requests:
+      - '10000'
+      x-ratelimit-limit-tokens:
+      - '2000000'
+      x-ratelimit-remaining-requests:
+      - '9999'
+      x-ratelimit-remaining-tokens:
+      - '1999979'
+      x-ratelimit-reset-requests:
+      - 6ms
+      x-ratelimit-reset-tokens:
+      - 0s
+      x-request-id:
+      - req_2f41a29602cb204f508d91d624d484ef
+    status:
+      code: 200
+      message: OK
+version: 1

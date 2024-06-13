@@ -173,25 +173,27 @@ MODELS = [
         context_length=4096,
         vendor_name="mistralai",
     ),
-    TogetherModel(
-        name="Mixtral-8x7B-Instruct-v0.1",
-        cost=Cost(prompt=0.6e-6, completion=0.6e-6),
-        context_length=32768,
-        vendor_name="mistralai",
-        supports_json_output=True,
-    ),
+    # TogetherModel(
+    #     name="Mixtral-8x7B-Instruct-v0.1",
+    #     cost=Cost(prompt=0.6e-6, completion=0.6e-6),
+    #     context_length=32768,
+    #     vendor_name="mistralai",
+    #     supports_json_output=True,
+    # ),
     TogetherModel(
         name="Mixtral-8x22B-Instruct-v0.1",
         cost=Cost(prompt=1.2e-6, completion=1.2e-6),
         context_length=65536,
         vendor_name="mistralai",
     ),
-    TogetherModel(
-        name="Mistral-7B-Instruct-v0.2",
-        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-        context_length=32768,
-        vendor_name="mistralai",
-    ),
+    # TogetherModel(
+    #     name="Mistral-7B-Instruct-v0.2",
+    #     cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+    #     context_length=32768,
+    #     vendor_name="mistralai",
+    #     supports_multiple_system=False,
+    #     supports_repeating_roles=False,
+    # ),
     TogetherModel(
         name="Nous-Capybara-7B-V1p9",
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
@@ -203,6 +205,7 @@ MODELS = [
         cost=Cost(prompt=0.6e-6, completion=0.6e-6),
         context_length=32768,
         vendor_name="NousResearch",
+        supports_multiple_system=False,
     ),
     TogetherModel(
         name="Nous-Hermes-2-Mixtral-8x7B-SFT",
@@ -282,12 +285,13 @@ MODELS = [
         context_length=4096,
         vendor_name="Qwen",
     ),
-    TogetherModel(
-        name="Snorkel-Mistral-PairRM-DPO",
-        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-        context_length=32768,
-        vendor_name="snorkelai",
-    ),
+    # TogetherModel(
+    #     name="Snorkel-Mistral-PairRM-DPO",
+    #     cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+    #     context_length=32768,
+    #     vendor_name="snorkelai",
+    #     supports_first_assistant=False,
+    # ),
     TogetherModel(
         name="alpaca-7b",
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
@@ -329,6 +333,7 @@ MODELS = [
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
         context_length=32768,
         vendor_name="togethercomputer",
+        supports_empty_content=False,
     ),
     TogetherModel(
         name="ReMM-SLERP-L2-13B",

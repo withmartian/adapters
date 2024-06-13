@@ -7,6 +7,17 @@ import re
 import requests
 import tiktoken_ext.openai_public  # type: ignore
 
+from adapters.abstract_adapters.base_adapter import BaseAdapter
+from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
+from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
+    AnthropicSDKChatProviderAdapter,
+)
+from adapters.provider_adapters.cohere_sdk_chat_provider_adapter import (
+    CohereSDKChatProviderAdapter,
+)
+from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
+    GeminiSDKChatProviderAdapter,
+)
 from adapters.types import (
     ContentTurn,
     ContentType,
@@ -26,6 +37,13 @@ TEST_TOP_P = 0.5
 
 SIMPLE_CONVERSATION_USER_ONLY = Conversation(
     [Turn(role=ConversationRole.user, content="Hi")]
+)
+
+SIMPLE_CONVERSATION_SYSTEM_ONLY = Conversation(
+    [
+        Turn(role=ConversationRole.system, content="Hi"),
+        Turn(role=ConversationRole.user, content="Hi"),
+    ]
 )
 
 SIMPLE_CONVERSATION_EMPTY_CONTENT = Conversation(
@@ -85,11 +103,10 @@ SIMPLE_CONVERSATION_JSON_CONTENT = Conversation(
     [
         ContentTurn(
             role=ConversationRole.user,
-            content=[TextContentEntry(type=ContentType.text, text="Hi")],
-        ),
-        ContentTurn(
-            role=ConversationRole.user,
-            content=[TextContentEntry(type=ContentType.text, text="Test")],
+            content=[
+                TextContentEntry(type=ContentType.text, text="Hi"),
+                TextContentEntry(type=ContentType.text, text="Hi"),
+            ],
         ),
     ]
 )
@@ -152,11 +169,33 @@ def setup_tiktoken_cache():
     # The URL should be in the 'load_tiktoken_bpe function call'
 
 
-def get_choices_from_vcr(vcr):
-    last_response = vcr.responses[len(vcr.responses) - 1]
-    choices = json.loads(
-        last_response["content"]
-        if "content" in last_response
-        else last_response["body"]["string"]
-    )["choices"]
-    return choices
+# COhere
+# cassette_response = json.loads(vcr.responses[-1]["body"]["string"])["text"]
+
+
+# Anthropic
+# cassette_response = json.loads(vcr.responses[len(vcr.responses) - 1]["body"]["string"])[
+#     "content"
+# ][0]["text"]
+
+
+# vcr.responses[-1]["content"]
+#             if "content" in vcr.responses[-1]
+#             else
+
+
+def get_choices_from_vcr(vcr, adapter: BaseAdapter):
+    if isinstance(adapter, OpenAISDKChatAdapter):
+        return json.loads(vcr.responses[-1]["body"]["string"])["choices"][0]["message"][
+            "content"
+        ]
+    elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
+        return json.loads(vcr.responses[-1]["body"]["string"])["content"][0]["text"]
+    elif isinstance(adapter, CohereSDKChatProviderAdapter):
+        return json.loads(vcr.responses[-1]["body"]["string"])["text"]
+    elif isinstance(adapter, GeminiSDKChatProviderAdapter):
+        return json.loads(vcr.responses[0]["body"]["string"])["candidates"][0][
+            "content"
+        ]["parts"][0]["text"]
+    else:
+        raise ValueError("Unknown adapter")

@@ -1,0 +1,70 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model": "accounts/fireworks/models/llama-v3-8b-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '191'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.30.4
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.30.4
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"08aa622b-bbbe-4450-af6b-8b636c2332a3","object":"chat.completion","created":1717011856,"model":"accounts/fireworks/models/llama-v3-8b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Ha
+        ha, it looks like we''re having a bit of a \"hi\" exchange!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":27,"total_tokens":46,"completion_tokens":19}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 88b8fa619c5017ea-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 29 May 2024 19:44:15 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google
+      content-length:
+      - '372'
+      fireworks-server-processing-time:
+      - '0.127'
+      x-request-id:
+      - 05a9ba70-3dab-4a64-87f1-853fb149a60b
+    status:
+      code: 200
+      message: OK
+version: 1

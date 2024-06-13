@@ -13,6 +13,7 @@ API_KEY_PATTERN = re.compile(r".*")
 
 class AnyscaleModel(Model):
     supports_streaming: bool = True
+    supports_multiple_system: bool = False
     provider_name: str = PROVIDER_NAME
 
     def _get_api_path(self) -> str:
@@ -57,12 +58,6 @@ MODELS = [
         vendor_name="meta-llama",
     ),
     AnyscaleModel(
-        name="Mistral-7B-OpenOrca",
-        cost=Cost(prompt=0.15e-6, completion=0.15e-6),
-        context_length=8192,
-        vendor_name="Open-Orca",
-    ),
-    AnyscaleModel(
         name="CodeLlama-34b-Instruct-hf",
         cost=Cost(prompt=1.00e-6, completion=1.00e-6),
         context_length=16384,
@@ -74,12 +69,12 @@ MODELS = [
         context_length=16384,
         vendor_name="codellama",
     ),
-    AnyscaleModel(
-        name="zephyr-7b-beta",
-        cost=Cost(prompt=0.15e-6, completion=0.15e-6),
-        context_length=16384,
-        vendor_name="HuggingFaceH4",
-    ),
+    # AnyscaleModel(
+    #     name="zephyr-7b-beta",
+    #     cost=Cost(prompt=0.15e-6, completion=0.15e-6),
+    #     context_length=16384,
+    #     vendor_name="HuggingFaceH4",
+    # ),
     AnyscaleModel(
         name="Mistral-7B-Instruct-v0.1",
         cost=Cost(prompt=0.15e-6, completion=0.15e-6),
