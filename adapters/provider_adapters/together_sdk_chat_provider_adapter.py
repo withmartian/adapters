@@ -105,12 +105,13 @@ MODELS = [
         context_length=4096,
         vendor_name="lmsys",
     ),
-    TogetherModel(
-        name="vicuna-7b-v1.5",
-        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-        context_length=4096,
-        vendor_name="lmsys",
-    ),
+    # cannot find
+    # TogetherModel(
+    #     name="vicuna-7b-v1.5",
+    #     cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+    #     context_length=4096,
+    #     vendor_name="lmsys",
+    # ),
     TogetherModel(
         name="CodeLlama-7b-Instruct-hf",
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
