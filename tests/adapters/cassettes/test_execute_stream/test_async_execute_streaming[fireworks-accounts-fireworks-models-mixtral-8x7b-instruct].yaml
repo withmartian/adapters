@@ -1,0 +1,97 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct",
+      "stream": true}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.30.2
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.30.2
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.9
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: 'data: {"id":"3b61184a-e302-47a8-b6af-fe0d2709c0d3","object":"chat.completion.chunk","created":1718358911,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"delta":{"role":"assistant"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"3b61184a-e302-47a8-b6af-fe0d2709c0d3","object":"chat.completion.chunk","created":1718358911,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"delta":{"content":"Hello!"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"3b61184a-e302-47a8-b6af-fe0d2709c0d3","object":"chat.completion.chunk","created":1718358911,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"delta":{"content":"
+        How can I help you today? If you have any questions about a particular topic,
+        feel free to ask and I"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"3b61184a-e302-47a8-b6af-fe0d2709c0d3","object":"chat.completion.chunk","created":1718358911,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"delta":{"content":"''ll
+        do my best to provide a clear and helpful answer. If you''re just looking
+        for someone to chat"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"3b61184a-e302-47a8-b6af-fe0d2709c0d3","object":"chat.completion.chunk","created":1718358911,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"delta":{"content":"
+        with, I''m here for that too. Is there something on your mind"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"3b61184a-e302-47a8-b6af-fe0d2709c0d3","object":"chat.completion.chunk","created":1718358911,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"delta":{"content":"
+        that you''d like to talk about? I''m all ears!"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"3b61184a-e302-47a8-b6af-fe0d2709c0d3","object":"chat.completion.chunk","created":1718358911,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"delta":{},"finish_reason":"stop"}],"usage":{"prompt_tokens":9,"total_tokens":89,"completion_tokens":80}}
+
+
+        data: [DONE]
+
+
+        '
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8939717b1b78959f-TBS
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Date:
+      - Fri, 14 Jun 2024 09:55:11 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google
+      fireworks-server-time-to-first-token:
+      - '0.044'
+      x-request-id:
+      - 551853fa-73b4-45d8-adcc-ef06c4bcd87b
+    status:
+      code: 200
+      message: OK
+version: 1
