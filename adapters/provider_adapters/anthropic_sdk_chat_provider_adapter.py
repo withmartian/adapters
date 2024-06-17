@@ -15,6 +15,7 @@ from adapters.types import (
     OpenAIChatAdapterResponse,
     Turn,
 )
+from adapters.utils.general_utils import process_image_url
 
 PROVIDER_NAME = "anthropic"
 BASE_URL = "https://api.anthropic.com"
@@ -239,6 +240,24 @@ class AnthropicSDKChatProviderAdapter(
         # Remove trailing whitespace from the last assistant message
         if len(messages) > 0 and messages[-1]["role"] == ConversationRole.assistant:
             messages[-1]["content"] = messages[-1]["content"].rstrip()
+
+        # Include base64-encoded images in the request
+        for message in messages:
+            if message["role"] == ConversationRole.user:
+                new_content = []
+
+                if isinstance(message["content"], list):
+                    for content in message["content"]:
+                        if content["type"] == "text":
+                            new_content.append(content)
+                        elif content["type"] == "image_url":
+                            new_content.append(
+                                process_image_url(content["image_url"]["url"])
+                            )
+                else:
+                    new_content = [{"type": "text", "text": message["content"]}]
+
+                message["content"] = new_content
 
         return {
             **params,

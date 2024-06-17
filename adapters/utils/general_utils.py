@@ -1,4 +1,8 @@
+import base64
+import os
 from typing import Optional
+
+import httpx
 
 from adapters.types import RequestBody
 
@@ -31,3 +35,18 @@ def delete_none_values(dictionary: dict):
             else:
                 dictionary[k] = delete_none_values(v)
     return dictionary
+
+
+def process_image_url(image_url: str):
+    image_data = base64.b64encode(httpx.get(image_url).content).decode("utf-8")
+    _, extension = os.path.splitext(image_url)
+    extension = extension.lstrip(".").lower()
+    media_type = f"image/{extension}"
+    return {
+        "type": "image",
+        "source": {
+            "type": "base64",
+            "media_type": media_type,
+            "data": image_data,
+        },
+    }
