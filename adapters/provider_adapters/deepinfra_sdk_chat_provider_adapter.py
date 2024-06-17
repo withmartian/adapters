@@ -34,7 +34,7 @@ MODELS = [
     ),
     DeepInfraModel(
         name="Mixtral-8x7B-Instruct-v0.1",
-        cost=Cost(prompt=0.27e-6, completion=0.27e-6),
+        cost=Cost(prompt=0.24e-6, completion=0.24e-6),
         context_length=32000,
         vendor_name="mistralai",
     ),
@@ -61,7 +61,7 @@ MODELS = [
     ),
     DeepInfraModel(
         name="Meta-Llama-3-8B-Instruct",
-        cost=Cost(prompt=0.1e-6, completion=0.1e-6),
+        cost=Cost(prompt=0.08e-6, completion=0.08e-6),
         context_length=8000,
         vendor_name="meta-llama",
         supports_n=False,
