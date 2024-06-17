@@ -63,6 +63,7 @@ MODELS = [
         context_length=32_768,
         vendor_name="accounts/fireworks/models",
         supports_first_assistant=False,
+        supports_streaming=False,
     ),
     FireworksModel(
         name="mixtral-8x22b-instruct",

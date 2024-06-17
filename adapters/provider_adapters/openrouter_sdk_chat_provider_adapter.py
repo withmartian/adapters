@@ -25,6 +25,7 @@ MODELS = [
         cost=Cost(prompt=0.60e-6, completion=0.60e-6),
         context_length=32_768,
         vendor_name="databricks",
+        supports_streaming=False,
     ),
     OpenRouterModel(
         name="gemma-7b-it",
