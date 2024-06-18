@@ -194,6 +194,7 @@ def get_choices_from_vcr(vcr, adapter: BaseAdapter):
         else:
             return choices[0]["message"]["content"]
 
+
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
         return response["content"][0]["text"]
 

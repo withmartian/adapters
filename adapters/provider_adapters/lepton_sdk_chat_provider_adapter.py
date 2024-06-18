@@ -33,14 +33,14 @@ MODELS = [
     LeptonModel(
         base_url=BASE_URL.format("gemma-7b"),
         name="gemma-7b",
-        cost=Cost(prompt=0.10e-6, completion=0.10e-6),
+        cost=Cost(prompt=0.07e-6, completion=0.07e-6),
         context_length=8192,
         vendor_name="google",
     ),
     LeptonModel(
         base_url=BASE_URL.format("mistral-7b"),
         name="mistral-7b",
-        cost=Cost(prompt=0.11e-6, completion=0.11e-6),
+        cost=Cost(prompt=0.07e-6, completion=0.07e-6),
         context_length=8192,
         vendor_name="mistralai",
     ),
@@ -73,8 +73,7 @@ class LeptonSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
     def get_api_key_pattern() -> Pattern:
         return API_KEY_PATTERN
 
-    @staticmethod
-    def get_base_sdk_url() -> str:
+    def get_base_sdk_url(self) -> str:
         return BASE_URL
 
     def _set_current_model(self, model: Model) -> None:
