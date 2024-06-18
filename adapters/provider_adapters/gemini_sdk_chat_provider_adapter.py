@@ -38,9 +38,34 @@ MODELS = [
         completion_length=2048,
     ),
     GeminiModel(
+        name="gemini-1.0-pro-latest",
+        cost=Cost(prompt=0.125e-6, completion=0.375e-6),
+        context_length=30720,
+        completion_length=2048,
+    ),
+    GeminiModel(
+        name="gemini-1.5-pro",
+        cost=Cost(prompt=3.5e-6, completion=10.5e-6),
+        context_length=128000,
+        completion_length=8192,
+    ),
+    GeminiModel(
         name="gemini-1.5-pro-latest",
         cost=Cost(prompt=3.5e-6, completion=10.5e-6),
         context_length=128000,
+        completion_length=8192,
+    ),
+    GeminiModel(
+        name="gemini-1.5-flash",
+        cost=Cost(prompt=0.35e-6, completion=0.70e-6),
+        context_length=128000,
+        completion_length=8192,
+    ),
+    GeminiModel(
+        name="gemini-1.5-flash-latest",
+        cost=Cost(prompt=0.35e-6, completion=0.70e-6),
+        context_length=128000,
+        completion_length=8192,
     ),
 ]
 
@@ -59,8 +84,7 @@ class GeminiSDKChatProviderAdapter(
     def get_provider_name() -> str:
         return PROVIDER_NAME
 
-    @staticmethod
-    def get_base_sdk_url() -> str:
+    def get_base_sdk_url(self) -> str:
         return ""
 
     @staticmethod
@@ -101,7 +125,7 @@ class GeminiSDKChatProviderAdapter(
             client_options=ClientOptions(api_key=api_key), transport="rest"
         )
         self._async_client = GenerativeServiceAsyncClient(
-            client_options=ClientOptions(api_key=api_key), transport="rest"
+            client_options=ClientOptions(api_key=api_key)
         )
 
     def extract_response(
@@ -149,7 +173,7 @@ class GeminiSDKChatProviderAdapter(
         self, request: Any, response: Any
     ) -> OpenAIChatAdapterResponse:
         model = genai.GenerativeModel(model_name=self.get_model_name())
-        model._client = self.get_async_client()
+        model._async_client = self.get_async_client()
 
         choices = [
             {
@@ -161,15 +185,14 @@ class GeminiSDKChatProviderAdapter(
             }
         ]
 
-        # Optimize token count calculation, use async for async and parallelize
         prompt_tokens = await model.count_tokens_async(
             [turn.content for turn in request.turns]
-        ).total_tokens
-        completion_tokens = await model.count_tokens_async(response.text).total_tokens
+        )
+        completion_tokens = await model.count_tokens_async(response.text)
 
         cost = (
-            self.get_model().cost.prompt * prompt_tokens
-            + self.get_model().cost.completion * completion_tokens
+            self.get_model().cost.prompt * prompt_tokens.total_tokens
+            + self.get_model().cost.completion * completion_tokens.total_tokens
             + self.get_model().cost.request
         )
 
@@ -177,12 +200,12 @@ class GeminiSDKChatProviderAdapter(
             response=Turn(
                 role=ConversationRole.assistant,
                 content=choices[0]["message"]["content"],  # type: ignore
-            ),  # TODO: Refactor response
+            ),
             choices=choices,
             cost=cost,
             token_counts=Cost(
-                prompt=prompt_tokens,
-                completion=completion_tokens,
+                prompt=prompt_tokens.total_tokens,
+                completion=completion_tokens.total_tokens,
             ),
         )
 

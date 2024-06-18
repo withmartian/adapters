@@ -35,12 +35,12 @@ class CohereModel(Model):
 MODELS = [
     CohereModel(
         name="command-r",
-        cost=Cost(prompt=3.00e-6, completion=15.00e-6),
+        cost=Cost(prompt=0.5e-6, completion=1.5e-6),
         context_length=131_072,
     ),
     CohereModel(
         name="command-r-plus",
-        cost=Cost(prompt=0.50e-6, completion=1.50e-6),
+        cost=Cost(prompt=3.00e-6, completion=15.00e-6),
         context_length=131_072,
     ),
 ]
@@ -73,8 +73,7 @@ class CohereSDKChatProviderAdapter(
     def get_api_key_pattern() -> Pattern:
         return API_KEY_PATTERN
 
-    @staticmethod
-    def get_base_sdk_url() -> str:
+    def get_base_sdk_url(self) -> str:
         return BASE_URL
 
     @staticmethod
@@ -109,7 +108,7 @@ class CohereSDKChatProviderAdapter(
             # Cohere uses a "sync" call to chat_stream, even if it is an async_client.
             return self._async_client.chat_stream(**kwargs)
 
-        return await self._async_client.chat(**kwargs)  # pylint: disable=missing-kwoa
+        return await self._async_client.chat(**kwargs)
 
     def _sync_client_wrapper(self, **kwargs: Any):
         stream = kwargs.get("stream", False)

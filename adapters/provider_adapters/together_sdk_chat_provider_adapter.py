@@ -106,12 +106,6 @@ MODELS = [
         vendor_name="lmsys",
     ),
     TogetherModel(
-        name="vicuna-7b-v1.5",
-        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-        context_length=4096,
-        vendor_name="lmsys",
-    ),
-    TogetherModel(
         name="CodeLlama-7b-Instruct-hf",
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
         context_length=16384,
@@ -119,13 +113,13 @@ MODELS = [
     ),
     TogetherModel(
         name="CodeLlama-13b-Instruct-hf",
-        cost=Cost(prompt=0.3e-6, completion=0.3e-6),
+        cost=Cost(prompt=0.22e-6, completion=0.22e-6),
         context_length=16384,
         vendor_name="codellama",
     ),
     TogetherModel(
         name="CodeLlama-34b-Instruct-hf",
-        cost=Cost(prompt=0.8e-6, completion=0.8e-6),
+        cost=Cost(prompt=0.78e-6, completion=0.78e-6),
         context_length=16384,
         vendor_name="codellama",
     ),
@@ -143,7 +137,7 @@ MODELS = [
     ),
     TogetherModel(
         name="Llama-2-13b-chat-hf",
-        cost=Cost(prompt=0.3e-6, completion=0.3e-6),
+        cost=Cost(prompt=0.22e-6, completion=0.22e-6),
         context_length=4096,
         vendor_name="meta-llama",
     ),
@@ -371,8 +365,7 @@ class TogetherSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter)
     def get_provider_name() -> str:
         return PROVIDER_NAME
 
-    @staticmethod
-    def get_base_sdk_url() -> str:
+    def get_base_sdk_url(self) -> str:
         return BASE_URL
 
     @staticmethod

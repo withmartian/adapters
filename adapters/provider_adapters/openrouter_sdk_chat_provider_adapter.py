@@ -22,31 +22,31 @@ class OpenRouterModel(Model):
 MODELS = [
     OpenRouterModel(
         name="dbrx-instruct",
-        cost=Cost(prompt=0.60e-6, completion=0.60e-6),
+        cost=Cost(prompt=1.08e-6, completion=1.08e-6),
         context_length=32_768,
         vendor_name="databricks",
     ),
     OpenRouterModel(
         name="gemma-7b-it",
-        cost=Cost(prompt=0.10e-6, completion=0.10e-6),
+        cost=Cost(prompt=0.07e-6, completion=0.07e-6),
         context_length=8192,
         vendor_name="google",
     ),
     OpenRouterModel(
         name="llama-3-70b-instruct",
-        cost=Cost(prompt=0.81e-6, completion=0.81e-6),
+        cost=Cost(prompt=0.59e-6, completion=0.59e-6),
         context_length=8192,
         vendor_name="meta-llama",
     ),
     OpenRouterModel(
         name="llama-3-8b-instruct",
-        cost=Cost(prompt=0.10e-6, completion=0.10e-6),
+        cost=Cost(prompt=0.07e-6, completion=0.07e-6),
         context_length=8192,
         vendor_name="meta-llama",
     ),
     OpenRouterModel(
         name="mistral-7b-instruct",
-        cost=Cost(prompt=0.10e-6, completion=0.25e-6),
+        cost=Cost(prompt=0.07e-6, completion=0.07e-6),
         context_length=32_768,
         vendor_name="mistralai",
     ),
@@ -68,6 +68,12 @@ MODELS = [
         context_length=8192,
         vendor_name="pygmalionai",
     ),
+    OpenRouterModel(
+        name="mythomax-l2-13b",
+        cost=Cost(prompt=0.13e-6, completion=0.13e-6),
+        context_length=4096,
+        vendor_name="gryphe",
+    ),
 ]
 
 
@@ -80,8 +86,7 @@ class OpenRouterSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapte
     def get_provider_name() -> str:
         return PROVIDER_NAME
 
-    @staticmethod
-    def get_base_sdk_url() -> str:
+    def get_base_sdk_url(self) -> str:
         return BASE_URL
 
     @staticmethod
