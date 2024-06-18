@@ -38,15 +38,29 @@ def delete_none_values(dictionary: dict):
 
 
 def process_image_url(image_url: str):
-    image_data = base64.b64encode(httpx.get(image_url).content).decode("utf-8")
-    _, extension = os.path.splitext(image_url)
-    extension = extension.lstrip(".").lower()
-    media_type = f"image/{extension}"
-    return {
-        "type": "image",
-        "source": {
-            "type": "base64",
-            "media_type": media_type,
-            "data": image_data,
-        },
-    }
+    if image_url.startswith("data:"):
+        # Base64 data is passed as a URL
+        media_type, _, base64_data = image_url.partition(";base64,")
+        media_type = media_type.split(":")[1]
+        return {
+            "type": "image",
+            "source": {
+                "type": "base64",
+                "media_type": media_type,
+                "data": base64_data,
+            },
+        }
+    else:
+        # URL points to an image file
+        image_data = base64.b64encode(httpx.get(image_url).content).decode("utf-8")
+        _, extension = os.path.splitext(image_url)
+        extension = extension.lstrip(".").lower()
+        media_type = f"image/{extension}"
+        return {
+            "type": "image",
+            "source": {
+                "type": "base64",
+                "media_type": media_type,
+                "data": image_data,
+            },
+        }
