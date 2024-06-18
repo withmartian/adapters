@@ -3,7 +3,7 @@ import pytest
 from adapters.adapter_factory import AdapterFactory
 from adapters.types import ConversationRole
 from tests.adapters.utils.contants import MODEL_PATHS
-from tests.utils import SIMPLE_FUNCTION_CALL_USER_ONLY, get_choices_from_vcr
+from tests.utils import SIMPLE_FUNCTION_CALL_USER_ONLY, get_response_choices_from_vcr
 
 
 @pytest.mark.parametrize("model_name", MODEL_PATHS)
@@ -30,7 +30,7 @@ def test_sync_execute_tools(vcr, model_name):
         ],
     )
 
-    choices = get_choices_from_vcr(vcr, adapter)
+    choices = get_response_choices_from_vcr(vcr, adapter)
 
     assert (
         adapter_response.choices[0].message.tool_calls[0].function.name
@@ -67,7 +67,7 @@ async def test_async_execute_tools(vcr, model_name):
             }
         ],
     )
-    choices = get_choices_from_vcr(vcr, adapter)
+    choices = get_response_choices_from_vcr(vcr, adapter)
 
     assert (
         adapter_response.choices[0].message.tool_calls[0].function.name
