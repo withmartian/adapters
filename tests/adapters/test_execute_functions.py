@@ -3,7 +3,7 @@ import pytest
 from adapters.adapter_factory import AdapterFactory
 from adapters.types import ConversationRole
 from tests.adapters.utils.contants import MODEL_PATHS
-from tests.utils import SIMPLE_FUNCTION_CALL_USER_ONLY, get_choices_from_vcr
+from tests.utils import SIMPLE_FUNCTION_CALL_USER_ONLY, get_response_choices_from_vcr
 
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)
@@ -22,7 +22,7 @@ def test_sync_execute_function_calls(vcr, model_path: str):
         functions=[{"description": "Generate random number", "name": "generate"}],
     )
 
-    choices = get_choices_from_vcr(vcr, adapter)
+    choices = get_response_choices_from_vcr(vcr, adapter)
 
     # TODO: fix typing for adapter_response to include choices and cost
     assert (
@@ -52,7 +52,7 @@ async def test_async_execute_function_calls(vcr, model_path: str):
         function_call={"name": "generate"},
         functions=[{"description": "Generate random number", "name": "generate"}],
     )
-    choices = get_choices_from_vcr(vcr, adapter)
+    choices = get_response_choices_from_vcr(vcr, adapter)
 
     # TODO: fix typing for adapter_response to include choices and cost
     assert (

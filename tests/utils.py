@@ -169,39 +169,32 @@ def setup_tiktoken_cache():
     # The URL should be in the 'load_tiktoken_bpe function call'
 
 
-# COhere
-# cassette_response = json.loads(vcr.responses[-1]["body"]["string"])["text"]
-
-
-# Anthropic
-# cassette_response = json.loads(vcr.responses[len(vcr.responses) - 1]["body"]["string"])[
-#     "content"
-# ][0]["text"]
-
-
-# vcr.responses[-1]["content"]
-#             if "content" in vcr.responses[-1]
-#             else
-
-
-def get_choices_from_vcr(vcr, adapter: BaseAdapter):
+def get_response_content_from_vcr(vcr, adapter: BaseAdapter):
     response = json.loads(vcr.responses[-1]["body"]["string"])
 
     if isinstance(adapter, OpenAISDKChatAdapter):
-        choices = response["choices"]
-        if choices[0]["message"]["content"] is None:
-            return choices
-        else:
-            return choices[0]["message"]["content"]
-
+        return response["choices"][0]["message"]["content"]
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
         return response["content"][0]["text"]
-
     elif isinstance(adapter, CohereSDKChatProviderAdapter):
         return response["text"]
-
     elif isinstance(adapter, GeminiSDKChatProviderAdapter):
         return response["candidates"][0]["content"]["parts"][0]["text"]
+    else:
+        raise ValueError("Unknown adapter")
+
+
+def get_response_choices_from_vcr(vcr, adapter: BaseAdapter):
+    response = json.loads(vcr.responses[-1]["body"]["string"])
+
+    if isinstance(adapter, OpenAISDKChatAdapter):
+        return response["choices"]
+    # elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
+    # return response["content"][0]["text"]
+    # elif isinstance(adapter, CohereSDKChatProviderAdapter):
+    # return response["text"]
+    # elif isinstance(adapter, GeminiSDKChatProviderAdapter):
+    # return response["candidates"][0]["content"]["parts"][0]["text"]
 
     else:
         raise ValueError("Unknown adapter")
