@@ -1,11 +1,9 @@
-import base64
 import hashlib
 import inspect
 import json
 import os
 import re
 
-import httpx
 import requests
 import tiktoken_ext.openai_public  # type: ignore
 
@@ -36,11 +34,6 @@ TEST_TEMPERATURE = 0.5
 TEST_MAX_TOKENS = 200
 TEST_TOP_P = 0.5
 
-image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg"
-image_data = base64.b64encode(httpx.get(image_url).content).decode("utf-8")
-_, extension = os.path.splitext(image_url)
-extension = extension.lstrip(".").lower()
-media_type = f"image/{extension}"
 
 SIMPLE_CONVERSATION_USER_ONLY = Conversation(
     [Turn(role=ConversationRole.user, content="Hi")]
@@ -140,7 +133,7 @@ SIMPLE_CONVERSATION_VISION = Conversation(
                     {
                         "type": "image_url",
                         "image_url": {
-                            "url": image_url,
+                            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg",
                         },
                     },
                     {
@@ -150,7 +143,7 @@ SIMPLE_CONVERSATION_VISION = Conversation(
                     {
                         "type": "image_url",
                         "image_url": {
-                            "url": image_data,
+                            "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII",
                         },
                     },
                 ],
