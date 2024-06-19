@@ -198,7 +198,23 @@ def get_choices_from_vcr(vcr, adapter: BaseAdapter):
                 "message"
             ]["content"]
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
-        return json.loads(vcr.responses[-1]["body"]["string"])["content"][0]["text"]
+        return [
+            {
+                "message": {
+                    "role": json.loads(vcr.responses[-1]["body"]["string"])["role"],
+                    "tool_calls": [
+                        {
+                            "function": {
+                                "name": json.loads(vcr.responses[-1]["body"]["string"])[
+                                    "content"
+                                ][1]["name"],
+                                "arguments": None,
+                            },
+                        }
+                    ],
+                }
+            }
+        ]
     elif isinstance(adapter, CohereSDKChatProviderAdapter):
         return json.loads(vcr.responses[-1]["body"]["string"])["text"]
     elif isinstance(adapter, GeminiSDKChatProviderAdapter):

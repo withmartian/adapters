@@ -1,6 +1,6 @@
 import json
 import re
-from typing import Any, Dict, Pattern
+from typing import Any, Dict, List, Pattern
 
 from anthropic import Anthropic, AsyncAnthropic
 
@@ -29,6 +29,7 @@ class AnthropicModel(Model):
     supports_first_assistant: bool = False
     supports_multiple_system: bool = False
     supports_repeating_roles: bool = False
+    supports_tools: bool = True
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
 
@@ -164,18 +165,47 @@ class AnthropicSDKChatProviderAdapter(
     def extract_response(
         self, request: Any, response: Any
     ) -> OpenAIChatAdapterResponse:
-        choices = [
-            {
-                "message": {
-                    "role": response.role,
-                    "content": choice.text,
-                },
-                "finish_reason": FINISH_REASON_MAPPING.get(
-                    response.stop_reason, response.stop_reason
-                ),
-            }
-            for choice in response.content
-        ]
+        if len(response.content) == 1:
+            response.content[0].text = ""
+            choices = [
+                {
+                    "message": {
+                        "role": response.role,
+                        "content": response.content[0].text,
+                        "tool_calls": [
+                            {
+                                "function": {
+                                    "name": response.content[0].name,
+                                    "arguments": None,
+                                }
+                            }
+                        ],
+                    },
+                    "finish_reason": FINISH_REASON_MAPPING.get(
+                        response.stop_reason, response.stop_reason
+                    ),
+                }
+            ]
+        elif len(response.content) == 2:
+            choices = [
+                {
+                    "message": {
+                        "role": response.role,
+                        "content": response.content[0].text,
+                        "tool_calls": [
+                            {
+                                "function": {
+                                    "name": response.content[1].name,
+                                    "arguments": None,
+                                }
+                            }
+                        ],
+                    },
+                    "finish_reason": FINISH_REASON_MAPPING.get(
+                        response.stop_reason, response.stop_reason
+                    ),
+                }
+            ]
         prompt_tokens = self._sync_client.count_tokens(
             request.convert_to_anthropic_prompt()
         )
@@ -221,12 +251,9 @@ class AnthropicSDKChatProviderAdapter(
 
         return f"data: {chunk}\n\n"
 
-    def get_params(
-        self,
-        llm_input: Conversation,
-        **kwargs,
-    ) -> Dict[str, Any]:
+    def get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
         params = super().get_params(llm_input, **kwargs)
+        del params["tool_choice"]
 
         messages = params["messages"]
         system_prompt = ""
@@ -240,13 +267,35 @@ class AnthropicSDKChatProviderAdapter(
         if len(messages) > 0 and messages[-1]["role"] == ConversationRole.assistant:
             messages[-1]["content"] = messages[-1]["content"].rstrip()
 
+        # tool_choice = kwargs.get("tool_choice")
+        tools: List[Dict[str, Any]] = kwargs.get("tools", [])
+
+        # if tool_choice:
+        #     tool_choice_type = tool_choice.get("type")
+        #     if tool_choice_type not in ["auto", "any", "tool"]:
+        #         tool_choice["type"] = "tool"
+
+        #     if "function" in tool_choice:
+        #         del tool_choice["function"]
+
+        tools[0]["name"] = tools[0]["function"]["name"]
+        tools[0]["input_schema"] = {
+            "type": "object",
+            "properties": {
+                "prompt": {
+                    "type": "string",
+                    "description": tools[0]["function"]["description"],
+                }
+            },
+            "required": ["prompt"],
+        }
+        del tools[0]["type"]
+        del tools[0]["function"]
+        print("toolssss", tools)
         return {
             **params,
             "messages": messages,
             "system": system_prompt,
-            "max_tokens": (
-                kwargs.get("max_tokens")
-                if kwargs.get("max_tokens")
-                else self.get_model().completion_length
-            ),
+            "max_tokens": kwargs.get("max_tokens", self.get_model().completion_length),
+            "tools": tools,
         }
