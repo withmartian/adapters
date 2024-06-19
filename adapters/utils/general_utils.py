@@ -55,6 +55,8 @@ def process_image_url(image_url: str):
         image_data = base64.b64encode(httpx.get(image_url).content).decode("utf-8")
         _, extension = os.path.splitext(image_url)
         extension = extension.lstrip(".").lower()
+        if extension == "jpg":
+            extension = "jpeg"
         media_type = f"image/{extension}"
         return {
             "type": "image",

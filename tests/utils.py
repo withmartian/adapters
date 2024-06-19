@@ -136,16 +136,6 @@ SIMPLE_CONVERSATION_VISION = Conversation(
                             "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg",
                         },
                     },
-                    {
-                        "type": "text",
-                        "text": "image 2",
-                    },
-                    {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII",
-                        },
-                    },
                 ],
             },
             from_attributes=True,

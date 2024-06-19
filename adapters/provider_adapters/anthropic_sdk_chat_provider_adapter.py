@@ -88,18 +88,21 @@ SUPPORTED_MODELS = [
         cost=Cost(prompt=3.0e-6, completion=15.0e-6),
         context_length=200000,
         completion_length=4096,
+        supports_vision=True,
     ),
     AnthropicModel(
         name="claude-3-opus-20240229",
         cost=Cost(prompt=15.0e-6, completion=75.0e-6),
         context_length=200000,
         completion_length=4096,
+        supports_vision=True,
     ),
     AnthropicModel(
         name="claude-3-haiku-20240307",
         cost=Cost(prompt=0.25e-6, completion=1.25e-6),
         context_length=200000,
         completion_length=4096,
+        supports_vision=True,
     ),
 ]
 
