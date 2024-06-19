@@ -1,6 +1,6 @@
 import json
 import re
-from typing import Any, Dict, List, Pattern
+from typing import Any, Dict, List, Optional, Pattern
 
 from anthropic import Anthropic, AsyncAnthropic
 
@@ -150,10 +150,10 @@ class AnthropicSDKChatProviderAdapter(
         )
 
     def get_async_client(self):
-        return self._async_client.messages.create
+        return self._async_client.beta.tools.messages.create
 
     def get_sync_client(self):
-        return self._sync_client.messages.create
+        return self._sync_client.beta.tools.messages.create
 
     def adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
@@ -180,16 +180,18 @@ class AnthropicSDKChatProviderAdapter(
                 "message": {
                     "role": response.role,
                     "content": response.content[0].text,
-                    "tool_calls": [
-                        {
-                            "function": {
-                                "name": tool_call_name,
-                                "arguments": None,
+                    "tool_calls": (
+                        [
+                            {
+                                "function": {
+                                    "name": tool_call_name,
+                                    "arguments": None,
+                                }
                             }
-                        }
-                    ]
-                    if tool_call_name
-                    else [],
+                        ]
+                        if tool_call_name
+                        else []
+                    ),
                 },
                 "finish_reason": FINISH_REASON_MAPPING.get(
                     response.stop_reason, response.stop_reason
@@ -258,7 +260,7 @@ class AnthropicSDKChatProviderAdapter(
         if len(messages) > 0 and messages[-1]["role"] == ConversationRole.assistant:
             messages[-1]["content"] = messages[-1]["content"].rstrip()
 
-        tools: List[Dict[str, Any]] = kwargs.get("tools", [])
+        tools: Optional[List[Dict[str, Any]]] = kwargs.get("tools")
         if tools:
             tools[0]["name"] = tools[0]["function"]["name"]
             tools[0]["input_schema"] = {
