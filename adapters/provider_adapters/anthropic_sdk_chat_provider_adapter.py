@@ -150,10 +150,10 @@ class AnthropicSDKChatProviderAdapter(
         )
 
     def get_async_client(self):
-        return self._async_client.beta.tools.messages.create
+        return self._async_client.messages.create
 
     def get_sync_client(self):
-        return self._sync_client.beta.tools.messages.create
+        return self._sync_client.messages.create
 
     def adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
