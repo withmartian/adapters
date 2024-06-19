@@ -1,0 +1,100 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "gpt-3.5-turbo-1106", "tool_choice": {"type": "function", "function": {"name":
+      "generate"}}, "tools": [{"type": "function", "function": {"description": "Generate
+      random number", "name": "generate"}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '279'
+      content-type:
+      - application/json
+      host:
+      - api.openai.com
+      user-agent:
+      - AsyncOpenAI/Python 1.30.2
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.30.2
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.9
+    method: POST
+    uri: https://api.openai.com/v1/chat/completions
+  response:
+    body:
+      string: "{\n  \"id\": \"chatcmpl-9bouksWpKoAyWt5Ghi0WaJdUTPQl6\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1718800878,\n  \"model\": \"gpt-3.5-turbo-1106\",\n
+        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
+        \"assistant\",\n        \"content\": null,\n        \"tool_calls\": [\n          {\n
+        \           \"id\": \"call_s8Q2Ru7rFldyPvmDIla3Zits\",\n            \"type\":
+        \"function\",\n            \"function\": {\n              \"name\": \"generate\",\n
+        \             \"arguments\": \"{}\"\n            }\n          }\n        ]\n
+        \     },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n
+        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 46,\n    \"completion_tokens\":
+        1,\n    \"total_tokens\": 47\n  },\n  \"system_fingerprint\": \"fp_3d37c73133\"\n}\n"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 896397af0f39959f-TBS
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 19 Jun 2024 12:41:19 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=s3AH3NvSuBUjpdyW4APbxWoyLOJ.njpcrm9abukvyuc-1718800879-1.0.1.1-z.Nk3xAGzq4JfgIEQe._av0TjVDdOe3qVDDN_TuW86pj64ISM89f6aq6Lt4OXgW4l_otVqaR5lsauXh.it.esg;
+        path=/; expires=Wed, 19-Jun-24 13:11:19 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=LucrjAefmKzIEbIZkYzOlBQi5RciCOONlT29Mcg8Ksc-1718800879235-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '710'
+      openai-organization:
+      - martian-4
+      openai-processing-ms:
+      - '348'
+      openai-version:
+      - '2020-10-01'
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-ratelimit-limit-requests:
+      - '10000'
+      x-ratelimit-limit-tokens:
+      - '2000000'
+      x-ratelimit-remaining-requests:
+      - '9999'
+      x-ratelimit-remaining-tokens:
+      - '1999977'
+      x-ratelimit-reset-requests:
+      - 6ms
+      x-ratelimit-reset-tokens:
+      - 0s
+      x-request-id:
+      - 1d531c1fbccc81d1982cef94bf7333fe
+    status:
+      code: 200
+      message: OK
+version: 1

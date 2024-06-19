@@ -175,16 +175,32 @@ def get_response_content_from_vcr(vcr, adapter: BaseAdapter):
     if isinstance(adapter, OpenAISDKChatAdapter):
         return response["choices"][0]["message"]["content"]
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
+        return response["content"][0]["text"]
+    elif isinstance(adapter, CohereSDKChatProviderAdapter):
+        return response["text"]
+    elif isinstance(adapter, GeminiSDKChatProviderAdapter):
+        return response["candidates"][0]["content"]["parts"][0]["text"]
+    else:
+        raise ValueError("Unknown adapter")
+
+
+def get_response_choices_from_vcr(vcr, adapter: BaseAdapter):
+    response = json.loads(vcr.responses[-1]["body"]["string"])
+    if isinstance(adapter, OpenAISDKChatAdapter):
+        return response["choices"]
+    elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
+        print("response contenttttt", response["content"])
+        if len(response["content"]) == 1:
+            function_name = response["content"][0]["name"]
+        else:
+            function_name = response["content"][1]["name"]
         return [
             {
                 "message": {
-                    "role": json.loads(vcr.responses[-1]["body"]["string"])["role"],
                     "tool_calls": [
                         {
                             "function": {
-                                "name": json.loads(vcr.responses[-1]["body"]["string"])[
-                                    "content"
-                                ][1]["name"],
+                                "name": function_name,
                                 "arguments": None,
                             },
                         }
@@ -196,21 +212,5 @@ def get_response_content_from_vcr(vcr, adapter: BaseAdapter):
         return response["text"]
     elif isinstance(adapter, GeminiSDKChatProviderAdapter):
         return response["candidates"][0]["content"]["parts"][0]["text"]
-    else:
-        raise ValueError("Unknown adapter")
-
-
-def get_response_choices_from_vcr(vcr, adapter: BaseAdapter):
-    response = json.loads(vcr.responses[-1]["body"]["string"])
-
-    if isinstance(adapter, OpenAISDKChatAdapter):
-        return response["choices"]
-    # elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
-    # return response["content"][0]["text"]
-    # elif isinstance(adapter, CohereSDKChatProviderAdapter):
-    # return response["text"]
-    # elif isinstance(adapter, GeminiSDKChatProviderAdapter):
-    # return response["candidates"][0]["content"]["parts"][0]["text"]
-
     else:
         raise ValueError("Unknown adapter")

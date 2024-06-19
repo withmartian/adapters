@@ -31,16 +31,26 @@ def test_sync_execute_tools(vcr, model_name):
     )
 
     choices = get_response_choices_from_vcr(vcr, adapter)
-
+    if isinstance(adapter_response.choices[0], dict):
+        function_name = adapter_response.choices[0]["message"]["tool_calls"][0][
+            "function"
+        ]["name"]
+        function_arguments = adapter_response.choices[0]["message"]["tool_calls"][0][
+            "function"
+        ]["arguments"]
+        role = adapter_response.choices[0]["message"]["role"]
+    else:
+        function_name = adapter_response.choices[0].message.tool_calls[0].function.name
+        function_arguments = (
+            adapter_response.choices[0].message.tool_calls[0].function.arguments
+        )
+        role = adapter_response.choices[0].message.role
+    assert function_name == choices[0]["message"]["tool_calls"][0]["function"]["name"]
     assert (
-        adapter_response.choices[0].message.tool_calls[0].function.name
-        == choices[0]["message"]["tool_calls"][0]["function"]["name"]
-    )
-    assert (
-        adapter_response.choices[0].message.tool_calls[0].function.arguments
+        function_arguments
         == choices[0]["message"]["tool_calls"][0]["function"]["arguments"]
     )
-    assert adapter_response.choices[0].message.role == ConversationRole.assistant
+    assert role == ConversationRole.assistant
     assert adapter_response.cost > 0
 
 
@@ -69,13 +79,24 @@ async def test_async_execute_tools(vcr, model_name):
     )
     choices = get_response_choices_from_vcr(vcr, adapter)
 
+    if isinstance(adapter_response.choices[0], dict):
+        function_name = adapter_response.choices[0]["message"]["tool_calls"][0][
+            "function"
+        ]["name"]
+        function_arguments = adapter_response.choices[0]["message"]["tool_calls"][0][
+            "function"
+        ]["arguments"]
+        role = adapter_response.choices[0]["message"]["role"]
+    else:
+        function_name = adapter_response.choices[0].message.tool_calls[0].function.name
+        function_arguments = (
+            adapter_response.choices[0].message.tool_calls[0].function.arguments
+        )
+        role = adapter_response.choices[0].message.role
+    assert function_name == choices[0]["message"]["tool_calls"][0]["function"]["name"]
     assert (
-        adapter_response.choices[0].message.tool_calls[0].function.name
-        == choices[0]["message"]["tool_calls"][0]["function"]["name"]
-    )
-    assert (
-        adapter_response.choices[0].message.tool_calls[0].function.arguments
+        function_arguments
         == choices[0]["message"]["tool_calls"][0]["function"]["arguments"]
     )
-    assert adapter_response.choices[0].message.role == ConversationRole.assistant
+    assert role == ConversationRole.assistant
     assert adapter_response.cost > 0

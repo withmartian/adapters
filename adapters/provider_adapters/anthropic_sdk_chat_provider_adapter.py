@@ -29,7 +29,6 @@ class AnthropicModel(Model):
     supports_first_assistant: bool = False
     supports_multiple_system: bool = False
     supports_repeating_roles: bool = False
-    supports_tools: bool = True
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
 
@@ -88,18 +87,21 @@ SUPPORTED_MODELS = [
         cost=Cost(prompt=3.0e-6, completion=15.0e-6),
         context_length=200000,
         completion_length=4096,
+        supports_tools=True,
     ),
     AnthropicModel(
         name="claude-3-opus-20240229",
         cost=Cost(prompt=15.0e-6, completion=75.0e-6),
         context_length=200000,
         completion_length=4096,
+        supports_tools=True,
     ),
     AnthropicModel(
         name="claude-3-haiku-20240307",
         cost=Cost(prompt=0.25e-6, completion=1.25e-6),
         context_length=200000,
         completion_length=4096,
+        supports_tools=True,
     ),
 ]
 
@@ -165,47 +167,35 @@ class AnthropicSDKChatProviderAdapter(
     def extract_response(
         self, request: Any, response: Any
     ) -> OpenAIChatAdapterResponse:
+        tool_call_name = None
         if len(response.content) == 1:
-            response.content[0].text = ""
-            choices = [
-                {
-                    "message": {
-                        "role": response.role,
-                        "content": response.content[0].text,
-                        "tool_calls": [
-                            {
-                                "function": {
-                                    "name": response.content[0].name,
-                                    "arguments": None,
-                                }
-                            }
-                        ],
-                    },
-                    "finish_reason": FINISH_REASON_MAPPING.get(
-                        response.stop_reason, response.stop_reason
-                    ),
-                }
-            ]
+            if response.content[0].type == "tool_use":
+                response.content[0].text = ""
+                tool_call_name = response.content[0].name
         elif len(response.content) == 2:
-            choices = [
-                {
-                    "message": {
-                        "role": response.role,
-                        "content": response.content[0].text,
-                        "tool_calls": [
-                            {
-                                "function": {
-                                    "name": response.content[1].name,
-                                    "arguments": None,
-                                }
+            tool_call_name = response.content[1].name
+
+        choices = [
+            {
+                "message": {
+                    "role": response.role,
+                    "content": response.content[0].text,
+                    "tool_calls": [
+                        {
+                            "function": {
+                                "name": tool_call_name,
+                                "arguments": None,
                             }
-                        ],
-                    },
-                    "finish_reason": FINISH_REASON_MAPPING.get(
-                        response.stop_reason, response.stop_reason
-                    ),
-                }
-            ]
+                        }
+                    ]
+                    if tool_call_name
+                    else [],
+                },
+                "finish_reason": FINISH_REASON_MAPPING.get(
+                    response.stop_reason, response.stop_reason
+                ),
+            }
+        ]
         prompt_tokens = self._sync_client.count_tokens(
             request.convert_to_anthropic_prompt()
         )
@@ -253,7 +243,8 @@ class AnthropicSDKChatProviderAdapter(
 
     def get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
         params = super().get_params(llm_input, **kwargs)
-        del params["tool_choice"]
+        if params.get("tool_choice"):
+            del params["tool_choice"]
 
         messages = params["messages"]
         system_prompt = ""
@@ -267,31 +258,22 @@ class AnthropicSDKChatProviderAdapter(
         if len(messages) > 0 and messages[-1]["role"] == ConversationRole.assistant:
             messages[-1]["content"] = messages[-1]["content"].rstrip()
 
-        # tool_choice = kwargs.get("tool_choice")
         tools: List[Dict[str, Any]] = kwargs.get("tools", [])
+        if tools:
+            tools[0]["name"] = tools[0]["function"]["name"]
+            tools[0]["input_schema"] = {
+                "type": "object",
+                "properties": {
+                    "prompt": {
+                        "type": "string",
+                        "description": tools[0]["function"]["description"],
+                    }
+                },
+                "required": ["prompt"],
+            }
+            del tools[0]["type"]
+            del tools[0]["function"]
 
-        # if tool_choice:
-        #     tool_choice_type = tool_choice.get("type")
-        #     if tool_choice_type not in ["auto", "any", "tool"]:
-        #         tool_choice["type"] = "tool"
-
-        #     if "function" in tool_choice:
-        #         del tool_choice["function"]
-
-        tools[0]["name"] = tools[0]["function"]["name"]
-        tools[0]["input_schema"] = {
-            "type": "object",
-            "properties": {
-                "prompt": {
-                    "type": "string",
-                    "description": tools[0]["function"]["description"],
-                }
-            },
-            "required": ["prompt"],
-        }
-        del tools[0]["type"]
-        del tools[0]["function"]
-        print("toolssss", tools)
         return {
             **params,
             "messages": messages,
