@@ -3,7 +3,7 @@ import pytest
 from adapters.adapter_factory import AdapterFactory
 from adapters.types import ConversationRole
 from tests.adapters.utils.contants import MODEL_PATHS, N_PARAM
-from tests.utils import SIMPLE_CONVERSATION_USER_ONLY, get_choices_from_vcr
+from tests.utils import SIMPLE_CONVERSATION_USER_ONLY, get_response_content_from_vcr
 
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)
@@ -20,11 +20,13 @@ def test_sync(vcr, model_path: str):
         adapter.convert_to_input(SIMPLE_CONVERSATION_USER_ONLY), n=N_PARAM
     )
 
-    cassete_response = get_choices_from_vcr(vcr, adapter)
+    cassete_response = get_response_content_from_vcr(vcr, adapter)
 
     assert adapter_response.response.content == cassete_response
     assert adapter_response.response.role == ConversationRole.assistant
-    # assert len(choices) == N_PARAM
+
+    # TODO: fix type of adapter_response to have an attr choices
+    assert len(adapter_response.choices) == N_PARAM  # type: ignore
 
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)
@@ -41,8 +43,10 @@ async def test_async(vcr, model_path: str):
         adapter.convert_to_input(SIMPLE_CONVERSATION_USER_ONLY), n=N_PARAM
     )
 
-    cassete_response = get_choices_from_vcr(vcr, adapter)
+    cassete_response = get_response_content_from_vcr(vcr, adapter)
 
     assert adapter_response.response.content == cassete_response
     assert adapter_response.response.role == ConversationRole.assistant
-    # assert len(cassete_response) == N_PARAM
+
+    # TODO: fix type of adapter_response to have an attr choices
+    assert len(adapter_response.choices) == N_PARAM  # type: ignore

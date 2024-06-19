@@ -38,9 +38,34 @@ MODELS = [
         completion_length=2048,
     ),
     GeminiModel(
+        name="gemini-1.0-pro-latest",
+        cost=Cost(prompt=0.125e-6, completion=0.375e-6),
+        context_length=30720,
+        completion_length=2048,
+    ),
+    GeminiModel(
+        name="gemini-1.5-pro",
+        cost=Cost(prompt=3.5e-6, completion=10.5e-6),
+        context_length=128000,
+        completion_length=8192,
+    ),
+    GeminiModel(
         name="gemini-1.5-pro-latest",
         cost=Cost(prompt=3.5e-6, completion=10.5e-6),
         context_length=128000,
+        completion_length=8192,
+    ),
+    GeminiModel(
+        name="gemini-1.5-flash",
+        cost=Cost(prompt=0.35e-6, completion=0.70e-6),
+        context_length=128000,
+        completion_length=8192,
+    ),
+    GeminiModel(
+        name="gemini-1.5-flash-latest",
+        cost=Cost(prompt=0.35e-6, completion=0.70e-6),
+        context_length=128000,
+        completion_length=8192,
     ),
 ]
 
@@ -97,7 +122,7 @@ class GeminiSDKChatProviderAdapter(
         super().set_api_key(api_key)
 
         self._sync_client = GenerativeServiceClient(
-            client_options=ClientOptions(api_key=api_key)
+            client_options=ClientOptions(api_key=api_key), transport="rest"
         )
         self._async_client = GenerativeServiceAsyncClient(
             client_options=ClientOptions(api_key=api_key)
