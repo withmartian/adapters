@@ -168,13 +168,16 @@ class AnthropicSDKChatProviderAdapter(
         self, request: Any, response: Any
     ) -> OpenAIChatAdapterResponse:
         tool_call_name = None
+        arguments = None
+
         if len(response.content) == 1:
             if response.content[0].type == "tool_use":
                 response.content[0].text = ""
                 tool_call_name = response.content[0].name
+                arguments = response.content[0].input
         elif len(response.content) == 2:
             tool_call_name = response.content[1].name
-
+            arguments = response.content[1].input
         choices = [
             {
                 "message": {
@@ -185,7 +188,7 @@ class AnthropicSDKChatProviderAdapter(
                             {
                                 "function": {
                                     "name": tool_call_name,
-                                    "arguments": None,
+                                    "arguments": arguments,
                                 }
                             }
                         ]

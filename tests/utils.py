@@ -189,11 +189,13 @@ def get_response_choices_from_vcr(vcr, adapter: BaseAdapter):
     if isinstance(adapter, OpenAISDKChatAdapter):
         return response["choices"]
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
-        print("response contenttttt", response["content"])
         if len(response["content"]) == 1:
             function_name = response["content"][0]["name"]
+            arguments = response["content"][0]["input"]
         else:
             function_name = response["content"][1]["name"]
+            arguments = response["content"][1]["input"]
+
         return [
             {
                 "message": {
@@ -201,7 +203,7 @@ def get_response_choices_from_vcr(vcr, adapter: BaseAdapter):
                         {
                             "function": {
                                 "name": function_name,
-                                "arguments": None,
+                                "arguments": arguments,
                             },
                         }
                     ],
