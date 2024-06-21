@@ -257,12 +257,15 @@ class AnthropicSDKChatProviderAdapter(
 
         anthropic_tools: Optional[List[Dict[str, Any]]] = kwargs.get("tools")
         anthropic_tools_choice = kwargs.get("tool_choice")
-        if anthropic_tools_choice:
+        if anthropic_tools_choice and not isinstance(anthropic_tools_choice, str):
             anthropic_tools_choice["name"] = anthropic_tools_choice["function"]["name"]
             anthropic_tools_choice["type"] = "tool"
             del anthropic_tools_choice["function"]
+        elif anthropic_tools_choice == "auto":
+            anthropic_tools_choice = {"type": "any"}
         else:
             anthropic_tools_choice = {"type": "auto"}
+            anthropic_tools = []
 
         if anthropic_tools:
             for tool in anthropic_tools:
@@ -275,6 +278,8 @@ class AnthropicSDKChatProviderAdapter(
                 }
                 del tool["function"]
                 del tool["type"]
+        else:
+            anthropic_tools_choice = None
 
         return {
             **params,
