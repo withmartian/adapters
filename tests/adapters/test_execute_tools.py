@@ -6,6 +6,18 @@ from tests.adapters.utils.contants import MODEL_PATHS
 from tests.utils import SIMPLE_FUNCTION_CALL_USER_ONLY, get_response_choices_from_vcr
 
 
+def extract_data(choice):
+    if isinstance(choice, dict):
+        fn = choice["message"]["tool_calls"][0]["function"]["name"]
+        fa = choice["message"]["tool_calls"][0]["function"]["arguments"]
+        r = choice["message"]["role"]
+    else:
+        fn = choice.message.tool_calls[0].function.name
+        fa = choice.message.tool_calls[0].function.arguments
+        r = choice.message.role
+    return fn, fa, r
+
+
 @pytest.mark.parametrize("model_name", MODEL_PATHS)
 @pytest.mark.vcr
 def test_sync_execute_tools(vcr, model_name):
@@ -41,20 +53,7 @@ def test_sync_execute_tools(vcr, model_name):
     )
 
     choices = get_response_choices_from_vcr(vcr, adapter)
-    if isinstance(adapter_response.choices[0], dict):
-        function_name = adapter_response.choices[0]["message"]["tool_calls"][0][
-            "function"
-        ]["name"]
-        function_arguments = adapter_response.choices[0]["message"]["tool_calls"][0][
-            "function"
-        ]["arguments"]
-        role = adapter_response.choices[0]["message"]["role"]
-    else:
-        function_name = adapter_response.choices[0].message.tool_calls[0].function.name
-        function_arguments = (
-            adapter_response.choices[0].message.tool_calls[0].function.arguments
-        )
-        role = adapter_response.choices[0].message.role
+    function_name, function_arguments, role = extract_data(adapter_response.choices[0])
     assert function_name == choices[0]["message"]["tool_calls"][0]["function"]["name"]
     assert (
         function_arguments
@@ -99,20 +98,7 @@ async def test_async_execute_tools(vcr, model_name):
     )
     choices = get_response_choices_from_vcr(vcr, adapter)
 
-    if isinstance(adapter_response.choices[0], dict):
-        function_name = adapter_response.choices[0]["message"]["tool_calls"][0][
-            "function"
-        ]["name"]
-        function_arguments = adapter_response.choices[0]["message"]["tool_calls"][0][
-            "function"
-        ]["arguments"]
-        role = adapter_response.choices[0]["message"]["role"]
-    else:
-        function_name = adapter_response.choices[0].message.tool_calls[0].function.name
-        function_arguments = (
-            adapter_response.choices[0].message.tool_calls[0].function.arguments
-        )
-        role = adapter_response.choices[0].message.role
+    function_name, function_arguments, role = extract_data(adapter_response.choices[0])
     assert function_name == choices[0]["message"]["tool_calls"][0]["function"]["name"]
     assert (
         function_arguments
