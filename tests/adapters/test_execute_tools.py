@@ -25,6 +25,16 @@ def test_sync_execute_tools(vcr, model_name):
                 "function": {
                     "description": "Generate random number",
                     "name": "generate",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "prompt": {
+                                "type": "string",
+                                "description": "Random number like 5, 4, 3, 10, 11",
+                            },
+                        },
+                        "required": ["prompt"],
+                    },
                 },
             }
         ],
@@ -73,6 +83,16 @@ async def test_async_execute_tools(vcr, model_name):
                 "function": {
                     "description": "Generate random number",
                     "name": "generate",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "prompt": {
+                                "type": "string",
+                                "description": "Random number like 5, 4, 3, 10, 11",
+                            },
+                        },
+                        "required": ["prompt"],
+                    },
                 },
             }
         ],

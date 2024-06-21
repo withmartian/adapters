@@ -1,9 +1,11 @@
 interactions:
 - request:
     body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Generate
-      random number"}], "model": "claude-3-sonnet-20240229", "system": "", "tools":
-      [{"name": "generate", "input_schema": {"type": "object", "properties": {"prompt":
-      {"type": "string", "description": "Generate random number"}}, "required": ["prompt"]}}]}'
+      random number"}], "model": "claude-3-sonnet-20240229", "system": "", "tool_choice":
+      {"type": "tool", "name": "generate"}, "tools": [{"name": "generate", "description":
+      "Generate random number", "input_schema": {"type": "object", "properties": {"prompt":
+      {"type": "string", "description": "Random number like 5, 4, 3, 10, 11"}}, "required":
+      ["prompt"]}}]}'
     headers:
       accept:
       - application/json
@@ -14,7 +16,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '320'
+      - '426'
       content-type:
       - application/json
       host:
@@ -39,31 +41,30 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01YC8v3rQLZJbz8tg636W2Ja","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"tool_use","id":"toolu_01NR6v7EzB6LZtSjVrDV9pDz","name":"generate","input":{"prompt":"Generate
-        random number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":218,"output_tokens":53}}'
+      string: '{"id":"msg_014nvFwUs6kuexk3trJDwWwn","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"tool_use","id":"toolu_01Fi9zK65PPQqAzd8S1LrYgh","name":"generate","input":{"prompt":"<UNKNOWN>"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":334,"output_tokens":34}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 896397545c0d959f-TBS
+      - 897488131f22a9e9-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 19 Jun 2024 12:41:04 GMT
+      - Fri, 21 Jun 2024 14:01:37 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '334'
+      - '321'
       request-id:
-      - req_01HLnLQGNfvjn6Wwfhdyk713
+      - req_01AVWFQzVFWedobWngm7F1PB
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 7acbefd27e4c1f0bac6ac67d21468e57
+      - 48ea6874ab6f33b1871c182696cb0aa2
     status:
       code: 200
       message: OK

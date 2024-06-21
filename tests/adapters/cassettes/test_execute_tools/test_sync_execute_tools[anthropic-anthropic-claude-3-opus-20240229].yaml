@@ -1,9 +1,11 @@
 interactions:
 - request:
     body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Generate
-      random number"}], "model": "claude-3-opus-20240229", "system": "", "tools":
-      [{"name": "generate", "input_schema": {"type": "object", "properties": {"prompt":
-      {"type": "string", "description": "Generate random number"}}, "required": ["prompt"]}}]}'
+      random number"}], "model": "claude-3-opus-20240229", "system": "", "tool_choice":
+      {"type": "tool", "name": "generate"}, "tools": [{"name": "generate", "description":
+      "Generate random number", "input_schema": {"type": "object", "properties": {"prompt":
+      {"type": "string", "description": "Random number like 5, 4, 3, 10, 11"}}, "required":
+      ["prompt"]}}]}'
     headers:
       accept:
       - application/json
@@ -14,7 +16,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '318'
+      - '424'
       content-type:
       - application/json
       host:
@@ -39,35 +41,30 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01VstfzuWGbRp1T2pH66vAjo","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
-        \"generate\" tool is relevant for generating a random number based on the
-        user''s request. It requires a \"prompt\" parameter. The user provided \"Generate
-        random number\" which can be used directly as the value for the \"prompt\"
-        parameter. No other tools are needed.\n</thinking>"},{"type":"tool_use","id":"toolu_018kG5gYiVmNgsVQM3D14269","name":"generate","input":{"prompt":"Generate
-        random number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":592,"output_tokens":115}}'
+      string: '{"id":"msg_01PzYDGSJbNbBkPhYNu63uME","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"tool_use","id":"toolu_019ekziHqmVVjggArWhzYBqN","name":"generate","input":{"prompt":"10"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":380,"output_tokens":33}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 896396280ca795a9-TBS
+      - 8974877f2e1495a5-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 19 Jun 2024 12:40:21 GMT
+      - Fri, 21 Jun 2024 14:01:15 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '655'
+      - '312'
       request-id:
-      - req_016DvAgxBwv3BKyk6Y1FQHzc
+      - req_011RmHhEN5yRUBJdJMdqXJj4
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - d49217a38712d650ed50d6ca04b9d9b7
+      - 6cd663fb1d5a1cba901d44ca84e02a92
     status:
       code: 200
       message: OK

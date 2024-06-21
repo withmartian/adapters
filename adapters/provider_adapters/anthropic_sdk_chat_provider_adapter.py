@@ -169,15 +169,11 @@ class AnthropicSDKChatProviderAdapter(
     ) -> OpenAIChatAdapterResponse:
         tool_call_name = None
         arguments = None
+        if response.content[0].type == "tool_use":
+            response.content[0].text = ""
+            tool_call_name = response.content[0].name
+            arguments = response.content[0].input
 
-        if len(response.content) == 1:
-            if response.content[0].type == "tool_use":
-                response.content[0].text = ""
-                tool_call_name = response.content[0].name
-                arguments = response.content[0].input
-        elif len(response.content) == 2:
-            tool_call_name = response.content[1].name
-            arguments = response.content[1].input
         choices = [
             {
                 "message": {
@@ -248,12 +244,8 @@ class AnthropicSDKChatProviderAdapter(
 
     def get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
         params = super().get_params(llm_input, **kwargs)
-        if params.get("tool_choice"):
-            del params["tool_choice"]
-
         messages = params["messages"]
         system_prompt = ""
-
         # Extract system prompt if it's the first message
         if len(messages) > 0 and messages[0]["role"] == ConversationRole.system:
             system_prompt = messages[0]["content"]
@@ -263,26 +255,32 @@ class AnthropicSDKChatProviderAdapter(
         if len(messages) > 0 and messages[-1]["role"] == ConversationRole.assistant:
             messages[-1]["content"] = messages[-1]["content"].rstrip()
 
-        tools: Optional[List[Dict[str, Any]]] = kwargs.get("tools")
-        if tools:
-            tools[0]["name"] = tools[0]["function"]["name"]
-            tools[0]["input_schema"] = {
-                "type": "object",
-                "properties": {
-                    "prompt": {
-                        "type": "string",
-                        "description": tools[0]["function"]["description"],
-                    }
-                },
-                "required": ["prompt"],
-            }
-            del tools[0]["type"]
-            del tools[0]["function"]
+        anthropic_tools: Optional[List[Dict[str, Any]]] = kwargs.get("tools")
+        anthropic_tools_choice = kwargs.get("tool_choice")
+        if anthropic_tools_choice:
+            anthropic_tools_choice["name"] = anthropic_tools_choice["function"]["name"]
+            anthropic_tools_choice["type"] = "tool"
+            del anthropic_tools_choice["function"]
+        else:
+            anthropic_tools_choice = {"type": "auto"}
+
+        if anthropic_tools:
+            for tool in anthropic_tools:
+                tool["name"] = tool["function"]["name"]
+                tool["description"] = tool["function"]["description"]
+                tool["input_schema"] = {
+                    "type": tool["function"]["parameters"]["type"],
+                    "properties": tool["function"]["parameters"]["properties"],
+                    "required": tool["function"]["parameters"]["required"],
+                }
+                del tool["function"]
+                del tool["type"]
 
         return {
             **params,
             "messages": messages,
             "system": system_prompt,
             "max_tokens": kwargs.get("max_tokens", self.get_model().completion_length),
-            "tools": tools,
+            "tool_choice": anthropic_tools_choice,
+            "tools": anthropic_tools,
         }

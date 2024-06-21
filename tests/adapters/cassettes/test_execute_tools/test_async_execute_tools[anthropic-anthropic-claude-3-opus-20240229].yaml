@@ -1,9 +1,11 @@
 interactions:
 - request:
     body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Generate
-      random number"}], "model": "claude-3-opus-20240229", "system": "", "tools":
-      [{"name": "generate", "input_schema": {"type": "object", "properties": {"prompt":
-      {"type": "string", "description": "Generate random number"}}, "required": ["prompt"]}}]}'
+      random number"}], "model": "claude-3-opus-20240229", "system": "", "tool_choice":
+      {"type": "tool", "name": "generate"}, "tools": [{"name": "generate", "description":
+      "Generate random number", "input_schema": {"type": "object", "properties": {"prompt":
+      {"type": "string", "description": "Random number like 5, 4, 3, 10, 11"}}, "required":
+      ["prompt"]}}]}'
     headers:
       accept:
       - application/json
@@ -14,7 +16,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '318'
+      - '424'
       content-type:
       - application/json
       host:
@@ -39,37 +41,30 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01LdwuQrcF8Fra1hcPfixjyk","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
-        \"generate\" function was provided with the following parameters:\n- prompt
-        (required): \"Generate random number\"\n\nThe prompt directly tells the tool
-        what to do without any ambiguity. No additional parameters are needed.\n\nSince
-        all required parameters have been provided, I can proceed with calling the
-        \"generate\" function without needing to ask for any more information from
-        the user.\n</thinking>"},{"type":"tool_use","id":"toolu_01ScvxJ72W5BH5CqwgwrTrPZ","name":"generate","input":{"prompt":"Generate
-        random number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":592,"output_tokens":136}}'
+      string: '{"id":"msg_01PHBSTBFoo71caUzkTFx3wt","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"tool_use","id":"toolu_01CFBSeQD219PCv1uuQrkjvw","name":"generate","input":{"prompt":"10"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":380,"output_tokens":33}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 896397629b9b317b-TBS
+      - 8974881dde911a42-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 19 Jun 2024 12:41:11 GMT
+      - Fri, 21 Jun 2024 14:01:40 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '780'
+      - '312'
       request-id:
-      - req_016B65cZPtupYSFDSYKy6Tkj
+      - req_01BTBJVqUQgsUG1GskFZPQ6q
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - b0784733c7e5bd60d4a74d0e8812df4c
+      - e9825fd385b6f2d5c1421b452008cbb0
     status:
       code: 200
       message: OK
