@@ -35,16 +35,17 @@ MODELS = [
     ),
     AzureModel(
         name="gpt-35-turbo",
-        cost=Cost(prompt=1.0e-6, completion=2.0e-6),
+        cost=Cost(prompt=0.5e-6, completion=1.5e-6),
         context_length=16385,
         completion_length=16385,
         supports_json_output=False,
     ),
     AzureModel(
         name="gpt-4o",
-        cost=Cost(prompt=1.0e-6, completion=2.0e-6),
-        context_length=16385,
-        completion_length=16385,
+        cost=Cost(prompt=5.0e-6, completion=15.0e-6),
+        context_length=128000,
+        completion_length=4096,
+        supports_vision=True,
     ),
 ]
 
@@ -60,12 +61,12 @@ class AzureSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
         self._sync_client = AzureOpenAI(
             api_key=self.get_api_key(),
             azure_endpoint=self.get_base_sdk_url(),
-            api_version="2024-02-15-preview",
+            api_version="2024-05-01-preview",
         )
         self._async_client = AsyncAzureOpenAI(
             api_key=self.get_api_key(),
             azure_endpoint=self.get_base_sdk_url(),
-            api_version="2024-02-15-preview",
+            api_version="2024-05-01-preview",
         )
 
     @staticmethod

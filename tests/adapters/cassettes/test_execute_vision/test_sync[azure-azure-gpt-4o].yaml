@@ -1,7 +1,8 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "gpt-4o", "n":
-      2}'
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "image_url", "image_url": {"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg",
+      "details": "auto"}}]}], "model": "gpt-4o"}'
     headers:
       accept:
       - application/json
@@ -12,17 +13,17 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '76'
+      - '322'
       content-type:
       - application/json
       host:
       - martiantest.openai.azure.com
       user-agent:
-      - AsyncAzureOpenAI/Python 1.34.0
+      - AzureOpenAI/Python 1.34.0
       x-stainless-arch:
       - x64
       x-stainless-async:
-      - async:asyncio
+      - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
@@ -38,41 +39,43 @@ interactions:
   response:
     body:
       string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"Hello!
-        How can I assist you today?","role":"assistant"}},{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":1,"logprobs":null,"message":{"content":"Hello!
-        How can I assist you today?","role":"assistant"}}],"created":1719225812,"id":"chatcmpl-9dbSWgQjK84Oz7JWwAexXCsQhjyUw","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_abc28019ad","usage":{"completion_tokens":18,"prompt_tokens":8,"total_tokens":26}}
-
-        '
+        What a beautiful, serene landscape. It looks like a peaceful place for a walk.
+        How can I assist you today?","role":"assistant"}}],"created":1719225926,"id":"chatcmpl-9dbUMVjBFGMz1RVZOgyK2zZ26qkfd","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_result":{"jailbreak":{"filtered":false,"detected":false},"custom_blocklists":{"filtered":false,"details":[]}}},{"prompt_index":1,"content_filter_result":{"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"},"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"custom_blocklists":{"filtered":false,"details":[]}}}],"system_fingerprint":"fp_abc28019ad","usage":{"completion_tokens":26,"prompt_tokens":916,"total_tokens":942}}'
     headers:
       Content-Length:
-      - '1187'
+      - '1121'
       Content-Type:
-      - application/json
+      - application/json; charset=utf-8
       Date:
-      - Mon, 24 Jun 2024 10:43:32 GMT
+      - Mon, 24 Jun 2024 10:45:27 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
+      api-supported-versions:
+      - '1'
       apim-request-id:
-      - 1d239be4-cc67-4d16-ac57-565945fdba40
+      - 8f63705d-7229-4e6e-accc-a35d474f0754
       azureml-model-session:
       - d003-20240611074652
+      request-id:
+      - 8f63705d-7229-4e6e-accc-a35d474f0754
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '273'
+      - '3579'
       x-ms-client-request-id:
-      - 1d239be4-cc67-4d16-ac57-565945fdba40
+      - 8f63705d-7229-4e6e-accc-a35d474f0754
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
       - East US
       x-ratelimit-remaining-requests:
-      - '48'
+      - '49'
       x-ratelimit-remaining-tokens:
-      - '47436'
+      - '48359'
       x-request-id:
-      - e78acb97-f2ce-481b-8774-55c1de9388a2
+      - 154ec371-0ee7-41c5-a516-8a7a42006d46
     status:
       code: 200
       message: OK

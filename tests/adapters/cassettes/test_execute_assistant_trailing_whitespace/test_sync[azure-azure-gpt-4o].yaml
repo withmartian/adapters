@@ -34,44 +34,180 @@ interactions:
       x-stainless-runtime-version:
       - 3.11.9
     method: POST
-    uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview
+    uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview
   response:
     body:
-      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"How
-        can I assist you today?","role":"assistant"}}],"created":1719208956,"id":"chatcmpl-9dX4e3HcfnMdapjI6OXECY5fKE0Mz","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_abc28019ad","usage":{"completion_tokens":7,"prompt_tokens":14,"total_tokens":21}}
+      string: '{"error":{"code":"429","message": "Requests to the ChatCompletions_Create
+        Operation under Azure OpenAI API version 2024-05-01-preview have exceeded
+        call rate limit of your current OpenAI S0 pricing tier. Please retry after
+        5 seconds. Please go here: https://aka.ms/oai/quotaincrease if you would like
+        to further increase the default rate limit."}}'
+    headers:
+      Content-Length:
+      - '347'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 24 Jun 2024 10:18:11 GMT
+      Retry-After:
+      - '5'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      apim-request-id:
+      - 2b46fada-5450-49f4-80d7-7556ff269c54
+      policy-id:
+      - DeploymentRatelimit-Call
+      x-content-type-options:
+      - nosniff
+      x-ms-region:
+      - East US
+      x-ratelimit-reset-requests:
+      - '5'
+    status:
+      code: 429
+      message: Too Many Requests
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi "}], "model": "gpt-4o"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      api-key:
+      - b22bea4270b74a7e9eb3b2c74ee66db9
+      connection:
+      - keep-alive
+      content-length:
+      - '109'
+      content-type:
+      - application/json
+      host:
+      - martiantest.openai.azure.com
+      user-agent:
+      - AzureOpenAI/Python 1.34.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.34.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.9
+    method: POST
+    uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview
+  response:
+    body:
+      string: '{"error":{"code":"429","message": "Requests to the ChatCompletions_Create
+        Operation under Azure OpenAI API version 2024-05-01-preview have exceeded
+        token rate limit of your current OpenAI S0 pricing tier. Please retry after
+        49 seconds. Please go here: https://aka.ms/oai/quotaincrease if you would
+        like to further increase the default rate limit."}}'
+    headers:
+      Content-Length:
+      - '349'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 24 Jun 2024 10:18:17 GMT
+      Retry-After:
+      - '49'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      apim-request-id:
+      - 1c789efe-529b-43c5-a1b9-44e15e5cbb94
+      policy-id:
+      - DeploymentRatelimit-Token
+      x-content-type-options:
+      - nosniff
+      x-ms-region:
+      - East US
+      x-ratelimit-remaining-requests:
+      - '0'
+      x-ratelimit-reset-tokens:
+      - '49'
+    status:
+      code: 429
+      message: Too Many Requests
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi "}], "model": "gpt-4o"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      api-key:
+      - b22bea4270b74a7e9eb3b2c74ee66db9
+      connection:
+      - keep-alive
+      content-length:
+      - '109'
+      content-type:
+      - application/json
+      host:
+      - martiantest.openai.azure.com
+      user-agent:
+      - AzureOpenAI/Python 1.34.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.34.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.9
+    method: POST
+    uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview
+  response:
+    body:
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"!
+        How can I assist you today?","role":"assistant"}}],"created":1719224348,"id":"chatcmpl-9db4ulukekGficiE7hOupSE85MU9Z","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_abc28019ad","usage":{"completion_tokens":8,"prompt_tokens":14,"total_tokens":22}}
 
         '
     headers:
       Content-Length:
-      - '837'
+      - '839'
       Content-Type:
       - application/json
       Date:
-      - Mon, 24 Jun 2024 06:02:35 GMT
+      - Mon, 24 Jun 2024 10:19:08 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - 55338111-6c35-4dc6-bacb-c5231f90a04a
+      - 3fa69093-0e5f-4ea4-8853-b614af61ad82
       azureml-model-session:
-      - d003-20240611074652
+      - d015-20240611182758
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '304'
+      - '368'
       x-ms-client-request-id:
-      - 55338111-6c35-4dc6-bacb-c5231f90a04a
+      - 3fa69093-0e5f-4ea4-8853-b614af61ad82
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
       - East US
       x-ratelimit-remaining-requests:
-      - '9'
+      - '0'
       x-ratelimit-remaining-tokens:
-      - '6792'
+      - '358'
       x-request-id:
-      - c81a1a13-c667-49d6-b8ea-a0fa18b46b0b
+      - c0845b2c-3810-43c7-9559-41cbceed09f4
     status:
       code: 200
       message: OK
