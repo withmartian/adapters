@@ -31,12 +31,14 @@ MODELS = [
         cost=Cost(prompt=1.0e-6, completion=2.0e-6),
         context_length=16385,
         completion_length=16385,
+        supports_json_output=False,
     ),
     AzureModel(
         name="gpt-35-turbo",
         cost=Cost(prompt=1.0e-6, completion=2.0e-6),
         context_length=16385,
         completion_length=16385,
+        supports_json_output=False,
     ),
     AzureModel(
         name="gpt-4o",
