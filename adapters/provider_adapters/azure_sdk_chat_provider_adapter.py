@@ -1,6 +1,8 @@
 import re
 from typing import Pattern
 
+from openai import AsyncAzureOpenAI, AzureOpenAI
+
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.types import Cost, Model
@@ -29,14 +31,43 @@ MODELS = [
         cost=Cost(prompt=1.0e-6, completion=2.0e-6),
         context_length=16385,
         completion_length=16385,
-    )
+    ),
+    AzureModel(
+        name="gpt-35-turbo",
+        cost=Cost(prompt=1.0e-6, completion=2.0e-6),
+        context_length=16385,
+        completion_length=16385,
+    ),
+    AzureModel(
+        name="gpt-4o",
+        cost=Cost(prompt=1.0e-6, completion=2.0e-6),
+        context_length=16385,
+        completion_length=16385,
+    ),
 ]
 
 
 class AzureSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
+    _sync_client: AzureOpenAI
+    _async_client: AsyncAzureOpenAI
+
+    def __init__(
+        self,
+    ):
+        super().__init__()
+        self._sync_client = AzureOpenAI(
+            api_key=self.get_api_key(),
+            azure_endpoint=self.get_base_sdk_url(),
+            api_version="2024-02-15-preview",
+        )
+        self._async_client = AsyncAzureOpenAI(
+            api_key=self.get_api_key(),
+            azure_endpoint=self.get_base_sdk_url(),
+            api_version="2024-02-15-preview",
+        )
+
     @staticmethod
     def get_supported_models():
-        print("heheee")
         return MODELS
 
     @staticmethod
