@@ -100,6 +100,12 @@ SUPPORTED_MODELS = [
         context_length=200000,
         completion_length=4096,
     ),
+    AnthropicModel(
+        name="claude-3-5-sonnet-20240620",
+        cost=Cost(prompt=3.0e-6, completion=15.0e-6),
+        context_length=200000,
+        completion_length=4096,
+    ),
 ]
 
 FINISH_REASON_MAPPING = {
