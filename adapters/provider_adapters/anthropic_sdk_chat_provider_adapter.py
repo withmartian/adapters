@@ -261,8 +261,10 @@ class AnthropicSDKChatProviderAdapter(
             anthropic_tools_choice["name"] = anthropic_tools_choice["function"]["name"]
             anthropic_tools_choice["type"] = "tool"
             del anthropic_tools_choice["function"]
-        elif anthropic_tools_choice in {"auto", "required"}:
+        elif anthropic_tools_choice == "required":
             anthropic_tools_choice = {"type": "any"}
+        elif anthropic_tools_choice == "auto":
+            anthropic_tools_choice = {"type": "auto"}
         else:
             anthropic_tools_choice = {"type": "auto"}
             anthropic_tools = []
