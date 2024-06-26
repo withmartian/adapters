@@ -117,6 +117,8 @@ class Cost(BaseModel):
 
 # Add test cases for all of them
 class Model(BaseModel):
+    _test_async: bool = True
+
     name: str
     vendor_name: str
     provider_name: str
