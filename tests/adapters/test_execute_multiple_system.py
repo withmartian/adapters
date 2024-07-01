@@ -25,6 +25,9 @@ def test_sync(vcr, model_path: str):
     assert adapter_response.response.content == cassette_response
     assert adapter_response.response.role == ConversationRole.assistant
 
+    finish_reason = getattr(adapter_response.choices[0], "finish_reason", None)  # type: ignore
+    assert finish_reason in ["stop", "eos", "length", None]
+
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS_ASYNC)
 @pytest.mark.vcr
@@ -41,3 +44,6 @@ async def test_async(vcr, model_path: str):
 
     assert adapter_response.response.content == cassette_response
     assert adapter_response.response.role == ConversationRole.assistant
+
+    finish_reason = getattr(adapter_response.choices[0], "finish_reason", None)  # type: ignore
+    assert finish_reason in ["stop", "eos", "length", None]
