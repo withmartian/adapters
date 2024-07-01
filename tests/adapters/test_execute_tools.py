@@ -43,6 +43,9 @@ def test_sync_execute_tools(vcr, model_name):
     assert adapter_response.choices[0].message.role == ConversationRole.assistant
     assert adapter_response.cost > 0
 
+    finish_reason = getattr(adapter_response.choices[0], "finish_reason", None)  # type: ignore
+    assert finish_reason in ["stop", "eos", "length", None]
+
 
 @pytest.mark.parametrize("model_name", MODEL_PATHS_ASYNC)
 @pytest.mark.vcr
@@ -79,3 +82,6 @@ async def test_async_execute_tools(vcr, model_name):
     )
     assert adapter_response.choices[0].message.role == ConversationRole.assistant
     assert adapter_response.cost > 0
+
+    finish_reason = getattr(adapter_response.choices[0], "finish_reason", None)  # type: ignore
+    assert finish_reason in ["stop", "eos", "length", None]
