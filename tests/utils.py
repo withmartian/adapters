@@ -199,22 +199,32 @@ def get_response_choices_from_vcr(vcr, adapter: BaseAdapter):
     if isinstance(adapter, OpenAISDKChatAdapter):
         return response["choices"]
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
-        function_name = response["content"][0]["name"]
-        arguments = response["content"][0]["input"]
-        return [
-            {
-                "message": {
-                    "tool_calls": [
-                        {
-                            "function": {
-                                "name": function_name,
-                                "arguments": arguments,
-                            },
-                        }
-                    ],
+        if response["content"][0]["type"] == "tool_use":
+            use_tools = True
+            function_name = response["content"][0]["name"]
+            arguments = response["content"][0]["input"]
+        else:
+            use_tools = False
+            text = response["content"][0]["text"]
+            role = response["role"]
+
+        if use_tools:
+            return [
+                {
+                    "message": {
+                        "tool_calls": [
+                            {
+                                "function": {
+                                    "name": function_name,
+                                    "arguments": arguments,
+                                },
+                            }
+                        ]
+                    }
                 }
-            }
-        ]
+            ]
+        else:
+            return [{"message": {"role": role, "content": text}}]
     elif isinstance(adapter, CohereSDKChatProviderAdapter):
         return response["text"]
     elif isinstance(adapter, GeminiSDKChatProviderAdapter):

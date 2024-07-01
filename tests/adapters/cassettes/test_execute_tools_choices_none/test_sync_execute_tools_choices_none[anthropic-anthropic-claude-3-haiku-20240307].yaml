@@ -1,0 +1,87 @@
+interactions:
+- request:
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Generate
+      random number"}], "model": "claude-3-haiku-20240307", "system": "", "tools":
+      []}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      anthropic-version:
+      - '2023-06-01'
+      connection:
+      - keep-alive
+      content-length:
+      - '152'
+      content-type:
+      - application/json
+      host:
+      - api.anthropic.com
+      user-agent:
+      - Anthropic/Python 0.28.1
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 0.28.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.9
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: '{"id":"msg_014P9HTUKmw3aX6Ef6h6wPkF","type":"message","role":"assistant","model":"claude-3-haiku-20240307","content":[{"type":"text","text":"Here''s
+        how you can generate a random number in various programming languages:\n\n1.
+        **JavaScript**:\n```javascript\nconst randomNumber = Math.random();\nconsole.log(randomNumber);\n```\n\n2.
+        **Python**:\n```python\nimport random\nrandom_number = random.random()\nprint(random_number)\n```\n\n3.
+        **Java**:\n```java\nimport java.util.Random;\n\npublic class Example {\n    public
+        static void main(String[] args) {\n        Random random = new Random();\n        double
+        randomNumber = random.nextDouble();\n        System.out.println(randomNumber);\n    }\n}\n```\n\n4.
+        **C++**:\n```cpp\n#include <iostream>\n#include <cstdlib>\n#include <ctime>\n\nint
+        main() {\n    srand(time(0)); // Seed the random number generator\n    double
+        randomNumber = static_cast<double>(rand()) / RAND_MAX;\n    std::cout << randomNumber
+        << std::endl;\n    return 0;\n}\n```\n\n5. **C#**:\n```csharp\nusing System;\n\nclass
+        Example {\n    static void Main() {\n        Random random = new Random();\n        double
+        randomNumber = random.NextDouble();\n        Console.WriteLine(randomNumber);\n    }\n}\n```\n\nThe
+        general idea is to use the built-in random number generation functions provided
+        by the language. In most cases, you''ll need to import a random number generator
+        module or library, and then call the appropriate function to generate a random
+        number.\n\nNote that the range of the generated random number may vary depending
+        on the language and the specific function used. For example, `Math.random()`
+        in JavaScript generates a number between 0 and 1, while `random.nextDouble()`
+        in Java generates a number between 0 and 1."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":423}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 899d42533e8c95a6-TBS
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 26 Jun 2024 12:39:18 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1848'
+      request-id:
+      - req_01BunMatq9msEr5GMF2vdRUj
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - 5d202542d826cec585dbb5e5e1a11a4c
+    status:
+      code: 200
+      message: OK
+version: 1

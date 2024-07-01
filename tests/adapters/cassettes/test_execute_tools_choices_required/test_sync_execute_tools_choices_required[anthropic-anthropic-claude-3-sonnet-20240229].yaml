@@ -1,0 +1,72 @@
+interactions:
+- request:
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Generate
+      random number"}], "model": "claude-3-sonnet-20240229", "system": "", "tool_choice":
+      {"type": "any"}, "tools": [{"name": "generate", "description": "Generate random
+      number", "input_schema": {"type": "object", "properties": {"prompt": {"type":
+      "string", "description": "Random number like 5, 4, 3, 10, 11"}}, "required":
+      ["prompt"]}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      anthropic-version:
+      - '2023-06-01'
+      connection:
+      - keep-alive
+      content-length:
+      - '405'
+      content-type:
+      - application/json
+      host:
+      - api.anthropic.com
+      user-agent:
+      - Anthropic/Python 0.28.1
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 0.28.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.9
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: '{"id":"msg_01PmbFvLmA7Mixjeo59zaJ7m","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"tool_use","id":"toolu_01PKTig9L3eX8j3sq99RcyG5","name":"generate","input":{"prompt":"Random
+        number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":331,"output_tokens":37}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 899d5ac6de0b959d-TBS
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 26 Jun 2024 12:55:58 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '325'
+      request-id:
+      - req_01KCJkCF6zZDkRmUh2fgwUKx
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - 954ff58cc60d5e2946670d61b2d12447
+    status:
+      code: 200
+      message: OK
+version: 1
