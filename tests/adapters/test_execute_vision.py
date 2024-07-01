@@ -1,9 +1,12 @@
+import nest_asyncio  # type: ignore
 import pytest
 
 from adapters.adapter_factory import AdapterFactory
 from adapters.types import ConversationRole
 from tests.adapters.utils.contants import MODEL_PATHS, MODEL_PATHS_ASYNC
 from tests.utils import SIMPLE_CONVERSATION_VISION, get_response_content_from_vcr
+
+nest_asyncio.apply()
 
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)
