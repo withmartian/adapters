@@ -15,6 +15,7 @@ from adapters.types import (
     OpenAIChatAdapterResponse,
     Turn,
 )
+from adapters.utils.general_utils import process_image_url
 
 PROVIDER_NAME = "anthropic"
 BASE_URL = "https://api.anthropic.com"
@@ -88,6 +89,7 @@ SUPPORTED_MODELS = [
         context_length=200000,
         completion_length=4096,
         supports_tools=True,
+        supports_vision=True,
     ),
     AnthropicModel(
         name="claude-3-opus-20240229",
@@ -95,6 +97,7 @@ SUPPORTED_MODELS = [
         context_length=200000,
         completion_length=4096,
         supports_tools=True,
+        supports_vision=True,
     ),
     AnthropicModel(
         name="claude-3-haiku-20240307",
@@ -102,6 +105,13 @@ SUPPORTED_MODELS = [
         context_length=200000,
         completion_length=4096,
         supports_tools=True,
+        supports_vision=True,
+    ),
+    AnthropicModel(
+        name="claude-3-5-sonnet-20240620",
+        cost=Cost(prompt=3.0e-6, completion=15.0e-6),
+        context_length=200000,
+        completion_length=4096,
     ),
 ]
 
@@ -282,6 +292,24 @@ class AnthropicSDKChatProviderAdapter(
                 del tool["type"]
         else:
             anthropic_tools_choice = None
+
+        # Include base64-encoded images in the request
+        for message in messages:
+            if message["role"] == ConversationRole.user:
+                new_content = []
+
+                if isinstance(message["content"], list):
+                    for content in message["content"]:
+                        if content["type"] == "text":
+                            new_content.append(content)
+                        elif content["type"] == "image_url":
+                            new_content.append(
+                                process_image_url(content["image_url"]["url"])
+                            )
+                else:
+                    new_content = [{"type": "text", "text": message["content"]}]
+
+                message["content"] = new_content
 
         return {
             **params,

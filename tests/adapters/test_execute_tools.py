@@ -2,7 +2,7 @@ import pytest
 
 from adapters.adapter_factory import AdapterFactory
 from adapters.types import ConversationRole
-from tests.adapters.utils.contants import MODEL_PATHS
+from tests.adapters.utils.contants import MODEL_PATHS, MODEL_PATHS_ASYNC
 from tests.utils import SIMPLE_FUNCTION_CALL_USER_ONLY, get_response_choices_from_vcr
 
 
@@ -63,7 +63,7 @@ def test_sync_execute_tools(vcr, model_name):
     assert adapter_response.cost > 0
 
 
-@pytest.mark.parametrize("model_name", MODEL_PATHS)
+@pytest.mark.parametrize("model_name", MODEL_PATHS_ASYNC)
 @pytest.mark.vcr
 async def test_async_execute_tools(vcr, model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
