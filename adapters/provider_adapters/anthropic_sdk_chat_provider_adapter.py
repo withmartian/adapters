@@ -1,6 +1,6 @@
 import json
 import re
-from typing import Any, Dict, Pattern
+from typing import Any, Dict, List, Optional, Pattern
 
 from anthropic import Anthropic, AsyncAnthropic
 
@@ -88,6 +88,7 @@ SUPPORTED_MODELS = [
         cost=Cost(prompt=3.0e-6, completion=15.0e-6),
         context_length=200000,
         completion_length=4096,
+        supports_tools=True,
         supports_vision=True,
     ),
     AnthropicModel(
@@ -95,6 +96,7 @@ SUPPORTED_MODELS = [
         cost=Cost(prompt=15.0e-6, completion=75.0e-6),
         context_length=200000,
         completion_length=4096,
+        supports_tools=True,
         supports_vision=True,
     ),
     AnthropicModel(
@@ -102,6 +104,7 @@ SUPPORTED_MODELS = [
         cost=Cost(prompt=0.25e-6, completion=1.25e-6),
         context_length=200000,
         completion_length=4096,
+        supports_tools=True,
         supports_vision=True,
     ),
     AnthropicModel(
@@ -174,17 +177,35 @@ class AnthropicSDKChatProviderAdapter(
     def extract_response(
         self, request: Any, response: Any
     ) -> OpenAIChatAdapterResponse:
+        tool_call_name = None
+        arguments = None
+        if response.content[0].type == "tool_use":
+            response.content[0].text = ""
+            tool_call_name = response.content[0].name
+            arguments = response.content[0].input
+
         choices = [
             {
                 "message": {
                     "role": response.role,
-                    "content": choice.text,
+                    "content": response.content[0].text,
+                    "tool_calls": (
+                        [
+                            {
+                                "function": {
+                                    "name": tool_call_name,
+                                    "arguments": arguments,
+                                }
+                            }
+                        ]
+                        if tool_call_name
+                        else []
+                    ),
                 },
                 "finish_reason": FINISH_REASON_MAPPING.get(
                     response.stop_reason, response.stop_reason
                 ),
             }
-            for choice in response.content
         ]
         prompt_tokens = self._sync_client.count_tokens(
             request.convert_to_anthropic_prompt()
@@ -231,16 +252,10 @@ class AnthropicSDKChatProviderAdapter(
 
         return f"data: {chunk}\n\n"
 
-    def get_params(
-        self,
-        llm_input: Conversation,
-        **kwargs,
-    ) -> Dict[str, Any]:
+    def get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
         params = super().get_params(llm_input, **kwargs)
-
         messages = params["messages"]
         system_prompt = ""
-
         # Extract system prompt if it's the first message
         if len(messages) > 0 and messages[0]["role"] == ConversationRole.system:
             system_prompt = messages[0]["content"]
@@ -249,6 +264,34 @@ class AnthropicSDKChatProviderAdapter(
         # Remove trailing whitespace from the last assistant message
         if len(messages) > 0 and messages[-1]["role"] == ConversationRole.assistant:
             messages[-1]["content"] = messages[-1]["content"].rstrip()
+
+        anthropic_tools: Optional[List[Dict[str, Any]]] = kwargs.get("tools")
+        anthropic_tools_choice = kwargs.get("tool_choice")
+        if anthropic_tools_choice and not isinstance(anthropic_tools_choice, str):
+            anthropic_tools_choice["name"] = anthropic_tools_choice["function"]["name"]
+            anthropic_tools_choice["type"] = "tool"
+            del anthropic_tools_choice["function"]
+        elif anthropic_tools_choice == "required":
+            anthropic_tools_choice = {"type": "any"}
+        elif anthropic_tools_choice == "auto":
+            anthropic_tools_choice = {"type": "auto"}
+        else:
+            anthropic_tools_choice = {"type": "auto"}
+            anthropic_tools = []
+
+        if anthropic_tools:
+            for tool in anthropic_tools:
+                tool["name"] = tool["function"]["name"]
+                tool["description"] = tool["function"]["description"]
+                tool["input_schema"] = {
+                    "type": tool["function"]["parameters"]["type"],
+                    "properties": tool["function"]["parameters"]["properties"],
+                    "required": tool["function"]["parameters"]["required"],
+                }
+                del tool["function"]
+                del tool["type"]
+        else:
+            anthropic_tools_choice = None
 
         # Include base64-encoded images in the request
         for message in messages:
@@ -272,9 +315,7 @@ class AnthropicSDKChatProviderAdapter(
             **params,
             "messages": messages,
             "system": system_prompt,
-            "max_tokens": (
-                kwargs.get("max_tokens")
-                if kwargs.get("max_tokens")
-                else self.get_model().completion_length
-            ),
+            "max_tokens": kwargs.get("max_tokens", self.get_model().completion_length),
+            "tool_choice": anthropic_tools_choice,
+            "tools": anthropic_tools,
         }

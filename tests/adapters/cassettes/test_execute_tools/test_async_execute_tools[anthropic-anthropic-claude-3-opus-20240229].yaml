@@ -1,0 +1,72 @@
+interactions:
+- request:
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Generate
+      random number"}], "model": "claude-3-opus-20240229", "system": "", "tool_choice":
+      {"type": "tool", "name": "generate"}, "tools": [{"name": "generate", "description":
+      "Generate random number", "input_schema": {"type": "object", "properties": {"prompt":
+      {"type": "string", "description": "Random number like 5, 4, 3, 10, 11"}}, "required":
+      ["prompt"]}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      anthropic-version:
+      - '2023-06-01'
+      connection:
+      - keep-alive
+      content-length:
+      - '424'
+      content-type:
+      - application/json
+      host:
+      - api.anthropic.com
+      user-agent:
+      - AsyncAnthropic/Python 0.28.1
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 0.28.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.9
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: '{"id":"msg_01FoBQqbwQotcJMHfteW7Rk4","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"tool_use","id":"toolu_015uqpFwheS6BaeBKZo5UoG1","name":"generate","input":{"prompt":"5,
+        4, 3, 10, 11"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":380,"output_tokens":45}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 897498ea1fc095a9-TBS
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 21 Jun 2024 14:13:08 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '325'
+      request-id:
+      - req_01HPpKN3SWNwVYqaWrHp2CRm
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - c730d51aa544789fbbf316cb392bcdf2
+    status:
+      code: 200
+      message: OK
+version: 1
