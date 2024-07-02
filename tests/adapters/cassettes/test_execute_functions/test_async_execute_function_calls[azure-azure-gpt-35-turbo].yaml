@@ -1,0 +1,81 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "gpt-35-turbo", "function_call": {"name": "generate"}, "functions": [{"description":
+      "Generate random number", "name": "generate"}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      api-key:
+      - b22bea4270b74a7e9eb3b2c74ee66db9
+      connection:
+      - keep-alive
+      content-length:
+      - '211'
+      content-type:
+      - application/json
+      host:
+      - martiantest.openai.azure.com
+      user-agent:
+      - AsyncAzureOpenAI/Python 1.34.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.34.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.9
+    method: POST
+    uri: https://martiantest.openai.azure.com//openai/deployments/gpt-35-turbo/chat/completions?api-version=2024-05-01-preview
+  response:
+    body:
+      string: '{"choices":[{"content_filter_results":{},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":null,"function_call":{"arguments":"function
+        generate() {\n  return Math.floor(Math.random() * 101);\n}","name":"generate"},"role":"assistant"}}],"created":1719224599,"id":"chatcmpl-9db8x5xSGzuuusduhp05P5xETgyUm","model":"gpt-35-turbo","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":null,"usage":{"completion_tokens":16,"prompt_tokens":45,"total_tokens":61}}
+
+        '
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Length:
+      - '729'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 24 Jun 2024 10:23:18 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      access-control-allow-origin:
+      - '*'
+      apim-request-id:
+      - b21787a5-cafd-4b4b-9534-14b9e8be4d7c
+      azureml-model-session:
+      - turbo-0301-afa7ac76
+      x-accel-buffering:
+      - 'no'
+      x-content-type-options:
+      - nosniff
+      x-ms-client-request-id:
+      - b21787a5-cafd-4b4b-9534-14b9e8be4d7c
+      x-ms-rai-invoked:
+      - 'true'
+      x-ms-region:
+      - East US
+      x-ratelimit-remaining-requests:
+      - '0'
+      x-ratelimit-remaining-tokens:
+      - '968'
+      x-request-id:
+      - f060e5bc-d252-401b-ba7f-d2316a3c55a5
+    status:
+      code: 200
+      message: OK
+version: 1
