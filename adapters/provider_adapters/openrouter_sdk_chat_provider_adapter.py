@@ -34,7 +34,7 @@ MODELS = [
     ),
     OpenRouterModel(
         name="gemma-2-9b-it",
-        cost=Cost(prompt=0.07e-6, completion=0.07e-6),
+        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
         context_length=8192,
         vendor_name="google",
     ),
