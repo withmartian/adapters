@@ -199,13 +199,10 @@ class SDKChatAdapter(
         **kwargs,
     ):
         params = self.get_params(llm_input, **kwargs)
-        print("params", params)
         response = await self.get_async_client()(
             model=self.get_model()._get_api_path(),
             **delete_none_values(params),
         )
-
-        print("response", response)
 
         if params.get("stream", False):
 
