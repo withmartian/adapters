@@ -35,12 +35,12 @@ class CohereModel(Model):
 MODELS = [
     CohereModel(
         name="command-r",
-        cost=Cost(prompt=3.00e-6, completion=15.00e-6),
+        cost=Cost(prompt=0.5e-6, completion=1.5e-6),
         context_length=131_072,
     ),
     CohereModel(
         name="command-r-plus",
-        cost=Cost(prompt=0.50e-6, completion=1.50e-6),
+        cost=Cost(prompt=3.00e-6, completion=15.00e-6),
         context_length=131_072,
     ),
 ]

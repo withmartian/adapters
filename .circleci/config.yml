@@ -24,6 +24,17 @@ workflows:
             branches:
               only:
                 - main
+      - update-supported-models-gateways-docs:
+          requires:
+            - publish-package
+          context:
+            - circle_ci_fingerprint
+            - martian-adapters
+            - gh-token
+          filters:
+            branches:
+              only:
+                - main
 
 jobs:
   pre-commit:
@@ -89,3 +100,49 @@ jobs:
       - run:
           name: Publish package to PyPI
           command: poetry publish --build
+
+  update-supported-models-gateways-docs:
+    docker:
+      - image: cimg/python:3.11.5
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - $SSH_FINGERPRINT
+            - SHA256:0BJJg6ZBTxTdqo9lc0WG0GlQgSNcxCI2CaOH37TAdXg
+      - checkout
+      - python/install-packages:
+          pkg-manager: poetry
+
+      # Install GitHub CLI
+      - run:
+          name: Install GitHub CLI
+          command: |
+            curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+            sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+            echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+            sudo apt update
+            sudo apt install gh -y
+      - run:
+          name: Set up the gitbook docs repo
+          command: |
+            git clone git@github.com:withmartian/gitbook-docs.git ~/gitbook-docs
+            cd ~/gitbook-docs
+            git config --global user.name "circle-ci-bot"
+            git config --global user.email "circle-ci-bot@withmartian.com"
+            git checkout deploy
+            git checkout -b update/circle-ci-${CIRCLE_BUILD_NUM}
+            cd -
+      - run:
+          name: Run doc update
+          command: |
+            poetry run pip install pandas
+            poetry run python scripts/update_supported_models_gateway_docs.py ~/gitbook-docs/martian-model-router/model-gateway/supported-models-gateway.md
+      - run:
+          name: Push changes to github
+          command: |
+            cd ~/gitbook-docs
+            git add --all
+            git commit -m "Updated doc with newest models"
+            git push --set-upstream origin update/circle-ci-${CIRCLE_BUILD_NUM}
+            gh pr create --title "Doc update" --body "" --base deploy --head update/circle-ci-${CIRCLE_BUILD_NUM}
+            gh pr merge -m $(gh pr list --limit 1 --json number --jq '.[0].number')

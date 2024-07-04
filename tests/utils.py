@@ -179,41 +179,45 @@ def setup_tiktoken_cache():
     # The URL should be in the 'load_tiktoken_bpe function call'
 
 
-# COhere
-# cassette_response = json.loads(vcr.responses[-1]["body"]["string"])["text"]
+def get_response_content_from_vcr(vcr, adapter: BaseAdapter):
+    response = json.loads(vcr.responses[-1]["body"]["string"])
 
-
-# Anthropic
-# cassette_response = json.loads(vcr.responses[len(vcr.responses) - 1]["body"]["string"])[
-#     "content"
-# ][0]["text"]
-
-
-# vcr.responses[-1]["content"]
-#             if "content" in vcr.responses[-1]
-#             else
-
-
-def get_choices_from_vcr(vcr, adapter: BaseAdapter):
     if isinstance(adapter, OpenAISDKChatAdapter):
-        if (
-            json.loads(vcr.responses[-1]["body"]["string"])["choices"][0]["message"][
-                "content"
-            ]
-            is None
-        ):
-            return json.loads(vcr.responses[-1]["body"]["string"])["choices"]
-        else:
-            return json.loads(vcr.responses[-1]["body"]["string"])["choices"][0][
-                "message"
-            ]["content"]
+        return response["choices"][0]["message"]["content"]
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
-        return json.loads(vcr.responses[-1]["body"]["string"])["content"][0]["text"]
+        return response["content"][0]["text"]
     elif isinstance(adapter, CohereSDKChatProviderAdapter):
-        return json.loads(vcr.responses[-1]["body"]["string"])["text"]
+        return response["text"]
     elif isinstance(adapter, GeminiSDKChatProviderAdapter):
-        return json.loads(vcr.responses[0]["body"]["string"])["candidates"][0][
-            "content"
-        ]["parts"][0]["text"]
+        return response["candidates"][0]["content"]["parts"][0]["text"]
+    else:
+        raise ValueError("Unknown adapter")
+
+
+def get_response_choices_from_vcr(vcr, adapter: BaseAdapter):
+    response = json.loads(vcr.responses[-1]["body"]["string"])
+    if isinstance(adapter, OpenAISDKChatAdapter):
+        return response["choices"]
+    elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
+        function_name = response["content"][0]["name"]
+        arguments = response["content"][0]["input"]
+        return [
+            {
+                "message": {
+                    "tool_calls": [
+                        {
+                            "function": {
+                                "name": function_name,
+                                "arguments": arguments,
+                            },
+                        }
+                    ],
+                }
+            }
+        ]
+    elif isinstance(adapter, CohereSDKChatProviderAdapter):
+        return response["text"]
+    elif isinstance(adapter, GeminiSDKChatProviderAdapter):
+        return response["candidates"][0]["content"]["parts"][0]["text"]
     else:
         raise ValueError("Unknown adapter")
