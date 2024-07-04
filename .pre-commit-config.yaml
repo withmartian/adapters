@@ -50,9 +50,9 @@ repos:
         stages: [commit, manual]
       - id: check-ast
         stages: [commit, manual]
-      - id: check-added-large-files
-        stages: [commit, manual]
-        args: ["--maxkb=2500"]
+      # - id: check-added-large-files
+      #   stages: [commit, manual]
+      #   args: ["--maxkb=2500"]
   - repo: https://github.com/ambv/black
     rev: 23.9.1
     hooks:
@@ -84,7 +84,7 @@ repos:
           - asyncio==3.4.3
           - aiohttp==3.8.5
           - aiolimiter==1.1.0
-          - anthropic==0.15.0
+          - anthropic==0.26.1
           - pydantic==2.4.2
           - pytest==7.4.2
           - yarl==1.9.2
