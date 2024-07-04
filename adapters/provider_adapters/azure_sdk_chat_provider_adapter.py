@@ -1,11 +1,11 @@
 import re
-from typing import Pattern
+from typing import Any, Dict, Pattern
 
 from openai import AsyncAzureOpenAI, AzureOpenAI
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model
+from adapters.types import Conversation, Cost, Model
 
 VENDOR_NAME = "openai"
 PROVIDER_NAME = "azure"
@@ -22,6 +22,7 @@ class AzureModel(Model):
     supports_json_output: bool = True
     supports_json_content: bool = True
     vendor_name: str = VENDOR_NAME
+    supports_tool_choice_required: bool = False
     provider_name: str = PROVIDER_NAME
 
 
@@ -87,3 +88,16 @@ class AzureSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
     @staticmethod
     def get_api_key_pattern() -> Pattern:
         return API_KEY_PATTERN
+
+    def get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
+        params = super().get_params(llm_input, **kwargs)
+
+        azure_tool_choice = kwargs.get("tool_choice")
+
+        if azure_tool_choice == "required":
+            azure_tool_choice = "auto"
+
+        return {
+            **params,
+            "tool_choice": azure_tool_choice,
+        }

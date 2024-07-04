@@ -29,6 +29,9 @@ def test_sync_execute_tools_choices_required(vcr, model_name):
     if adapter.get_model().supports_tools is False:
         return
 
+    if adapter.get_model().supports_tool_choice_required is False:
+        return
+
     adapter_response = adapter.execute_sync(
         adapter.convert_to_input(SIMPLE_FUNCTION_CALL_USER_ONLY),
         tool_choice="required",
@@ -72,6 +75,9 @@ async def test_async_execute_tools_choices_required(vcr, model_name):
     assert adapter is not None
 
     if adapter.get_model().supports_tools is False:
+        return
+
+    if adapter.get_model().supports_tool_choice_required is False:
         return
 
     adapter_response = await adapter.execute_async(
