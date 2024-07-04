@@ -7,7 +7,7 @@ from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdap
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.types import Cost, Model
 
-VENDOR_NAME = "azure"
+VENDOR_NAME = "openai"
 PROVIDER_NAME = "azure"
 BASE_URL = "https://martiantest.openai.azure.com/"
 API_KEY_NAME = "AZURE_API_KEY"
@@ -21,7 +21,7 @@ class AzureModel(Model):
     supports_n: bool = True
     supports_json_output: bool = True
     supports_json_content: bool = True
-    vendor_name: str = PROVIDER_NAME
+    vendor_name: str = VENDOR_NAME
     provider_name: str = PROVIDER_NAME
 
 
