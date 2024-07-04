@@ -12,6 +12,7 @@ from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
+    ContentTurn,
     Conversation,
     ConversationRole,
     Cost,
@@ -26,6 +27,8 @@ API_KEY_PATTERN = re.compile(r".*")
 
 
 class GeminiModel(Model):
+    _test_async: bool = False
+
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
 
@@ -100,9 +103,10 @@ class GeminiSDKChatProviderAdapter(
 
     def __init__(
         self,
-    ):
+    ) -> None:
         super().__init__()
         self.set_api_key(self.get_api_key())
+        self.model: genai.GenerativeModel | None = None
 
     def get_model_name(self) -> str:
         if self._current_model is None:
@@ -131,9 +135,6 @@ class GeminiSDKChatProviderAdapter(
     def extract_response(
         self, request: Any, response: Any
     ) -> OpenAIChatAdapterResponse:
-        model = genai.GenerativeModel(model_name=self.get_model_name())
-        model._client = self.get_sync_client()
-
         choices = [
             {
                 "message": {
@@ -145,10 +146,11 @@ class GeminiSDKChatProviderAdapter(
         ]
 
         # Optimize token count calculation, use async for async and parallelize
-        prompt_tokens = model.count_tokens(
-            [turn.content for turn in request.turns]
+        assert self.model
+        prompt_tokens = self.model.count_tokens(
+            [_map_turn_content_to_str(turn) for turn in request.turns]
         ).total_tokens
-        completion_tokens = model.count_tokens(response.text).total_tokens
+        completion_tokens = self.model.count_tokens(response.text).total_tokens
 
         cost = (
             self.get_model().cost.prompt * prompt_tokens
@@ -219,19 +221,16 @@ class GeminiSDKChatProviderAdapter(
     ) -> Dict[str, Any]:
         params = super().get_params(llm_input, **kwargs)
 
-        last_message = params["messages"].pop(-1)["content"]
+        last_message = params["messages"].pop()
+        last_content = last_message["content"] or " "
 
-        messages = [
-            {
-                **({"parts": [message["content"]]}),
-                **(
-                    {"role": ConversationRole.user}
-                    if message["role"] == ConversationRole.system
-                    else {"role": message["role"]}
-                ),
+        transformed_messages = []
+        for message in params["messages"]:
+            transformed_message = {
+                "parts": [_map_content_to_str(message["content"], message["role"])],
+                "role": _map_role(message["role"]),
             }
-            for message in params["messages"]
-        ]
+            transformed_messages.append(transformed_message)
 
         if "max_tokens" in params:
             params["max_output_tokens"] = params["max_tokens"]
@@ -239,7 +238,11 @@ class GeminiSDKChatProviderAdapter(
 
         del params["messages"]
 
-        return {"config": params, "history": messages, "prompt": last_message}
+        return {
+            "config": params,
+            "history": transformed_messages,
+            "prompt": _map_content_to_str(last_content, last_message["role"]),
+        }
 
     async def execute_async(
         self,
@@ -267,13 +270,47 @@ class GeminiSDKChatProviderAdapter(
     ):
         params = self.get_params(llm_input, **kwargs)
 
-        model = genai.GenerativeModel(
-            model_name=self.get_model_name(), generation_config=params["config"]
+        self.model = genai.GenerativeModel(
+            model_name=self.get_model_name(),
+            generation_config=params.get("config") or None,
         )
-        model._client = self.get_sync_client()
+        self.model._client = self.get_sync_client()
 
-        convo = model.start_chat(history=params["history"])
-
-        result = convo.send_message(params["prompt"])
-
+        chat = self.model.start_chat(history=params["history"])
+        result = chat.send_message(params["prompt"])
         return self.extract_response(request=llm_input, response=result)
+
+
+def _map_content_to_str(
+    content: str | list[dict[str, Any]], role: str | ConversationRole
+) -> str:
+    if not content or content in [" ", "\n", "\t"]:
+        return "."
+
+    # Join content if it is a list.
+    if isinstance(content, list):
+        return " ".join(content.get("text", "") for content in content)
+
+    if role != "system":
+        return content
+
+    # Simulate *system message*.
+    return f"*{content}*"
+
+
+def _map_role(role: str | ConversationRole) -> str:
+    match role:
+        case ConversationRole.user | ConversationRole.system | "user" | "system":
+            return "user"
+        case ConversationRole.assistant | "assistant":
+            return "model"
+        case _:
+            return "user"
+
+
+def _map_turn_content_to_str(turn: ContentTurn | Turn) -> str:
+    match turn:
+        case ContentTurn():
+            return " ".join(content.text for content in turn.content)  # type: ignore[union-attr]
+        case Turn():
+            return turn.content
