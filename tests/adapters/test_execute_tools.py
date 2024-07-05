@@ -15,6 +15,7 @@ def extract_data(choice):
         fn = choice.message.tool_calls[0].function.name
         fa = choice.message.tool_calls[0].function.arguments
         r = choice.message.role
+
     return fn, fa, r
 
 
@@ -53,14 +54,19 @@ def test_sync_execute_tools(vcr, model_name):
     )
 
     choices = get_response_choices_from_vcr(vcr, adapter)
+
     function_name, function_arguments, role = extract_data(adapter_response.choices[0])
     assert function_name == choices[0]["message"]["tool_calls"][0]["function"]["name"]
     assert (
         function_arguments
         == choices[0]["message"]["tool_calls"][0]["function"]["arguments"]
     )
+
     assert role == ConversationRole.assistant
     assert adapter_response.cost > 0
+
+    finish_reason = getattr(adapter_response.choices[0], "finish_reason", None)  # type: ignore
+    assert finish_reason in ["stop", "eos", "length", None]
 
 
 @pytest.mark.parametrize("model_name", MODEL_PATHS_ASYNC)
@@ -104,5 +110,9 @@ async def test_async_execute_tools(vcr, model_name):
         function_arguments
         == choices[0]["message"]["tool_calls"][0]["function"]["arguments"]
     )
+
     assert role == ConversationRole.assistant
     assert adapter_response.cost > 0
+
+    finish_reason = getattr(adapter_response.choices[0], "finish_reason", None)  # type: ignore
+    assert finish_reason in ["stop", "eos", "length", None]

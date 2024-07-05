@@ -1,0 +1,90 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "gpt-35-turbo", "tool_choice": "none", "tools": [{"type": "function", "function":
+      {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      api-key:
+      - b22bea4270b74a7e9eb3b2c74ee66db9
+      connection:
+      - keep-alive
+      content-length:
+      - '382'
+      content-type:
+      - application/json
+      host:
+      - martiantest.openai.azure.com
+      user-agent:
+      - AsyncAzureOpenAI/Python 1.34.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.34.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.9
+    method: POST
+    uri: https://martiantest.openai.azure.com//openai/deployments/gpt-35-turbo/chat/completions?api-version=2024-05-01-preview
+  response:
+    body:
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"Here
+        is an example implementation of the `generate` function that generates a random
+        number:\n\n```typescript\nconst generate: functions.generate = ({ prompt })
+        =\u003e {\n  const min = 1;\n  const max = 100;\n  const randomNumber = Math.floor(Math.random()
+        * (max - min + 1) + min);\n  return `${prompt}: ${randomNumber}`;\n};\n```\n\nThis
+        function takes an object as an argument that contains a `prompt` property,
+        which is a string describing what the randomly generated number represents.
+        The function generates a random number between 1 and 100, inclusively, and
+        concatenates it with the `prompt` to form a string.","role":"assistant"}}],"created":1720080818,"id":"chatcmpl-9hBsw5uk27l4h0STKXj27Tmp2BOuK","model":"gpt-35-turbo","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":null,"usage":{"completion_tokens":136,"prompt_tokens":67,"total_tokens":203}}
+
+        '
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Length:
+      - '1415'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 04 Jul 2024 08:13:39 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      access-control-allow-origin:
+      - '*'
+      apim-request-id:
+      - a9fb73cc-fe97-4d33-aed9-c27ae4bb3b75
+      azureml-model-session:
+      - turbo-0301-70a99ad4
+      x-accel-buffering:
+      - 'no'
+      x-content-type-options:
+      - nosniff
+      x-ms-client-request-id:
+      - a9fb73cc-fe97-4d33-aed9-c27ae4bb3b75
+      x-ms-rai-invoked:
+      - 'true'
+      x-ms-region:
+      - East US
+      x-ratelimit-remaining-requests:
+      - '48'
+      x-ratelimit-remaining-tokens:
+      - '49872'
+      x-request-id:
+      - 68557497-a319-4bbc-9fdc-05e2c2a4cce3
+    status:
+      code: 200
+      message: OK
+version: 1

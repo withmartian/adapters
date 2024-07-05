@@ -1,0 +1,82 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "gpt-4o", "tool_choice": "none", "tools": [{"type": "function", "function":
+      {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      api-key:
+      - b22bea4270b74a7e9eb3b2c74ee66db9
+      connection:
+      - keep-alive
+      content-length:
+      - '376'
+      content-type:
+      - application/json
+      host:
+      - martiantest.openai.azure.com
+      user-agent:
+      - AsyncAzureOpenAI/Python 1.34.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.34.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.9
+    method: POST
+    uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview
+  response:
+    body:
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"Please
+        provide a prompt to generate the random number. For example, you could say
+        \"Generate a random number between 1 and 10.\"","role":"assistant"}}],"created":1720080820,"id":"chatcmpl-9hBsy9kLz5xpDTXqfLpW9KO7YSpzl","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_abc28019ad","usage":{"completion_tokens":28,"prompt_tokens":63,"total_tokens":91}}
+
+        '
+    headers:
+      Content-Length:
+      - '939'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 04 Jul 2024 08:13:41 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      apim-request-id:
+      - cf318a6e-fb36-4cea-a9e5-357e97ae6e3c
+      azureml-model-session:
+      - d069-20240607083356
+      x-accel-buffering:
+      - 'no'
+      x-content-type-options:
+      - nosniff
+      x-envoy-upstream-service-time:
+      - '1296'
+      x-ms-client-request-id:
+      - cf318a6e-fb36-4cea-a9e5-357e97ae6e3c
+      x-ms-rai-invoked:
+      - 'true'
+      x-ms-region:
+      - East US
+      x-ratelimit-remaining-requests:
+      - '48'
+      x-ratelimit-remaining-tokens:
+      - '44836'
+      x-request-id:
+      - 75720bac-0c74-42e2-8702-02d145ca6d65
+    status:
+      code: 200
+      message: OK
+version: 1
