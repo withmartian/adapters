@@ -199,7 +199,6 @@ class SDKChatAdapter(
         **kwargs,
     ):
         params = self.get_params(llm_input, **kwargs)
-
         response = await self.get_async_client()(
             model=self.get_model()._get_api_path(),
             **delete_none_values(params),
