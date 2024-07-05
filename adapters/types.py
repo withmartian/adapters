@@ -133,6 +133,7 @@ class Model(BaseModel):
     supports_system: bool = True
     supports_multiple_system: bool = True
     supports_empty_content: bool = True
+    supports_tool_choice_required: bool = True
     supports_json_output: bool = False
     supports_json_content: bool = False
     supports_last_assistant: bool = True

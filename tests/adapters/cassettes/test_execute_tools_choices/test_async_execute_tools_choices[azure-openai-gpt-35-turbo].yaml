@@ -1,0 +1,93 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "gpt-35-turbo", "tool_choice": "none", "tools": [{"type": "function", "function":
+      {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      api-key:
+      - b22bea4270b74a7e9eb3b2c74ee66db9
+      connection:
+      - keep-alive
+      content-length:
+      - '382'
+      content-type:
+      - application/json
+      host:
+      - martiantest.openai.azure.com
+      user-agent:
+      - AsyncAzureOpenAI/Python 1.34.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.34.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.9
+    method: POST
+    uri: https://martiantest.openai.azure.com//openai/deployments/gpt-35-turbo/chat/completions?api-version=2024-05-01-preview
+  response:
+    body:
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"Here''s
+        an example implementation of the `generate` function that generates a random
+        number between a specified minimum and maximum value:\n\n```typescript\nnamespace
+        functions {\n  export const generate: functions.generate = ({prompt}) =\u003e
+        {\n    const min = parseInt(prompt(\"Enter minimum value: \"));\n    const
+        max = parseInt(prompt(\"Enter maximum value: \"));\n    \n    if (isNaN(min)
+        || isNaN(max)) {\n      throw new Error(\"Invalid input\");\n    }\n    \n    if
+        (min \u003e= max) {\n      throw new Error(\"Minimum value must be less than
+        maximum value\");\n    }\n    \n    return Math.floor(Math.random() * (max
+        - min + 1)) + min;\n  };\n}\n```\n\nTo use the function, you can call it like
+        this:\n\n```typescript\nconst num = functions.generate({\n  prompt: window.prompt\n});\n\nconsole.log(num);
+        // Output a random number within the specified range\n```","role":"assistant"}}],"created":1720080801,"id":"chatcmpl-9hBsfR8bRQtrMZr6APAJofzTHElIv","model":"gpt-35-turbo","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":null,"usage":{"completion_tokens":182,"prompt_tokens":67,"total_tokens":249}}
+
+        '
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Length:
+      - '1669'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 04 Jul 2024 08:13:22 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      access-control-allow-origin:
+      - '*'
+      apim-request-id:
+      - 917f736f-2a8a-4135-875f-56904781b2ab
+      azureml-model-session:
+      - turbo-0301-afa7ac76
+      x-accel-buffering:
+      - 'no'
+      x-content-type-options:
+      - nosniff
+      x-ms-client-request-id:
+      - 917f736f-2a8a-4135-875f-56904781b2ab
+      x-ms-rai-invoked:
+      - 'true'
+      x-ms-region:
+      - East US
+      x-ratelimit-remaining-requests:
+      - '48'
+      x-ratelimit-remaining-tokens:
+      - '49872'
+      x-request-id:
+      - d1e49137-be4b-404c-aa14-589f82a16d47
+    status:
+      code: 200
+      message: OK
+version: 1

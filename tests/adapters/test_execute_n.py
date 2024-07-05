@@ -28,6 +28,9 @@ def test_sync(vcr, model_path: str):
     # TODO: fix type of adapter_response to have an attr choices
     assert len(adapter_response.choices) == N_PARAM  # type: ignore
 
+    finish_reason = getattr(adapter_response.choices[0], "finish_reason", None)  # type: ignore
+    assert finish_reason in ["stop", "eos", "length", None]
+
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS_ASYNC)
 @pytest.mark.vcr
@@ -50,3 +53,6 @@ async def test_async(vcr, model_path: str):
 
     # TODO: fix type of adapter_response to have an attr choices
     assert len(adapter_response.choices) == N_PARAM  # type: ignore
+
+    finish_reason = getattr(adapter_response.choices[0], "finish_reason", None)  # type: ignore
+    assert finish_reason in ["stop", "eos", "length", None]
