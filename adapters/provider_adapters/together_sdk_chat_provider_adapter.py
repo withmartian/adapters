@@ -1,9 +1,9 @@
 import re
-from typing import Pattern
+from typing import Any, Dict, Pattern
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model
+from adapters.types import Conversation, ConversationRole, Cost, Model
 
 PROVIDER_NAME = "together"
 BASE_URL = "https://api.together.xyz"
@@ -83,6 +83,12 @@ MODELS = [
     ),
     TogetherModel(
         name="gemma-2b-it",
+        cost=Cost(prompt=0.1e-6, completion=0.1e-6),
+        context_length=8192,
+        vendor_name="google",
+    ),
+    TogetherModel(
+        name="gemma-2b",
         cost=Cost(prompt=0.1e-6, completion=0.1e-6),
         context_length=8192,
         vendor_name="google",
@@ -378,3 +384,15 @@ class TogetherSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter)
 
     def adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
+
+    def get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
+        params = super().get_params(llm_input, **kwargs)
+        messages = params["messages"]
+        # Remove trailing whitespace from the last assistant message
+        if len(messages) > 0 and messages[-1]["role"] == ConversationRole.assistant:
+            messages[-1]["content"] = messages[-1]["content"].rstrip()
+
+        return {
+            **params,
+            "messages": messages,
+        }
