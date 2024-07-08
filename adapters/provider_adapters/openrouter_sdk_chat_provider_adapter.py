@@ -33,6 +33,12 @@ MODELS = [
         vendor_name="google",
     ),
     OpenRouterModel(
+        name="gemma-2-9b-it",
+        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+        context_length=8192,
+        vendor_name="google",
+    ),
+    OpenRouterModel(
         name="llama-3-70b-instruct",
         cost=Cost(prompt=0.59e-6, completion=0.59e-6),
         context_length=8192,
