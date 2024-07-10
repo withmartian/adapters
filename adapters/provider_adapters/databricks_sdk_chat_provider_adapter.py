@@ -16,6 +16,7 @@ API_KEY_PATTERN = re.compile(r".*")
 class DatabricksModel(Model):
     supports_first_assistant: bool = False
     supports_multiple_system: bool = False
+    supports_tools: bool = True
     provider_name: str = PROVIDER_NAME
 
 
@@ -29,53 +30,34 @@ MODELS = [
         context_length=32000,
         vendor_name="databricks",
     ),
-    #     DatabricksModel(
-    #         name="databricks-meta-llama-3-70b-instruct",
-    #         cost=Cost(prompt=0, completion=0),
-    #         context_lenght=0,
-    #         vendor_name="databricks",
-    #     ),
-    #     DatabricksModel(
-    #         name="databricks-mixtral-8x7b-instruct",
-    #         cost="",
-    #         context_lenght=0,
-    #         vendor_name="databricks",
-    #     ),
-    #     DatabricksModel(
-    #         name="databricks-llama-2-70b-chat",
-    #         cost=Cost(prompt=0, completion=0),
-    #         context_length=0,
-    #         vendor_name="databricks",
-    #     ),
-    #     DatabricksModel(
-    #         name="databricks-gte-large-en",
-    #         cost=Cost(prompt=0, completion=0),
-    #         context_length=0,
-    #         vendor_name="databricks",
-    #     ),
-    #     DatabricksModel(
-    #         name="databricks-bge-large-en",
-    #         cost=Cost(prompt=0, completion=0),
-    #         context_length=0,
-    #         vendor_name="databricks",
-    #     ),
-    #     DatabricksModel(
-    #         name="databricks-mpt-30b-instruct",
-    #         cost=Cost(prompt=0, completion=0),
-    #         context_length=0,
-    #         vendor_name="",
-    #     ),
-    #     DatabricksModel(
-    #         name="databricks-mpt-7b-instruct",
-    #         cost=Cost(prompt=0, completion=0),
-    #         context_length=0,
-    #         vendor_name="databricks",
-    #     ),
+    DatabricksModel(
+        name="databricks-meta-llama-3-70b-instruct",
+        cost=Cost(prompt=0, completion=0),
+        context_length=8000,
+        vendor_name="databricks",
+    ),
+    DatabricksModel(
+        name="databricks-mixtral-8x7b-instruct",
+        cost=Cost(prompt=0, completion=0),
+        context_length=32000,
+        vendor_name="databricks",
+    ),
+    DatabricksModel(
+        name="databricks-llama-2-70b-chat",
+        cost=Cost(prompt=0, completion=0),
+        context_length=4096,
+        vendor_name="databricks",
+    ),
+    DatabricksModel(
+        name="databricks-mpt-30b-instruct",
+        cost=Cost(prompt=0, completion=0),
+        context_length=8192,
+        vendor_name="",
+    ),
 ]
 
 
 class DatabricksSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
-    # TODO: supports assistant first FALSE
     def get_base_sdk_url(self) -> str:
         return DATABRICKS_BASE_URL
 
@@ -122,7 +104,6 @@ class DatabricksSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapte
         ]:
             messages = messages + [{"role": ConversationRole.user, "content": ""}]
 
-        print(kwargs)
         return {
             **params,
             "messages": messages,
