@@ -41,18 +41,14 @@ MODELS = [
         cost=Cost(prompt=0, completion=0),
         context_length=32000,
         vendor_name="databricks",
+        supports_tools=False,
     ),
     DatabricksModel(
         name="databricks-llama-2-70b-chat",
         cost=Cost(prompt=0, completion=0),
         context_length=4096,
         vendor_name="databricks",
-    ),
-    DatabricksModel(
-        name="databricks-mpt-30b-instruct",
-        cost=Cost(prompt=0, completion=0),
-        context_length=8192,
-        vendor_name="",
+        supports_tools=False,
     ),
 ]
 
@@ -85,6 +81,7 @@ class DatabricksSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapte
         params = super().get_params(llm_input, **kwargs)
 
         messages = params["messages"]
+        databricksTools = kwargs.get("tools")
 
         # Databricks only support system as a first optional message
         if messages and messages[0]["role"] == ConversationRole.system:
@@ -98,15 +95,21 @@ class DatabricksSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapte
             ]
 
         # Databricks only support ending messages with user or tool roles
-        if messages and messages[-1] not in [
+        if messages and messages[-1]["role"] not in [
             ConversationRole.user,
             ConversationRole.tool,
         ]:
             messages = messages + [{"role": ConversationRole.user, "content": ""}]
 
+        if databricksTools and not databricksTools[0]["function"].get("parameters"):
+            databricksTools[0]["function"]["parameters"] = {
+                "type": "object",
+            }
+
         return {
             **params,
             "messages": messages,
+            "tools": databricksTools,
             "max_tokens": (
                 kwargs.get("max_tokens")
                 if kwargs.get("max_tokens")
