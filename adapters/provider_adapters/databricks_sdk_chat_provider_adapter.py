@@ -22,30 +22,30 @@ class DatabricksModel(Model):
 
 # TODO convert DBUs to Dollars to measeure costs
 
-
+# all the costs are set to 0.1 as a placeholder for now
 MODELS = [
     DatabricksModel(
         name="databricks-dbrx-instruct",
-        cost=Cost(prompt=14.286e-6, completion=42.857e-6),
+        cost=Cost(prompt=0.1, completion=0.1),
         context_length=32000,
         vendor_name="databricks",
     ),
     DatabricksModel(
         name="databricks-meta-llama-3-70b-instruct",
-        cost=Cost(prompt=0, completion=0),
+        cost=Cost(prompt=0.1, completion=0.1),
         context_length=8000,
         vendor_name="databricks",
     ),
     DatabricksModel(
         name="databricks-mixtral-8x7b-instruct",
-        cost=Cost(prompt=0, completion=0),
+        cost=Cost(prompt=0.1, completion=0.1),
         context_length=32000,
         vendor_name="databricks",
         supports_tools=False,
     ),
     DatabricksModel(
         name="databricks-llama-2-70b-chat",
-        cost=Cost(prompt=0, completion=0),
+        cost=Cost(prompt=0.1, completion=0.1),
         context_length=4096,
         vendor_name="databricks",
         supports_tools=False,
