@@ -141,6 +141,18 @@ MODELS = [
         completion_length=4096,
         supports_vision=True,
     ),
+    OpenAIModel(
+        name="gpt-4o-mini-2024-07-18",
+        cost=Cost(prompt=0.15e-6, completion=0.6e-6),
+        context_length=128000,
+        completion_length=4096,
+    ),
+    OpenAIModel(
+        name="gpt-4o-mini",
+        cost=Cost(prompt=0.15e-6, completion=0.6e-6),
+        context_length=128000,
+        completion_length=16385,
+    ),
 ]
 
 
