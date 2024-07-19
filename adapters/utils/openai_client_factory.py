@@ -147,12 +147,12 @@ class OpenAIClientFactory:
             OpenAIClientFactory._last_async_client_time = datetime.now()
 
             # Create a new AsyncOpenAI client for the given api_key and base_url
-            OpenAIClientFactory._openai_async_clients[
-                f"{api_key}-{base_url}"
-            ] = AsyncOpenAI(
-                http_client=OpenAIClientFactory._http_async_client,
-                base_url=base_url,
-                api_key=api_key,
+            OpenAIClientFactory._openai_async_clients[f"{api_key}-{base_url}"] = (
+                AsyncOpenAI(
+                    http_client=OpenAIClientFactory._http_async_client,
+                    base_url=base_url,
+                    api_key=api_key,
+                )
             )
         if (
             LOG_POOL_INFO
