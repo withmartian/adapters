@@ -167,16 +167,9 @@ def get_response_choices_from_vcr(vcr, adapter: BaseAdapter):
     if isinstance(adapter, OpenAISDKChatAdapter):
         return response["choices"]
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
-        if response["content"][0]["type"] == "tool_use":
-            use_tools = True
-            function_name = response["content"][0]["name"]
-            arguments = response["content"][0]["input"]
-        else:
-            use_tools = False
-            text = response["content"][0]["text"]
-            role = response["role"]
-
-        if use_tools:
+        if response["content"] and response["content"][0]["type"] == "tool_use":
+            function_name = response["content"][0].get("name", "")
+            arguments = response["content"][0].get("input", "")
             return [
                 {
                     "message": {
@@ -192,6 +185,8 @@ def get_response_choices_from_vcr(vcr, adapter: BaseAdapter):
                 }
             ]
         else:
+            text = response["content"][0].get("text", "") if response["content"] else ""
+            role = response.get("role", "")
             return [{"message": {"role": role, "content": text}}]
     elif isinstance(adapter, CohereSDKChatProviderAdapter):
         return response["text"]
