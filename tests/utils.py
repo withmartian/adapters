@@ -1,11 +1,4 @@
-import hashlib
-import inspect
 import json
-import os
-import re
-
-import requests
-import tiktoken_ext.openai_public  # type: ignore
 
 from adapters.abstract_adapters.base_adapter import BaseAdapter
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
@@ -154,31 +147,6 @@ SIMPLE_CONVERSATION_VISION = Conversation(
 )
 
 
-def setup_tiktoken_cache():
-    # print(dir(tiktoken_ext.openai_public))
-    # The encoder we want is cl100k_base, we see this as a possible function
-
-    tiktoken_inspect = inspect.getsource(tiktoken_ext.openai_public.cl100k_base)
-    # pylint: disable=anomalous-backslash-in-string
-    file_location = (
-        re.search(
-            "(?P<url>https?://[^\s]+)",
-            tiktoken_inspect,
-        )
-        .group("url")
-        .replace('"', "")
-    )
-    # pylint: enable=anomalous-backslash-in-string
-    filename = hashlib.sha1(file_location.encode()).hexdigest()
-    r = requests.get(file_location, allow_redirects=True)
-
-    open(filename, "wb").write(r.content)
-    folder = os.getcwd()
-    os.environ["TIKTOKEN_CACHE_DIR"] = folder
-
-    # The URL should be in the 'load_tiktoken_bpe function call'
-
-
 def get_response_content_from_vcr(vcr, adapter: BaseAdapter):
     response = json.loads(vcr.responses[-1]["body"]["string"])
 
@@ -199,16 +167,9 @@ def get_response_choices_from_vcr(vcr, adapter: BaseAdapter):
     if isinstance(adapter, OpenAISDKChatAdapter):
         return response["choices"]
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
-        if response["content"][0]["type"] == "tool_use":
-            use_tools = True
-            function_name = response["content"][0]["name"]
-            arguments = response["content"][0]["input"]
-        else:
-            use_tools = False
-            text = response["content"][0]["text"]
-            role = response["role"]
-
-        if use_tools:
+        if response["content"] and response["content"][0]["type"] == "tool_use":
+            function_name = response["content"][0].get("name", "")
+            arguments = response["content"][0].get("input", "")
             return [
                 {
                     "message": {
@@ -224,6 +185,8 @@ def get_response_choices_from_vcr(vcr, adapter: BaseAdapter):
                 }
             ]
         else:
+            text = response["content"][0].get("text", "") if response["content"] else ""
+            role = response.get("role", "")
             return [{"message": {"role": role, "content": text}}]
     elif isinstance(adapter, CohereSDKChatProviderAdapter):
         return response["text"]

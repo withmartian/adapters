@@ -22,9 +22,9 @@ def create_provider_models_table():
         provider = model.__class__.__name__[:-5]
         models_by_provider[provider].append(
             {
-                "Model": model.name
-                if provider in NAME_ONLY_PROVIDERS
-                else model.get_path(),
+                "Model": (
+                    model.name if provider in NAME_ONLY_PROVIDERS else model.get_path()
+                ),
                 **{
                     format_supports(k): v
                     for k, v in model.model_dump().items()
