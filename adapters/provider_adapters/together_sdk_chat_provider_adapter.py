@@ -22,6 +22,55 @@ class TogetherModel(Model):
 
 MODELS = [
     TogetherModel(
+        name="Meta-Llama-3.1-8B-Instruct-Turbo",
+        cost=Cost(prompt=0.18e-6, completion=0.18e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+        supports_json_content=False,
+    ),
+    TogetherModel(
+        name="Meta-Llama-3.1-70B-Instruct-Turbo",
+        cost=Cost(prompt=0.88e-6, completion=0.88e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+        supports_json_content=False,
+    ),
+    TogetherModel(
+        name="Meta-Llama-3.1-405B-Instruct-Turbo",
+        cost=Cost(prompt=5.0e-6, completion=5.0e-6),
+        context_length=4096,
+        vendor_name="meta-llama",
+        supports_json_content=False,
+    ),
+    TogetherModel(
+        name="Meta-Llama-3-8B-Instruct-Turbo",
+        cost=Cost(prompt=0.18e-6, completion=0.18e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+        supports_json_content=False,
+    ),
+    TogetherModel(
+        name="Meta-Llama-3-70B-Instruct-Turbo",
+        cost=Cost(prompt=0.88e-6, completion=0.88e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+        supports_json_content=False,
+    ),
+    TogetherModel(
+        name="Meta-Llama-3-8B-Instruct-Lite",
+        cost=Cost(prompt=0.1e-6, completion=0.1e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+        supports_json_content=False,
+    ),
+    TogetherModel(
+        name="Meta-Llama-3-70B-Instruct-Lite",
+        cost=Cost(prompt=0.54e-6, completion=0.54e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+        supports_json_content=False,
+    ),
+    TogetherModel(
         name="Yi-34B-Chat",
         cost=Cost(prompt=0.8e-6, completion=0.8e-6),
         context_length=4096,
