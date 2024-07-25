@@ -8,7 +8,7 @@ from adapters.types import Cost, Model
 PROVIDER_NAME = "openai"
 BASE_URL = "https://api.openai.com/v1"
 API_KEY_NAME = "OPENAI_API_KEY"
-API_KEY_PATTERN = re.compile(r"^sk-[a-zA-Z0-9]+$")
+API_KEY_PATTERN = re.compile(r".*")
 
 
 class OpenAIModel(Model):
