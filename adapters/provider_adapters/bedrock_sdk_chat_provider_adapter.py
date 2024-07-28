@@ -43,48 +43,34 @@ class BedrockModel(Model):
 
 
 MODELS = [
-    # BedrockModel(
-    #     name="jamba-instruct",
-    #     cost=Cost(prompt=0.125e-6, completion=0.375e-6),
-    #     context_length=30720,
-    #     completion_length=2048,
-    #     modelId = ''
-    # ),
-    # BedrockModel(
-    #     name="jurassic-2-ultra",
-    #     cost=Cost(prompt=0.125e-6, completion=0.375e-6),
-    #     context_length=30720,
-    #     completion_length=2048,
-    #     modelId = ''
-    # ),
-    # BedrockModel(
-    #     name="jurassic-2-mid",
-    #     cost=Cost(prompt=3.5e-6, completion=10.5e-6),
-    #     context_length=128000,
-    #     completion_length=8192,
-    #     modelId = ''
-    # ),
-    # BedrockModel(
-    #     name="claude-3.5-sonnet",
-    #     cost=Cost(prompt=3.5e-6, completion=10.5e-6),
-    #     context_length=128000,
-    #     completion_length=8192,
-    #     modelId = ''
-    # ),
-    # BedrockModel(
-    #     name="claude-3-opus",
-    #     cost=Cost(prompt=0.35e-6, completion=0.70e-6),
-    #     context_length=128000,
-    #     completion_length=8192,
-    #     modelId = ''
-    # ),
-    # BedrockModel(
-    #     name="claude-3-haiku",
-    #     cost=Cost(prompt=0.35e-6, completion=0.70e-6),
-    #     context_length=128000,
-    #     completion_length=8192,
-    #     modelId = ''
-    # ),
+    BedrockModel(
+        name="jamba-instruct",
+        cost=Cost(prompt=0.125e-6, completion=0.375e-6),
+        context_length=30720,
+        completion_length=2048,
+        modelId="ai21.jamba-instruct-v1:0",
+    ),
+    BedrockModel(
+        name="jurassic-2-ultra",
+        cost=Cost(prompt=0.125e-6, completion=0.375e-6),
+        context_length=30720,
+        completion_length=2048,
+        modelId="ai21.j2-ultra-v1",
+    ),
+    BedrockModel(
+        name="jurassic-2-mid",
+        cost=Cost(prompt=3.5e-6, completion=10.5e-6),
+        context_length=128000,
+        completion_length=8192,
+        modelId="ai21.j2-mid-v1",
+    ),
+    BedrockModel(
+        name="claude-3-haiku",
+        cost=Cost(prompt=0.35e-6, completion=0.70e-6),
+        context_length=128000,
+        completion_length=8192,
+        modelId="anthropic.claude-3-haiku-20240307-v1:0",
+    ),
     BedrockModel(
         name="claude-3-sonnet",
         cost=Cost(prompt=0.35e-6, completion=0.70e-6),
@@ -92,27 +78,83 @@ MODELS = [
         completion_length=8192,
         modelId="anthropic.claude-3-sonnet-20240229-v1:0",
     ),
-    # BedrockModel(
-    #     name="claude-2.1",
-    #     cost=Cost(prompt=0.35e-6, completion=0.70e-6),
-    #     context_length=128000,
-    #     completion_length=8192,
-    #     modelId = ''
-    # ),
-    # BedrockModel(
-    #     name="claude-2.0",
-    #     cost=Cost(prompt=0.35e-6, completion=0.70e-6),
-    #     context_length=128000,
-    #     completion_length=8192,
-    #     modelId = ''
-    # ),
-    # BedrockModel(
-    #     name="claude-instant",
-    #     cost=Cost(prompt=0.35e-6, completion=0.70e-6),
-    #     context_length=128000,
-    #     completion_length=8192,
-    #     modelId = ''
-    # ),
+    BedrockModel(
+        name="claude-2.1",
+        cost=Cost(prompt=0.35e-6, completion=0.70e-6),
+        context_length=128000,
+        completion_length=8192,
+        modelId="anthropic.claude-v2:1",
+    ),
+    BedrockModel(
+        name="claude-2.0",
+        cost=Cost(prompt=0.35e-6, completion=0.70e-6),
+        context_length=128000,
+        completion_length=8192,
+        modelId="anthropic.claude-v2",
+    ),
+    BedrockModel(
+        name="claude-instant",
+        cost=Cost(prompt=0.35e-6, completion=0.70e-6),
+        context_length=128000,
+        completion_length=8192,
+        modelId="anthropic.claude-instant-v1",
+    ),
+    BedrockModel(
+        name="command-r-plus",
+        cost=Cost(prompt=0.3e-6, completion=1.5e-6),
+        context_length=128000,
+        completion_length=8192,
+        modelId="cohere.command-r-plus-v1:0",
+    ),
+    BedrockModel(
+        name="command-r",
+        cost=Cost(prompt=0.05e-6, completion=0.15e-6),
+        context_length=128000,
+        completion_length=8192,
+        modelId="cohere.command-r-v1:0",
+    ),
+    BedrockModel(
+        name="llama3-8b-instruct",
+        cost=Cost(prompt=0.03e-6, completion=0.06e-6),
+        context_length=8000,
+        completion_length=8192,
+        modelId="meta.llama3-8b-instruct-v1:0",
+    ),
+    BedrockModel(
+        name="llama3-70b-instruct",
+        cost=Cost(prompt=0.265e-6, completion=0.35e-6),
+        context_length=8000,
+        completion_length=8219,
+        modelId="meta.llama3-70b-instruct-v1:0",
+    ),
+    BedrockModel(
+        name="mistral-7b-instruct",
+        cost=Cost(prompt=0.15e-6, completion=0.2e-6),
+        context_length=32000,
+        completion_length=8192,
+        modelId="mistral.mistral-7b-instruct-v0:2",
+    ),
+    BedrockModel(
+        name="mixtral-8x7b-instruct",
+        cost=Cost(prompt=0.45e-6, completion=0.7e-6),
+        context_length=32000,
+        completion_length=8192,
+        modelId="mistral.mixtral-8x7b-instruct-v0:1",
+    ),
+    BedrockModel(
+        name="mistral-large-2402",
+        cost=Cost(prompt=4e-6, completion=12e-6),
+        context_length=32000,
+        completion_length=8192,
+        modelId="mistral.mistral-large-2402-v1:0",
+    ),
+    BedrockModel(
+        name="mistral-small-2402",
+        cost=Cost(prompt=1e-6, completion=3e-6),
+        context_length=32000,
+        completion_length=8192,
+        modelId="mistral.mistral-small-2402-v1:0",
+    ),
 ]
 
 
