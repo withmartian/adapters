@@ -12,6 +12,9 @@ from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdap
 from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
     AnthropicSDKChatProviderAdapter,
 )
+from adapters.provider_adapters.bedrock_sdk_chat_provider_adapter import (
+    BedrockSDKChatProviderAdapter,
+)
 from adapters.provider_adapters.cohere_sdk_chat_provider_adapter import (
     CohereSDKChatProviderAdapter,
 )
@@ -174,12 +177,14 @@ def get_response_content_from_vcr(vcr, adapter: BaseAdapter):
 
     if isinstance(adapter, OpenAISDKChatAdapter):
         return response["choices"][0]["message"]["content"]
-    elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
+    elif isinstance(adapter, (AnthropicSDKChatProviderAdapter)):
         return response["content"][0]["text"]
     elif isinstance(adapter, CohereSDKChatProviderAdapter):
         return response["text"]
     elif isinstance(adapter, GeminiSDKChatProviderAdapter):
         return response["candidates"][0]["content"]["parts"][0]["text"]
+    elif isinstance(adapter, BedrockSDKChatProviderAdapter):
+        return response["content"][0]["text"]
     else:
         raise ValueError("Unknown adapter")
 
@@ -195,6 +200,8 @@ def get_response_choices_from_vcr(vcr, adapter: BaseAdapter):
     # return response["text"]
     # elif isinstance(adapter, GeminiSDKChatProviderAdapter):
     # return response["candidates"][0]["content"]["parts"][0]["text"]
+    elif isinstance(adapter, BedrockSDKChatProviderAdapter):
+        return response["content"][0]["text"]
 
     else:
         raise ValueError("Unknown adapter")
