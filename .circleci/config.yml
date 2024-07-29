@@ -73,6 +73,10 @@ jobs:
           fingerprints:
             - $SSH_FINGERPRINT
       - checkout
+      - run:
+          name: update setuptools
+          command: |
+            poetry run pip install 'setuptools==71.0.0'
       - python/install-packages:
           pkg-manager: poetry
       - run:
