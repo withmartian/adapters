@@ -18,25 +18,10 @@ pip install martian-adapters
 
 ### Installation
 
-1. **Install Python:** Ensure Python `3.11.6` is installed on your system.
-2. **Install Poetry:** Follow the installation guide on the [official Poetry website](https://python-poetry.org/docs/#installation).
-3. **Install Dependencies:**
-
-   ```bash
-   poetry install
-   ```
-
-4. **Install Pre-commit Hooks:**
-
-   ```bash
-   poetry run pre-commit install
-   ```
-
-5. **Run Commands via Poetry:**
-
-   ```bash
-   poetry run pytest
-   ```
+```bash
+poetry install
+poetry run pre-commit install
+```
 
 ### Setting Up Pre-commit
 
@@ -70,45 +55,20 @@ Ensure Python 3.11 is used:
 poetry run pytest
 ```
 
-## Usage
-
-### Creating and Using Adapters
-
-1. **Instantiate an Adapter:**
-
-   ```python
-   adapter1 = AdapterFactory.get_adapter_by_path("adapter_path")
-   ```
-
-   Here, `"adapter_path"` should follow the format `provider/vendor/model_name`. Use `AdapterFactory.get_supported_models()` to retrieve all supported models. In order to get path to the model use `model.get_path()`
-
-2. **Convert Input:**
-
-   ```python
-   adapter1.convert_to_input(prompt)
-   ```
-
-3. **Execute Adapter:**
-
-   ```python
-   adapter1.execute_async(input_data)
-   ```
-
-### Disabling Specific Models
-
-To disable models, set the `ADAPTER_DISABLED_MODELS` environment variable:
-
-```bash
-export ADAPTER_DISABLED_MODELS="model1,model2"
-```
-
-Disabled models will not appear in the supported models list.
-
-### Retrieving Supported Models
+## Quickstart
 
 ```python
-AdapterFactory.get_supported_models()
+from adapters import AdapterFactory, Prompt
+
+adapter = AdapterFactory.get_adapter_by_path("openai/openai/gpt-4o-mini")
+
+prompt = Prompt("Who is your favorite Martian?")
+conversation = adapter.convert_to_input(prompt)
+
+adapter.execute_sync(conversation)
 ```
+
+Adapter paths follows the format `provider/vendor/model_name`. Use `AdapterFactory.get_supported_models()` to retrieve all supported models. For a given model, `model.get_path()` returns the adapter path.
 
 ## Contributing
 
