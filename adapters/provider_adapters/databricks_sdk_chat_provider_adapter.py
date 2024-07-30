@@ -13,6 +13,10 @@ API_KEY_NAME = "DATABRICKS_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
 
 
+# Convert rate from DBU to USD
+CONVERT_RATE = 0.07
+
+
 class DatabricksModel(Model):
     supports_first_assistant: bool = False
     supports_multiple_system: bool = False
@@ -26,26 +30,26 @@ class DatabricksModel(Model):
 MODELS = [
     DatabricksModel(
         name="databricks-dbrx-instruct",
-        cost=Cost(prompt=0.1, completion=0.1),
+        cost=Cost(prompt=10.714 * CONVERT_RATE, completion=32.143 * CONVERT_RATE),
         context_length=32000,
         vendor_name="databricks",
     ),
     DatabricksModel(
         name="databricks-meta-llama-3-70b-instruct",
-        cost=Cost(prompt=0.1, completion=0.1),
+        cost=Cost(prompt=14.286 * CONVERT_RATE, completion=42.857 * CONVERT_RATE),
         context_length=8000,
         vendor_name="databricks",
     ),
     DatabricksModel(
         name="databricks-mixtral-8x7b-instruct",
-        cost=Cost(prompt=0.1, completion=0.1),
+        cost=Cost(prompt=7.143 * CONVERT_RATE, completion=14.286 * CONVERT_RATE),
         context_length=32000,
         vendor_name="databricks",
         supports_tools=False,
     ),
     DatabricksModel(
         name="databricks-llama-2-70b-chat",
-        cost=Cost(prompt=0.1, completion=0.1),
+        cost=Cost(prompt=7.143 * CONVERT_RATE, completion=21.429 * CONVERT_RATE),
         context_length=4096,
         vendor_name="databricks",
         supports_tools=False,
