@@ -24,9 +24,6 @@ class DatabricksModel(Model):
     provider_name: str = PROVIDER_NAME
 
 
-# TODO convert DBUs to Dollars to measeure costs
-
-# all the costs are set to 0.1 as a placeholder for now
 MODELS = [
     DatabricksModel(
         name="databricks-dbrx-instruct",
