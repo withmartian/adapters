@@ -32,10 +32,18 @@ MODELS = [
         vendor_name="databricks",
     ),
     DatabricksModel(
-        name="databricks-meta-llama-3-70b-instruct",
+        name="databricks-meta-llama-3-1-405b-instruct",
+        cost=Cost(prompt=142.857 * CONVERT_RATE, completion=428.571 * CONVERT_RATE),
+        context_length=128000,
+        vendor_name="databricks",
+        supports_tools=False,
+    ),
+    DatabricksModel(
+        name="databricks-meta-llama-3-1-70b-instruct",
         cost=Cost(prompt=14.286 * CONVERT_RATE, completion=42.857 * CONVERT_RATE),
         context_length=8000,
         vendor_name="databricks",
+        supports_tools=False,
     ),
     DatabricksModel(
         name="databricks-mixtral-8x7b-instruct",
