@@ -72,7 +72,7 @@
 # # @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 # # @pytest.mark.vcr
 # # async def test_async_execute_streaming(
-# #     vcr, model_name  # pylint: disable=unused-argument
+# #     vcr, model_name
 # # ):
 # #     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
@@ -102,7 +102,7 @@
 
 # # @pytest.mark.parametrize("model_name", ANTHROPIC_CHAT_MODELS)
 # # @pytest.mark.vcr
-# # def test_sync_execute_streaming(vcr, model_name):  # pylint: disable=unused-argument
+# # def test_sync_execute_streaming(vcr, model_name):
 # #     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
 # #     if not adapter.get_model().supports_streaming:

@@ -8,7 +8,7 @@ from adapters.types import Cost, Model
 PROVIDER_NAME = "openai"
 BASE_URL = "https://api.openai.com/v1"
 API_KEY_NAME = "OPENAI_API_KEY"
-API_KEY_PATTERN = re.compile(r"^sk-[a-zA-Z0-9]+$")
+API_KEY_PATTERN = re.compile(r".*")
 
 
 class OpenAIModel(Model):
@@ -140,6 +140,18 @@ MODELS = [
         context_length=128000,
         completion_length=4096,
         supports_vision=True,
+    ),
+    OpenAIModel(
+        name="gpt-4o-mini-2024-07-18",
+        cost=Cost(prompt=0.15e-6, completion=0.6e-6),
+        context_length=128000,
+        completion_length=4096,
+    ),
+    OpenAIModel(
+        name="gpt-4o-mini",
+        cost=Cost(prompt=0.15e-6, completion=0.6e-6),
+        context_length=128000,
+        completion_length=16385,
     ),
 ]
 

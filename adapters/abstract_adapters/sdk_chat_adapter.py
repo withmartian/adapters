@@ -62,8 +62,6 @@ class SDKChatAdapter(
         llm_input: Conversation,
         **kwargs,  # TODO: type kwargs
     ) -> Dict[str, Any]:
-        delete_none_values(kwargs)
-
         completion_length = self.get_model().completion_length
         if (
             kwargs.get("max_tokens")
@@ -201,10 +199,9 @@ class SDKChatAdapter(
         **kwargs,
     ):
         params = self.get_params(llm_input, **kwargs)
-
         response = await self.get_async_client()(
             model=self.get_model()._get_api_path(),
-            **params,
+            **delete_none_values(params),
         )
 
         if params.get("stream", False):
@@ -233,8 +230,7 @@ class SDKChatAdapter(
         params = self.get_params(llm_input, **kwargs)
 
         response = self.get_sync_client()(
-            model=self.get_model()._get_api_path(),
-            **params,
+            model=self.get_model()._get_api_path(), **delete_none_values(params)
         )
 
         if params.get("stream", False):

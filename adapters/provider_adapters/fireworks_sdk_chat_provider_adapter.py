@@ -23,6 +23,14 @@ class FireworksModel(Model):
 
 MODELS = [
     FireworksModel(
+        name="gemma2-9b-it",
+        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
+        context_length=8192,
+        vendor_name="accounts/fireworks/models",
+        supports_system=False,
+        supports_first_assistant=False,
+    ),
+    FireworksModel(
         name="gemma-7b-it",
         cost=Cost(prompt=0.20e-6, completion=0.20e-6),
         context_length=8192,

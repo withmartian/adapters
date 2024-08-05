@@ -1,16 +1,8 @@
 import asyncio
 
 import pytest
-from aiolimiter import AsyncLimiter
 
 import adapters.utils.network_utils as network_utils
-from adapters.rate_limiter import OpenAIModelRateLimiter
-from tests.utils import ASYNC_LIMITER_LEAK_BUCKET_TIME, setup_tiktoken_cache
-
-
-@pytest.fixture(scope="session", autouse=True)
-def do_tiktoken_cache():
-    setup_tiktoken_cache()
 
 
 @pytest.fixture()
@@ -30,26 +22,6 @@ def mock_sync_request(monkeypatch, request):
         network_utils,
         "send_request",
         lambda *args, **kwargs: return_value,
-    )
-
-
-@pytest.fixture()
-def openai_1rpm_rate_limiter(monkeypatch, request):
-    class_to_mock = request.param
-
-    def mock_init(self, rpm: int = 0):
-        self.limiter = (
-            AsyncLimiter(max_rate=1, time_period=ASYNC_LIMITER_LEAK_BUCKET_TIME)
-            if rpm > 0
-            else None
-        )
-
-    monkeypatch.setattr(OpenAIModelRateLimiter, "__init__", mock_init)
-    limiter = OpenAIModelRateLimiter(rpm=1)
-    monkeypatch.setattr(
-        class_to_mock,
-        "get_rate_limiter",
-        lambda *args, **kwargs: limiter,
     )
 
 

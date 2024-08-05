@@ -1,0 +1,91 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "gpt-35-turbo", "tool_choice": "auto", "tools": [{"type": "function", "function":
+      {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      api-key:
+      - b22bea4270b74a7e9eb3b2c74ee66db9
+      connection:
+      - keep-alive
+      content-length:
+      - '382'
+      content-type:
+      - application/json
+      host:
+      - martiantest.openai.azure.com
+      user-agent:
+      - AsyncAzureOpenAI/Python 1.34.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.34.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.9
+    method: POST
+    uri: https://martiantest.openai.azure.com//openai/deployments/gpt-35-turbo/chat/completions?api-version=2024-05-01-preview
+  response:
+    body:
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"Here''s
+        an implementation of the `generate` function that generates and returns a
+        random integer between 1 and 10:\n\n```typescript\nconst generate: functions.generate
+        = ({ prompt }) =\u003e {\n  const randomNumber = Math.floor(Math.random()
+        * 10) + 1;\n  console.log(`${prompt}: ${randomNumber}`);\n  return randomNumber;\n}\n```\n\nHere,
+        we''re using the built-in `Math.random()` function to generate a random float
+        between 0 and 1, multiplying it by 10, rounding it down with `Math.floor()`,
+        and adding 1 to ensure we get a number between 1 and 10. We''re also logging
+        the generated number with the provided `prompt`, and returning it for use
+        by other parts of the code.","role":"assistant"}}],"created":1720084163,"id":"chatcmpl-9hCktpgyLyqhzfhsv6ZCd1eoF4Pok","model":"gpt-35-turbo","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":null,"usage":{"completion_tokens":155,"prompt_tokens":66,"total_tokens":221}}
+
+        '
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Length:
+      - '1467'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 04 Jul 2024 09:09:24 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      access-control-allow-origin:
+      - '*'
+      apim-request-id:
+      - 8f2d5caa-fb10-4b2b-b1cf-c6b4576da38b
+      azureml-model-session:
+      - turbo-0301-a110380e
+      x-accel-buffering:
+      - 'no'
+      x-content-type-options:
+      - nosniff
+      x-ms-client-request-id:
+      - 8f2d5caa-fb10-4b2b-b1cf-c6b4576da38b
+      x-ms-rai-invoked:
+      - 'true'
+      x-ms-region:
+      - East US
+      x-ratelimit-remaining-requests:
+      - '48'
+      x-ratelimit-remaining-tokens:
+      - '49968'
+      x-request-id:
+      - 0ca8b338-c397-4500-bae2-2c4d4e9b3477
+    status:
+      code: 200
+      message: OK
+version: 1
