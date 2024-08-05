@@ -1,0 +1,79 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "databricks-dbrx-instruct", "max_tokens": null, "tool_choice": {"type": "function",
+      "function": {"name": "generate"}}, "tools": [{"type": "function", "function":
+      {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object"}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '339'
+      content-type:
+      - application/json
+      host:
+      - adb-8736858266948228.8.azuredatabricks.net
+      user-agent:
+      - OpenAI/Python 1.34.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.34.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.9
+    method: POST
+    uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl_df03ca68-0453-44cb-ab8d-4bc1ee75bb2d","object":"chat.completion","created":1721048345,"model":"dbrx-instruct-032724","choices":[{"index":0,"message":{"role":"assistant","content":null,"tool_calls":[{"id":"call_4fb27ed1-f9fb-4688-9b9a-29b70d110ba8","type":"function","function":{"name":"generate","arguments":"{\"type\":
+        \"integer\"}"}}]},"finish_reason":"tool_calls","logprobs":null}],"usage":{"prompt_tokens":474,"completion_tokens":6,"total_tokens":480}}'
+    headers:
+      content-length:
+      - '472'
+      content-type:
+      - application/json
+      date:
+      - Mon, 15 Jul 2024 12:59:04 GMT
+      server:
+      - databricks
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-databricks-org-id:
+      - '8736858266948228'
+      x-frame-options:
+      - SAMEORIGIN
+      x-rate-limit-duration:
+      - '1'
+      x-rate-limit-limit:
+      - '0.00'
+      x-rate-limit-request-forwarded-for:
+      - 93.177.133.96,10.154.64.4
+      x-rate-limit-request-remote-addr:
+      - 10.154.64.191:53838
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
