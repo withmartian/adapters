@@ -31,22 +31,6 @@ MODELS = [
         supports_first_assistant=False,
     ),
     FireworksModel(
-        name="gemma-7b-it",
-        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
-        context_length=8192,
-        vendor_name="accounts/fireworks/models",
-        supports_system=False,
-        supports_first_assistant=False,
-    ),
-    FireworksModel(
-        name="dbrx-instruct",
-        cost=Cost(prompt=1.60e-6, completion=1.60e-6),
-        context_length=32_768,
-        vendor_name="accounts/fireworks/models",
-        supports_system=False,
-        supports_first_assistant=False,
-    ),
-    FireworksModel(
         name="llama-v3-8b-instruct",
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
         context_length=8192,
@@ -57,20 +41,6 @@ MODELS = [
         cost=Cost(prompt=0.90e-6, completion=0.90e-6),
         context_length=8192,
         vendor_name="accounts/fireworks/models",
-    ),
-    FireworksModel(
-        name="mistral-7b-instruct-4k",
-        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
-        context_length=32_768,
-        vendor_name="accounts/fireworks/models",
-        supports_first_assistant=False,
-    ),
-    FireworksModel(
-        name="mistral-7b-instruct-v0p2",
-        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
-        context_length=32_768,
-        vendor_name="accounts/fireworks/models",
-        supports_first_assistant=False,
     ),
     FireworksModel(
         name="mixtral-8x22b-instruct",
@@ -84,6 +54,24 @@ MODELS = [
         context_length=32_768,
         vendor_name="accounts/fireworks/models",
         supports_first_assistant=False,
+    ),
+    FireworksModel(
+        name="llama-v3p1-405b-instruct",
+        cost=Cost(prompt=3.0e-6, completion=3.0e-6),
+        context_length=131072,
+        vendor_name="accounts/fireworks/models",
+    ),
+    FireworksModel(
+        name="llama-v3p1-70b-instruct",
+        cost=Cost(prompt=0.9e-6, completion=0.9e-6),
+        context_length=131072,
+        vendor_name="accounts/fireworks/models",
+    ),
+    FireworksModel(
+        name="llama-v3p1-8b-instruct",
+        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+        context_length=131072,
+        vendor_name="accounts/fireworks/models",
     ),
 ]
 

@@ -16,17 +16,17 @@ interactions:
       host:
       - api.together.xyz
       user-agent:
-      - OpenAI/Python 1.30.4
+      - OpenAI/Python 1.36.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.36.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,32 +35,30 @@ interactions:
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: '{"id":"88b8ae49c86b2578-SJC","object":"chat.completion","created":1717008742,"model":"mistralai/Mixtral-8x22B-Instruct-v0.1","prompt":[],"choices":[{"finish_reason":"eos","logprobs":null,"index":0,"message":{"role":"assistant","content":"
+      string: '{"id":"8af937bc1c3b95a3-TBS","object":"chat.completion","created":1723054168,"model":"mistralai/mixtral-8x22b-instruct-v0.1","prompt":[],"choices":[{"finish_reason":"eos","seed":5324200992768511000,"logprobs":null,"index":0,"message":{"role":"assistant","content":"
         It seems like you''re trying to display an object, but it''s showing up as
         \"[object Object]\". This is because JavaScript is trying to convert the object
         to a string, which doesn''t work as expected.\n\nTo view the contents of the
         object, you can use `console.log()` or `JSON.stringify()`. Here''s an example:\n\n```javascript\nlet
         obj1 = {name: \"John\", age: 30};\nlet obj2 = {city: \"New York\", country:
-        \"USA\"};\n\nconsole.log(obj1, obj2);\n// or\nconsole.log(JSON.stringify(obj1),
-        JSON.stringify(obj2));\n```\n\nThis will print the objects in a readable format
-        in the console. If you want to display them in the HTML, you can do something
-        like this:\n\n```javascript\ndocument.body.innerHTML = `<pre>${JSON.stringify(obj1,
-        null, 2)}</pre><pre>${JSON.stringify(obj2, null, 2)}</pre>`;\n```\n\nThis
-        will display the objects in the HTML body, with each property on a new line
-        for better readability."}}],"usage":{"prompt_tokens":11,"completion_tokens":268,"total_tokens":279}}'
+        \"USA\"};\n\nconsole.log(obj1, obj2);\n\n// Or if you want to display it as
+        a string:\nlet str = JSON.stringify(obj1) + \", \" + JSON.stringify(obj2);\nconsole.log(str);\n```\n\nThis
+        will display the contents of the objects in the console or as a string."}}],"usage":{"prompt_tokens":11,"completion_tokens":195,"total_tokens":206}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b8ae49c86b2578-SJC
+      - 8af937bc1c3b95a3-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 29 May 2024 18:52:22 GMT
+      - Wed, 07 Aug 2024 18:09:28 GMT
       Server:
       - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
       Transfer-Encoding:
       - chunked
       access-control-allow-origin:
@@ -68,39 +66,39 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '1216'
+      - '1002'
       etag:
-      - '"103h2slzg0zxs"'
+      - W/"2vwvx90kddru"
       vary:
       - Accept-Encoding
       x-api-call-end:
-      - '2024-05-29T18:52:22.140Z'
+      - '2024-08-07T18:09:28.176Z'
       x-api-call-start:
-      - '2024-05-29T18:52:18.875Z'
+      - '2024-08-07T18:09:26.547Z'
       x-api-received:
-      - '2024-05-29T18:52:18.870Z'
+      - '2024-08-07T18:09:26.541Z'
       x-compute-characters:
       - '50'
       x-compute-time:
-      - '3149'
+      - '1563'
       x-hostname:
-      - mistralai-mixtral-8x22b-instruct-v0-1-6559c78f64-4tt5w
+      - mistralai-mixtral-8x22b-instruct-v0-1-7885c59b65-fjrln
       x-inference-time:
-      - '3149'
+      - '1563'
       x-inference-version:
       - v2
       x-queue-time:
       - '0'
       x-ratelimit-limit:
-      - '200'
+      - '150'
       x-ratelimit-remaining:
-      - '199'
+      - '148'
       x-ratelimit-reset:
-      - '2'
+      - '1'
       x-time-per-token:
-      - '11'
+      - '8'
       x-total-time:
-      - '3149'
+      - '1563'
       x-validation-time:
       - '0'
     status:

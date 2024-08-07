@@ -1,0 +1,74 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model": "meta-llama-3.1-405b-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '173'
+      content-type:
+      - application/json
+      host:
+      - text.octoai.run
+      user-agent:
+      - AsyncOpenAI/Python 1.36.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.36.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://text.octoai.run/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-e5aed61e030d4251a3b96102cfa4e1d7","object":"chat.completion","created":1723048971,"model":"meta-llama-3.1-405b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like we''re stuck in a loop of hellos. How can I assist you today?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":52,"completion_tokens":20,"total_tokens":72}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '388'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 07 Aug 2024 16:42:51 GMT
+      RateLimit-Limit:
+      - '1000'
+      RateLimit-Remaining:
+      - '999'
+      RateLimit-Reset:
+      - '1'
+      Server:
+      - uvicorn
+      Vary:
+      - Origin
+      Via:
+      - kong/3.2.2
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '792'
+      X-RateLimit-Limit-Second:
+      - '1000'
+      X-RateLimit-Remaining-Second:
+      - '999'
+      X-User-Request-Id:
+      - ''
+    status:
+      code: 200
+      message: OK
+version: 1

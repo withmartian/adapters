@@ -1,0 +1,75 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model": "accounts/fireworks/models/llama-v3p1-8b-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '193'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.36.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.36.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"1c96eb00-31fd-4363-9a5f-b765c147f59e","object":"chat.completion","created":1723048971,"model":"accounts/fireworks/models/llama-v3p1-8b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        looks like we''re having a friendly \"hi\" exchange! What''s on your mind,
+        or would you like to chat about something in particular?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":27,"total_tokens":58,"completion_tokens":31}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8af8b8e1b91b317c-TBS
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 07 Aug 2024 16:42:50 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=366.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '445'
+      fireworks-middleware-version:
+      - v2
+      fireworks-server-processing-time:
+      - '0.154'
+      x-envoy-upstream-service-time:
+      - '163'
+    status:
+      code: 200
+      message: OK
+version: 1

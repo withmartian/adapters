@@ -23,12 +23,12 @@ MODELS = [
         context_length=32768,
         vendor_name="mistralai",
     ),
-    GroqModel(
-        name="llama3-70b-8192",
-        cost=Cost(prompt=0.59e-6, completion=0.79e-6),
-        context_length=8192,
-        vendor_name="meta-llama",
-    ),
+    # GroqModel(
+    #     name="llama3-70b-8192",
+    #     cost=Cost(prompt=0.59e-6, completion=0.79e-6),
+    #     context_length=8192,
+    #     vendor_name="meta-llama",
+    # ),
     GroqModel(
         name="llama3-8b-8192",
         cost=Cost(prompt=0.05e-6, completion=0.10e-6),
@@ -41,6 +41,25 @@ MODELS = [
         context_length=8192,
         vendor_name="google",
     ),
+    # N/A
+    # GroqModel(
+    #     name="llama-3.1-405b-reasoning",
+    #     cost=Cost(),
+    #     context_length=131072,
+    #     provider_name="Meta"
+    # ),
+    #     GroqModel(
+    #     name="llama-3.1-70b-versatile",
+    #     cost=Cost(),
+    #     context_length=131072,
+    #     provider_name="Meta"
+    # ),
+    #     GroqModel(
+    #     name="llama-3.1-8b-instant",
+    #     cost=Cost(),
+    #     context_length=131072,
+    #     provider_name="Meta"
+    # )
 ]
 
 

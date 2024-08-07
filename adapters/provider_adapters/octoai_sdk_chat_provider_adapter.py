@@ -22,7 +22,25 @@ MODELS = [
         cost=Cost(prompt=0.1e-6, completion=0.25e-6),
         context_length=8192,
         vendor_name="meta-llama",
-    )
+    ),
+    OctoaiModel(
+        name="meta-llama-3.1-405b-instruct",
+        cost=Cost(prompt=3.0e-6, completion=9.0e-6),
+        context_length=128000,
+        vendor_name="meta-llama",
+    ),
+    OctoaiModel(
+        name="meta-llama-3.1-70b-instruct",
+        cost=Cost(prompt=0.9e-6, completion=0.9e-6),
+        context_length=131072,
+        vendor_name="meta-llama",
+    ),
+    OctoaiModel(
+        name="meta-llama-3.1-8b-instruct",
+        cost=Cost(prompt=0.15e-6, completion=0.15e-6),
+        context_length=131072,
+        vendor_name="meta-llama",
+    ),
 ]
 
 

@@ -15,17 +15,17 @@ interactions:
       host:
       - openrouter.ai
       user-agent:
-      - AsyncOpenAI/Python 1.30.4
+      - AsyncOpenAI/Python 1.36.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.36.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -34,14 +34,14 @@ interactions:
     uri: https://openrouter.ai/api/v1/chat/completions
   response:
     body:
-      string: "\n         \n\n         \n{\"id\":\"gen-8j9CAx8sUTLAIRttXPdxYdDMdogQ\",\"model\":\"meta-llama/llama-3-70b-instruct\",\"object\":\"chat.completion\",\"created\":1717008920,\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hi!
+      string: "\n         \n\n         \n{\"id\":\"gen-3UaHcjy6YExnT18XAjm2F3F9v4WL\",\"model\":\"meta-llama/llama-3-70b-instruct\",\"object\":\"chat.completion\",\"created\":1723054413,\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hi!
         It's nice to meet you. Is there something I can help you with or would you
-        like to chat?\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":13,\"completion_tokens\":25,\"total_tokens\":38}}"
+        like to chat?\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":13,\"completion_tokens\":24,\"total_tokens\":37}}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b8b2b55bed9e74-SJC
+      - 8af93dc11ba595a5-TBS
       Cache-Control:
       - public, max-age=0, must-revalidate
       Connection:
@@ -49,7 +49,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:55:20 GMT
+      - Wed, 07 Aug 2024 18:13:33 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -67,13 +67,27 @@ interactions:
       access-control-allow-origin:
       - '*'
       content-length:
-      - '406'
+      - '422'
+      content-security-policy:
+      - 'default-src ''self''; script-src ''self'' ''unsafe-eval'' ''unsafe-inline''
+        https://clerk.openrouter.ai https://cunning-heron-18.clerk.accounts.dev https://challenges.cloudflare.com
+        https://checkout.stripe.com https://connect-js.stripe.com https://js.stripe.com
+        https://maps.googleapis.com https://www.googletagmanager.com https://*.ingest.sentry.io;
+        connect-src ''self'' https://clerk.openrouter.ai https://cunning-heron-18.clerk.accounts.dev
+        https://checkout.stripe.com https://api.stripe.com https://maps.googleapis.com
+        *.google-analytics.com https://www.googletagmanager.com https://raw.githubusercontent.com
+        https://*.ingest.sentry.io; frame-src ''self'' https://challenges.cloudflare.com
+        https://checkout.stripe.com https://connect-js.stripe.com https://js.stripe.com
+        https://hooks.stripe.com https://us5.datadoghq.com https://*.ingest.sentry.io;
+        img-src ''self'' data: blob: https://img.clerk.com https://*.stripe.com https://www.googletagmanager.com
+        https://t0.gstatic.com; worker-src ''self'' blob:; style-src ''self'' ''unsafe-inline''
+        sha256-0hAheEzaMe6uXIKV4EehS9pu1am1lj/KnnzrOYqckXk=; upgrade-insecure-requests'
       strict-transport-security:
       - max-age=63072000
       x-matched-path:
       - /api/v1/chat/completions
       x-vercel-id:
-      - sfo1::bh4xw-1717008919900-f445cae65c39
+      - fra1::6jghd-1723054413013-b521619097e1
     status:
       code: 200
       message: OK

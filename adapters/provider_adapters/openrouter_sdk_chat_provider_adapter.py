@@ -80,6 +80,20 @@ MODELS = [
         context_length=4096,
         vendor_name="gryphe",
     ),
+    OpenRouterModel(
+        name="llama-3.1-sonar-large-128k-online",
+        cost=Cost(prompt=1.0e-6, completion=1.0e-6),
+        context_length=131072,
+        vendor_name="perplexity",
+        supports_empty_content=False,
+    ),
+    OpenRouterModel(
+        name="llama-3.1-sonar-small-128k-chat",
+        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+        context_length=131072,
+        vendor_name="perplexity",
+        supports_empty_content=False,
+    ),
 ]
 
 

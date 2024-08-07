@@ -15,17 +15,17 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - OpenAI/Python 1.30.4
+      - OpenAI/Python 1.36.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.36.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -34,32 +34,30 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-99e5aea2-c3d4-4264-bf37-5498505e0993","object":"chat.completion","created":1717008594,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
-        It''s nice to meet you. Is there something I can help you with or would you
-        like to chat?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"prompt_time":0.006107136,"completion_tokens":24,"completion_time":0.073417287,"total_tokens":37,"total_time":0.079524423},"system_fingerprint":"fp_c1a4bcec29","x_groq":{"id":"req_01hz2tzwmcetsba7h1ffnfwvxd"}}
+      string: '{"error":{"message":"Service Unavailable","type":"internal_server_error"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b8aabd9a3224c9-SJC
+      - 8af92f589e6395a0-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
       - keep-alive
+      Content-Length:
+      - '75'
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:49:54 GMT
+      - Wed, 07 Aug 2024 18:03:43 GMT
       Server:
       - cloudflare
-      Transfer-Encoding:
-      - chunked
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '565'
+      retry-after:
+      - '15'
       vary:
       - Origin
       via:
@@ -77,8 +75,10 @@ interactions:
       x-ratelimit-reset-tokens:
       - 60ms
       x-request-id:
-      - req_01hz2tzwmcetsba7h1ffnfwvxd
+      - req_01j4q05myvf8dvykvy70pf40ck
+      x-should-retry:
+      - 'false'
     status:
-      code: 200
-      message: OK
+      code: 503
+      message: Service Unavailable
 version: 1

@@ -15,17 +15,17 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - AsyncOpenAI/Python 1.30.4
+      - AsyncOpenAI/Python 1.36.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.36.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -34,36 +34,40 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"1eb59766-9b01-44f0-a174-70b62887f398","object":"chat.completion","created":1717008887,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today? Please let me know if you have any questions or
-        if there is anything specific you would like to talk about. I''m here to help!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":8,"total_tokens":47,"completion_tokens":39}}'
+      string: '{"id":"0bcdef93-ece2-4c04-8ff5-8803f474dd97","object":"chat.completion","created":1723054352,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I help you today? Is there something specific you would like to know
+        or discuss? I''m here to assist with any questions you might have."},"finish_reason":"stop"}],"usage":{"prompt_tokens":8,"total_tokens":43,"completion_tokens":35}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 88b8b1e828a867a0-SJC
+      - 8af93c402a5995a6-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:54:47 GMT
+      - Wed, 07 Aug 2024 18:12:32 GMT
       Server:
       - cloudflare
+      Server-Timing:
+      - total;dur=731.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
-      Via:
-      - 1.1 google, 1.1 google
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '472'
+      - '461'
+      fireworks-middleware-version:
+      - v2
       fireworks-server-processing-time:
-      - '0.484'
-      x-request-id:
-      - 1eb59766-9b01-44f0-a174-70b62887f398
+      - '0.438'
+      x-envoy-upstream-service-time:
+      - '452'
     status:
       code: 200
       message: OK

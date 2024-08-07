@@ -1,0 +1,65 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
+      "Hi"}, {"role": "assistant", "content": "Hi"}, {"role": "user", "content": "\"\""}],
+      "model": "llama-3.1-sonar-large-128k-chat"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '207'
+      content-type:
+      - application/json
+      host:
+      - api.perplexity.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.36.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.36.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.perplexity.ai/chat/completions
+  response:
+    body:
+      string: '{"id": "bfbaee5f-5ae1-401c-bde8-d567c0e63df7", "model": "llama-3.1-sonar-large-128k-chat",
+        "created": 1723048903, "usage": {"prompt_tokens": 29, "completion_tokens":
+        18, "total_tokens": 47}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
+        looks like you might have sent an empty message. How can I assist you today?"},
+        "delta": {"role": "assistant", "content": ""}}]}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8af8b7390a9b95a5-TBS
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 07 Aug 2024 16:41:43 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '446'
+    status:
+      code: 200
+      message: OK
+version: 1

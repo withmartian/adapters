@@ -15,17 +15,17 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.30.4
+      - OpenAI/Python 1.36.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.36.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -34,37 +34,42 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"f350b10d-511d-44e0-b716-bf94ae13bb35","object":"chat.completion","created":1717008592,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? Is there something specific you would like to talk
-        about or learn more about? I''m here to answer any questions you have to the
-        best of my ability. Looking forward to our conversation!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":8,"total_tokens":56,"completion_tokens":48}}'
+      string: '{"id":"0479a90f-3b79-473e-bd9a-2bf59d82b3b7","object":"chat.completion","created":1723053813,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today? I''m here to help answer any questions you have
+        about a wide variety of topics. Whether you need help with homework, a hobby,
+        or just have a random question, I''m here to help. So, what do you need help
+        with?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":8,"total_tokens":70,"completion_tokens":62}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 88b8aab33abb156a-SJC
+      - 8af92f17f85c95a6-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:49:52 GMT
+      - Wed, 07 Aug 2024 18:03:33 GMT
       Server:
       - cloudflare
+      Server-Timing:
+      - total;dur=998.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
-      Via:
-      - 1.1 google, 1.1 google
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '528'
+      - '553'
+      fireworks-middleware-version:
+      - v2
       fireworks-server-processing-time:
-      - '0.546'
-      x-request-id:
-      - f350b10d-511d-44e0-b716-bf94ae13bb35
+      - '0.663'
+      x-envoy-upstream-service-time:
+      - '676'
     status:
       code: 200
       message: OK

@@ -1,0 +1,58 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content":
+      "Hi"}], "model": "meta-llama/Meta-Llama-3.1-70B-Instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '212'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - AsyncOpenAI/Python 1.36.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.36.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-4818675ea0be4c7589ceb71798742a79","object":"chat.completion","created":1723049132,"model":"meta-llama/Meta-Llama-3.1-70B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like we''re stuck in a loop of hellos! Would you like to have a conversation
+        or ask me something?","name":null,"tool_calls":[]},"finish_reason":"stop"}],"usage":{"prompt_tokens":29,"total_tokens":55,"completion_tokens":26,"estimated_cost":3.4580000000000004e-05}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '481'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 07 Aug 2024 16:45:32 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1
