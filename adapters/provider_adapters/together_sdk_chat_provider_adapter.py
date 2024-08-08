@@ -83,12 +83,6 @@ MODELS = [
         vendor_name="allenai",
     ),
     TogetherModel(
-        name="OLMo-7B-Twin-2T",
-        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-        context_length=2048,
-        vendor_name="allenai",
-    ),
-    TogetherModel(
         name="OLMo-7B",
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
         context_length=2048,
@@ -105,12 +99,6 @@ MODELS = [
         cost=Cost(prompt=0.6e-6, completion=0.6e-6),
         context_length=32768,
         vendor_name="cognitivecomputations",
-    ),
-    TogetherModel(
-        name="dbrx-instruct",
-        cost=Cost(prompt=1.2e-6, completion=1.2e-6),
-        context_length=32768,
-        vendor_name="databricks",
     ),
     TogetherModel(
         name="deepseek-coder-33b-instruct",
@@ -139,12 +127,6 @@ MODELS = [
     TogetherModel(
         name="gemma-2b",
         cost=Cost(prompt=0.1e-6, completion=0.1e-6),
-        context_length=8192,
-        vendor_name="google",
-    ),
-    TogetherModel(
-        name="gemma-7b-it",
-        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
         context_length=8192,
         vendor_name="google",
     ),

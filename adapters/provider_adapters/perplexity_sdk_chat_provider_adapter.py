@@ -57,6 +57,42 @@ MODELS = [
         cost=Cost(prompt=0.6e-6, completion=0.6e-6),
         context_length=16384,
     ),
+    PerplexityModel(
+        name="llama-3.1-sonar-small-128k-online",
+        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+        context_length=127072,
+        provider_name="perplexity",
+    ),
+    PerplexityModel(
+        name="llama-3.1-sonar-small-128k-chat",
+        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+        context_length=131072,
+        provider_name="perplexity",
+    ),
+    PerplexityModel(
+        name="llama-3.1-sonar-large-128k-online",
+        cost=Cost(prompt=1e-6, completion=1e-6),
+        context_length=127072,
+        provider_name="perplexity",
+    ),
+    PerplexityModel(
+        name="llama-3.1-sonar-large-128k-chat",
+        cost=Cost(prompt=1e-6, completion=1e-6),
+        context_length=131072,
+        provider_name="perplexity",
+    ),
+    PerplexityModel(
+        name="llama-3.1-8b-instruct",
+        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+        context_length=131072,
+        provider_name="meta-lama",
+    ),
+    PerplexityModel(
+        name="llama-3.1-70b-instruct",
+        cost=Cost(prompt=1e-6, completion=1e-6),
+        context_length=131072,
+        provider_name="meta-lama",
+    ),
 ]
 
 

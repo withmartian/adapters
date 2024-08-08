@@ -15,17 +15,17 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.30.4
+      - OpenAI/Python 1.36.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.36.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -34,7 +34,7 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"46e0a1a0-3730-45c0-92cf-02ca5b00a8de","object":"chat.completion","created":1717008591,"model":"accounts/fireworks/models/llama-v3-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
+      string: '{"id":"chatcmpl-4279a96fe3ca473d954c1a28724329cb","object":"chat.completion","created":1723053812,"model":"accounts/fireworks/models/llama-v3-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
         It''s nice to meet you. Is there something I can help you with or would you
         like to chat?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"total_tokens":38,"completion_tokens":25}}'
     headers:
@@ -43,27 +43,31 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 88b8aaaafc26156a-SJC
+      - 8af92f13bf1a95a6-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:49:50 GMT
+      - Wed, 07 Aug 2024 18:03:32 GMT
       Server:
       - cloudflare
+      Server-Timing:
+      - total;dur=552.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
       Via:
-      - 1.1 google, 1.1 google
+      - 1.1 google
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '404'
+      - '409'
+      fireworks-middleware-version:
+      - v2
       fireworks-server-processing-time:
-      - '0.202'
-      x-request-id:
-      - 46e0a1a0-3730-45c0-92cf-02ca5b00a8de
+      - '0.187'
     status:
       code: 200
       message: OK

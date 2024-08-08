@@ -20,7 +20,7 @@ CONVERT_RATE = 0.07
 class DatabricksModel(Model):
     supports_first_assistant: bool = False
     supports_multiple_system: bool = False
-    supports_tools: bool = True
+    supports_tools: bool = False
     provider_name: str = PROVIDER_NAME
 
 
@@ -36,28 +36,24 @@ MODELS = [
         cost=Cost(prompt=142.857 * CONVERT_RATE, completion=428.571 * CONVERT_RATE),
         context_length=128000,
         vendor_name="databricks",
-        supports_tools=False,
     ),
     DatabricksModel(
         name="databricks-meta-llama-3-1-70b-instruct",
         cost=Cost(prompt=14.286 * CONVERT_RATE, completion=42.857 * CONVERT_RATE),
         context_length=8000,
         vendor_name="databricks",
-        supports_tools=False,
     ),
     DatabricksModel(
         name="databricks-mixtral-8x7b-instruct",
         cost=Cost(prompt=7.143 * CONVERT_RATE, completion=14.286 * CONVERT_RATE),
         context_length=32000,
         vendor_name="databricks",
-        supports_tools=False,
     ),
     DatabricksModel(
         name="databricks-llama-2-70b-chat",
         cost=Cost(prompt=7.143 * CONVERT_RATE, completion=21.429 * CONVERT_RATE),
         context_length=4096,
         vendor_name="databricks",
-        supports_tools=False,
     ),
 ]
 

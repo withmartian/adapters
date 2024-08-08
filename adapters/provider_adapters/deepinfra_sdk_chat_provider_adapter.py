@@ -84,6 +84,27 @@ MODELS = [
         vendor_name="meta-llama",
         supports_n=False,
     ),
+    DeepInfraModel(
+        name="Meta-Llama-3.1-405B-Instruct",
+        cost=Cost(prompt=2.7e-6, completion=2.7e-6),
+        context_length=32000,
+        vendor_name="meta-llama",
+        supports_n=False,
+    ),
+    DeepInfraModel(
+        name="Meta-Llama-3.1-8B-Instruct",
+        cost=Cost(prompt=0.06e-6, completion=0.06e-6),
+        context_length=128000,
+        vendor_name="meta-llama",
+        supports_n=False,
+    ),
+    DeepInfraModel(
+        name="Meta-Llama-3.1-70B-Instruct",
+        cost=Cost(prompt=0.52e-6, completion=0.75e-6),
+        context_length=128000,
+        vendor_name="meta-llama",
+        supports_n=False,
+    ),
 ]
 
 
