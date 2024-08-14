@@ -57,6 +57,7 @@ class SDKChatAdapter(
 
         raise ValueError(f"Llm_input {llm_input} is not a valid input")
 
+    # pylint: disable=too-many-statements
     def get_params(
         self,
         llm_input: Conversation,
@@ -153,7 +154,21 @@ class SDKChatAdapter(
 
         for message in messages[1:]:
             if message["role"] == current_role:
-                current_content += "\n" + message["content"]
+                if isinstance(current_content, list) and isinstance(
+                    message["content"], list
+                ):
+                    current_content.extend(message["content"])
+                elif isinstance(current_content, list) and isinstance(
+                    message["content"], str
+                ):
+                    current_content.append({"type": "text", "text": message["content"]})
+                elif isinstance(current_content, str) and isinstance(
+                    message["content"], list
+                ):
+                    current_content = [
+                        {"type": "text", "text": current_content},
+                        *message["content"],
+                    ]
             else:
                 # Otherwise, add the collected messages and reset for the next role
                 processed_messages.append(
