@@ -126,7 +126,6 @@ class SDKChatAdapter(
                     )
 
         # Convert empty string to "." if not supported
-        # TODO: handle array case
         if not self.get_model().supports_empty_content:
             for message in messages:
                 if (
@@ -134,6 +133,14 @@ class SDKChatAdapter(
                     and message["content"].strip() == ""
                 ):
                     message["content"] = EMPTY_CONTENT
+                elif isinstance(message["content"], list):
+                    for content in message["content"]:
+                        if (
+                            isinstance(content, dict)
+                            and "text" in content
+                            and content["text"].strip() == ""
+                        ):
+                            content["text"] = EMPTY_CONTENT
 
         # Change system prompt roles to assistant
         if not self.get_model().supports_multiple_system:
