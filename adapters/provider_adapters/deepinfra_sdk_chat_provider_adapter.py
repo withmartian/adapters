@@ -101,7 +101,7 @@ MODELS = [
     ),
     DeepInfraModel(
         name="Meta-Llama-3.1-70B-Instruct",
-        cost=Cost(prompt=0.52e-6, completion=0.75e-6),
+        cost=Cost(prompt=0.35e-6, completion=0.4e-6),
         context_length=128000,
         vendor_name="meta-llama",
         supports_n=False,

@@ -58,11 +58,9 @@ MODELS = [
         context_length=128000,
         completion_length=8192,
     ),
-    # TODO: update the prices regarding the context lenght
-    # https://developers.googleblog.com/en/gemini-15-flash-updates-google-ai-studio-gemini-api/
     GeminiModel(
         name="gemini-1.5-flash",
-        cost=Cost(prompt=0.35e-6, completion=0.70e-6),
+        cost=Cost(prompt=0.075e-6, completion=0.3e-6),
         context_length=128000,
         completion_length=8192,
     ),
