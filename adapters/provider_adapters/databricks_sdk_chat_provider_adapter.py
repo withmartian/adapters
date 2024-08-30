@@ -33,7 +33,7 @@ MODELS = [
     ),
     DatabricksModel(
         name="databricks-meta-llama-3-1-405b-instruct",
-        cost=Cost(prompt=142.857 * CONVERT_RATE, completion=428.571 * CONVERT_RATE),
+        cost=Cost(prompt=71.429 * CONVERT_RATE, completion=214.286 * CONVERT_RATE),
         context_length=128000,
         vendor_name="databricks",
     ),
