@@ -1,3 +1,4 @@
+from .ai21_sdk_chat_provider_adapter import AI21SDKChatProviderAdapter
 from .anthropic_sdk_chat_provider_adapter import AnthropicSDKChatProviderAdapter
 from .anyscale_sdk_chat_provider_adapter import AnyscaleSDKChatProviderAdapter
 from .azure_sdk_chat_provider_adapter import AzureSDKChatProviderAdapter

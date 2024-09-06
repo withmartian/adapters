@@ -1,0 +1,69 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "jamba-1.5-mini", "tool_choice": "none", "tools": [{"type": "function", "function":
+      {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '384'
+      content-type:
+      - application/json
+      host:
+      - api.ai21.com
+      user-agent:
+      - OpenAI/Python 1.36.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.36.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.9
+    method: POST
+    uri: https://api.ai21.com/studio/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chat-175b2932e32d4c1fb39fa01e92f43c56","choices":[{"index":0,"message":{"role":"assistant","content":null,"tool_calls":[{"id":"b65de9d6-328e-4831-887d-b55385583edd","type":"function","function":{"name":"generate","arguments":"{\"prompt\":
+        \"5\"}"}}]},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":134,"completion_tokens":25,"total_tokens":159}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8be0a8826bee9670-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 04 Sep 2024 20:16:37 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '371'
+      request-id:
+      - 9933d22d-f809-0330-5348-cb12f27baba1
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+version: 1
