@@ -124,6 +124,7 @@ class Model(BaseModel):
     provider_name: str
     cost: Cost
     context_length: int
+    supports_user: bool = False
     supports_repeating_roles: bool = True
     supports_streaming: bool = False
     supports_vision: bool = False
