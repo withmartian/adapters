@@ -81,6 +81,9 @@ class SDKChatAdapter(
                 f"Streaming is not supported on {self.get_model().name}"
             )
 
+        if self.get_model().supports_user is False and "user" in kwargs:
+            del kwargs["user"]
+
         if self.get_model().supports_functions is False and "functions" in kwargs:
             raise AdapterException(
                 f"Function calling is not supported on {self.get_model().name}"

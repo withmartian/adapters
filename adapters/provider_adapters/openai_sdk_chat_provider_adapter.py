@@ -12,6 +12,7 @@ API_KEY_PATTERN = re.compile(r".*")
 
 
 class OpenAIModel(Model):
+    supports_user: bool = True
     supports_streaming: bool = True
     supports_functions: bool = True
     supports_tools: bool = True
@@ -82,16 +83,6 @@ MODELS = [
         cost=Cost(prompt=30.0e-6, completion=60.0e-6),
         context_length=8192,
         completion_length=8192,
-        supports_json_output=False,
-    ),
-    OpenAIModel(
-        name="gpt-4-vision-preview",
-        cost=Cost(prompt=10.0e-6, completion=30.0e-6),
-        context_length=128000,
-        completion_length=4096,
-        supports_vision=True,
-        supports_functions=False,
-        supports_tools=False,
         supports_json_output=False,
     ),
     OpenAIModel(
