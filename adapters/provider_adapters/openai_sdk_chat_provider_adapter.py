@@ -144,6 +144,28 @@ MODELS = [
         context_length=128000,
         completion_length=16385,
     ),
+    OpenAIModel(
+        name="o1-preview",
+        cost=Cost(prompt=0.001e-6, completion=0.0001e-6),  # TODO: Fix prices
+        context_length=32768,
+        supports_json_content=False,
+        supports_functions=False,
+        supports_tools=False,
+        supports_system=False,
+        supports_json_output=False,
+        supports_n=False,
+    ),
+    OpenAIModel(
+        name="o1-mini",
+        cost=Cost(prompt=0.001e-6, completion=0.0001e-6),  # TODO: Fix prices
+        context_length=65536,
+        supports_json_content=False,
+        supports_functions=False,
+        supports_tools=False,
+        supports_system=False,
+        supports_json_output=False,
+        supports_n=False,
+    ),
 ]
 
 
