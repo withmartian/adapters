@@ -42,21 +42,21 @@ MODELS = [
         cost=Cost(prompt=1.0e-6, completion=1.0e-6, request=0.005),
         context_length=28000,
     ),
-    PerplexityModel(
-        name="llama-3-8b-instruct",
-        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
-        context_length=8192,
-    ),
-    PerplexityModel(
-        name="llama-3-70b-instruct",
-        cost=Cost(prompt=1.0e-6, completion=1.0e-6),
-        context_length=8192,
-    ),
-    PerplexityModel(
-        name="mixtral-8x7b-instruct",
-        cost=Cost(prompt=0.6e-6, completion=0.6e-6),
-        context_length=16384,
-    ),
+    # PerplexityModel(
+    #     name="llama-3-8b-instruct",
+    #     cost=Cost(prompt=0.20e-6, completion=0.20e-6),
+    #     context_length=8192,
+    # ),
+    # PerplexityModel(
+    #     name="llama-3-70b-instruct",
+    #     cost=Cost(prompt=1.0e-6, completion=1.0e-6),
+    #     context_length=8192,
+    # ),
+    # PerplexityModel(
+    #     name="mixtral-8x7b-instruct",
+    #     cost=Cost(prompt=0.6e-6, completion=0.6e-6),
+    #     context_length=16384,
+    # ),
     PerplexityModel(
         name="llama-3.1-sonar-small-128k-online",
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),

@@ -30,6 +30,7 @@ class AnthropicModel(Model):
     supports_first_assistant: bool = False
     supports_multiple_system: bool = False
     supports_repeating_roles: bool = False
+    supports_prompt_caching: bool = False
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
 
@@ -98,6 +99,7 @@ SUPPORTED_MODELS = [
         completion_length=4096,
         supports_tools=True,
         supports_vision=True,
+        supports_prompt_caching=True,
     ),
     AnthropicModel(
         name="claude-3-haiku-20240307",
@@ -106,12 +108,14 @@ SUPPORTED_MODELS = [
         completion_length=4096,
         supports_tools=True,
         supports_vision=True,
+        supports_prompt_caching=True,
     ),
     AnthropicModel(
         name="claude-3-5-sonnet-20240620",
         cost=Cost(prompt=3.0e-6, completion=15.0e-6),
         context_length=200000,
         completion_length=4096,
+        supports_prompt_caching=True,
     ),
 ]
 
@@ -152,18 +156,30 @@ class AnthropicSDKChatProviderAdapter(
         self,
     ):
         super().__init__()
+
         self._sync_client = Anthropic(
             api_key=self.get_api_key(),
+            default_headers={"anthropic-beta": "prompt-caching-2024-07-31"},
         )
         self._async_client = AsyncAnthropic(
             api_key=self.get_api_key(),
+            default_headers={"anthropic-beta": "prompt-caching-2024-07-31"},
         )
 
-    def get_async_client(self):
-        return self._async_client.messages.create
-
     def get_sync_client(self):
-        return self._sync_client.messages.create
+        client = self._sync_client
+        if self.get_model().supports_prompt_caching:
+
+            return client.beta.prompt_caching.messages.create
+        else:
+            return client.messages.create
+
+    def get_async_client(self):
+        client = self._async_client
+        if self.get_model().supports_prompt_caching:
+            return client.beta.prompt_caching.messages.create
+        else:
+            return client.messages.create
 
     def adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
@@ -183,6 +199,19 @@ class AnthropicSDKChatProviderAdapter(
             response.content[0].text = ""
             tool_call_name = response.content[0].name
             arguments = response.content[0].input
+
+        cache_usage = (
+            {
+                "cache_creation_input_tokens": getattr(
+                    response.usage, "cache_creation_input_tokens", 0
+                ),
+                "cache_read_input_tokens": getattr(
+                    response.usage, "cache_read_input_tokens", 0
+                ),
+            }
+            if self.get_model().supports_prompt_caching
+            else {}
+        )
 
         choices = [
             {
@@ -228,6 +257,7 @@ class AnthropicSDKChatProviderAdapter(
                 prompt=prompt_tokens,
                 completion=completion_tokens,
             ),
+            cache=cache_usage,
         )
 
     # TODO: match openai format 1:1
@@ -293,7 +323,6 @@ class AnthropicSDKChatProviderAdapter(
         else:
             anthropic_tools_choice = None
 
-        # Include base64-encoded images in the request
         for message in messages:
             if message["role"] == ConversationRole.user:
                 new_content = []
@@ -310,6 +339,18 @@ class AnthropicSDKChatProviderAdapter(
                     new_content = [{"type": "text", "text": message["content"]}]
 
                 message["content"] = new_content
+
+        prompt_config = {
+            "type": "text",
+            "text": "This is cacheable content.",
+            "cache_control": {"type": "ephemeral"},
+        }
+
+        if self.get_model().supports_prompt_caching:
+            if len(system_prompt) != 0:
+                system_prompt = [system_prompt] + [prompt_config]  # type: ignore
+            else:
+                system_prompt = [prompt_config]  # type: ignore
 
         return {
             **params,
