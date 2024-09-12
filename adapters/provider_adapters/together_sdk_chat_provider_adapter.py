@@ -1,5 +1,5 @@
 import re
-from typing import Any, Dict, Pattern
+from typing import Any, Dict, List, Optional, Pattern
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
@@ -19,6 +19,8 @@ class TogetherModel(Model):
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"
 
+
+MODELS: Optional[List[TogetherModel]] = []
 
 # MODELS = [
 #     TogetherModel(
@@ -397,8 +399,7 @@ class TogetherSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter)
     @staticmethod
     def get_supported_models():
 
-        pass
-        # return MODELS
+        return MODELS
 
     @staticmethod
     def get_provider_name() -> str:
