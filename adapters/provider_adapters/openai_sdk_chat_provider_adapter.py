@@ -146,7 +146,7 @@ MODELS = [
     ),
     OpenAIModel(
         name="o1-preview",
-        cost=Cost(prompt=0.001e-6, completion=0.0001e-6),  # TODO: Fix prices
+        cost=Cost(prompt=15.0e-6, completion=60.0e-6),
         context_length=128000,
         completion_length=32768,
         supports_json_content=False,
@@ -158,7 +158,7 @@ MODELS = [
     ),
     OpenAIModel(
         name="o1-mini",
-        cost=Cost(prompt=0.001e-6, completion=0.0001e-6),  # TODO: Fix prices
+        cost=Cost(prompt=3.0e-6, completion=12.0e-6),
         context_length=128000,
         completion_length=65536,
         supports_json_content=False,
@@ -170,7 +170,7 @@ MODELS = [
     ),
     OpenAIModel(
         name="o1-preview-2024-09-12",
-        cost=Cost(prompt=0.001e-6, completion=0.0001e-6),  # TODO: Fix prices
+        cost=Cost(prompt=15.0e-6, completion=60.0e-6),
         context_length=128000,
         completion_length=32768,
         supports_json_content=False,
@@ -182,7 +182,7 @@ MODELS = [
     ),
     OpenAIModel(
         name="o1-mini-2024-09-12",
-        cost=Cost(prompt=0.001e-6, completion=0.0001e-6),  # TODO: Fix prices
+        cost=Cost(prompt=3.0e-6, completion=12.0e-6),
         context_length=128000,
         completion_length=65536,
         supports_json_content=False,
