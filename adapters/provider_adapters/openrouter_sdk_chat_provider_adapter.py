@@ -26,12 +26,12 @@ MODELS = [
         context_length=32_768,
         vendor_name="databricks",
     ),
-    OpenRouterModel(
-        name="gemma-7b-it",
-        cost=Cost(prompt=0.07e-6, completion=0.07e-6),
-        context_length=8192,
-        vendor_name="google",
-    ),
+    # OpenRouterModel(
+    #     name="gemma-7b-it",
+    #     cost=Cost(prompt=0.07e-6, completion=0.07e-6),
+    #     context_length=8192,
+    #     vendor_name="google",
+    # ),
     OpenRouterModel(
         name="gemma-2-9b-it",
         cost=Cost(prompt=0.06e-6, completion=0.06e-6),

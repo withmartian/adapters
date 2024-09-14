@@ -140,6 +140,7 @@ class Model(BaseModel):
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
     completion_length: Optional[int] = None
+    supports_prompt_caching: bool = False
 
     def get_path(self) -> str:
         return f"{self.provider_name}/{self.vendor_name}/{self.name}"

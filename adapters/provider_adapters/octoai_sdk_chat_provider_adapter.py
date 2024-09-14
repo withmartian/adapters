@@ -19,7 +19,7 @@ class OctoaiModel(Model):
 MODELS = [
     OctoaiModel(
         name="meta-llama-3-8b-instruct",
-        cost=Cost(prompt=0.1e-6, completion=0.25e-6),
+        cost=Cost(prompt=0.15e-6, completion=0.15e-6),
         context_length=8192,
         vendor_name="meta-llama",
     ),
