@@ -1,8 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model": "databricks-mixtral-8x7b-instruct",
-      "max_tokens": null, "tools": null}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "databricks-mixtral-8x7b-instruct"}'
     headers:
       accept:
       - application/json
@@ -11,13 +10,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '212'
+      - '169'
       content-type:
       - application/json
       host:
       - adb-8736858266948228.8.azuredatabricks.net
       user-agent:
-      - OpenAI/Python 1.34.0
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -27,104 +26,27 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.34.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"error_code":"DEADLINE_EXCEEDED","message":"Gateway timeout while
-        waiting for response."}'
+      string: "{\"id\":\"chatcmpl_24b15ecf-39e3-4241-8561-de5906f86f24\",\"object\":\"chat.completion\",\"created\":1726694878,\"model\":\"mixtral-8x7b-instruct-v0.1\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"\U0001F44B.
+        How can I help you today? Remember, I'm here to provide useful and accurate
+        information while promoting a positive environment. I can't provide illegal
+        or dangerous instructions or engage in harmful, unethical, prejudiced, or
+        negative discussions. Let me know what you'd like to learn!\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":94,\"completion_tokens\":66,\"total_tokens\":160}}"
     headers:
       content-length:
-      - '90'
+      - '608'
       content-type:
       - application/json
       date:
-      - Mon, 15 Jul 2024 12:53:26 GMT
-      server:
-      - databricks
-      strict-transport-security:
-      - max-age=31536000; includeSubDomains; preload
-      - max-age=31536000; includeSubDomains; preload
-      transfer-encoding:
-      - chunked
-      vary:
-      - Accept-Encoding
-      x-content-type-options:
-      - nosniff
-      - nosniff
-      x-databricks-org-id:
-      - '8736858266948228'
-      x-frame-options:
-      - SAMEORIGIN
-      x-xss-protection:
-      - 1; mode=block
-    status:
-      code: 504
-      message: Gateway Timeout
-- request:
-    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model": "databricks-mixtral-8x7b-instruct",
-      "max_tokens": null, "tools": null}'
-    headers:
-      accept:
-      - application/json
-      accept-encoding:
-      - gzip, deflate
-      connection:
-      - keep-alive
-      content-length:
-      - '212'
-      content-type:
-      - application/json
-      host:
-      - adb-8736858266948228.8.azuredatabricks.net
-      user-agent:
-      - OpenAI/Python 1.34.0
-      x-stainless-arch:
-      - x64
-      x-stainless-async:
-      - 'false'
-      x-stainless-lang:
-      - python
-      x-stainless-os:
-      - Linux
-      x-stainless-package-version:
-      - 1.34.0
-      x-stainless-runtime:
-      - CPython
-      x-stainless-runtime-version:
-      - 3.11.9
-    method: POST
-    uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
-  response:
-    body:
-      string: '{"id":"chatcmpl_13bd967c-35c0-4bab-9e5f-d87e71a82445","object":"chat.completion","created":1721048305,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"\nHello!
-        How can I help you today? I''m here to provide information and answer questions
-        to the best of my ability.\n\nAs a helpful assistant, my main goal is to provide
-        you with useful and accurate information. I will always strive to be truthful,
-        respectful, and unbiased in my responses. I will not provide harmful, unethical,
-        or prejudiced content, and I will avoid negative or dangerous instructions.\n\nI
-        am committed to promoting fairness and positivity in all of my interactions.
-        If you have any questions or need assistance with something, please don''t
-        hesitate to ask. I''m here to help!\n\nIn the spirit of being concise, I will
-        do my best to provide brief and to-the-point responses that still fully address
-        your questions. And of course, I won''t restate the instructions for using
-        me as a helpful assistant.\n\nWith that said, what can I help you with today?
-        Is there something specific that you would like to know or learn more about?
-        I''m here to assist you with care and respect, and I look forward to answering
-        your questions and providing you with the information you need."},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":98,"completion_tokens":247,"total_tokens":345}}'
-    headers:
-      content-length:
-      - '1406'
-      content-type:
-      - application/json
-      date:
-      - Mon, 15 Jul 2024 12:58:25 GMT
+      - Wed, 18 Sep 2024 21:27:57 GMT
       server:
       - databricks
       strict-transport-security:
@@ -146,9 +68,11 @@ interactions:
       x-rate-limit-limit:
       - '15.00'
       x-rate-limit-request-forwarded-for:
-      - 93.177.133.96,10.154.64.149
+      - 178.160.202.90,10.154.64.25
       x-rate-limit-request-remote-addr:
-      - 10.154.64.191:48670
+      - 10.154.64.7:42896
+      x-request-id:
+      - d6c83af1-e3d2-4471-aa17-13317c54af3a
       x-xss-protection:
       - 1; mode=block
     status:

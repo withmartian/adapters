@@ -16,17 +16,17 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.30.4
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,54 +35,59 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-9UJk1FSZjEQVMrxVw5ZvX7F6hTDNe\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1717012753,\n  \"model\": \"gpt-4-0314\",\n
+      string: "{\n  \"id\": \"chatcmpl-A8wa8LxeG54gn0aNpoWVhmRJGt8qf\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1726695176,\n  \"model\": \"gpt-4-0314\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"How can I help you today?\"\n      },\n
-        \     \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n
-        \ \"usage\": {\n    \"prompt_tokens\": 13,\n    \"completion_tokens\": 7,\n
-        \   \"total_tokens\": 20\n  },\n  \"system_fingerprint\": null\n}\n"
+        \"assistant\",\n        \"content\": \"Hello! How can I help you today?\",\n
+        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
+        \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 13,\n    \"completion_tokens\":
+        9,\n    \"total_tokens\": 22,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
+        0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b9104afc22944d-SJC
+      - 8c5473968f1dbac9-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 19:59:13 GMT
+      - Wed, 18 Sep 2024 21:32:57 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Content-Type-Options:
+      - nosniff
+      access-control-expose-headers:
+      - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '466'
+      - '568'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '505'
+      - '466'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
-      - max-age=15724800; includeSubDomains
+      - max-age=15552000; includeSubDomains; preload
       x-ratelimit-limit-requests:
       - '10000'
       x-ratelimit-limit-tokens:
-      - '300000'
+      - '1000000'
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '299980'
+      - '999980'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
-      - 3ms
+      - 1ms
       x-request-id:
-      - req_dd17ed76920347686c9a479c1b244681
+      - req_c57f99b01480f7b0d93c0098eb422e09
     status:
       code: 200
       message: OK

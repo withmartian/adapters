@@ -1,7 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 2048, "messages": [{"role": "user", "content": "Hi"}, {"role":
-      "assistant", "content": "Hi"}], "model": "claude-1.0", "system": "Hi"}'
+    body: '{"max_tokens": 2048, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Hi"}]}, {"role": "assistant", "content": "Hi"}], "model": "claude-1.0",
+      "system": "Hi", "tools": []}'
     headers:
       accept:
       - application/json
@@ -12,23 +13,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '148'
+      - '189'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.26.1
+      - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 0.26.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -37,31 +38,33 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_011rVrGjxCewNWFevG6hMqqZ","type":"message","role":"assistant","model":"claude-1.0","content":[{"type":"text","text":"
-        there, how can I help you today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":12,"output_tokens":13}}'
+      string: '{"id":"msg_015tJ6qbCctjEWD71xfcY1QB","type":"message","role":"assistant","model":"claude-1.0","content":[{"type":"text","text":"
+        there! How can I help you?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":12,"output_tokens":12}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b8bc4baafcfa2e-SJC
+      - 8c5462d23c170d59-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 19:01:53 GMT
+      - Wed, 18 Sep 2024 21:21:30 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
       content-length:
-      - '258'
+      - '252'
       request-id:
-      - req_01TcsKLfzb3G1Xhp5mCRXPcF
+      - req_01Utg3ZLJQacuyD61zPQJ62i
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - b94447021ec4df17d03a36534d3606bf
+      - aff5810a6fdd53283e28ebf4ebad5965
     status:
       code: 200
       message: OK

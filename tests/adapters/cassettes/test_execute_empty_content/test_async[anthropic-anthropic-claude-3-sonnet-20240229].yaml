@@ -1,8 +1,9 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "\"\""},
-      {"role": "assistant", "content": "\"\""}, {"role": "user", "content": "\"\""}],
-      "model": "claude-3-sonnet-20240229", "system": ""}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "\"\""}]}, {"role": "assistant", "content": "\"\""}, {"role":
+      "user", "content": [{"type": "text", "text": "\"\""}]}], "model": "claude-3-sonnet-20240229",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,23 +14,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '201'
+      - '270'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.26.1
+      - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 0.26.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -38,34 +39,40 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_017iVbTgxWpn41FvM22X8om5","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"I
-        do not actually have a meaningful response since you have not provided any
-        content for me to respond to. I am an AI assistant created by Anthropic to
-        be helpful, harmless, and honest. If you provide me with a question or prompt,
-        I will do my best to give a helpful and appropriate response."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":67}}'
+      string: '{"id":"msg_017gZnX5oqT3Y65edDQxLyxJ","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"I
+        didn''t receive any text from you in this conversation yet. Please go ahead
+        and enter your message or question."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":26}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b89e926dce15c4-SJC
+      - 8c54504ef9a90e21-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:41:37 GMT
+      - Wed, 18 Sep 2024 21:08:52 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '8000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '8000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-09-18T21:08:52Z'
       content-length:
-      - '531'
+      - '351'
       request-id:
-      - req_018MAkMbqD2Lt1aqBy9ZHMiE
+      - req_01BKrPKuDBpwhMB6t7RMLagd
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 9d553af9721d41339539f93519a7ee6c
+      - 7c868f526cfc95e62edefc9b45f3321b
     status:
       code: 200
       message: OK

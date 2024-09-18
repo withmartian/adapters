@@ -17,12 +17,12 @@ class GroqModel(Model):
 
 
 MODELS = [
-    GroqModel(
-        name="mixtral-8x7b-32768",
-        cost=Cost(prompt=0.27e-6, completion=0.27e-6),
-        context_length=32768,
-        vendor_name="mistralai",
-    ),
+    # GroqModel(
+    #     name="mixtral-8x7b-32768",
+    #     cost=Cost(prompt=0.27e-6, completion=0.27e-6),
+    #     context_length=32768,
+    #     vendor_name="mistralai",
+    # ),
     # GroqModel(
     #     name="llama3-70b-8192",
     #     cost=Cost(prompt=0.59e-6, completion=0.79e-6),

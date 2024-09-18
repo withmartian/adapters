@@ -19,7 +19,7 @@ interactions:
       host:
       - martiantest.openai.azure.com
       user-agent:
-      - AzureOpenAI/Python 1.34.0
+      - AzureOpenAI/Python 1.46.0
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -29,53 +29,52 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.34.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-35-turbo/chat/completions?api-version=2024-05-01-preview
   response:
     body:
       string: '{"choices":[{"content_filter_results":{},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":null,"function_call":{"arguments":"const
-        generate = () =\u003e Math.floor(Math.random() * 100);\n\ngenerate(); // Example
-        output: 46","name":"generate"},"role":"assistant"}}],"created":1720080670,"id":"chatcmpl-9hBqYzI7ulRdVHHlQKpiWP8Gy54fO","model":"gpt-35-turbo","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":null,"usage":{"completion_tokens":22,"prompt_tokens":45,"total_tokens":67}}
+        generate: functions.generate = () =\u003e Math.random();","name":"generate"},"role":"assistant"}}],"created":1726693948,"id":"chatcmpl-A8wGK9N7bF6X7FQlknU3I6k9w4dBB","model":"gpt-35-turbo","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":null,"usage":{"completion_tokens":11,"prompt_tokens":45,"total_tokens":56}}
 
         '
     headers:
       Cache-Control:
       - no-cache, must-revalidate
       Content-Length:
-      - '759'
+      - '724'
       Content-Type:
       - application/json
       Date:
-      - Thu, 04 Jul 2024 08:11:09 GMT
+      - Wed, 18 Sep 2024 21:12:28 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       access-control-allow-origin:
       - '*'
       apim-request-id:
-      - bcb40fcd-dfe6-4de1-a5d0-842f03ab96de
+      - 55304878-3e10-48cf-981b-9f7675899eb4
       azureml-model-session:
-      - turbo-0301-a97c5277
+      - turbo-0301-12b1b122
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-ms-client-request-id:
-      - bcb40fcd-dfe6-4de1-a5d0-842f03ab96de
+      - 55304878-3e10-48cf-981b-9f7675899eb4
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
       - East US
       x-ratelimit-remaining-requests:
-      - '48'
+      - '49'
       x-ratelimit-remaining-tokens:
-      - '49856'
+      - '49984'
       x-request-id:
-      - ba97a634-cc83-4be7-8621-6303b8f5fad2
+      - 302d3360-ac97-4925-963a-b90fecc160a1
     status:
       code: 200
       message: OK

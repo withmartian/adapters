@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Generate
-      random number"}], "model": "claude-3-opus-20240229", "system": "", "tools":
-      []}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Generate random number"}]}], "model": "claude-3-opus-20240229",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,13 +13,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '151'
+      - '179'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.28.1
+      - Anthropic/Python 0.34.2
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -29,41 +29,52 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 0.28.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01QfYgrUuG6AjbYdRL6gkRyC","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"Here
-        is a random number: 6573029\n\nI used a pseudorandom number generator to produce
-        that number. Let me know if you need any other random numbers!"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":38}}'
+      string: '{"id":"msg_01NSB7Kdm3Dzkn8ZMUakjgyc","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"I''m
+        sorry, but I am not able to generate truly random numbers. As an AI language
+        model, I don''t have access to a source of randomness or the ability to generate
+        random values. If you need a random number for a specific purpose, I recommend
+        using a random number generator or a programming language with built-in random
+        number generation functions."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":74}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 899d423fcf901a42-TBS
+      - 8c54828f6e85bb03-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 26 Jun 2024 12:39:15 GMT
+      - Wed, 18 Sep 2024 21:43:13 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '5000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '5000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-09-18T21:43:13Z'
       content-length:
-      - '385'
+      - '584'
       request-id:
-      - req_019snQzGZwpcewfBpmcbZCdC
+      - req_012KSCnFFtrJmB11tRZdHfu6
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 1f153b154b198003f0264b02c8652099
+      - a155fb50addadcbf6dedb89f6e086e97
     status:
       code: 200
       message: OK

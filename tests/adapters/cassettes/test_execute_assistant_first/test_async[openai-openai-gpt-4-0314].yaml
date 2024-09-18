@@ -16,17 +16,17 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.30.4
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,55 +35,59 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-9UIDGgDHkUlvCNjsvivB33RkE0WQN\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1717006878,\n  \"model\": \"gpt-4-0314\",\n
+      string: "{\n  \"id\": \"chatcmpl-A8vyqLMZlo5wyMlHAn5VF6cZw0Ap2\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1726692864,\n  \"model\": \"gpt-4-0314\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello! How can I help you today? If
-        you have any questions or need assistance, feel free to ask.\"\n      },\n
-        \     \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n
-        \ \"usage\": {\n    \"prompt_tokens\": 13,\n    \"completion_tokens\": 23,\n
-        \   \"total_tokens\": 36\n  },\n  \"system_fingerprint\": null\n}\n"
+        \"assistant\",\n        \"content\": \"How can I help you today?\",\n        \"refusal\":
+        null\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n
+        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 13,\n    \"completion_tokens\":
+        7,\n    \"total_tokens\": 20,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
+        0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b880dced1515da-SJC
+      - 8c543b20bae05a0d-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:21:20 GMT
+      - Wed, 18 Sep 2024 20:54:25 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Content-Type-Options:
+      - nosniff
+      access-control-expose-headers:
+      - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '538'
+      - '561'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '2221'
+      - '600'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
-      - max-age=15724800; includeSubDomains
+      - max-age=15552000; includeSubDomains; preload
       x-ratelimit-limit-requests:
       - '10000'
       x-ratelimit-limit-tokens:
-      - '300000'
+      - '1000000'
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '299980'
+      - '999981'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
-      - 3ms
+      - 1ms
       x-request-id:
-      - req_1c5e0d9eebb2f26f2fe79042c47ae35a
+      - req_dcb9513d4d46a2f2a18d4aed7c567788
     status:
       code: 200
       message: OK

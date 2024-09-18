@@ -1,8 +1,9 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "\"\""},
-      {"role": "assistant", "content": "Hi"}, {"role": "user", "content": "Hi"}],
-      "model": "claude-3-sonnet-20240229", "system": ""}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "\"\""}]}, {"role": "assistant", "content": "Hi"}, {"role":
+      "user", "content": [{"type": "text", "text": "Hi"}]}], "model": "claude-3-sonnet-20240229",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,23 +14,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '197'
+      - '266'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.26.1
+      - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 0.26.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -38,32 +39,39 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01HsZjQJbt7ZFVUeaLxZoE3i","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Hi
-        there! I''m Claude, an AI assistant created by Anthropic. How can I help you
-        today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":26}}'
+      string: '{"id":"msg_01TfgZAw7C3bj6wQ4cPfJc9B","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Hello!
+        How can I assist you today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":12}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b87f66e8f26420-SJC
+      - 8c543980ae72ba91-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:20:19 GMT
+      - Wed, 18 Sep 2024 20:53:18 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '8000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '8000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-09-18T20:53:18Z'
       content-length:
-      - '324'
+      - '273'
       request-id:
-      - req_01L9sssYiZKxdMK1LLy5bY4k
+      - req_016emFnjRa3kstbdDCEiBLM8
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 337c03cab64f61f5540a54b79582621e
+      - f4d25a9c56a0f8ee1dc356fcb75f587e
     status:
       code: 200
       message: OK

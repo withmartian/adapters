@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Generate
-      random number"}], "model": "claude-3-sonnet-20240229", "system": "", "tools":
-      []}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Generate random number"}]}], "model": "claude-3-sonnet-20240229",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,13 +13,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '153'
+      - '181'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.28.1
+      - Anthropic/Python 0.34.2
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -29,40 +29,49 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 0.28.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01Kxtuiaiz3TsikK6xhdVGC9","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Here
-        is a random number: \n\n0.9254677915465403"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":19}}'
+      string: '{"id":"msg_01BBADBYaZBxSPsaQJ46Ccwc","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Here
+        is a random number: \n\n0.6027124920272827\n\nThis is a random floating-point
+        number between 0 and 1, generated using Python''s `random.random()` function."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":48}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 89930dace8661a42-TBS
+      - 8c54802b8828bb0b-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 25 Jun 2024 06:55:42 GMT
+      - Wed, 18 Sep 2024 21:41:33 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '8000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '8000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-09-18T21:41:33Z'
       content-length:
-      - '286'
+      - '398'
       request-id:
-      - req_01J1Kb1uiafPBVz7bABVdf2D
+      - req_01R32HHZe4RH37Hdr6iFU7dh
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 94574be81ceaa41b76deacaeeadf5915
+      - 3c0fc6b5141a2587af0cb6bb58093dab
     status:
       code: 200
       message: OK

@@ -1,8 +1,9 @@
 interactions:
 - request:
-    body: '{"max_tokens": 2048, "messages": [{"role": "user", "content": "Hi"}, {"role":
-      "assistant", "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model":
-      "claude-1.1", "system": ""}'
+    body: '{"max_tokens": 2048, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Hi"}]}, {"role": "assistant", "content": "Hi"}, {"role": "user",
+      "content": [{"type": "text", "text": "Hi"}]}], "model": "claude-1.1", "system":
+      "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,23 +14,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '189'
+      - '250'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.26.1
+      - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 0.26.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -38,31 +39,34 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01QD6BBy8L9bKqic7kbGmYx3","type":"message","role":"assistant","model":"claude-1.1","content":[{"type":"text","text":"Hello!
-        How can I help you?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":24,"output_tokens":12}}'
+      string: '{"id":"msg_012KLaZsWh1ZMZT9ahw88ZXB","type":"message","role":"assistant","model":"claude-1.1","content":[{"type":"text","text":"Hello,
+        I''m Claude, an AI assistant created by Anthropic, PBC to be helpful, harmless,
+        and honest. How can I help you?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":20,"output_tokens":36}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b8e37acd7067c1-SJC
+      - 8c546bb6ec645a1f-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 19:28:38 GMT
+      - Wed, 18 Sep 2024 21:27:35 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
       content-length:
-      - '251'
+      - '342'
       request-id:
-      - req_01UM3WFmX48y9Xduc7uAK3Aq
+      - req_01EjQbVaqEjYrmfZUfqf8Zu5
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - ce3a408e202961da466e3e80c0f7372d
+      - 22113307cbed84d4f53a9d44c79bcf4c
     status:
       code: 200
       message: OK

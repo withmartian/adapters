@@ -18,7 +18,7 @@ interactions:
       host:
       - martiantest.openai.azure.com
       user-agent:
-      - AsyncAzureOpenAI/Python 1.34.0
+      - AsyncAzureOpenAI/Python 1.46.0
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -28,51 +28,52 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.34.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview
   response:
     body:
-      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"\n  {\n    \"message\":
-        \"Hello! How can I assist you today? If you could provide more details or
-        specify what information you need, I''d be happy to help.\"\n  }","role":"assistant"}}],"created":1720080699,"id":"chatcmpl-9hBr1MnUpBpJ2QRWbcX1R4q0b22ey","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_abc28019ad","usage":{"completion_tokens":38,"prompt_tokens":11,"total_tokens":49}}
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"\n    {\n      \"message\":
+        \"Hi! How can I assist you today?\",\n      \"options\": {\n        \"information_requests\":
+        [\n          \"Ask a question\",\n          \"Request information on a topic\"\n        ],\n        \"actions\":
+        [\n          \"Get help with a task\",\n          \"Provide feedback\"\n        ]\n      }\n    }","role":"assistant"}}],"created":1726694464,"id":"chatcmpl-A8wOeNbrAXqoqZfvcqbw3AuQ8zAPk","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_80a1bad4c7","usage":{"completion_tokens":68,"prompt_tokens":11,"total_tokens":79}}
 
         '
     headers:
       Content-Length:
-      - '972'
+      - '1143'
       Content-Type:
       - application/json
       Date:
-      - Thu, 04 Jul 2024 08:11:39 GMT
+      - Wed, 18 Sep 2024 21:21:04 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - 610aa794-efc5-404f-ba0c-719d19fbaa88
+      - ae6f4383-43e2-46df-a8f7-00784587ebd1
       azureml-model-session:
-      - d090-20240615004322
+      - d051-20240903042500
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '769'
+      - '957'
       x-ms-client-request-id:
-      - 610aa794-efc5-404f-ba0c-719d19fbaa88
+      - ae6f4383-43e2-46df-a8f7-00784587ebd1
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
       - East US
       x-ratelimit-remaining-requests:
-      - '47'
+      - '49'
       x-ratelimit-remaining-tokens:
-      - '43566'
+      - '49356'
       x-request-id:
-      - 45500aa8-3f1f-42ef-9be6-dafa31865560
+      - d1069c51-3ea9-4b1a-932c-f73d0ade7f36
     status:
       code: 200
       message: OK

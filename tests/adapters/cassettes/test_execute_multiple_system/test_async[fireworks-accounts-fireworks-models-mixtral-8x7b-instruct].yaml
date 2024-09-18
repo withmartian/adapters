@@ -16,17 +16,17 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - AsyncOpenAI/Python 1.30.4
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,36 +35,49 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"2a600b5d-e094-417a-9f46-6da0b2118705","object":"chat.completion","created":1717010191,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? If you have any questions or need assistance with
-        something, feel free to ask. I''m here to help!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":44,"completion_tokens":33}}'
+      string: '{"id":"b7cc6a10-f1db-42d5-9ab0-162fce888d87","object":"chat.completion","created":1726694715,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        It''s nice to meet you. How can I help you today? Is there something you would
+        like to learn or talk about? I''m here to answer any questions you have to
+        the best of my ability. I can help with topics related to computers, the internet,
+        and technology in general. I can also provide information on a wide variety
+        of other subjects. Just let me know what you need!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":96,"completion_tokens":85}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 88b8d1bd6e9ece4c-SJC
+      - 8c54684cde3d01db-ZRH
+      Cf-Placement:
+      - local-ZRH
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 19:16:31 GMT
+      - Wed, 18 Sep 2024 21:25:15 GMT
       Server:
       - cloudflare
+      Server-Timing:
+      - total;dur=858.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
-      Via:
-      - 1.1 google, 1.1 google
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '441'
+      - '680'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.156'
-      x-request-id:
-      - 2a600b5d-e094-417a-9f46-6da0b2118705
+      - '0.656'
+      x-envoy-upstream-service-time:
+      - '658'
     status:
       code: 200
       message: OK

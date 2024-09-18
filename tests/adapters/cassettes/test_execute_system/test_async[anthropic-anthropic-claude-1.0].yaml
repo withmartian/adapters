@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"max_tokens": 2048, "messages": [{"role": "user", "content": "Hi"}], "model":
-      "claude-1.0", "system": "Hi"}'
+    body: '{"max_tokens": 2048, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Hi"}]}], "model": "claude-1.0", "system": "Hi", "tools": []}'
     headers:
       accept:
       - application/json
@@ -12,23 +12,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '108'
+      - '149'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.26.1
+      - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 0.26.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -37,31 +37,33 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_0135ZTYn3x6pwGgsBDqB3haA","type":"message","role":"assistant","model":"claude-1.0","content":[{"type":"text","text":"Hello!
+      string: '{"id":"msg_01Ns7un6z1tagu5gRXyqxkvY","type":"message","role":"assistant","model":"claude-1.0","content":[{"type":"text","text":"Hello!
         How can I help you today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":11,"output_tokens":13}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b9131f5e3d67fd-SJC
+      - 8c5474e26b23ba97-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 20:01:09 GMT
+      - Wed, 18 Sep 2024 21:33:50 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
       content-length:
       - '257'
       request-id:
-      - req_01Fvn1PjxyRiGZTgPTfqPmk9
+      - req_01JhYYepbrGLCz4JoVPHE432
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 4411340dfbb729727ad0de7610043ad0
+      - ea166015e1a78677a39c0483729fa487
     status:
       code: 200
       message: OK

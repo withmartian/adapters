@@ -38,18 +38,18 @@ MODELS = [
     #     context_length=8192,
     #     vendor_name="google",
     # ),
-    OpenRouterModel(
-        name="llama-3-70b-instruct",
-        cost=Cost(prompt=0.35e-6, completion=0.35e-6),
-        context_length=8192,
-        vendor_name="meta-llama",
-    ),
-    OpenRouterModel(
-        name="llama-3-8b-instruct",
-        cost=Cost(prompt=0.055e-6, completion=0.55e-6),
-        context_length=8192,
-        vendor_name="meta-llama",
-    ),
+    # OpenRouterModel(
+    #     name="llama-3-70b-instruct",
+    #     cost=Cost(prompt=0.35e-6, completion=0.35e-6),
+    #     context_length=8192,
+    #     vendor_name="meta-llama",
+    # ),
+    # OpenRouterModel(
+    #     name="llama-3-8b-instruct",
+    #     cost=Cost(prompt=0.055e-6, completion=0.55e-6),
+    #     context_length=8192,
+    #     vendor_name="meta-llama",
+    # ),
     OpenRouterModel(
         name="mistral-7b-instruct-v2",
         cost=Cost(prompt=0.055e-6, completion=0.055e-6),
@@ -74,12 +74,12 @@ MODELS = [
         context_length=8192,
         vendor_name="pygmalionai",
     ),
-    OpenRouterModel(
-        name="mythomax-l2-13b",
-        cost=Cost(prompt=0.1e-6, completion=0.1e-6),
-        context_length=4096,
-        vendor_name="gryphe",
-    ),
+    # OpenRouterModel(
+    #     name="mythomax-l2-13b",
+    #     cost=Cost(prompt=0.1e-6, completion=0.1e-6),
+    #     context_length=4096,
+    #     vendor_name="gryphe",
+    # ),
     OpenRouterModel(
         name="llama-3.1-sonar-large-128k-online",
         cost=Cost(prompt=1.0e-6, completion=1.0e-6),

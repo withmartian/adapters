@@ -19,17 +19,17 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.34.0
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.34.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -38,57 +38,61 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-9mSEtXgbNwtF3F7LNEivJJY2fqDOb\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1721335323,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n
+      string: "{\n  \"id\": \"chatcmpl-A8wkdqWd3idrTqWwC0dLz5gbXMIvU\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1726695827,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"What is the range for the random number
-        you'd like to generate? Please specify the minimum and maximum values.\"\n
-        \     },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n
-        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 63,\n    \"completion_tokens\":
-        21,\n    \"total_tokens\": 84\n  },\n  \"system_fingerprint\": \"fp_8b761cb050\"\n}\n"
+        \"assistant\",\n        \"content\": \"Please specify the range of the random
+        number you would like to generate. For example, you can say \\\"generate a
+        random number between 1 and 10.\\\"\",\n        \"refusal\": null\n      },\n
+        \     \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n
+        \ \"usage\": {\n    \"prompt_tokens\": 63,\n    \"completion_tokens\": 32,\n
+        \   \"total_tokens\": 95,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
+        0\n    }\n  },\n  \"system_fingerprint\": \"fp_2d87079ca9\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8a554bc7c9cecfdd-SJC
+      - 8c54837a0b59bac7-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 18 Jul 2024 20:42:03 GMT
+      - Wed, 18 Sep 2024 21:43:48 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       X-Content-Type-Options:
       - nosniff
+      access-control-expose-headers:
+      - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '575'
+      - '705'
       openai-organization:
-      - user-yjadzo7w15dqwkegenievvm9
+      - martian-4
       openai-processing-ms:
-      - '409'
+      - '399'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
       - max-age=15552000; includeSubDomains; preload
       x-ratelimit-limit-requests:
-      - '10000'
+      - '30000'
       x-ratelimit-limit-tokens:
-      - '15000000'
+      - '150000000'
       x-ratelimit-remaining-requests:
-      - '9999'
+      - '29999'
       x-ratelimit-remaining-tokens:
-      - '14999976'
+      - '149999976'
       x-ratelimit-reset-requests:
-      - 6ms
+      - 2ms
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_352019c40419e2ba40bd89f431b999ed
+      - req_1276630f8a424cdb035d43144c07712f
     status:
       code: 200
       message: OK

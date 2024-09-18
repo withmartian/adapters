@@ -16,17 +16,17 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.30.4
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,55 +35,60 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-9UIRofZKHdAb7cVPp7NHZIDxDPJ21\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1717007780,\n  \"model\": \"gpt-4-0613\",\n
+      string: "{\n  \"id\": \"chatcmpl-A8wAfwiyBwDwalTKtHAm18wmmH3PJ\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1726693597,\n  \"model\": \"gpt-4-0613\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"I'm sorry, I can't provide any content
-        as there is no input or detail provided that I can respond to. Could you please
-        provide more information?\"\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
+        \"assistant\",\n        \"content\": \"It appears you may have sent an empty
+        message, or there was an error. Could you please provide more information?\",\n
+        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
         \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 17,\n    \"completion_tokens\":
-        31,\n    \"total_tokens\": 48\n  },\n  \"system_fingerprint\": null\n}\n"
+        23,\n    \"total_tokens\": 40,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
+        0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b896e09b2a17d1-SJC
+      - 8c544d04cbcf0e6b-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:36:21 GMT
+      - Wed, 18 Sep 2024 21:06:38 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Content-Type-Options:
+      - nosniff
+      access-control-expose-headers:
+      - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '586'
+      - '649'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '1776'
+      - '1288'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
-      - max-age=15724800; includeSubDomains
+      - max-age=15552000; includeSubDomains; preload
       x-ratelimit-limit-requests:
       - '10000'
       x-ratelimit-limit-tokens:
-      - '300000'
+      - '1000000'
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '299980'
+      - '999980'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
-      - 4ms
+      - 1ms
       x-request-id:
-      - req_857723c5bff68325dd36f03a5b424f84
+      - req_3c844a2a31f57e5c3b337044db4c6a45
     status:
       code: 200
       message: OK

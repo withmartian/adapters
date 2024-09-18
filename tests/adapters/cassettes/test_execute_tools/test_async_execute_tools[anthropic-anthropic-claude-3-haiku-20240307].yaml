@@ -1,11 +1,11 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Generate
-      random number"}], "model": "claude-3-haiku-20240307", "system": "", "tool_choice":
-      {"type": "tool", "name": "generate"}, "tools": [{"name": "generate", "description":
-      "Generate random number", "input_schema": {"type": "object", "properties": {"prompt":
-      {"type": "string", "description": "Random number like 5, 4, 3, 10, 11"}}, "required":
-      ["prompt"]}}]}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Generate random number"}]}], "model": "claude-3-haiku-20240307",
+      "system": "", "tool_choice": {"type": "tool", "name": "generate"}, "tools":
+      [{"name": "generate", "description": "Generate random number", "input_schema":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}]}'
     headers:
       accept:
       - application/json
@@ -16,13 +16,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '425'
+      - '453'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.28.1
+      - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -32,40 +32,48 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 0.28.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01BUtNVK8nBJ6ihahGpoYqS3","type":"message","role":"assistant","model":"claude-3-haiku-20240307","content":[{"type":"tool_use","id":"toolu_01R5h6SFTCrTZRqYrFB51kN6","name":"generate","input":{"prompt":"Random
+      string: '{"id":"msg_01RMnfSw3D5hwLjc8rL4gFFL","type":"message","role":"assistant","model":"claude-3-haiku-20240307","content":[{"type":"tool_use","id":"toolu_01EbsEDNjqpiM92HM3iHiBRG","name":"generate","input":{"prompt":"Random
         number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":439,"output_tokens":34}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 897498fcacfb317b-TBS
+      - 8c547f89fe820e5a-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Fri, 21 Jun 2024 14:13:09 GMT
+      - Wed, 18 Sep 2024 21:41:06 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '8000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '8000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-09-18T21:41:06Z'
       content-length:
       - '324'
       request-id:
-      - req_011HBXfULBKu5VAkv5zM4qcb
+      - req_01GaHZdi8FHxyxVSRMozeHGe
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 372efbb8e7caf78a4d43046b8c14a6c0
+      - a175b043edfdc18191dbc3066f5d1d1a
     status:
       code: 200
       message: OK

@@ -1,8 +1,9 @@
 interactions:
 - request:
-    body: '{"max_tokens": 2048, "messages": [{"role": "user", "content": "\"\""},
-      {"role": "assistant", "content": "\"\""}, {"role": "user", "content": "\"\""}],
-      "model": "claude-1.0", "system": ""}'
+    body: '{"max_tokens": 2048, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "\"\""}]}, {"role": "assistant", "content": "\"\""}, {"role":
+      "user", "content": [{"type": "text", "text": "\"\""}]}], "model": "claude-1.0",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,23 +14,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '187'
+      - '256'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.26.1
+      - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 0.26.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -38,32 +39,34 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01WCq6yMshthBKqRuBfCYicd","type":"message","role":"assistant","model":"claude-1.0","content":[{"type":"text","text":"I
+      string: '{"id":"msg_01Ko2Y3kgR56YDC34iY8Spfg","type":"message","role":"assistant","model":"claude-1.0","content":[{"type":"text","text":"I
         apologize, but I do not understand your question. Can you rephrase it or provide
-        more context about what you would like to know?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":20,"output_tokens":32}}'
+        more details about what you would like to know?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":20,"output_tokens":32}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b893f28d21f957-SJC
+      - 8c5449ed19574c6e-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:34:20 GMT
+      - Wed, 18 Sep 2024 21:04:31 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
       content-length:
       - '355'
       request-id:
-      - req_01NqZas256PP1ijg27Ffozyn
+      - req_01BiqK89qH7gydHnSnctUJtA
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 11b86d9526395f68cd8f6c6d18e9bcfa
+      - 1fa13a122767e53cab8b09472fd41f5e
     status:
       code: 200
       message: OK

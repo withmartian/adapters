@@ -1,7 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 2048, "messages": [{"role": "user", "content": "Hi"}, {"role":
-      "assistant", "content": "Hi"}], "model": "claude-1.2", "system": ""}'
+    body: '{"max_tokens": 2048, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Hi"}]}, {"role": "assistant", "content": "Hi"}], "model": "claude-1.2",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -12,23 +13,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '146'
+      - '187'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.26.1
+      - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 0.26.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -37,32 +38,34 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_019L7iwQ2mrjD7tjLihun8v1","type":"message","role":"assistant","model":"claude-1.2","content":[{"type":"text","text":"
-        there! My name is Claude, I''m an AI assistant created by Anthropic, PBC to
-        be helpful, harmless, and honest. How can I help you today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":11,"output_tokens":40}}'
+      string: '{"id":"msg_01Lb3vNHfenFRYn6FyLoTMKE","type":"message","role":"assistant","model":"claude-1.2","content":[{"type":"text","text":"
+        there! I''m Claude, an AI assistant created by Anthropic to be helpful, harmless,
+        and honest. How can I help you today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":11,"output_tokens":34}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b88a377a15173b-SJC
+      - 8c54448b4dc3baa6-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:27:42 GMT
+      - Wed, 18 Sep 2024 21:00:50 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
       content-length:
-      - '360'
+      - '344'
       request-id:
-      - req_01HCWqqtSkAD3g1FyyP9tGGy
+      - req_011kn8y8pQsGmE4JAYjFpwbJ
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 2f29ce72fd0603a120c08f6416b98902
+      - aa55d63f742c6faae50c63ee54a673b0
     status:
       code: 200
       message: OK

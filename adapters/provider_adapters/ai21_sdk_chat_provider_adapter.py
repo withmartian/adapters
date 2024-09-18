@@ -15,7 +15,7 @@ class AI21Model(Model):
     supports_streaming: bool = True
     supports_empty_content: bool = False
     supports_json_output: bool = True
-    supports_json_content: bool = True
+    supports_json_content: bool = False
     supports_tools: bool = True
     supports_functions: bool = False
     supports_n: bool = True

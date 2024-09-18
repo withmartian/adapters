@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Generate
-      random number"}], "model": "claude-3-haiku-20240307", "system": "", "tools":
-      []}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Generate random number"}]}], "model": "claude-3-haiku-20240307",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,13 +13,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '152'
+      - '180'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.28.1
+      - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -29,53 +29,65 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 0.28.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01VPXEqXNVy7s4qFDG2MLH4m","type":"message","role":"assistant","model":"claude-3-haiku-20240307","content":[{"type":"text","text":"Sure,
-        here''s how you can generate a random number in various programming languages:\n\n1.
-        **JavaScript**:\n```javascript\nconst randomNumber = Math.random();\nconsole.log(randomNumber);\n```\nThis
-        will generate a random number between 0 and 1.\n\n2. **Python**:\n```python\nimport
-        random\nrandom_number = random.random()\nprint(random_number)\n```\nThis will
-        also generate a random number between 0 and 1.\n\n3. **Java**:\n```java\ndouble
-        randomNumber = Math.random();\nSystem.out.println(randomNumber);\n```\nThis
-        will generate a random number between 0 and 1.\n\n4. **C#**:\n```csharp\nRandom
-        random = new Random();\ndouble randomNumber = random.NextDouble();\nConsole.WriteLine(randomNumber);\n```\nThis
-        will generate a random number between 0 and 1.\n\n5. **Ruby**:\n```ruby\nrandom_number
-        = rand()\nputs random_number\n```\nThis will generate a random number between
-        0 and 1.\n\nYou can also generate random integers within a specific range
-        by using the appropriate functions or methods in each language. For example,
-        in JavaScript, you can use `Math.floor(Math.random() * (max - min + 1)) +
-        min` to generate a random integer between `min` and `max` (inclusive)."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":318}}'
+      string: '{"id":"msg_01FAat2qTeSy62xq58NrFpzp","type":"message","role":"assistant","model":"claude-3-haiku-20240307","content":[{"type":"text","text":"Here''s
+        how you can generate a random number in various programming languages:\n\nPython:\n```python\nimport
+        random\nrandom_number = random.randint(1, 100)  # Generates a random integer
+        between 1 and 100\nprint(random_number)\n```\n\nJavaScript:\n```javascript\nconst
+        randomNumber = Math.floor(Math.random() * 100) + 1; // Generates a random
+        integer between 1 and 100\nconsole.log(randomNumber);\n```\n\nJava:\n```java\nimport
+        java.util.Random;\n\npublic class RandomNumberGenerator {\n    public static
+        void main(String[] args) {\n        Random random = new Random();\n        int
+        randomNumber = random.nextInt(100) + 1; // Generates a random integer between
+        1 and 100\n        System.out.println(randomNumber);\n    }\n}\n```\n\nC#:\n```csharp\nusing
+        System;\n\npublic class RandomNumberGenerator {\n    public static void Main()
+        {\n        Random random = new Random();\n        int randomNumber = random.Next(1,
+        101); // Generates a random integer between 1 and 100\n        Console.WriteLine(randomNumber);\n    }\n}\n```\n\nThe
+        key steps are:\n1. Import the necessary random number generation library/module.\n2.
+        Create a random number generator object.\n3. Use the appropriate method to
+        generate a random number within the desired range.\n4. Print or use the generated
+        random number.\n\nThe specific implementation may vary slightly depending
+        on the programming language, but the general approach is similar across different
+        languages."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":363}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 89930ff84b0f95a5-TBS
+      - 8c548186ed0e0e12-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 25 Jun 2024 06:57:17 GMT
+      - Wed, 18 Sep 2024 21:42:30 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '8000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '8000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-09-18T21:42:30Z'
       content-length:
-      - '1406'
+      - '1681'
       request-id:
-      - req_01XQcU3uBiSKAXJ6iLg3pcVh
+      - req_01XRbcJo2tkZe2ppkvJnzGZf
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 838d059c8397fb8519b2035a8d6c4058
+      - caa759a7e23d95c1d5a15f490e260952
     status:
       code: 200
       message: OK

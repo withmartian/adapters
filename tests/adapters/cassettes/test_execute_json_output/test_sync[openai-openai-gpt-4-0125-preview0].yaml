@@ -16,17 +16,17 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.30.4
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,41 +35,46 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-9UImuXZ54ZIaZEaLNQHyJG2bzA7dr\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1717009088,\n  \"model\": \"gpt-4-0125-preview\",\n
+      string: "{\n  \"id\": \"chatcmpl-A8wLJw1jsbsc0ZVYxjIQxr53VhPwj\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1726694257,\n  \"model\": \"gpt-4-0125-preview\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"\\n{\\n  \\\"response\\\": \\\"Hello!
-        How can I assist you today? Feel free to ask any question or seek any information
-        you need.\\\"\\n}\"\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
+        \"assistant\",\n        \"content\": \"\\n\\n{\\n  \\\"user\\\": \\\"Hello,
+        use json\\\",\\n  \\\"assistant\\\": \\\"Sure, how can I assist you with JSON?\\\"\\n}\",\n
+        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
         \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 11,\n    \"completion_tokens\":
-        30,\n    \"total_tokens\": 41\n  },\n  \"system_fingerprint\": null\n}\n"
+        29,\n    \"total_tokens\": 40,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
+        0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b8b6d34ed52509-SJC
+      - 8c545d26cdd10e5a-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:58:10 GMT
+      - Wed, 18 Sep 2024 21:17:39 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Content-Type-Options:
+      - nosniff
+      access-control-expose-headers:
+      - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '576'
+      - '647'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '1673'
+      - '1105'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
-      - max-age=15724800; includeSubDomains
+      - max-age=15552000; includeSubDomains; preload
       x-ratelimit-limit-requests:
       - '10000'
       x-ratelimit-limit-tokens:
@@ -83,7 +88,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_8b6d43085c356015faf9971dbd08b193
+      - req_897e9c357bfc674aac465ecb75347aa3
     status:
       code: 200
       message: OK

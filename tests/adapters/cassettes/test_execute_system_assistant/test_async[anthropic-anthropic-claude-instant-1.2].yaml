@@ -1,8 +1,9 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Hi"}, {"role":
-      "assistant", "content": "Hi\nHi"}, {"role": "user", "content": "Hi"}], "model":
-      "claude-instant-1.2", "system": ""}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Hi"}]}, {"role": "assistant", "content": "Hi"}, {"role": "user",
+      "content": [{"type": "text", "text": "Hi"}]}], "model": "claude-instant-1.2",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,23 +14,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '193'
+      - '258'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.26.1
+      - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 0.26.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -38,30 +39,32 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01FjxNDrDFmPUb6JrMTXyAn6","type":"message","role":"assistant","model":"claude-instant-1.2","content":[{"type":"text","text":"Hello!"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":22,"output_tokens":6}}'
+      string: '{"id":"msg_01UgEeKpvB7UqZnxnmiEYKBH","type":"message","role":"assistant","model":"claude-instant-1.2","content":[{"type":"text","text":"Hello!"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":20,"output_tokens":6}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88cae6840b4b967c-SJC
+      - 8c547b74ad4d0e57-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Fri, 31 May 2024 23:56:26 GMT
+      - Wed, 18 Sep 2024 21:38:19 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
       content-length:
       - '238'
       request-id:
-      - req_01TrDUUS85TtnLPdQNuzE19S
+      - req_014K1jnhbotAJ3ZxeYinzbA2
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 95b212a49d623754d657bfcb3544dd92
+      - a0d9eebfd78c7041b120ac2521861279
     status:
       code: 200
       message: OK

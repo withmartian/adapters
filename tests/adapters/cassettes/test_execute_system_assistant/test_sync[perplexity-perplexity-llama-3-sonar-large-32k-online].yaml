@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi\nHi"}, {"role": "user", "content": "Hi"}], "model": "llama-3-sonar-large-32k-online"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "llama-3-sonar-large-32k-online"}'
     headers:
       accept:
       - application/json
@@ -10,23 +10,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '171'
+      - '167'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - OpenAI/Python 1.30.4
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,29 +35,24 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "c0b52da8-13b2-483b-9271-f4d9e5accbd1", "model": "llama-3-sonar-large-32k-online",
-        "created": 1717199215, "usage": {"prompt_tokens": 46, "completion_tokens":
-        1, "total_tokens": 47}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "Hi"},
-        "delta": {"role": "assistant", "content": ""}}]}'
+      string: "<html>\r\n<head><title>401 Authorization Required</title></head>\r\n<body>\r\n<center><h1>401
+        Authorization Required</h1></center>\r\n<hr><center>openresty/1.25.3.1</center>\r\n</body>\r\n</html>\r\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88cad894d8c1ce3c-SJC
+      - 8c547b2cdb490e57-MXP
       Connection:
       - keep-alive
+      Content-Length:
+      - '185'
       Content-Type:
-      - application/json
+      - text/html
       Date:
-      - Fri, 31 May 2024 23:46:55 GMT
+      - Wed, 18 Sep 2024 21:38:07 GMT
       Server:
       - cloudflare
-      Transfer-Encoding:
-      - chunked
-      content-length:
-      - '367'
     status:
-      code: 200
-      message: OK
+      code: 401
+      message: Unauthorized
 version: 1

@@ -16,17 +16,17 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - AsyncOpenAI/Python 1.30.4
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,36 +35,50 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"1778c7f0-98a0-440b-855e-c12f15177c23","object":"chat.completion","created":1717012941,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? If you have any questions or need assistance with
-        something, feel free to ask. I''m here to help!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":44,"completion_tokens":33}}'
+      string: '{"id":"7c3e1555-94f1-4891-9748-c2ae07f259bd","object":"chat.completion","created":1726695290,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        It''s nice to meet you. How can I help you today? Is there a particular topic
+        you would like to discuss or learn about? I''m here to answer any questions
+        you have to the best of my ability. I can provide information on a wide variety
+        of subjects, so don''t hesitate to ask me anything. I''m here to help. Is
+        there something on your mind that you would like to know more about? I''m
+        ready when you are."},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":112,"completion_tokens":101}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 88b914e22cc21701-SJC
+      - 8c5476572d0c83a9-MXP
+      Cf-Placement:
+      - local-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 20:02:21 GMT
+      - Wed, 18 Sep 2024 21:34:50 GMT
       Server:
       - cloudflare
+      Server-Timing:
+      - total;dur=798.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
-      Via:
-      - 1.1 google, 1.1 google
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '441'
+      - '717'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.123'
-      x-request-id:
-      - 1778c7f0-98a0-440b-855e-c12f15177c23
+      - '0.547'
+      x-envoy-upstream-service-time:
+      - '549'
     status:
       code: 200
       message: OK

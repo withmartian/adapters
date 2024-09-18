@@ -1,8 +1,9 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "\"\""},
-      {"role": "assistant", "content": "\"\""}, {"role": "user", "content": "\"\""}],
-      "model": "claude-3-5-sonnet-20240620", "system": ""}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "\"\""}]}, {"role": "assistant", "content": "\"\""}, {"role":
+      "user", "content": [{"type": "text", "text": "\"\""}]}], "model": "claude-3-5-sonnet-20240620",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,23 +14,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '203'
+      - '272'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.28.1
+      - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 0.28.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -38,46 +39,48 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01JdLZsid6Ezs4nU4JtWq4uq","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"I
-        apologize, but I haven''t received any message or question from you yet. The
-        quotation marks are empty. Could you please provide some text or ask a question?
-        I''m here to help, so feel free to ask anything or start a conversation on
-        any topic you''d like assistance with."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":63}}'
+      string: '{"id":"msg_01DtghvDdVULbSJtxKdrXbed","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"I
+        apologize, but I haven''t received any actual content or questions from you
+        yet. The empty quotation marks don''t provide me with anything to respond
+        to. If you have a question or topic you''d like to discuss, please go ahead
+        and type it out, and I''ll be happy to assist you."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":66}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 896dfbbae8eafb34-SJC
+      - 8c544a7acadf59e9-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 20 Jun 2024 18:57:15 GMT
+      - Wed, 18 Sep 2024 21:04:54 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
       anthropic-ratelimit-requests-limit:
       - '4000'
       anthropic-ratelimit-requests-remaining:
-      - '3997'
+      - '3999'
       anthropic-ratelimit-requests-reset:
-      - '2024-06-20T18:58:08Z'
+      - '2024-09-18T21:05:08Z'
       anthropic-ratelimit-tokens-limit:
-      - '400000'
+      - '8000000'
       anthropic-ratelimit-tokens-remaining:
-      - '400000'
+      - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-06-20T18:58:08Z'
+      - '2024-09-18T21:04:54Z'
       content-length:
-      - '511'
+      - '515'
       request-id:
-      - req_012VP4kzzc5bmkhqewk7xBEg
+      - req_012NpQQ1ywcqKtvdA37G8cvF
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 4496467c5ec2a64c096544853ce3afec
+      - 8d0c7015b3c5aae3266d2c654cf3b8bd
     status:
       code: 200
       message: OK

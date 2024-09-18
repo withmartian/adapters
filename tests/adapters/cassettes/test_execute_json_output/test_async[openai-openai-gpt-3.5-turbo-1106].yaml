@@ -16,17 +16,17 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.30.4
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,58 +35,67 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-9UIn7xY2NTGxSsnkjL0DU7eayy8aL\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1717009101,\n  \"model\": \"gpt-3.5-turbo-1106\",\n
+      string: "{\n  \"id\": \"chatcmpl-A8wOgxTel1kQONhvlFlciPrOzro6p\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1726694466,\n  \"model\": \"gpt-3.5-turbo-1106\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"{\\n  \\\"name\\\": \\\"John Doe\\\",\\n
-        \ \\\"age\\\": 30,\\n  \\\"email\\\": \\\"johndoe@example.com\\\",\\n  \\\"address\\\":
-        {\\n    \\\"street\\\": \\\"123 Main St\\\",\\n    \\\"city\\\": \\\"Anytown\\\",\\n
-        \   \\\"state\\\": \\\"CA\\\",\\n    \\\"zip\\\": \\\"12345\\\"\\n  },\\n
-        \ \\\"interests\\\": [\\\"hiking\\\", \\\"reading\\\", \\\"cooking\\\"]\\n}\"\n
-        \     },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n
-        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 11,\n    \"completion_tokens\":
-        84,\n    \"total_tokens\": 95\n  },\n  \"system_fingerprint\": null\n}\n"
+        \"assistant\",\n        \"content\": \"{\\n  \\\"name\\\": \\\"John\\\",\\n
+        \ \\\"age\\\": 25,\\n  \\\"city\\\": \\\"New York\\\",\\n  \\\"interests\\\":
+        [\\\"hiking\\\", \\\"reading\\\", \\\"traveling\\\"]\\n}\",\n        \"refusal\":
+        null\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n
+        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 11,\n    \"completion_tokens\":
+        40,\n    \"total_tokens\": 51,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
+        0\n    }\n  },\n  \"system_fingerprint\": \"fp_e81b59fe66\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b8b7202ce667a7-SJC
+      - 8c54623c28e9374c-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:58:22 GMT
+      - Wed, 18 Sep 2024 21:21:06 GMT
       Server:
       - cloudflare
+      Set-Cookie:
+      - __cf_bm=GQ2BA9oWU3Stz2snkfCwf1NOzNOml_aj70qNiNEGc5w-1726694466-1.0.1.1-agZ7AHG7eLpwr0SaKBOBgqtQakCpnUqJ8dLhGKnaQPKzyGVr88GfWmw8a.bORaixziZZWdV_m8sxUHSXBYpp4w;
+        path=/; expires=Wed, 18-Sep-24 21:51:06 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=mTUQjqn2KYjBBB2YS67yEoTpUFnNIAt7Kr7lN8fbILQ-1726694466635-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
+      X-Content-Type-Options:
+      - nosniff
+      access-control-expose-headers:
+      - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '727'
+      - '685'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '1175'
+      - '405'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
-      - max-age=15724800; includeSubDomains
+      - max-age=15552000; includeSubDomains; preload
       x-ratelimit-limit-requests:
       - '10000'
       x-ratelimit-limit-tokens:
-      - '2000000'
+      - '50000000'
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '1999979'
+      - '49999980'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_afa2d583209d0b54d3639e18eb229fb0
+      - req_e4126b139b130c9eaa3ed74fb190f8a0
     status:
       code: 200
       message: OK

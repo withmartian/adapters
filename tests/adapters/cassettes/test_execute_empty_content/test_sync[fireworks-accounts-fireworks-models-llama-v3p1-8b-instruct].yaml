@@ -16,7 +16,7 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.36.0
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.36.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,27 +35,28 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"c125cebf-305e-40cb-9ebc-a2aab52e49c5","object":"chat.completion","created":1723048629,"model":"accounts/fireworks/models/llama-v3p1-8b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like you started to ask a question or make a statement, but it got cut
-        off. Could you please continue or rephrase it so I can better understand what
-        you''re trying to ask or discuss? I''m here to help and provide assistance."},"finish_reason":"stop"}],"usage":{"prompt_tokens":20,"total_tokens":72,"completion_tokens":52}}'
+      string: '{"id":"9ef4973c-30d3-4fd5-a1f5-d43dc4ef7385","object":"chat.completion","created":1726693574,"model":"accounts/fireworks/models/llama-v3p1-8b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like your message got cut off. Could you please rephrase or provide
+        more context so I can better understand what you''re asking or talking about?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":21,"total_tokens":53,"completion_tokens":32}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8af8b08d8ac695a3-TBS
+      - 8c544c74eb31bb0d-ZRH
+      Cf-Placement:
+      - local-ZRH
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 07 Aug 2024 16:37:09 GMT
+      - Wed, 18 Sep 2024 21:06:14 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=399.0;desc="Total Response Time"
+      - total;dur=704.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -63,13 +64,17 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '544'
+      - '466'
       fireworks-middleware-version:
       - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.207'
+      - '0.120'
       x-envoy-upstream-service-time:
-      - '210'
+      - '124'
     status:
       code: 200
       message: OK

@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Generate
-      random number"}], "model": "claude-3-opus-20240229", "system": "", "tools":
-      []}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Generate random number"}]}], "model": "claude-3-opus-20240229",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,13 +13,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '151'
+      - '179'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.28.1
+      - Anthropic/Python 0.34.2
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -29,46 +29,56 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 0.28.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01UDRjWGBv5DP7p2k6TMXtWF","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"I''m
-        sorry, but I am not able to generate random numbers. As an AI language model,
-        I do not have the capability to generate truly random numbers or access any
-        external sources of randomness.\n\nIf you need a random number for a specific
-        purpose, I recommend using a random number generator or a programming language
-        with built-in random number generation functions. These tools are designed
-        to provide random numbers based on various algorithms and can be more suitable
-        for your needs."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":96}}'
+      string: '{"id":"msg_01W24G1JsaJ2PWNjrwGtQtF3","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"I
+        apologize for the confusion, but I am not able to generate a random number
+        on my own. As a language model AI, I don''t have the capability to produce
+        true random numbers. However, I can provide you with a pseudo-random number
+        if you specify a range. \n\nFor example, if you''d like a random integer between
+        1 and 10 (inclusive), I can give you one: 7.\n\nPlease note that this number
+        is not truly random, as it is generated based on the current state of our
+        conversation and not from a genuine random source.\n\nIf you require a truly
+        random number for a specific purpose, I recommend using a random number generator
+        or a programming language''s built-in random number function."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":155}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 89930db47a9895a6-TBS
+      - 8c548036ba470e43-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 25 Jun 2024 06:55:48 GMT
+      - Wed, 18 Sep 2024 21:41:40 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '5000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '5000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-09-18T21:41:40Z'
       content-length:
-      - '721'
+      - '915'
       request-id:
-      - req_01G2kWYW3fm3pfxJYkTfqqBz
+      - req_01EmEtPTVqW4eFxAPJhccnTg
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - bec919629d5817c52ea2b493d069a978
+      - db62222a6638c4cf498686e4e331a2f1
     status:
       code: 200
       message: OK

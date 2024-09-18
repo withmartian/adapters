@@ -17,17 +17,17 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.30.4
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -36,40 +36,45 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-9V6PhlVk5FHkHUvmqn6oE8EtezynQ\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1717199849,\n  \"model\": \"gpt-4-32k-0613\",\n
+      string: "{\n  \"id\": \"chatcmpl-A8wgOPPyiGcidxKY7jU5PsCx3yZjJ\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1726695564,\n  \"model\": \"gpt-4-32k-0613\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello, how can I assist you today?\"\n
-        \     },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n
-        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 23,\n    \"completion_tokens\":
-        9,\n    \"total_tokens\": 32\n  },\n  \"system_fingerprint\": null\n}\n"
+        \"assistant\",\n        \"content\": \"Hello! How can I assist you today?\",\n
+        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
+        \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 23,\n    \"completion_tokens\":
+        9,\n    \"total_tokens\": 32,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
+        0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88cae813aff215bc-SJC
+      - 8c547d0c5e05374b-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Fri, 31 May 2024 23:57:30 GMT
+      - Wed, 18 Sep 2024 21:39:24 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Content-Type-Options:
+      - nosniff
+      access-control-expose-headers:
+      - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '479'
+      - '574'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '503'
+      - '420'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
-      - max-age=15724800; includeSubDomains
+      - max-age=15552000; includeSubDomains; preload
       x-ratelimit-limit-requests:
       - '1000'
       x-ratelimit-limit-tokens:
@@ -83,7 +88,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 8ms
       x-request-id:
-      - req_21dae2634e2a40e6bb2df95c3e0c7754
+      - req_9589d4b6b87046b24cd8c73cebddd4ae
     status:
       code: 200
       message: OK

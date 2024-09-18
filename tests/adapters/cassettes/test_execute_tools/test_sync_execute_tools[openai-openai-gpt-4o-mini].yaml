@@ -20,17 +20,17 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.34.0
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.34.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -39,60 +39,63 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-9mSEl4DJLseuoO5raZy1FdfKYGUat\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1721335315,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n
+      string: "{\n  \"id\": \"chatcmpl-A8whsinS6mMz374OyRXWakCrBwXM4\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1726695656,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
         \"assistant\",\n        \"content\": null,\n        \"tool_calls\": [\n          {\n
-        \           \"id\": \"call_iRMZEhiZ5ENw95imb1EWhEbt\",\n            \"type\":
+        \           \"id\": \"call_IfStBL2U3mnef6PQe26pPYuJ\",\n            \"type\":
         \"function\",\n            \"function\": {\n              \"name\": \"generate\",\n
-        \             \"arguments\": \"{\\\"prompt\\\":\\\"Generate a random number
-        like 5, 4, 3, 10, 11\\\"}\"\n            }\n          }\n        ]\n      },\n
+        \             \"arguments\": \"{\\\"prompt\\\":\\\"random number\\\"}\"\n
+        \           }\n          }\n        ],\n        \"refusal\": null\n      },\n
         \     \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n
-        \ \"usage\": {\n    \"prompt_tokens\": 70,\n    \"completion_tokens\": 23,\n
-        \   \"total_tokens\": 93\n  },\n  \"system_fingerprint\": \"fp_8b761cb050\"\n}\n"
+        \ \"usage\": {\n    \"prompt_tokens\": 70,\n    \"completion_tokens\": 6,\n
+        \   \"total_tokens\": 76,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
+        0\n    }\n  },\n  \"system_fingerprint\": \"fp_71fab63729\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8a554b9ad8c1cfdd-SJC
+      - 8c547f4abb733752-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 18 Jul 2024 20:41:56 GMT
+      - Wed, 18 Sep 2024 21:40:56 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       X-Content-Type-Options:
       - nosniff
+      access-control-expose-headers:
+      - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '775'
+      - '837'
       openai-organization:
-      - user-yjadzo7w15dqwkegenievvm9
+      - martian-4
       openai-processing-ms:
-      - '353'
+      - '152'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
       - max-age=15552000; includeSubDomains; preload
       x-ratelimit-limit-requests:
-      - '10000'
+      - '30000'
       x-ratelimit-limit-tokens:
-      - '15000000'
+      - '150000000'
       x-ratelimit-remaining-requests:
-      - '9999'
+      - '29999'
       x-ratelimit-remaining-tokens:
-      - '14999976'
+      - '149999976'
       x-ratelimit-reset-requests:
-      - 6ms
+      - 2ms
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_75cbe2792a644c392dcb1120f1dcf68d
+      - req_f2b55e30898d77b9f59cf08134d5d2d0
     status:
       code: 200
       message: OK

@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Generate
-      random number"}], "model": "claude-3-opus-20240229", "system": "", "tools":
-      []}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Generate random number"}]}], "model": "claude-3-opus-20240229",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,13 +13,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '151'
+      - '179'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.28.1
+      - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -29,46 +29,52 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 0.28.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_018w5Rtki5F14qSHWhPCL2Bp","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"I''m
-        sorry, but I do not have the capability to generate truly random numbers.
-        I can provide you with a pseudo-random number if you specify a range, but
-        it''s important to note that it will not be cryptographically secure or suitable
-        for applications requiring true randomness.\n\nIf you need a random number
-        for a specific purpose, please provide more details about your requirements,
-        such as the desired range and the context in which you plan to use the number.
-        I''ll do my best to assist you based on the information you provide."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":112}}'
+      string: '{"id":"msg_01FkkdgzAquBVQvFFg7hKhCJ","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"I
+        apologize, but I am not able to generate truly random numbers. As an AI language
+        model, I don''t have the capability to produce random values. If you need
+        a random number for a specific purpose or within a certain range, I suggest
+        using a random number generator or a programming language''s built-in random
+        number functions."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":70}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 89930fcd793d95a9-TBS
+      - 8c54816dec9e0e7b-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 25 Jun 2024 06:57:15 GMT
+      - Wed, 18 Sep 2024 21:42:27 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '5000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '5000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-09-18T21:42:27Z'
       content-length:
-      - '768'
+      - '562'
       request-id:
-      - req_01HCmbzydFJ9U7GBQaYRVbDY
+      - req_017vUYRviYHGnsPVoWChiYEB
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 29938c88d916b73f21c95b3054f8b91d
+      - d6c0791a068c36d2cf63960bf8ec9405
     status:
       code: 200
       message: OK

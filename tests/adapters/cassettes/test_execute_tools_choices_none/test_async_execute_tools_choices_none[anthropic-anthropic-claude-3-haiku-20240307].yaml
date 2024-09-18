@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Generate
-      random number"}], "model": "claude-3-haiku-20240307", "system": "", "tools":
-      []}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Generate random number"}]}], "model": "claude-3-haiku-20240307",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,13 +13,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '152'
+      - '180'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.28.1
+      - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -29,54 +29,69 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 0.28.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_013VeFfnNgYTAfFgi2iNC5Pw","type":"message","role":"assistant","model":"claude-3-haiku-20240307","content":[{"type":"text","text":"Certainly!
-        Here''s a simple way to generate a random number in Python:\n\n```python\nimport
-        random\n\n# Generate a random integer between 1 and 10 (inclusive)\nrandom_number
-        = random.randint(1, 10)\nprint(random_number)\n\n# Generate a random floating-point
-        number between 0 and 1\nrandom_float = random.random()\nprint(random_float)\n```\n\nIn
-        the above code, we first import the `random` module, which provides functions
-        for generating random numbers. Then, we use the `random.randint()` function
-        to generate a random integer between 1 and 10 (inclusive), and the `random.random()`
-        function to generate a random floating-point number between 0 and 1.\n\nYou
-        can customize the range of the random number by changing the arguments passed
-        to `random.randint()`. For example, to generate a random number between 1
-        and 100, you would use `random.randint(1, 100)`.\n\nIf you need more advanced
-        random number generation, the `random` module provides several other functions,
-        such as `random.uniform()` for generating random floating-point numbers within
-        a specified range, `random.choice()` for selecting a random element from a
-        sequence, and `random.shuffle()` for shuffling a list."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":296}}'
+      string: '{"id":"msg_01DZJVkBi9NSnrwCKPCGgZH7","type":"message","role":"assistant","model":"claude-3-haiku-20240307","content":[{"type":"text","text":"Certainly!
+        Here''s how you can generate a random number in various programming languages:\n\n1.
+        **Python**:\n   ```python\n   import random\n   random_number = random.randint(1,
+        10)  # Generates a random integer between 1 and 10\n   print(random_number)\n   ```\n\n2.
+        **JavaScript**:\n   ```javascript\n   const randomNumber = Math.floor(Math.random()
+        * 10) + 1;  // Generates a random integer between 1 and 10\n   console.log(randomNumber);\n   ```\n\n3.
+        **Java**:\n   ```java\n   import java.util.Random;\n\n   public class RandomNumberGenerator
+        {\n       public static void main(String[] args) {\n           Random random
+        = new Random();\n           int randomNumber = random.nextInt(10) + 1;  //
+        Generates a random integer between 1 and 10\n           System.out.println(randomNumber);\n       }\n   }\n   ```\n\n4.
+        **C#**:\n   ```csharp\n   using System;\n\n   public class RandomNumberGenerator
+        {\n       public static void Main() {\n           Random random = new Random();\n           int
+        randomNumber = random.Next(1, 11);  // Generates a random integer between
+        1 and 10\n           Console.WriteLine(randomNumber);\n       }\n   }\n   ```\n\n5.
+        **PHP**:\n   ```php\n   $randomNumber = rand(1, 10);  // Generates a random
+        integer between 1 and 10\n   echo $randomNumber;\n   ```\n\n6. **Ruby**:\n   ```ruby\n   random_number
+        = rand(1..10)  # Generates a random integer between 1 and 10\n   puts random_number\n   ```\n\nThe
+        key steps are:\n1. Import the necessary library or module for generating random
+        numbers.\n2. Use the appropriate function or method to generate a random number
+        within the desired range.\n3. Print or display the generated random number.\n\nThe
+        specific function or method used may vary slightly between programming languages,
+        but the general approach is similar. Feel free to choose the language that
+        you''re most comfortable with and try it out."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":505}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 899d4324efab95a9-TBS
+      - 8c5483c81db53751-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 26 Jun 2024 12:39:51 GMT
+      - Wed, 18 Sep 2024 21:44:03 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '8000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '8000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-09-18T21:44:03Z'
       content-length:
-      - '1416'
+      - '2115'
       request-id:
-      - req_013P5dJfE5LmtEKD77ZfKxq6
+      - req_01Y1gh2Pp3bo7xWFL1dofRb4
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - ca538936d3a61771ff2bec97a612067b
+      - 48610392ab47fc26d3c4529581711cbf
     status:
       code: 200
       message: OK

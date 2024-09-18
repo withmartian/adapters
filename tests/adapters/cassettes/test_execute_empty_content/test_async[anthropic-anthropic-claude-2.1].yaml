@@ -1,8 +1,9 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "\"\""},
-      {"role": "assistant", "content": "\"\""}, {"role": "user", "content": "\"\""}],
-      "model": "claude-2.1", "system": ""}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "\"\""}]}, {"role": "assistant", "content": "\"\""}, {"role":
+      "user", "content": [{"type": "text", "text": "\"\""}]}], "model": "claude-2.1",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,23 +14,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '187'
+      - '256'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.26.1
+      - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 0.26.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -38,33 +39,35 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_018FNQcmDYRYXRa6QHPqpgig","type":"message","role":"assistant","model":"claude-2.1","content":[{"type":"text","text":"I
-        do not have a response. As an AI assistant without contextual information,
-        I cannot determine an appropriate response. Could you please provide more
-        details about what you are looking for help with?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":20,"output_tokens":41}}'
+      string: '{"id":"msg_01TT3FBXCbi8NXbXnqUbRYpa","type":"message","role":"assistant","model":"claude-2.1","content":[{"type":"text","text":"Hello!
+        Since you haven''t provided a prompt, I don''t have anything specific to respond
+        to. I''m Claude, an AI assistant created by Anthropic. Feel free to ask me
+        questions or have a conversation."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":20,"output_tokens":48}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b89e84ca2ecfa8-SJC
+      - 8c5450410f09375d-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:41:34 GMT
+      - Wed, 18 Sep 2024 21:08:51 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
       content-length:
-      - '425'
+      - '418'
       request-id:
-      - req_01Tw9AeUmPqUYRXE8czmvJ9E
+      - req_01Kmm7kueRZNbhn6deaDo8Wv
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 09d4d4af8993c898e4e651858860da2f
+      - 598ef3b6d44f4c497108f7a3b3d5fc63
     status:
       code: 200
       message: OK

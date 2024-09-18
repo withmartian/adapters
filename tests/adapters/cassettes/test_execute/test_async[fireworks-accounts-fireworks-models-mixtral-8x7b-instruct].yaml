@@ -15,17 +15,17 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - AsyncOpenAI/Python 1.30.4
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -34,36 +34,49 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"87df9140-27e0-4301-be51-660c64ae73c4","object":"chat.completion","created":1717006482,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? If you have any questions about a specific topic
-        or just want to chat, I''m here. Just let me know."},"finish_reason":"stop"}],"usage":{"prompt_tokens":9,"total_tokens":44,"completion_tokens":35}}'
+      string: '{"id":"c168917a-17e6-4bf5-b853-0ee218ffbeda","object":"chat.completion","created":1726692564,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        I''m here to help answer your questions and engage in positive and respectful
+        conversation. I will do my best to provide useful and truthful responses while
+        ensuring the security and privacy of the information exchanged. I am committed
+        to promoting fairness and positivity in all of my interactions. How can I
+        assist you today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":54,"total_tokens":122,"completion_tokens":68}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 88b8772fff327ae8-SJC
+      - 8c5433c98a9ebb1f-MXP
+      Cf-Placement:
+      - local-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:14:42 GMT
+      - Wed, 18 Sep 2024 20:49:24 GMT
       Server:
       - cloudflare
+      Server-Timing:
+      - total;dur=903.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
-      Via:
-      - 1.1 google, 1.1 google
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '442'
+      - '646'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.176'
-      x-request-id:
-      - 87df9140-27e0-4301-be51-660c64ae73c4
+      - '0.713'
+      x-envoy-upstream-service-time:
+      - '715'
     status:
       code: 200
       message: OK

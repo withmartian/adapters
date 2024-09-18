@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Hi"}], "model":
-      "claude-2.0", "system": "Hi"}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Hi"}]}], "model": "claude-2.0", "system": "Hi", "tools": []}'
     headers:
       accept:
       - application/json
@@ -12,23 +12,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '108'
+      - '149'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.26.1
+      - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 0.26.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -37,31 +37,32 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01Vz8k73ofTtGMN7BkFFWG9Y","type":"message","role":"assistant","model":"claude-2.0","content":[{"type":"text","text":"Hello!
-        How can I help you today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":11,"output_tokens":13}}'
+      string: '{"id":"msg_012uEMWgGAJApNanBfJo32bb","type":"message","role":"assistant","model":"claude-2.0","content":[{"type":"text","text":"Hello!"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":11,"output_tokens":6}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b90e449d0b5c1c-SJC
+      - 8c547219ec730e8d-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 19:57:50 GMT
+      - Wed, 18 Sep 2024 21:31:56 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
       content-length:
-      - '257'
+      - '230'
       request-id:
-      - req_01N1XixwHqYiPDumD5yC3o9W
+      - req_01BHMMpMXJTtcuVnxaQg1PtF
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 8b3d027ec4dab6abfba5ae4146281747
+      - 2467b731da35d337e215879647212332
     status:
       code: 200
       message: OK

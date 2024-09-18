@@ -1,7 +1,6 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "databricks-llama-2-70b-chat",
-      "max_tokens": null, "tools": null}'
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "databricks-llama-2-70b-chat"}'
     headers:
       accept:
       - application/json
@@ -10,13 +9,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '124'
+      - '89'
       content-type:
       - application/json
       host:
       - adb-8736858266948228.8.azuredatabricks.net
       user-agent:
-      - AsyncOpenAI/Python 1.34.0
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,25 +25,26 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.34.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_61bd035c-8bba-49d3-8f4d-2ef05bc1a1ae","object":"chat.completion","created":1721047863,"model":"llama-2-70b-chat-030424","choices":[{"index":0,"message":{"role":"assistant","content":"\nHello!
-        It''s nice to meet you. Is there something I can help you with or would you
-        like to chat for a bit?"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":10,"completion_tokens":29,"total_tokens":39}}'
+      string: "{\"id\":\"chatcmpl_06d61aca-2df6-4fde-b5cd-39730aeffd29\",\"object\":\"chat.completion\",\"created\":1726692543,\"model\":\"llama-2-70b-chat-030424\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"\\nHi!
+        I'm LLaMA, I'm a large language model trained by a team of researcher at Meta
+        AI. I'm here to help you with any questions or topics you'd like to discuss.
+        Is there anything specific you'd like to chat about or ask me? \U0001F60A\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":10,\"completion_tokens\":68,\"total_tokens\":78}}"
     headers:
       content-length:
-      - '420'
+      - '541'
       content-type:
       - application/json
       date:
-      - Mon, 15 Jul 2024 12:51:03 GMT
+      - Wed, 18 Sep 2024 20:49:03 GMT
       server:
       - databricks
       strict-transport-security:
@@ -66,9 +66,11 @@ interactions:
       x-rate-limit-limit:
       - '10.00'
       x-rate-limit-request-forwarded-for:
-      - 93.177.133.96,10.154.64.149
+      - 178.160.202.90,10.154.64.178
       x-rate-limit-request-remote-addr:
-      - 10.154.64.191:38120
+      - 10.154.64.7:35824
+      x-request-id:
+      - b6ad9528-a6cd-4e3f-b018-28d7ce98d2c1
       x-xss-protection:
       - 1; mode=block
     status:

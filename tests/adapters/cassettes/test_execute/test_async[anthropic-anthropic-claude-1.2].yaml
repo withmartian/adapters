@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"max_tokens": 2048, "messages": [{"role": "user", "content": "Hi"}], "model":
-      "claude-1.2", "system": ""}'
+    body: '{"max_tokens": 2048, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Hi"}]}], "model": "claude-1.2", "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -12,23 +12,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '106'
+      - '147'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.26.1
+      - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 0.26.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -37,32 +37,34 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01YRyX3t1a2rqXPPbSo651BK","type":"message","role":"assistant","model":"claude-1.2","content":[{"type":"text","text":"Hello
-        there! My name is Claude, I''m an AI assistant created by Anthropic, PBC to
-        be helpful, harmless and honest. How may I help you?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":39}}'
+      string: '{"id":"msg_01T6AVG1YKkVc5Jbhq4CLheA","type":"message","role":"assistant","model":"claude-1.2","content":[{"type":"text","text":"Hello!
+        I''m Claude, an AI assistant created by Anthropic to be helpful, harmless,
+        and honest. How can I help you?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":33}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b875c52a4f15ff-SJC
+      - 8c5432832c890e0a-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:13:44 GMT
+      - Wed, 18 Sep 2024 20:48:32 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
       content-length:
-      - '358'
+      - '337'
       request-id:
-      - req_01NtyznEGqiAVP5LbLbukXwZ
+      - req_01XizgDvQ5HCfPspp1LHu7NE
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 1b1bfbd5ac06b1ffd5dbb93daa65f605
+      - fbcd3573b1251b43446419dafceb7e72
     status:
       code: 200
       message: OK

@@ -16,17 +16,17 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.30.4
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,41 +35,49 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"7dab120e-9c1f-4344-ab3f-70d9d0b49c0f","object":"chat.completion","created":1717006697,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? If you have any questions or need assistance with
-        something, feel free to ask. I''m here to help!\n\nIn the meantime, here''s
-        a fun and interesting fact for you:\n\nDid you know that octopuses have three
-        hearts? Two pump blood to the gills, while the third pumps it to the rest
-        of the body. When an octopus swims, the heart that delivers blood to the organs
-        stops beating, which is why octopuses prefer to crawl rather than swim, swimming
-        exhausts them."},"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"total_tokens":143,"completion_tokens":124}}'
+      string: '{"id":"cab62746-ebe5-4be4-90b0-921f035e9a18","object":"chat.completion","created":1726692698,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"there!
+        How can I assist you today? I''m here to help with any questions or issues
+        you might have, while ensuring that my responses are useful, secure, and positive.
+        I''ll avoid harmful, unethical, prejudiced, or negative content, and strive
+        to promote fairness and positivity in all of my interactions. Let me know
+        how I can help!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":64,"total_tokens":143,"completion_tokens":79}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 88b87c6d3f54270a-SJC
+      - 8c5437135aac4c48-MXP
+      Cf-Placement:
+      - local-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:18:17 GMT
+      - Wed, 18 Sep 2024 20:51:39 GMT
       Server:
       - cloudflare
+      Server-Timing:
+      - total;dur=991.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
-      Via:
-      - 1.1 google, 1.1 google
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '798'
+      - '641'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.527'
-      x-request-id:
-      - 7dab120e-9c1f-4344-ab3f-70d9d0b49c0f
+      - '0.810'
+      x-envoy-upstream-service-time:
+      - '811'
     status:
       code: 200
       message: OK

@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct"}'
     headers:
       accept:
       - application/json
@@ -10,23 +10,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '192'
+      - '184'
       content-type:
       - application/json
       host:
       - api.fireworks.ai
       user-agent:
-      - AsyncOpenAI/Python 1.30.4
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,37 +35,48 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"b1511396-76fd-41f8-9f60-9487e8ce79d9","object":"chat.completion","created":1717011858,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? Is there something specific you would like to talk
-        about or ask me? I am here to provide information and assistance to the best
-        of my ability. Let me know if there is anything I can do for you!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"total_tokens":75,"completion_tokens":52}}'
+      string: '{"id":"3b38baec-0839-44f4-80db-9808156401ef","object":"chat.completion","created":1726695015,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today? Please note that while I always strive to provide
+        the most accurate and helpful information, I strongly advise against sharing
+        personal or sensitive data with me, as I am an AI model and do not have the
+        ability to securely store or process such information."},"finish_reason":"stop"}],"usage":{"prompt_tokens":64,"total_tokens":124,"completion_tokens":60}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 88b8fa6fb93317ea-SJC
+      - 8c546fa0cac32373-ZRH
+      Cf-Placement:
+      - local-ZRH
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 19:44:18 GMT
+      - Wed, 18 Sep 2024 21:30:15 GMT
       Server:
       - cloudflare
+      Server-Timing:
+      - total;dur=478.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
-      Via:
-      - 1.1 google, 1.1 google
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '538'
+      - '605'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.194'
-      x-request-id:
-      - b1511396-76fd-41f8-9f60-9487e8ce79d9
+      - '0.317'
+      x-envoy-upstream-service-time:
+      - '320'
     status:
       code: 200
       message: OK

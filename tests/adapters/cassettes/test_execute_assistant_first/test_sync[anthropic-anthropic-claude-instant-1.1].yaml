@@ -1,8 +1,9 @@
 interactions:
 - request:
-    body: '{"max_tokens": 2048, "messages": [{"role": "user", "content": "\"\""},
-      {"role": "assistant", "content": "Hi"}, {"role": "user", "content": "Hi"}],
-      "model": "claude-instant-1.1", "system": ""}'
+    body: '{"max_tokens": 2048, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "\"\""}]}, {"role": "assistant", "content": "Hi"}, {"role":
+      "user", "content": [{"type": "text", "text": "Hi"}]}], "model": "claude-instant-1.1",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,23 +14,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '191'
+      - '260'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.26.1
+      - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 0.26.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -38,31 +39,33 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_017PWpWqNqyMcx2htiqG3v65","type":"message","role":"assistant","model":"claude-instant-1.1","content":[{"type":"text","text":"Hello!
-        My name is Claude. What''s your name?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":20,"output_tokens":16}}'
+      string: '{"id":"msg_01CniN8ZvLzn6xUa3L8Tk5A6","type":"message","role":"assistant","model":"claude-instant-1.1","content":[{"type":"text","text":"Hello
+        there! My name is Claude. What''s your name?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":20,"output_tokens":17}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b87af31881d00d-SJC
+      - 8c5435c39ded5a07-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:17:18 GMT
+      - Wed, 18 Sep 2024 20:50:45 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
       content-length:
-      - '276'
+      - '282'
       request-id:
-      - req_015Renb9MXeN8dmDBh5cBNHY
+      - req_01Unbyyo2fQoB4MVHda3yAP4
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 921988404a669729ab5afb9130e5b2d8
+      - 876942c95fcaef0a85b15eac0a6d007c
     status:
       code: 200
       message: OK

@@ -17,17 +17,17 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.30.4
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -36,37 +36,45 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"2589fdc2-5ca1-4053-a0e0-b1e3afe920a4","object":"chat.completion","created":1717199185,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        It''s nice to see you again. Is there something specific you would like to
-        talk about or ask me? I''m here to help with any questions you have to the
-        best of my ability."},"finish_reason":"stop"}],"usage":{"prompt_tokens":21,"total_tokens":65,"completion_tokens":44}}'
+      string: '{"id":"2c228e8a-ace2-4035-9d20-91098825728f","object":"chat.completion","created":1726695423,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        I''m here to help answer your questions. How can I assist you today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":66,"total_tokens":86,"completion_tokens":20}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 88cad7dcaf939687-SJC
+      - 8c547996fe3459d1-MXP
+      Cf-Placement:
+      - local-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Fri, 31 May 2024 23:46:25 GMT
+      - Wed, 18 Sep 2024 21:37:02 GMT
       Server:
       - cloudflare
+      Server-Timing:
+      - total;dur=414.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
-      Via:
-      - 1.1 google, 1.1 google
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '486'
+      - '386'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.158'
-      x-request-id:
-      - 2589fdc2-5ca1-4053-a0e0-b1e3afe920a4
+      - '0.227'
+      x-envoy-upstream-service-time:
+      - '231'
     status:
       code: 200
       message: OK

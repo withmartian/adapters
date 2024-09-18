@@ -1,8 +1,9 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "\"\""},
-      {"role": "assistant", "content": "\"\""}, {"role": "user", "content": "\"\""}],
-      "model": "claude-2.0", "system": ""}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "\"\""}]}, {"role": "assistant", "content": "\"\""}, {"role":
+      "user", "content": [{"type": "text", "text": "\"\""}]}], "model": "claude-2.0",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,23 +14,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '187'
+      - '256'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.26.1
+      - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 0.26.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -38,32 +39,34 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01QbTxgifyndzx4i9ruLsfVj","type":"message","role":"assistant","model":"claude-2.0","content":[{"type":"text","text":"I
-        do not actually have personal opinions or make judgements. I''m an AI assistant
-        created by Anthropic to be helpful, harmless, and honest."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":20,"output_tokens":35}}'
+      string: '{"id":"msg_01KXv1spG5mpXhfRj65YNA1D","type":"message","role":"assistant","model":"claude-2.0","content":[{"type":"text","text":"I
+        apologize, I don''t have a response for empty input. Could you please provide
+        some more context or details so I can try to give a relevant answer?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":20,"output_tokens":36}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b89e7c4a429465-SJC
+      - 8c5450365b4e4bf1-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:41:32 GMT
+      - Wed, 18 Sep 2024 21:08:48 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
       content-length:
-      - '363'
+      - '372'
       request-id:
-      - req_01S9P5wsiq2WTVtXH3hxhi4P
+      - req_01FB1aZ1sLxvEyc9svKWizHS
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 95f3203b0bd03886a0fdacea442c158c
+      - 5e633f2c38d507446366ce5ef0bb0d00
     status:
       code: 200
       message: OK

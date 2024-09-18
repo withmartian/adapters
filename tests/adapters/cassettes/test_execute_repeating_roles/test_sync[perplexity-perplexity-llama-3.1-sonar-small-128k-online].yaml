@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model": "llama-3.1-sonar-small-128k-online"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "llama-3.1-sonar-small-128k-online"}'
     headers:
       accept:
       - application/json
@@ -10,13 +10,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '178'
+      - '170'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - OpenAI/Python 1.36.0
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.36.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,40 +35,24 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "fa6deb71-ea24-49b2-b82c-5f2259eace09", "model": "llama-3.1-sonar-small-128k-online",
-        "created": 1723048942, "usage": {"prompt_tokens": 7, "completion_tokens":
-        206, "total_tokens": 213}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
-        looks like you''re using \"Hi\" as a greeting. Here are some definitions and
-        uses of \"Hi\" from various sources:\n\n1. **Merriam-Webster Dictionary**:
-        \"Hi\" is an interjection used especially as a greeting. For example, \"just
-        called to say hi\" or \"waving, passing out candy, dancing, smiling and saying
-        hi are all highly encouraged\".\n\n2. **Dictionary.com**: \"Hi\" can be an
-        interjection used to attract attention or as an informal word for \"hello.\"
-        It can also be an adjective, an informal spelling of \"high,\" or an abbreviation
-        for Hawaii (state) or heat index (meteorology).\n\n3. **YouTube**: In the
-        context of a song, \"Hi\" is the title of a track by Hannah Diamond, which
-        is a pop song with a glossy and ultra-perfectionist style.\n\nIf you have
-        any specific questions or need further information on any of these points,
-        feel free to ask"}, "delta": {"role": "assistant", "content": ""}}]}'
+      string: "<html>\r\n<head><title>401 Authorization Required</title></head>\r\n<body>\r\n<center><h1>401
+        Authorization Required</h1></center>\r\n<hr><center>openresty/1.25.3.1</center>\r\n</body>\r\n</html>\r\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8af8b8208883959d-TBS
+      - 8c546e4c989a375b-MXP
       Connection:
       - keep-alive
+      Content-Length:
+      - '185'
       Content-Type:
-      - application/json
+      - text/html
       Date:
-      - Wed, 07 Aug 2024 16:42:22 GMT
+      - Wed, 18 Sep 2024 21:29:20 GMT
       Server:
       - cloudflare
-      Transfer-Encoding:
-      - chunked
-      content-length:
-      - '1228'
     status:
-      code: 200
-      message: OK
+      code: 401
+      message: Unauthorized
 version: 1

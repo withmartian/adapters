@@ -21,7 +21,7 @@ interactions:
       host:
       - martiantest.openai.azure.com
       user-agent:
-      - AzureOpenAI/Python 1.34.0
+      - AzureOpenAI/Python 1.46.0
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -31,60 +31,59 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.34.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-35-turbo/chat/completions?api-version=2024-05-01-preview
   response:
     body:
-      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"Sure,
-        here''s an example implementation of a `generate` function that generates
-        a random integer between a minimum and maximum value:\n\n```typescript\nnamespace
-        functions {\n  export const generate: generate = ({ prompt }) =\u003e {\n    const
-        min = 1;\n    const max = 10;\n    const randomNum = Math.floor(Math.random()
-        * (max - min + 1) + min);\n    console.log(prompt + randomNum);\n    return
-        randomNum;\n  };\n}\n```\n\nYou can call this function like this:\n```typescript\nfunctions.generate({
-        prompt: ''Random number: '' });\n```\n\nThis will log the random number to
-        the console and return the same value. You can modify the minimum and maximum
-        values to generate different ranges of random numbers.","role":"assistant"}}],"created":1720080793,"id":"chatcmpl-9hBsXbnor4ayDbLBAq36l8c07AcDN","model":"gpt-35-turbo","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":null,"usage":{"completion_tokens":152,"prompt_tokens":67,"total_tokens":219}}
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"Here''s
+        one way to generate a random integer using JavaScript:\n\n```javascript\nconst
+        generateRandomNumber = (min, max) =\u003e {\n  return Math.floor(Math.random()
+        * (max - min + 1) + min);\n}\n\nconsole.log(generateRandomNumber(1, 10));
+        // Output: 5\n```\n\nThis function takes in a `min` and `max` value, and uses
+        `Math.random()` to generate a random floating-point number between 0 and 1.
+        We then multiply this by `(max - min + 1)` and add `min` to get a random number
+        between `min` and `max`. Finally, we use `Math.floor()` to round down to the
+        nearest integer.","role":"assistant"}}],"created":1726695706,"id":"chatcmpl-A8wigOYVVwsOq6vG3AAfmiQSO3YQb","model":"gpt-35-turbo","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":null,"usage":{"completion_tokens":148,"prompt_tokens":67,"total_tokens":215}}
 
         '
     headers:
       Cache-Control:
       - no-cache, must-revalidate
       Content-Length:
-      - '1503'
+      - '1363'
       Content-Type:
       - application/json
       Date:
-      - Thu, 04 Jul 2024 08:13:14 GMT
+      - Wed, 18 Sep 2024 21:41:46 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       access-control-allow-origin:
       - '*'
       apim-request-id:
-      - d2439483-5dec-4290-9bc6-09a52b7dc12f
+      - f34324e2-540f-413a-8ef7-fad24576dc12
       azureml-model-session:
-      - turbo-0301-9d4f8a02
+      - turbo-0301-70609331
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-ms-client-request-id:
-      - d2439483-5dec-4290-9bc6-09a52b7dc12f
+      - f34324e2-540f-413a-8ef7-fad24576dc12
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
       - East US
       x-ratelimit-remaining-requests:
-      - '48'
+      - '49'
       x-ratelimit-remaining-tokens:
-      - '49872'
+      - '49968'
       x-request-id:
-      - 5cc6be14-7e4e-49a5-af7b-087d0fedbc9a
+      - ed70f68c-6c7e-4769-95a8-1c0d76903206
     status:
       code: 200
       message: OK

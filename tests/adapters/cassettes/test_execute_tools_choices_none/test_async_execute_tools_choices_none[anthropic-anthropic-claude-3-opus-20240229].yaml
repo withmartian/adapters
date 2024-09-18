@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Generate
-      random number"}], "model": "claude-3-opus-20240229", "system": "", "tools":
-      []}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Generate random number"}]}], "model": "claude-3-opus-20240229",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,13 +13,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '151'
+      - '179'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.28.1
+      - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -29,41 +29,54 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 0.28.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01LoQhYPNBiUAzcgvxfsLDV6","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"Here
-        is a random number: 7219538\n\nI used a pseudorandom number generator to produce
-        that number. Let me know if you need any other random numbers!"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":38}}'
+      string: '{"id":"msg_01DPzVUh5pXBP6ePg1fwaNhF","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"I
+        apologize for the confusion, but as an AI language model, I cannot generate
+        truly random numbers. My responses are based on patterns and data from my
+        training, and I don''t have the ability to generate random numbers independently.\n\nHowever,
+        if you need a random number for a specific purpose, you can use online random
+        number generators or the random number functions available in most programming
+        languages. These tools use algorithms to generate pseudo-random numbers that
+        are suitable for most applications."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":98}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 899d431258fb1a42-TBS
+      - 8c5483a5cc555264-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 26 Jun 2024 12:39:49 GMT
+      - Wed, 18 Sep 2024 21:43:59 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '5000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '5000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-09-18T21:43:59Z'
       content-length:
-      - '385'
+      - '751'
       request-id:
-      - req_01PjV5paHPFWzxaRUQYUiVbC
+      - req_01He47V7ivWzckDTf16sitXx
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 8faaf3ebf42eea151c305e077abb2b20
+      - 37afc128c5e0abafe46ae59d164ba692
     status:
       code: 200
       message: OK

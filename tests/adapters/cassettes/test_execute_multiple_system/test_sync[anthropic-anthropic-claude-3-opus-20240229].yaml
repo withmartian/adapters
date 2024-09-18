@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Hi"}, {"role":
-      "assistant", "content": "Hi"}], "model": "claude-3-opus-20240229", "system":
-      "Hi"}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Hi"}]}, {"role": "assistant", "content": "Hi"}], "model": "claude-3-opus-20240229",
+      "system": "Hi", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,23 +13,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '160'
+      - '201'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.26.1
+      - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 0.26.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -38,31 +38,39 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01TWbH23uJwKULGHzkmTbDUi","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"
+      string: '{"id":"msg_01K3HAaKjA5iaWhziecxndcr","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"
         there! How can I assist you today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":12}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b8bc7cc80615c4-SJC
+      - 8c546313b83d0e0f-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 19:02:01 GMT
+      - Wed, 18 Sep 2024 21:21:42 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '5000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '5000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-09-18T21:21:42Z'
       content-length:
       - '272'
       request-id:
-      - req_01Ec5aoryXeFaJrPYakEPBhY
+      - req_01MwrjK7fYvsmCbgBEniWNKC
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - d0435bbf47dee947402232a6f805ce17
+      - 4e08cd2f0d4245590093c872196d3ba6
     status:
       code: 200
       message: OK

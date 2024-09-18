@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Generate
-      random number"}], "model": "claude-3-haiku-20240307", "system": "", "tools":
-      []}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Generate random number"}]}], "model": "claude-3-haiku-20240307",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,13 +13,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '152'
+      - '180'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.28.1
+      - Anthropic/Python 0.34.2
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -29,54 +29,59 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 0.28.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01KDbb6PbWfH4ezJ5JY43yHs","type":"message","role":"assistant","model":"claude-3-haiku-20240307","content":[{"type":"text","text":"Sure,
+      string: '{"id":"msg_01Xroq4V1ygrxU5A395eDcZP","type":"message","role":"assistant","model":"claude-3-haiku-20240307","content":[{"type":"text","text":"Sure,
         here''s how you can generate a random number in various programming languages:\n\n1.
-        **JavaScript**:\n```javascript\nconst randomNumber = Math.random(); // Generates
-        a random number between 0 and 1\n```\n\n2. **Python**:\n```python\nimport
-        random\nrandomNumber = random.random() # Generates a random number between
-        0 and 1\n```\n\n3. **Java**:\n```java\ndouble randomNumber = Math.random();
-        // Generates a random number between 0 and 1\n```\n\n4. **C#**:\n```csharp\nRandom
-        random = new Random();\ndouble randomNumber = random.NextDouble(); // Generates
-        a random number between 0 and 1\n```\n\n5. **Go**:\n```go\nimport \"math/rand\"\n\nrandomNumber
-        := rand.Float64() // Generates a random number between 0 and 1\n```\n\n6.
-        **Ruby**:\n```ruby\nrandomNumber = rand() # Generates a random number between
-        0 and 1\n```\n\n7. **PHP**:\n```php\n$randomNumber = mt_rand() / mt_getrandmax();
-        // Generates a random number between 0 and 1\n```\n\nIn all of these examples,
-        the generated random number will be between 0 and 1. If you want to generate
-        a random integer within a specific range, you can use the appropriate function
-        or method for each language."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":327}}'
+        JavaScript:\n```javascript\nconst randomNumber = Math.random();\nconsole.log(randomNumber);\n```\n\n2.
+        Python:\n```python\nimport random\nrandom_number = random.random()\nprint(random_number)\n```\n\n3.
+        Java:\n```java\ndouble randomNumber = Math.random();\nSystem.out.println(randomNumber);\n```\n\n4.
+        C#:\n```csharp\nRandom random = new Random();\ndouble randomNumber = random.NextDouble();\nConsole.WriteLine(randomNumber);\n```\n\n5.
+        Ruby:\n```ruby\nrandom_number = rand()\nputs random_number\n```\n\n6. PHP:\n```php\n$randomNumber
+        = rand();\necho $randomNumber;\n```\n\nThese examples will generate a random
+        floating-point number between 0 and 1. If you want to generate a random integer
+        within a specific range, you can use the appropriate function in each language,
+        for example:\n\nJavaScript: `Math.floor(Math.random() * (max - min + 1)) +
+        min;`\nPython: `random.randint(min, max)`\nJava: `random.nextInt(max - min
+        + 1) + min`\n\nRemember to replace `min` and `max` with the desired range."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":305}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 89930dda7dca95a6-TBS
+      - 8c5480633bfd0e07-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 25 Jun 2024 06:55:51 GMT
+      - Wed, 18 Sep 2024 21:41:43 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '8000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '8000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-09-18T21:41:43Z'
       content-length:
-      - '1391'
+      - '1325'
       request-id:
-      - req_01DU2GmgpjZRAb5Ui3RwNM7P
+      - req_01Qvc7KRgviUG4xx37Vrt96d
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 632e245f208db56aaecbf699ec1e5e69
+      - 84f6532a446e0aa431059666ccae54a8
     status:
       code: 200
       message: OK

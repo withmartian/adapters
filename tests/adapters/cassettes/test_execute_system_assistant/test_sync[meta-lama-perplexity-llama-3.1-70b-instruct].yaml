@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi\nHi"}, {"role": "user", "content": "Hi"}], "model": "llama-3.1-70b-instruct"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "llama-3.1-70b-instruct"}'
     headers:
       accept:
       - application/json
@@ -10,13 +10,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '163'
+      - '159'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - OpenAI/Python 1.36.0
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.36.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,30 +35,24 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "c150c327-3934-475f-b7dd-3e9cd1eaa903", "model": "llama-3.1-70b-instruct",
-        "created": 1723049116, "usage": {"prompt_tokens": 25, "completion_tokens":
-        11, "total_tokens": 36}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "Hi
-        again How''s your day going so far?"}, "delta": {"role": "assistant", "content":
-        ""}}]}'
+      string: "<html>\r\n<head><title>401 Authorization Required</title></head>\r\n<body>\r\n<center><h1>401
+        Authorization Required</h1></center>\r\n<hr><center>openresty/1.25.3.1</center>\r\n</body>\r\n</html>\r\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8af8bc6eea0895a0-TBS
+      - 8c547b41b8eb0e57-MXP
       Connection:
       - keep-alive
+      Content-Length:
+      - '185'
       Content-Type:
-      - application/json
+      - text/html
       Date:
-      - Wed, 07 Aug 2024 16:45:16 GMT
+      - Wed, 18 Sep 2024 21:38:10 GMT
       Server:
       - cloudflare
-      Transfer-Encoding:
-      - chunked
-      content-length:
-      - '395'
     status:
-      code: 200
-      message: OK
+      code: 401
+      message: Unauthorized
 version: 1

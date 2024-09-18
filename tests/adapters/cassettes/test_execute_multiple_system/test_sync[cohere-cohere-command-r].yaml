@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"message": "Hi", "stream": false, "model": "command-r", "chat_history":
-      [{"role": "SYSTEM", "message": "Hi"}, {"role": "USER", "message": "Hi"}]}'
+    body: '{"message": "Hi", "model": "command-r", "chat_history": [{"role": "SYSTEM",
+      "message": "Hi"}, {"role": "USER", "message": "Hi"}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -22,35 +22,37 @@ interactions:
       x-fern-sdk-name:
       - cohere
       x-fern-sdk-version:
-      - 5.4.0
+      - 5.6.1
     method: POST
     uri: https://api.cohere.ai/v1/chat
   response:
     body:
-      string: '{"response_id":"031aff7d-1371-4925-8d98-3cba7359971f","text":"Hello!
-        How''s your day going so far? I hope it''s been fantastic!","generation_id":"c59986ba-85cc-4856-8cac-125f8264bf99","chat_history":[{"role":"SYSTEM","message":"Hi"},{"role":"USER","message":"Hi"},{"role":"USER","message":"Hi"},{"role":"CHATBOT","message":"Hello!
-        How''s your day going so far? I hope it''s been fantastic!"}],"finish_reason":"COMPLETE","meta":{"api_version":{"version":"1"},"billed_units":{"input_tokens":3,"output_tokens":17},"tokens":{"input_tokens":75,"output_tokens":17}}}'
+      string: '{"response_id":"8959cb05-b60a-4a3d-9b7d-19c77b17b456","text":"Hello!
+        How''s your day been so far? Anything exciting planned for the rest of the
+        day?","generation_id":"f18bfdd4-89a0-4669-883c-fa21e95bac74","chat_history":[{"role":"SYSTEM","message":"Hi"},{"role":"USER","message":"Hi"},{"role":"USER","message":"Hi"},{"role":"CHATBOT","message":"Hello!
+        How''s your day been so far? Anything exciting planned for the rest of the
+        day?"}],"finish_reason":"COMPLETE","meta":{"api_version":{"version":"1"},"billed_units":{"input_tokens":3,"output_tokens":20},"tokens":{"input_tokens":75,"output_tokens":20}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Content-Length:
+      - '600'
       Via:
       - 1.1 google
       access-control-expose-headers:
       - X-Debug-Trace-ID
       cache-control:
       - no-cache, no-store, no-transform, must-revalidate, private, max-age=0
-      content-length:
-      - '556'
       content-type:
       - application/json
       date:
-      - Wed, 29 May 2024 19:02:40 GMT
+      - Wed, 18 Sep 2024 21:21:50 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
       num_chars:
-      - '540'
+      - '546'
       num_tokens:
-      - '20'
+      - '23'
       pragma:
       - no-cache
       server:
@@ -60,9 +62,9 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - a34d4b509021823a831c4abe998aa313
+      - 33491edfd480e1a009f5498295baceba
       x-envoy-upstream-service-time:
-      - '196'
+      - '197'
     status:
       code: 200
       message: OK

@@ -16,7 +16,7 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.34.0
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,49 +26,60 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.34.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"1cc13777-7d2c-4c0a-acb9-28fd1c8c7987\",\"object\":\"chat.completion\",\"created\":1720005102,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
-        provide me with a question or a topic you'd like to discuss. I'm here to help!
-        \U0001F60A \\n\\nFor example, you could ask me:\\n\\n* **A question:** What
-        is the capital of France?\\n* **For a story:** Tell me a story about a talking
-        cat.\\n* **To write something:** Write a poem about the ocean.\\n* **To translate
-        something:** Translate \\\"Hello, how are you?\\\" into Spanish.\\n\\nI'm
-        excited to see what you have in mind! \u2728\\n\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":130,\"completion_tokens\":111}}"
+      string: "{\"id\":\"cacacecb-9cc7-4125-bd9c-ee3d44505d9f\",\"object\":\"chat.completion\",\"created\":1726693558,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
+        provide me with a prompt or question so I can assist you! \U0001F60A \\n\\nFor
+        example, you could ask me to:\\n\\n* **Write a story:** \\\"Write a short
+        story about a robot who learns to feel emotions.\\\"\\n* **Answer a question:**
+        \\\"What is the capital of France?\\\"\\n* **Generate creative content:**
+        \\\"Write a poem about the ocean.\\\"\\n* **Translate text:** \\\"Translate
+        'Hello, world!' into Spanish.\\\"\\n* **Summarize information:** \\\"Summarize
+        the plot of the movie Inception.\\\"\\n\\nI'm ready for anything! \u2728 \\n<end_of_turn>\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":143,\"completion_tokens\":124}}"
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 89d66fadca5a317b-TBS
+      - 8c544c0bfd40bb0d-ZRH
+      Cf-Placement:
+      - local-ZRH
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 03 Jul 2024 11:11:43 GMT
+      - Wed, 18 Sep 2024 21:05:58 GMT
       Server:
       - cloudflare
+      Server-Timing:
+      - total;dur=1618.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
-      Via:
-      - 1.1 google
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '726'
+      - '823'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '1.084'
-      x-request-id:
-      - 8a9581c5-64d0-4d84-bd74-7ff2159ae0a4
+      - '1.048'
+      x-envoy-upstream-service-time:
+      - '1055'
     status:
       code: 200
       message: OK

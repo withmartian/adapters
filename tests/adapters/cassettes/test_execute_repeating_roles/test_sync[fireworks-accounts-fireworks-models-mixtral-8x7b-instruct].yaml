@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct"}'
     headers:
       accept:
       - application/json
@@ -10,23 +10,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '192'
+      - '184'
       content-type:
       - application/json
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.30.4
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,37 +35,46 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"56ed37d1-7ade-4e16-b398-30d1a986d984","object":"chat.completion","created":1717010978,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? Is there something specific you would like to talk
-        about or ask me? I''m here to assist you with any questions you might have.
-        Just let me know what''s on your mind. I''m ready to help."},"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"total_tokens":79,"completion_tokens":56}}'
+      string: '{"id":"cd502e55-b51e-4a4b-8bf3-981699bdfc6f","object":"chat.completion","created":1726694904,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today? Please remember to ask questions or request information
+        in a respectful and positive manner. I''m here to help!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":64,"total_tokens":97,"completion_tokens":33}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 88b8e4f60c1d67d7-SJC
+      - 8c546ce9bde35234-MXP
+      Cf-Placement:
+      - local-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 19:29:38 GMT
+      - Wed, 18 Sep 2024 21:28:23 GMT
       Server:
       - cloudflare
+      Server-Timing:
+      - total;dur=602.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
-      Via:
-      - 1.1 google, 1.1 google
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '527'
+      - '457'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.211'
-      x-request-id:
-      - 56ed37d1-7ade-4e16-b398-30d1a986d984
+      - '0.322'
+      x-envoy-upstream-service-time:
+      - '323'
     status:
       code: 200
       message: OK

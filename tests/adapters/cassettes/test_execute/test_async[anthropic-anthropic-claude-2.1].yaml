@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Hi"}], "model":
-      "claude-2.1", "system": ""}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Hi"}]}], "model": "claude-2.1", "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -12,23 +12,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '106'
+      - '147'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.26.1
+      - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 0.26.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -37,30 +37,32 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_0131SFiuAWL5Tw5HAy9wRroY","type":"message","role":"assistant","model":"claude-2.1","content":[{"type":"text","text":"Hello!"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":6}}'
+      string: '{"id":"msg_01RccrRirgcvWpUNqwJ5zxLD","type":"message","role":"assistant","model":"claude-2.1","content":[{"type":"text","text":"Hello!"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":6}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b875e11ca1ce68-SJC
+      - 8c5432a16e6d59c5-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:13:48 GMT
+      - Wed, 18 Sep 2024 20:48:36 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
       content-length:
       - '230'
       request-id:
-      - req_01D8B5vw4NCGhynPGKQQkGdM
+      - req_01Em8KvVBGdnGbWEzqydf2FS
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - bdb674fd958f33cb1d0e8aa670310e3a
+      - 7802d4b0a8c9e3ee87e4509a1e18070a
     status:
       code: 200
       message: OK

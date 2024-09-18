@@ -19,7 +19,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.34.0
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -29,52 +29,57 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.34.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-9eMEN9zMB2RiJztfkLkFdWmsm15zX\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1719405603,\n  \"model\": \"gpt-4-1106-preview\",\n
+      string: "{\n  \"id\": \"chatcmpl-A8wlBnR0Joobo4BIUrIhDwpHIKJeb\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1726695861,\n  \"model\": \"gpt-4-1106-preview\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"To generate a random number, please
-        specify the range or the type of number you would like to generate. For example,
-        do you want a random number between 1 and 100, or are you looking for a specific
-        type like a random prime number? Please provide more details.\"\n      },\n
+        \"assistant\",\n        \"content\": \"To generate a random number, I need
+        to know the range within which you want the number to be generated. Could
+        you please provide me with the minimum and maximum values, or specify any
+        other conditions for the random number?\",\n        \"refusal\": null\n      },\n
         \     \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n
-        \ \"usage\": {\n    \"prompt_tokens\": 65,\n    \"completion_tokens\": 56,\n
-        \   \"total_tokens\": 121\n  },\n  \"system_fingerprint\": null\n}\n"
+        \ \"usage\": {\n    \"prompt_tokens\": 65,\n    \"completion_tokens\": 44,\n
+        \   \"total_tokens\": 109,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
+        0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 899d437a5aef95a3-TBS
+      - 8c54844ece5d3744-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 26 Jun 2024 12:40:05 GMT
+      - Wed, 18 Sep 2024 21:44:23 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Content-Type-Options:
+      - nosniff
+      access-control-expose-headers:
+      - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '710'
+      - '769'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '2389'
+      - '1699'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
-      - max-age=31536000; includeSubDomains
+      - max-age=15552000; includeSubDomains; preload
       x-ratelimit-limit-requests:
       - '10000'
       x-ratelimit-limit-tokens:
@@ -88,7 +93,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - a55951beeb7b90a2c95be3e2f3ab4574
+      - req_00c77ec0729f9d71beb8325d357a8ba1
     status:
       code: 200
       message: OK

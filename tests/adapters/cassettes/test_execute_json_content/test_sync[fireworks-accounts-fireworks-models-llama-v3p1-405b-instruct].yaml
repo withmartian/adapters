@@ -15,7 +15,7 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.36.0
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -25,7 +25,7 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.36.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -34,26 +34,27 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"cae5b49f-abf6-4d5e-9a56-fde2a49b8e0f","object":"chat.completion","created":1723053815,"model":"accounts/fireworks/models/llama-v3p1-405b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        looks like we''re off to a friendly start! What''s on your mind? Want to chat
-        about something in particular or just see where the conversation takes us?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"total_tokens":47,"completion_tokens":34}}'
+      string: '{"id":"c731b7a6-5086-4885-9913-a4df6f376ba8","object":"chat.completion","created":1726694036,"model":"accounts/fireworks/models/llama-v3p1-405b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"That''s
+        a lot of hellos! How can I assist you today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"total_tokens":29,"completion_tokens":16}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8af92f27cb8295a6-TBS
+      - 8c5457b8fb18baa6-MXP
+      Cf-Placement:
+      - local-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 07 Aug 2024 18:03:40 GMT
+      - Wed, 18 Sep 2024 21:13:56 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=5013.0;desc="Total Response Time"
+      - total;dur=618.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -61,13 +62,17 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '468'
+      - '366'
       fireworks-middleware-version:
       - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 0.7, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '4.473'
+      - '0.405'
       x-envoy-upstream-service-time:
-      - '4478'
+      - '409'
     status:
       code: 200
       message: OK

@@ -16,17 +16,17 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - OpenAI/Python 1.30.4
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,16 +35,17 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-f7ed566c-ff22-4f69-8b54-d5bb8f904caf","object":"chat.completion","created":1717007753,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        looks like the chat started, but there''s no message! Would you like to start
-        a conversation or ask me a question? I''m here to help!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":21,"prompt_time":0.005176174,"completion_tokens":32,"completion_time":0.025719558,"total_tokens":53,"total_time":0.030895732000000002},"system_fingerprint":"fp_a97cfe35ae","x_groq":{"id":"req_01hz2t681qejetpkb8nxf5awmc"}}
+      string: '{"id":"chatcmpl-c791200f-c383-4210-b955-81b7c1d3f2ce","object":"chat.completion","created":1726693576,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like you might have accidentally sent an empty message. If you meant
+        to ask something or start a conversation, feel free to type away and I''ll
+        do my best to help!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011269196,"prompt_tokens":21,"prompt_time":0.002432654,"completion_tokens":38,"completion_time":0.031666667,"total_tokens":59,"total_time":0.034099321},"system_fingerprint":"fp_6a6771ae9c","x_groq":{"id":"req_01j83fa3h4et18fxya7qsn4z1f"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b89639d8c315fb-SJC
+      - 8c544c7fdc8aba9d-MXP
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -52,15 +53,19 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 18:35:53 GMT
+      - Wed, 18 Sep 2024 21:06:16 GMT
       Server:
       - cloudflare
+      Set-Cookie:
+      - __cf_bm=aXdryMuARdcOGgOw0sxH3Hu6hFqC.RbJFDFvYFAJTRU-1726693576-1.0.1.1-7usuz3mBCiVpWcaugthvZxf94pp6mdpJc7GL5ACcBixsrgzGKhdK0bSG8UceD3ygl6ENLY3cQqHX.ImjgIiY2A;
+        path=/; expires=Wed, 18-Sep-24 21:36:16 GMT; domain=.groq.com; HttpOnly; Secure;
+        SameSite=None
       Transfer-Encoding:
       - chunked
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '615'
+      - '668'
       vary:
       - Origin
       via:
@@ -78,7 +83,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 30ms
       x-request-id:
-      - req_01hz2t681qejetpkb8nxf5awmc
+      - req_01j83fa3h4et18fxya7qsn4z1f
     status:
       code: 200
       message: OK
