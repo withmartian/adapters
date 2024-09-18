@@ -1,5 +1,5 @@
-import os
 from abc import abstractmethod
+import os
 from re import Pattern
 from typing import List
 
