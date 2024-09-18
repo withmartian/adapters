@@ -25,12 +25,12 @@ class DatabricksModel(Model):
 
 
 MODELS = [
-    DatabricksModel(
-        name="databricks-dbrx-instruct",
-        cost=Cost(prompt=10.714 * CONVERT_RATE, completion=32.143 * CONVERT_RATE),
-        context_length=32000,
-        vendor_name="databricks",
-    ),
+    # DatabricksModel(
+    #     name="databricks-dbrx-instruct",
+    #     cost=Cost(prompt=10.714 * CONVERT_RATE, completion=32.143 * CONVERT_RATE),
+    #     context_length=32000,
+    #     vendor_name="databricks",
+    # ),
     DatabricksModel(
         name="databricks-meta-llama-3-1-405b-instruct",
         cost=Cost(prompt=71.429 * CONVERT_RATE, completion=214.286 * CONVERT_RATE),
