@@ -4,7 +4,7 @@ from typing import Any, Dict, Generic, List, Literal, Optional, TypeVar, Union
 from openai.types.chat import ChatCompletionMessageToolCall
 from openai.types.chat.chat_completion import Choice
 from openai.types.chat.chat_completion_message import FunctionCall
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class ResponseBody(Dict[str, Any]):
@@ -115,6 +115,13 @@ class Cost(BaseModel):
     request: float = 0.0
 
 
+class ModelPredicate(str, Enum):
+    OPEN_SOURCE = "Open Source"
+    CHINESE = "Chinese"
+    GDPR_COMPLIANT = "GDPR compliant"
+    NOT_TRAINED_ON_NSFW = "Not trained on NSFW content"
+
+
 # Add test cases for all of them
 class Model(BaseModel):
     _test_async: bool = True
@@ -140,6 +147,9 @@ class Model(BaseModel):
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
     completion_length: Optional[int] = None
+    predicates: Dict[ModelPredicate, Any] = Field(
+        default_factory=lambda: {predicate: False for predicate in ModelPredicate}
+    )
 
     def get_path(self) -> str:
         return f"{self.provider_name}/{self.vendor_name}/{self.name}"
