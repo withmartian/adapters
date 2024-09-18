@@ -1,12 +1,12 @@
 import re
 from typing import Any, Dict, Pattern
 
-import google.generativeai as genai
 from google.ai.generativelanguage import (
     GenerativeServiceAsyncClient,
     GenerativeServiceClient,
 )
 from google.api_core.client_options import ClientOptions
+import google.generativeai as genai
 
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin

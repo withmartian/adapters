@@ -1,7 +1,6 @@
 from abc import abstractmethod
 from typing import Dict, Generic, Optional, Tuple, Union
 
-import adapters.utils.network_utils as network_utils
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.rate_limiter import AbstractRateLimiter
 from adapters.types import (
@@ -17,6 +16,7 @@ from adapters.types import (
     ResponseBody,
 )
 from adapters.utils.general_utils import delete_none_values
+import adapters.utils.network_utils as network_utils
 
 
 class HttpApiAdapterMixin(

@@ -1,5 +1,5 @@
-import pytest
 from pydantic import BaseModel
+import pytest
 
 from adapters.types import (
     ChatAdapterResponse,

@@ -76,7 +76,7 @@ def test_load_request_body_with_additional_params_all_params_ok():
         temperature=TEST_TEMPERATURE,
         max_tokens=TEST_MAX_TOKENS,
         top_p=TEST_TOP_P,
-        **TEST_KWARGS_1
+        **TEST_KWARGS_1,
     )
     assert len(request_body.keys()) + 3 + len(TEST_KWARGS_1.keys()) == len(
         request_body_loaded.keys()
@@ -95,5 +95,5 @@ def test_load_request_body_with_overriding_params_in_kwargs_fails():
             temperature=TEST_TEMPERATURE,
             max_tokens=TEST_MAX_TOKENS,
             top_p=TEST_TOP_P,
-            **TEST_KWARGS_2
+            **TEST_KWARGS_2,
         )
