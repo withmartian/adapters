@@ -14,7 +14,7 @@ from adapters.types import (
     Conversation,
     ConversationRole,
     Model,
-    ModelPredicate,
+    ModelPredicates,
     Prompt,
 )
 from adapters.utils.adapter_stream_response import stream_generator_auto_close
@@ -63,7 +63,7 @@ class SDKChatAdapter(
 
         raise ValueError(f"Llm_input {llm_input} is not a valid input")
 
-    def get_model_predicates(self, model_name: str) -> Dict[ModelPredicate, Any]:
+    def get_model_predicates(self, model_name: str) -> ModelPredicates:
         for model in self.get_supported_models():
             if model.name == model_name:
                 return model.predicates

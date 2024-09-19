@@ -115,11 +115,11 @@ class Cost(BaseModel):
     request: float = 0.0
 
 
-class ModelPredicate(str, Enum):
-    OPEN_SOURCE = "Open Source"
-    CHINESE = "Chinese"
-    GDPR_COMPLIANT = "GDPR compliant"
-    IS_NSFW = "Is NSFW"
+class ModelPredicates(BaseModel):
+    open_source: bool = False
+    chinese: bool = False
+    gdpr_compliant: bool = False
+    is_nsfw: bool = False
 
 
 # Add test cases for all of them
@@ -147,9 +147,7 @@ class Model(BaseModel):
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
     completion_length: Optional[int] = None
-    predicates: Dict[ModelPredicate, Any] = Field(
-        default_factory=lambda: {predicate: False for predicate in ModelPredicate}
-    )
+    predicates: ModelPredicates = Field(default_factory=ModelPredicates)
 
     def get_path(self) -> str:
         return f"{self.provider_name}/{self.vendor_name}/{self.name}"

@@ -1,6 +1,6 @@
 import json
 import re
-from typing import Any, Dict, Pattern
+from typing import Any, Pattern
 
 from cohere import AsyncClient, Client
 
@@ -12,7 +12,7 @@ from adapters.types import (
     ConversationRole,
     Cost,
     Model,
-    ModelPredicate,
+    ModelPredicates,
     OpenAIChatAdapterResponse,
     Turn,
 )
@@ -21,10 +21,7 @@ API_KEY_NAME = "COHERE_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
 BASE_URL = "https://api.cohere.ai/v1"
 PROVIDER_NAME = "cohere"
-BASE_PREDICATES = {
-    ModelPredicate.OPEN_SOURCE: True,
-    ModelPredicate.GDPR_COMPLIANT: True,
-}
+BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
 
 
 class CohereModel(Model):
@@ -32,7 +29,7 @@ class CohereModel(Model):
     supports_json_content: bool = True
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
-    predicates: Dict[ModelPredicate, Any] = BASE_PREDICATES
+    predicates: ModelPredicates = BASE_PREDICATES
 
     def _get_api_path(self) -> str:
         return self.name
@@ -43,13 +40,13 @@ MODELS = [
         name="command-r",
         cost=Cost(prompt=0.5e-6, completion=1.5e-6),
         context_length=131_072,
-        predicates={**BASE_PREDICATES, ModelPredicate.IS_NSFW: True},
+        predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
     ),
     CohereModel(
         name="command-r-plus",
         cost=Cost(prompt=3.00e-6, completion=15.00e-6),
         context_length=131_072,
-        predicates={**BASE_PREDICATES, ModelPredicate.IS_NSFW: True},
+        predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
     ),
 ]
 

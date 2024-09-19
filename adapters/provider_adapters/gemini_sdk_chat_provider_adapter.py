@@ -17,7 +17,7 @@ from adapters.types import (
     ConversationRole,
     Cost,
     Model,
-    ModelPredicate,
+    ModelPredicates,
     OpenAIChatAdapterResponse,
     Turn,
 )
@@ -25,7 +25,7 @@ from adapters.types import (
 PROVIDER_NAME = "gemini"
 API_KEY_NAME = "GEMINI_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
-BASE_PREDICATES = {ModelPredicate.GDPR_COMPLIANT: True}
+BASE_PREDICATES = ModelPredicates(gdpr_compliant=True)
 
 
 class GeminiModel(Model):
@@ -33,6 +33,7 @@ class GeminiModel(Model):
 
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
+    predicates: ModelPredicates = BASE_PREDICATES
 
 
 MODELS = [

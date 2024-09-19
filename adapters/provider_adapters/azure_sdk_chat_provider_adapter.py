@@ -5,14 +5,14 @@ from openai import AsyncAzureOpenAI, AzureOpenAI
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Conversation, Cost, Model, ModelPredicate
+from adapters.types import Conversation, Cost, Model, ModelPredicates
 
 VENDOR_NAME = "openai"
 PROVIDER_NAME = "azure"
 BASE_URL = "https://martiantest.openai.azure.com/"
 API_KEY_NAME = "AZURE_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
-BASE_PREDICATES = {ModelPredicate.GDPR_COMPLIANT: True}
+BASE_PREDICATES = ModelPredicates(gdpr_compliant=True)
 
 
 class AzureModel(Model):
@@ -25,7 +25,7 @@ class AzureModel(Model):
     vendor_name: str = VENDOR_NAME
     supports_tool_choice_required: bool = False
     provider_name: str = PROVIDER_NAME
-    predicates: Dict[ModelPredicate, Any] = BASE_PREDICATES
+    predicates: ModelPredicates = BASE_PREDICATES
 
 
 MODELS = [

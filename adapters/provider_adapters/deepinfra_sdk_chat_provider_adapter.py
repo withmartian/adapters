@@ -1,24 +1,21 @@
 import re
-from typing import Any, Dict, Pattern
+from typing import Pattern
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model, ModelPredicate
+from adapters.types import Cost, Model, ModelPredicates
 
 PROVIDER_NAME = "deepinfra"
 DEEPINFRA_BASE_URL = "https://api.deepinfra.com/v1/openai"
 API_KEY_NAME = "DEEPINFRA_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
-BASE_PREDICATES = {
-    ModelPredicate.OPEN_SOURCE: True,
-    ModelPredicate.GDPR_COMPLIANT: True,
-}
+BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
 
 
 class DeepInfraModel(Model):
     supports_streaming: bool = True
     provider_name: str = PROVIDER_NAME
-    predicates: Dict[ModelPredicate, Any] = BASE_PREDICATES
+    predicates: ModelPredicates = BASE_PREDICATES
 
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"
@@ -82,11 +79,9 @@ MODELS = [
         context_length=8000,
         vendor_name="meta-llama",
         supports_n=False,
-        predicates={
-            **BASE_PREDICATES,
-            ModelPredicate.IS_NSFW: True,
-            ModelPredicate.GDPR_COMPLIANT: False,
-        },
+        predicates=BASE_PREDICATES.model_copy(
+            update={"is_nsfw": True, "gdpr_compliant": False}
+        ),
     ),
     DeepInfraModel(
         name="Meta-Llama-3-8B-Instruct",
@@ -94,10 +89,7 @@ MODELS = [
         context_length=8000,
         vendor_name="meta-llama",
         supports_n=False,
-        predicates={
-            **BASE_PREDICATES,
-            ModelPredicate.GDPR_COMPLIANT: False,
-        },
+        predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": False}),
     ),
     DeepInfraModel(
         name="Meta-Llama-3.1-405B-Instruct",
@@ -105,10 +97,7 @@ MODELS = [
         context_length=32000,
         vendor_name="meta-llama",
         supports_n=False,
-        predicates={
-            **BASE_PREDICATES,
-            ModelPredicate.GDPR_COMPLIANT: False,
-        },
+        predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": False}),
     ),
     DeepInfraModel(
         name="Meta-Llama-3.1-8B-Instruct",
@@ -116,10 +105,7 @@ MODELS = [
         context_length=128000,
         vendor_name="meta-llama",
         supports_n=False,
-        predicates={
-            **BASE_PREDICATES,
-            ModelPredicate.GDPR_COMPLIANT: False,
-        },
+        predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": False}),
     ),
     DeepInfraModel(
         name="Meta-Llama-3.1-70B-Instruct",
@@ -127,11 +113,9 @@ MODELS = [
         context_length=128000,
         vendor_name="meta-llama",
         supports_n=False,
-        predicates={
-            **BASE_PREDICATES,
-            ModelPredicate.IS_NSFW: True,
-            ModelPredicate.GDPR_COMPLIANT: False,
-        },
+        predicates=BASE_PREDICATES.model_copy(
+            update={"is_nsfw": True, "gdpr_compliant": False}
+        ),
     ),
 ]
 
