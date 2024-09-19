@@ -18,41 +18,49 @@ interactions:
       user-agent:
       - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: "<html>\r\n<head><title>401 Authorization Required</title></head>\r\n<body>\r\n<center><h1>401
-        Authorization Required</h1></center>\r\n<hr><center>openresty/1.25.3.1</center>\r\n</body>\r\n</html>\r\n"
+      string: '{"id": "ba5ac3bb-af10-4d07-96aa-c9399cdefd7e", "model": "llama-3.1-sonar-small-128k-chat",
+        "created": 1726705538, "usage": {"prompt_tokens": 23, "completion_tokens":
+        46, "total_tokens": 69}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
+        looks like you might be trying to communicate something specific, but the
+        empty quotes don''t provide much context. Could you please provide more details
+        or clarify your question? This will help me give you a more accurate and helpful
+        response."}, "delta": {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c544fc6afbb7a40-DUS
+      - 8c5570901ef1230e-SJC
       Connection:
       - keep-alive
-      Content-Length:
-      - '185'
       Content-Type:
-      - text/html
+      - application/json
       Date:
-      - Wed, 18 Sep 2024 21:08:29 GMT
+      - Thu, 19 Sep 2024 00:25:38 GMT
       Server:
       - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '613'
     status:
-      code: 401
-      message: Unauthorized
+      code: 200
+      message: OK
 version: 1

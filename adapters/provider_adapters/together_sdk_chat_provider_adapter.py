@@ -20,6 +20,7 @@ class TogetherModel(Model):
         return f"{self.vendor_name}/{self.name}"
 
 
+# TODO: add more models
 MODELS: Optional[List[TogetherModel]] = []
 
 # MODELS = [

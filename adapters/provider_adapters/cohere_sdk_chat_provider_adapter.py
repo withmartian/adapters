@@ -23,10 +23,18 @@ PROVIDER_NAME = "cohere"
 
 
 class CohereModel(Model):
-    supports_streaming: bool = True
-    supports_json_content: bool = True
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
+
+    supports_repeating_roles: bool = True
+    supports_system: bool = True
+    supports_multiple_system: bool = True
+    supports_empty_content: bool = True
+    supports_tool_choice_required: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
+    supports_streaming: bool = True
+    supports_json_content: bool = True
 
     def _get_api_path(self) -> str:
         return self.name
@@ -36,12 +44,12 @@ MODELS = [
     CohereModel(
         name="command-r",
         cost=Cost(prompt=0.5e-6, completion=1.5e-6),
-        context_length=131_072,
+        context_length=128000,
     ),
     CohereModel(
         name="command-r-plus",
         cost=Cost(prompt=3.00e-6, completion=15.00e-6),
-        context_length=131_072,
+        context_length=128000,
     ),
 ]
 

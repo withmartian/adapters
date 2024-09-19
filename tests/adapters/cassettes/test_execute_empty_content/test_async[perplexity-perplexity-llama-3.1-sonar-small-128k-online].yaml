@@ -18,41 +18,49 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: "<html>\r\n<head><title>401 Authorization Required</title></head>\r\n<body>\r\n<center><h1>401
-        Authorization Required</h1></center>\r\n<hr><center>openresty/1.25.3.1</center>\r\n</body>\r\n</html>\r\n"
+      string: '{"id": "a5624897-d491-454c-8e25-fc6cf4b3942e", "model": "llama-3.1-sonar-small-128k-online",
+        "created": 1726705633, "usage": {"prompt_tokens": 3, "completion_tokens":
+        41, "total_tokens": 44}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
+        looks like there might be a misunderstanding or a technical issue. Could you
+        please provide more context or clarify what you''re trying to ask? This will
+        help me give you a more accurate and helpful response."}, "delta": {"role":
+        "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c5455783edb83bb-MXP
+      - 8c5572e15a96cf72-SJC
       Connection:
       - keep-alive
-      Content-Length:
-      - '185'
       Content-Type:
-      - text/html
+      - application/json
       Date:
-      - Wed, 18 Sep 2024 21:12:23 GMT
+      - Thu, 19 Sep 2024 00:27:13 GMT
       Server:
       - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '578'
     status:
-      code: 401
-      message: Unauthorized
+      code: 200
+      message: OK
 version: 1

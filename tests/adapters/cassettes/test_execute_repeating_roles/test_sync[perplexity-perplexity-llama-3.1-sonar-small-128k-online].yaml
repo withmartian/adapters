@@ -18,41 +18,62 @@ interactions:
       user-agent:
       - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: "<html>\r\n<head><title>401 Authorization Required</title></head>\r\n<body>\r\n<center><h1>401
-        Authorization Required</h1></center>\r\n<hr><center>openresty/1.25.3.1</center>\r\n</body>\r\n</html>\r\n"
+      string: '{"id": "56883d9c-efff-4dac-a8a8-be15f58cf0a9", "model": "llama-3.1-sonar-small-128k-online",
+        "created": 1726706705, "usage": {"prompt_tokens": 3, "completion_tokens":
+        214, "total_tokens": 217}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "The
+        word \"hi\" is an informal greeting used to acknowledge someone''s presence
+        or to initiate a conversation. It is commonly used in casual settings and
+        is often more casual than the word \"hello.\" Here are some key points about
+        the word \"hi\":\n\n- **Origin**: The word \"hi\" likely originated from Middle
+        English variants like \"hey\" and \"hy,\" which were used to attract attention
+        or express surprise.\n- **Usage**: It is frequently used as an exclamation
+        of greeting, especially in informal settings like social interactions, emails,
+        or text messages.\n- **Pronunciation**: The pronunciation of \"hi\" is /ha\u026a/
+        in American English and /ha\u026a/ in British English.\n- **Synonyms**: Other
+        informal greetings include \"hey,\" \"hello,\" \"hiya,\" and \"howdy,\" but
+        \"hi\" is generally the most common.\n\nIn summary, \"hi\" is a versatile
+        and widely used greeting that is appropriate in most casual interactions."},
+        "delta": {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c546e4c989a375b-MXP
+      - 8c558d00bc98ce88-SJC
       Connection:
       - keep-alive
-      Content-Length:
-      - '185'
       Content-Type:
-      - text/html
+      - application/json
       Date:
-      - Wed, 18 Sep 2024 21:29:20 GMT
+      - Thu, 19 Sep 2024 00:45:05 GMT
       Server:
       - cloudflare
+      Set-Cookie:
+      - __cf_bm=w9JAhl2l2M5RsB7Ey1i5c916J50dvp7syq9rpvQ5YFg-1726706705-1.0.1.1-H7I8081V2fSYGZjcpHrb7Ql4UZcyz_TJZsuc5YibV2Ud7a.WHNgPc8OFs7cpcSsOMzNn13yfxcO8oH3qjl0UKQ;
+        path=/; expires=Thu, 19-Sep-24 01:15:05 GMT; domain=.perplexity.ai; HttpOnly;
+        Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1296'
     status:
-      code: 401
-      message: Unauthorized
+      code: 200
+      message: OK
 version: 1

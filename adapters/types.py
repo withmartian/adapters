@@ -125,20 +125,20 @@ class Model(BaseModel):
     cost: Cost
     context_length: int
     supports_user: bool = False
-    supports_repeating_roles: bool = True
+    supports_repeating_roles: bool = False
     supports_streaming: bool = False
     supports_vision: bool = False
     supports_functions: bool = False
     supports_tools: bool = False
     supports_n: bool = False
-    supports_system: bool = True
-    supports_multiple_system: bool = True
-    supports_empty_content: bool = True
-    supports_tool_choice_required: bool = True
+    supports_system: bool = False
+    supports_multiple_system: bool = False
+    supports_empty_content: bool = False
+    supports_tool_choice_required: bool = False
     supports_json_output: bool = False
     supports_json_content: bool = False
-    supports_last_assistant: bool = True
-    supports_first_assistant: bool = True
+    supports_last_assistant: bool = False
+    supports_first_assistant: bool = False
     completion_length: Optional[int] = None
 
     def get_path(self) -> str:

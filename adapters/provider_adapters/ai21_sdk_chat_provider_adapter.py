@@ -12,15 +12,19 @@ API_KEY_PATTERN = re.compile(r".*")
 
 
 class AI21Model(Model):
-    supports_streaming: bool = True
-    supports_empty_content: bool = False
-    supports_json_output: bool = True
-    supports_json_content: bool = False
-    supports_tools: bool = True
-    supports_functions: bool = False
-    supports_n: bool = True
     provider_name: str = PROVIDER_NAME
     vendor_name: str = PROVIDER_NAME
+
+    supports_repeating_roles: bool = True
+    supports_system: bool = True
+    supports_multiple_system: bool = True
+    supports_tool_choice_required: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
+    supports_streaming: bool = True
+    supports_json_output: bool = True
+    supports_tools: bool = True
+    supports_n: bool = True
 
     def _get_api_path(self) -> str:
         return f"{self.name}"

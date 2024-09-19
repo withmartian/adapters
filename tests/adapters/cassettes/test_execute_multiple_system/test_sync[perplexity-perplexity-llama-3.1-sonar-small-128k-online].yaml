@@ -19,41 +19,90 @@ interactions:
       user-agent:
       - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: "<html>\r\n<head><title>401 Authorization Required</title></head>\r\n<body>\r\n<center><h1>401
-        Authorization Required</h1></center>\r\n<hr><center>openresty/1.25.3.1</center>\r\n</body>\r\n</html>\r\n"
+      string: '{"id": "93d877c5-a11b-4ad1-98b8-b00d4b23fb3b", "model": "llama-3.1-sonar-small-128k-online",
+        "created": 1726705982, "usage": {"prompt_tokens": 4, "completion_tokens":
+        834, "total_tokens": 838}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
+        seems like you might be asking for quotes about the concept of \"empty\" or
+        perhaps something related to empty cells in CSV files. Here are some relevant
+        quotes and information:\n\n### Quotes about \"Empty\"\n\n1. **Antonio Porchia**:
+        \"In a full heart there is room for everything, and in an empty heart there
+        is room for nothing.\" - This quote highlights the idea that an empty heart
+        can be a void, lacking in content or meaning.\n\n2. **C. S. Lewis**: \"Into
+        the void of silence, into the empty space of nothing, the joy of life is unfurled.\"
+        - This quote suggests that even in emptiness, there can be a profound sense
+        of joy and life.\n\n3. **Eugene Peterson**: \"The hard work of sowing seed
+        in what looks like perfectly empty earth has, as every farmer knows, a time
+        of harvest. All suffering, all pain, all emptiness, all disappointment is
+        seed: sow it in God and he will, finally, bring a crop of joy from it.\" -
+        This quote emphasizes the potential for growth and joy even in times of emptiness
+        and suffering.\n\n### Quotes about Emptiness in Literature\n\n1. **Neil Gaiman**:
+        \"All alone, in the middle of the night, Coraline began to cry. There was
+        no other sound in the empty flat.\" - This quote from \"Coraline\" by Neil
+        Gaiman captures the eerie feeling of being alone in an empty space.\n\n2.
+        **Laurie Halse Anderson**: \"This closet is abandoned - it has no purpose,
+        no name. It is the perfect place for me.\" - This quote from \"Speak\" by
+        Laurie Halse Anderson highlights the sense of emptiness and abandonment.\n\n3.
+        **Sylvia Plath**: \"I felt very still and very empty, the way the eye of a
+        tornado must feel, moving dully along in the middle of the surrounding hullaballoo.\"
+        - This quote from \"The Bell Jar\" by Sylvia Plath describes a state of emotional
+        emptiness and disconnection.\n\n### Handling Empty Cells in CSV Files\n\nIf
+        you are dealing with CSV files and need to ensure that empty cells are properly
+        quoted, you can use the following approach in LibreOffice:\n\n1. **Restrict
+        Export to Range**: To keep quotes around empty cells, you need to restrict
+        the export to a specific range. This is not currently possible through standard
+        means in LibreOffice.\n\n2. **Explicitly Create Empty Text**: You can use
+        a formula like `=\"\"` to create an empty text for cells you want to be quoted.
+        This will ensure that these cells are properly quoted in the CSV file.\n\n3.
+        **Custom Script**: You can use a custom script to replace empty cells with
+        quoted empty text. For example, the following code snippet can be used to
+        achieve this:\n   ```vba\n   Sub efficientPrepareUsedAreaOfSheetForFullyQuotedCSVexport(Optional
+        pSheet)\n       If IsMissing(pSheet) Then pSheet = ThisComponent.CurrentController.ActiveSheet\n       cellCursor
+        = pSheet.createCursor()\n       cellCursor.gotoStartOfUsedArea(False)\n       cellCursor.gotoEndOfUsedArea(True)\n       emptyRgs
+        = cellCursor.queryEmptyCells()\n       For Each emptyRg In emptyRgs\n           ra
+        = emptyRg.RangeAddress\n           With ra\n               topRow = emptyRg.SpreadSheet.getCellRangeByPosition(
+        _\n                   .StartColumn, .StartRow, .EndColumn, .StartRow)\n               topLeftCell
+        = topRow.getCellByPosition(0, 0)\n           End With\n           topLeftCell.Formula
+        = \"=\"\"\"\"\"\n           topRow.fillAuto(1, 1)\n           emptyRg.fillAuto(0,
+        1)\n       Next emptyRg\n   End Sub\n   ```\n   This script will replace all
+        empty cells with `=\"\"` and ensure they are quoted in the CSV file.\n\nThese
+        methods should help you manage empty cells and quotes in your CSV files effectively."},
+        "delta": {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c5466d98c07baf1-MXP
+      - 8c557b401b789642-SJC
       Connection:
       - keep-alive
-      Content-Length:
-      - '185'
       Content-Type:
-      - text/html
+      - application/json
       Date:
-      - Wed, 18 Sep 2024 21:24:15 GMT
+      - Thu, 19 Sep 2024 00:33:02 GMT
       Server:
       - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '3963'
     status:
-      code: 401
-      message: Unauthorized
+      code: 200
+      message: OK
 version: 1

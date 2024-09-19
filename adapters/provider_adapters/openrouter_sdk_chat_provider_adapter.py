@@ -12,13 +12,21 @@ API_KEY_PATTERN = re.compile(r".*")
 
 
 class OpenRouterModel(Model):
-    supports_streaming: bool = True
     provider_name: str = PROVIDER_NAME
+    supports_streaming: bool = True
+    supports_repeating_roles: bool = True
+    supports_system: bool = True
+    supports_multiple_system: bool = True
+    supports_empty_content: bool = True
+    supports_tool_choice_required: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
 
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"
 
 
+# TODO: add more models
 MODELS = [
     OpenRouterModel(
         name="dbrx-instruct",
@@ -26,30 +34,6 @@ MODELS = [
         context_length=32_768,
         vendor_name="databricks",
     ),
-    # OpenRouterModel(
-    #     name="gemma-7b-it",
-    #     cost=Cost(prompt=0.07e-6, completion=0.07e-6),
-    #     context_length=8192,
-    #     vendor_name="google",
-    # ),
-    # OpenRouterModel(
-    #     name="gemma-2-9b-it",
-    #     cost=Cost(prompt=0.06e-6, completion=0.06e-6),
-    #     context_length=8192,
-    #     vendor_name="google",
-    # ),
-    # OpenRouterModel(
-    #     name="llama-3-70b-instruct",
-    #     cost=Cost(prompt=0.35e-6, completion=0.35e-6),
-    #     context_length=8192,
-    #     vendor_name="meta-llama",
-    # ),
-    # OpenRouterModel(
-    #     name="llama-3-8b-instruct",
-    #     cost=Cost(prompt=0.055e-6, completion=0.55e-6),
-    #     context_length=8192,
-    #     vendor_name="meta-llama",
-    # ),
     OpenRouterModel(
         name="mistral-7b-instruct-v2",
         cost=Cost(prompt=0.055e-6, completion=0.055e-6),
@@ -73,26 +57,6 @@ MODELS = [
         cost=Cost(prompt=1.125e-6, completion=1.125e-6),
         context_length=8192,
         vendor_name="pygmalionai",
-    ),
-    # OpenRouterModel(
-    #     name="mythomax-l2-13b",
-    #     cost=Cost(prompt=0.1e-6, completion=0.1e-6),
-    #     context_length=4096,
-    #     vendor_name="gryphe",
-    # ),
-    OpenRouterModel(
-        name="llama-3.1-sonar-large-128k-online",
-        cost=Cost(prompt=1.0e-6, completion=1.0e-6),
-        context_length=131072,
-        vendor_name="perplexity",
-        supports_empty_content=False,
-    ),
-    OpenRouterModel(
-        name="llama-3.1-sonar-small-128k-chat",
-        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-        context_length=131072,
-        vendor_name="perplexity",
-        supports_empty_content=False,
     ),
 ]
 

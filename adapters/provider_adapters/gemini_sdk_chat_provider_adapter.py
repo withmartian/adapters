@@ -26,23 +26,27 @@ API_KEY_NAME = "GEMINI_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
 
 
+# TODO: update package
+# TODO: fix pricing for longer context lengths
 class GeminiModel(Model):
     _test_async: bool = False
 
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
 
+    supports_repeating_roles: bool = True
+    supports_system: bool = True
+    supports_multiple_system: bool = True
+    supports_empty_content: bool = True
+    supports_tool_choice_required: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
+
 
 MODELS = [
     GeminiModel(
         name="gemini-1.0-pro",
-        cost=Cost(prompt=0.125e-6, completion=0.375e-6),
-        context_length=30720,
-        completion_length=2048,
-    ),
-    GeminiModel(
-        name="gemini-1.0-pro-latest",
-        cost=Cost(prompt=0.125e-6, completion=0.375e-6),
+        cost=Cost(prompt=0.5e-6, completion=1.5e-6),
         context_length=30720,
         completion_length=2048,
     ),
@@ -53,19 +57,7 @@ MODELS = [
         completion_length=8192,
     ),
     GeminiModel(
-        name="gemini-1.5-pro-latest",
-        cost=Cost(prompt=3.5e-6, completion=10.5e-6),
-        context_length=128000,
-        completion_length=8192,
-    ),
-    GeminiModel(
         name="gemini-1.5-flash",
-        cost=Cost(prompt=0.075e-6, completion=0.3e-6),
-        context_length=128000,
-        completion_length=8192,
-    ),
-    GeminiModel(
-        name="gemini-1.5-flash-latest",
         cost=Cost(prompt=0.35e-6, completion=0.70e-6),
         context_length=128000,
         completion_length=8192,

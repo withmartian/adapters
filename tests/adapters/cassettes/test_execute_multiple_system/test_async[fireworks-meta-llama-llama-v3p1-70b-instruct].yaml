@@ -1,0 +1,81 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
+      "Hi"}, {"role": "system", "content": "Hi"}], "model": "accounts/fireworks/models/llama-v3p1-70b-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '185'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.46.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.46.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.9
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"c147a4b0-cdb3-4be1-b735-8458cf85b72f","object":"chat.completion","created":1726706567,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like we''re having a friendly \"hi\" exchange. How''s your day going
+        so far?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"total_tokens":45,"completion_tokens":22}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8c5589a93d74aab1-SJC
+      Cf-Placement:
+      - remote-SEA
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 19 Sep 2024 00:42:47 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=475.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '397'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 0.7, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.366'
+      x-envoy-upstream-service-time:
+      - '383'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -3,7 +3,7 @@ from typing import Pattern
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model
+from adapters.types import Model
 
 PROVIDER_NAME = "groq"
 GROQ_BASE_URL = "https://api.groq.com/openai/v1"
@@ -12,55 +12,20 @@ API_KEY_PATTERN = re.compile(r".*")
 
 
 class GroqModel(Model):
-    supports_streaming: bool = True
     provider_name: str = PROVIDER_NAME
 
+    supports_streaming: bool = True
+    supports_repeating_roles: bool = True
+    supports_system: bool = True
+    supports_multiple_system: bool = True
+    supports_empty_content: bool = True
+    supports_tool_choice_required: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
 
-MODELS = [
-    # GroqModel(
-    #     name="mixtral-8x7b-32768",
-    #     cost=Cost(prompt=0.27e-6, completion=0.27e-6),
-    #     context_length=32768,
-    #     vendor_name="mistralai",
-    # ),
-    # GroqModel(
-    #     name="llama3-70b-8192",
-    #     cost=Cost(prompt=0.59e-6, completion=0.79e-6),
-    #     context_length=8192,
-    #     vendor_name="meta-llama",
-    # ),
-    GroqModel(
-        name="llama3-8b-8192",
-        cost=Cost(prompt=0.05e-6, completion=0.10e-6),
-        context_length=8192,
-        vendor_name="meta-llama",
-    ),
-    GroqModel(
-        name="gemma-7b-it",
-        cost=Cost(prompt=0.1e-6, completion=0.1e-6),
-        context_length=8192,
-        vendor_name="google",
-    ),
-    # N/A
-    # GroqModel(
-    #     name="llama-3.1-405b-reasoning",
-    #     cost=Cost(),
-    #     context_length=131072,
-    #     provider_name="Meta"
-    # ),
-    #     GroqModel(
-    #     name="llama-3.1-70b-versatile",
-    #     cost=Cost(),
-    #     context_length=131072,
-    #     provider_name="Meta"
-    # ),
-    #     GroqModel(
-    #     name="llama-3.1-8b-instant",
-    #     cost=Cost(),
-    #     context_length=131072,
-    #     provider_name="Meta"
-    # )
-]
+
+# TODO: add more models
+MODELS: list[GroqModel] = []
 
 
 class GroqSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):

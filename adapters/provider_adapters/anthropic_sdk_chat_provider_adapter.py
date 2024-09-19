@@ -24,88 +24,35 @@ API_KEY_PATTERN = re.compile(r"^sk-ant-api\d{2}-([a-zA-Z0-9_-]+)$")
 
 
 class AnthropicModel(Model):
-    supports_streaming: bool = True
-    supports_json_content: bool = True
-    supports_empty_content: bool = False
-    supports_first_assistant: bool = False
-    supports_multiple_system: bool = False
-    supports_repeating_roles: bool = False
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
 
+    supports_tool_choice_required: bool = True
+    supports_last_assistant: bool = True
+    supports_streaming: bool = True
+    supports_json_content: bool = True
+    supports_tools: bool = True
+    supports_vision: bool = True
+
 
 SUPPORTED_MODELS = [
-    AnthropicModel(
-        name="claude-1.0",
-        cost=Cost(prompt=0.8e-6, completion=2.4e-6),
-        context_length=9000,
-        completion_length=2048,
-    ),
-    AnthropicModel(
-        name="claude-1.1",
-        cost=Cost(prompt=0.8e-6, completion=2.4e-6),
-        context_length=9000,
-        completion_length=2048,
-    ),
-    AnthropicModel(
-        name="claude-1.2",
-        cost=Cost(prompt=0.8e-6, completion=2.4e-6),
-        context_length=9000,
-        completion_length=2048,
-    ),
-    AnthropicModel(
-        name="claude-1.3",
-        cost=Cost(prompt=0.8e-6, completion=2.4e-6),
-        context_length=9000,
-        completion_length=2048,
-    ),
-    AnthropicModel(
-        name="claude-instant-1.1",
-        cost=Cost(prompt=0.8e-6, completion=2.4e-6),
-        context_length=100000,
-        completion_length=2048,
-    ),
-    AnthropicModel(
-        name="claude-instant-1.2",
-        cost=Cost(prompt=0.8e-6, completion=2.4e-6),
-        context_length=100000,
-        completion_length=4096,
-    ),
-    AnthropicModel(
-        name="claude-2.0",
-        cost=Cost(prompt=8.0e-6, completion=24.0e-6),
-        context_length=100000,
-        completion_length=4096,
-    ),
-    AnthropicModel(
-        name="claude-2.1",
-        cost=Cost(prompt=8.0e-6, completion=24.0e-6),
-        context_length=200000,
-        completion_length=4096,
-    ),
     AnthropicModel(
         name="claude-3-sonnet-20240229",
         cost=Cost(prompt=3.0e-6, completion=15.0e-6),
         context_length=200000,
         completion_length=4096,
-        supports_tools=True,
-        supports_vision=True,
     ),
     AnthropicModel(
         name="claude-3-opus-20240229",
         cost=Cost(prompt=15.0e-6, completion=75.0e-6),
         context_length=200000,
         completion_length=4096,
-        supports_tools=True,
-        supports_vision=True,
     ),
     AnthropicModel(
         name="claude-3-haiku-20240307",
         cost=Cost(prompt=0.25e-6, completion=1.25e-6),
         context_length=200000,
         completion_length=4096,
-        supports_tools=True,
-        supports_vision=True,
     ),
     AnthropicModel(
         name="claude-3-5-sonnet-20240620",

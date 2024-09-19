@@ -18,41 +18,67 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: "<html>\r\n<head><title>401 Authorization Required</title></head>\r\n<body>\r\n<center><h1>401
-        Authorization Required</h1></center>\r\n<hr><center>openresty/1.25.3.1</center>\r\n</body>\r\n</html>\r\n"
+      string: '{"id": "25bc7041-591a-4967-9e00-d8689785f9af", "model": "llama-3.1-sonar-small-128k-online",
+        "created": 1726706877, "usage": {"prompt_tokens": 3, "completion_tokens":
+        300, "total_tokens": 303}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "The
+        word \"hi\" is a common, informal greeting used to acknowledge someone''s
+        presence or to initiate a conversation. It is generally more casual than \"hello\"
+        and is suitable for most social interactions except the most formal ones,
+        such as meeting the Queen.\n\n### Etymology\nThe term \"hi\" likely originated
+        from Middle English variants like \"hey\" and \"hy,\" which were used to attract
+        attention. It has since evolved into a versatile greeting that can be used
+        in various contexts.\n\n### Usage\n- **Greeting**: \"Hi\" is often used as
+        an exclamation to greet someone, such as \"Hi, how are you?\" or \"Hi, there!\".\n-
+        **Attention**: It can also be used to call attention, similar to \"hey\".\n-
+        **Informal**: It is commonly used in informal settings, such as among friends
+        or in casual conversations.\n\n### Variations\n- **Regional**: In some regions,
+        particularly in Hong Kong, \"hi\" can have different pronunciations and meanings,
+        such as in Cantonese where it is pronounced as \"haai\" and has various uses
+        including as an interjection and verb.\n- **Abbreviation**: In some contexts,
+        \"hi\" is used as an abbreviation for Hawaii or heat index in meteorology.\n\nOverall,
+        \"hi\" is a versatile and widely used term for greeting and acknowledging
+        others in everyday conversations."}, "delta": {"role": "assistant", "content":
+        ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c5471d1e9430e5d-MXP
+      - 8c55913179ed1746-SJC
       Connection:
       - keep-alive
-      Content-Length:
-      - '185'
       Content-Type:
-      - text/html
+      - application/json
       Date:
-      - Wed, 18 Sep 2024 21:31:44 GMT
+      - Thu, 19 Sep 2024 00:47:57 GMT
       Server:
       - cloudflare
+      Set-Cookie:
+      - __cf_bm=t9ocII5XgNGQh94U.g8TTzlH82Od9TCzceVZAEQElXc-1726706877-1.0.1.1-bv0KpROeaUc5MDe3ekkvuzUgk6gVad07MWdGXlV4zkOpj1Ui0g6qbMvp87daUbN1kh3YVZ9G1jfwO4RY87PQXg;
+        path=/; expires=Thu, 19-Sep-24 01:17:57 GMT; domain=.perplexity.ai; HttpOnly;
+        Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1664'
     status:
-      code: 401
-      message: Unauthorized
+      code: 200
+      message: OK
 version: 1

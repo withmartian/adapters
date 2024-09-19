@@ -18,41 +18,46 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: "<html>\r\n<head><title>401 Authorization Required</title></head>\r\n<body>\r\n<center><h1>401
-        Authorization Required</h1></center>\r\n<hr><center>openresty/1.25.3.1</center>\r\n</body>\r\n</html>\r\n"
+      string: '{"id": "a187ed88-f073-4eef-8ee0-62dc1efba9e8", "model": "llama-3.1-sonar-large-128k-chat",
+        "created": 1726707050, "usage": {"prompt_tokens": 17, "completion_tokens":
+        9, "total_tokens": 26}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "Hello
+        How can I assist you today?"}, "delta": {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c54781fe8c25232-MXP
+      - 8c559577bf9596ed-SJC
       Connection:
       - keep-alive
-      Content-Length:
-      - '185'
       Content-Type:
-      - text/html
+      - application/json
       Date:
-      - Wed, 18 Sep 2024 21:36:02 GMT
+      - Thu, 19 Sep 2024 00:50:50 GMT
       Server:
       - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '399'
     status:
-      code: 401
-      message: Unauthorized
+      code: 200
+      message: OK
 version: 1

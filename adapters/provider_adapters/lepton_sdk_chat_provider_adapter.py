@@ -26,17 +26,19 @@ API_KEY_PATTERN = re.compile(r".*")
 class LeptonModel(Model):
     base_url: str
     provider_name: str = PROVIDER_NAME
+
     supports_streaming: bool = True
+    supports_repeating_roles: bool = True
+    supports_system: bool = True
+    supports_multiple_system: bool = True
+    supports_empty_content: bool = True
+    supports_tool_choice_required: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
 
 
+# TODO: add more models
 MODELS = [
-    # LeptonModel(
-    #     base_url=BASE_URL.format("gemma-7b"),
-    #     name="gemma-7b",
-    #     cost=Cost(prompt=0.07e-6, completion=0.07e-6),
-    #     context_length=8192,
-    #     vendor_name="google",
-    # ),
     LeptonModel(
         base_url=BASE_URL.format("mistral-7b"),
         name="mistral-7b",
