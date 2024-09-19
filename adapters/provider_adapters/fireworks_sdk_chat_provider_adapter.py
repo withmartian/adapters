@@ -5,17 +5,22 @@ from openai.types.chat.chat_completion_chunk import ChatCompletionChunk
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model
+from adapters.types import Cost, Model, ModelPredicates
 
 PROVIDER_NAME = "fireworks"
 BASE_URL = "https://api.fireworks.ai/inference/v1"
 API_KEY_NAME = "FIREWORKS_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
+BASE_PREDICATES = ModelPredicates(
+    open_source=True,
+    gdpr_compliant=True,
+)
 
 
 class FireworksModel(Model):
     supports_streaming: bool = True
     provider_name: str = PROVIDER_NAME
+    predicates: ModelPredicates = BASE_PREDICATES
 
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"
@@ -35,12 +40,16 @@ MODELS = [
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
         context_length=8192,
         vendor_name="accounts/fireworks/models",
+        predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": False}),
     ),
     FireworksModel(
         name="llama-v3-70b-instruct",
         cost=Cost(prompt=0.9e-6, completion=0.9e-6),
         context_length=8192,
         vendor_name="accounts/fireworks/models",
+        predicates=BASE_PREDICATES.model_copy(
+            update={"is_nsfw": True, "gdpr_compliant": False}
+        ),
     ),
     FireworksModel(
         name="mixtral-8x22b-instruct",
@@ -60,18 +69,23 @@ MODELS = [
         cost=Cost(prompt=3.0e-6, completion=3.0e-6),
         context_length=131072,
         vendor_name="accounts/fireworks/models",
+        predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": False}),
     ),
     FireworksModel(
         name="llama-v3p1-70b-instruct",
         cost=Cost(prompt=0.9e-6, completion=0.9e-6),
         context_length=131072,
         vendor_name="accounts/fireworks/models",
+        predicates=BASE_PREDICATES.model_copy(
+            update={"is_nsfw": True, "gdpr_compliant": False}
+        ),
     ),
     FireworksModel(
         name="llama-v3p1-8b-instruct",
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
         context_length=131072,
         vendor_name="accounts/fireworks/models",
+        predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": False}),
     ),
 ]
 

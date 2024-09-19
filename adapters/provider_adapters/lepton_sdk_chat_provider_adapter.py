@@ -15,18 +15,23 @@ from openai.types.chat.chat_completion_chunk import (
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model
+from adapters.types import Cost, Model, ModelPredicates
 
 PROVIDER_NAME = "lepton"
 BASE_URL = "https://{}.lepton.run/api/v1/"
 API_KEY_NAME = "LEPTON_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
+BASE_PREDICATES = ModelPredicates(
+    open_source=True,
+    gdpr_compliant=True,
+)
 
 
 class LeptonModel(Model):
     base_url: str
     provider_name: str = PROVIDER_NAME
     supports_streaming: bool = True
+    predicates: ModelPredicates = BASE_PREDICATES
 
 
 MODELS = [

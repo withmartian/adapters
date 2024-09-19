@@ -12,6 +12,7 @@ from adapters.types import (
     ConversationRole,
     Cost,
     Model,
+    ModelPredicates,
     OpenAIChatAdapterResponse,
     Turn,
 )
@@ -21,6 +22,7 @@ PROVIDER_NAME = "anthropic"
 BASE_URL = "https://api.anthropic.com"
 API_KEY_NAME = "ANTHROPIC_API_KEY"
 API_KEY_PATTERN = re.compile(r"^sk-ant-api\d{2}-([a-zA-Z0-9_-]+)$")
+BASE_PREDICATES = ModelPredicates(gdpr_compliant=True)
 
 
 class AnthropicModel(Model):
@@ -32,6 +34,7 @@ class AnthropicModel(Model):
     supports_repeating_roles: bool = False
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
+    predicates: ModelPredicates = BASE_PREDICATES
 
 
 SUPPORTED_MODELS = [
