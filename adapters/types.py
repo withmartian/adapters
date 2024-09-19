@@ -119,7 +119,7 @@ class ModelPredicate(str, Enum):
     OPEN_SOURCE = "Open Source"
     CHINESE = "Chinese"
     GDPR_COMPLIANT = "GDPR compliant"
-    NOT_TRAINED_ON_NSFW = "Not trained on NSFW content"
+    IS_NSFW = "Is NSFW"
 
 
 # Add test cases for all of them

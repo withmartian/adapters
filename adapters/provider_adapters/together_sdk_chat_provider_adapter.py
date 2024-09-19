@@ -3,18 +3,20 @@ from typing import Any, Dict, Pattern
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Conversation, ConversationRole, Cost, Model
+from adapters.types import Conversation, ConversationRole, Cost, Model, ModelPredicate
 
 PROVIDER_NAME = "together"
 BASE_URL = "https://api.together.xyz"
 API_KEY_NAME = "TOGETHER_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
+BASE_PREDICATES = {ModelPredicate.OPEN_SOURCE: True}
 
 
 class TogetherModel(Model):
     supports_streaming: bool = True
     supports_json_content: bool = True
     provider_name: str = PROVIDER_NAME
+    predicates: Dict[ModelPredicate, Any] = BASE_PREDICATES
 
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"
@@ -34,6 +36,7 @@ MODELS = [
         context_length=8192,
         vendor_name="meta-llama",
         supports_json_content=False,
+        predicates={**BASE_PREDICATES, ModelPredicate.IS_NSFW: True},
     ),
     TogetherModel(
         name="Meta-Llama-3.1-405B-Instruct-Turbo",
@@ -55,6 +58,7 @@ MODELS = [
         context_length=8192,
         vendor_name="meta-llama",
         supports_json_content=False,
+        predicates={**BASE_PREDICATES, ModelPredicate.IS_NSFW: True},
     ),
     TogetherModel(
         name="Meta-Llama-3-8B-Instruct-Lite",
@@ -69,12 +73,14 @@ MODELS = [
         context_length=8192,
         vendor_name="meta-llama",
         supports_json_content=False,
+        predicates={**BASE_PREDICATES, ModelPredicate.IS_NSFW: True},
     ),
     TogetherModel(
         name="Yi-34B-Chat",
         cost=Cost(prompt=0.8e-6, completion=0.8e-6),
         context_length=4096,
         vendor_name="zero-one-ai",
+        predicates={**BASE_PREDICATES, ModelPredicate.CHINESE: True},
     ),
     TogetherModel(
         name="OLMo-7B-Instruct",
@@ -105,12 +111,14 @@ MODELS = [
         cost=Cost(prompt=0.8e-6, completion=0.8e-6),
         context_length=16384,
         vendor_name="deepseek-ai",
+        predicates={**BASE_PREDICATES, ModelPredicate.CHINESE: True},
     ),
     TogetherModel(
         name="deepseek-llm-67b-chat",
         cost=Cost(prompt=0.9e-6, completion=0.9e-6),
         context_length=4096,
         vendor_name="deepseek-ai",
+        predicates={**BASE_PREDICATES, ModelPredicate.CHINESE: True},
     ),
     TogetherModel(
         name="Platypus2-70B-instruct",
@@ -123,12 +131,14 @@ MODELS = [
         cost=Cost(prompt=0.1e-6, completion=0.1e-6),
         context_length=8192,
         vendor_name="google",
+        predicates={**BASE_PREDICATES, ModelPredicate.GDPR_COMPLIANT: True},
     ),
     TogetherModel(
         name="gemma-2b",
         cost=Cost(prompt=0.1e-6, completion=0.1e-6),
         context_length=8192,
         vendor_name="google",
+        predicates={**BASE_PREDICATES, ModelPredicate.GDPR_COMPLIANT: True},
     ),
     TogetherModel(
         name="MythoMax-L2-13b",
@@ -197,12 +207,14 @@ MODELS = [
         context_length=8000,
         vendor_name="meta-llama",
         supports_json_content=False,
+        predicates={**BASE_PREDICATES, ModelPredicate.IS_NSFW: True},
     ),
     TogetherModel(
         name="Mistral-7B-Instruct-v0.1",
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
         context_length=4096,
         vendor_name="mistralai",
+        predicates={**BASE_PREDICATES, ModelPredicate.GDPR_COMPLIANT: True},
     ),
     # TogetherModel(
     #     name="Mixtral-8x7B-Instruct-v0.1",
@@ -216,6 +228,7 @@ MODELS = [
         cost=Cost(prompt=1.2e-6, completion=1.2e-6),
         context_length=65536,
         vendor_name="mistralai",
+        predicates={**BASE_PREDICATES, ModelPredicate.GDPR_COMPLIANT: True},
     ),
     # TogetherModel(
     #     name="Mistral-7B-Instruct-v0.2",
@@ -279,42 +292,49 @@ MODELS = [
         cost=Cost(prompt=0.1e-6, completion=0.1e-6),
         context_length=32768,
         vendor_name="Qwen",
+        predicates={**BASE_PREDICATES, ModelPredicate.CHINESE: True},
     ),
     TogetherModel(
         name="Qwen1.5-1.8B-Chat",
         cost=Cost(prompt=0.1e-6, completion=0.1e-6),
         context_length=32768,
         vendor_name="Qwen",
+        predicates={**BASE_PREDICATES, ModelPredicate.CHINESE: True},
     ),
     TogetherModel(
         name="Qwen1.5-4B-Chat",
         cost=Cost(prompt=0.1e-6, completion=0.1e-6),
         context_length=32768,
         vendor_name="Qwen",
+        predicates={**BASE_PREDICATES, ModelPredicate.CHINESE: True},
     ),
     TogetherModel(
         name="Qwen1.5-7B-Chat",
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
         context_length=32768,
         vendor_name="Qwen",
+        predicates={**BASE_PREDICATES, ModelPredicate.CHINESE: True},
     ),
     TogetherModel(
         name="Qwen1.5-14B-Chat",
         cost=Cost(prompt=0.3e-6, completion=0.3e-6),
         context_length=32768,
         vendor_name="Qwen",
+        predicates={**BASE_PREDICATES, ModelPredicate.CHINESE: True},
     ),
     TogetherModel(
         name="Qwen1.5-32B-Chat",
         cost=Cost(prompt=0.8e-6, completion=0.8e-6),
         context_length=32768,
         vendor_name="Qwen",
+        predicates={**BASE_PREDICATES, ModelPredicate.CHINESE: True},
     ),
     TogetherModel(
         name="Qwen1.5-72B-Chat",
         cost=Cost(prompt=0.9e-6, completion=0.9e-6),
         context_length=4096,
         vendor_name="Qwen",
+        predicates={**BASE_PREDICATES, ModelPredicate.CHINESE: True},
     ),
     # TogetherModel(
     #     name="Snorkel-Mistral-PairRM-DPO",

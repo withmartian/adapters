@@ -1,19 +1,21 @@
 import re
-from typing import Pattern
+from typing import Any, Dict, Pattern
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model
+from adapters.types import Cost, Model, ModelPredicate
 
 PROVIDER_NAME = "openrouter"
 BASE_URL = "https://openrouter.ai/api/v1"
 API_KEY_NAME = "OPENROUTER_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
+BASE_PREDICATES = {ModelPredicate.OPEN_SOURCE: True}
 
 
 class OpenRouterModel(Model):
     supports_streaming: bool = True
     provider_name: str = PROVIDER_NAME
+    predicates: Dict[ModelPredicate, Any] = BASE_PREDICATES
 
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"
@@ -43,6 +45,7 @@ MODELS = [
         cost=Cost(prompt=0.35e-6, completion=0.35e-6),
         context_length=8192,
         vendor_name="meta-llama",
+        predicates={**BASE_PREDICATES, ModelPredicate.IS_NSFW: True},
     ),
     OpenRouterModel(
         name="llama-3-8b-instruct",

@@ -1,14 +1,15 @@
 import re
-from typing import Pattern
+from typing import Any, Dict, Pattern
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model
+from adapters.types import Cost, Model, ModelPredicate
 
 PROVIDER_NAME = "openai"
 BASE_URL = "https://api.openai.com/v1"
 API_KEY_NAME = "OPENAI_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
+BASE_PREDICATES = {ModelPredicate.GDPR_COMPLIANT: True}
 
 
 class OpenAIModel(Model):
@@ -21,6 +22,7 @@ class OpenAIModel(Model):
     supports_json_content: bool = True
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
+    predicates: Dict[ModelPredicate, Any] = BASE_PREDICATES
 
 
 MODELS = [

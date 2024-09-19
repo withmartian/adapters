@@ -1,14 +1,15 @@
 import re
-from typing import Pattern
+from typing import Any, Dict, Pattern
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model
+from adapters.types import Cost, Model, ModelPredicate
 
 PROVIDER_NAME = "perplexity"
 PERPLEXITY_BASE_URL = "https://api.perplexity.ai"
 API_KEY_NAME = "PERPLEXITY_API_KEY"
 API_KEY_PATTERN = re.compile(r"^pplx-[a-zA-Z0-9]+$")
+BASE_PREDICATES = {ModelPredicate.OPEN_SOURCE: True}
 
 
 class PerplexityModel(Model):
@@ -19,6 +20,7 @@ class PerplexityModel(Model):
     supports_empty_content: bool = False
     supports_first_assistant: bool = False
     supports_last_assistant: bool = False
+    predicates: Dict[ModelPredicate, Any] = BASE_PREDICATES
 
 
 MODELS = [
@@ -51,6 +53,7 @@ MODELS = [
         name="llama-3-70b-instruct",
         cost=Cost(prompt=1.0e-6, completion=1.0e-6),
         context_length=8192,
+        predicates={**BASE_PREDICATES, ModelPredicate.IS_NSFW: True},
     ),
     PerplexityModel(
         name="mixtral-8x7b-instruct",
@@ -92,6 +95,7 @@ MODELS = [
         cost=Cost(prompt=1e-6, completion=1e-6),
         context_length=131072,
         provider_name="meta-lama",
+        predicates={**BASE_PREDICATES, ModelPredicate.IS_NSFW: True},
     ),
 ]
 

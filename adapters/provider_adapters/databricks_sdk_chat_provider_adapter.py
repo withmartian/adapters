@@ -3,7 +3,7 @@ from typing import Any, Dict, Pattern
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Conversation, ConversationRole, Cost, Model
+from adapters.types import Conversation, ConversationRole, Cost, Model, ModelPredicate
 
 PROVIDER_NAME = "databricks"
 DATABRICKS_BASE_URL = (
@@ -11,7 +11,10 @@ DATABRICKS_BASE_URL = (
 )
 API_KEY_NAME = "DATABRICKS_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
-
+BASE_PREDICATES = {
+    ModelPredicate.OPEN_SOURCE: True,
+    ModelPredicate.GDPR_COMPLIANT: True,
+}
 
 # Convert rate from DBU to USD
 CONVERT_RATE = 0.07
@@ -22,6 +25,7 @@ class DatabricksModel(Model):
     supports_multiple_system: bool = False
     supports_tools: bool = False
     provider_name: str = PROVIDER_NAME
+    predicates: Dict[ModelPredicate, Any] = BASE_PREDICATES
 
 
 MODELS = [
