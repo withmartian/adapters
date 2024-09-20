@@ -3,7 +3,7 @@ from typing import Pattern
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Model
+from adapters.types import Cost, Model
 
 PROVIDER_NAME = "groq"
 GROQ_BASE_URL = "https://api.groq.com/openai/v1"
@@ -24,8 +24,62 @@ class GroqModel(Model):
     supports_first_assistant: bool = True
 
 
-# TODO: add more models
-MODELS: list[GroqModel] = []
+MODELS = [
+    GroqModel(
+        name="llama-3.1-70b-versatile",
+        cost=Cost(prompt=0.59e-6, completion=0.79e-6),
+        context_length=131072,
+        vendor_name="meta-llama",
+    ),
+    GroqModel(
+        name="llama-3.1-8b-instant",
+        cost=Cost(prompt=0.05e-6, completion=0.08e-6),
+        context_length=131072,
+        vendor_name="meta-llama",
+    ),
+    GroqModel(
+        name="llama3-70b-8192",
+        cost=Cost(prompt=0.59e-6, completion=0.79e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+    ),
+    GroqModel(
+        name="llama3-8b-8192",
+        cost=Cost(prompt=0.05e-6, completion=0.08e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+    ),
+    GroqModel(
+        name="mixtral-8x7b-32768",
+        cost=Cost(prompt=0.24e-6, completion=0.24e-6),
+        context_length=32768,
+        vendor_name="mistralai",
+    ),
+    GroqModel(
+        name="gemma-7b-it",
+        cost=Cost(prompt=0.07e-6, completion=0.07e-6),
+        context_length=8192,
+        vendor_name="google",
+    ),
+    GroqModel(
+        name="gemma2-9b-it",
+        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
+        context_length=8192,
+        vendor_name="google",
+    ),
+    GroqModel(
+        name="llama3-groq-8b-8192-tool-use-preview",
+        cost=Cost(prompt=0.19e-6, completion=0.19e-6),
+        context_length=8192,
+        vendor_name="groq",
+    ),
+    GroqModel(
+        name="llama-guard-3-8b",
+        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+    ),
+]
 
 
 class GroqSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
