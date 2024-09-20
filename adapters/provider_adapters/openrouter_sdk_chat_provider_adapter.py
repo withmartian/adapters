@@ -58,6 +58,48 @@ MODELS = [
         context_length=8192,
         vendor_name="pygmalionai",
     ),
+    OpenRouterModel(
+        name="qwen-2.5-72b-instruct",
+        cost=Cost(prompt=0.35e-6, completion=0.4e-6),
+        context_length=131_072,
+        vendor_name="qwen"
+    ),
+    OpenRouterModel(
+        name="qwen-2-vl-72b-instruct",
+        cost=Cost(prompt=0.4e-6, completion=0.4e-6),
+        context_length=32_768,
+        vendor_name="qwen"
+    ),
+    OpenRouterModel(
+        name="llama-3.1-lumimaid-8b",
+        cost=Cost(prompt=0.1875e-6, completion=1.125e-6),
+        context_length=131_072,
+        vendor_name="neversleep"
+    ),
+    OpenRouterModel(
+        name="o1-mini-2024-09-12",
+        cost=Cost(prompt=3.0e-6, completion=12.0e-6),
+        context_length=128_000,
+        vendor_name ="openai"
+    ),
+    OpenRouterModel(
+        name="o1-mini",
+        cost=Cost(prompt=3.0e-6, completion=12.0e-6),
+        context_length=128_000,
+        vendor_name ="openai"
+    ),
+    OpenRouterModel(
+        name="o1-preview-2024-09-12",
+        cost=Cost(prompt=15.0e-6, completion=60.e-6),
+        context_length=128_000,
+        vendor_name="openai"
+    ),
+    OpenRouterModel(
+        name="o1-preview",
+        cost=Cost(prompt=15.0e-6, completion=60.e-6),
+        context_length=128_000,
+        vendor_name="openai"
+    )
 ]
 
 

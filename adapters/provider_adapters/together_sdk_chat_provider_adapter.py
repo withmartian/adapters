@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Optional, Pattern
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Conversation, ConversationRole, Model
+from adapters.types import Conversation, ConversationRole, Cost, Model
 
 PROVIDER_NAME = "together"
 BASE_URL = "https://api.together.xyz"
@@ -20,59 +20,56 @@ class TogetherModel(Model):
         return f"{self.vendor_name}/{self.name}"
 
 
-# TODO: add more models
-MODELS: Optional[List[TogetherModel]] = []
-
-# MODELS = [
-#     TogetherModel(
-#         name="Meta-Llama-3.1-8B-Instruct-Turbo",
-#         cost=Cost(prompt=0.18e-6, completion=0.18e-6),
-#         context_length=8192,
-#         vendor_name="meta-llama",
-#         supports_json_content=False,
-#     ),
-#     TogetherModel(
-#         name="Meta-Llama-3.1-70B-Instruct-Turbo",
-#         cost=Cost(prompt=0.88e-6, completion=0.88e-6),
-#         context_length=8192,
-#         vendor_name="meta-llama",
-#         supports_json_content=False,
-#     ),
-#     TogetherModel(
-#         name="Meta-Llama-3.1-405B-Instruct-Turbo",
-#         cost=Cost(prompt=5.0e-6, completion=5.0e-6),
-#         context_length=4096,
-#         vendor_name="meta-llama",
-#         supports_json_content=False,
-#     ),
-#     TogetherModel(
-#         name="Meta-Llama-3-8B-Instruct-Turbo",
-#         cost=Cost(prompt=0.18e-6, completion=0.18e-6),
-#         context_length=8192,
-#         vendor_name="meta-llama",
-#         supports_json_content=False,
-#     ),
-#     TogetherModel(
-#         name="Meta-Llama-3-70B-Instruct-Turbo",
-#         cost=Cost(prompt=0.88e-6, completion=0.88e-6),
-#         context_length=8192,
-#         vendor_name="meta-llama",
-#         supports_json_content=False,
-#     ),
-#     TogetherModel(
-#         name="Meta-Llama-3-8B-Instruct-Lite",
-#         cost=Cost(prompt=0.1e-6, completion=0.1e-6),
-#         context_length=8192,
-#         vendor_name="meta-llama",
-#         supports_json_content=False,
-#     ),
-#     TogetherModel(
-#         name="Meta-Llama-3-70B-Instruct-Lite",
-#         cost=Cost(prompt=0.54e-6, completion=0.54e-6),
-#         context_length=8192,
-#         vendor_name="meta-llama",
-#         supports_json_content=False,
-#     ),
+MODELS = [
+    TogetherModel(
+        name="Meta-Llama-3.1-8B-Instruct-Turbo",
+        cost=Cost(prompt=0.18e-6, completion=0.18e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+        supports_json_content=False,
+    ),
+    TogetherModel(
+        name="Meta-Llama-3.1-70B-Instruct-Turbo",
+        cost=Cost(prompt=0.88e-6, completion=0.88e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+        supports_json_content=False,
+    ),
+    TogetherModel(
+        name="Meta-Llama-3.1-405B-Instruct-Turbo",
+        cost=Cost(prompt=5.0e-6, completion=5.0e-6),
+        context_length=4096,
+        vendor_name="meta-llama",
+        supports_json_content=False,
+    ),
+    TogetherModel(
+        name="Meta-Llama-3-8B-Instruct-Turbo",
+        cost=Cost(prompt=0.18e-6, completion=0.18e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+        supports_json_content=False,
+    ),
+    TogetherModel(
+        name="Meta-Llama-3-70B-Instruct-Turbo",
+        cost=Cost(prompt=0.88e-6, completion=0.88e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+        supports_json_content=False,
+    ),
+    TogetherModel(
+        name="Meta-Llama-3-8B-Instruct-Lite",
+        cost=Cost(prompt=0.1e-6, completion=0.1e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+        supports_json_content=False,
+    ),
+    TogetherModel(
+        name="Meta-Llama-3-70B-Instruct-Lite",
+        cost=Cost(prompt=0.54e-6, completion=0.54e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+        supports_json_content=False,
+    ),
 #     TogetherModel(
 #         name="Yi-34B-Chat",
 #         cost=Cost(prompt=0.8e-6, completion=0.8e-6),
@@ -121,18 +118,18 @@ MODELS: Optional[List[TogetherModel]] = []
 #         context_length=4096,
 #         vendor_name="garage-bAInd",
 #     ),
-#     TogetherModel(
-#         name="gemma-2b-it",
-#         cost=Cost(prompt=0.1e-6, completion=0.1e-6),
-#         context_length=8192,
-#         vendor_name="google",
-#     ),
-#     TogetherModel(
-#         name="gemma-2b",
-#         cost=Cost(prompt=0.1e-6, completion=0.1e-6),
-#         context_length=8192,
-#         vendor_name="google",
-#     ),
+    # TogetherModel(
+    #     name="gemma-2b-it",
+    #     cost=Cost(prompt=0.1e-6, completion=0.1e-6),
+    #     context_length=8192,
+    #     vendor_name="google",
+    # ),
+    # TogetherModel(
+    #     name="gemma-2b",
+    #     cost=Cost(prompt=0.1e-6, completion=0.1e-6),
+    #     context_length=8192,
+    #     vendor_name="google",
+    # ),
 #     TogetherModel(
 #         name="MythoMax-L2-13b",
 #         cost=Cost(prompt=0.3e-6, completion=0.3e-6),
@@ -145,89 +142,89 @@ MODELS: Optional[List[TogetherModel]] = []
 #         context_length=4096,
 #         vendor_name="lmsys",
 #     ),
-#     TogetherModel(
-#         name="CodeLlama-7b-Instruct-hf",
-#         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-#         context_length=16384,
-#         vendor_name="codellama",
-#     ),
-#     TogetherModel(
-#         name="CodeLlama-13b-Instruct-hf",
-#         cost=Cost(prompt=0.22e-6, completion=0.22e-6),
-#         context_length=16384,
-#         vendor_name="codellama",
-#     ),
-#     TogetherModel(
-#         name="CodeLlama-34b-Instruct-hf",
-#         cost=Cost(prompt=0.78e-6, completion=0.78e-6),
-#         context_length=16384,
-#         vendor_name="codellama",
-#     ),
-#     # TogetherModel(
-#     #     name="CodeLlama-70b-Instruct-hf",
-#     #     cost=Cost(prompt=0.9e-6, completion=0.9e-6),
-#     #     context_length=4096,
-#     #     vendor_name="codellama",
-#     # ),
-#     TogetherModel(
-#         name="Llama-2-7b-chat-hf",
-#         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-#         context_length=4096,
-#         vendor_name="meta-llama",
-#     ),
-#     TogetherModel(
-#         name="Llama-2-13b-chat-hf",
-#         cost=Cost(prompt=0.22e-6, completion=0.22e-6),
-#         context_length=4096,
-#         vendor_name="meta-llama",
-#     ),
-#     TogetherModel(
-#         name="Llama-2-70b-chat-hf",
-#         cost=Cost(prompt=0.9e-6, completion=0.9e-6),
-#         context_length=4096,
-#         vendor_name="meta-llama",
-#     ),
-#     TogetherModel(
-#         name="Llama-3-8b-chat-hf",
-#         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-#         context_length=8192,
-#         vendor_name="meta-llama",
-#         supports_json_content=False,
-#     ),
-#     TogetherModel(
-#         name="Llama-3-70b-chat-hf",
-#         cost=Cost(prompt=0.9e-6, completion=0.9e-6),
-#         context_length=8000,
-#         vendor_name="meta-llama",
-#         supports_json_content=False,
-#     ),
+    # TogetherModel(
+    #     name="CodeLlama-7b-Instruct-hf",
+    #     cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+    #     context_length=16384,
+    #     vendor_name="codellama",
+    # ),
+    # TogetherModel(
+    #     name="CodeLlama-13b-Instruct-hf",
+    #     cost=Cost(prompt=0.22e-6, completion=0.22e-6),
+    #     context_length=16384,
+    #     vendor_name="codellama",
+    # ),
+    # TogetherModel(
+    #     name="CodeLlama-34b-Instruct-hf",
+    #     cost=Cost(prompt=0.78e-6, completion=0.78e-6),
+    #     context_length=16384,
+    #     vendor_name="codellama",
+    # ),
+    # TogetherModel(
+    #     name="CodeLlama-70b-Instruct-hf",
+    #     cost=Cost(prompt=0.9e-6, completion=0.9e-6),
+    #     context_length=4096,
+    #     vendor_name="codellama",
+    # ),
+    # TogetherModel(
+    #     name="Llama-2-7b-chat-hf",
+    #     cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+    #     context_length=4096,
+    #     vendor_name="meta-llama",
+    # ),
+    TogetherModel(
+        name="Llama-2-13b-chat-hf",
+        cost=Cost(prompt=0.22e-6, completion=0.22e-6),
+        context_length=4096,
+        vendor_name="meta-llama",
+    ),
+    # TogetherModel(
+    #     name="Llama-2-70b-chat-hf",
+    #     cost=Cost(prompt=0.9e-6, completion=0.9e-6),
+    #     context_length=4096,
+    #     vendor_name="meta-llama",
+    # ),
+    TogetherModel(
+        name="Llama-3-8b-chat-hf",
+        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+        supports_json_content=False,
+    ),
+    TogetherModel(
+        name="Llama-3-70b-chat-hf",
+        cost=Cost(prompt=0.9e-6, completion=0.9e-6),
+        context_length=8000,
+        vendor_name="meta-llama",
+        supports_json_content=False,
+    ),
 #     TogetherModel(
 #         name="Mistral-7B-Instruct-v0.1",
 #         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
 #         context_length=4096,
 #         vendor_name="mistralai",
-#     ),
-#     # TogetherModel(
-#     #     name="Mixtral-8x7B-Instruct-v0.1",
-#     #     cost=Cost(prompt=0.6e-6, completion=0.6e-6),
-#     #     context_length=32768,
-#     #     vendor_name="mistralai",
-#     #     supports_json_output=True,
-#     # ),
-#     TogetherModel(
-#         name="Mixtral-8x22B-Instruct-v0.1",
-#         cost=Cost(prompt=1.2e-6, completion=1.2e-6),
-#         context_length=65536,
-#         vendor_name="mistralai",
-#     ),
-#     # TogetherModel(
-#     #     name="Mistral-7B-Instruct-v0.2",
-#     #     cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-#     #     context_length=32768,
-#     #     vendor_name="mistralai",
-#     #     supports_multiple_system=False,
-#     #     supports_repeating_roles=False,
-#     # ),
+    # ),
+    # TogetherModel(
+    #     name="Mixtral-8x7B-Instruct-v0.1",
+    #     cost=Cost(prompt=0.6e-6, completion=0.6e-6),
+    #     context_length=32768,
+    #     vendor_name="mistralai",
+    #     supports_json_output=True,
+    # ),
+    # TogetherModel(
+    #     name="Mixtral-8x22B-Instruct-v0.1",
+    #     cost=Cost(prompt=1.2e-6, completion=1.2e-6),
+    #     context_length=65536,
+    #     vendor_name="mistralai",
+    # ),
+    # TogetherModel(
+    #     name="Mistral-7B-Instruct-v0.2",
+    #     cost=Cost(prompt=0.2e-6, completion=0.2e-6),
+    #     context_length=32768,
+    #     vendor_name="mistralai",
+    #     supports_multiple_system=False,
+    #     supports_repeating_roles=False,
+    # ),
 #     TogetherModel(
 #         name="Nous-Capybara-7B-V1p9",
 #         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
@@ -393,7 +390,7 @@ MODELS: Optional[List[TogetherModel]] = []
 #     #     context_length=4096,
 #     #     vendor_name="upstage",
 #     # ),
-# ]
+]
 
 
 class TogetherSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
