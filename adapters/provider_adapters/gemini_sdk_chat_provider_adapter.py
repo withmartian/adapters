@@ -27,8 +27,6 @@ API_KEY_NAME = "GEMINI_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
 
 
-# TODO: update package
-# TODO: fix pricing for longer context lengths
 class GeminiModel(Model):
     _test_async: bool = False
 
