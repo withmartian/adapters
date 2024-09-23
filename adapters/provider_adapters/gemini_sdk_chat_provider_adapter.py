@@ -20,6 +20,7 @@ from adapters.types import (
     OpenAIChatAdapterResponse,
     Turn,
 )
+from adapters.utils.general_utils import get_dynamic_cost
 
 PROVIDER_NAME = "gemini"
 API_KEY_NAME = "GEMINI_API_KEY"
@@ -144,9 +145,10 @@ class GeminiSDKChatProviderAdapter(
         ).total_tokens
         completion_tokens = self.model.count_tokens(response.text).total_tokens
 
+        dynamic_cost = get_dynamic_cost(self.get_model_name(), prompt_tokens)
         cost = (
-            self.get_model().cost.prompt * prompt_tokens
-            + self.get_model().cost.completion * completion_tokens
+            dynamic_cost.prompt * prompt_tokens
+            + dynamic_cost.completion * completion_tokens
             + self.get_model().cost.request
         )
 
@@ -184,9 +186,10 @@ class GeminiSDKChatProviderAdapter(
         )
         completion_tokens = await model.count_tokens_async(response.text)
 
+        dynamic_cost = get_dynamic_cost(self.get_model_name(), prompt_tokens)
         cost = (
-            self.get_model().cost.prompt * prompt_tokens.total_tokens
-            + self.get_model().cost.completion * completion_tokens.total_tokens
+            dynamic_cost.prompt * prompt_tokens
+            + dynamic_cost.completion * completion_tokens
             + self.get_model().cost.request
         )
 

@@ -4,7 +4,7 @@ from typing import Optional
 
 import httpx
 
-from adapters.types import RequestBody
+from adapters.types import Cost, RequestBody
 
 EMPTY_CONTENT = '""'
 
@@ -66,3 +66,20 @@ def process_image_url(image_url: str):
                 "data": image_data,
             },
         }
+
+
+def get_dynamic_cost(model_name: str, token_count: int) -> Cost:
+    if model_name == "gemini-1.0-pro":
+        return Cost(prompt=0.5e-6, completion=1.5e-6)
+    elif model_name == "gemini-1.5-pro":
+        if token_count <= 128000:
+            return Cost(prompt=3.5e-6, completion=10.5e-6)
+        else:
+            return Cost(prompt=7.0e-6, completion=21.0e-6)
+    elif model_name == "gemini-1.5-flash":
+        if token_count <= 128000:
+            return Cost(prompt=0.075e-6, completion=0.30e-6)
+        else:
+            return Cost(prompt=0.15e-6, completion=0.60e-6)
+    else:
+        raise ValueError(f"Unknown model: {model_name}")
