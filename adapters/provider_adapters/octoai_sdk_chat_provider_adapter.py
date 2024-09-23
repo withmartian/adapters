@@ -1,9 +1,9 @@
 import re
-from typing import List, Optional, Pattern
+from typing import Pattern
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Model
+from adapters.types import Cost, Model
 
 PROVIDER_NAME = "octoai"
 BASE_URL = "https://text.octoai.run/v1"
@@ -24,8 +24,32 @@ class OctoaiModel(Model):
     supports_first_assistant: bool = True
 
 
-# TODO: add more models
-MODELS: Optional[List[OctoaiModel]] = []
+MODELS = [
+    OctoaiModel(
+        name="hermes-2-pro-llama-3-8b",
+        cost=Cost(prompt=0.15e-6, completion=0.15e-6),
+        context_length=8192,
+        vendor_name="hermes-llama",
+    ),
+    OctoaiModel(
+        name="meta-llama-3-70b-instruct",
+        cost=Cost(prompt=0.9e-6, completion=0.9e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+    ),
+    OctoaiModel(
+        name="nous-hermes-2-mixtral-8x7b-dpo",
+        cost=Cost(prompt=0.45e-6, completion=0.45e-6),
+        context_length=8192,
+        vendor_name="nous-hermes",
+    ),
+    OctoaiModel(
+        name="mixtral-8x7b-instruct",
+        cost=Cost(prompt=0.45e-6, completion=0.45e-6),
+        context_length=32768,
+        vendor_name="mixtral",
+    ),
+]
 
 
 class OctoaiSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):

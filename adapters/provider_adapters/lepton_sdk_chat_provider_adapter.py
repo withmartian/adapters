@@ -53,6 +53,34 @@ MODELS = [
         context_length=32768,
         vendor_name="mistralai",
     ),
+    LeptonModel(
+        base_url=BASE_URL.format("qwen2-72b"),
+        name="qwen2-72b",
+        cost=Cost(prompt=0.8e-6, completion=0.8e-6),
+        context_length=128000,
+        vendor_name="qwen",
+    ),
+    LeptonModel(
+        base_url=BASE_URL.format("wizardlm-2-7b"),
+        name="wizardlm-2-7b",
+        cost=Cost(prompt=0.07e-6, completion=0.07e-6),
+        context_length=32000,
+        vendor_name="wizardlm",
+    ),
+    LeptonModel(
+        base_url=BASE_URL.format("wizardlm-2-8x22b"),
+        name="wizardlm-2-8x22b",
+        cost=Cost(prompt=1.0e-6, completion=1.0e-6),
+        context_length=64000,
+        vendor_name="wizardlm",
+    ),
+    LeptonModel(
+        base_url=BASE_URL.format("dolphin-mixtral-8x7b"),
+        name="dolphin-mixtral-8x7b",
+        cost=Cost(prompt=0.5e-6, completion=0.5e-6),
+        context_length=32000,
+        vendor_name="mistralai",
+    ),
 ]
 
 
