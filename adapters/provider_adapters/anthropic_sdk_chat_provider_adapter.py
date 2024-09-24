@@ -8,6 +8,7 @@ from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
+    CompletionTokensDetails,
     Conversation,
     ConversationRole,
     Cost,
@@ -15,6 +16,7 @@ from adapters.types import (
     ModelPredicates,
     OpenAIChatAdapterResponse,
     Turn,
+    Usage,
 )
 from adapters.utils.general_utils import process_image_url
 
@@ -177,6 +179,9 @@ class AnthropicSDKChatProviderAdapter(
             token_counts=Cost(
                 prompt=prompt_tokens,
                 completion=completion_tokens,
+            ),
+            usage=Usage(
+                completion_tokens_details=CompletionTokensDetails(reasoning_tokens=0)
             ),
         )
 
