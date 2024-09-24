@@ -52,17 +52,12 @@ repos:
       - id: check-added-large-files
         stages: [commit, manual]
         args: ["--maxkb=3000"]
-  - repo: https://github.com/ambv/black
-    rev: 24.4.2
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.4
     hooks:
-      - id: black
-        language_version: python3.
-  - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
-    hooks:
-      - id: isort
-        name: isort (python)
-        args: ["--profile", "black"]
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+      - id: ruff-format
   - repo: https://github.com/PyCQA/pylint
     rev: v3.2.5
     hooks:

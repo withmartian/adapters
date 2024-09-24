@@ -139,6 +139,7 @@ jobs:
       - run:
           name: Run doc update
           command: |
+            poetry install
             poetry run pip install pandas
             poetry run python scripts/update_supported_models_gateway_docs.py ~/gitbook-docs/martian-model-router/model-gateway/supported-models-gateway.md
       - run:

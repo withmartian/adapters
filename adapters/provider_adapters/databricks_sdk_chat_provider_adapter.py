@@ -3,7 +3,7 @@ from typing import Any, Dict, Pattern
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Conversation, ConversationRole, Cost, Model
+from adapters.types import Conversation, ConversationRole, Cost, Model, ModelPredicates
 
 PROVIDER_NAME = "databricks"
 DATABRICKS_BASE_URL = (
@@ -11,13 +11,14 @@ DATABRICKS_BASE_URL = (
 )
 API_KEY_NAME = "DATABRICKS_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
-
+BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
 
 DBU_USD_RATE = 0.07
 
 
 class DatabricksModel(Model):
     provider_name: str = PROVIDER_NAME
+    predicates: ModelPredicates = BASE_PREDICATES
 
     supports_repeating_roles: bool = True
     supports_system: bool = True

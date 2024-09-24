@@ -1,12 +1,12 @@
 import re
 from typing import Any, Dict, Pattern
 
-import google.generativeai as genai
 from google.ai.generativelanguage import (
     GenerativeServiceAsyncClient,
     GenerativeServiceClient,
 )
 from google.api_core.client_options import ClientOptions
+import google.generativeai as genai
 
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
@@ -17,6 +17,7 @@ from adapters.types import (
     ConversationRole,
     Cost,
     Model,
+    ModelPredicates,
     OpenAIChatAdapterResponse,
     Turn,
 )
@@ -25,6 +26,7 @@ from adapters.utils.general_utils import get_dynamic_cost
 PROVIDER_NAME = "gemini"
 API_KEY_NAME = "GEMINI_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
+BASE_PREDICATES = ModelPredicates(gdpr_compliant=True)
 
 
 class GeminiModel(Model):
@@ -32,6 +34,7 @@ class GeminiModel(Model):
 
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
+    predicates: ModelPredicates = BASE_PREDICATES
 
     supports_repeating_roles: bool = True
     supports_system: bool = True
