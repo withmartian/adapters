@@ -115,6 +115,16 @@ class Cost(BaseModel):
     request: float = 0.0
 
 
+class CompletionTokensDetails(BaseModel):
+    reasoning_tokens: int = 0
+
+
+class Usage(BaseModel):
+    completion_tokens_details: CompletionTokensDetails = Field(
+        default_factory=CompletionTokensDetails
+    )
+
+
 class ModelPredicates(BaseModel):
     open_source: bool = False
     chinese: bool = False
@@ -266,6 +276,7 @@ class OpenAIChatAdapterResponse(
 ):
     finish_reason: Optional[str] = None
     choices: Optional[List[Dict[str, Any]]] | Optional[List[Choice]] = None
+    usage: Optional[Usage] = None
 
 
 class AdapterException(Exception):
