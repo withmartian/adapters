@@ -1,7 +1,6 @@
 interactions:
 - request:
-    body: '{"message": "Hi", "stream": false, "model": "command-r", "chat_history":
-      []}'
+    body: '{"message": "Hi", "model": "command-r", "chat_history": [], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -22,35 +21,37 @@ interactions:
       x-fern-sdk-name:
       - cohere
       x-fern-sdk-version:
-      - 5.4.0
+      - 5.6.1
     method: POST
     uri: https://api.cohere.ai/v1/chat
   response:
     body:
-      string: "{\"response_id\":\"acb2bd91-8460-464f-a1b1-c2ce52a95978\",\"text\":\"Hi!
-        How's it going? I hope you're having a fantastic day today! \U0001F60A\",\"generation_id\":\"87ec787d-6591-41a4-9c3d-c2ee5377920e\",\"chat_history\":[{\"role\":\"USER\",\"message\":\"Hi\"},{\"role\":\"CHATBOT\",\"message\":\"Hi!
-        How's it going? I hope you're having a fantastic day today! \U0001F60A\"}],\"finish_reason\":\"COMPLETE\",\"meta\":{\"api_version\":{\"version\":\"1\"},\"billed_units\":{\"input_tokens\":1,\"output_tokens\":19},\"tokens\":{\"input_tokens\":67,\"output_tokens\":19}}}"
+      string: '{"response_id":"332fcb0a-2d27-4a94-a6e4-0bdb202bedd3","text":"Hi! How''s
+        it going? I hope you''re having a fantastic day! Is there anything I can help
+        you with?","generation_id":"f8bed183-9ff0-4bc6-9267-fd094fe20f1b","chat_history":[{"role":"USER","message":"Hi"},{"role":"CHATBOT","message":"Hi!
+        How''s it going? I hope you''re having a fantastic day! Is there anything
+        I can help you with?"}],"finish_reason":"COMPLETE","meta":{"api_version":{"version":"1"},"billed_units":{"input_tokens":1,"output_tokens":25},"tokens":{"input_tokens":67,"output_tokens":25}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Content-Length:
+      - '558'
       Via:
       - 1.1 google
       access-control-expose-headers:
       - X-Debug-Trace-ID
       cache-control:
       - no-cache, no-store, no-transform, must-revalidate, private, max-age=0
-      content-length:
-      - '502'
       content-type:
       - application/json
       date:
-      - Wed, 29 May 2024 18:11:20 GMT
+      - Thu, 19 Sep 2024 00:09:20 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
       num_chars:
-      - '418'
+      - '423'
       num_tokens:
-      - '20'
+      - '26'
       pragma:
       - no-cache
       server:
@@ -60,9 +61,9 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - a3737d2c7df5ab4953c6a44739c19aa0
+      - 7d91f9a4bb0da766a609cdaca479bf85
       x-envoy-upstream-service-time:
-      - '250'
+      - '254'
     status:
       code: 200
       message: OK

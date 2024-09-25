@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
       "Hi"}, {"role": "assistant", "content": "Hi"}, {"role": "user", "content": ""}],
-      "model": "databricks-dbrx-instruct", "max_tokens": null}'
+      "model": "databricks-dbrx-instruct", "max_tokens": 4000}'
     headers:
       accept:
       - application/json
@@ -17,36 +17,35 @@ interactions:
       host:
       - adb-8736858266948228.8.azuredatabricks.net
       user-agent:
-      - OpenAI/Python 1.34.0
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
-      - 1.34.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_8df7714e-685e-48b9-a9c2-36a96d303275","object":"chat.completion","created":1720315322,"model":"dbrx-instruct-032724","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        It seems like we''re both using single-word responses. Is there something
-        specific you''d like to discuss or any questions you have in mind? I''m here
-        to help!"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":26,"completion_tokens":36,"total_tokens":62}}'
+      string: '{"id":"chatcmpl_899ada08-71c0-4f71-ba92-8867544a23aa","object":"chat.completion","created":1726705903,"model":"dbrx-instruct-071224","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today? If you have any questions or need help with something,
+        feel free to ask. I''m here to provide information and support. "},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":26,"completion_tokens":35,"total_tokens":61}}'
     headers:
       content-length:
-      - '473'
+      - '463'
       content-type:
       - application/json
       date:
-      - Sun, 07 Jul 2024 01:22:02 GMT
+      - Thu, 19 Sep 2024 00:31:43 GMT
       server:
       - databricks
       strict-transport-security:
@@ -68,9 +67,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.64.120
+      - 208.184.59.122,10.154.64.120
       x-rate-limit-request-remote-addr:
-      - 10.154.64.182:33364
+      - 10.154.64.7:43086
+      x-request-id:
+      - 1a3c5392-d4a7-4bfa-acc3-d64734131247
       x-xss-protection:
       - 1; mode=block
     status:

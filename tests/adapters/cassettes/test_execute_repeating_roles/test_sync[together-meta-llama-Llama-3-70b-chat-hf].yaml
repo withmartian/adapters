@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model": "meta-llama/Llama-3-70b-chat-hf"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "meta-llama/Llama-3-70b-chat-hf"}'
     headers:
       accept:
       - application/json
@@ -10,13 +10,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '175'
+      - '167'
       content-type:
       - application/json
       host:
       - api.together.xyz
       user-agent:
-      - OpenAI/Python 1.30.4
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,61 +35,73 @@ interactions:
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: '{"id":"88b8eeb90d4867fb-SJC","object":"chat.completion","created":1717011378,"model":"meta-llama/Llama-3-70b-chat-hf","prompt":[],"choices":[{"finish_reason":"stop","logprobs":null,"index":0,"message":{"role":"assistant","content":"It
-        seems like we''re having a \"hi\" conversation! Hi back to you!"}}],"usage":{"prompt_tokens":27,"completion_tokens":18,"total_tokens":45}}'
+      string: "{\n  \"id\": \"8c61d3b4d9470d66-MXP\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1726835428,\n  \"model\": \"meta-llama/Llama-3-70b-chat-hf\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"stop\",\n
+        \     \"seed\": 15340714427683174000,\n      \"logprobs\": null,\n      \"index\":
+        0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
+        \"Hi again! How's it going?\",\n        \"tool_calls\": []\n      }\n    }\n
+        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 23,\n    \"completion_tokens\":
+        9,\n    \"total_tokens\": 32\n  }\n}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b8eeb90d4867fb-SJC
+      - 8c61d3b4d9470d66-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 29 May 2024 19:36:18 GMT
+      - Fri, 20 Sep 2024 12:30:29 GMT
       Server:
       - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      access-control-allow-origin:
-      - '*'
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '372'
+      - '515'
       etag:
-      - W/"1379k0ilaflac"
-      vary:
-      - Accept-Encoding
+      - W/"203-8iTalffGV3oIlMPbnnHCFcl3EMs"
       x-api-call-end:
-      - '2024-05-29T19:36:18.784Z'
+      - '2024-09-20T12:30:28.945Z'
       x-api-call-start:
-      - '2024-05-29T19:36:18.113Z'
+      - '2024-09-20T12:30:28.721Z'
       x-api-received:
-      - '2024-05-29T19:36:18.107Z'
+      - '2024-09-20T12:30:28.715Z'
       x-compute-characters:
-      - '237'
+      - '231'
       x-compute-time:
-      - '602'
+      - '149'
       x-hostname:
-      - meta-llama-llama-3-70b-chat-hf-6cc58f7b84-kldvk
+      - meta-llama-llama-3-70b-chat-hf-5c86f6585f-9b6s5
       x-inference-time:
-      - '596'
+      - '149'
       x-inference-version:
       - v2
+      x-powered-by:
+      - Express
       x-queue-time:
-      - '5'
+      - '0'
+      x-ratelimit:
+      - 'false'
       x-ratelimit-limit:
-      - '200'
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
       x-ratelimit-remaining:
       - '197'
+      x-ratelimit-remaining-tokens:
+      - '100000'
       x-ratelimit-reset:
       - '1'
       x-time-per-token:
-      - '33'
+      - '16'
       x-total-time:
-      - '602'
+      - '149'
       x-validation-time:
       - '0'
     status:

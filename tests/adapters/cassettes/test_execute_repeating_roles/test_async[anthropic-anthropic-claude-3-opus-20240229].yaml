@@ -1,8 +1,9 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Hi"}, {"role":
-      "assistant", "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model":
-      "claude-3-opus-20240229", "system": ""}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Hi"}]}, {"role": "assistant", "content": "Hi"}, {"role": "user",
+      "content": [{"type": "text", "text": "Hi"}]}], "model": "claude-3-opus-20240229",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,13 +14,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '201'
+      - '262'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.26.1
+      - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -29,40 +30,48 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.26.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_015vA4ZnvuLfKdbzBpyAJox1","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"Hi
-        there! How are you doing today? Is there anything I can assist you with?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":20,"output_tokens":21}}'
+      string: '{"id":"msg_01GXdwXzfQKNnG8tawYeVWhP","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"Hello!
+        How can I assist you today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":12}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b8f91eaede6432-SJC
+      - 8c55902c3b4bf967-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 19:43:25 GMT
+      - Thu, 19 Sep 2024 00:47:14 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '5000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '5000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-09-19T00:47:14Z'
       content-length:
-      - '312'
+      - '271'
       request-id:
-      - req_01WGv43q9RXE3MaFcpQtQD9o
+      - req_01GdJ8penQxh4p3TK8zrxjMP
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 0ab5404705f4b565b3c6cd732fb9fa49
+      - 7a6521d6d2fd942c4bb3e5d198ba1661
     status:
       code: 200
       message: OK

@@ -1,8 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model": "databricks-dbrx-instruct",
-      "max_tokens": null}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "databricks-dbrx-instruct",
+      "max_tokens": 4000}'
     headers:
       accept:
       - application/json
@@ -11,40 +11,40 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '189'
+      - '181'
       content-type:
       - application/json
       host:
       - adb-8736858266948228.8.azuredatabricks.net
       user-agent:
-      - AsyncOpenAI/Python 1.34.0
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
-      - 1.34.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_ae36efbf-d6b3-4815-82a4-bff61543849b","object":"chat.completion","created":1720313220,"model":"dbrx-instruct-032724","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today?"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":241,"completion_tokens":9,"total_tokens":250}}'
+      string: '{"id":"chatcmpl_4eff96e5-e41f-49df-a2b6-b2e9fce255e1","object":"chat.completion","created":1726706845,"model":"dbrx-instruct-071224","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today?\n```python\n\n```"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":237,"completion_tokens":13,"total_tokens":250}}'
     headers:
       content-length:
-      - '345'
+      - '364'
       content-type:
       - application/json
       date:
-      - Sun, 07 Jul 2024 00:47:00 GMT
+      - Thu, 19 Sep 2024 00:47:25 GMT
       server:
       - databricks
       strict-transport-security:
@@ -66,9 +66,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.65.185
+      - 208.184.59.122,10.154.64.25
       x-rate-limit-request-remote-addr:
-      - 10.154.64.182:37826
+      - 10.154.64.7:50610
+      x-request-id:
+      - 4680ff33-792b-49d8-818f-a58d4bf700af
       x-xss-protection:
       - 1; mode=block
     status:

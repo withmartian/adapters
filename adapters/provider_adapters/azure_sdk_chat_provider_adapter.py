@@ -16,39 +16,37 @@ BASE_PREDICATES = ModelPredicates(gdpr_compliant=True)
 
 
 class AzureModel(Model):
+    vendor_name: str = VENDOR_NAME
+    provider_name: str = PROVIDER_NAME
+
+    supports_repeating_roles: bool = True
+    supports_system: bool = True
+    supports_multiple_system: bool = True
+    supports_empty_content: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
     supports_streaming: bool = True
     supports_functions: bool = True
     supports_tools: bool = True
     supports_n: bool = True
     supports_json_output: bool = True
     supports_json_content: bool = True
-    vendor_name: str = VENDOR_NAME
-    supports_tool_choice_required: bool = False
-    provider_name: str = PROVIDER_NAME
+
     predicates: ModelPredicates = BASE_PREDICATES
 
 
 MODELS = [
     AzureModel(
-        name="gpt-35-turbo-16k",
-        cost=Cost(prompt=1.0e-6, completion=2.0e-6),
-        context_length=16385,
-        completion_length=16385,
-        supports_json_output=False,
-    ),
-    AzureModel(
-        name="gpt-35-turbo",
-        cost=Cost(prompt=0.5e-6, completion=1.5e-6),
-        context_length=16385,
-        completion_length=16385,
-        supports_json_output=False,
-    ),
-    AzureModel(
         name="gpt-4o",
         cost=Cost(prompt=5.0e-6, completion=15.0e-6),
         context_length=128000,
         completion_length=4096,
-        supports_vision=True,
+    ),
+    AzureModel(
+        name="gpt-4o-mini",
+        cost=Cost(prompt=0.15e-6, completion=0.6e-6),
+        context_length=128000,
+        completion_length=16385,
     ),
 ]
 

@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}], "model": "meta-llama/Llama-2-13b-chat-hf"}'
+      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "meta-llama/Llama-2-13b-chat-hf"}'
     headers:
       accept:
       - application/json
@@ -10,13 +10,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '133'
+      - '170'
       content-type:
       - application/json
       host:
       - api.together.xyz
       user-agent:
-      - AsyncOpenAI/Python 1.30.4
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,62 +35,72 @@ interactions:
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: '{"id":"88b8904e2b062710-SJC","object":"chat.completion","created":1717007511,"model":"meta-llama/Llama-2-13b-chat-hf","prompt":[],"choices":[{"finish_reason":"eos","logprobs":null,"index":0,"message":{"role":"assistant","content":"
-        there! It''s nice to meet you. Is there something I can help you with or would
-        you like to chat?"}}],"usage":{"prompt_tokens":12,"completion_tokens":26,"total_tokens":38}}'
+      string: "{\n  \"id\": \"8c61d0bd6eac4c45-MXP\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1726835307,\n  \"model\": \"meta-llama/Llama-2-13b-chat-hf\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
+        \     \"seed\": 15754454839331500000,\n      \"logprobs\": null,\n      \"index\":
+        0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
+        \"  Hello! How can I assist you today? Is there a specific question or topic
+        you'd like to discuss?\",\n        \"tool_calls\": []\n      }\n    }\n  ],\n
+        \ \"usage\": {\n    \"prompt_tokens\": 22,\n    \"completion_tokens\": 25,\n
+        \   \"total_tokens\": 47\n  }\n}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b8904e2b062710-SJC
+      - 8c61d0bd6eac4c45-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 29 May 2024 18:31:51 GMT
+      - Fri, 20 Sep 2024 12:28:27 GMT
       Server:
       - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      access-control-allow-origin:
-      - '*'
-      alt-svc:
-      - h3=":443"; ma=86400
       content-length:
-      - '402'
+      - '587'
       etag:
-      - W/"nktgxa7w9ab6"
-      vary:
-      - Accept-Encoding
+      - W/"24b-c6Y05iPYntTezlRlQq77WANSlqI"
       x-api-call-end:
-      - '2024-05-29T18:31:51.420Z'
+      - '2024-09-20T12:28:27.696Z'
       x-api-call-start:
-      - '2024-05-29T18:31:50.783Z'
+      - '2024-09-20T12:28:27.209Z'
       x-api-received:
-      - '2024-05-29T18:31:50.774Z'
+      - '2024-09-20T12:28:27.202Z'
       x-compute-characters:
-      - '23'
+      - '49'
       x-compute-time:
-      - '608'
+      - '367'
       x-hostname:
-      - meta-llama-llama-2-13b-chat-hf-899f49f87-qbtxz
+      - meta-llama-llama-2-13b-chat-hf-899f49f87-7vl7d
       x-inference-time:
-      - '584'
+      - '367'
       x-inference-version:
       - v2
+      x-powered-by:
+      - Express
       x-queue-time:
-      - '24'
+      - '0'
+      x-ratelimit:
+      - 'false'
       x-ratelimit-limit:
-      - '200'
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
       x-ratelimit-remaining:
       - '199'
+      x-ratelimit-remaining-tokens:
+      - '100000'
       x-ratelimit-reset:
       - '2'
       x-time-per-token:
-      - '22'
+      - '14'
       x-total-time:
-      - '608'
+      - '367'
       x-validation-time:
       - '0'
     status:

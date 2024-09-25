@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"message": "Hi\nHi", "stream": false, "model": "command-r", "chat_history":
-      [{"role": "USER", "message": "Hi"}, {"role": "CHATBOT", "message": "Hi\nHi"}]}'
+    body: '{"message": "Hi", "model": "command-r", "chat_history": [{"role": "USER",
+      "message": "Hi"}, {"role": "CHATBOT", "message": "Hi"}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '155'
+      - '147'
       content-type:
       - application/json
       host:
@@ -22,37 +22,35 @@ interactions:
       x-fern-sdk-name:
       - cohere
       x-fern-sdk-version:
-      - 5.4.0
+      - 5.6.1
     method: POST
     uri: https://api.cohere.ai/v1/chat
   response:
     body:
-      string: '{"response_id":"e0486355-3347-4be0-ae23-97ea215fe9a7","text":"It''s
-        great to have you here! How''s your day been so far? I hope you''re doing
-        well!","generation_id":"5ea00fd4-fdb1-4857-8ee3-e107452b034a","chat_history":[{"role":"USER","message":"Hi"},{"role":"CHATBOT","message":"Hi\nHi"},{"role":"USER","message":"Hi\nHi"},{"role":"CHATBOT","message":"It''s
-        great to have you here! How''s your day been so far? I hope you''re doing
-        well!"}],"finish_reason":"COMPLETE","meta":{"api_version":{"version":"1"},"billed_units":{"input_tokens":7,"output_tokens":23},"tokens":{"input_tokens":79,"output_tokens":23}}}'
+      string: '{"response_id":"df60c88a-cca2-4815-94a2-76cc472f9055","text":"Hello!
+        How''s your day going so far?","generation_id":"9f4ef0e1-f7ac-491b-aa38-ee6ec598f5b3","chat_history":[{"role":"USER","message":"Hi"},{"role":"CHATBOT","message":"Hi"},{"role":"USER","message":"Hi"},{"role":"CHATBOT","message":"Hello!
+        How''s your day going so far?"}],"finish_reason":"COMPLETE","meta":{"api_version":{"version":"1"},"billed_units":{"input_tokens":3,"output_tokens":10},"tokens":{"input_tokens":75,"output_tokens":10}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Content-Length:
+      - '501'
       Via:
       - 1.1 google
       access-control-expose-headers:
       - X-Debug-Trace-ID
       cache-control:
       - no-cache, no-store, no-transform, must-revalidate, private, max-age=0
-      content-length:
-      - '603'
       content-type:
       - application/json
       date:
-      - Wed, 29 May 2024 19:43:58 GMT
+      - Thu, 19 Sep 2024 00:47:17 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
       num_chars:
-      - '547'
+      - '546'
       num_tokens:
-      - '30'
+      - '13'
       pragma:
       - no-cache
       server:
@@ -62,9 +60,9 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - 6e3cbe35c3217cc36057cefeb4757d28
+      - cee27c1dfe608ed023fda2559ab6cf4a
       x-envoy-upstream-service-time:
-      - '269'
+      - '137'
     status:
       code: 200
       message: OK

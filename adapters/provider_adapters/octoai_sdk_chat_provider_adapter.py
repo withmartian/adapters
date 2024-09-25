@@ -13,35 +13,43 @@ BASE_PREDICATES = ModelPredicates(open_source=True)
 
 
 class OctoaiModel(Model):
-    supports_streaming: bool = True
     provider_name: str = PROVIDER_NAME
     predicates: ModelPredicates = BASE_PREDICATES
+
+    supports_streaming: bool = True
+    supports_repeating_roles: bool = True
+    supports_system: bool = True
+    supports_multiple_system: bool = True
+    supports_empty_content: bool = True
+    supports_tool_choice_required: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
 
 
 MODELS = [
     OctoaiModel(
-        name="meta-llama-3-8b-instruct",
-        cost=Cost(prompt=0.1e-6, completion=0.25e-6),
+        name="hermes-2-pro-llama-3-8b",
+        cost=Cost(prompt=0.15e-6, completion=0.15e-6),
+        context_length=8192,
+        vendor_name="hermes-llama",
+    ),
+    OctoaiModel(
+        name="meta-llama-3-70b-instruct",
+        cost=Cost(prompt=0.9e-6, completion=0.9e-6),
         context_length=8192,
         vendor_name="meta-llama",
     ),
     OctoaiModel(
-        name="meta-llama-3.1-405b-instruct",
-        cost=Cost(prompt=3.0e-6, completion=9.0e-6),
-        context_length=128000,
-        vendor_name="meta-llama",
+        name="nous-hermes-2-mixtral-8x7b-dpo",
+        cost=Cost(prompt=0.45e-6, completion=0.45e-6),
+        context_length=8192,
+        vendor_name="nous-hermes",
     ),
     OctoaiModel(
-        name="meta-llama-3.1-70b-instruct",
-        cost=Cost(prompt=0.9e-6, completion=0.9e-6),
-        context_length=131072,
-        vendor_name="meta-llama",
-    ),
-    OctoaiModel(
-        name="meta-llama-3.1-8b-instruct",
-        cost=Cost(prompt=0.15e-6, completion=0.15e-6),
-        context_length=131072,
-        vendor_name="meta-llama",
+        name="mixtral-8x7b-instruct",
+        cost=Cost(prompt=0.45e-6, completion=0.45e-6),
+        context_length=32768,
+        vendor_name="mixtral",
     ),
 ]
 

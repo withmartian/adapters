@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model": "gpt-4o-2024-05-13"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "gpt-4o-2024-05-13"}'
     headers:
       accept:
       - application/json
@@ -10,13 +10,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '162'
+      - '154'
       content-type:
       - application/json
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.30.4
+      - AsyncOpenAI/Python 1.47.1
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,63 +26,68 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.30.4
+      - 1.47.1
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-9UJW93hjh6cDrlmXidNPuQA50quVz\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1717011893,\n  \"model\": \"gpt-4o-2024-05-13\",\n
+      string: "{\n  \"id\": \"chatcmpl-AAoZIZsuEfC0yGoFgF0vSkQfKs8Hx\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1727141028,\n  \"model\": \"gpt-4o-2024-05-13\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello! How can I help you today?\"\n
-        \     },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n
-        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 22,\n    \"completion_tokens\":
-        9,\n    \"total_tokens\": 31\n  },\n  \"system_fingerprint\": \"fp_43dfabdef1\"\n}\n"
+        \"assistant\",\n        \"content\": \"Hello! How can I assist you today?\",\n
+        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
+        \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 18,\n    \"completion_tokens\":
+        9,\n    \"total_tokens\": 27,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
+        0\n    }\n  },\n  \"system_fingerprint\": \"fp_e375328146\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b8fb4fdb1915ba-SJC
+      - 8c7ef8a2d986cf19-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 29 May 2024 19:44:54 GMT
+      - Tue, 24 Sep 2024 01:23:48 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Content-Type-Options:
+      - nosniff
+      access-control-expose-headers:
+      - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '491'
+      - '588'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '323'
+      - '172'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
-      - max-age=15724800; includeSubDomains
+      - max-age=15552000; includeSubDomains; preload
       x-ratelimit-limit-requests:
       - '10000'
       x-ratelimit-limit-tokens:
-      - '10000000'
+      - '30000000'
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '9999977'
+      - '29999979'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_03deb474f553537816ee2732061b6e87
+      - req_a1a1d7796b96606c1ad6d16f6609715c
     status:
       code: 200
       message: OK

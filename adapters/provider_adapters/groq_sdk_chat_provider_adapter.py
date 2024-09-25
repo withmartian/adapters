@@ -13,56 +13,75 @@ BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
 
 
 class GroqModel(Model):
-    supports_streaming: bool = True
     provider_name: str = PROVIDER_NAME
     predicates: ModelPredicates = BASE_PREDICATES
+
+    supports_streaming: bool = True
+    supports_repeating_roles: bool = True
+    supports_system: bool = True
+    supports_multiple_system: bool = True
+    supports_empty_content: bool = True
+    supports_tool_choice_required: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
 
 
 MODELS = [
     GroqModel(
-        name="mixtral-8x7b-32768",
-        cost=Cost(prompt=0.27e-6, completion=0.27e-6),
-        context_length=32768,
-        vendor_name="mistralai",
+        name="llama-3.1-70b-versatile",
+        cost=Cost(prompt=0.59e-6, completion=0.79e-6),
+        context_length=131072,
+        vendor_name="meta-llama",
     ),
-    # GroqModel(
-    #     name="llama3-70b-8192",
-    #     cost=Cost(prompt=0.59e-6, completion=0.79e-6),
-    #     context_length=8192,
-    #     vendor_name="meta-llama",
-    # ),
     GroqModel(
-        name="llama3-8b-8192",
-        cost=Cost(prompt=0.05e-6, completion=0.10e-6),
+        name="llama-3.1-8b-instant",
+        cost=Cost(prompt=0.05e-6, completion=0.08e-6),
+        context_length=131072,
+        vendor_name="meta-llama",
+    ),
+    GroqModel(
+        name="llama3-70b-8192",
+        cost=Cost(prompt=0.59e-6, completion=0.79e-6),
         context_length=8192,
         vendor_name="meta-llama",
         predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": False}),
     ),
     GroqModel(
+        name="llama3-8b-8192",
+        cost=Cost(prompt=0.05e-6, completion=0.08e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+    ),
+    GroqModel(
+        name="mixtral-8x7b-32768",
+        cost=Cost(prompt=0.24e-6, completion=0.24e-6),
+        context_length=32768,
+        vendor_name="mistralai",
+    ),
+    GroqModel(
         name="gemma-7b-it",
-        cost=Cost(prompt=0.1e-6, completion=0.1e-6),
+        cost=Cost(prompt=0.07e-6, completion=0.07e-6),
         context_length=8192,
         vendor_name="google",
     ),
-    # N/A
-    # GroqModel(
-    #     name="llama-3.1-405b-reasoning",
-    #     cost=Cost(),
-    #     context_length=131072,
-    #     provider_name="Meta"
-    # ),
-    #     GroqModel(
-    #     name="llama-3.1-70b-versatile",
-    #     cost=Cost(),
-    #     context_length=131072,
-    #     provider_name="Meta"
-    # ),
-    #     GroqModel(
-    #     name="llama-3.1-8b-instant",
-    #     cost=Cost(),
-    #     context_length=131072,
-    #     provider_name="Meta"
-    # )
+    GroqModel(
+        name="gemma2-9b-it",
+        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
+        context_length=8192,
+        vendor_name="google",
+    ),
+    GroqModel(
+        name="llama3-groq-8b-8192-tool-use-preview",
+        cost=Cost(prompt=0.19e-6, completion=0.19e-6),
+        context_length=8192,
+        vendor_name="groq",
+    ),
+    GroqModel(
+        name="llama-guard-3-8b",
+        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
+        context_length=8192,
+        vendor_name="meta-llama",
+    ),
 ]
 
 

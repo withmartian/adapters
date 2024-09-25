@@ -13,13 +13,20 @@ BASE_PREDICATES = ModelPredicates(chinese=True)
 
 
 class MoonshotModel(Model):
-    supports_streaming: bool = True
-    supports_empty_content: bool = False
     provider_name: str = PROVIDER_NAME
     predicates: ModelPredicates = BASE_PREDICATES
 
+    supports_streaming: bool = True
+    supports_repeating_roles: bool = True
+    supports_system: bool = True
+    supports_multiple_system: bool = True
+    supports_tool_choice_required: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
 
-# cost measured in CNY, converted to USD on Apr 27 2024
+
+# Cost measured in CNY, converted to USD on Apr 27 2024
+# TODO: add more models
 MODELS = [
     MoonshotModel(
         name="moonshot-v1-8k",

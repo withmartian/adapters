@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi"}], "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"}'
+      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"}'
     headers:
       accept:
       - application/json
@@ -10,13 +10,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '146'
+      - '184'
       content-type:
       - application/json
       host:
       - api.together.xyz
       user-agent:
-      - AsyncOpenAI/Python 1.36.0
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,72 +26,81 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.36.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: '{"id":"8a7fe25bbce66464-SJC","object":"chat.completion","created":1721781892,"model":"meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo","prompt":[],"choices":[{"finish_reason":"eos","seed":3882070067726600700,"logprobs":null,"index":0,"message":{"role":"assistant","content":"!
-        How can I help you today?"}}],"usage":{"prompt_tokens":12,"completion_tokens":9,"total_tokens":21}}'
+      string: "{\n  \"id\": \"8c61d09abb464c45-MXP\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1726835302,\n  \"model\": \"meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
+        \     \"seed\": 12402855392743107000,\n      \"logprobs\": null,\n      \"index\":
+        0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
+        \"It seems like you didn't type anything. Is there something I can help you
+        with or would you like to chat?\",\n        \"tool_calls\": []\n      }\n
+        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 49,\n    \"completion_tokens\":
+        25,\n    \"total_tokens\": 74\n  }\n}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8a7fe25bbce66464-SJC
+      - 8c61d09abb464c45-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 24 Jul 2024 00:44:52 GMT
+      - Fri, 20 Sep 2024 12:28:22 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=2592000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      access-control-allow-origin:
-      - '*'
-      alt-svc:
-      - h3=":443"; ma=86400
       content-length:
-      - '373'
+      - '609'
       etag:
-      - W/"2pslcj8cy3ad"
-      vary:
-      - Accept-Encoding
+      - W/"261-Pnr0toUD9yyvQnXOjwn8gw2mfkk"
       x-api-call-end:
-      - '2024-07-24T00:44:52.712Z'
+      - '2024-09-20T12:28:22.096Z'
       x-api-call-start:
-      - '2024-07-24T00:44:52.473Z'
+      - '2024-09-20T12:28:21.665Z'
       x-api-received:
-      - '2024-07-24T00:44:52.460Z'
+      - '2024-09-20T12:28:21.659Z'
       x-compute-characters:
-      - '120'
+      - '354'
       x-compute-time:
-      - '170'
+      - '382'
       x-hostname:
-      - meta-llama-meta-llama-3-1-70b-instruct-turbo-676746944d-f9trq
+      - meta-llama-meta-llama-3-1-70b-instruct-turbo-6bf74f96bd-4md96
       x-inference-time:
-      - '170'
+      - '382'
       x-inference-version:
       - v2
+      x-powered-by:
+      - Express
       x-queue-time:
       - '0'
+      x-ratelimit:
+      - 'false'
       x-ratelimit-limit:
-      - '10'
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
       x-ratelimit-remaining:
-      - '9'
+      - '199'
+      x-ratelimit-remaining-tokens:
+      - '100000'
       x-ratelimit-reset:
       - '2'
       x-time-per-token:
-      - '18'
+      - '15'
       x-total-time:
-      - '170'
+      - '382'
       x-validation-time:
       - '0'
     status:

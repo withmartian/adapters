@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi"}], "model": "meta-llama/Meta-Llama-3-8B-Instruct-Lite"}'
+      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "meta-llama/Meta-Llama-3-8B-Instruct-Lite"}'
     headers:
       accept:
       - application/json
@@ -10,13 +10,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '142'
+      - '180'
       content-type:
       - application/json
       host:
       - api.together.xyz
       user-agent:
-      - AsyncOpenAI/Python 1.36.0
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,73 +26,81 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.36.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: '{"id":"8a7fe266aeae6464-SJC","object":"chat.completion","created":1721781894,"model":"meta-llama/Meta-Llama-3-8B-Instruct-Lite","prompt":[],"choices":[{"finish_reason":"eos","seed":6703743588895829000,"logprobs":null,"index":0,"message":{"role":"assistant","content":"!
-        It''s nice to meet you. Is there something I can help you with or would you
-        like to chat?"}}],"usage":{"prompt_tokens":13,"completion_tokens":24,"total_tokens":37}}'
+      string: "{\n  \"id\": \"8c61d0aeaded4c45-MXP\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1726835305,\n  \"model\": \"meta-llama/Meta-Llama-3-8B-Instruct-Lite\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
+        \     \"seed\": 10561547526497020000,\n      \"logprobs\": null,\n      \"index\":
+        0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
+        \"It seems like you accidentally sent an empty message! If you meant to say
+        something, feel free to type it again, and I'll do my best to help.\",\n        \"tool_calls\":
+        []\n      }\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 24,\n    \"completion_tokens\":
+        34,\n    \"total_tokens\": 58\n  }\n}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8a7fe266aeae6464-SJC
+      - 8c61d0aeaded4c45-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 24 Jul 2024 00:44:54 GMT
+      - Fri, 20 Sep 2024 12:28:25 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=2592000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      access-control-allow-origin:
-      - '*'
-      alt-svc:
-      - h3=":443"; ma=86400
       content-length:
-      - '433'
+      - '641'
       etag:
-      - W/"16wcbud6zfqc1"
-      vary:
-      - Accept-Encoding
+      - W/"281-SaarxMRmRR4YWWj0KeoljK9XpQ8"
       x-api-call-end:
-      - '2024-07-24T00:44:54.606Z'
+      - '2024-09-20T12:28:25.474Z'
       x-api-call-start:
-      - '2024-07-24T00:44:54.218Z'
+      - '2024-09-20T12:28:24.863Z'
       x-api-received:
-      - '2024-07-24T00:44:54.204Z'
+      - '2024-09-20T12:28:24.845Z'
       x-compute-characters:
-      - '120'
+      - '231'
       x-compute-time:
-      - '279'
+      - '343'
       x-hostname:
-      - meta-llama-meta-llama-3-8b-instruct-lite-5db6cf6849-cjvg9
+      - meta-llama-meta-llama-3-8b-instruct-lite-5db6cf6849-448ds
       x-inference-time:
-      - '178'
+      - '242'
       x-inference-version:
       - v2
+      x-powered-by:
+      - Express
       x-queue-time:
       - '0'
+      x-ratelimit:
+      - 'false'
       x-ratelimit-limit:
-      - '150'
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
       x-ratelimit-remaining:
-      - '144'
+      - '198'
+      x-ratelimit-remaining-tokens:
+      - '100000'
       x-ratelimit-reset:
-      - '0'
+      - '1'
       x-time-per-token:
       - '7'
       x-total-time:
-      - '279'
+      - '343'
       x-validation-time:
       - '0'
     status:

@@ -13,14 +13,23 @@ BASE_PREDICATES = ModelPredicates(open_source=True)
 
 
 class OpenRouterModel(Model):
-    supports_streaming: bool = True
     provider_name: str = PROVIDER_NAME
+    supports_streaming: bool = True
+    supports_repeating_roles: bool = True
+    supports_system: bool = True
+    supports_multiple_system: bool = True
+    supports_empty_content: bool = True
+    supports_tool_choice_required: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
+
     predicates: ModelPredicates = BASE_PREDICATES
 
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"
 
 
+# TODO: add more models
 MODELS = [
     OpenRouterModel(
         name="dbrx-instruct",
@@ -28,33 +37,6 @@ MODELS = [
         context_length=32_768,
         vendor_name="databricks",
         predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": True}),
-    ),
-    OpenRouterModel(
-        name="gemma-7b-it",
-        cost=Cost(prompt=0.07e-6, completion=0.07e-6),
-        context_length=8192,
-        vendor_name="google",
-        predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": True}),
-    ),
-    OpenRouterModel(
-        name="gemma-2-9b-it",
-        cost=Cost(prompt=0.06e-6, completion=0.06e-6),
-        context_length=8192,
-        vendor_name="google",
-        predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": True}),
-    ),
-    OpenRouterModel(
-        name="llama-3-70b-instruct",
-        cost=Cost(prompt=0.35e-6, completion=0.35e-6),
-        context_length=8192,
-        vendor_name="meta-llama",
-        predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
-    ),
-    OpenRouterModel(
-        name="llama-3-8b-instruct",
-        cost=Cost(prompt=0.055e-6, completion=0.55e-6),
-        context_length=8192,
-        vendor_name="meta-llama",
     ),
     OpenRouterModel(
         name="mistral-7b-instruct-v2",
@@ -84,24 +66,46 @@ MODELS = [
         vendor_name="pygmalionai",
     ),
     OpenRouterModel(
-        name="mythomax-l2-13b",
-        cost=Cost(prompt=0.1e-6, completion=0.1e-6),
-        context_length=4096,
-        vendor_name="gryphe",
+        name="qwen-2.5-72b-instruct",
+        cost=Cost(prompt=0.35e-6, completion=0.4e-6),
+        context_length=131_072,
+        vendor_name="qwen",
     ),
     OpenRouterModel(
-        name="llama-3.1-sonar-large-128k-online",
-        cost=Cost(prompt=1.0e-6, completion=1.0e-6),
-        context_length=131072,
-        vendor_name="perplexity",
-        supports_empty_content=False,
+        name="qwen-2-vl-72b-instruct",
+        cost=Cost(prompt=0.4e-6, completion=0.4e-6),
+        context_length=32_768,
+        vendor_name="qwen",
     ),
     OpenRouterModel(
-        name="llama-3.1-sonar-small-128k-chat",
-        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-        context_length=131072,
-        vendor_name="perplexity",
-        supports_empty_content=False,
+        name="llama-3.1-lumimaid-8b",
+        cost=Cost(prompt=0.1875e-6, completion=1.125e-6),
+        context_length=131_072,
+        vendor_name="neversleep",
+    ),
+    OpenRouterModel(
+        name="o1-mini-2024-09-12",
+        cost=Cost(prompt=3.0e-6, completion=12.0e-6),
+        context_length=128_000,
+        vendor_name="openai",
+    ),
+    OpenRouterModel(
+        name="o1-mini",
+        cost=Cost(prompt=3.0e-6, completion=12.0e-6),
+        context_length=128_000,
+        vendor_name="openai",
+    ),
+    OpenRouterModel(
+        name="o1-preview-2024-09-12",
+        cost=Cost(prompt=15.0e-6, completion=60.0e-6),
+        context_length=128_000,
+        vendor_name="openai",
+    ),
+    OpenRouterModel(
+        name="o1-preview",
+        cost=Cost(prompt=15.0e-6, completion=60.0e-6),
+        context_length=128_000,
+        vendor_name="openai",
     ),
 ]
 

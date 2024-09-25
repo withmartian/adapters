@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model": "moonshot-v1-128k"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "moonshot-v1-128k"}'
     headers:
       accept:
       - application/json
@@ -10,13 +10,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '161'
+      - '153'
       content-type:
       - application/json
       host:
       - api.moonshot.cn
       user-agent:
-      - OpenAI/Python 1.30.4
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,30 +26,32 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://api.moonshot.cn/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-5fb28c69219e419f9be27a19c24db6d0","object":"chat.completion","created":1717010987,"model":"moonshot-v1-128k","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":22,"completion_tokens":10,"total_tokens":32}}'
+      string: '{"id":"chatcmpl-66eb73f5276ffbd90293b3ec","object":"chat.completion","created":1726706677,"model":"moonshot-v1-128k","choices":[{"index":0,"message":{"role":"assistant","content":"Hello
+        again! How can I assist you today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":18,"completion_tokens":11,"total_tokens":29}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 29 May 2024 19:29:48 GMT
+      - Thu, 19 Sep 2024 00:44:38 GMT
       Msh-Cache:
-      - updated
+      - hit
       Msh-Gid:
       - enterprise-tier-2
       Msh-Request-Id:
-      - cf7574eb-1df1-11ef-9bf6-5e02f5407ada
+      - 58d57140-7620-11ef-9fcc-76425d012b89
+      Msh-Trace-Mode:
+      - 'on'
       Msh-Uid:
       - clnpvohp2k12ua98cgo0
       Server:
@@ -63,7 +65,7 @@ interactions:
       content-length:
       - '318'
       server-timing:
-      - inner; dur=534
+      - inner; dur=1003
     status:
       code: 200
       message: OK

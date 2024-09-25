@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": "Generate
-      random number"}], "model": "claude-3-sonnet-20240229", "system": "", "tools":
-      []}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Generate random number"}]}], "model": "claude-3-sonnet-20240229",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -13,23 +13,23 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '153'
+      - '181'
       content-type:
       - application/json
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.28.1
+      - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
-      - 0.28.1
+      - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -38,32 +38,39 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01NCzb74xtnGGd2V7ygN7BWr","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Here
-        is a random number: \n\n0.7524124270248413\n\nThis is a random floating-point
-        number between 0 and 1, generated using a random number algorithm."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":43}}'
+      string: '{"id":"msg_011qDPL5nCqda2tHn7drU6YD","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Here
+        is a random number generated between 0 and 1:\n\n0.2783452916896558"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":26}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 899d4235db4d959d-TBS
+      - 8c559b822ed315fb-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 26 Jun 2024 12:39:12 GMT
+      - Thu, 19 Sep 2024 00:54:58 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '8000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '8000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-09-19T00:54:58Z'
       content-length:
-      - '388'
+      - '311'
       request-id:
-      - req_013FUritVxj2mBAMiUsBgYtB
+      - req_01Nyp3L6V27rzwKLVStDHPXj
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - eef19a4b7b22bd938b9603a2934294d0
+      - 49bb9b6a67fb99e7122ee3f8b42cd2b5
     status:
       code: 200
       message: OK

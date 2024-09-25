@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi\nHi"}, {"role": "user", "content": "Hi\nHi"}], "model": "meta-llama/Llama-2-13b-chat-hf"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "meta-llama/Llama-2-13b-chat-hf"}'
     headers:
       accept:
       - application/json
@@ -10,13 +10,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '175'
+      - '167'
       content-type:
       - application/json
       host:
       - api.together.xyz
       user-agent:
-      - AsyncOpenAI/Python 1.30.4
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,61 +35,72 @@ interactions:
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: '{"id":"88b902fdfa4c2349-SJC","object":"chat.completion","created":1717012208,"model":"meta-llama/Llama-2-13b-chat-hf","prompt":[],"choices":[{"finish_reason":"eos","logprobs":null,"index":0,"message":{"role":"assistant","content":"
-        Hi! How are you today?"}}],"usage":{"prompt_tokens":26,"completion_tokens":8,"total_tokens":34}}'
+      string: "{\n  \"id\": \"8c61d40e7f06babb-MXP\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1726835443,\n  \"model\": \"meta-llama/Llama-2-13b-chat-hf\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
+        \     \"seed\": 2856285389930806300,\n      \"logprobs\": null,\n      \"index\":
+        0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
+        \" Hello! It's nice to meet you. Is there something you'd like to talk about
+        or ask? I'm here to help with any questions you might have.\",\n        \"tool_calls\":
+        []\n      }\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 22,\n    \"completion_tokens\":
+        37,\n    \"total_tokens\": 59\n  }\n}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b902fdfa4c2349-SJC
+      - 8c61d40e7f06babb-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 29 May 2024 19:50:08 GMT
+      - Fri, 20 Sep 2024 12:30:43 GMT
       Server:
       - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      access-control-allow-origin:
-      - '*'
-      alt-svc:
-      - h3=":443"; ma=86400
       content-length:
-      - '328'
+      - '623'
       etag:
-      - W/"bus9hlxb9i94"
-      vary:
-      - Accept-Encoding
+      - W/"26f-/7XjN4aN0OTkwVNyXXX/1Pyx8c4"
       x-api-call-end:
-      - '2024-05-29T19:50:08.538Z'
+      - '2024-09-20T12:30:43.676Z'
       x-api-call-start:
-      - '2024-05-29T19:50:08.344Z'
+      - '2024-09-20T12:30:43.068Z'
       x-api-received:
-      - '2024-05-29T19:50:08.337Z'
+      - '2024-09-20T12:30:43.058Z'
       x-compute-characters:
-      - '54'
+      - '48'
       x-compute-time:
-      - '166'
+      - '462'
       x-hostname:
-      - meta-llama-llama-2-13b-chat-hf-899f49f87-qbtxz
+      - meta-llama-llama-2-13b-chat-hf-899f49f87-7vl7d
       x-inference-time:
-      - '139'
+      - '462'
       x-inference-version:
       - v2
+      x-powered-by:
+      - Express
       x-queue-time:
-      - '26'
+      - '0'
+      x-ratelimit:
+      - 'false'
       x-ratelimit-limit:
-      - '200'
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
       x-ratelimit-remaining:
       - '199'
+      x-ratelimit-remaining-tokens:
+      - '100000'
       x-ratelimit-reset:
       - '2'
       x-time-per-token:
-      - '17'
+      - '12'
       x-total-time:
-      - '166'
+      - '462'
       x-validation-time:
       - '0'
     status:

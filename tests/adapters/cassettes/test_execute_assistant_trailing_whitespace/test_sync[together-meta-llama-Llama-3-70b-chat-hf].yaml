@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}], "model": "meta-llama/Llama-3-70b-chat-hf"}'
+      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "meta-llama/Llama-3-70b-chat-hf"}'
     headers:
       accept:
       - application/json
@@ -10,13 +10,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '133'
+      - '170'
       content-type:
       - application/json
       host:
       - api.together.xyz
       user-agent:
-      - OpenAI/Python 1.30.4
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,61 +35,72 @@ interactions:
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: '{"id":"88b88988eb151590-SJC","object":"chat.completion","created":1717007233,"model":"meta-llama/Llama-3-70b-chat-hf","prompt":[],"choices":[{"finish_reason":"stop","logprobs":null,"index":0,"message":{"role":"assistant","content":"
-        How''s it going?"}}],"usage":{"prompt_tokens":13,"completion_tokens":6,"total_tokens":19}}'
+      string: "{\n  \"id\": \"8c61c31d3fa6bac9-MXP\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1726834749,\n  \"model\": \"meta-llama/Llama-3-70b-chat-hf\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"stop\",\n
+        \     \"seed\": 17070595458081489000,\n      \"logprobs\": null,\n      \"index\":
+        0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
+        \"It seems like you sent an empty message! Is there something I can help you
+        with or would you like to chat about something in particular?\",\n        \"tool_calls\":
+        []\n      }\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 23,\n    \"completion_tokens\":
+        29,\n    \"total_tokens\": 52\n  }\n}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b88988eb151590-SJC
+      - 8c61c31d3fa6bac9-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 29 May 2024 18:27:13 GMT
+      - Fri, 20 Sep 2024 12:19:09 GMT
       Server:
       - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      access-control-allow-origin:
-      - '*'
-      alt-svc:
-      - h3=":443"; ma=86400
       content-length:
-      - '322'
+      - '627'
       etag:
-      - W/"11p3d0nwxhn8y"
-      vary:
-      - Accept-Encoding
+      - W/"273-GeFV2dZdkj4o2orkl5ZEsxPkDJQ"
       x-api-call-end:
-      - '2024-05-29T18:27:13.691Z'
+      - '2024-09-20T12:19:09.624Z'
       x-api-call-start:
-      - '2024-05-29T18:27:13.462Z'
+      - '2024-09-20T12:19:09.111Z'
       x-api-received:
-      - '2024-05-29T18:27:13.456Z'
+      - '2024-09-20T12:19:09.104Z'
       x-compute-characters:
-      - '121'
+      - '231'
       x-compute-time:
-      - '164'
+      - '251'
       x-hostname:
-      - meta-llama-llama-3-70b-chat-hf-869859f99b-h6h8f
+      - meta-llama-llama-3-70b-chat-hf-6b9465d65-dxsfz
       x-inference-time:
-      - '145'
+      - '251'
       x-inference-version:
       - v2
+      x-powered-by:
+      - Express
       x-queue-time:
-      - '19'
-      x-ratelimit-limit:
-      - '200'
-      x-ratelimit-remaining:
-      - '196'
-      x-ratelimit-reset:
       - '0'
+      x-ratelimit:
+      - 'false'
+      x-ratelimit-limit:
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
+      x-ratelimit-remaining:
+      - '198'
+      x-ratelimit-remaining-tokens:
+      - '100000'
+      x-ratelimit-reset:
+      - '1'
       x-time-per-token:
-      - '24'
+      - '8'
       x-total-time:
-      - '164'
+      - '251'
       x-validation-time:
       - '0'
     status:

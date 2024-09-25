@@ -13,6 +13,16 @@ BASE_PREDICATES = ModelPredicates(gdpr_compliant=True)
 
 
 class OpenAIModel(Model):
+    vendor_name: str = PROVIDER_NAME
+    provider_name: str = PROVIDER_NAME
+
+    supports_repeating_roles: bool = True
+    supports_system: bool = True
+    supports_multiple_system: bool = True
+    supports_empty_content: bool = True
+    supports_tool_choice_required: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
     supports_user: bool = True
     supports_streaming: bool = True
     supports_functions: bool = True
@@ -20,65 +30,16 @@ class OpenAIModel(Model):
     supports_n: bool = True
     supports_json_output: bool = True
     supports_json_content: bool = True
-    vendor_name: str = PROVIDER_NAME
-    provider_name: str = PROVIDER_NAME
+
     predicates: ModelPredicates = BASE_PREDICATES
 
 
 MODELS = [
     OpenAIModel(
-        name="gpt-3.5-turbo-1106",
-        cost=Cost(prompt=1.0e-6, completion=2.0e-6),
-        context_length=16385,
-        completion_length=16385,
-    ),
-    OpenAIModel(
         name="gpt-3.5-turbo",
-        cost=Cost(prompt=0.5e-6, completion=1.5e-6),
+        cost=Cost(prompt=3.0e-6, completion=6.0e-6),
         context_length=16385,
         completion_length=16385,
-    ),
-    OpenAIModel(
-        name="gpt-3.5-turbo-0125",
-        cost=Cost(prompt=0.5e-6, completion=1.5e-6),
-        context_length=16385,
-        completion_length=16385,
-    ),
-    OpenAIModel(
-        name="gpt-4-0314",
-        cost=Cost(prompt=30.0e-6, completion=60.0e-6),
-        context_length=32768,
-        completion_length=32768,
-        supports_json_output=False,
-        supports_functions=False,
-        supports_tools=False,
-    ),
-    OpenAIModel(
-        name="gpt-4-0125-preview",
-        cost=Cost(prompt=10.0e-6, completion=30.0e-6),
-        context_length=128000,
-        completion_length=4096,
-    ),
-    OpenAIModel(
-        name="gpt-4-32k-0613",
-        cost=Cost(prompt=60.0e-6, completion=120.0e-6),
-        context_length=32768,
-        completion_length=32768,
-        supports_json_output=False,
-    ),
-    OpenAIModel(
-        name="gpt-4-32k",
-        cost=Cost(prompt=60.0e-6, completion=120.0e-6),
-        context_length=32768,
-        completion_length=32768,
-        supports_json_output=False,
-    ),
-    OpenAIModel(
-        name="gpt-4-0613",
-        cost=Cost(prompt=30.0e-6, completion=60.0e-6),
-        context_length=8192,
-        completion_length=8192,
-        supports_json_output=False,
     ),
     OpenAIModel(
         name="gpt-4",
@@ -88,41 +49,8 @@ MODELS = [
         supports_json_output=False,
     ),
     OpenAIModel(
-        name="gpt-4-1106-preview",
-        cost=Cost(prompt=10.0e-6, completion=30.0e-6),
-        context_length=128000,
-        completion_length=4096,
-    ),
-    OpenAIModel(
-        name="gpt-4-turbo-preview",
-        cost=Cost(prompt=10.0e-6, completion=30.0e-6),
-        context_length=128000,
-        completion_length=4096,
-        supports_json_output=False,
-    ),
-    OpenAIModel(
-        name="gpt-4-0125-preview",
-        cost=Cost(prompt=10.0e-6, completion=30.0e-6),
-        context_length=128000,
-        completion_length=4096,
-    ),
-    OpenAIModel(
-        name="gpt-4-turbo-2024-04-09",
-        cost=Cost(prompt=10.0e-6, completion=30.0e-6),
-        context_length=128000,
-        completion_length=4096,
-        supports_vision=True,
-    ),
-    OpenAIModel(
         name="gpt-4-turbo",
         cost=Cost(prompt=10.0e-6, completion=30.0e-6),
-        context_length=128000,
-        completion_length=4096,
-        supports_vision=True,
-    ),
-    OpenAIModel(
-        name="gpt-4o-2024-05-13",
-        cost=Cost(prompt=5.0e-6, completion=15.0e-6),
         context_length=128000,
         completion_length=4096,
         supports_vision=True,
@@ -135,19 +63,47 @@ MODELS = [
         supports_vision=True,
     ),
     OpenAIModel(
-        name="gpt-4o-mini-2024-07-18",
-        cost=Cost(prompt=0.15e-6, completion=0.6e-6),
+        name="gpt-4o-2024-05-13",
+        cost=Cost(prompt=5.0e-6, completion=15.0e-6),
         context_length=128000,
         completion_length=4096,
+        supports_vision=True,
+    ),
+    OpenAIModel(
+        name="gpt-4o-2024-08-06",
+        cost=Cost(prompt=2.5e-6, completion=10.0e-6),
+        context_length=128000,
+        completion_length=16384,
+        supports_vision=True,
     ),
     OpenAIModel(
         name="gpt-4o-mini",
         cost=Cost(prompt=0.15e-6, completion=0.6e-6),
         context_length=128000,
         completion_length=16385,
+        supports_vision=True,
+    ),
+    OpenAIModel(
+        name="gpt-4o-mini-2024-07-18",
+        cost=Cost(prompt=0.15e-6, completion=0.6e-6),
+        context_length=128000,
+        completion_length=16385,
+        supports_vision=True,
     ),
     OpenAIModel(
         name="o1-preview",
+        cost=Cost(prompt=15.0e-6, completion=60.0e-6),
+        context_length=128000,
+        completion_length=32768,
+        supports_json_content=False,
+        supports_functions=False,
+        supports_tools=False,
+        supports_system=False,
+        supports_json_output=False,
+        supports_n=False,
+    ),
+    OpenAIModel(
+        name="o1-preview-2024-09-12",
         cost=Cost(prompt=15.0e-6, completion=60.0e-6),
         context_length=128000,
         completion_length=32768,
@@ -163,18 +119,6 @@ MODELS = [
         cost=Cost(prompt=3.0e-6, completion=12.0e-6),
         context_length=128000,
         completion_length=65536,
-        supports_json_content=False,
-        supports_functions=False,
-        supports_tools=False,
-        supports_system=False,
-        supports_json_output=False,
-        supports_n=False,
-    ),
-    OpenAIModel(
-        name="o1-preview-2024-09-12",
-        cost=Cost(prompt=15.0e-6, completion=60.0e-6),
-        context_length=128000,
-        completion_length=32768,
         supports_json_content=False,
         supports_functions=False,
         supports_tools=False,

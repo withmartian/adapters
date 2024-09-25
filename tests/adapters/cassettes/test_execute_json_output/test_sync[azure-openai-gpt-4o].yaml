@@ -18,17 +18,17 @@ interactions:
       host:
       - martiantest.openai.azure.com
       user-agent:
-      - AzureOpenAI/Python 1.34.0
+      - AzureOpenAI/Python 1.46.0
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
-      - 1.34.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -37,43 +37,45 @@ interactions:
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview
   response:
     body:
-      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"\n   {\n  \"greeting\":
-        \"Hello! How can I assist you today?\",\n  \"options\": {\n    \"option1\":
-        \"Ask a question\",\n    \"option2\": \"Get information\",\n    \"option3\":
-        \"Request assistance\"\n  },\n  \"response_format\": \"json\"\n}\n","role":"assistant"}}],"created":1720080694,"id":"chatcmpl-9hBqwQeyW5vN7RfN9UjxRqFl86z4l","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_abc28019ad","usage":{"completion_tokens":62,"prompt_tokens":11,"total_tokens":73}}
-
-        '
+      string: "{\"choices\":[{\"content_filter_results\":{\"hate\":{\"filtered\":false,\"severity\":\"safe\"},\"self_harm\":{\"filtered\":false,\"severity\":\"safe\"},\"sexual\":{\"filtered\":false,\"severity\":\"safe\"},\"violence\":{\"filtered\":false,\"severity\":\"safe\"}},\"finish_reason\":\"stop\",\"index\":0,\"logprobs\":null,\"message\":{\"content\":\"\\n{\\n
+        \ \\\"greeting\\\": \\\"Hello! How can I assist you today?\\\",\\n  \\\"available_commands\\\":
+        [\\n    \\\"ask_question\\\",\\n    \\\"provide_information\\\",\\n    \\\"request_assistance\\\"\\n
+        \ ],\\n  \\\"example_request\\\": {\\n    \\\"command\\\": \\\"ask_question\\\",\\n
+        \   \\\"content\\\": \\\"What is the weather like today?\\\"\\n  },\\n  \\\"response_format\\\":
+        {\\n    \\\"status\\\": \\\"success\\\",\\n    \\\"data\\\": {\\n      \\\"response_text\\\":
+        \\\"The weather today is sunny with a high of 75\xB0F.\\\"\\n    },\\n    \\\"error_message\\\":
+        null\\n  }\\n}\\n\",\"role\":\"assistant\"}}],\"created\":1726705811,\"id\":\"chatcmpl-A8zLf8hloGQxwAOuHQPVke0evni6a\",\"model\":\"gpt-4o-2024-05-13\",\"object\":\"chat.completion\",\"prompt_filter_results\":[{\"prompt_index\":0,\"content_filter_results\":{\"hate\":{\"filtered\":false,\"severity\":\"safe\"},\"self_harm\":{\"filtered\":false,\"severity\":\"safe\"},\"sexual\":{\"filtered\":false,\"severity\":\"safe\"},\"violence\":{\"filtered\":false,\"severity\":\"safe\"}}}],\"system_fingerprint\":\"fp_80a1bad4c7\",\"usage\":{\"completion_tokens\":118,\"prompt_tokens\":11,\"total_tokens\":129}}\n"
     headers:
       Content-Length:
-      - '1054'
+      - '1310'
       Content-Type:
       - application/json
       Date:
-      - Thu, 04 Jul 2024 08:11:35 GMT
+      - Thu, 19 Sep 2024 00:30:12 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - be2bc4cf-13aa-4fdb-b192-fe98e9b690e2
+      - 3b18448b-37bb-4947-80df-adf088fd66e1
       azureml-model-session:
-      - d003-20240611074652
+      - d152-20240908135342
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '1446'
+      - '1322'
       x-ms-client-request-id:
-      - be2bc4cf-13aa-4fdb-b192-fe98e9b690e2
+      - 3b18448b-37bb-4947-80df-adf088fd66e1
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
       - East US
       x-ratelimit-remaining-requests:
-      - '48'
+      - '149'
       x-ratelimit-remaining-tokens:
-      - '43568'
+      - '149356'
       x-request-id:
-      - 45e43bbf-a95c-4dd0-96c0-867d0c113f34
+      - 68a65532-d9ad-4fea-a341-03ebfe635898
     status:
       code: 200
       message: OK

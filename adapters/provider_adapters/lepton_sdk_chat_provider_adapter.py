@@ -30,18 +30,21 @@ BASE_PREDICATES = ModelPredicates(
 class LeptonModel(Model):
     base_url: str
     provider_name: str = PROVIDER_NAME
+
     supports_streaming: bool = True
+    supports_repeating_roles: bool = True
+    supports_system: bool = True
+    supports_multiple_system: bool = True
+    supports_empty_content: bool = True
+    supports_tool_choice_required: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
+
     predicates: ModelPredicates = BASE_PREDICATES
 
 
+# TODO: add more models
 MODELS = [
-    LeptonModel(
-        base_url=BASE_URL.format("gemma-7b"),
-        name="gemma-7b",
-        cost=Cost(prompt=0.07e-6, completion=0.07e-6),
-        context_length=8192,
-        vendor_name="google",
-    ),
     LeptonModel(
         base_url=BASE_URL.format("mistral-7b"),
         name="mistral-7b",
@@ -54,6 +57,34 @@ MODELS = [
         name="mixtral-8x7b",
         cost=Cost(prompt=0.50e-6, completion=0.50e-6),
         context_length=32768,
+        vendor_name="mistralai",
+    ),
+    LeptonModel(
+        base_url=BASE_URL.format("qwen2-72b"),
+        name="qwen2-72b",
+        cost=Cost(prompt=0.8e-6, completion=0.8e-6),
+        context_length=128000,
+        vendor_name="qwen",
+    ),
+    LeptonModel(
+        base_url=BASE_URL.format("wizardlm-2-7b"),
+        name="wizardlm-2-7b",
+        cost=Cost(prompt=0.07e-6, completion=0.07e-6),
+        context_length=32000,
+        vendor_name="wizardlm",
+    ),
+    LeptonModel(
+        base_url=BASE_URL.format("wizardlm-2-8x22b"),
+        name="wizardlm-2-8x22b",
+        cost=Cost(prompt=1.0e-6, completion=1.0e-6),
+        context_length=64000,
+        vendor_name="wizardlm",
+    ),
+    LeptonModel(
+        base_url=BASE_URL.format("dolphin-mixtral-8x7b"),
+        name="dolphin-mixtral-8x7b",
+        cost=Cost(prompt=0.5e-6, completion=0.5e-6),
+        context_length=32000,
         vendor_name="mistralai",
     ),
 ]

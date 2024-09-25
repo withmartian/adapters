@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}], "model": "meta-llama/Llama-2-13b-chat-hf"}'
+    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "meta-llama/Llama-2-13b-chat-hf"}'
     headers:
       accept:
       - application/json
@@ -10,13 +10,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '129'
+      - '169'
       content-type:
       - application/json
       host:
       - api.together.xyz
       user-agent:
-      - AsyncOpenAI/Python 1.30.4
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,60 +35,73 @@ interactions:
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: '{"id":"88b91734ed6cfa5a-SJC","object":"chat.completion","created":1717013036,"model":"meta-llama/Llama-2-13b-chat-hf","prompt":[],"choices":[{"finish_reason":"eos","logprobs":null,"index":0,"message":{"role":"assistant","content":"  Hello!"}}],"usage":{"prompt_tokens":24,"completion_tokens":4,"total_tokens":28}}'
+      string: "{\n  \"id\": \"8c61d4d76e0d0d9c-MXP\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1726835475,\n  \"model\": \"meta-llama/Llama-2-13b-chat-hf\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
+        \     \"seed\": 6096569740718218000,\n      \"logprobs\": null,\n      \"index\":
+        0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
+        \"  Hello! How can I help you today? Is there something you'd like to talk
+        about or ask? I'm here to listen and provide assistance. Please feel free
+        to share whatever is on your mind.\",\n        \"tool_calls\": []\n      }\n
+        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 22,\n    \"completion_tokens\":
+        45,\n    \"total_tokens\": 67\n  }\n}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b91734ed6cfa5a-SJC
+      - 8c61d4d76e0d0d9c-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 29 May 2024 20:03:56 GMT
+      - Fri, 20 Sep 2024 12:31:16 GMT
       Server:
       - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      access-control-allow-origin:
-      - '*'
-      alt-svc:
-      - h3=":443"; ma=86400
       content-length:
-      - '313'
+      - '670'
       etag:
-      - W/"x3cbxbrxyy8p"
-      vary:
-      - Accept-Encoding
+      - W/"29e-PTnoNyvn+5+RzrzH22bWwTio49c"
       x-api-call-end:
-      - '2024-05-29T20:03:56.488Z'
+      - '2024-09-20T12:31:15.963Z'
       x-api-call-start:
-      - '2024-05-29T20:03:56.345Z'
+      - '2024-09-20T12:31:15.220Z'
       x-api-received:
-      - '2024-05-29T20:03:56.339Z'
+      - '2024-09-20T12:31:15.213Z'
       x-compute-characters:
-      - '41'
+      - '48'
       x-compute-time:
-      - '116'
+      - '631'
       x-hostname:
-      - meta-llama-llama-2-13b-chat-hf-899f49f87-qbtxz
+      - meta-llama-llama-2-13b-chat-hf-899f49f87-7vl7d
       x-inference-time:
-      - '105'
+      - '631'
       x-inference-version:
       - v2
+      x-powered-by:
+      - Express
       x-queue-time:
-      - '11'
+      - '0'
+      x-ratelimit:
+      - 'false'
       x-ratelimit-limit:
-      - '200'
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
       x-ratelimit-remaining:
-      - '197'
+      - '198'
+      x-ratelimit-remaining-tokens:
+      - '100000'
       x-ratelimit-reset:
-      - '1'
+      - '0'
       x-time-per-token:
-      - '26'
+      - '14'
       x-total-time:
-      - '116'
+      - '631'
       x-validation-time:
       - '0'
     status:

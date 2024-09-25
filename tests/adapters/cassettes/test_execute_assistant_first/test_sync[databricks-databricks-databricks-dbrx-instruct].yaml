@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
       "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "databricks-dbrx-instruct",
-      "max_tokens": null}'
+      "max_tokens": 4000}'
     headers:
       accept:
       - application/json
@@ -17,26 +17,26 @@ interactions:
       host:
       - adb-8736858266948228.8.azuredatabricks.net
       user-agent:
-      - OpenAI/Python 1.34.0
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
-      - 1.34.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_092121fa-e24a-46fc-bbca-f382588c03cc","object":"chat.completion","created":1720313160,"model":"dbrx-instruct-032724","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+      string: '{"id":"chatcmpl_21f42db0-f4b4-4729-b693-94ef069139fd","object":"chat.completion","created":1726704993,"model":"dbrx-instruct-071224","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
         How can I assist you today?"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":237,"completion_tokens":9,"total_tokens":246}}'
     headers:
       content-length:
@@ -44,7 +44,7 @@ interactions:
       content-type:
       - application/json
       date:
-      - Sun, 07 Jul 2024 00:45:59 GMT
+      - Thu, 19 Sep 2024 00:16:32 GMT
       server:
       - databricks
       strict-transport-security:
@@ -66,9 +66,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.64.62
+      - 208.184.59.122,10.154.64.10
       x-rate-limit-request-remote-addr:
-      - 10.154.64.182:35138
+      - 10.154.65.124:53548
+      x-request-id:
+      - 3a7bb088-f56f-4fb7-9559-a47a3949d571
       x-xss-protection:
       - 1; mode=block
     status:

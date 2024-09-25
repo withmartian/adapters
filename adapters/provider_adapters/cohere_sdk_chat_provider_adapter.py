@@ -8,6 +8,7 @@ from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
+    CompletionTokensDetails,
     Conversation,
     ConversationRole,
     Cost,
@@ -15,6 +16,7 @@ from adapters.types import (
     ModelPredicates,
     OpenAIChatAdapterResponse,
     Turn,
+    Usage,
 )
 
 API_KEY_NAME = "COHERE_API_KEY"
@@ -25,11 +27,19 @@ BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
 
 
 class CohereModel(Model):
-    supports_streaming: bool = True
-    supports_json_content: bool = True
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
     predicates: ModelPredicates = BASE_PREDICATES
+
+    supports_repeating_roles: bool = True
+    supports_system: bool = True
+    supports_multiple_system: bool = True
+    supports_empty_content: bool = True
+    supports_tool_choice_required: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
+    supports_streaming: bool = True
+    supports_json_content: bool = True
 
     def _get_api_path(self) -> str:
         return self.name
@@ -39,13 +49,13 @@ MODELS = [
     CohereModel(
         name="command-r",
         cost=Cost(prompt=0.5e-6, completion=1.5e-6),
-        context_length=131_072,
+        context_length=128000,
         predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
     ),
     CohereModel(
         name="command-r-plus",
         cost=Cost(prompt=3.00e-6, completion=15.00e-6),
-        context_length=131_072,
+        context_length=128000,
         predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
     ),
 ]
@@ -200,6 +210,9 @@ class CohereSDKChatProviderAdapter(
             token_counts=Cost(
                 prompt=prompt_tokens,
                 completion=completion_tokens,
+            ),
+            usage=Usage(
+                completion_tokens_details=CompletionTokensDetails(reasoning_tokens=0)
             ),
         )
 

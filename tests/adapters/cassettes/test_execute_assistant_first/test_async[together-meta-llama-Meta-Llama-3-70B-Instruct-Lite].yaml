@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
-      "content": "Hi"}], "model": "meta-llama/Meta-Llama-3-70B-Instruct-Lite"}'
+    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "meta-llama/Meta-Llama-3-70B-Instruct-Lite"}'
     headers:
       accept:
       - application/json
@@ -10,13 +10,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '143'
+      - '180'
       content-type:
       - application/json
       host:
       - api.together.xyz
       user-agent:
-      - AsyncOpenAI/Python 1.36.0
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,73 +26,81 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.36.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: '{"id":"8a7fe2205c23d00d-SJC","object":"chat.completion","created":1721781884,"model":"meta-llama/Meta-Llama-3-70B-Instruct-Lite","prompt":[],"choices":[{"finish_reason":"eos","seed":4361486941424832000,"logprobs":null,"index":0,"message":{"role":"assistant","content":"Hi!
-        It''s nice to meet you. Is there something I can help you with or would you
-        like to chat?"}}],"usage":{"prompt_tokens":18,"completion_tokens":25,"total_tokens":43}}'
+      string: "{\n  \"id\": \"8c61c2d11f620df1-MXP\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1726834738,\n  \"model\": \"meta-llama/Meta-Llama-3-70B-Instruct-Lite\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
+        \     \"seed\": 11408487775879866000,\n      \"logprobs\": null,\n      \"index\":
+        0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
+        \"Hi! It looks like we started with a blank slate. Is there something I can
+        help you with or would you like to chat about something in particular?\",\n
+        \       \"tool_calls\": []\n      }\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
+        24,\n    \"completion_tokens\": 32,\n    \"total_tokens\": 56\n  }\n}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8a7fe2205c23d00d-SJC
+      - 8c61c2d11f620df1-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 24 Jul 2024 00:44:44 GMT
+      - Fri, 20 Sep 2024 12:18:58 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=2592000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      access-control-allow-origin:
-      - '*'
-      alt-svc:
-      - h3=":443"; ma=86400
       content-length:
-      - '436'
+      - '645'
       etag:
-      - W/"e81hh5u2qjc4"
-      vary:
-      - Accept-Encoding
+      - W/"285-rtVFcxd/kiE2dW63vUhY7akAiB4"
       x-api-call-end:
-      - '2024-07-24T00:44:44.003Z'
+      - '2024-09-20T12:18:58.224Z'
       x-api-call-start:
-      - '2024-07-24T00:44:42.960Z'
+      - '2024-09-20T12:18:56.925Z'
       x-api-received:
-      - '2024-07-24T00:44:42.952Z'
+      - '2024-09-20T12:18:56.918Z'
       x-compute-characters:
-      - '177'
+      - '231'
       x-compute-time:
-      - '963'
+      - '1216'
       x-hostname:
-      - meta-llama-meta-llama-3-70b-instruct-lite-85c56d79f5-tbfkv
+      - meta-llama-meta-llama-3-70b-instruct-lite-85c56d79f5-x7brl
       x-inference-time:
-      - '862'
+      - '1115'
       x-inference-version:
       - v2
+      x-powered-by:
+      - Express
       x-queue-time:
       - '0'
+      x-ratelimit:
+      - 'false'
       x-ratelimit-limit:
-      - '150'
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
       x-ratelimit-remaining:
-      - '147'
+      - '196'
+      x-ratelimit-remaining-tokens:
+      - '100000'
       x-ratelimit-reset:
       - '0'
       x-time-per-token:
       - '34'
       x-total-time:
-      - '963'
+      - '1216'
       x-validation-time:
       - '0'
     status:

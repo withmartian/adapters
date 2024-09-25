@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "databricks-dbrx-instruct",
-      "max_tokens": null}'
+      "max_tokens": 4000}'
     headers:
       accept:
       - application/json
@@ -16,26 +16,26 @@ interactions:
       host:
       - adb-8736858266948228.8.azuredatabricks.net
       user-agent:
-      - OpenAI/Python 1.34.0
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
-      - 1.34.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_01d50d38-ac24-4bcb-ba64-6be7969eea3c","object":"chat.completion","created":1720313150,"model":"dbrx-instruct-032724","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+      string: '{"id":"chatcmpl_6db14f32-03f2-44d2-a234-e48f98cf320f","object":"chat.completion","created":1726704575,"model":"dbrx-instruct-071224","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
         How can I assist you today?"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":225,"completion_tokens":9,"total_tokens":234}}'
     headers:
       content-length:
@@ -43,7 +43,7 @@ interactions:
       content-type:
       - application/json
       date:
-      - Sun, 07 Jul 2024 00:45:50 GMT
+      - Thu, 19 Sep 2024 00:09:34 GMT
       server:
       - databricks
       strict-transport-security:
@@ -65,9 +65,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.65.185
+      - 208.184.59.122,10.154.64.10
       x-rate-limit-request-remote-addr:
-      - 10.154.64.182:37826
+      - 10.154.65.124:50620
+      x-request-id:
+      - 38314a73-ba70-4db4-a7ce-651fb270a345
       x-xss-protection:
       - 1; mode=block
     status:

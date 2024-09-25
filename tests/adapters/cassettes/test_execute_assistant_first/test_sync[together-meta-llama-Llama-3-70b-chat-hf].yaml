@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
-      "content": "Hi"}], "model": "meta-llama/Llama-3-70b-chat-hf"}'
+    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "meta-llama/Llama-3-70b-chat-hf"}'
     headers:
       accept:
       - application/json
@@ -10,13 +10,13 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '132'
+      - '169'
       content-type:
       - application/json
       host:
       - api.together.xyz
       user-agent:
-      - OpenAI/Python 1.30.4
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.30.4
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,62 +35,71 @@ interactions:
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: '{"id":"88b87eb5ff347af7-SJC","object":"chat.completion","created":1717006790,"model":"meta-llama/Llama-3-70b-chat-hf","prompt":[],"choices":[{"finish_reason":"stop","logprobs":null,"index":0,"message":{"role":"assistant","content":"Hi!
-        It''s nice to meet you. Is there something I can help you with or would you
-        like to chat?"}}],"usage":{"prompt_tokens":17,"completion_tokens":25,"total_tokens":42}}'
+      string: "{\n  \"id\": \"8c61c2af9c6ebab1-MXP\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1726834731,\n  \"model\": \"meta-llama/Llama-3-70b-chat-hf\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"stop\",\n
+        \     \"seed\": 7557360094356973000,\n      \"logprobs\": null,\n      \"index\":
+        0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
+        \"How's it going?\",\n        \"tool_calls\": []\n      }\n    }\n  ],\n  \"usage\":
+        {\n    \"prompt_tokens\": 23,\n    \"completion_tokens\": 6,\n    \"total_tokens\":
+        29\n  }\n}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 88b87eb5ff347af7-SJC
+      - 8c61c2af9c6ebab1-MXP
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 29 May 2024 18:19:50 GMT
+      - Fri, 20 Sep 2024 12:18:51 GMT
       Server:
       - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      access-control-allow-origin:
-      - '*'
-      alt-svc:
-      - h3=":443"; ma=86400
       content-length:
-      - '399'
+      - '504'
       etag:
-      - W/"je1f4cdfrnb3"
-      vary:
-      - Accept-Encoding
+      - W/"1f8-kTe0Wx0oXRcWGhFgWXvZ2C00zqM"
       x-api-call-end:
-      - '2024-05-29T18:19:50.481Z'
+      - '2024-09-20T12:18:51.750Z'
       x-api-call-start:
-      - '2024-05-29T18:19:50.105Z'
+      - '2024-09-20T12:18:51.578Z'
       x-api-received:
-      - '2024-05-29T18:19:50.100Z'
+      - '2024-09-20T12:18:51.572Z'
       x-compute-characters:
-      - '177'
+      - '231'
       x-compute-time:
-      - '309'
+      - '106'
       x-hostname:
-      - meta-llama-llama-3-70b-chat-hf-6cc58f7b84-4wkk7
+      - meta-llama-llama-3-70b-chat-hf-6b9465d65-dxsfz
       x-inference-time:
-      - '303'
+      - '106'
       x-inference-version:
       - v2
+      x-powered-by:
+      - Express
       x-queue-time:
-      - '5'
+      - '0'
+      x-ratelimit:
+      - 'false'
       x-ratelimit-limit:
-      - '200'
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
       x-ratelimit-remaining:
-      - '195'
+      - '197'
+      x-ratelimit-remaining-tokens:
+      - '100000'
       x-ratelimit-reset:
       - '0'
       x-time-per-token:
-      - '12'
+      - '17'
       x-total-time:
-      - '309'
+      - '106'
       x-validation-time:
       - '0'
     status:

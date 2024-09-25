@@ -1,7 +1,6 @@
 interactions:
 - request:
-    body: '{"message": "Hi", "stream": false, "model": "command-r", "chat_history":
-      []}'
+    body: '{"message": "Hi", "model": "command-r", "chat_history": [], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -22,35 +21,37 @@ interactions:
       x-fern-sdk-name:
       - cohere
       x-fern-sdk-version:
-      - 5.4.0
+      - 5.6.1
     method: POST
     uri: https://api.cohere.ai/v1/chat
   response:
     body:
-      string: "{\"response_id\":\"2bcea12c-6010-4941-a65c-eefde1587687\",\"text\":\"Hi!
-        How's it going? I hope you're having a fantastic day today! \U0001F60A\",\"generation_id\":\"490b8e3f-2a46-4dcb-80e6-0a04af905f7c\",\"chat_history\":[{\"role\":\"USER\",\"message\":\"Hi\"},{\"role\":\"CHATBOT\",\"message\":\"Hi!
-        How's it going? I hope you're having a fantastic day today! \U0001F60A\"}],\"finish_reason\":\"COMPLETE\",\"meta\":{\"api_version\":{\"version\":\"1\"},\"billed_units\":{\"input_tokens\":1,\"output_tokens\":19},\"tokens\":{\"input_tokens\":67,\"output_tokens\":19}}}"
+      string: '{"response_id":"84fdb051-ad0c-487f-9573-47c087a47aba","text":"Hi! How''s
+        it going? I hope you''re having a fantastic day so far! Is there anything
+        you''d like to talk about or ask me?","generation_id":"30f17c70-6b6b-463b-b4c1-01dcf2fde1db","chat_history":[{"role":"USER","message":"Hi"},{"role":"CHATBOT","message":"Hi!
+        How''s it going? I hope you''re having a fantastic day so far! Is there anything
+        you''d like to talk about or ask me?"}],"finish_reason":"COMPLETE","meta":{"api_version":{"version":"1"},"billed_units":{"input_tokens":1,"output_tokens":31},"tokens":{"input_tokens":67,"output_tokens":31}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Content-Length:
+      - '602'
       Via:
       - 1.1 google
       access-control-expose-headers:
       - X-Debug-Trace-ID
       cache-control:
       - no-cache, no-store, no-transform, must-revalidate, private, max-age=0
-      content-length:
-      - '502'
       content-type:
       - application/json
       date:
-      - Wed, 29 May 2024 18:14:30 GMT
+      - Thu, 19 Sep 2024 00:10:45 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
       num_chars:
-      - '418'
+      - '423'
       num_tokens:
-      - '20'
+      - '32'
       pragma:
       - no-cache
       server:
@@ -60,9 +61,9 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - 2fc80140263d247967de1eb5143a6de7
+      - 6c4921c90b79c5c4a1a764adc4b24871
       x-envoy-upstream-service-time:
-      - '288'
+      - '284'
     status:
       code: 200
       message: OK

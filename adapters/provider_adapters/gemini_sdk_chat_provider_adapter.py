@@ -21,6 +21,7 @@ from adapters.types import (
     OpenAIChatAdapterResponse,
     Turn,
 )
+from adapters.utils.general_utils import get_dynamic_cost
 
 PROVIDER_NAME = "gemini"
 API_KEY_NAME = "GEMINI_API_KEY"
@@ -35,17 +36,19 @@ class GeminiModel(Model):
     provider_name: str = PROVIDER_NAME
     predicates: ModelPredicates = BASE_PREDICATES
 
+    supports_repeating_roles: bool = True
+    supports_system: bool = True
+    supports_multiple_system: bool = True
+    supports_empty_content: bool = True
+    supports_tool_choice_required: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
+
 
 MODELS = [
     GeminiModel(
         name="gemini-1.0-pro",
-        cost=Cost(prompt=0.125e-6, completion=0.375e-6),
-        context_length=30720,
-        completion_length=2048,
-    ),
-    GeminiModel(
-        name="gemini-1.0-pro-latest",
-        cost=Cost(prompt=0.125e-6, completion=0.375e-6),
+        cost=Cost(prompt=0.5e-6, completion=1.5e-6),
         context_length=30720,
         completion_length=2048,
     ),
@@ -56,19 +59,7 @@ MODELS = [
         completion_length=8192,
     ),
     GeminiModel(
-        name="gemini-1.5-pro-latest",
-        cost=Cost(prompt=3.5e-6, completion=10.5e-6),
-        context_length=128000,
-        completion_length=8192,
-    ),
-    GeminiModel(
         name="gemini-1.5-flash",
-        cost=Cost(prompt=0.075e-6, completion=0.3e-6),
-        context_length=128000,
-        completion_length=8192,
-    ),
-    GeminiModel(
-        name="gemini-1.5-flash-latest",
         cost=Cost(prompt=0.35e-6, completion=0.70e-6),
         context_length=128000,
         completion_length=8192,
@@ -155,9 +146,10 @@ class GeminiSDKChatProviderAdapter(
         ).total_tokens
         completion_tokens = self.model.count_tokens(response.text).total_tokens
 
+        dynamic_cost = get_dynamic_cost(self.get_model_name(), prompt_tokens)
         cost = (
-            self.get_model().cost.prompt * prompt_tokens
-            + self.get_model().cost.completion * completion_tokens
+            dynamic_cost.prompt * prompt_tokens
+            + dynamic_cost.completion * completion_tokens
             + self.get_model().cost.request
         )
 
@@ -195,9 +187,10 @@ class GeminiSDKChatProviderAdapter(
         )
         completion_tokens = await model.count_tokens_async(response.text)
 
+        dynamic_cost = get_dynamic_cost(self.get_model_name(), prompt_tokens)
         cost = (
-            self.get_model().cost.prompt * prompt_tokens.total_tokens
-            + self.get_model().cost.completion * completion_tokens.total_tokens
+            dynamic_cost.prompt * prompt_tokens
+            + dynamic_cost.completion * completion_tokens
             + self.get_model().cost.request
         )
 

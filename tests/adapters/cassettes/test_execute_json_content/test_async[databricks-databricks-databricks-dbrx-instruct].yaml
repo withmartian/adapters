@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "databricks-dbrx-instruct"}'
+    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "databricks-dbrx-instruct",
+      "max_tokens": 4000}'
     headers:
       accept:
       - application/json
@@ -9,41 +10,40 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '90'
+      - '110'
       content-type:
       - application/json
       host:
       - adb-8736858266948228.8.azuredatabricks.net
       user-agent:
-      - AsyncOpenAI/Python 1.36.0
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
-      - 1.36.0
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_ec8facd3-8fd0-46a6-a96b-f4e031b8b457","object":"chat.completion","created":1723054316,"model":"dbrx-instruct-071224","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today? If you have any questions or need help with a
-        specific task, feel free to ask. I''m here to help."},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":227,"completion_tokens":33,"total_tokens":260}}'
+      string: '{"id":"chatcmpl_e3fccfd2-7a79-4da9-bb7a-6f3b65c08c4e","object":"chat.completion","created":1726705732,"model":"dbrx-instruct-071224","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today?"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":227,"completion_tokens":9,"total_tokens":236}}'
     headers:
       content-length:
-      - '443'
+      - '345'
       content-type:
       - application/json
       date:
-      - Wed, 07 Aug 2024 18:11:56 GMT
+      - Thu, 19 Sep 2024 00:28:51 GMT
       server:
       - databricks
       strict-transport-security:
@@ -65,9 +65,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 185.115.7.223,10.154.64.149
+      - 208.184.59.122,10.154.64.120
       x-rate-limit-request-remote-addr:
-      - 10.154.65.119:48012
+      - 10.154.64.7:43086
+      x-request-id:
+      - 5f367ad6-3901-47b0-859c-a7d1e63627fb
       x-xss-protection:
       - 1; mode=block
     status:

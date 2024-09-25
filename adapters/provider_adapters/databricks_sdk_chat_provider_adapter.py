@@ -13,47 +13,50 @@ API_KEY_NAME = "DATABRICKS_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
 BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
 
-# Convert rate from DBU to USD
-CONVERT_RATE = 0.07
+DBU_USD_RATE = 0.07
 
 
 class DatabricksModel(Model):
-    supports_first_assistant: bool = False
-    supports_multiple_system: bool = False
-    supports_tools: bool = False
     provider_name: str = PROVIDER_NAME
     predicates: ModelPredicates = BASE_PREDICATES
+
+    supports_repeating_roles: bool = True
+    supports_system: bool = True
+    supports_empty_content: bool = True
+    supports_tool_choice_required: bool = True
+    supports_last_assistant: bool = True
 
 
 MODELS = [
     DatabricksModel(
-        name="databricks-dbrx-instruct",
-        cost=Cost(prompt=10.714 * CONVERT_RATE, completion=32.143 * CONVERT_RATE),
-        context_length=32000,
-        vendor_name="databricks",
+        name="databricks-meta-llama-3-1-70b-instruct",
+        cost=Cost(prompt=14.286 * DBU_USD_RATE, completion=42.857 * DBU_USD_RATE),
+        context_length=8000,
+        vendor_name="meta-llama",
     ),
     DatabricksModel(
         name="databricks-meta-llama-3-1-405b-instruct",
-        cost=Cost(prompt=71.429 * CONVERT_RATE, completion=214.286 * CONVERT_RATE),
+        cost=Cost(prompt=71.429 * DBU_USD_RATE, completion=214.286 * DBU_USD_RATE),
         context_length=128000,
-        vendor_name="databricks",
-    ),
-    DatabricksModel(
-        name="databricks-meta-llama-3-1-70b-instruct",
-        cost=Cost(prompt=14.286 * CONVERT_RATE, completion=42.857 * CONVERT_RATE),
-        context_length=8000,
-        vendor_name="databricks",
+        vendor_name="meta-llama",
     ),
     DatabricksModel(
         name="databricks-mixtral-8x7b-instruct",
-        cost=Cost(prompt=7.143 * CONVERT_RATE, completion=14.286 * CONVERT_RATE),
+        cost=Cost(prompt=7.143 * DBU_USD_RATE, completion=14.286 * DBU_USD_RATE),
+        context_length=32000,
+        vendor_name="mistralai",
+    ),
+    DatabricksModel(
+        name="databricks-mixtral-8x7b-instruct",
+        cost=Cost(prompt=7.143 * DBU_USD_RATE, completion=14.286 * DBU_USD_RATE),
         context_length=32000,
         vendor_name="databricks",
     ),
     DatabricksModel(
-        name="databricks-llama-2-70b-chat",
-        cost=Cost(prompt=7.143 * CONVERT_RATE, completion=21.429 * CONVERT_RATE),
-        context_length=4096,
+        name="databricks-dbrx-instruct",
+        cost=Cost(prompt=10.714 * DBU_USD_RATE, completion=32.143 * DBU_USD_RATE),
+        context_length=32000,
+        completion_length=4000,
         vendor_name="databricks",
     ),
 ]
