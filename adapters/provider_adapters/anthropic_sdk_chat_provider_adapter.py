@@ -8,13 +8,13 @@ from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
+    AdapterChatCompletion,
     CompletionTokensDetails,
     Conversation,
     ConversationRole,
     Cost,
     Model,
     ModelPredicates,
-    OpenAIChatAdapterResponse,
     Turn,
     Usage,
 )
@@ -126,9 +126,7 @@ class AnthropicSDKChatProviderAdapter(
         self._sync_client.api_key = api_key
         self._async_client.api_key = api_key
 
-    def extract_response(
-        self, request: Any, response: Any
-    ) -> OpenAIChatAdapterResponse:
+    def extract_response(self, request: Any, response: Any) -> AdapterChatCompletion:
         tool_call_name = None
         arguments = None
         if response.content[0].type == "tool_use":
@@ -169,7 +167,7 @@ class AnthropicSDKChatProviderAdapter(
             + self.get_model().cost.request
         )
 
-        return OpenAIChatAdapterResponse(
+        return AdapterChatCompletion(
             response=Turn(
                 role=ConversationRole.assistant,
                 content=choices[0]["message"]["content"],  # type: ignore

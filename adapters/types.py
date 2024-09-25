@@ -1,8 +1,7 @@
 from enum import Enum
 from typing import Any, Dict, Generic, List, Literal, Optional, TypeVar, Union
 
-from openai.types.chat import ChatCompletionMessageToolCall
-from openai.types.chat.chat_completion import Choice
+from openai.types.chat import ChatCompletion, ChatCompletionMessageToolCall
 from openai.types.chat.chat_completion_message import FunctionCall
 from pydantic import BaseModel, Field
 
@@ -231,52 +230,13 @@ class Conversation(BaseModel):
 
         return False
 
-    def convert_to_prompt(self) -> "Prompt":
-        return Prompt("".join([f"{turn.role}: {turn.content}" for turn in self.turns]))
-
-    def convert_to_anthropic_prompt(self) -> "Prompt":
-        role_map = {
-            "user": "Human",
-            "assistant": "Assistant",
-            "system": "Human: This is your system prompt. This prompt defines your behavior and personality: \n",
-        }
-        return Prompt(
-            "\n\n".join(
-                [""]
-                + [
-                    f"{role_map.get(turn.role, turn.role)}: {turn.content}"
-                    for turn in self.turns
-                ]
-            )
-            + "\n\nAssistant:"
-        )
-
-
-class Prompt(str):
-    def convert_to_conversation(self) -> Conversation:
-        return Conversation(turns=[Turn(role=ConversationRole.user, content=self)])
-
-
-class AdapterResponse(BaseModel, Generic[LLMOutputType]):
-    response: LLMOutputType
-    token_counts: Optional[Cost] = None
-    cost: float
-
 
 class AdapterStreamResponse(BaseModel, Generic[AdapterStreamResponseType]):
     response: AdapterStreamResponseType
 
 
-class ChatAdapterResponse(AdapterResponse[Turn]):
-    pass
-
-
-class OpenAIChatAdapterResponse(
-    AdapterResponse[Union[Turn, FunctionCallTurn, ToolsCallTurn]]
-):
-    finish_reason: Optional[str] = None
-    choices: Optional[List[Dict[str, Any]]] | Optional[List[Choice]] = None
-    usage: Optional[Usage] = None
+class AdapterChatCompletion(ChatCompletion):
+    cost: float
 
 
 class AdapterException(Exception):

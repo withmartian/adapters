@@ -6,16 +6,15 @@ from openai.types.chat import ChatCompletionChunk
 
 from adapters.abstract_adapters.base_adapter import BaseAdapter
 from adapters.types import (
+    AdapterChatCompletion,
     AdapterException,
     AdapterStreamResponse,
-    ChatAdapterResponse,
     ContentTurn,
     ContentType,
     Conversation,
     ConversationRole,
     Model,
     ModelPredicates,
-    Prompt,
 )
 from adapters.utils.adapter_stream_response import stream_generator_auto_close
 from adapters.utils.general_utils import EMPTY_CONTENT, delete_none_values
@@ -24,7 +23,7 @@ from adapters.utils.general_utils import EMPTY_CONTENT, delete_none_values
 class SDKChatAdapter(
     BaseAdapter[
         Conversation,
-        ChatAdapterResponse,
+        AdapterChatCompletion,
         Stream[ChatCompletionChunk],
         AsyncStream[ChatCompletionChunk],
     ],
@@ -52,16 +51,6 @@ class SDKChatAdapter(
     @abstractmethod
     def extract_stream_response(self, request, response):
         pass
-
-    @staticmethod
-    def convert_to_input(llm_input: Conversation | Prompt) -> Conversation:
-        if isinstance(llm_input, Conversation):
-            return llm_input
-
-        if isinstance(llm_input, Prompt):
-            return llm_input.convert_to_conversation()
-
-        raise ValueError(f"Llm_input {llm_input} is not a valid input")
 
     def get_model_predicates(self, model_name: str) -> ModelPredicates:
         for model in self.get_supported_models():

@@ -3,13 +3,11 @@ from typing import Generic
 
 from adapters.types import (
     AdapterStreamResponse,
-    Conversation,
     LLMAsyncStreamOutputType,
     LLMInputType,
     LLMOutputType,
     LLMStreamOutputType,
     Model,
-    Prompt,
 )
 
 
@@ -55,18 +53,6 @@ class BaseAdapter(
 
         Returns:
             LLMOutputType: output from the LLM api (i.e. ChatAdapterResponse, etc.)
-        """
-
-    @staticmethod
-    @abstractmethod
-    def convert_to_input(llm_input: Conversation | Prompt) -> LLMInputType:
-        """converts any input to a valid LLM input
-
-        Args:
-            Any: any input
-
-        Returns:
-            LLMInputType: valid LLM input
         """
 
     def adjust_temperature(self, temperature: float) -> float:

@@ -12,13 +12,13 @@ from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
+    AdapterChatCompletion,
     ContentTurn,
     Conversation,
     ConversationRole,
     Cost,
     Model,
     ModelPredicates,
-    OpenAIChatAdapterResponse,
     Turn,
 )
 from adapters.utils.general_utils import get_dynamic_cost
@@ -126,9 +126,7 @@ class GeminiSDKChatProviderAdapter(
             client_options=ClientOptions(api_key=api_key)
         )
 
-    def extract_response(
-        self, request: Any, response: Any
-    ) -> OpenAIChatAdapterResponse:
+    def extract_response(self, request: Any, response: Any) -> AdapterChatCompletion:
         choices = [
             {
                 "message": {
@@ -153,7 +151,7 @@ class GeminiSDKChatProviderAdapter(
             + self.get_model().cost.request
         )
 
-        return OpenAIChatAdapterResponse(
+        return AdapterChatCompletion(
             response=Turn(
                 role=ConversationRole.assistant,
                 content=choices[0]["message"]["content"],  # type: ignore
@@ -168,7 +166,7 @@ class GeminiSDKChatProviderAdapter(
 
     async def extract_response_async(
         self, request: Any, response: Any
-    ) -> OpenAIChatAdapterResponse:
+    ) -> AdapterChatCompletion:
         model = genai.GenerativeModel(model_name=self.get_model_name())
         model._async_client = self.get_async_client()
 
@@ -194,7 +192,7 @@ class GeminiSDKChatProviderAdapter(
             + self.get_model().cost.request
         )
 
-        return OpenAIChatAdapterResponse(
+        return AdapterChatCompletion(
             response=Turn(
                 role=ConversationRole.assistant,
                 content=choices[0]["message"]["content"],  # type: ignore

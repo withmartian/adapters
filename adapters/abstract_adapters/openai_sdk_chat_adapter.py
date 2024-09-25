@@ -7,10 +7,10 @@ from openai.types.chat.chat_completion_chunk import ChatCompletionChunk
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
+    AdapterChatCompletion,
     CompletionTokensDetails,
     ConversationRole,
     Cost,
-    OpenAIChatAdapterResponse,
     RequestBody,
     Turn,
     Usage,
@@ -51,7 +51,7 @@ class OpenAISDKChatAdapter(ApiKeyAdapterMixin, SDKChatAdapter):
         self,
         request: RequestBody,
         response: ChatCompletion,
-    ) -> OpenAIChatAdapterResponse:
+    ) -> AdapterChatCompletion:
         choices = response.choices
         prompt_tokens = response.usage.prompt_tokens if response.usage else 0
         completion_tokens = response.usage.completion_tokens if response.usage else 0
@@ -67,7 +67,7 @@ class OpenAISDKChatAdapter(ApiKeyAdapterMixin, SDKChatAdapter):
             + self.get_model().cost.request
         )
 
-        return OpenAIChatAdapterResponse(
+        return AdapterChatCompletion(
             response=Turn(
                 role=ConversationRole.assistant,
                 content=choices[0].message.content or "",
