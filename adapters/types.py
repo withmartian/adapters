@@ -285,16 +285,3 @@ class AdapterException(Exception):
 
 class AdapterRateLimitException(AdapterException):
     pass
-
-
-class YouComRagChatAdapterHitEntry(BaseModel):
-    ai_snippets: str
-    description: str
-    snippet: str
-    title: str
-    url: str
-
-
-class YouComRagChatAdapterResponse(ChatAdapterResponse):
-    hits: List[YouComRagChatAdapterHitEntry]
-    latency: float
