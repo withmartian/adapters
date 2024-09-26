@@ -3,20 +3,20 @@ from typing import Any, Dict, Pattern
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Conversation, ConversationRole, Cost, Model, ModelPredicates
+from adapters.types import Conversation, ConversationRole, Cost, Model, ModelProperties
 
 PROVIDER_NAME = "together"
 BASE_URL = "https://api.together.xyz"
 API_KEY_NAME = "TOGETHER_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
-BASE_PREDICATES = ModelPredicates(open_source=True)
+BASE_PROPERTIES = ModelProperties(open_source=True)
 
 
 class TogetherModel(Model):
     supports_streaming: bool = True
     supports_json_content: bool = True
     provider_name: str = PROVIDER_NAME
-    predicates: ModelPredicates = BASE_PREDICATES
+    properties: ModelProperties = BASE_PROPERTIES
 
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"
@@ -36,7 +36,7 @@ MODELS = [
         context_length=8192,
         vendor_name="meta-llama",
         supports_json_content=False,
-        predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
+        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
     TogetherModel(
         name="Meta-Llama-3.1-405B-Instruct-Turbo",
@@ -58,7 +58,7 @@ MODELS = [
         context_length=8192,
         vendor_name="meta-llama",
         supports_json_content=False,
-        predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
+        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
     TogetherModel(
         name="Meta-Llama-3-8B-Instruct-Lite",
@@ -73,7 +73,7 @@ MODELS = [
         context_length=8192,
         vendor_name="meta-llama",
         supports_json_content=False,
-        predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
+        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
     TogetherModel(
         name="Llama-2-13b-chat-hf",
@@ -94,7 +94,7 @@ MODELS = [
         context_length=8000,
         vendor_name="meta-llama",
         supports_json_content=False,
-        predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
+        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
 ]
 

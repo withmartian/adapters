@@ -13,7 +13,7 @@ from adapters.types import (
     ConversationRole,
     Cost,
     Model,
-    ModelPredicates,
+    ModelProperties,
     OpenAIChatAdapterResponse,
     Turn,
     Usage,
@@ -23,13 +23,13 @@ API_KEY_NAME = "COHERE_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
 BASE_URL = "https://api.cohere.ai/v1"
 PROVIDER_NAME = "cohere"
-BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
+BASE_PROPERTIES = ModelProperties(open_source=True, gdpr_compliant=True)
 
 
 class CohereModel(Model):
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
-    predicates: ModelPredicates = BASE_PREDICATES
+    properties: ModelProperties = BASE_PROPERTIES
 
     supports_repeating_roles: bool = True
     supports_system: bool = True
@@ -50,13 +50,13 @@ MODELS = [
         name="command-r",
         cost=Cost(prompt=0.5e-6, completion=1.5e-6),
         context_length=128000,
-        predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
+        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
     CohereModel(
         name="command-r-plus",
         cost=Cost(prompt=3.00e-6, completion=15.00e-6),
         context_length=128000,
-        predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
+        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
 ]
 

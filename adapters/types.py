@@ -125,7 +125,7 @@ class Usage(BaseModel):
     )
 
 
-class ModelPredicates(BaseModel):
+class ModelProperties(BaseModel):
     open_source: bool = False
     chinese: bool = False
     gdpr_compliant: bool = False
@@ -157,7 +157,7 @@ class Model(BaseModel):
     supports_last_assistant: bool = False
     supports_first_assistant: bool = False
     completion_length: Optional[int] = None
-    predicates: ModelPredicates = Field(default_factory=ModelPredicates)
+    properties: ModelProperties = Field(default_factory=ModelProperties)
 
     def get_path(self) -> str:
         return f"{self.provider_name}/{self.vendor_name}/{self.name}"
