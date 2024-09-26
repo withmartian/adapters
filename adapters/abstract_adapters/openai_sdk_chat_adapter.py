@@ -52,37 +52,17 @@ class OpenAISDKChatAdapter(ApiKeyAdapterMixin, SDKChatAdapter):
         request: RequestBody,
         response: ChatCompletion,
     ) -> AdapterChatCompletion:
-        choices = response.choices
-        prompt_tokens = response.usage.prompt_tokens if response.usage else 0
-        completion_tokens = response.usage.completion_tokens if response.usage else 0
-
-        completion_tokens_details = getattr(
-            response.usage, "completion_tokens_details", CompletionTokensDetails()
-        )
-        reasoning_tokens = getattr(completion_tokens_details, "reasoning_tokens", 0)
-
         cost = (
-            self.get_model().cost.prompt * prompt_tokens
-            + self.get_model().cost.completion * completion_tokens
+            self.get_model().cost.prompt * response.usage.prompt_tokens
+            + self.get_model().cost.completion * response.usage.completion_tokens
+            + self.get_model().cost.completion
+            * response.usage.completion_tokens_details.reasoning_tokens
             + self.get_model().cost.request
         )
 
         return AdapterChatCompletion(
-            response=Turn(
-                role=ConversationRole.assistant,
-                content=choices[0].message.content or "",
-            ),  # TODO: Refactor response
-            choices=choices,
+            **response,
             cost=cost,
-            token_counts=Cost(
-                prompt=prompt_tokens,
-                completion=completion_tokens,
-            ),
-            usage=Usage(
-                completion_tokens_details=CompletionTokensDetails(
-                    reasoning_tokens=reasoning_tokens
-                )
-            ),
         )
 
     def extract_stream_response(self, request, response: ChatCompletionChunk) -> str:
