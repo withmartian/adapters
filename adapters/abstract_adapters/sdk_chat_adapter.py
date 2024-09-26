@@ -1,14 +1,10 @@
 from abc import abstractmethod
-from typing import Any, Dict, List
-
-from openai import AsyncStream, Stream
-from openai.types.chat import ChatCompletionChunk
+from typing import Any, Dict, List, Optional
 
 from adapters.abstract_adapters.base_adapter import BaseAdapter
 from adapters.types import (
-    AdapterChatCompletion,
     AdapterException,
-    AdapterStreamResponse,
+    AdapterStreamChatCompletion,
     ContentTurn,
     ContentType,
     Conversation,
@@ -20,14 +16,7 @@ from adapters.utils.adapter_stream_response import stream_generator_auto_close
 from adapters.utils.general_utils import EMPTY_CONTENT, delete_none_values
 
 
-class SDKChatAdapter(
-    BaseAdapter[
-        Conversation,
-        AdapterChatCompletion,
-        Stream[ChatCompletionChunk],
-        AsyncStream[ChatCompletionChunk],
-    ],
-):
+class SDKChatAdapter(BaseAdapter):
     @abstractmethod
     def get_supported_models(self) -> List[Model]:
         pass
@@ -57,6 +46,9 @@ class SDKChatAdapter(
             if model.name == model_name:
                 return model.predicates
         raise ValueError(f"Model {model_name} not found")
+
+    def adjust_temperature(self, temperature: float) -> float:
+        return temperature
 
     # pylint: disable=too-many-statements
     def get_params(
@@ -222,6 +214,7 @@ class SDKChatAdapter(
     async def execute_async(
         self,
         llm_input: Conversation,
+        stream: Optional[bool],
         **kwargs,
     ):
         params = self.get_params(llm_input, **kwargs)
@@ -230,7 +223,7 @@ class SDKChatAdapter(
             **delete_none_values(params),
         )
 
-        if params.get("stream", False):
+        if stream:
 
             async def stream_response():
                 async with stream_generator_auto_close(response):
@@ -244,13 +237,14 @@ class SDKChatAdapter(
                             f"Error in streaming response: {e}"
                         ) from e
 
-            return AdapterStreamResponse(response=stream_response())
+            return AdapterStreamChatCompletion(response=stream_response())
 
         return self.extract_response(request=llm_input, response=response)
 
     def execute_sync(
         self,
         llm_input: Conversation,
+        stream: Optional[bool],
         **kwargs,
     ):
         params = self.get_params(llm_input, **kwargs)
@@ -259,7 +253,7 @@ class SDKChatAdapter(
             model=self.get_model()._get_api_path(), **delete_none_values(params)
         )
 
-        if params.get("stream", False):
+        if stream:
 
             def stream_response():
                 try:
@@ -272,6 +266,6 @@ class SDKChatAdapter(
                 finally:
                     response.close()
 
-            return AdapterStreamResponse(response=stream_response())
+            return AdapterStreamChatCompletion(response=stream_response())
 
         return self.extract_response(request=llm_input, response=response)

@@ -1,7 +1,11 @@
 from enum import Enum
-from typing import Any, Dict, Generic, List, Literal, Optional, TypeVar, Union
+from typing import Any, Dict, List, Literal, Optional, Union
 
-from openai.types.chat import ChatCompletion, ChatCompletionMessageToolCall
+from openai.types.chat import (
+    ChatCompletion,
+    ChatCompletionChunk,
+    ChatCompletionMessageToolCall,
+)
 from openai.types.chat.chat_completion_message import FunctionCall
 from pydantic import BaseModel, Field
 
@@ -16,19 +20,6 @@ class RequestBody(Dict[str, Any]):
 
 class RequestQueryParams(Dict[str, str]):
     pass
-
-
-LLMInputType = TypeVar("LLMInputType")
-LLMOutputType = TypeVar("LLMOutputType")
-LLMStreamOutputType = TypeVar("LLMStreamOutputType")
-LLMAsyncStreamOutputType = TypeVar("LLMAsyncStreamOutputType")
-
-LLMSyncClientType = TypeVar("LLMSyncClientType")
-LLMAsyncClientType = TypeVar("LLMAsyncClientType")
-
-AdapterStreamResponseType = TypeVar("AdapterStreamResponseType")
-
-ResponseSDKType = TypeVar("ResponseSDKType")
 
 
 class ConversationRole(str, Enum):
@@ -231,12 +222,16 @@ class Conversation(BaseModel):
         return False
 
 
-class AdapterStreamResponse(BaseModel, Generic[AdapterStreamResponseType]):
-    response: AdapterStreamResponseType
-
-
 class AdapterChatCompletion(ChatCompletion):
     cost: float
+
+
+class AdapterChatCompletionChunk(ChatCompletionChunk):
+    pass
+
+
+class AdapterStreamChatCompletion(BaseModel):
+    response: AdapterChatCompletionChunk
 
 
 class AdapterException(Exception):

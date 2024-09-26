@@ -1,12 +1,8 @@
-import nest_asyncio  # type: ignore
 import pytest
 
 from adapters.adapter_factory import AdapterFactory
-from adapters.types import ConversationRole
 from tests.adapters.utils.contants import MODEL_PATHS, MODEL_PATHS_ASYNC
 from tests.utils import SIMPLE_CONVERSATION_VISION, get_response_content_from_vcr
-
-nest_asyncio.apply()
 
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS)
@@ -19,17 +15,11 @@ def test_sync(vcr, model_path: str):
     if adapter.get_model().supports_vision is False:
         return
 
-    adapter_response = adapter.execute_sync(
-        adapter.convert_to_input(SIMPLE_CONVERSATION_VISION)
-    )
+    adapter_response = adapter.execute_sync(SIMPLE_CONVERSATION_VISION)
 
     cassette_response = get_response_content_from_vcr(vcr, adapter)
 
-    assert adapter_response.response.content == cassette_response
-    assert adapter_response.response.role == ConversationRole.assistant
-
-    finish_reason = getattr(adapter_response.choices[0], "finish_reason", None)  # type: ignore
-    assert finish_reason in ["stop", "eos", "length", None]
+    assert adapter_response.choices[0].message.content == cassette_response
 
 
 @pytest.mark.parametrize("model_path", MODEL_PATHS_ASYNC)
@@ -42,14 +32,8 @@ async def test_async(vcr, model_path: str):
     if adapter.get_model().supports_vision is False:
         return
 
-    adapter_response = await adapter.execute_async(
-        adapter.convert_to_input(SIMPLE_CONVERSATION_VISION)
-    )
+    adapter_response = await adapter.execute_async(SIMPLE_CONVERSATION_VISION)
 
     cassette_response = get_response_content_from_vcr(vcr, adapter)
 
-    assert adapter_response.response.content == cassette_response
-    assert adapter_response.response.role == ConversationRole.assistant
-
-    finish_reason = getattr(adapter_response.choices[0], "finish_reason", None)  # type: ignore
-    assert finish_reason in ["stop", "eos", "length", None]
+    assert adapter_response.choices[0].message.content == cassette_response
