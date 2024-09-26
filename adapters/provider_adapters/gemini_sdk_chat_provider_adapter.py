@@ -17,7 +17,7 @@ from adapters.types import (
     ConversationRole,
     Cost,
     Model,
-    ModelPredicates,
+    ModelProperties,
     OpenAIChatAdapterResponse,
     Turn,
 )
@@ -26,7 +26,7 @@ from adapters.utils.general_utils import get_dynamic_cost
 PROVIDER_NAME = "gemini"
 API_KEY_NAME = "GEMINI_API_KEY"
 API_KEY_PATTERN = re.compile(r".*")
-BASE_PREDICATES = ModelPredicates(gdpr_compliant=True)
+BASE_PROPERTIES = ModelProperties(gdpr_compliant=True)
 
 
 class GeminiModel(Model):
@@ -34,7 +34,7 @@ class GeminiModel(Model):
 
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
-    predicates: ModelPredicates = BASE_PREDICATES
+    properties: ModelProperties = BASE_PROPERTIES
 
     supports_repeating_roles: bool = True
     supports_system: bool = True
