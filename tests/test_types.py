@@ -4,7 +4,6 @@ import pytest
 from adapters.types import (
     ContentTurn,
     Conversation,
-    ConversationRole,
     Turn,
 )
 

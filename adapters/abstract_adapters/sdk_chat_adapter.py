@@ -1,6 +1,8 @@
 from abc import abstractmethod
 from typing import Any, Dict, List, Optional
 
+from openai import NOT_GIVEN, NotGiven
+
 from adapters.abstract_adapters.base_adapter import BaseAdapter
 from adapters.types import (
     AdapterException,
@@ -214,7 +216,7 @@ class SDKChatAdapter(BaseAdapter):
     async def execute_async(
         self,
         llm_input: Conversation,
-        stream: Optional[bool],
+        stream: Optional[bool] | NotGiven = NOT_GIVEN,
         **kwargs,
     ):
         params = self.get_params(llm_input, **kwargs)
@@ -244,7 +246,7 @@ class SDKChatAdapter(BaseAdapter):
     def execute_sync(
         self,
         llm_input: Conversation,
-        stream: Optional[bool],
+        stream: Optional[bool] | NotGiven = NOT_GIVEN,
         **kwargs,
     ):
         params = self.get_params(llm_input, **kwargs)

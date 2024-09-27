@@ -1,16 +1,16 @@
 import inspect
 import os
 import sys
-from typing import Any
 
 from adapters.abstract_adapters import BaseAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
     AnthropicSDKChatProviderAdapter,
 )
-from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
-    GeminiSDKChatProviderAdapter,
-)
+
+# from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
+#     GeminiSDKChatProviderAdapter,
+# )
 from adapters.provider_adapters.openai_sdk_chat_provider_adapter import (
     OpenAISDKChatProviderAdapter,
 )
@@ -23,7 +23,7 @@ from adapters.types import Model
 class AdapterFactory:
     @staticmethod
     def _create_adapter_registry() -> dict[str, type[BaseAdapter]]:
-        adapters_classes: dict[str, type[BaseAdapter[Any, Any, Any, Any]]] = {}
+        adapters_classes: dict[str, type[BaseAdapter]] = {}
 
         for _, obj in inspect.getmembers(sys.modules["adapters.provider_adapters"]):
             if (
@@ -43,8 +43,8 @@ class AdapterFactory:
         for model in TogetherSDKChatProviderAdapter.get_supported_models():
             adapters_classes[model.name] = TogetherSDKChatProviderAdapter  # type: ignore
 
-        for model in GeminiSDKChatProviderAdapter.get_supported_models():
-            adapters_classes[model.name] = GeminiSDKChatProviderAdapter  # type: ignore
+        # for model in GeminiSDKChatProviderAdapter.get_supported_models():
+        #     adapters_classes[model.name] = GeminiSDKChatProviderAdapter  # type: ignore
 
         return adapters_classes
 
@@ -70,8 +70,8 @@ class AdapterFactory:
         for model in TogetherSDKChatProviderAdapter.get_supported_models():
             models[model.name] = model
 
-        for model in GeminiSDKChatProviderAdapter.get_supported_models():
-            models[model.name] = model
+        # for model in GeminiSDKChatProviderAdapter.get_supported_models():
+        #     models[model.name] = model
 
         return models
 

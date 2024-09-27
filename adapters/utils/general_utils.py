@@ -1,10 +1,9 @@
 import base64
 import os
-from typing import Optional
 
 import httpx
 
-from adapters.types import Cost, RequestBody
+from adapters.types import Cost
 
 EMPTY_CONTENT = '""'
 

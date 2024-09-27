@@ -17,7 +17,6 @@ class BaseAdapter(ABC):
         pass
 
     @overload
-    @abstractmethod
     async def execute_async(
         self,
         llm_input: Conversation,
@@ -27,16 +26,23 @@ class BaseAdapter(ABC):
         pass
 
     @overload
-    @abstractmethod
     async def execute_async(
         self,
         llm_input: Conversation,
-        stream: Optional[Literal[True]] | NotGiven = NOT_GIVEN,
+        stream: Literal[True],
         **kwargs,
     ) -> AdapterStreamChatCompletion:
         pass
 
     @abstractmethod
+    async def execute_async(
+        self,
+        llm_input: Conversation,
+        stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
+        **kwargs,
+    ) -> AdapterChatCompletion | AdapterStreamChatCompletion:
+        pass
+
     @overload
     def execute_sync(
         self,
@@ -46,12 +52,20 @@ class BaseAdapter(ABC):
     ) -> AdapterChatCompletion:
         pass
 
-    @abstractmethod
     @overload
     def execute_sync(
         self,
         llm_input: Conversation,
-        stream: Optional[Literal[True]] | NotGiven = NOT_GIVEN,
+        stream: Literal[True],
         **kwargs,
     ) -> AdapterStreamChatCompletion:
+        pass
+
+    @abstractmethod
+    def execute_sync(
+        self,
+        llm_input: Conversation,
+        stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
+        **kwargs,
+    ) -> AdapterChatCompletion | AdapterStreamChatCompletion:
         pass

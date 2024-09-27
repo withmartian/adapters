@@ -1,235 +1,235 @@
-import json
-import re
-from typing import Any, Pattern
+# import json
+# import re
+# from typing import Any, Pattern
 
-from cohere import AsyncClient, Client
+# from cohere import AsyncClient, Client
 
-from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
-from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
-from adapters.types import (
-    AdapterChatCompletion,
-    CompletionTokensDetails,
-    Conversation,
-    ConversationRole,
-    Cost,
-    Model,
-    ModelPredicates,
-    Turn,
-    Usage,
-)
+# from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
+# from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
+# from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
+# from adapters.types import (
+#     AdapterChatCompletion,
+#     CompletionTokensDetails,
+#     Conversation,
+#     ConversationRole,
+#     Cost,
+#     Model,
+#     ModelPredicates,
+#     Turn,
+#     Usage,
+# )
 
-API_KEY_NAME = "COHERE_API_KEY"
-API_KEY_PATTERN = re.compile(r".*")
-BASE_URL = "https://api.cohere.ai/v1"
-PROVIDER_NAME = "cohere"
-BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
-
-
-class CohereModel(Model):
-    vendor_name: str = PROVIDER_NAME
-    provider_name: str = PROVIDER_NAME
-    predicates: ModelPredicates = BASE_PREDICATES
-
-    supports_repeating_roles: bool = True
-    supports_system: bool = True
-    supports_multiple_system: bool = True
-    supports_empty_content: bool = True
-    supports_tool_choice_required: bool = True
-    supports_last_assistant: bool = True
-    supports_first_assistant: bool = True
-    supports_streaming: bool = True
-    supports_json_content: bool = True
-
-    def _get_api_path(self) -> str:
-        return self.name
+# API_KEY_NAME = "COHERE_API_KEY"
+# API_KEY_PATTERN = re.compile(r".*")
+# BASE_URL = "https://api.cohere.ai/v1"
+# PROVIDER_NAME = "cohere"
+# BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
 
 
-MODELS = [
-    CohereModel(
-        name="command-r",
-        cost=Cost(prompt=0.5e-6, completion=1.5e-6),
-        context_length=128000,
-        predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
-    ),
-    CohereModel(
-        name="command-r-plus",
-        cost=Cost(prompt=3.00e-6, completion=15.00e-6),
-        context_length=128000,
-        predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
-    ),
-]
+# class CohereModel(Model):
+#     vendor_name: str = PROVIDER_NAME
+#     provider_name: str = PROVIDER_NAME
+#     predicates: ModelPredicates = BASE_PREDICATES
 
-FINISH_REASON_MAPPING = {
-    "COMPLETE": "stop",
-    "MAX_TOKENS": "length",
-}
+#     supports_repeating_roles: bool = True
+#     supports_system: bool = True
+#     supports_multiple_system: bool = True
+#     supports_empty_content: bool = True
+#     supports_tool_choice_required: bool = True
+#     supports_last_assistant: bool = True
+#     supports_first_assistant: bool = True
+#     supports_streaming: bool = True
+#     supports_json_content: bool = True
 
-ROLE_MAPPING = {
-    "user": "USER",
-    "assistant": "CHATBOT",
-    "system": "SYSTEM",
-    "USER": "user",
-    "CHATBOT": "assistant",
-    "SYSTEM": "system",
-}
+#     def _get_api_path(self) -> str:
+#         return self.name
 
 
-class CohereSDKChatProviderAdapter(
-    ProviderAdapterMixin,
-    ApiKeyAdapterMixin,
-    SDKChatAdapter,
-):
-    @staticmethod
-    def get_api_key_name() -> str:
-        return API_KEY_NAME
+# MODELS = [
+#     CohereModel(
+#         name="command-r",
+#         cost=Cost(prompt=0.5e-6, completion=1.5e-6),
+#         context_length=128000,
+#         predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
+#     ),
+#     CohereModel(
+#         name="command-r-plus",
+#         cost=Cost(prompt=3.00e-6, completion=15.00e-6),
+#         context_length=128000,
+#         predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
+#     ),
+# ]
 
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN
+# FINISH_REASON_MAPPING = {
+#     "COMPLETE": "stop",
+#     "MAX_TOKENS": "length",
+# }
 
-    def get_base_sdk_url(self) -> str:
-        return BASE_URL
+# ROLE_MAPPING = {
+#     "user": "USER",
+#     "assistant": "CHATBOT",
+#     "system": "SYSTEM",
+#     "USER": "user",
+#     "CHATBOT": "assistant",
+#     "SYSTEM": "system",
+# }
 
-    @staticmethod
-    def get_provider_name() -> str:
-        return PROVIDER_NAME
 
-    @staticmethod
-    def get_supported_models():
-        return MODELS
+# class CohereSDKChatProviderAdapter(
+#     ProviderAdapterMixin,
+#     ApiKeyAdapterMixin,
+#     SDKChatAdapter,
+# ):
+#     @staticmethod
+#     def get_api_key_name() -> str:
+#         return API_KEY_NAME
 
-    _sync_client: Client
-    _async_client: AsyncClient
+#     @staticmethod
+#     def get_api_key_pattern() -> Pattern:
+#         return API_KEY_PATTERN
 
-    def __init__(
-        self,
-    ):
-        super().__init__()
-        self._sync_client = Client(
-            api_key=self.get_api_key(), base_url=self.get_base_sdk_url()
-        )
-        self._async_client = AsyncClient(
-            api_key=self.get_api_key(), base_url=self.get_base_sdk_url()
-        )
+#     def get_base_sdk_url(self) -> str:
+#         return BASE_URL
 
-    async def _async_client_wrapper(self, **kwargs: Any):
-        stream = kwargs.get("stream", False)
+#     @staticmethod
+#     def get_provider_name() -> str:
+#         return PROVIDER_NAME
 
-        if "stream" in kwargs:
-            del kwargs["stream"]
+#     @staticmethod
+#     def get_supported_models():
+#         return MODELS
 
-        if stream:
-            # Cohere uses a "sync" call to chat_stream, even if it is an async_client.
-            return self._async_client.chat_stream(**kwargs)
+#     _sync_client: Client
+#     _async_client: AsyncClient
 
-        return await self._async_client.chat(**kwargs)
+#     def __init__(
+#         self,
+#     ):
+#         super().__init__()
+#         self._sync_client = Client(
+#             api_key=self.get_api_key(), base_url=self.get_base_sdk_url()
+#         )
+#         self._async_client = AsyncClient(
+#             api_key=self.get_api_key(), base_url=self.get_base_sdk_url()
+#         )
 
-    def _sync_client_wrapper(self, **kwargs: Any):
-        stream = kwargs.get("stream", False)
+#     async def _async_client_wrapper(self, **kwargs: Any):
+#         stream = kwargs.get("stream", False)
 
-        if "stream" in kwargs:
-            del kwargs["stream"]
+#         if "stream" in kwargs:
+#             del kwargs["stream"]
 
-        if stream:
-            return self._sync_client.chat_stream(**kwargs)
+#         if stream:
+#             # Cohere uses a "sync" call to chat_stream, even if it is an async_client.
+#             return self._async_client.chat_stream(**kwargs)
 
-        return self._sync_client.chat(**kwargs)
+#         return await self._async_client.chat(**kwargs)
 
-    def set_api_key(self, api_key: str) -> None:
-        super().set_api_key(api_key)
+#     def _sync_client_wrapper(self, **kwargs: Any):
+#         stream = kwargs.get("stream", False)
 
-        # Using internal variables to set the api_key
-        self._sync_client._client_wrapper._token = api_key
-        self._async_client._client_wrapper._token = api_key
+#         if "stream" in kwargs:
+#             del kwargs["stream"]
 
-    def get_async_client(self):
-        return self._async_client_wrapper
+#         if stream:
+#             return self._sync_client.chat_stream(**kwargs)
 
-    def get_sync_client(self):
-        return self._sync_client_wrapper
+#         return self._sync_client.chat(**kwargs)
 
-    def get_params(self, llm_input: Conversation, **kwargs: Any) -> dict[str, Any]:
-        params = super().get_params(llm_input, **kwargs)
+#     def set_api_key(self, api_key: str) -> None:
+#         super().set_api_key(api_key)
 
-        for message in params["messages"]:
-            # Use content as message
-            message["message"] = message["content"]
-            del message["content"]
+#         # Using internal variables to set the api_key
+#         self._sync_client._client_wrapper._token = api_key
+#         self._async_client._client_wrapper._token = api_key
 
-            # Map role to Cohere's role
-            message["role"] = ROLE_MAPPING.get(message["role"])
+#     def get_async_client(self):
+#         return self._async_client_wrapper
 
-            # Join content if it's a list
-            if isinstance(message["message"], list):
-                message["message"] = " ".join(
-                    content.get("text", "") for content in message["message"]
-                )
+#     def get_sync_client(self):
+#         return self._sync_client_wrapper
 
-            # Cohere doesn't allow empty strings
-            if message["message"] == "":
-                message["message"] = " "
+#     def get_params(self, llm_input: Conversation, **kwargs: Any) -> dict[str, Any]:
+#         params = super().get_params(llm_input, **kwargs)
 
-        last_message = params["messages"][-1]
+#         for message in params["messages"]:
+#             # Use content as message
+#             message["message"] = message["content"]
+#             del message["content"]
 
-        params["chat_history"] = params["messages"][:-1]
-        del params["messages"]
+#             # Map role to Cohere's role
+#             message["role"] = ROLE_MAPPING.get(message["role"])
 
-        params["message"] = last_message["message"]
+#             # Join content if it's a list
+#             if isinstance(message["message"], list):
+#                 message["message"] = " ".join(
+#                     content.get("text", "") for content in message["message"]
+#                 )
 
-        return params
+#             # Cohere doesn't allow empty strings
+#             if message["message"] == "":
+#                 message["message"] = " "
 
-    def extract_response(self, request: Any, response: Any) -> AdapterChatCompletion:
-        choices = [
-            {
-                "message": {
-                    "role": "assistant",
-                    "content": response.text,
-                },
-                "finish_reason": FINISH_REASON_MAPPING.get(response.finish_reason),
-            }
-        ]
+#         last_message = params["messages"][-1]
 
-        prompt_tokens = response.meta.tokens.input_tokens
-        completion_tokens = response.meta.tokens.output_tokens
-        cost = (
-            self.get_model().cost.prompt * prompt_tokens
-            + self.get_model().cost.completion * completion_tokens
-            + self.get_model().cost.request
-        )
+#         params["chat_history"] = params["messages"][:-1]
+#         del params["messages"]
 
-        return AdapterChatCompletion(
-            response=Turn(
-                role=ConversationRole.assistant,
-                content=choices[0]["message"]["content"],  # type: ignore
-            ),  # TODO: Refactor response
-            choices=choices,
-            cost=cost,
-            token_counts=Cost(
-                prompt=prompt_tokens,
-                completion=completion_tokens,
-            ),
-            usage=Usage(
-                completion_tokens_details=CompletionTokensDetails(reasoning_tokens=0)
-            ),
-        )
+#         params["message"] = last_message["message"]
 
-    def extract_stream_response(self, request: Any, response: Any) -> str:
-        content = getattr(response, "text", "")
-        if response.event_type == "stream-end":
-            content = None
+#         return params
 
-        chunk = json.dumps(
-            {
-                "choices": [
-                    {
-                        "delta": {
-                            "role": ConversationRole.assistant,
-                            "content": content,
-                        },
-                    }
-                ]
-            }
-        )
+#     def extract_response(self, request: Any, response: Any) -> AdapterChatCompletion:
+#         choices = [
+#             {
+#                 "message": {
+#                     "role": "assistant",
+#                     "content": response.text,
+#                 },
+#                 "finish_reason": FINISH_REASON_MAPPING.get(response.finish_reason),
+#             }
+#         ]
 
-        return f"data: {chunk}\n\n"
+#         prompt_tokens = response.meta.tokens.input_tokens
+#         completion_tokens = response.meta.tokens.output_tokens
+#         cost = (
+#             self.get_model().cost.prompt * prompt_tokens
+#             + self.get_model().cost.completion * completion_tokens
+#             + self.get_model().cost.request
+#         )
+
+#         return AdapterChatCompletion(
+#             response=Turn(
+#                 role=ConversationRole.assistant,
+#                 content=choices[0]["message"]["content"],  # type: ignore
+#             ),  # TODO: Refactor response
+#             choices=choices,
+#             cost=cost,
+#             token_counts=Cost(
+#                 prompt=prompt_tokens,
+#                 completion=completion_tokens,
+#             ),
+#             usage=Usage(
+#                 completion_tokens_details=CompletionTokensDetails(reasoning_tokens=0)
+#             ),
+#         )
+
+#     def extract_stream_response(self, request: Any, response: Any) -> str:
+#         content = getattr(response, "text", "")
+#         if response.event_type == "stream-end":
+#             content = None
+
+#         chunk = json.dumps(
+#             {
+#                 "choices": [
+#                     {
+#                         "delta": {
+#                             "role": ConversationRole.assistant,
+#                             "content": content,
+#                         },
+#                     }
+#                 ]
+#             }
+#         )
+
+#         return f"data: {chunk}\n\n"

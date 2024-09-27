@@ -1,7 +1,7 @@
 import pytest
 
 from adapters.adapter_factory import AdapterFactory
-from tests.adapters.utils.contants import MODEL_PATHS
+from tests.adapters.utils.constants import MODEL_PATHS
 from tests.utils import SIMPLE_FUNCTION_CALL_USER_ONLY, get_response_choices_from_vcr
 
 

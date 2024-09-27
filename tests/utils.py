@@ -5,12 +5,13 @@ from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdap
 from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
     AnthropicSDKChatProviderAdapter,
 )
-from adapters.provider_adapters.cohere_sdk_chat_provider_adapter import (
-    CohereSDKChatProviderAdapter,
-)
-from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
-    GeminiSDKChatProviderAdapter,
-)
+
+# from adapters.provider_adapters.cohere_sdk_chat_provider_adapter import (
+#     CohereSDKChatProviderAdapter,
+# )
+# from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
+#     GeminiSDKChatProviderAdapter,
+# )
 from adapters.types import (
     ContentTurn,
     ContentType,
@@ -154,10 +155,10 @@ def get_response_content_from_vcr(vcr, adapter: BaseAdapter):
         return response["choices"][0]["message"]["content"]
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
         return response["content"][0]["text"]
-    elif isinstance(adapter, CohereSDKChatProviderAdapter):
-        return response["text"]
-    elif isinstance(adapter, GeminiSDKChatProviderAdapter):
-        return response["candidates"][0]["content"]["parts"][0]["text"]
+    # elif isinstance(adapter, CohereSDKChatProviderAdapter):
+    #     return response["text"]
+    # elif isinstance(adapter, GeminiSDKChatProviderAdapter):
+    #     return response["candidates"][0]["content"]["parts"][0]["text"]
     else:
         raise ValueError("Unknown adapter")
 
@@ -188,9 +189,9 @@ def get_response_choices_from_vcr(vcr, adapter: BaseAdapter):
             text = response["content"][0].get("text", "") if response["content"] else ""
             role = response.get("role", "")
             return [{"message": {"role": role, "content": text}}]
-    elif isinstance(adapter, CohereSDKChatProviderAdapter):
-        return response["text"]
-    elif isinstance(adapter, GeminiSDKChatProviderAdapter):
-        return response["candidates"][0]["content"]["parts"][0]["text"]
+    # elif isinstance(adapter, CohereSDKChatProviderAdapter):
+    #     return response["text"]
+    # elif isinstance(adapter, GeminiSDKChatProviderAdapter):
+    #     return response["candidates"][0]["content"]["parts"][0]["text"]
     else:
         raise ValueError("Unknown adapter")

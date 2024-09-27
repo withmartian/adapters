@@ -1,7 +1,7 @@
 import pytest
 
 from adapters.adapter_factory import AdapterFactory
-from tests.adapters.utils.contants import MODEL_PATHS
+from tests.adapters.utils.constants import MODEL_PATHS
 from tests.utils import SIMPLE_FUNCTION_CALL_USER_ONLY, get_response_choices_from_vcr
 
 
@@ -23,6 +23,7 @@ def test_sync_execute_function_calls(vcr, model_path: str):
 
     choices = get_response_choices_from_vcr(vcr, adapter)
 
+    assert adapter_response.choices[0].message.function_call
     assert (
         adapter_response.choices[0].message.function_call.name
         == choices[0]["message"]["function_call"]["name"]
@@ -50,6 +51,7 @@ async def test_async_execute_function_calls(vcr, model_path: str):
     )
     choices = get_response_choices_from_vcr(vcr, adapter)
 
+    assert adapter_response.choices[0].message.function_call
     assert (
         adapter_response.choices[0].message.function_call.name
         == choices[0]["message"]["function_call"]["name"]

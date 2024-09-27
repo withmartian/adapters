@@ -8,12 +8,7 @@ from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
     AdapterChatCompletion,
-    CompletionTokensDetails,
-    ConversationRole,
-    Cost,
     RequestBody,
-    Turn,
-    Usage,
 )
 from adapters.utils.openai_client_factory import OpenAIClientFactory
 
@@ -52,16 +47,23 @@ class OpenAISDKChatAdapter(ApiKeyAdapterMixin, SDKChatAdapter):
         request: RequestBody,
         response: ChatCompletion,
     ) -> AdapterChatCompletion:
+        prompt_tokens = response.usage.prompt_tokens if response.usage else 0
+        completion_tokens = response.usage.completion_tokens if response.usage else 0
+        reasoning_tokens = (
+            response.usage.completion_tokens_details.reasoning_tokens
+            if response.usage
+            else 0
+        )
+
         cost = (
-            self.get_model().cost.prompt * response.usage.prompt_tokens
-            + self.get_model().cost.completion * response.usage.completion_tokens
-            + self.get_model().cost.completion
-            * response.usage.completion_tokens_details.reasoning_tokens
+            self.get_model().cost.prompt * prompt_tokens
+            + self.get_model().cost.completion * completion_tokens
+            + reasoning_tokens * completion_tokens
             + self.get_model().cost.request
         )
 
         return AdapterChatCompletion(
-            **response,
+            **response.model_dump(),
             cost=cost,
         )
 

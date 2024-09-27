@@ -3,20 +3,19 @@ import re
 from typing import Any, Dict, List, Optional, Pattern
 
 from anthropic import Anthropic, AsyncAnthropic
+from openai.types import CompletionUsage
+from openai.types.chat.chat_completion import Choice
 
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
     AdapterChatCompletion,
-    CompletionTokensDetails,
     Conversation,
     ConversationRole,
     Cost,
     Model,
     ModelPredicates,
-    Turn,
-    Usage,
 )
 from adapters.utils.general_utils import process_image_url
 
@@ -161,6 +160,7 @@ class AnthropicSDKChatProviderAdapter(
             request.convert_to_anthropic_prompt()
         )
         completion_tokens = self._sync_client.count_tokens(response.content[0].text)
+
         cost = (
             self.get_model().cost.prompt * prompt_tokens
             + self.get_model().cost.completion * completion_tokens
@@ -168,18 +168,17 @@ class AnthropicSDKChatProviderAdapter(
         )
 
         return AdapterChatCompletion(
-            response=Turn(
-                role=ConversationRole.assistant,
-                content=choices[0]["message"]["content"],  # type: ignore
-            ),  # TODO: Refactor response
-            choices=choices,
+            id="",
+            created=3,
+            model=self.get_model().name,
+            object="chat.completion",
+            # choices=[Choice(choice) for choice in choices],
+            choices=[],
             cost=cost,
-            token_counts=Cost(
-                prompt=prompt_tokens,
-                completion=completion_tokens,
-            ),
-            usage=Usage(
-                completion_tokens_details=CompletionTokensDetails(reasoning_tokens=0)
+            usage=CompletionUsage(
+                prompt_tokens=prompt_tokens,
+                completion_tokens=completion_tokens,
+                total_tokens=prompt_tokens + completion_tokens,
             ),
         )
 

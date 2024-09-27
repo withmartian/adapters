@@ -1,7 +1,7 @@
 import pytest
 
 from adapters.adapter_factory import AdapterFactory
-from tests.adapters.utils.contants import MODEL_PATHS, MODEL_PATHS_ASYNC
+from tests.adapters.utils.constants import MODEL_PATHS, MODEL_PATHS_ASYNC
 from tests.utils import (
     SIMPLE_CONVERSATION_ASSISTANT_SYSTEM,
     get_response_content_from_vcr,
