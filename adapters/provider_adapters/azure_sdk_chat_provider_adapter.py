@@ -11,7 +11,6 @@ VENDOR_NAME = "openai"
 PROVIDER_NAME = "azure"
 BASE_URL = "https://martiantest.openai.azure.com/"
 API_KEY_NAME = "AZURE_API_KEY"
-API_KEY_PATTERN = re.compile(r".*")
 BASE_PREDICATES = ModelPredicates(gdpr_compliant=True)
 
 
@@ -84,10 +83,6 @@ class AzureSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
-
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN
 
     def get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
         params = super().get_params(llm_input, **kwargs)

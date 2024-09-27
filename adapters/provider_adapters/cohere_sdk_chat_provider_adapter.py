@@ -20,7 +20,6 @@
 # )
 
 # API_KEY_NAME = "COHERE_API_KEY"
-# API_KEY_PATTERN = re.compile(r".*")
 # BASE_URL = "https://api.cohere.ai/v1"
 # PROVIDER_NAME = "cohere"
 # BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
@@ -83,10 +82,6 @@
 #     @staticmethod
 #     def get_api_key_name() -> str:
 #         return API_KEY_NAME
-
-#     @staticmethod
-#     def get_api_key_pattern() -> Pattern:
-#         return API_KEY_PATTERN
 
 #     def get_base_sdk_url(self) -> str:
 #         return BASE_URL

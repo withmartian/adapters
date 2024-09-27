@@ -8,7 +8,6 @@ from adapters.types import Cost, Model, ModelPredicates
 PROVIDER_NAME = "deepinfra"
 DEEPINFRA_BASE_URL = "https://api.deepinfra.com/v1/openai"
 API_KEY_NAME = "DEEPINFRA_API_KEY"
-API_KEY_PATTERN = re.compile(r".*")
 BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
 
 
@@ -98,7 +97,3 @@ class DeepInfraSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
-
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN

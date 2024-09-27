@@ -8,7 +8,6 @@ from adapters.types import Cost, Model, ModelPredicates
 PROVIDER_NAME = "ai21"
 BASE_URL = "https://api.ai21.com/studio/v1"
 API_KEY_NAME = "AI21_API_KEY"
-API_KEY_PATTERN = re.compile(r".*")
 BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
 
 
@@ -61,7 +60,3 @@ class AI21SDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
-
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN

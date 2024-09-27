@@ -8,7 +8,6 @@ from adapters.types import Cost, Model, ModelPredicates
 PROVIDER_NAME = "openrouter"
 BASE_URL = "https://openrouter.ai/api/v1"
 API_KEY_NAME = "OPENROUTER_API_KEY"
-API_KEY_PATTERN = re.compile(r".*")
 BASE_PREDICATES = ModelPredicates(open_source=True)
 
 
@@ -125,7 +124,3 @@ class OpenRouterSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapte
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
-
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN

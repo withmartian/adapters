@@ -22,7 +22,6 @@ from adapters.utils.general_utils import process_image_url
 PROVIDER_NAME = "anthropic"
 BASE_URL = "https://api.anthropic.com"
 API_KEY_NAME = "ANTHROPIC_API_KEY"
-API_KEY_PATTERN = re.compile(r"^sk-ant-api\d{2}-([a-zA-Z0-9_-]+)$")
 BASE_PREDICATES = ModelPredicates(gdpr_compliant=True)
 
 
@@ -92,10 +91,6 @@ class AnthropicSDKChatProviderAdapter(
     def get_api_key_name() -> str:
         return API_KEY_NAME
 
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN
-
     _sync_client: Anthropic
     _async_client: AsyncAnthropic
 
@@ -110,11 +105,11 @@ class AnthropicSDKChatProviderAdapter(
             api_key=self.get_api_key(),
         )
 
-    def get_async_client(self):
-        return self._async_client.messages.create
-
     def get_sync_client(self):
         return self._sync_client.messages.create
+
+    def get_async_client(self):
+        return self._async_client.messages.create
 
     def adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
@@ -172,8 +167,7 @@ class AnthropicSDKChatProviderAdapter(
             created=3,
             model=self.get_model().name,
             object="chat.completion",
-            # choices=[Choice(choice) for choice in choices],
-            choices=[],
+            choices=[Choice(choice) for choice in choices],
             cost=cost,
             usage=CompletionUsage(
                 prompt_tokens=prompt_tokens,

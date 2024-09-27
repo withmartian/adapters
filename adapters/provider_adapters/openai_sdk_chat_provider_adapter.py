@@ -8,7 +8,6 @@ from adapters.types import Cost, Model, ModelPredicates
 PROVIDER_NAME = "openai"
 BASE_URL = "https://api.openai.com/v1"
 API_KEY_NAME = "OPENAI_API_KEY"
-API_KEY_PATTERN = re.compile(r".*")
 BASE_PREDICATES = ModelPredicates(gdpr_compliant=True)
 
 
@@ -156,7 +155,3 @@ class OpenAISDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
-
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN

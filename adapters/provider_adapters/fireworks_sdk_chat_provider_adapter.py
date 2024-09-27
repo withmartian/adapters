@@ -10,7 +10,6 @@ from adapters.types import Cost, Model, ModelPredicates
 PROVIDER_NAME = "fireworks"
 BASE_URL = "https://api.fireworks.ai/inference/v1"
 API_KEY_NAME = "FIREWORKS_API_KEY"
-API_KEY_PATTERN = re.compile(r".*")
 BASE_PREDICATES = ModelPredicates(
     open_source=True,
     gdpr_compliant=True,
@@ -97,10 +96,6 @@ class FireworksSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
-
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN
 
     def extract_stream_response(self, request, response: ChatCompletionChunk) -> str:
         if response.choices and response.choices[0].delta.content is None:

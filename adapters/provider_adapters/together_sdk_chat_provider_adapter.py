@@ -8,7 +8,6 @@ from adapters.types import Conversation, ConversationRole, Cost, Model, ModelPre
 PROVIDER_NAME = "together"
 BASE_URL = "https://api.together.xyz"
 API_KEY_NAME = "TOGETHER_API_KEY"
-API_KEY_PATTERN = re.compile(r".*")
 BASE_PREDICATES = ModelPredicates(open_source=True)
 
 
@@ -114,10 +113,6 @@ class TogetherSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter)
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
-
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN
 
     def adjust_temperature(self, temperature: float) -> float:
         return temperature / 2

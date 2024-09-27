@@ -20,7 +20,6 @@ from adapters.types import Cost, Model, ModelPredicates
 PROVIDER_NAME = "lepton"
 BASE_URL = "https://{}.lepton.run/api/v1/"
 API_KEY_NAME = "LEPTON_API_KEY"
-API_KEY_PATTERN = re.compile(r".*")
 BASE_PREDICATES = ModelPredicates(
     open_source=True,
     gdpr_compliant=True,
@@ -104,10 +103,6 @@ class LeptonSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
-
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN
 
     def get_base_sdk_url(self) -> str:
         return BASE_URL

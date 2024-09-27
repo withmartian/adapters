@@ -25,7 +25,6 @@
 
 # PROVIDER_NAME = "gemini"
 # API_KEY_NAME = "GEMINI_API_KEY"
-# API_KEY_PATTERN = re.compile(r".*")
 # BASE_PREDICATES = ModelPredicates(gdpr_compliant=True)
 
 
@@ -87,10 +86,6 @@
 #     @staticmethod
 #     def get_api_key_name() -> str:
 #         return API_KEY_NAME
-
-#     @staticmethod
-#     def get_api_key_pattern() -> Pattern:
-#         return API_KEY_PATTERN
 
 #     _sync_client: GenerativeServiceClient
 #     _async_client: GenerativeServiceAsyncClient

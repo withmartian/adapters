@@ -10,7 +10,6 @@ DATABRICKS_BASE_URL = (
     "https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints"
 )
 API_KEY_NAME = "DATABRICKS_API_KEY"
-API_KEY_PATTERN = re.compile(r".*")
 BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
 
 DBU_USD_RATE = 0.07
@@ -77,10 +76,6 @@ class DatabricksSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapte
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
-
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN
 
     def get_params(
         self,

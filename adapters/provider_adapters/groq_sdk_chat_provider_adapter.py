@@ -8,7 +8,6 @@ from adapters.types import Cost, Model, ModelPredicates
 PROVIDER_NAME = "groq"
 GROQ_BASE_URL = "https://api.groq.com/openai/v1"
 API_KEY_NAME = "GROQ_API_KEY"
-API_KEY_PATTERN = re.compile(r".*")
 BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
 
 
@@ -100,7 +99,3 @@ class GroqSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
-
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN

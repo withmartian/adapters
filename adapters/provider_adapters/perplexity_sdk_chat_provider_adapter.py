@@ -8,7 +8,6 @@ from adapters.types import Cost, Model, ModelPredicates
 PROVIDER_NAME = "perplexity"
 PERPLEXITY_BASE_URL = "https://api.perplexity.ai"
 API_KEY_NAME = "PERPLEXITY_API_KEY"
-API_KEY_PATTERN = re.compile(r"^pplx-[a-zA-Z0-9]+$")
 BASE_PREDICATES = ModelPredicates(open_source=True)
 
 
@@ -90,7 +89,3 @@ class PerplexitySDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapte
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
-
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN
