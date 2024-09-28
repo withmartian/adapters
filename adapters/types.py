@@ -36,7 +36,6 @@ class FinishReason(str, Enum):
     tool_calls = "tool_calls"
     content_filter = "content_filter"
     function_call = "function_call"
-    stop_sequence = "stop_sequence"
 
 
 class Turn(BaseModel, use_enum_values=True):

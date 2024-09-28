@@ -1,10 +1,18 @@
+from enum import Enum
 import json
 import re
-from typing import Any, Dict, List, Optional, Pattern
+import time
+from typing import Any, Dict, List, Literal, Optional, Pattern
 
 from anthropic import Anthropic, AsyncAnthropic
+from anthropic.types import Message
 from openai.types import CompletionUsage
+from openai.types.chat import ChatCompletionMessage
 from openai.types.chat.chat_completion import Choice
+from openai.types.chat.chat_completion_message_tool_call import (
+    ChatCompletionMessageToolCall,
+    Function,
+)
 
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
@@ -14,6 +22,7 @@ from adapters.types import (
     Conversation,
     ConversationRole,
     Cost,
+    FinishReason,
     Model,
     ModelPredicates,
 )
@@ -65,9 +74,19 @@ SUPPORTED_MODELS = [
     ),
 ]
 
+
+class AnthropicFinishReason(str, Enum):
+    end_turn = "end_turn"
+    max_tokens = "max_tokens"
+    stop_sequence = "stop_sequence"
+    tool_use = "tool_use"
+
+
 FINISH_REASON_MAPPING = {
-    "end_turn": "stop",
-    "max_tokens": "length",
+    AnthropicFinishReason.end_turn: FinishReason.stop,
+    AnthropicFinishReason.max_tokens: FinishReason.length,
+    AnthropicFinishReason.stop_sequence: FinishReason.stop,
+    AnthropicFinishReason.tool_use: FinishReason.tool_calls,
 }
 
 
@@ -120,60 +139,67 @@ class AnthropicSDKChatProviderAdapter(
         self._sync_client.api_key = api_key
         self._async_client.api_key = api_key
 
-    def extract_response(self, request: Any, response: Any) -> AdapterChatCompletion:
-        tool_call_name = None
-        arguments = None
-        if response.content[0].type == "tool_use":
-            response.content[0].text = ""
-            tool_call_name = response.content[0].name
-            arguments = response.content[0].input
-
-        choices = [
-            {
-                "message": {
-                    "role": response.role,
-                    "content": response.content[0].text,
-                    "tool_calls": (
-                        [
-                            {
-                                "function": {
-                                    "name": tool_call_name,
-                                    "arguments": arguments,
-                                }
-                            }
-                        ]
-                        if tool_call_name
-                        else []
-                    ),
-                },
-                "finish_reason": FINISH_REASON_MAPPING.get(
-                    response.stop_reason, response.stop_reason
-                ),
-            }
-        ]
-        prompt_tokens = self._sync_client.count_tokens(
-            request.convert_to_anthropic_prompt()
+    def extract_response(
+        self, request: Conversation, response: Message
+    ) -> AdapterChatCompletion:
+        finish_reason = FINISH_REASON_MAPPING.get(
+            response.stop_reason, FinishReason.stop
         )
-        completion_tokens = self._sync_client.count_tokens(response.content[0].text)
+
+        choices: list[Choice] = []
+        for content in response.content:
+            if content.type == "text":
+                choices.append(
+                    Choice(
+                        index=len(choices),
+                        finish_reason=finish_reason,
+                        message=ChatCompletionMessage(
+                            role=ConversationRole.assistant,
+                            content=content.text,
+                        ),
+                    )
+                )
+            elif content.type == "tool_use":
+                choices.append(
+                    Choice(
+                        index=len(choices),
+                        finish_reason=finish_reason,
+                        message=ChatCompletionMessage(
+                            role=ConversationRole.assistant,
+                            tool_calls=[
+                                ChatCompletionMessageToolCall(
+                                    id=content.id,
+                                    type="function",
+                                    function=Function(
+                                        name=content.name,
+                                        arguments=json.dumps(content.input),
+                                    ),
+                                )
+                            ],
+                        ),
+                    )
+                )
+
+        usage = CompletionUsage(
+            prompt_tokens=response.usage.input_tokens,
+            completion_tokens=response.usage.output_tokens,
+            total_tokens=response.usage.input_tokens + response.usage.output_tokens,
+        )
 
         cost = (
-            self.get_model().cost.prompt * prompt_tokens
-            + self.get_model().cost.completion * completion_tokens
+            self.get_model().cost.prompt * usage.prompt_tokens
+            + self.get_model().cost.completion * usage.completion_tokens
             + self.get_model().cost.request
         )
 
         return AdapterChatCompletion(
-            id="",
-            created=3,
+            id=response.id,
+            created=int(time.time()),
             model=self.get_model().name,
             object="chat.completion",
-            choices=[Choice(choice) for choice in choices],
             cost=cost,
-            usage=CompletionUsage(
-                prompt_tokens=prompt_tokens,
-                completion_tokens=completion_tokens,
-                total_tokens=prompt_tokens + completion_tokens,
-            ),
+            usage=usage,
+            choices=choices,
         )
 
     # TODO: match openai format 1:1
