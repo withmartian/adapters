@@ -2,10 +2,32 @@ from enum import Enum
 import json
 import re
 import time
-from typing import Any, Dict, List, Literal, Optional, Pattern
+from typing import (
+    Any,
+    Dict,
+    Iterable,
+    List,
+    Literal,
+    Mapping,
+    Optional,
+    Pattern,
+    Union,
+)
 
 from anthropic import Anthropic, AsyncAnthropic
 from anthropic.types import Message
+from anthropic.types.message_create_params import (
+    Metadata,
+    ToolChoice,
+    ToolChoiceToolChoiceAny,
+    ToolChoiceToolChoiceAuto,
+    ToolChoiceToolChoiceTool,
+)
+from anthropic.types.message_param import MessageParam
+from anthropic.types.model_param import ModelParam
+from anthropic.types.text_block_param import TextBlockParam
+from anthropic.types.tool_param import ToolParam
+from openai import NOT_GIVEN, NotGiven
 from openai.types import CompletionUsage
 from openai.types.chat import ChatCompletionMessage
 from openai.types.chat.chat_completion import Choice
@@ -13,6 +35,7 @@ from openai.types.chat.chat_completion_message_tool_call import (
     ChatCompletionMessageToolCall,
     Function,
 )
+from pydantic import BaseModel
 
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
@@ -26,12 +49,27 @@ from adapters.types import (
     Model,
     ModelPredicates,
 )
-from adapters.utils.general_utils import process_image_url
+from adapters.utils.general_utils import delete_none_values, process_image_url
 
 PROVIDER_NAME = "anthropic"
 BASE_URL = "https://api.anthropic.com"
 API_KEY_NAME = "ANTHROPIC_API_KEY"
 BASE_PREDICATES = ModelPredicates(gdpr_compliant=True)
+
+
+class AnthropicCreate(BaseModel):
+    max_tokens: int
+    messages: Iterable[MessageParam]
+    model: ModelParam
+    metadata: Metadata | NotGiven = NOT_GIVEN
+    stop_sequences: List[str] | NotGiven = NOT_GIVEN
+    stream: Literal[False] | Literal[True] | NotGiven = NOT_GIVEN
+    system: Union[str, Iterable[TextBlockParam]] | NotGiven = NOT_GIVEN
+    temperature: float | NotGiven = NOT_GIVEN
+    tool_choice: ToolChoice | NotGiven = NOT_GIVEN
+    tools: Iterable[ToolParam] | NotGiven = NOT_GIVEN
+    top_k: int | NotGiven = NOT_GIVEN
+    top_p: float | NotGiven = NOT_GIVEN
 
 
 class AnthropicModel(Model):
@@ -83,10 +121,10 @@ class AnthropicFinishReason(str, Enum):
 
 
 FINISH_REASON_MAPPING = {
-    AnthropicFinishReason.end_turn: FinishReason.stop,
-    AnthropicFinishReason.max_tokens: FinishReason.length,
-    AnthropicFinishReason.stop_sequence: FinishReason.stop,
-    AnthropicFinishReason.tool_use: FinishReason.tool_calls,
+    AnthropicFinishReason.end_turn: FinishReason.stop.value,
+    AnthropicFinishReason.max_tokens: FinishReason.length.value,
+    AnthropicFinishReason.stop_sequence: FinishReason.stop.value,
+    AnthropicFinishReason.tool_use: FinishReason.tool_calls.value,
 }
 
 
@@ -154,7 +192,7 @@ class AnthropicSDKChatProviderAdapter(
                         index=len(choices),
                         finish_reason=finish_reason,
                         message=ChatCompletionMessage(
-                            role=ConversationRole.assistant,
+                            role=ConversationRole.assistant.value,
                             content=content.text,
                         ),
                     )
@@ -165,7 +203,7 @@ class AnthropicSDKChatProviderAdapter(
                         index=len(choices),
                         finish_reason=finish_reason,
                         message=ChatCompletionMessage(
-                            role=ConversationRole.assistant,
+                            role=ConversationRole.assistant.value,
                             tool_calls=[
                                 ChatCompletionMessageToolCall(
                                     id=content.id,
@@ -226,8 +264,10 @@ class AnthropicSDKChatProviderAdapter(
 
     def get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
         params = super().get_params(llm_input, **kwargs)
+
         messages = params["messages"]
-        system_prompt = ""
+        system_prompt: Optional[str] = None
+
         # Extract system prompt if it's the first message
         if len(messages) > 0 and messages[0]["role"] == ConversationRole.system:
             system_prompt = messages[0]["content"]
@@ -237,33 +277,38 @@ class AnthropicSDKChatProviderAdapter(
         if len(messages) > 0 and messages[-1]["role"] == ConversationRole.assistant:
             messages[-1]["content"] = messages[-1]["content"].rstrip()
 
-        anthropic_tools: Optional[List[Dict[str, Any]]] = kwargs.get("tools")
-        anthropic_tools_choice = kwargs.get("tool_choice")
-        if anthropic_tools_choice and not isinstance(anthropic_tools_choice, str):
-            anthropic_tools_choice["name"] = anthropic_tools_choice["function"]["name"]
-            anthropic_tools_choice["type"] = "tool"
-            del anthropic_tools_choice["function"]
-        elif anthropic_tools_choice == "required":
-            anthropic_tools_choice = {"type": "any"}
-        elif anthropic_tools_choice == "auto":
-            anthropic_tools_choice = {"type": "auto"}
-        else:
-            anthropic_tools_choice = {"type": "auto"}
-            anthropic_tools = []
+        openai_tools = kwargs.get("tools")
+        openai_tools_choice = kwargs.get("tool_choice")
 
-        if anthropic_tools:
-            for tool in anthropic_tools:
-                tool["name"] = tool["function"]["name"]
-                tool["description"] = tool["function"]["description"]
-                tool["input_schema"] = {
-                    "type": tool["function"]["parameters"]["type"],
-                    "properties": tool["function"]["parameters"]["properties"],
-                    "required": tool["function"]["parameters"]["required"],
-                }
-                del tool["function"]
-                del tool["type"]
-        else:
-            anthropic_tools_choice = None
+        anthropic_tools: Optional[list[ToolParam]] = None
+        anthropic_tool_choice: Optional[ToolChoice] = None
+
+        if openai_tools_choice == "required":
+            anthropic_tool_choice = ToolChoiceToolChoiceAny(type="any")
+        elif openai_tools_choice == "auto":
+            anthropic_tool_choice = ToolChoiceToolChoiceAuto(type="auto")
+        elif openai_tools_choice == "none":
+            anthropic_tools = None
+        elif isinstance(openai_tools_choice, dict):
+            anthropic_tool_choice = ToolChoiceToolChoiceTool(
+                name=openai_tools_choice["function"]["name"],
+                type="tool",
+            )
+
+        if openai_tools:
+            anthropic_tools = []
+            for openai_tool in openai_tools:
+                anthropic_tool = ToolParam(
+                    name=openai_tool["name"],
+                    description=openai_tool["description"],
+                    input_schema={
+                        "type": openai_tool["input_schema"]["type"],
+                        "properties": openai_tool["input_schema"]["properties"],
+                        "required": openai_tool["input_schema"]["required"],
+                    },
+                )
+
+                anthropic_tools.append(anthropic_tool)
 
         # Include base64-encoded images in the request
         for message in messages:
@@ -283,11 +328,17 @@ class AnthropicSDKChatProviderAdapter(
 
                 message["content"] = new_content
 
-        return {
-            **params,
-            "messages": messages,
-            "system": system_prompt,
-            "max_tokens": kwargs.get("max_tokens", self.get_model().completion_length),
-            "tool_choice": anthropic_tools_choice,
-            "tools": anthropic_tools,
-        }
+        anthropic_create = AnthropicCreate(
+            max_tokens=kwargs.get("max_tokens", self.get_model().completion_length),
+            messages=messages,
+            system=system_prompt,
+            tool_choice=anthropic_tool_choice,
+            tools=anthropic_tools,
+        )
+
+        return delete_none_values(
+            {
+                **params,
+                **anthropic_create.model_dump(),
+            }
+        )
