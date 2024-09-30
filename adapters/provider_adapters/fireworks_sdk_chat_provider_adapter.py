@@ -79,6 +79,12 @@ MODELS = [
         vendor_name="meta-llama",
         properties=BASE_PROPERTIES.model_copy(update={"gdpr_compliant": False}),
     ),
+    FireworksModel(
+        name="llama-v3p2-3b-instruct",
+        cost=Cost(prompt=0.1e-6, completion=0.1e-6),
+        context_length=131072,
+        vendor_name="meta_llama",
+    ),
 ]
 
 
