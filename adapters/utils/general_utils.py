@@ -21,7 +21,7 @@ def delete_none_values(dictionary: dict):
     return dictionary
 
 
-def process_image_url(image_url: str):
+def process_image_url_anthropic(image_url: str):
     if image_url.startswith("data:"):
         # Base64 data is passed as a URL
         media_type, _, base64_data = image_url.partition(";base64,")

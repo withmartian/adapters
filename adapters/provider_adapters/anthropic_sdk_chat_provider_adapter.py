@@ -1,6 +1,5 @@
 from enum import Enum
 import json
-import re
 import time
 from typing import (
     Any,
@@ -8,9 +7,7 @@ from typing import (
     Iterable,
     List,
     Literal,
-    Mapping,
     Optional,
-    Pattern,
     Union,
 )
 
@@ -24,10 +21,8 @@ from anthropic.types.message_create_params import (
     ToolChoiceToolChoiceTool,
 )
 from anthropic.types.message_param import MessageParam
-from anthropic.types.model_param import ModelParam
 from anthropic.types.text_block_param import TextBlockParam
 from anthropic.types.tool_param import ToolParam
-from openai import NOT_GIVEN, NotGiven
 from openai.types import CompletionUsage
 from openai.types.chat import ChatCompletionMessage
 from openai.types.chat.chat_completion import Choice
@@ -49,27 +44,12 @@ from adapters.types import (
     Model,
     ModelPredicates,
 )
-from adapters.utils.general_utils import delete_none_values, process_image_url
+from adapters.utils.general_utils import delete_none_values, process_image_url_anthropic
 
 PROVIDER_NAME = "anthropic"
 BASE_URL = "https://api.anthropic.com"
 API_KEY_NAME = "ANTHROPIC_API_KEY"
 BASE_PREDICATES = ModelPredicates(gdpr_compliant=True)
-
-
-class AnthropicCreate(BaseModel):
-    max_tokens: int
-    messages: Iterable[MessageParam]
-    model: ModelParam
-    metadata: Metadata | NotGiven = NOT_GIVEN
-    stop_sequences: List[str] | NotGiven = NOT_GIVEN
-    stream: Literal[False] | Literal[True] | NotGiven = NOT_GIVEN
-    system: Union[str, Iterable[TextBlockParam]] | NotGiven = NOT_GIVEN
-    temperature: float | NotGiven = NOT_GIVEN
-    tool_choice: ToolChoice | NotGiven = NOT_GIVEN
-    tools: Iterable[ToolParam] | NotGiven = NOT_GIVEN
-    top_k: int | NotGiven = NOT_GIVEN
-    top_p: float | NotGiven = NOT_GIVEN
 
 
 class AnthropicModel(Model):
@@ -120,12 +100,26 @@ class AnthropicFinishReason(str, Enum):
     tool_use = "tool_use"
 
 
-FINISH_REASON_MAPPING = {
-    AnthropicFinishReason.end_turn: FinishReason.stop.value,
-    AnthropicFinishReason.max_tokens: FinishReason.length.value,
-    AnthropicFinishReason.stop_sequence: FinishReason.stop.value,
-    AnthropicFinishReason.tool_use: FinishReason.tool_calls.value,
+FINISH_REASON_MAPPING: Dict[AnthropicFinishReason, FinishReason] = {
+    AnthropicFinishReason.end_turn: "stop",
+    AnthropicFinishReason.max_tokens: "length",
+    AnthropicFinishReason.stop_sequence: "stop",
+    AnthropicFinishReason.tool_use: "tool_calls",
 }
+
+
+class AnthropicCreate(BaseModel):
+    max_tokens: int
+    messages: Iterable[MessageParam]
+    metadata: Optional[Metadata] = None
+    stop_sequences: Optional[List[str]] = None
+    stream: Optional[Literal[False] | Literal[True]] = None
+    system: Optional[Union[str, Iterable[TextBlockParam]]] = None
+    temperature: Optional[float] = None
+    tool_choice: Optional[ToolChoice] = None
+    tools: Optional[Iterable[ToolParam]] = None
+    top_k: Optional[int] = None
+    top_p: Optional[float] = None
 
 
 class AnthropicSDKChatProviderAdapter(
@@ -181,7 +175,7 @@ class AnthropicSDKChatProviderAdapter(
         self, request: Conversation, response: Message
     ) -> AdapterChatCompletion:
         finish_reason = FINISH_REASON_MAPPING.get(
-            response.stop_reason, FinishReason.stop
+            AnthropicFinishReason(response.stop_reason), "stop"
         )
 
         choices: list[Choice] = []
@@ -262,11 +256,13 @@ class AnthropicSDKChatProviderAdapter(
 
         return f"data: {chunk}\n\n"
 
+    # pylint: disable=too-many-locals
     def get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
         params = super().get_params(llm_input, **kwargs)
 
+        # messages = cast(List[Choice], params["messages"])
         messages = params["messages"]
-        system_prompt: Optional[str] = None
+        system_prompt: Optional[str]
 
         # Extract system prompt if it's the first message
         if len(messages) > 0 and messages[0]["role"] == ConversationRole.system:
@@ -277,6 +273,25 @@ class AnthropicSDKChatProviderAdapter(
         if len(messages) > 0 and messages[-1]["role"] == ConversationRole.assistant:
             messages[-1]["content"] = messages[-1]["content"].rstrip()
 
+        # Include base64-encoded images in the request
+        for message in messages:
+            if (
+                isinstance(message["content"], list)
+                and message["role"] == ConversationRole.user
+            ):
+                anthropic_content = []
+
+                for content in message["content"]:
+                    if content["type"] == "text":
+                        anthropic_content.append(content)
+                    elif content["type"] == "image_url":
+                        anthropic_content.append(
+                            process_image_url_anthropic(content["image_url"]["url"])
+                        )
+
+                message["content"] = anthropic_content
+
+        # Convert tools to anthropic format
         openai_tools = kwargs.get("tools")
         openai_tools_choice = kwargs.get("tool_choice")
 
@@ -309,24 +324,6 @@ class AnthropicSDKChatProviderAdapter(
                 )
 
                 anthropic_tools.append(anthropic_tool)
-
-        # Include base64-encoded images in the request
-        for message in messages:
-            if message["role"] == ConversationRole.user:
-                new_content = []
-
-                if isinstance(message["content"], list):
-                    for content in message["content"]:
-                        if content["type"] == "text":
-                            new_content.append(content)
-                        elif content["type"] == "image_url":
-                            new_content.append(
-                                process_image_url(content["image_url"]["url"])
-                            )
-                else:
-                    new_content = [{"type": "text", "text": message["content"]}]
-
-                message["content"] = new_content
 
         anthropic_create = AnthropicCreate(
             max_tokens=kwargs.get("max_tokens", self.get_model().completion_length),

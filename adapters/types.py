@@ -30,12 +30,9 @@ class ConversationRole(str, Enum):
     tool = "tool"
 
 
-class FinishReason(str, Enum):
-    stop = "stop"
-    length = "length"
-    tool_calls = "tool_calls"
-    content_filter = "content_filter"
-    function_call = "function_call"
+FinishReason = Literal[
+    "stop", "length", "tool_calls", "content_filter", "function_call"
+]
 
 
 class Turn(BaseModel, use_enum_values=True):

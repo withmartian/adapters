@@ -1,6 +1,3 @@
-import re
-from typing import Pattern
-
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.types import Cost, Model, ModelPredicates
@@ -56,9 +53,9 @@ MODELS = [
     ),
     OpenAIModel(
         name="gpt-4o",
-        cost=Cost(prompt=5.0e-6, completion=15.0e-6),
+        cost=Cost(prompt=2.5e-6, completion=10.0e-6),
         context_length=128000,
-        completion_length=4096,
+        completion_length=16384,
         supports_vision=True,
     ),
     OpenAIModel(
