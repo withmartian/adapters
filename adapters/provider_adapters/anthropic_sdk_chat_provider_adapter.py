@@ -246,7 +246,7 @@ class AnthropicSDKChatProviderAdapter(
                 "choices": [
                     {
                         "delta": {
-                            "role": ConversationRole.assistant,
+                            "role": ConversationRole.assistant.value,
                             "content": content,
                         },
                     }
@@ -262,22 +262,25 @@ class AnthropicSDKChatProviderAdapter(
 
         # messages = cast(List[Choice], params["messages"])
         messages = params["messages"]
-        system_prompt: Optional[str]
+        system_prompt: Optional[str] = None
 
         # Extract system prompt if it's the first message
-        if len(messages) > 0 and messages[0]["role"] == ConversationRole.system:
+        if len(messages) > 0 and messages[0]["role"] == ConversationRole.system.value:
             system_prompt = messages[0]["content"]
             messages = messages[1:]
 
         # Remove trailing whitespace from the last assistant message
-        if len(messages) > 0 and messages[-1]["role"] == ConversationRole.assistant:
+        if (
+            len(messages) > 0
+            and messages[-1]["role"] == ConversationRole.assistant.value
+        ):
             messages[-1]["content"] = messages[-1]["content"].rstrip()
 
         # Include base64-encoded images in the request
         for message in messages:
             if (
                 isinstance(message["content"], list)
-                and message["role"] == ConversationRole.user
+                and message["role"] == ConversationRole.user.value
             ):
                 anthropic_content = []
 

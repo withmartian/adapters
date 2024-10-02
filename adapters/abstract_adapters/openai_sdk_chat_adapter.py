@@ -66,7 +66,7 @@ class OpenAISDKChatAdapter(ApiKeyAdapterMixin, SDKChatAdapter):
             + self.get_model().cost.request
         )
 
-        return AdapterChatCompletion(
+        return AdapterChatCompletion.model_construct(
             **response.model_dump(),
             cost=cost,
         )
