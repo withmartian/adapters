@@ -1,0 +1,86 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
+      "Hi"}, {"role": "assistant", "content": "Hi"}, {"role": "user", "content": "\"\""}],
+      "model": "llama-3.1-sonar-huge-128k-online"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '208'
+      content-type:
+      - application/json
+      host:
+      - api.perplexity.ai
+      user-agent:
+      - OpenAI/Python 1.50.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.9
+    method: POST
+    uri: https://api.perplexity.ai/chat/completions
+  response:
+    body:
+      string: '{"id": "2cb8534a-1e15-423a-9fa9-36302561ffe8", "model": "llama-3.1-sonar-huge-128k-online",
+        "created": 1727831009, "usage": {"prompt_tokens": 4, "completion_tokens":
+        313, "total_tokens": 317}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
+        seems like you''re looking for information on how to keep quotes around empty
+        cells when saving a CSV file, particularly in LibreOffice. Here''s a summary
+        based on the provided search results:\n\n1. **LibreOffice CSV Export Issue**:\n   -
+        **Problem**: When saving a CSV file in LibreOffice, empty cells that were
+        originally represented by quotes (\u201c\u201d) lose these quotes upon saving.\n   -
+        **Solution**: There is no standard option in LibreOffice to quote empty cells
+        when exporting to CSV. The only workaround is to restrict the export to a
+        specific range of cells that need to be quoted. This is because quoting all
+        empty cells in a large spreadsheet is impractical due to the vast number of
+        empty cells (potentially up to 2^30 or more).\n\nThe other search results
+        (,,) are unrelated to the CSV export issue and instead provide quotes about
+        the concept of \"emptiness\" from various literary sources.\n\nIf you need
+        to maintain quotes around empty cells in a CSV file, consider the following
+        steps:\n- **Manual Editing**: Manually add quotes around empty cells before
+        saving the file, but this is only feasible for small datasets.\n- **Scripting**:
+        Use scripting languages like Python or VBA (for Excel) to automate the process
+        of adding quotes around empty cells before exporting to CSV.\n- **Alternative
+        Software**: Explore other spreadsheet software that might offer more flexible
+        CSV export options.\n\nHowever, for large datasets, the practicality of quoting
+        all empty cells is limited due to the sheer volume of data."}, "delta": {"role":
+        "assistant", "content": ""}}]}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8cc0c56f2f9115aa-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 02 Oct 2024 01:03:29 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1904'
+    status:
+      code: 200
+      message: OK
+version: 1
