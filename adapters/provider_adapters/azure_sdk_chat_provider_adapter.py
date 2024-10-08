@@ -1,5 +1,4 @@
-import re
-from typing import Any, Dict, Pattern
+from typing import Any, Dict
 
 from openai import AsyncAzureOpenAI, AzureOpenAI
 

@@ -1,6 +1,3 @@
-import re
-from typing import Pattern
-
 from openai.types.chat.chat_completion_chunk import ChatCompletionChunk
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter

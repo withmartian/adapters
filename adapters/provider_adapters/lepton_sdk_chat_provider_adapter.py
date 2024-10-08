@@ -3,9 +3,6 @@
 - Each model has it own base url.
 """
 
-import re
-from typing import Pattern
-
 from httpx import URL
 from openai.types.chat.chat_completion_chunk import (
     ChatCompletionChunk,
