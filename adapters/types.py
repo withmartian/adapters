@@ -36,7 +36,7 @@ FinishReason = Literal[
 
 
 class Turn(BaseModel, use_enum_values=True):
-    role: ConversationRole
+    role: Union[ConversationRole]
     content: str
 
 
@@ -91,7 +91,7 @@ class ImageContentEntry(BaseModel, use_enum_values=True):
 
 
 class ContentTurn(BaseModel, use_enum_values=True, validate_assignment=True):
-    role: Literal[ConversationRole.user] = ConversationRole.user
+    role: str = ConversationRole.user
     content: List[Union[ImageContentEntry, TextContentEntry]]
 
 

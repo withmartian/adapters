@@ -1,0 +1,82 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
+      "Hi"}], "model": "accounts/fireworks/models/llama-v3p1-70b-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '148'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.46.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.46.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"fa72e0b5-0330-4426-88e6-737c8531b9a7","object":"chat.completion","created":1728428682,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like we''re having a bit of a repetitive conversation. Would you like
+        to start fresh and talk about something new? I''m here to listen and help
+        with any questions or topics you''d like to discuss."},"finish_reason":"stop"}],"usage":{"prompt_tokens":17,"total_tokens":61,"completion_tokens":44}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8cf9c5805f9295a5-TBS
+      Cf-Placement:
+      - local-TBS
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 08 Oct 2024 23:04:43 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=706.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      content-length:
+      - '516'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 0.7, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.484'
+      x-envoy-upstream-service-time:
+      - '486'
+      x-request-id:
+      - fa72e0b5-0330-4426-88e6-737c8531b9a7
+    status:
+      code: 200
+      message: OK
+version: 1

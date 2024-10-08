@@ -1,0 +1,69 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "jamba-1.5-large", "tool_choice": "none", "tools": [{"type": "function", "function":
+      {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '385'
+      content-type:
+      - application/json
+      host:
+      - api.ai21.com
+      user-agent:
+      - AsyncOpenAI/Python 1.46.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.46.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.ai21.com/studio/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chat-50d79fd14ebe4992ad27a8349f2ef21b","choices":[{"index":0,"message":{"role":"assistant","content":null,"tool_calls":[{"id":"a7941618-33ea-4dec-97e2-7ac3302e0887","type":"function","function":{"name":"generate","arguments":"{\"prompt\":
+        \"Random number like 5, 4, 3, 10, 11\"}"}}]},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":134,"completion_tokens":43,"total_tokens":177}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8cf981a36dec95a0-TBS
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 08 Oct 2024 22:18:24 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '404'
+      request-id:
+      - 80366d8e-a355-4205-7b5e-dfe7af6f3858
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,104 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "gpt-3.5-turbo", "tool_choice": "none", "tools": [{"type": "function", "function":
+      {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '383'
+      content-type:
+      - application/json
+      host:
+      - api.openai.com
+      user-agent:
+      - AsyncOpenAI/Python 1.46.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.46.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.openai.com/v1/chat/completions
+  response:
+    body:
+      string: "{\n  \"id\": \"chatcmpl-AGD4B78ZHk7CSDud88gQyKIZCqHzc\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728426839,\n  \"model\": \"gpt-3.5-turbo-0125\",\n
+        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
+        \"assistant\",\n        \"content\": \"Sure, I can help with that. Please
+        provide me with the range for the random number. Should it be between 1 and
+        100, or do you have any specific range in mind?\",\n        \"refusal\": null\n
+        \     },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n
+        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 65,\n    \"completion_tokens\":
+        39,\n    \"total_tokens\": 104,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
+        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
+        0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8cf9987ccd1895a0-TBS
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 08 Oct 2024 22:33:59 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=xIpH_HWnu22n8Mc.LD.HpdsGzvZ6mmHROK6OxmTQgpM-1728426839-1.0.1.1-kqF_j6K9TrbQhfaUjLaXSK_Za5Q0nGX2VOsAWsDCLVwMsMJwWOCX3DOKWe.M3OFIm73mJZIFvJwwN3XjdqRmDA;
+        path=/; expires=Tue, 08-Oct-24 23:03:59 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=TKjINIrm2FSsF27bVkCl2PrnSy8_nDLDP5WhvjzMKp8-1728426839873-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      access-control-expose-headers:
+      - X-Request-ID
+      content-length:
+      - '767'
+      openai-organization:
+      - martian-4
+      openai-processing-ms:
+      - '603'
+      openai-version:
+      - '2020-10-01'
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      x-ratelimit-limit-requests:
+      - '10000'
+      x-ratelimit-limit-tokens:
+      - '50000000'
+      x-ratelimit-remaining-requests:
+      - '9999'
+      x-ratelimit-remaining-tokens:
+      - '49999977'
+      x-ratelimit-reset-requests:
+      - 6ms
+      x-ratelimit-reset-tokens:
+      - 0s
+      x-request-id:
+      - req_fd93e7999d3bf9cac797dd350da0ae9d
+    status:
+      code: 200
+      message: OK
+version: 1

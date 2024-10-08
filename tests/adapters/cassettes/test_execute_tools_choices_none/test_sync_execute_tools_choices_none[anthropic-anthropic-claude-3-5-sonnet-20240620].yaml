@@ -1,0 +1,91 @@
+interactions:
+- request:
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
+      "role": "user"}], "model": "claude-3-5-sonnet-20240620", "tools": [{"input_schema":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate", "description":
+      "Generate random number"}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      anthropic-version:
+      - '2023-06-01'
+      connection:
+      - keep-alive
+      content-length:
+      - '337'
+      content-type:
+      - application/json
+      host:
+      - api.anthropic.com
+      user-agent:
+      - Anthropic/Python 0.34.2
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 0.34.2
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: '{"id":"msg_01HxtTMznXirUhS24zpPchtV","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"Certainly!
+        I can help you generate a random number using the available tool. However,
+        I need a bit more information to proceed. The \"generate\" function requires
+        a prompt that specifies the type of random number you''d like, such as \"5\"
+        for a random number between 1 and 5, or \"10\" for a random number between
+        1 and 10.\n\nCould you please provide more details about the range or type
+        of random number you''d like to generate? For example, would you like a random
+        number between 1 and 10, or do you have a different range in mind?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":369,"output_tokens":131}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8cf996ce9ca2317b-TBS
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 08 Oct 2024 22:32:52 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3999'
+      anthropic-ratelimit-requests-reset:
+      - '2024-10-08T22:33:08Z'
+      anthropic-ratelimit-tokens-limit:
+      - '8000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '8000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-10-08T22:32:52Z'
+      content-length:
+      - '776'
+      request-id:
+      - req_01S1vmqm9QAw7ADVycTBH36P
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - d38bc5a6814e6915d06b486a3193ebe7
+    status:
+      code: 200
+      message: OK
+version: 1

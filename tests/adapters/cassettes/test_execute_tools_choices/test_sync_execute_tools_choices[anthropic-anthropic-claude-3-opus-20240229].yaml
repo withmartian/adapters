@@ -1,0 +1,90 @@
+interactions:
+- request:
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
+      "role": "user"}], "model": "claude-3-opus-20240229", "tools": [{"input_schema":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate", "description":
+      "Generate random number"}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      anthropic-version:
+      - '2023-06-01'
+      connection:
+      - keep-alive
+      content-length:
+      - '333'
+      content-type:
+      - application/json
+      host:
+      - api.anthropic.com
+      user-agent:
+      - Anthropic/Python 0.34.2
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 0.34.2
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: '{"id":"msg_01DbZfYkhn1Sr7f4w71SPmq9","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        user has requested to generate a random number. To do this, we need to use
+        the \"generate\" tool.\n\nThe \"generate\" tool requires a \"prompt\" parameter,
+        which should be a string like \"5, 4, 3, 10, 11\" to specify the type of random
+        number to generate.\n\nHowever, the user has not provided the \"prompt\" parameter
+        value. Without knowing what type of random number they want, we cannot complete
+        the tool call.\n\nSince there are no other tools available that could provide
+        the missing \"prompt\" value, we will need to ask the user to specify the
+        type of random number they want generated.\n</thinking>\n\nTo generate a random
+        number, I need some more information from you. Can you please provide an example
+        of the type of random number you want, like \"5, 4, 3, 10, 11\"? This will
+        help me understand the range and format of the random number to generate for
+        you."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":209}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8cf9977ff92c95a5-TBS
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 08 Oct 2024 22:33:29 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '5000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '5000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-10-08T22:33:29Z'
+      content-length:
+      - '1123'
+      request-id:
+      - req_011N1266ZFMrdh2gV9Td4zCZ
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - 15788a611223f70a649c706f9a43539d
+    status:
+      code: 200
+      message: OK
+version: 1

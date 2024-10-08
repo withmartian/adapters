@@ -1,0 +1,84 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '184'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.46.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.46.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"be1877eb-289e-432f-aa01-f2a69079583f","object":"chat.completion","created":1728428262,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today? Please note that while I always strive to provide
+        helpful and accurate information, I am an artificial intelligence and do not
+        have personal experiences or emotions. I''m here to provide objective and
+        unbiased responses to the best of my ability. Is there something specific
+        you would like to know or discuss?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":64,"total_tokens":134,"completion_tokens":70}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8cf9bb39da2595a9-TBS
+      Cf-Placement:
+      - local-TBS
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 08 Oct 2024 22:57:42 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=1093.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      content-length:
+      - '656'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.784'
+      x-envoy-upstream-service-time:
+      - '786'
+      x-request-id:
+      - be1877eb-289e-432f-aa01-f2a69079583f
+    status:
+      code: 200
+      message: OK
+version: 1

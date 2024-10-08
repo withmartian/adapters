@@ -1,0 +1,79 @@
+interactions:
+- request:
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
+      "role": "user"}], "model": "claude-3-haiku-20240307", "tool_choice": {"type":
+      "any"}, "tools": [{"input_schema": {"type": "object", "properties": {"prompt":
+      {"type": "string", "description": "Random number like 5, 4, 3, 10, 11"}}}, "name":
+      "generate", "description": "Generate random number"}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      anthropic-version:
+      - '2023-06-01'
+      connection:
+      - keep-alive
+      content-length:
+      - '366'
+      content-type:
+      - application/json
+      host:
+      - api.anthropic.com
+      user-agent:
+      - AsyncAnthropic/Python 0.34.2
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 0.34.2
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: '{"id":"msg_01VZKdaY3Z4b1AAuE5bp4QBA","type":"message","role":"assistant","model":"claude-3-haiku-20240307","content":[{"type":"tool_use","id":"toolu_01CZjReTJHpWpJs2XXc1ZVfL","name":"generate","input":{"prompt":"Random
+        number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":430,"output_tokens":37}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8cf98626ebe7959d-TBS
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 08 Oct 2024 22:21:28 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '8000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '8000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-10-08T22:21:28Z'
+      content-length:
+      - '324'
+      request-id:
+      - req_01S4Y8RUahzKvBPmwYw6U361
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - 5ad87193a9bd8d1a3d4fa31f38e6df84
+    status:
+      code: 200
+      message: OK
+version: 1

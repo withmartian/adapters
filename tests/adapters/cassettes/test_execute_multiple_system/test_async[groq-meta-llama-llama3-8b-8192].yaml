@@ -1,0 +1,85 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
+      "Hi"}, {"role": "system", "content": "Hi"}], "model": "llama3-8b-8192"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '150'
+      content-type:
+      - application/json
+      host:
+      - api.groq.com
+      user-agent:
+      - AsyncOpenAI/Python 1.46.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.46.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.groq.com/openai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-330371b6-755d-421c-9b74-2b90a9d03516","object":"chat.completion","created":1728428015,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
+        It seems like we''re having a brief conversation in hello! What''s on your
+        mind? Need any help or want to chat?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.01248393,"prompt_tokens":19,"prompt_time":0.002394386,"completion_tokens":29,"completion_time":0.024166667,"total_tokens":48,"total_time":0.026561053},"system_fingerprint":"fp_179b0f92c9","x_groq":{"id":"req_01j9q5czmnfks9hmtz076p2a3t"}}
+
+        '
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8cf9b5369dc395a3-TBS
+      Cache-Control:
+      - private, max-age=0, no-store, no-cache, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 08 Oct 2024 22:53:35 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '609'
+      vary:
+      - Origin
+      via:
+      - 1.1 google
+      x-ratelimit-limit-requests:
+      - '14400'
+      x-ratelimit-limit-tokens:
+      - '30000'
+      x-ratelimit-remaining-requests:
+      - '14399'
+      x-ratelimit-remaining-tokens:
+      - '29985'
+      x-ratelimit-reset-requests:
+      - 6s
+      x-ratelimit-reset-tokens:
+      - 30ms
+      x-request-id:
+      - req_01j9q5czmnfks9hmtz076p2a3t
+    status:
+      code: 200
+      message: OK
+version: 1

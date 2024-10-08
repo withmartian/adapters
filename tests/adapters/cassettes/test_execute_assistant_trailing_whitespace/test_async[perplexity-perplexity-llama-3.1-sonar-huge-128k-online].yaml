@@ -1,0 +1,78 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-sonar-huge-128k-online"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '172'
+      content-type:
+      - application/json
+      host:
+      - api.perplexity.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.46.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.46.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.perplexity.ai/chat/completions
+  response:
+    body:
+      string: '{"id": "96077841-5799-4d6d-8886-28f7fbcd8291", "model": "llama-3.1-sonar-huge-128k-online",
+        "created": 1728427289, "usage": {"prompt_tokens": 3, "completion_tokens":
+        258, "total_tokens": 261}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
+        seems like you''re looking for information on \"empty quotes\" but in a programming
+        context, specifically how empty quotes work when assigned to a variable. Here''s
+        a breakdown based on the relevant search result:\n\n1. **Empty Quotes in Programming**:\n   -
+        **Purpose**: Empty quotes are used to initialize a variable as a string. This
+        is a good practice because it clearly indicates that the variable is expected
+        to hold a string value.\n   - **Example**: `var output = \"\";` This line
+        initializes a variable named `output` with an empty string. This is useful
+        for concatenating strings later in the code.\n   - **Concatenation**: The
+        `+=` operator is a shorthand for adding a value to the current value of a
+        variable. For example, `output += \"myGlobal: \" + myGlobal;` is equivalent
+        to `output = output + \"myGlobal: \" + myGlobal;`. This allows you to build
+        a string incrementally.\n\nThe other search results (,,,) are about quotes
+        on the theme of \"emptiness\" in literature and philosophy, which are not
+        relevant to the programming context.\n\nIf you have any specific questions
+        about using empty quotes in programming, feel free to ask"}, "delta": {"role":
+        "assistant", "content": ""}}]}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8cf9a325aac095a0-TBS
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 08 Oct 2024 22:41:29 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1515'
+    status:
+      code: 200
+      message: OK
+version: 1

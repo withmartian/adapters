@@ -60,7 +60,7 @@ class AnthropicModel(Model):
     supports_tool_choice_required: bool = True
     supports_last_assistant: bool = True
     supports_streaming: bool = True
-    supports_json_content: bool = True
+    supports_json_content: bool = False
     supports_tools: bool = True
     supports_vision: bool = True
 

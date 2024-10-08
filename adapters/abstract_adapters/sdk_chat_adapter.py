@@ -118,9 +118,13 @@ class SDKChatAdapter(BaseAdapter):
         # Convert json content to string if not supported
         if not self.get_model().supports_json_content:
             for message in messages:
-                if isinstance(message["content"], list):
+                if "content" in message and isinstance(message["content"], list):
                     message["content"] = "\n".join(
-                        [content["text"] for content in message["content"]]
+                        [
+                            content["text"]
+                            for content in message["content"]
+                            if "text" in content
+                        ]
                     )
 
         # Convert empty string to "." if not supported
@@ -143,14 +147,14 @@ class SDKChatAdapter(BaseAdapter):
         # Change system prompt roles to assistant
         if not self.get_model().supports_multiple_system:
             for message in messages[1:]:
-                if message["role"] == ConversationRole.system:
-                    message["role"] = ConversationRole.assistant
+                if message["role"] == ConversationRole.system.value:
+                    message["role"] = ConversationRole.assistant.value
 
         # Change system prompt roles to assistant
         if not self.get_model().supports_system:
             for message in messages:
-                if message["role"] == ConversationRole.system:
-                    message["role"] = ConversationRole.assistant
+                if message["role"] == ConversationRole.system.value:
+                    message["role"] = ConversationRole.assistant.value
 
         # Join messages from the same role
         processed_messages = []
@@ -188,18 +192,20 @@ class SDKChatAdapter(BaseAdapter):
         # If the last message is assistant, add an empty user message
         if (
             self.get_model().supports_first_assistant is False
-            and messages[0]["role"] == ConversationRole.assistant
+            and messages[0]["role"] == ConversationRole.assistant.value
         ):
             messages.insert(
-                0, {"role": ConversationRole.user, "content": EMPTY_CONTENT}
+                0, {"role": ConversationRole.user.value, "content": EMPTY_CONTENT}
             )
 
             # If the first message is assistant, add an empty user message
         if (
             self.get_model().supports_last_assistant is False
-            and messages[-1]["role"] == ConversationRole.assistant
+            and messages[-1]["role"] == ConversationRole.assistant.value
         ):
-            messages.append({"role": ConversationRole.user, "content": EMPTY_CONTENT})
+            messages.append(
+                {"role": ConversationRole.user.value, "content": EMPTY_CONTENT}
+            )
 
         # ====
 

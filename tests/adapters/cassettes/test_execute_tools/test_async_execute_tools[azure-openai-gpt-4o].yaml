@@ -1,0 +1,82 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "gpt-4o", "tool_choice": {"type": "function", "function": {"name": "generate"}},
+      "tools": [{"type": "function", "function": {"description": "Generate random
+      number", "name": "generate", "parameters": {"type": "object", "properties":
+      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
+      11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      api-key:
+      - b22bea4270b74a7e9eb3b2c74ee66db9
+      connection:
+      - keep-alive
+      content-length:
+      - '424'
+      content-type:
+      - application/json
+      host:
+      - martiantest.openai.azure.com
+      user-agent:
+      - AsyncAzureOpenAI/Python 1.46.0
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.46.0
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview
+  response:
+    body:
+      string: '{"choices":[{"content_filter_results":{},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":null,"role":"assistant","tool_calls":[{"function":{"arguments":"{\"prompt\":\"Generate
+        a random number\"}","name":"generate"},"id":"call_Xs8VDqhJ57vJKx2LtnbduslK","type":"function"}]}}],"created":1728428886,"id":"chatcmpl-AGDbCfpFlhu67pf6iNFfjqQ6UWkpK","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_67802d9a6d","usage":{"completion_tokens":8,"prompt_tokens":70,"total_tokens":78}}
+
+        '
+    headers:
+      Content-Length:
+      - '785'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 08 Oct 2024 23:08:06 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      apim-request-id:
+      - f826ec18-b22c-4f74-9da3-5a25af05888c
+      azureml-model-session:
+      - d069-20240921133330
+      x-accel-buffering:
+      - 'no'
+      x-content-type-options:
+      - nosniff
+      x-envoy-upstream-service-time:
+      - '166'
+      x-ms-client-request-id:
+      - f826ec18-b22c-4f74-9da3-5a25af05888c
+      x-ms-rai-invoked:
+      - 'true'
+      x-ms-region:
+      - East US
+      x-ratelimit-remaining-requests:
+      - '149'
+      x-ratelimit-remaining-tokens:
+      - '149354'
+      x-request-id:
+      - 7305c279-39af-4370-aab3-d8d6ac20ed1b
+    status:
+      code: 200
+      message: OK
+version: 1
