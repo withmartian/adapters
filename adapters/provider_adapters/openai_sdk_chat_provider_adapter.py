@@ -57,7 +57,7 @@ MODELS = [
     ),
     OpenAIModel(
         name="gpt-4o",
-        cost=Cost(prompt=5.0e-6, completion=15.0e-6),
+        cost=Cost(prompt=2.5e-6, completion=10.0e-6),
         context_length=128000,
         completion_length=4096,
         supports_vision=True,
