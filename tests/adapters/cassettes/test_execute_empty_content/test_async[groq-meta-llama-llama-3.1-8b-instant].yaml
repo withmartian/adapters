@@ -16,7 +16,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,17 +37,16 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-eedaa1da-1681-4b5c-b78a-33212b5e2398","object":"chat.completion","created":1728427437,"model":"llama-3.1-8b-instant","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like you haven''t asked a question yet. I''m here to help, so what''s
-        on your mind? Do you have a question about science, history, technology, or
-        something else?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.003036789,"prompt_tokens":46,"prompt_time":0.00938673,"completion_tokens":41,"completion_time":0.054666667,"total_tokens":87,"total_time":0.064053397},"system_fingerprint":"fp_9cb648b966","x_groq":{"id":"req_01j9q4vb94e2dtf5c3hh27q5py"}}
+      string: '{"id":"chatcmpl-0d1904c6-636d-4309-a86e-a76bbaad7cf1","object":"chat.completion","created":1728508383,"model":"llama-3.1-8b-instant","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like you forgot to ask a question or say something. How can I assist
+        you today?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.005014528000000001,"prompt_tokens":46,"prompt_time":0.009279731,"completion_tokens":21,"completion_time":0.028,"total_tokens":67,"total_time":0.037279731},"system_fingerprint":"fp_f66ccb39ec","x_groq":{"id":"req_01j9sj1m47f0fa0yd7dcs81ycq"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf9a71aaf9595a5-TBS
+      - 8d015f52ca4095a5-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -53,13 +54,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:43:57 GMT
+      - Wed, 09 Oct 2024 21:13:03 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '669'
+      - '594'
       vary:
       - Origin
       via:
@@ -77,7 +80,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 45ms
       x-request-id:
-      - req_01j9q4vb94e2dtf5c3hh27q5py
+      - req_01j9sj1m47f0fa0yd7dcs81ycq
     status:
       code: 200
       message: OK

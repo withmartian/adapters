@@ -4,7 +4,7 @@ from adapters.adapter_factory import AdapterFactory
 from tests.adapters.utils.constants import MODEL_PATHS
 from tests.utils import SIMPLE_FUNCTION_CALL_USER_ONLY, get_response_choices_from_vcr
 
-original_tools = [
+tools = [
     {
         "type": "function",
         "function": {
@@ -20,23 +20,6 @@ original_tools = [
                 },
                 "required": ["prompt"],
             },
-        },
-    }
-]
-
-anthropic_tools = [
-    {
-        "name": "generate",
-        "description": "Generate random number",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "prompt": {
-                    "type": "string",
-                    "description": "Random number like 5, 4, 3, 10, 11",
-                },
-            },
-            "required": ["prompt"],
         },
     }
 ]
@@ -64,9 +47,7 @@ def test_sync_execute_tools_choices_none(vcr, model_name):
         return
 
     adapter_response = adapter.execute_sync(
-        SIMPLE_FUNCTION_CALL_USER_ONLY,
-        tool_choice="none",
-        tools=anthropic_tools if model_name.startswith("anthropic") else original_tools,
+        SIMPLE_FUNCTION_CALL_USER_ONLY, tool_choice="none", tools=tools
     )
 
     choices = get_response_choices_from_vcr(vcr, adapter)
@@ -85,9 +66,7 @@ async def test_async_execute_tools_choices_none(vcr, model_name):
         return
 
     adapter_response = await adapter.execute_async(
-        SIMPLE_FUNCTION_CALL_USER_ONLY,
-        tool_choice="none",
-        tools=anthropic_tools if model_name.startswith("anthropic") else original_tools,
+        SIMPLE_FUNCTION_CALL_USER_ONLY, tool_choice="none", tools=tools
     )
 
     choices = get_response_choices_from_vcr(vcr, adapter)

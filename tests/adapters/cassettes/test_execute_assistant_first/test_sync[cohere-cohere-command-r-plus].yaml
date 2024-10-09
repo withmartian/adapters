@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"message": "Hi", "model": "command-r-plus", "chat_history": [{"role":
-      "CHATBOT", "message": "Hi"}], "stream": false}'
+    body: '{"model": "command-r-plus", "messages": [{"role": "assistant", "content":
+      "Hi"}, {"role": "user", "content": "Hi"}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -10,31 +10,30 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '117'
+      - '133'
       content-type:
       - application/json
       host:
-      - api.cohere.ai
+      - api.cohere.com
       user-agent:
-      - python-httpx/0.27.0
+      - python-httpx/0.27.2
       x-fern-language:
       - Python
       x-fern-sdk-name:
       - cohere
       x-fern-sdk-version:
-      - 5.6.1
+      - 5.11.0
     method: POST
-    uri: https://api.cohere.ai/v1/chat
+    uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: '{"response_id":"0fb6f3fb-60fe-4967-beb3-37d2d87a53d4","text":"Hello!
-        How can I help you today?","generation_id":"08af770e-a9bb-4aad-a3f0-96229f083a61","chat_history":[{"role":"CHATBOT","message":"Hi"},{"role":"USER","message":"Hi"},{"role":"CHATBOT","message":"Hello!
-        How can I help you today?"}],"finish_reason":"COMPLETE","meta":{"api_version":{"version":"1"},"billed_units":{"input_tokens":2,"output_tokens":9},"tokens":{"input_tokens":203,"output_tokens":9}}}'
+      string: '{"id":"c73dc358-81ce-4947-b397-6cdde18047ad","message":{"role":"assistant","content":[{"type":"text","text":"Hello,
+        how can I help you today?"}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":2,"output_tokens":9},"tokens":{"input_tokens":203,"output_tokens":9}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '463'
+      - '283'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -44,7 +43,7 @@ interactions:
       content-type:
       - application/json
       date:
-      - Tue, 08 Oct 2024 23:19:27 GMT
+      - Wed, 09 Oct 2024 20:53:08 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
       num_chars:
@@ -60,9 +59,9 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - e5c0f9f3abb8130af57f5a4ef8a24cb4
+      - 56ddefe742712108b7f24377cf1ad638
       x-envoy-upstream-service-time:
-      - '309'
+      - '689'
     status:
       code: 200
       message: OK

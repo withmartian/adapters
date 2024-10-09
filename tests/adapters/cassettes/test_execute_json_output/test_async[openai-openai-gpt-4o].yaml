@@ -16,7 +16,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,27 +37,27 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGDKheVhPjrk19DchhcWb2JEZfK5Y\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728427863,\n  \"model\": \"gpt-4o-2024-08-06\",\n
+      string: "{\n  \"id\": \"chatcmpl-AGYUONfCDvtJCnUN9eRvqQVz7oD1K\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728509188,\n  \"model\": \"gpt-4o-2024-08-06\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"\\n\\n{\\\"message\\\": \\\"Hello,
-        how can I assist you today?\\\"}\",\n        \"refusal\": null\n      },\n
-        \     \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n
-        \ \"usage\": {\n    \"prompt_tokens\": 11,\n    \"completion_tokens\": 16,\n
-        \   \"total_tokens\": 27,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_2f406b9113\"\n}\n"
+        \"assistant\",\n        \"content\": \"\\n    {\\n      \\\"greeting\\\":
+        \\\"Hello!\\\",\\n      \\\"message\\\": \\\"How can I assist you today?\\\"\\n
+        \   }\",\n        \"refusal\": null\n      },\n      \"logprobs\": null,\n
+        \     \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
+        11,\n    \"completion_tokens\": 25,\n    \"total_tokens\": 36,\n    \"prompt_tokens_details\":
+        {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\":
+        {\n      \"reasoning_tokens\": 0\n    }\n  },\n  \"system_fingerprint\": \"fp_e5e4913e83\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf9b1825cdd95a6-TBS
+      - 8d0172f8fb2e959d-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:51:04 GMT
+      - Wed, 09 Oct 2024 21:26:28 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -64,12 +66,14 @@ interactions:
       - nosniff
       access-control-expose-headers:
       - X-Request-ID
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '675'
+      - '717'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '225'
+      - '297'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -87,7 +91,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_abb4f6fbee761d55462ec4eae386958e
+      - req_0a257b124c6c365c610be5f6250da2f3
     status:
       code: 200
       message: OK

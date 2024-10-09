@@ -19,7 +19,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -29,7 +29,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -38,33 +40,34 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGD1nCFyXWvGX0oI4agb9KaWOYpUX\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728426691,\n  \"model\": \"gpt-3.5-turbo-0125\",\n
+      string: "{\n  \"id\": \"chatcmpl-AGZ5uiNQp8JCWwb2Axqh0OAZPPgsm\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728511514,\n  \"model\": \"gpt-3.5-turbo-0125\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
         \"assistant\",\n        \"content\": \"Sure, I can generate a random number
-        for you. Let me do that now.\",\n        \"refusal\": null\n      },\n      \"logprobs\":
-        null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
-        65,\n    \"completion_tokens\": 17,\n    \"total_tokens\": 82,\n    \"prompt_tokens_details\":
-        {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\":
-        {\n      \"reasoning_tokens\": 0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
+        for you. Let me do that for you.\",\n        \"refusal\": null\n      },\n
+        \     \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n
+        \ \"usage\": {\n    \"prompt_tokens\": 65,\n    \"completion_tokens\": 18,\n
+        \   \"total_tokens\": 83,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
+        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
+        0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf994e0af371a42-TBS
+      - 8d01abc5cad2959f-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:31:31 GMT
+      - Wed, 09 Oct 2024 22:05:15 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=cMOTv0rlqF53IGSmqilZqGCkAxCw8_RSY9zG_EGt0BY-1728426691-1.0.1.1-ciPkop1otXkmjOFH86oz9Lyyjud5CEjfHfLd6xGju81isChOFfkXtxZ22ARP6Pz1EB8fmnlq3KJZnwE9Jf8JKA;
-        path=/; expires=Tue, 08-Oct-24 23:01:31 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=Fnfm1q4rzGdN0B7CbJF07Q6RtsVf6o9vlib3gIxFiNM-1728511515-1.0.1.1-1DV_TIyHJINgLTGP4IOSflLFHOi_dlXbdx33NbhxtBTgpbOh_oWcvR_HRwlqx3UVJ2BvEATx7yuKjxNuimj_nQ;
+        path=/; expires=Wed, 09-Oct-24 22:35:15 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=TEeUcFz.70Nc50.wy6Kti2195Y8cN1FlfsjYH2gE4nA-1728426691835-0.0.1.1-604800000;
+      - _cfuvid=aPIkBJRGlNGtiXfH1vlrY7d6fRAhnyLv8euMzsWJSJY-1728511515184-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -75,11 +78,11 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '673'
+      - '677'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '211'
+      - '221'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -97,7 +100,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_8b8f5ffeb6322f7740db5ac076feb79b
+      - req_6a9b8cdaa6e389b6e90527540f18a3e6
     status:
       code: 200
       message: OK

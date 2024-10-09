@@ -18,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,7 +32,7 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://openrouter.ai/api/v1/chat/completions
   response:
@@ -63,36 +63,21 @@ interactions:
         \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
         \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
         \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n\n         \n\n         \n{\"id\":\"gen-1727830591-uIdrcmaDFDee29FKKYje\",\"provider\":\"Together\",\"model\":\"databricks/dbrx-instruct\",\"object\":\"chat.completion\",\"created\":1727830591,\"choices\":[{\"logprobs\":null,\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"You
-        can use the `display()` function in Databricks notebooks to visualize the
-        contents of a DataFrame. Here's an example:\\n\\n```python\\n# Create a DataFrame\\ndf
-        = spark.createDataFrame([(1, \\\"Apple\\\"), (2, \\\"Banana\\\"), (3, \\\"Cherry\\\")],
-        [\\\"id\\\", \\\"fruit\\\"])\\n\\n# Display the DataFrame\\ndisplay(df)\\n```\\n\\nThis
-        will generate an interactive table that allows you to scroll through the data,
-        filter, and sort columns. If you want to display the data in a specific format,
-        such as a bar chart or a histogram, you can use the `plot()` function. Here's
-        an example:\\n\\n```python\\n# Import the plotting functions\\nfrom pyspark.sql.functions
-        import col\\nimport pyspark.sql.functions as F\\n\\n# Count the number of
-        fruits\\ndf_count = df.groupBy(\\\"fruit\\\").count()\\n\\n# Plot a bar chart
-        of the fruit counts\\ndf_count.plot(kind=\\\"bar\\\", x=\\\"fruit\\\", y=\\\"count\\\",
-        legend=False)\\n```\\n\\nThis will generate a bar chart that shows the number
-        of occurrences of each fruit in the DataFrame.\",\"refusal\":\"\"}}],\"usage\":{\"prompt_tokens\":230,\"completion_tokens\":225,\"total_tokens\":455}}"
+        \        \n\n         \n\n         \n{\"id\":\"gen-1728508230-JLhmvBIj1tci47nNWULR\",\"provider\":\"Together\",\"model\":\"databricks/dbrx-instruct\",\"object\":\"chat.completion\",\"created\":1728508230,\"choices\":[{\"logprobs\":null,\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"You
+        can use the `display()` function in Databricks to view the contents of a DataFrame.
+        Here's an example:\\n\\n```python\\n# Create a DataFrame\\ndf = spark.createDataFrame([(1,
+        \\\"Alice\\\"), (2, \\\"Bob\\\")], [\\\"id\\\", \\\"name\\\"])\\n\\n# Display
+        the DataFrame\\ndisplay(df)\\n```\\n\\nThis will display the DataFrame in
+        a table format, showing the columns and rows of data. The `display()` function
+        is a powerful tool in Databricks that allows you to explore and visualize
+        your data in a variety of ways. For example, you can use it to create charts
+        and graphs, or to filter and sort your data. It's a great way to get a quick
+        overview of your data and to start exploring it in more depth.\",\"refusal\":\"\"}}],\"usage\":{\"prompt_tokens\":230,\"completion_tokens\":157,\"total_tokens\":387}}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cc0bbad6d73fb40-SJC
+      - 8d015b95092995a3-TBS
       Cache-Control:
       - public, max-age=0, must-revalidate
       Connection:
@@ -100,7 +85,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 02 Oct 2024 00:56:31 GMT
+      - Wed, 09 Oct 2024 21:10:30 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -112,13 +97,13 @@ interactions:
         Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version,
         HTTP-Referer, X-Windowai-Title, X-Openrouter-Title, X-Title, X-Stainless-Lang,
         X-Stainless-Package-Version, X-Stainless-OS, X-Stainless-Arch, X-Stainless-Runtime,
-        X-Stainless-Runtime-Version
+        X-Stainless-Runtime-Version, X-Stainless-Retry-Count
       access-control-allow-methods:
       - GET,OPTIONS,PATCH,DELETE,POST,PUT
       access-control-allow-origin:
       - '*'
       content-length:
-      - '3800'
+      - '2754'
       content-security-policy:
       - 'default-src ''self''; script-src ''self'' ''unsafe-eval'' ''unsafe-inline''
         https://clerk.openrouter.ai https://cunning-heron-18.clerk.accounts.dev https://challenges.cloudflare.com
@@ -138,7 +123,7 @@ interactions:
       x-matched-path:
       - /api/v1/chat/completions
       x-vercel-id:
-      - sfo1::9dd4f-1727830591592-efdf36aeb49b
+      - arn1::dqsst-1728508230026-daa86675cfa8
     status:
       code: 200
       message: OK

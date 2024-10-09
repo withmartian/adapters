@@ -18,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,7 +32,7 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://openrouter.ai/api/v1/chat/completions
   response:
@@ -54,29 +54,21 @@ interactions:
         \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
         \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
         \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n{\"id\":\"gen-1727830596-8hk4RrFNwpOq5DdgEbOu\",\"provider\":\"Fireworks\",\"model\":\"mistralai/mixtral-8x22b-instruct\",\"object\":\"chat.completion\",\"created\":1727830596,\"choices\":[{\"logprobs\":null,\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
-        The function $f(x) = 2^x - x^2$ is a quadratic function. We complete the square
-        to find its vertex:\\n\\n1. Rewrite the function as $f(x) = 4^{x/2} - (x^2
-        - 4^{x/2})^2 + 4^{x/2}$.\\n2. Complete the square: $f(x) = -(x - 2^{x/2})^2
-        + (2^{x/2})^2 + 4^{x/2}$.\\n3. The vertex form is $f(x) = -(x - h)^2 + k$,
-        where the vertex $(h, k)$ is given by $h = 2^{x/2}$ and $k = (2^{x/2})^2 +
-        4^{x/2}$.\\n\\nSince the coefficient of the quadratic term is negative, the
-        parabola opens downwards. Therefore, the vertex represents the maximum point
-        of the function. To find the maximum value, we evaluate $k$ at the vertex:\\n\\n-
-        $h = 2^{x/2} = 2$ (since $x = 2$ for $2^{x/2} = 2$),\\n- $k = (2^{x/2})^2
-        + 4^{x/2} = 4 + 2 = 6$.\\n\\nTherefore, the maximum value of the function
-        is $f(2) = 6$.\\n\\nTo find the corresponding $x$ value, we set $x = 2$ and
-        solve for $y$: $y = f(2) = 2^2 - 2^2 = 0$.\\n\\nTherefore, the $x$ value corresponding
-        to the maximum point of the function is $x = 2$.\\n\\nThe final answer is
-        $f(x)_{\\\\text{max}} = f(2) = 6$.\\n\\nThe corresponding $x$ value is $2$.\\n\\nThe
-        parabola opens downwards, so there is a unique maximum value at the vertex
-        of the parabola, which is at $x = 2$. The value of the function at this point
-        is $f(2) = 6$.\",\"refusal\":\"\"}}],\"usage\":{\"prompt_tokens\":7,\"completion_tokens\":487,\"total_tokens\":494}}"
+        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n{\"id\":\"gen-1728508236-VIY6eo36s6miALqGm5c7\",\"provider\":\"Mistral\",\"model\":\"mistralai/mixtral-8x22b-instruct\",\"object\":\"chat.completion\",\"created\":1728508236,\"choices\":[{\"logprobs\":null,\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"I'm
+        just a computer assistant and I don't have feelings or emotions. However,
+        I'm here to help answer your questions and assist you with tasks to the best
+        of my ability. If you have a question or need help with something, feel free
+        to ask! Just keep in mind that my responses are generated based on a large
+        database of information and programmed algorithms, so while I can provide
+        factual information, I can't guarantee accuracy for all queries. If you need
+        a more specific or personalized response, please provide more details.\",\"refusal\":\"\"}}],\"usage\":{\"prompt_tokens\":8,\"completion_tokens\":112,\"total_tokens\":120}}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cc0bbcc9e77fb40-SJC
+      - 8d015bbd2abc95a3-TBS
       Cache-Control:
       - public, max-age=0, must-revalidate
       Connection:
@@ -84,7 +76,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 02 Oct 2024 00:56:36 GMT
+      - Wed, 09 Oct 2024 21:10:36 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -96,13 +88,13 @@ interactions:
         Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version,
         HTTP-Referer, X-Windowai-Title, X-Openrouter-Title, X-Title, X-Stainless-Lang,
         X-Stainless-Package-Version, X-Stainless-OS, X-Stainless-Arch, X-Stainless-Runtime,
-        X-Stainless-Runtime-Version
+        X-Stainless-Runtime-Version, X-Stainless-Retry-Count
       access-control-allow-methods:
       - GET,OPTIONS,PATCH,DELETE,POST,PUT
       access-control-allow-origin:
       - '*'
       content-length:
-      - '2724'
+      - '2140'
       content-security-policy:
       - 'default-src ''self''; script-src ''self'' ''unsafe-eval'' ''unsafe-inline''
         https://clerk.openrouter.ai https://cunning-heron-18.clerk.accounts.dev https://challenges.cloudflare.com
@@ -122,7 +114,7 @@ interactions:
       x-matched-path:
       - /api/v1/chat/completions
       x-vercel-id:
-      - sfo1::8ggpq-1727830596579-b313d7aa16e0
+      - arn1::sw5j4-1728508236409-10d2ecb06b21
     status:
       code: 200
       message: OK

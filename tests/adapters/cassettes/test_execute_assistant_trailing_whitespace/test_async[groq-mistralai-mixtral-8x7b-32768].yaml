@@ -16,7 +16,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,15 +37,18 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-b66a6ea4-bf03-45d6-8996-abbc7cb83624\",\"object\":\"chat.completion\",\"created\":1728427171,\"model\":\"mixtral-8x7b-32768\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"\U0001F60A
-        How can I help you today? Is there something specific you would like to know
-        or learn about related to programming or software development? I'm here to
-        assist you with any questions you might have. Just let me know!\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.011830914,\"prompt_tokens\":11,\"prompt_time\":0.001984865,\"completion_tokens\":47,\"completion_time\":0.074601776,\"total_tokens\":58,\"total_time\":0.076586641},\"system_fingerprint\":\"fp_c5f20b5bb1\",\"x_groq\":{\"id\":\"req_01j9q4k81rft1ab7kzd1vesyt0\"}}\n"
+      string: '{"id":"chatcmpl-2779e23a-4953-48df-b5e8-5219bfd909c6","object":"chat.completion","created":1728507858,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"there!
+        How can I help you today? Is there a particular topic you''d like to discuss,
+        or would you like some information on a specific type of loan or mortgage?
+        I''m here to provide you with the information and resources you need to make
+        informed financial decisions. Let me know how I can assist you."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.01124882,"prompt_tokens":11,"prompt_time":0.002132511,"completion_tokens":66,"completion_time":0.105201458,"total_tokens":77,"total_time":0.107333969},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01j9shhkzff67aqnxw295rrpd1"}}
+
+        '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf9a09f9d89317c-TBS
+      - 8d0152858bc295a3-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -51,7 +56,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:39:32 GMT
+      - Wed, 09 Oct 2024 21:04:19 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -59,7 +64,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '721'
+      - '798'
       vary:
       - Origin
       via:
@@ -77,7 +82,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 132ms
       x-request-id:
-      - req_01j9q4k81rft1ab7kzd1vesyt0
+      - req_01j9shhkzff67aqnxw295rrpd1
     status:
       code: 200
       message: OK

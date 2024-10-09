@@ -317,12 +317,14 @@ class AnthropicSDKChatProviderAdapter(
             anthropic_tools = []
             for openai_tool in openai_tools:
                 anthropic_tool = ToolParam(
-                    name=openai_tool["name"],
-                    description=openai_tool["description"],
+                    name=openai_tool["function"]["name"],
+                    description=openai_tool["function"]["description"],
                     input_schema={
-                        "type": openai_tool["input_schema"]["type"],
-                        "properties": openai_tool["input_schema"]["properties"],
-                        "required": openai_tool["input_schema"]["required"],
+                        "type": openai_tool["function"]["parameters"]["type"],
+                        "properties": openai_tool["function"]["parameters"][
+                            "properties"
+                        ],
+                        "required": openai_tool["function"]["parameters"]["required"],
                     },
                 )
 

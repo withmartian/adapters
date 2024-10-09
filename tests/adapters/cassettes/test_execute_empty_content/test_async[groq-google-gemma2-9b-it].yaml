@@ -16,7 +16,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,18 +37,15 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-82ee0875-13ce-4832-bf9c-9d116cf8b5cb\",\"object\":\"chat.completion\",\"created\":1728427439,\"model\":\"gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
-        provide me with a question or a topic you'd like to discuss. I'm here to help!
-        \U0001F60A \\n\\nFor example, you could ask me:\\n\\n* To write a story\\n*
-        To translate something\\n* To answer a factual question\\n* To generate different
-        creative text formats,  like poems, code, scripts, musical pieces, email,
-        letters, etc.\\n* To help you brainstorm ideas\\n\\nWhat can I do for you?
-        \\n\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.01336043,\"prompt_tokens\":20,\"prompt_time\":0.00008052,\"completion_tokens\":97,\"completion_time\":0.176363636,\"total_tokens\":117,\"total_time\":0.176444156},\"system_fingerprint\":\"fp_10c08bf97d\",\"x_groq\":{\"id\":\"req_01j9q4vdv1fg196c99mpy3m4g2\"}}\n"
+      string: "{\"id\":\"chatcmpl-504e7a56-fb84-4e8d-b367-14ca0582197d\",\"object\":\"chat.completion\",\"created\":1728508386,\"model\":\"gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
+        provide me with a message or question so I can assist you! \U0001F60A \\n\\nI'm
+        ready for anything - from answering questions to generating creative text,
+        translating languages, and more.  What can I do for you? \\n\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.014489161,\"prompt_tokens\":20,\"prompt_time\":0.000077349,\"completion_tokens\":50,\"completion_time\":0.090909091,\"total_tokens\":70,\"total_time\":0.09098644},\"system_fingerprint\":\"fp_10c08bf97d\",\"x_groq\":{\"id\":\"req_01j9sj1q75fyn9vadhr3zc7m1r\"}}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf9a72b0a9e95a5-TBS
+      - 8d015f670fcd95a5-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -54,13 +53,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:44:00 GMT
+      - Wed, 09 Oct 2024 21:13:06 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '873'
+      - '707'
       vary:
       - Origin
       via:
@@ -78,7 +79,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 60ms
       x-request-id:
-      - req_01j9q4vdv1fg196c99mpy3m4g2
+      - req_01j9sj1q75fyn9vadhr3zc7m1r
     status:
       code: 200
       message: OK

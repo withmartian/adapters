@@ -18,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,27 +32,25 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-33c41b20db7447fb84b286b6e88b98d9\",\"object\":\"chat.completion\",\"created\":1727830523,\"model\":\"google/gemma-2-27b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
-        provide me with some context or a question so I can assist you. \U0001F60A
-        \\n\\nFor example, you could ask me:\\n\\n* To write a story\\n* To translate
-        something\\n* To answer a question about a specific topic\\n* To generate
-        creative text formats, like poems, code, scripts, musical pieces, email, letters,
-        etc.\\n* To help you brainstorm ideas \\n\\nI'm excited to see what you'd
-        like me to do! \u2728\\n\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":116,\"completion_tokens\":97,\"estimated_cost\":3.132e-05}}"
+      string: '{"id":"chatcmpl-1186955c415a44e18728751f73c85b72","object":"chat.completion","created":1728508160,"model":"google/gemma-2-27b-it","choices":[{"index":0,"message":{"role":"assistant","content":"Please
+        provide me with some context or a question so I can assist you. \n\nFor example,
+        you could ask:\n\n* **\"Can you write a poem about a cat?\"**\n* **\"What
+        is the capital of France?\"**\n* **\"Can you explain quantum physics in simple
+        terms?\"**\n\nI''m ready to help! \n","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"total_tokens":93,"completion_tokens":74,"estimated_cost":2.511e-05}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '743'
+      - '624'
       Content-Type:
       - application/json
       Date:
-      - Wed, 02 Oct 2024 00:55:23 GMT
+      - Wed, 09 Oct 2024 21:09:20 GMT
       server:
       - uvicorn
       x-robots-tag:

@@ -18,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,33 +32,34 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"b4c86d32-19d5-4539-b630-ef0db137dbba","object":"chat.completion","created":1727830539,"model":"accounts/fireworks/models/llama-v3p1-8b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like your message got cut off. Could you please rephrase or complete
-        your question so I can better understand and provide a helpful response?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":21,"total_tokens":51,"completion_tokens":30}}'
+      string: '{"id":"ca5fa897-f8f2-4300-a888-31d213b1b671","object":"chat.completion","created":1728508175,"model":"accounts/fireworks/models/llama-v3p1-8b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like you''ve started a conversation without a question or topic. I''m
+        here to help! What''s on your mind? Want to talk about something specific
+        or explore a particular topic?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":21,"total_tokens":60,"completion_tokens":39}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8cc0ba61ff8367d3-SJC
+      - 8d015a3e3f0695a0-TBS
       Cf-Placement:
-      - remote-SEA
+      - local-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 02 Oct 2024 00:55:38 GMT
+      - Wed, 09 Oct 2024 21:09:35 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=199.0;desc="Total Response Time"
+      - total;dur=631.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -66,7 +67,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '463'
+      - '493'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -74,11 +75,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.136'
+      - '0.253'
       x-envoy-upstream-service-time:
-      - '138'
+      - '256'
       x-request-id:
-      - b4c86d32-19d5-4539-b630-ef0db137dbba
+      - ca5fa897-f8f2-4300-a888-31d213b1b671
     status:
       code: 200
       message: OK

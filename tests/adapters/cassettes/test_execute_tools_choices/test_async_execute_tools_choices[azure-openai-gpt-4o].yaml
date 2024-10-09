@@ -21,7 +21,7 @@ interactions:
       host:
       - martiantest.openai.azure.com
       user-agent:
-      - AsyncAzureOpenAI/Python 1.46.0
+      - AsyncAzureOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -31,7 +31,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -40,32 +42,33 @@ interactions:
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview
   response:
     body:
-      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"Please
-        provide a prompt or a range for generating a random number. For example, you
-        might say \"Generate a random number between 1 and 10.\"","role":"assistant"}}],"created":1728426835,"id":"chatcmpl-AGD47XRmsh2FecNDpk15ToAZFTktY","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_67802d9a6d","usage":{"completion_tokens":31,"prompt_tokens":63,"total_tokens":94}}
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"Certainly!
+        Could you specify the range or the type of random number you need? For example,
+        do you want a single digit random number, a random number within a specific
+        range, or some other criteria?","role":"assistant"}}],"created":1728511727,"id":"chatcmpl-AGZ9LAlmUGSlczoNYkIftA7q0SLo7","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_67802d9a6d","usage":{"completion_tokens":41,"prompt_tokens":63,"total_tokens":104}}
 
         '
     headers:
       Content-Length:
-      - '951'
+      - '1009'
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:33:55 GMT
+      - Wed, 09 Oct 2024 22:08:46 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - a7e33595-35c6-46d8-aed1-31574950d210
+      - 6ea79d4c-9306-49f2-80b5-cbfb263571e7
       azureml-model-session:
-      - d022-20240925085713
+      - d043-20240925150506
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '1491'
+      - '471'
       x-ms-client-request-id:
-      - a7e33595-35c6-46d8-aed1-31574950d210
+      - 6ea79d4c-9306-49f2-80b5-cbfb263571e7
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
@@ -73,9 +76,9 @@ interactions:
       x-ratelimit-remaining-requests:
       - '149'
       x-ratelimit-remaining-tokens:
-      - '149354'
+      - '148708'
       x-request-id:
-      - aef66852-64f0-4656-8396-a012acb57daf
+      - 509d913b-4417-4218-9ea7-6d9dcd97082e
     status:
       code: 200
       message: OK

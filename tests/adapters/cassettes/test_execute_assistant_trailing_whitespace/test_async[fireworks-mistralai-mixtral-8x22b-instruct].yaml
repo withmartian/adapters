@@ -16,7 +16,7 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,17 +37,15 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"729c8a2a-d387-4e0f-a36f-b6220720eb09\",\"object\":\"chat.completion\",\"created\":1728427166,\"model\":\"accounts/fireworks/models/mixtral-8x22b-instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"\U0001F44B.
-        How can I assist you today? I am an LLM and can help with a variety of tasks
-        such as answering questions, providing explanations, generating text, and
-        assisting with coding. What can I help you with?\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":8,\"total_tokens\":59,\"completion_tokens\":51}}"
+      string: "{\"id\":\"904e58f7-3421-461b-adc8-870b709d601c\",\"object\":\"chat.completion\",\"created\":1728507853,\"model\":\"accounts/fireworks/models/mixtral-8x22b-instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"\U0001F916,
+        how can I assist you today? \U0001F31F\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":8,\"total_tokens\":26,\"completion_tokens\":18}}"
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8cf9a07c4d3b95a9-TBS
+      - 8d0152628cf9317c-TBS
       Cf-Placement:
       - local-TBS
       Connection:
@@ -53,17 +53,19 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:39:27 GMT
+      - Wed, 09 Oct 2024 21:04:13 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=863.0;desc="Total Response Time"
+      - total;dur=471.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '517'
+      - '350'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -71,11 +73,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.633'
+      - '0.227'
       x-envoy-upstream-service-time:
-      - '635'
+      - '229'
       x-request-id:
-      - 729c8a2a-d387-4e0f-a36f-b6220720eb09
+      - 904e58f7-3421-461b-adc8-870b709d601c
     status:
       code: 200
       message: OK

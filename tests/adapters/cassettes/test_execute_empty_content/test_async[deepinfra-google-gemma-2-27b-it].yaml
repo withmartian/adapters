@@ -16,7 +16,7 @@ interactions:
       host:
       - api.deepinfra.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,20 +37,23 @@ interactions:
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-e246898d319e4b2cb4f51e314676de86\",\"object\":\"chat.completion\",\"created\":1728427427,\"model\":\"google/gemma-2-27b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
-        provide me with some context or a question so I can assist you. For example,
-        you could ask:\\n\\n* **\\\"Can you write me a poem about autumn?\\\"**\\n*
-        **\\\"What are the main causes of climate change?\\\"**\\n* **\\\"How do I
-        bake a chocolate cake?\\\"**\\n\\nI'm ready to help! \U0001F680 \\n\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":93,\"completion_tokens\":74,\"estimated_cost\":2.511e-05}}"
+      string: "{\"id\":\"chatcmpl-7beeb26c3a0a41cc9ef908563b39c174\",\"object\":\"chat.completion\",\"created\":1728508360,\"model\":\"google/gemma-2-27b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
+        provide me with the context or question you have so I can assist you. \U0001F60A
+        \ \\n\\nFor example, you could ask me:\\n\\n* **To write a story:** \\\"Write
+        me a short story about a cat who goes on an adventure.\\\"\\n* **To answer
+        a question:** \\\"What is the capital of France?\\\"\\n* **To summarize text:**
+        \\\"Can you summarize the plot of the movie Inception?\\\"\\n* **To translate
+        something:** \\\"Translate 'Hello, how are you?' into Spanish.\\\" \\n\\nI'm
+        ready when you are! \U0001F44D \\n\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":136,\"completion_tokens\":117,\"estimated_cost\":3.672e-05}}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '625'
+      - '821'
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:43:47 GMT
+      - Wed, 09 Oct 2024 21:12:40 GMT
       server:
       - uvicorn
       x-robots-tag:

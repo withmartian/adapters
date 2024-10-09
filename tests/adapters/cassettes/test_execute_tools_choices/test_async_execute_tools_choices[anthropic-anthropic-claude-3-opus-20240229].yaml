@@ -40,32 +40,25 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_013Svksqo6QgtWtKZKufVjK5","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
-        user is requesting a random number. The \"generate\" tool can generate a random
-        number and requires a \"prompt\" parameter describing the type of number.
-        However, the user has not specified any details about the random number they
-        want.\nTo proceed, I will need to ask the user for more information to provide
-        as the \"prompt\" parameter, such as the range the number should be in, if
-        it should be an integer or have decimal places, if it should be positive or
-        negative, etc. \n</thinking>\n\nTo generate a random number, I need some more
-        details. Can you please provide more information about the random number you
-        would like, such as:\n- The range the number should be in (e.g. between 1
-        and 10, 100 to 500, etc.)  \n- If the number should be an integer or have
-        decimal places\n- If the number should only be positive or if it can be negative
-        as well\n- Any other relevant details about the properties of the random number\n\nOnce
-        I have a bit more information, I can generate the type of random number you''re
-        looking for. Please let me know those additional details!"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":245}}'
+      string: '{"id":"msg_01G9XcgahHTUv1fxVBTnSE8k","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        generate tool is relevant for this request, as the user is asking to generate
+        a random number.\n\nRequired parameters for the generate tool:\n- prompt:
+        The user provided \"Generate random number\" which gives enough context to
+        infer a prompt like \"5, 4, 3, 10, 11\". No other tools are needed to obtain
+        this value.\n\nAll required parameters are available, so we can proceed with
+        calling the generate tool.\n</thinking>"},{"type":"tool_use","id":"toolu_01LtesKwq28nEyZcca5JXntd","name":"generate","input":{"prompt":"5,
+        4, 3, 10, 11"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":161}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf997ee7add95a0-TBS
+      - 8d01b09b5875959f-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:33:48 GMT
+      - Wed, 09 Oct 2024 22:08:41 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -77,15 +70,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-08T22:33:48Z'
+      - '2024-10-09T22:08:41Z'
       content-length:
-      - '1324'
+      - '788'
       request-id:
-      - req_01E2EipSuhmpLqLhSMYvZw9Z
+      - req_01VAnCGg4nsivVPiogioQb35
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - cc83b1b17c4de717231a3354e1d3ff73
+      - 89bfe9ab6721320ef46563b506e6cb54
     status:
       code: 200
       message: OK

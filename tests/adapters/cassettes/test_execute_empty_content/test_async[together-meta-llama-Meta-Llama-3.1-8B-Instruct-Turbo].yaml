@@ -16,7 +16,7 @@ interactions:
       host:
       - api.together.xyz
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,27 +37,28 @@ interactions:
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"8cf9aa1f296d95a9-TBS\",\n  \"object\": \"chat.completion\",\n
-        \ \"created\": 1728427561,\n  \"model\": \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n
+      string: "{\n  \"id\": \"8d0163bc9b5695a6-TBS\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1728508564,\n  \"model\": \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n
         \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
-        \     \"seed\": 15563447291395838000,\n      \"logprobs\": null,\n      \"index\":
+        \     \"seed\": 9657723942223092000,\n      \"logprobs\": null,\n      \"index\":
         0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
-        \"It seems like you're trying to have a conversation, but you haven't asked
-        a question or made a statement yet. I'm here to help, so feel free to ask
-        me anything or start a conversation. What's on your mind?\",\n        \"tool_calls\":
-        []\n      }\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 49,\n    \"completion_tokens\":
-        49,\n    \"total_tokens\": 98\n  }\n}"
+        \"It seems like you're trying to initiate a conversation, but you haven't
+        provided any context or a specific question. I'm here to help, so please feel
+        free to ask me anything, and I'll do my best to assist you. What's on your
+        mind?\",\n        \"tool_calls\": []\n      }\n    }\n  ],\n  \"usage\": {\n
+        \   \"prompt_tokens\": 49,\n    \"completion_tokens\": 55,\n    \"total_tokens\":
+        104\n  }\n}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf9aa1f296d95a9-TBS
+      - 8d0163bc9b5695a6-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 08 Oct 2024 22:46:01 GMT
+      - Wed, 09 Oct 2024 21:16:04 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -64,16 +67,18 @@ interactions:
       - chunked
       access-control-allow-origin:
       - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '708'
+      - '733'
       etag:
-      - W/"2c4-b/fYgJg1S3ZhlI7VFqFBhYHS4us"
+      - W/"2dd-He0zsJyMuxdZ0VcrpIQ4xL/Nga0"
       x-api-call-end:
-      - '2024-10-08T22:46:01.806Z'
+      - '2024-10-09T21:16:04.397Z'
       x-api-call-start:
-      - '2024-10-08T22:46:01.512Z'
+      - '2024-10-09T21:16:04.129Z'
       x-api-received:
-      - '2024-10-08T22:46:01.507Z'
+      - '2024-10-09T21:16:04.119Z'
       x-inference-version:
       - v2
       x-ratelimit:

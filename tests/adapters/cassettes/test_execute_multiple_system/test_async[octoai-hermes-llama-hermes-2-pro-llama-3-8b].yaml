@@ -16,7 +16,7 @@ interactions:
       host:
       - text.octoai.run
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,19 +37,18 @@ interactions:
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-c81fff5d579543eabcc6955efe8beacf","object":"chat.completion","created":1728428027,"model":"hermes-2-pro-llama-3-8b","choices":[{"index":0,"message":{"role":"assistant","content":"Hello
-        there! I am the AI language assistance model provided by OpenAI. How can I
-        help you today? Please feel free to ask any questions or provide details about
-        the context you want me to assist with."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":22,"completion_tokens":42,"total_tokens":64}}'
+      string: '{"id":"chatcmpl-a16429656b204bf899dc04d9bf6515ce","object":"chat.completion","created":1728509928,"model":"hermes-2-pro-llama-3-8b","choices":[{"index":0,"message":{"role":"assistant","content":"Why
+        do you use just \"Hi\" as a greeting? Is there any particular reason behind
+        it?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":22,"completion_tokens":20,"total_tokens":42}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '508'
+      - '392'
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:53:47 GMT
+      - Wed, 09 Oct 2024 21:38:48 GMT
       Server:
       - uvicorn
       Vary:
@@ -57,13 +58,13 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '902'
+      - '307'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1728428028'
+      - '1728509929'
       X-User-Request-Id:
       - ''
     status:

@@ -16,7 +16,7 @@ interactions:
       host:
       - text.octoai.run
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,17 +37,18 @@ interactions:
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-bd9d460e5644427e994241a328b4b277","object":"chat.completion","created":1728428699,"model":"nous-hermes-2-mixtral-8x7b-dpo","choices":[{"index":0,"message":{"role":"assistant","content":"What
-        would you like to talk about today?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":18,"completion_tokens":9,"total_tokens":27}}'
+      string: '{"id":"chatcmpl-5e38b21af19043f4ba5b1c2c2ee4d5a5","object":"chat.completion","created":1728511336,"model":"nous-hermes-2-mixtral-8x7b-dpo","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today? Do you have any questions or requests? If you
+        need help with something specific, feel free to ask!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":18,"completion_tokens":30,"total_tokens":48}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '355'
+      - '449'
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 23:04:58 GMT
+      - Wed, 09 Oct 2024 22:02:15 GMT
       Server:
       - uvicorn
       Vary:
@@ -53,15 +56,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '0'
+      - '5'
       X-Kong-Upstream-Latency:
-      - '240'
+      - '462'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1728428700'
+      - '1728511337'
       X-User-Request-Id:
       - ''
     status:

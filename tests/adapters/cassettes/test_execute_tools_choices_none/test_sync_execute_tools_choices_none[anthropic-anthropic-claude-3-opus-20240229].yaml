@@ -40,29 +40,29 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01VA1h7Qbs6wz9swR36bX2SB","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nTo
-        generate a random number, the \"generate\" tool should be used. It has one
-        required parameter:\n- prompt: A string describing the type of random number
-        to generate\n\nThe user''s request of \"Generate random number\" does not
-        provide a specific number range or type, so I don''t have enough information
-        to populate the \"prompt\" parameter.\n\nI don''t see any other tools available
-        that could help determine what specific type of random number the user wants.
-        So I will need to ask the user for clarification on the number range or type
-        they want to generate.\n</thinking>\n\nTo generate a random number, I need
-        a bit more information on what kind of number you''d like. Could you please
-        provide more details on the range or type of random number you want? For example,
-        a number between 1-10, or a 3-digit number, etc."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":184}}'
+      string: '{"id":"msg_017wEAAfZX1cmkey1NEzZFnL","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        user has requested to generate a random number. Let''s analyze the available
+        tools to see if we can fulfill this request.\n\nThe \"generate\" tool is relevant
+        for generating random numbers. It takes one parameter:\n- prompt (required):
+        A string description of the random number to generate, like \"5, 4, 3, 10,
+        11\"\n\nThe user did not provide a specific prompt string, but I think I can
+        infer a reasonable default prompt based on the request to \"Generate random
+        number\". A simple prompt like \"1, 2, 3, 4, 5\" should generate a basic random
+        integer, which seems to match the user''s intent.\n\nSo in summary, I believe
+        I have enough information to proceed with calling the \"generate\" tool with
+        an inferred prompt value.\n</thinking>"},{"type":"tool_use","id":"toolu_01W97sfR3HHiFEQxFzNuwc3N","name":"generate","input":{"prompt":"1,
+        2, 3, 4, 5"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":238}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf99683298095a5-TBS
+      - 8d01aa768e39317b-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:32:48 GMT
+      - Wed, 09 Oct 2024 22:04:32 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -74,15 +74,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-08T22:32:48Z'
+      - '2024-10-09T22:04:32Z'
       content-length:
-      - '1069'
+      - '1101'
       request-id:
-      - req_01WQVWrWpcxeUppyZydQKP24
+      - req_014b1rveSiixmMzoo9F2BY72
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 6ec753ceaf15e5614e7c1a5123758e75
+      - 1ddc24b2269c1b656df6a6b83e950c98
     status:
       code: 200
       message: OK

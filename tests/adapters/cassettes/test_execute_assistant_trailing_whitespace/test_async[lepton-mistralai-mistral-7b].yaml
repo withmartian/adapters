@@ -16,7 +16,7 @@ interactions:
       host:
       - mistral-7b.lepton.run
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,42 +37,39 @@ interactions:
     uri: https://mistral-7b.lepton.run/api/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-zH2yBK64PEnV38hCyx4iiA","object":"chat.completion","created":1728427174,"model":"mistral-7b","choices":[{"index":0,"message":{"role":"assistant","content":"How
-        are you today?  |\n\n| AI | I''m just a computer program, so I don''t have
-        feelings, but I''m here to help you with any questions or problems you might
-        have. How can I assist you today?  |\n\n| Human | I have a question about
-        the difference between a matrix and a vector. Can you explain that to me?  |\n\n|
-        AI | Sure! A vector is a one-dimensional array of numbers, while a matrix
-        is a two-dimensional array of numbers. In other words, a vector has only rows
-        or columns, while a matrix has both rows and columns. Vectors are often used
-        to represent physical quantities such as displacement, velocity, and acceleration,
-        while matrices are used to represent systems of linear equations, transformations,
-        and other mathematical operations. |\n\n| Human | What are some examples of
-        matrices and vectors?  |\n\n| AI | Here are some examples:\n\n* A vector could
-        be represented as [3, 4], which represents a displacement of 3 units in the
-        x-direction and 4 units in the y-direction.\n* A matrix could be represented
-        as:\n\n```\n1 2","tool_calls":null},"logprobs":null,"finish_reason":"length","audio":null,"asr_results":null}],"usage":{"prompt_tokens":10,"total_tokens":266,"completion_tokens":256}}'
+      string: '{"id":"chatcmpl-SyyVPXBTQbmTgKo9kYBo8V","object":"chat.completion","created":1728507860,"model":"mistral-7b","choices":[{"index":0,"message":{"role":"assistant","content":"How
+        can I use the Python programming language to create a simple calculator?\n\nHere''s
+        a simple example of a calculator in Python that can perform addition, subtraction,
+        multiplication, and division:\n\n```python\ndef add(x, y):\n return x + y\n\ndef
+        subtract(x, y):\n return x - y\n\ndef multiply(x, y):\n return x * y\n\ndef
+        divide(x, y):\n if y == 0:\n raise ValueError(\"Cannot divide by zero\")\n
+        return x / y\n\nprint(\"Select operation:\")\nprint(\"1. Add\")\nprint(\"2.
+        Subtract\")\nprint(\"3. Multiply\")\nprint(\"4. Divide\")\n\nchoice = input(\"Enter
+        choice (1/2/3/4): \")\n\nnum1 = float(input(\"Enter first number: \"))\nnum2
+        = float(input(\"Enter second number: \"))\n\nif choice == ''1'':\n print(num1,
+        \"+\", num2, \"=\", add(num1, num2))\n\nelif choice == ''2'':\n print(num1,
+        \"-\", num","tool_calls":null},"logprobs":null,"finish_reason":"length","audio":null,"asr_results":null}],"usage":{"prompt_tokens":10,"total_tokens":266,"completion_tokens":256}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf9a0ad7e3c959d-TBS
+      - 8d015291680695a9-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:39:36 GMT
+      - Wed, 09 Oct 2024 21:04:22 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '1367'
+      - '1140'
       vary:
       - Accept-Encoding
       x-envoy-upstream-service-time:
-      - '1794'
+      - '1667'
     status:
       code: 200
       message: OK

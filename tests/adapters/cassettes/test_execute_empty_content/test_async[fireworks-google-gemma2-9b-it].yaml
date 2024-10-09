@@ -16,7 +16,7 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,21 +37,17 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"7c30ce2f-10f9-4c46-9959-d6a83e6adf73\",\"object\":\"chat.completion\",\"created\":1728427431,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
-        provide me with a question or a topic you'd like to discuss! I'm ready to
-        help with:\\n\\n* **Answering questions:** I can provide information on a
-        wide range of topics.\\n* **Generating creative content:** I can write stories,
-        poems, articles, and more.\\n* **Summarizing text:** I can condense large
-        amounts of information.\\n* **Translating languages:** I can translate text
-        between many different languages.\\n* **And much more!**\\n\\nWhat can I do
-        for you today? \U0001F60A \\n<end_of_turn>\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":133,\"completion_tokens\":114}}"
+      string: "{\"id\":\"e2653e70-b25b-4c07-93ff-ee58072e4e04\",\"object\":\"chat.completion\",\"created\":1728508368,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
+        provide me with a question or a topic you'd like to discuss! I'm ready for
+        anything from creative writing prompts to answering factual questions. \U0001F60A
+        \ \\n<end_of_turn>\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":55,\"completion_tokens\":36}}"
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8cf9a6f2bd5a95a6-TBS
+      - 8d015ef0f90695a5-TBS
       Cf-Placement:
       - local-TBS
       Connection:
@@ -57,17 +55,19 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:43:52 GMT
+      - Wed, 09 Oct 2024 21:12:48 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=1205.0;desc="Total Response Time"
+      - total;dur=613.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '793'
+      - '477'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -75,11 +75,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.968'
+      - '0.351'
       x-envoy-upstream-service-time:
-      - '971'
+      - '353'
       x-request-id:
-      - 7c30ce2f-10f9-4c46-9959-d6a83e6adf73
+      - e2653e70-b25b-4c07-93ff-ee58072e4e04
     status:
       code: 200
       message: OK

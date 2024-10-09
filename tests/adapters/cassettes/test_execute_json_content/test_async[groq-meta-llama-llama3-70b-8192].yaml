@@ -15,7 +15,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -25,7 +25,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -34,17 +36,16 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-6f115940-e0ed-4f34-b0f5-51866b6d99e0","object":"chat.completion","created":1728427739,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
-        It seems like you said \"Hi\" twice. Is there something on your mind that
-        you''d like to talk about, or would you like me to suggest some conversation
-        topics? I''m here to listen and help!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.013751504999999999,"prompt_tokens":13,"prompt_time":0.000629084,"completion_tokens":46,"completion_time":0.143435413,"total_tokens":59,"total_time":0.144064497},"system_fingerprint":"fp_c1a4bcec29","x_groq":{"id":"req_01j9q54jf2e2ybycc1gjmexvb2"}}
+      string: '{"id":"chatcmpl-cc42c84f-68de-4431-8236-8d72d59b65dd","object":"chat.completion","created":1728508909,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
+        It looks like we''ve got a case of simultaneous \"Hi\"s! How''s your day going
+        so far?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.013768055,"prompt_tokens":13,"prompt_time":0.000476433,"completion_tokens":25,"completion_time":0.078475212,"total_tokens":38,"total_time":0.078951645},"system_fingerprint":"fp_c1a4bcec29","x_groq":{"id":"req_01j9sjhnkrf3xb7jtye6q4e5a8"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf9ae7bdd8495a6-TBS
+      - 8d016c29791695a9-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -52,13 +53,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:48:59 GMT
+      - Wed, 09 Oct 2024 21:21:49 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '697'
+      - '586'
       vary:
       - Origin
       via:
@@ -76,7 +79,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 60ms
       x-request-id:
-      - req_01j9q54jf2e2ybycc1gjmexvb2
+      - req_01j9sjhnkrf3xb7jtye6q4e5a8
     status:
       code: 200
       message: OK

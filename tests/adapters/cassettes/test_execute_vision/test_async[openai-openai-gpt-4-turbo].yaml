@@ -19,7 +19,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -29,7 +29,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -38,36 +40,33 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGDfDXLpx0Q5SCMv0XaIys8a4d5ps\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728429135,\n  \"model\": \"gpt-4-turbo-2024-04-09\",\n
+      string: "{\n  \"id\": \"chatcmpl-AGZF8P4caT3xlKkbaxN7lumRDw2E4\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728512086,\n  \"model\": \"gpt-4-turbo-2024-04-09\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
         \"assistant\",\n        \"content\": \"Hello! How can I assist you with these
-        images? The first image shows a beautiful natural landscape featuring a wooden
-        boardwalk extending through a lush green field under a vibrant blue sky with
-        scattered clouds. The second image is a simple, colorful graphic representation
-        of a bird.\",\n        \"refusal\": null\n      },\n      \"logprobs\": null,\n
-        \     \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
-        1369,\n    \"completion_tokens\": 53,\n    \"total_tokens\": 1422,\n    \"prompt_tokens_details\":
+        images today?\",\n        \"refusal\": null\n      },\n      \"logprobs\":
+        null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
+        1369,\n    \"completion_tokens\": 12,\n    \"total_tokens\": 1381,\n    \"prompt_tokens_details\":
         {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\":
         {\n      \"reasoning_tokens\": 0\n    }\n  },\n  \"system_fingerprint\": \"fp_81dd8129df\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf9d081999495a5-TBS
+      - 8d01b9af9d24959d-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 23:12:19 GMT
+      - Wed, 09 Oct 2024 22:14:47 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=rcN7dOsMaNrW2egQKpsmd2nG1KSvNdD7tm33NQuUtIQ-1728429139-1.0.1.1-1S1DdUeanPRNyBDt4AAHLGUC2jrhO2K0RDvtnt_BlDUFFti229LxxuiMBFM9KGHfL8h7xkzhsrIkVDHZNzR2pA;
-        path=/; expires=Tue, 08-Oct-24 23:42:19 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=0ZLqgkOXt8ypcTJIG65rXp_6UZwJyMIVKa4Fkmd2nxk-1728512087-1.0.1.1-jiAPy8t3WCU.cArup6xzGquFZsKU.9c0ZJRoSO69txr29Wy5vySQVH0DBqgCGDfAP1dvZrarAqL1Ej.tnS6DqQ;
+        path=/; expires=Wed, 09-Oct-24 22:44:47 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=UzZSGPIZzee31sjhm81yCqnzBdoiuDCv_rWVsBeDbYE-1728429139600-0.0.1.1-604800000;
+      - _cfuvid=Z39P2b5JFX1LY6pH5NWb3DHAw.AQphzFmQLhaxMzvW8-1728512087568-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -75,12 +74,14 @@ interactions:
       - nosniff
       access-control-expose-headers:
       - X-Request-ID
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '912'
+      - '679'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '5739'
+      - '2922'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -98,7 +99,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 46ms
       x-request-id:
-      - req_7e02f8758cf89e8d87707a465a94412a
+      - req_05304083f8f4348b7f4c909f0c3f769f
     status:
       code: 200
       message: OK

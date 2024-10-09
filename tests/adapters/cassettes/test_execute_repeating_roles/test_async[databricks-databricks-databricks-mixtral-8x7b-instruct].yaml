@@ -16,7 +16,7 @@ interactions:
       host:
       - adb-8736858266948228.8.azuredatabricks.net
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,19 +37,18 @@ interactions:
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_0c213517-8055-45e7-b9f4-c12d303672eb","object":"chat.completion","created":1728428250,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? I''m here to provide information and answer your
-        questions to the best of my ability. I''ll do my best to provide helpful,
-        accurate, and unbiased information, while also being mindful of any specific
-        preferences or guidelines you''ve provided. Please let me know if you have
-        any questions or if there''s anything specific you''d like to know!"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":94,"completion_tokens":84,"total_tokens":178}}'
+      string: '{"id":"chatcmpl_cd69e70d-9026-42f1-857f-89940f6008e4","object":"chat.completion","created":1728510477,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I help you today while adhering to the guidelines you''ve provided?
+        I''m here to assist you with care, respect, and truth, and I''ll ensure my
+        response is useful, safe, and positive. Let me know how I can best assist
+        you."},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":94,"completion_tokens":60,"total_tokens":154}}'
     headers:
       content-length:
-      - '687'
+      - '550'
       content-type:
       - application/json;charset=utf-8
       date:
-      - Tue, 08 Oct 2024 22:57:29 GMT
+      - Wed, 09 Oct 2024 21:47:57 GMT
       server:
       - databricks
       strict-transport-security:
@@ -69,11 +70,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.65.132
+      - 94.137.189.203,10.154.65.159
       x-rate-limit-request-remote-addr:
-      - 10.154.65.113:37946
+      - 10.154.65.163:60764
       x-request-id:
-      - e45c6e27-c31a-4c7e-82d4-28de426b59a4
+      - 2d418982-7ae5-432f-93d1-7d4d2cfdb528
       x-xss-protection:
       - 1; mode=block
     status:

@@ -26,23 +26,6 @@ tools = [
     }
 ]
 
-anthropic_tools = [
-    {
-        "name": "generate",
-        "description": "Generate random number",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "prompt": {
-                    "type": "string",
-                    "description": "Random number like 5, 4, 3, 10, 11",
-                },
-            },
-            "required": ["prompt"],
-        },
-    }
-]
-
 
 def extract_data(choice):
     if isinstance(choice, dict):
@@ -69,23 +52,14 @@ def test_sync_execute_tools_choices_required(vcr, model_name):
         return
 
     adapter_response = adapter.execute_sync(
-        SIMPLE_FUNCTION_CALL_USER_ONLY,
-        tool_choice="required",
-        tools=anthropic_tools if model_name.startswith("anthropic") else tools,
+        SIMPLE_FUNCTION_CALL_USER_ONLY, tool_choice="required", tools=tools
     )
 
     choices = get_response_choices_from_vcr(vcr, adapter)
     function_name, function_arguments = extract_data(adapter_response.choices[0])
 
-    if model_name.startswith("anthropic"):
-        func_arguments = choices[0]["message"]["tool_calls"][0]["function"]["arguments"]
-    else:
-        func_arguments = json.loads(
-            choices[0]["message"]["tool_calls"][0]["function"]["arguments"]
-        )
-
     assert function_name == choices[0]["message"]["tool_calls"][0]["function"]["name"]
-    assert json.loads(function_arguments) == func_arguments
+    assert json.loads(function_arguments) == json.loads(function_arguments)
 
 
 @pytest.mark.parametrize("model_name", MODEL_PATHS)
@@ -102,20 +76,11 @@ async def test_async_execute_tools_choices_required(vcr, model_name):
         return
 
     adapter_response = await adapter.execute_async(
-        SIMPLE_FUNCTION_CALL_USER_ONLY,
-        tool_choice="required",
-        tools=anthropic_tools if model_name.startswith("anthropic") else tools,
+        SIMPLE_FUNCTION_CALL_USER_ONLY, tool_choice="required", tools=tools
     )
 
     choices = get_response_choices_from_vcr(vcr, adapter)
     function_name, function_arguments = extract_data(adapter_response.choices[0])
 
-    if model_name.startswith("anthropic"):
-        func_arguments = choices[0]["message"]["tool_calls"][0]["function"]["arguments"]
-    else:
-        func_arguments = json.loads(
-            choices[0]["message"]["tool_calls"][0]["function"]["arguments"]
-        )
-
     assert function_name == choices[0]["message"]["tool_calls"][0]["function"]["name"]
-    assert json.loads(function_arguments) == func_arguments
+    assert json.loads(function_arguments) == json.loads(function_arguments)

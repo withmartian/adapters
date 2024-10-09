@@ -26,23 +26,6 @@ tools = [
     }
 ]
 
-anthropic_tools = [
-    {
-        "name": "generate",
-        "description": "Generate random number",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "prompt": {
-                    "type": "string",
-                    "description": "Random number like 5, 4, 3, 10, 11",
-                },
-            },
-            "required": ["prompt"],
-        },
-    }
-]
-
 
 def extract_data(choice):
     if isinstance(choice, dict):
@@ -68,7 +51,7 @@ def test_sync_execute_tools(vcr, model_name):
     adapter_response = adapter.execute_sync(
         SIMPLE_FUNCTION_CALL_USER_ONLY,
         tool_choice={"type": "function", "function": {"name": "generate"}},
-        tools=anthropic_tools if model_name.startswith("anthropic") else tools,
+        tools=tools,
     )
 
     choices = get_response_choices_from_vcr(vcr, adapter)
@@ -98,7 +81,7 @@ async def test_async_execute_tools(vcr, model_name):
     adapter_response = await adapter.execute_async(
         SIMPLE_FUNCTION_CALL_USER_ONLY,
         tool_choice={"type": "function", "function": {"name": "generate"}},
-        tools=anthropic_tools if model_name.startswith("anthropic") else tools,
+        tools=tools,
     )
     choices = get_response_choices_from_vcr(vcr, adapter)
 

@@ -16,7 +16,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,22 +37,22 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-2659dd5d-c927-4212-91df-b10a79900b79","object":"chat.completion","created":1728427438,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? If you have any questions related to programming,
-        web development, or data science, feel free to ask! I''m here to assist you.\n\nBut
-        first, let me tell you a little bit about myself. I am a helpful assistant
-        powered by AI and designed to provide guidance on a variety of topics. I can
-        help you with general questions, give explanations, and even review and debug
-        your code. I can understand and generate text in multiple programming languages,
-        including Python, JavaScript, Java, C#, and more.\n\nSo, what can I do for
-        you today?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011693148,"prompt_tokens":20,"prompt_time":0.002509122,"completion_tokens":129,"completion_time":0.207963356,"total_tokens":149,"total_time":0.210472478},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01j9q4vchffhxv643a3cjt06fd"}}
+      string: '{"id":"chatcmpl-f94a3855-c074-416c-b8dd-6ec884b44bb5","object":"chat.completion","created":1728508384,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I help you today? If you need assistance with a programming problem
+        or have a question about a particular programming concept, feel free to ask.
+        I''m here to help.\n\nIf you''re new to coding, you might want to check out
+        some of the resources on Codecademy, Udemy, or Coursera. These platforms offer
+        interactive courses on a variety of programming languages, such as Python,
+        JavaScript, and Java, and can help you build a strong foundation in programming.\n\nIf
+        you have a specific question or problem, please let me know and I''ll do my
+        best to assist you."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.012680377,"prompt_tokens":20,"prompt_time":0.002563474,"completion_tokens":133,"completion_time":0.213866668,"total_tokens":153,"total_time":0.216430142},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01j9sj1n85fbas7jv71651eaf0"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf9a722bd0595a5-TBS
+      - 8d015f5a7e9495a5-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -58,13 +60,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:43:58 GMT
+      - Wed, 09 Oct 2024 21:13:04 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '1065'
+      - '1072'
       vary:
       - Origin
       via:
@@ -82,7 +86,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 192ms
       x-request-id:
-      - req_01j9q4vchffhxv643a3cjt06fd
+      - req_01j9sj1n85fbas7jv71651eaf0
     status:
       code: 200
       message: OK

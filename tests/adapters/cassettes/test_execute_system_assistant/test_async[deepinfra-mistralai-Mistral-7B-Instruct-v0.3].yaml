@@ -17,7 +17,7 @@ interactions:
       host:
       - api.deepinfra.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -27,7 +27,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -36,19 +38,17 @@ interactions:
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-bef58e544dff40dda0900cdeed148ee3","object":"chat.completion","created":1728428483,"model":"mistralai/Mistral-7B-Instruct-v0.3","choices":[{"index":0,"message":{"role":"assistant","content":"
-        Hello there! Just a heads up, I am a model and do not have my own emotions
-        or feelings. I am here to answer questions and provide information to the
-        best of my ability. How can I assist you today?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":14,"total_tokens":59,"completion_tokens":45,"estimated_cost":3.2450000000000003e-06}}'
+      string: "{\"id\":\"chatcmpl-551da597b7184ec98d4ce57128d727af\",\"object\":\"chat.completion\",\"created\":1728510966,\"model\":\"mistralai/Mistral-7B-Instruct-v0.3\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
+        Hello! How can I assist you today? \U0001F60A\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":14,\"total_tokens\":25,\"completion_tokens\":11,\"estimated_cost\":1.3750000000000002e-06}}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '571'
+      - '414'
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 23:01:23 GMT
+      - Wed, 09 Oct 2024 21:56:06 GMT
       server:
       - uvicorn
       x-robots-tag:

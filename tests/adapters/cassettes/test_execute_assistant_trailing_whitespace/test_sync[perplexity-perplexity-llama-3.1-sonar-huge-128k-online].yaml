@@ -18,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,50 +32,59 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "9e12a9f4-aa5d-46a5-986b-3dbc2ec5af86", "model": "llama-3.1-sonar-huge-128k-online",
-        "created": 1727830483, "usage": {"prompt_tokens": 3, "completion_tokens":
-        309, "total_tokens": 312}, "object": "chat.completion", "choices": [{"index":
+      string: '{"id": "fa14f8fa-85d9-4ded-9d04-4fbf4f064f6b", "model": "llama-3.1-sonar-huge-128k-online",
+        "created": 1728507783, "usage": {"prompt_tokens": 3, "completion_tokens":
+        461, "total_tokens": 464}, "object": "chat.completion", "choices": [{"index":
         0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
-        seems like you''re looking for quotes about feeling empty or the concept of
-        emptiness. Here are some insightful quotes from the provided sources:\n\n1.
-        **Focus on Growth**:\n   - \"If you focus on the hurt, you will continue to
-        suffer. If you focus on the lesson, you will continue to grow.\"\n\n2. **Refilling
-        Your Soul**:\n   - \"Feeling empty is the invitation to refill your soul with
-        whatever brings you joy and a sense of purpose.\"\n\n3. **Emptiness and Fulfillment**:\n   -
-        \"In a full heart there is room for everything, and in an empty heart there
-        is room for nothing.\" - Antonio Porchia\n\n4. **Acceptance and Serenity**:\n   -
-        \"Empty your mind of all thoughts. Let your heart be at peace. Watch the turmoil
-        of beings, but contemplate their return. Each separate being in the universe
-        returns to the common source. Returning to the source is serenity.\"\n\n5.
-        **Finding Joy in Emptiness**:\n   - \"Into the void of silence, into the empty
-        space of nothing, the joy of life is unfurled.\" - C. S. Lewis\n\nThese quotes
-        offer different perspectives on emptiness, from seeing it as an opportunity
-        for growth and refilling one''s soul, to understanding it as a state that
-        contrasts with fullness and serenity. They encourage reflection on how to
-        find joy and peace even in moments of emptiness."}, "delta": {"role": "assistant",
+        seems like you''re looking for information on how to keep quotes around empty
+        cells when saving a CSV file, particularly in LibreOffice. Here''s a summary
+        based on the relevant search result:\n\n1. **LibreOffice Limitation**: Currently,
+        LibreOffice does not have a standard option to quote empty cells when exporting
+        to CSV. The \"Quote all text cells\" option in the export settings does not
+        apply to empty cells.\n\n2. **Workaround**: To quote empty cells, you need
+        to explicitly create empty text for those cells using the formula `=\"\"`.
+        This can be done manually or through a script that replaces empty cells with
+        this formula within a specified range. Here is a sample script provided in
+        the discussion:\n\n```vb\nSub efficientPrepareUsedAreaOfSheetForFullyQuotedCSVexport(Optional
+        pSheet)\n    If IsMissing(pSheet) Then pSheet = ThisComponent.CurrentController.ActiveSheet\n    cellCursor
+        = pSheet.createCursor()\n    cellCursor.gotoStartOfUsedArea(False)\n    cellCursor.gotoEndOfUsedArea(True)\n    emptyRgs
+        = cellCursor.queryEmptyCells()\n    For Each emptyRg In emptyRgs\n        ra
+        = emptyRg.RangeAddress\n        With ra\n            topRow = emptyRg.SpreadSheet.getCellRangeByPosition(
+        _\n                .StartColumn, .StartRow, .EndColumn, .StartRow)\n            topLeftCell
+        = topRow.getCellByPosition(0, 0)\n        End With\n        topLeftCell.Formula
+        = \"=\"\"\"\"\"\n        topRow.fillAuto(1, 1)\n        emptyRg.fillAuto(0,
+        1)\n    Next emptyRg\nEnd Sub\n```\n\nThis script identifies empty cells within
+        the used area of a sheet and fills them with the formula `=\"\"`, ensuring
+        they are quoted when exported to CSV.\n\n3. **Alternative Approach**: Another
+        user suggests checking the exported CSV file for commas without preceding
+        quotes and inserting double quotes via JavaScript as a workaround. However,
+        having an option in LibreOffice would be more consistent and convenient.\n\nIn
+        summary, to keep quotes around empty cells in a CSV file using LibreOffice,
+        you need to use a workaround such as filling empty cells with the formula
+        `=\"\"` either manually or through a script."}, "delta": {"role": "assistant",
         "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cc0b865993b168e-SJC
+      - 8d0150165e9395a5-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 02 Oct 2024 00:54:43 GMT
+      - Wed, 09 Oct 2024 21:03:03 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '1673'
+      - '2475'
     status:
       code: 200
       message: OK

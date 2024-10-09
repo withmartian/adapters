@@ -16,7 +16,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,26 +37,27 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGDERtvkJiybKeDGvUS3h8qijXwIP\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728427475,\n  \"model\": \"o1-preview-2024-09-12\",\n
+      string: "{\n  \"id\": \"chatcmpl-AGYI8v0oOT3v5sFY9z0OnDPnIcTRv\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728508428,\n  \"model\": \"o1-preview-2024-09-12\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello! How can I assist you today?\",\n
-        \       \"refusal\": null\n      },\n      \"finish_reason\": \"stop\"\n    }\n
-        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 28,\n    \"completion_tokens\":
-        597,\n    \"total_tokens\": 625,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        576\n    }\n  },\n  \"system_fingerprint\": \"fp_5498d92f96\"\n}\n"
+        \"assistant\",\n        \"content\": \"I'm sorry, but I didn't receive any
+        message. Could you please let me know how I can assist you?\",\n        \"refusal\":
+        null\n      },\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\":
+        {\n    \"prompt_tokens\": 28,\n    \"completion_tokens\": 820,\n    \"total_tokens\":
+        848,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0\n    },\n
+        \   \"completion_tokens_details\": {\n      \"reasoning_tokens\": 768\n    }\n
+        \ },\n  \"system_fingerprint\": \"fp_5498d92f96\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf9a805485e959d-TBS
+      - 8d01606a7a2095a9-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:44:41 GMT
+      - Wed, 09 Oct 2024 21:13:58 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -63,12 +66,14 @@ interactions:
       - nosniff
       access-control-expose-headers:
       - X-Request-ID
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '636'
+      - '697'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '6319'
+      - '9848'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -86,7 +91,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_205f3b64395714298ba53d29df82a7ac
+      - req_65f3014b8196a936208671973dad628c
     status:
       code: 200
       message: OK

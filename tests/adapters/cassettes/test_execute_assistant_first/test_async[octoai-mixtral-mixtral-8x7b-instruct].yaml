@@ -16,7 +16,7 @@ interactions:
       host:
       - text.octoai.run
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,22 +37,21 @@ interactions:
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-b6f318cadeb24882ace6f75062f6d95b","object":"chat.completion","created":1728426959,"model":"mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"
-        Hello! How can I help you today? If you have any questions or need assistance
-        with something, just let me know and I''ll do my best to help.\n\nIs there
-        something specific you would like to know or talk about? I can provide information
-        on a wide range of topics, so feel free to ask me anything.\n\nI am here to
-        help and make your experience as smooth as possible. I look forward to hearing
-        from you and helping you in any way I can."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":12,"completion_tokens":100,"total_tokens":112}}'
+      string: '{"id":"chatcmpl-60f6a995ffaa4393bcf0108d6a99cc25","object":"chat.completion","created":1728507393,"model":"mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"
+        Hello! How can I help you today? If you have any questions about a specific
+        topic, feel free to ask and I''ll do my best to provide a helpful and accurate
+        response. If you''re just looking for a chat, that''s great too! I''m here
+        to assist with whatever you need. Is there something on your mind that you''d
+        like to talk about?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":12,"completion_tokens":80,"total_tokens":92}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '742'
+      - '630'
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:35:58 GMT
+      - Wed, 09 Oct 2024 20:56:33 GMT
       Server:
       - uvicorn
       Vary:
@@ -58,15 +59,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '1436'
+      - '991'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1728426959'
+      - '1728507394'
       X-User-Request-Id:
       - ''
     status:

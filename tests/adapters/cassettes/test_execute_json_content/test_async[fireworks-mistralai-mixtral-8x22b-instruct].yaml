@@ -15,7 +15,7 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -25,7 +25,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -34,16 +36,17 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"77e7abd9-5a81-4797-bf16-d4e3eefe990c","object":"chat.completion","created":1728427734,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today? If you have any questions or need information,
-        feel free to ask. I am here to help."},"finish_reason":"stop"}],"usage":{"prompt_tokens":8,"total_tokens":38,"completion_tokens":30}}'
+      string: '{"id":"9f8ff55f-e2f1-4d0a-ab85-94b199601f55","object":"chat.completion","created":1728508904,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I help you today? Is there something specific you''d like to talk
+        about or ask me? I''m here to provide information and help answer your questions
+        to the best of my ability."},"finish_reason":"stop"}],"usage":{"prompt_tokens":8,"total_tokens":52,"completion_tokens":44}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8cf9ae5748651a42-TBS
+      - 8d016c08698395a0-TBS
       Cf-Placement:
       - local-TBS
       Connection:
@@ -51,11 +54,11 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:48:54 GMT
+      - Wed, 09 Oct 2024 21:21:44 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=924.0;desc="Total Response Time"
+      - total;dur=727.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -63,7 +66,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '430'
+      - '498'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -71,11 +74,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.344'
+      - '0.500'
       x-envoy-upstream-service-time:
-      - '346'
+      - '501'
       x-request-id:
-      - 77e7abd9-5a81-4797-bf16-d4e3eefe990c
+      - 9f8ff55f-e2f1-4d0a-ab85-94b199601f55
     status:
       code: 200
       message: OK

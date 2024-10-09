@@ -16,7 +16,7 @@ interactions:
       host:
       - api.deepinfra.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,28 +37,23 @@ interactions:
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-f2f4e82dbdd84a71a770a8f35a197022","object":"chat.completion","created":1728426933,"model":"mistralai/Mistral-7B-Instruct-v0.3","choices":[{"index":0,"message":{"role":"assistant","content":"
-        How can I assist you today? If you have any questions or need help with something,
-        feel free to ask!\n\nFor example, you can ask me about a specific topic, request
-        explanations for concepts, or even have me help you solve a problem.\n\nIs
-        there something you would like help with?\n\nHere are some topics I can help
-        with:\n\n* Mathematics\n* Science\n* Computing and programming\n* Engineering\n*
-        Technology\n* Home solutions and DIY projects\n* Personal finance\n* Health
-        and wellness\n* Life hacks and productivity tips\n* General knowledge and
-        trivia\n* Languages (English, Spanish, French, German, Italian, Portuguese,
-        Dutch, Danish, Swedish, Norwegian, Finnish, Polish, Czech, Russian, Chinese,
-        Japanese, Korean, Arabic, Hebrew, Hindi, Urdu, Bengali, Marathi, Malay, and
-        more)\n\nWhat would you like to learn or explore today? Let me know, and I''ll
-        do my best to assist you!","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":234,"completion_tokens":223,"estimated_cost":1.2869999999999999e-05}}'
+      string: '{"id":"chatcmpl-08a280724faf47fab746aad7a1e6b937","object":"chat.completion","created":1728507369,"model":"mistralai/Mistral-7B-Instruct-v0.3","choices":[{"index":0,"message":{"role":"assistant","content":"
+        How can I help you today? Would you like to know something or do you have
+        a question about a specific topic? I''m here to help!\n\nIf you''re looking
+        for an assistant to write an essay, solve math problems, or answer general
+        questions, I''m happy to assist you with that. Just let me know what you need
+        help with, and I''ll do my best to help you out.\n\nIf you have any other
+        questions or if there''s anything else you''d like to chat about, feel free
+        to ask and I''ll do my best to help.\n\nHave a great day!\n\nBest regards,\n\nAssistant","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":151,"completion_tokens":140,"estimated_cost":8.305e-06}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '1256'
+      - '897'
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:35:33 GMT
+      - Wed, 09 Oct 2024 20:56:09 GMT
       server:
       - uvicorn
       x-robots-tag:

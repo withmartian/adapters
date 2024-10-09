@@ -40,24 +40,27 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01C9mPVTQcbY5jPnqhbqJT7p","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
-        \"generate\" tool requires a \"prompt\" parameter containing a random number
-        example like \"5, 4, 3, 10, 11\". The user''s request did not specify an example
-        of what the random number should look like.\n</thinking>\n\nTo generate a
-        random number, I need you to provide an example of the kind of random number
-        you want, like \"5, 4, 3, 10, 11\" or \"1.5, 2.7, 3.14\". Please let me know
-        an example of the format and range for the random number you need."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":131}}'
+      string: '{"id":"msg_018eTv4nHwG7eZuMyE3yVJf5","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        user is asking to generate a random number. The \"generate\" tool is directly
+        relevant to this request and should be sufficient to fulfill it.\n\nLooking
+        at the \"generate\" tool''s parameters:\n- prompt (required): The user did
+        not provide a specific prompt string. However, the request itself implies
+        they want a simple random number generated, so we can infer a reasonable prompt
+        like \"a random number\" for this parameter.\n\nThe required \"prompt\" parameter
+        can be reasonably inferred from the user''s request, so we have all the necessary
+        information to proceed with calling the \"generate\" tool.\n</thinking>"},{"type":"tool_use","id":"toolu_01N2rCzp5rTKTrma95XRDwER","name":"generate","input":{"prompt":"a
+        random number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":183}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf9947dfd1a95a9-TBS
+      - 8d01ab4e3cfd95a6-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:31:21 GMT
+      - Wed, 09 Oct 2024 22:05:05 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -69,15 +72,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-08T22:31:21Z'
+      - '2024-10-09T22:05:05Z'
       content-length:
-      - '706'
+      - '984'
       request-id:
-      - req_01Ua1TXaqbREhi7KQ1xqqZhk
+      - req_01J7QYyqaHcU11NVBHA7HpqU
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 77a266cee7d3f18b4b0662191f26a56a
+      - b3e46554a4cbc825aad0e1d1145efd93
     status:
       code: 200
       message: OK

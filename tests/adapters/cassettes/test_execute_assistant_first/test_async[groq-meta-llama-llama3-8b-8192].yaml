@@ -16,7 +16,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,15 +37,16 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-549a32bc-5949-4cd1-b68d-9a784a7ffd8d","object":"chat.completion","created":1728426942,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        looks like we both said \"hi\"! How''s your day going so far?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.012243915000000001,"prompt_tokens":22,"prompt_time":0.003504731,"completion_tokens":19,"completion_time":0.015833333,"total_tokens":41,"total_time":0.019338064},"system_fingerprint":"fp_179b0f92c9","x_groq":{"id":"req_01j9q4c7ttf0k9tm3cd0vq8gf4"}}
+      string: '{"id":"chatcmpl-a8faf019-8ceb-4a1e-b872-fa6899b6fdd4","object":"chat.completion","created":1728507376,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        looks like we''re starting a conversation! Is there something on your mind
+        that you''d like to talk about, or are you just saying hi? I''m here to listen!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011473497000000001,"prompt_tokens":22,"prompt_time":0.002808653,"completion_tokens":37,"completion_time":0.030833333,"total_tokens":59,"total_time":0.033641986},"system_fingerprint":"fp_179b0f92c9","x_groq":{"id":"req_01j9sh2wtwfzttvt554v06dp7h"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf99b049bfd1a42-TBS
+      - 8d0146be39e295a6-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -51,7 +54,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:35:42 GMT
+      - Wed, 09 Oct 2024 20:56:16 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -59,7 +62,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '569'
+      - '660'
       vary:
       - Origin
       via:
@@ -77,7 +80,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 20ms
       x-request-id:
-      - req_01j9q4c7ttf0k9tm3cd0vq8gf4
+      - req_01j9sh2wtwfzttvt554v06dp7h
     status:
       code: 200
       message: OK

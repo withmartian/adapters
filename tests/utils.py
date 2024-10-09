@@ -12,6 +12,9 @@ from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
 # from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
 #     GeminiSDKChatProviderAdapter,
 # )
+from adapters.provider_adapters.cohere_sdk_chat_provider_adapter import (
+    CohereSDKChatProviderAdapter,
+)
 from adapters.types import (
     ContentTurn,
     ContentType,
@@ -155,8 +158,8 @@ def get_response_content_from_vcr(vcr, adapter: BaseAdapter):
         return response["choices"][0]["message"]["content"]
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
         return response["content"][0]["text"]
-    # elif isinstance(adapter, CohereSDKChatProviderAdapter):
-    #     return response["text"]
+    elif isinstance(adapter, CohereSDKChatProviderAdapter):
+        return response["message"]["content"][0]["text"]
     # elif isinstance(adapter, GeminiSDKChatProviderAdapter):
     #     return response["candidates"][0]["content"]["parts"][0]["text"]
     else:

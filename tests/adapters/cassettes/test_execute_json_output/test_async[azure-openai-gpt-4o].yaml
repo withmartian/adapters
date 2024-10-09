@@ -18,7 +18,7 @@ interactions:
       host:
       - martiantest.openai.azure.com
       user-agent:
-      - AsyncAzureOpenAI/Python 1.46.0
+      - AsyncAzureOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -28,7 +28,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -37,36 +39,40 @@ interactions:
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview
   response:
     body:
-      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"\n    {\n      \"greeting\":
-        \"Hello! How can I assist you today?\",\n      \"instructions\": [\n        \"Please
-        provide more information about your request.\",\n        \"You can ask questions
-        or ask for help on a variety of topics.\"\n      ],\n      \"examples\": [\n        {\n          \"type\":
-        \"question\",\n          \"content\": \"What''s the weather like today?\"\n        },
-        \n        {\n          \"type\": \"request\",\n          \"content\": \"Can
-        you help me write a shopping list?\"\n        }\n      ]\n    }","role":"assistant"}}],"created":1728427857,"id":"chatcmpl-AGDKbpaFulfIzyvUiBzbXEhPNK2cl","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_67802d9a6d","usage":{"completion_tokens":108,"prompt_tokens":11,"total_tokens":119}}
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"{\n  \"message\":
+        \"Sure! How can I assist you with JSON?\",\n  \"examples\": [\n    {\n      \"description\":
+        \"Creating a simple JSON object\",\n      \"json\": {\n        \"name\": \"John
+        Doe\",\n        \"age\": 30,\n        \"email\": \"john.doe@example.com\"\n      }\n    },\n    {\n      \"description\":
+        \"Nested JSON object\",\n      \"json\": {\n        \"person\": {\n          \"name\":
+        \"Jane Doe\",\n          \"contacts\": [\n            {\n              \"type\":
+        \"email\",\n              \"contact\": \"jane.doe@example.com\"\n            },\n            {\n              \"type\":
+        \"phone\",\n              \"contact\": \"+1234567890\"\n            }\n          ]\n        }\n      }\n    },\n    {\n      \"description\":
+        \"JSON array of objects\",\n      \"json\": {\n        \"users\": [\n          {\n            \"id\":
+        1,\n            \"name\": \"Alice\"\n          },\n          {\n            \"id\":
+        2,\n            \"name\": \"Bob\"\n          }\n        ]\n      }\n    }\n  ]\n}","role":"assistant"}}],"created":1728509181,"id":"chatcmpl-AGYUHNItdGPKTrKGCAW36g6nSDvQr","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_67802d9a6d","usage":{"completion_tokens":222,"prompt_tokens":11,"total_tokens":233}}
 
         '
     headers:
       Content-Length:
-      - '1339'
+      - '1823'
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:50:57 GMT
+      - Wed, 09 Oct 2024 21:26:22 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - fc62b826-d1b6-4a21-be97-5327f7828847
+      - fd8f4802-873b-4a19-9adc-1949ba756c0e
       azureml-model-session:
-      - d086-20240922142528
+      - d089-20240922175854
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '1102'
+      - '2298'
       x-ms-client-request-id:
-      - fc62b826-d1b6-4a21-be97-5327f7828847
+      - fd8f4802-873b-4a19-9adc-1949ba756c0e
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
@@ -74,9 +80,9 @@ interactions:
       x-ratelimit-remaining-requests:
       - '149'
       x-ratelimit-remaining-tokens:
-      - '149356'
+      - '148712'
       x-request-id:
-      - fde1da2f-e44b-4ccf-bdb3-6071ffdf8e3a
+      - 02b4bd05-0176-4877-9dab-33ec1a683a6a
     status:
       code: 200
       message: OK

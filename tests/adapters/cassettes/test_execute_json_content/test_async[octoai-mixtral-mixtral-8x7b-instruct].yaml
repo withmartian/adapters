@@ -15,7 +15,7 @@ interactions:
       host:
       - text.octoai.run
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -25,7 +25,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -34,19 +36,29 @@ interactions:
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-4468ccbe68f8477b9a1db45b7e10cc63","object":"chat.completion","created":1728427755,"model":"mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"
-        Welcome to cognitive chat service, where you can enjoy a conversation with
-        an AI. How was your day going? Is there anything specific you would like to
-        talk about?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"completion_tokens":33,"total_tokens":44}}'
+      string: '{"id":"chatcmpl-16acec0aa7594bb1a47fa6cd9f2d650a","object":"chat.completion","created":1728508927,"model":"mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"
+        Hello! How can I help you today? If you have any questions or need help with
+        something, feel free to ask.\n\nI am an assistant trained to help with a variety
+        of tasks, such as:\n\n1. Answering questions: I can provide information on
+        a wide range of topics, from general knowledge to specific queries.\n2. Setting
+        reminders and appointments: I can help you keep track of your schedule and
+        remind you of important events.\n3. Sending messages and making calls: I can
+        assist in communicating with your contacts.\n4. Providing recommendations:
+        I can suggest movies, books, or restaurants based on your preferences.\n5.
+        Performing calculations and conversions: I can help with math problems and
+        converting units.\n6. Managing tasks and to-do lists: I can help you organize
+        and prioritize your tasks.\n7. Providing news and weather updates: I can keep
+        you informed about current events and weather conditions.\n\nPlease let me
+        know how I can assist you!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"completion_tokens":215,"total_tokens":226}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '470'
+      - '1257'
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:49:15 GMT
+      - Wed, 09 Oct 2024 21:22:06 GMT
       Server:
       - uvicorn
       Vary:
@@ -54,15 +66,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '1'
+      - '2'
       X-Kong-Upstream-Latency:
-      - '535'
+      - '2493'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1728427756'
+      - '1728508927'
       X-User-Request-Id:
       - ''
     status:

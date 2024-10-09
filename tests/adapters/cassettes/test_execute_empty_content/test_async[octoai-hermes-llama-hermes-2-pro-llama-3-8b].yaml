@@ -16,7 +16,7 @@ interactions:
       host:
       - text.octoai.run
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,16 +37,23 @@ interactions:
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-710f4650984944aea53cdb5fe4d8a705\",\"object\":\"chat.completion\",\"created\":1728427458,\"model\":\"hermes-2-pro-llama-3-8b\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"\u200B\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"completion_tokens\":1,\"total_tokens\":20}}"
+      string: '{"id":"chatcmpl-693a9a6e32aa479eae0678eb7958ae7e","object":"chat.completion","created":1728508401,"model":"hermes-2-pro-llama-3-8b","choices":[{"index":0,"message":{"role":"assistant","content":"Certainly,
+        I am happy to help you with your question.\n\nCould you provide me with the
+        specific topic or area of interest within computer science that you would
+        like to learn about? This will allow me to better tailor my response to your
+        needs. Some common areas include algorithms, data structures, programming
+        languages, web development, software engineering, and cyber security. Please
+        let me know your preference, and I''ll provide you with valuable information
+        on that subject."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"completion_tokens":89,"total_tokens":108}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '311'
+      - '791'
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:44:18 GMT
+      - Wed, 09 Oct 2024 21:13:20 GMT
       Server:
       - uvicorn
       Vary:
@@ -54,13 +63,13 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '75'
+      - '1108'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1728427459'
+      - '1728508402'
       X-User-Request-Id:
       - ''
     status:

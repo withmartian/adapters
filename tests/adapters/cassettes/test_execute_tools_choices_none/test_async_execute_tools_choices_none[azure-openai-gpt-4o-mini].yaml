@@ -21,7 +21,7 @@ interactions:
       host:
       - martiantest.openai.azure.com
       user-agent:
-      - AsyncAzureOpenAI/Python 1.46.0
+      - AsyncAzureOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -31,7 +31,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -40,42 +42,41 @@ interactions:
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o-mini/chat/completions?api-version=2024-05-01-preview
   response:
     body:
-      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"What
-        range of random numbers would you like me to generate? For example, between
-        1 and 10, or any other specific range?","role":"assistant"}}],"created":1728426689,"id":"chatcmpl-AGD1lxwVyM8FG9quH199NC6xO3o8f","model":"gpt-4o-mini","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"jailbreak":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_878413d04d","usage":{"completion_tokens":28,"prompt_tokens":63,"total_tokens":91}}
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"protected_material_code":{"filtered":false,"detected":false},"protected_material_text":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"How
+        many random numbers would you like to generate?","role":"assistant"}}],"created":1728511513,"id":"chatcmpl-AGZ5tR7c4uVaFFo0VPz4jBQ02GEVa","model":"gpt-4o-mini","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"jailbreak":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_878413d04d","usage":{"completion_tokens":10,"prompt_tokens":63,"total_tokens":73}}
 
         '
     headers:
       Content-Length:
-      - '972'
+      - '1028'
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:31:29 GMT
+      - Wed, 09 Oct 2024 22:05:12 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - d19b5fb8-8023-4e6b-8c0a-0df6e3be03ae
+      - b681d3a0-f4c5-4f06-837e-44d6965ea88d
       azureml-model-session:
-      - d021-20240921171145
+      - d020-20240921144801
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '284'
+      - '310'
       x-ms-client-request-id:
-      - d19b5fb8-8023-4e6b-8c0a-0df6e3be03ae
+      - b681d3a0-f4c5-4f06-837e-44d6965ea88d
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
       - East US
       x-ratelimit-remaining-requests:
-      - '19999'
+      - '19998'
       x-ratelimit-remaining-tokens:
-      - '1999354'
+      - '1998708'
       x-request-id:
-      - 24a98323-c30e-4db8-b8da-bf3519b3c429
+      - 7a507cf2-a4e7-447c-9b88-2ecc07b6fbb8
     status:
       code: 200
       message: OK

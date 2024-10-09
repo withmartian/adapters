@@ -17,7 +17,7 @@ interactions:
       host:
       - api.perplexity.ai
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -27,7 +27,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -36,60 +38,51 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "df5b4886-3c46-4a33-8071-6f434611e33a", "model": "llama-3.1-sonar-large-128k-online",
-        "created": 1728428167, "usage": {"prompt_tokens": 4, "completion_tokens":
-        534, "total_tokens": 538}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "The
-        concept of \"emptiness\" is explored in various contexts through the quotes
-        provided, each offering different perspectives and interpretations.\n\n##
-        Spiritual and Philosophical Emptiness\n- In a philosophical and spiritual
-        sense, emptiness can be seen as a state of liberation and acceptance. For
-        example, a quote from the Taoist perspective suggests that \"The empty mind
-        - the pure mind - is not a blank, zero-land, where you''re not feeling or
-        caring about anything. It''s an effulgence of the mind. It''s a brightness
-        that is truly sensitive and accepting\".\n- Debasish Mridha describes emptiness
-        as a state of being the spirit, where \"Infinite emptiness dwells in me. I
-        am the spirit. Emptiness is me.\".\n\n## Emotional and Psychological Emptiness\n-
-        Emptiness can also be a metaphor for emotional voids or lack of fulfillment.
-        Yasmin Mogahed notes, \"As humans, we don\u2019t deal well with emptiness.
-        Any empty space must be filled. Immediately. The pain of emptiness is too
-        strong. It compels the victim to fill that place.\".\n- In literature, emptiness
-        is often associated with feelings of loneliness or abandonment, such as in
-        Neil Gaiman''s \"Coraline\" where \"All alone, in the middle of the night,
-        Coraline began to cry. There was no other sound in the empty flat.\".\n\n##
-        Practical and Everyday Emptiness\n- In everyday life, emptiness can be literal,
-        such as an empty mailbox or an empty plate. For instance, Arnold Lobel''s
-        character Toad experiences sadness because \"Every day my mailbox is empty.
-        That is why waiting for the mail is a sad time for me.\".\n- It can also symbolize
-        a lack of purpose or identity, as seen in Laurie Halse Anderson''s \"Speak\"
-        where \"This closet is abandoned - it has no purpose, no name. It is the perfect
-        place for me.\".\n\n## Empty Nest Syndrome\n- The concept of emptiness is
-        also relevant in the context of empty nest syndrome, where parents feel a
-        void after their children leave home. Erma Bombeck humorously notes, \"When
-        mothers talk about the depression of the empty nest, they\u2019re not mourning
-        the passing of all those wet towels on the floor... They\u2019re upset because
-        they\u2019ve gone from supervisor of a child\u2019s life to a spectator.\".\n\nThese
-        quotes illustrate that emptiness can be viewed in multiple ways, ranging from
-        a spiritual state of freedom to an emotional or practical void, each with
-        its own set of implications and emotions."}, "delta": {"role": "assistant",
-        "content": ""}}]}'
+      string: '{"id": "93095c14-6026-47ae-b178-798ec7abab58", "model": "llama-3.1-sonar-large-128k-online",
+        "created": 1728510015, "usage": {"prompt_tokens": 4, "completion_tokens":
+        436, "total_tokens": 440}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "If
+        you are dealing with the issue of keeping quotes around empty cells when saving
+        a CSV file, particularly in LibreOffice, here are some key points to consider:\n\n##
+        No Built-in Option\nLibreOffice does not have a built-in option to quote empty
+        cells when saving a CSV file. The \"Quote all text cells\" option in the export
+        settings does not apply to empty cells.\n\n## Workaround Using Formulas\nTo
+        ensure empty cells are quoted, you can use a formula to replace empty cells
+        with a quoted empty string. For example, you can use the formula `=\"\"` in
+        the cells you want to be quoted. Here is a sample macro code that can help
+        achieve this:\n\n```vb\nSub efficientPrepareUsedAreaOfSheetForFullyQuotedCSVexport(Optional
+        pSheet)\n    If IsMissing(pSheet) Then pSheet = ThisComponent.CurrentController.ActiveSheet\n    cellCursor
+        = pSheet.createCursor()\n    cellCursor.gotoStartOfUsedArea(False)\n    cellCursor.gotoEndOfUsedArea(True)\n    emptyRgs
+        = cellCursor.queryEmptyCells()\n    For Each emptyRg In emptyRgs\n        ra
+        = emptyRg.RangeAddress\n        With ra\n            topRow = emptyRg.SpreadSheet.getCellRangeByPosition(.StartColumn,
+        .StartRow, .EndColumn, .StartRow)\n            topLeftCell = topRow.getCellByPosition(0,
+        0)\n        End With\n        topLeftCell.Formula = \"=\"\"\"\n        topRow.fillAuto(1,
+        1)\n        emptyRg.fillAuto(0, 1)\n    Next emptyRg\nEnd Sub\n```\n\nThis
+        macro will replace all empty cells in the used area of the sheet with a quoted
+        empty string (`=\"\"`), ensuring they are exported with quotes when saving
+        as a CSV.\n\n## Post-Export Processing\nAnother approach is to manually edit
+        the exported CSV file to insert quotes around empty cells. This can be done
+        using scripts or text processing tools to check for commas without preceding
+        quotes and insert the necessary quotes.\n\nThese methods help ensure that
+        empty cells are consistently formatted with quotes in the CSV file."}, "delta":
+        {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf9b8bc5ebb959d-TBS
+      - 8d0186f1fbeb95a6-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:56:07 GMT
+      - Wed, 09 Oct 2024 21:40:15 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '2792'
+      - '2296'
     status:
       code: 200
       message: OK

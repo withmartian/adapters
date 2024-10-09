@@ -19,7 +19,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -29,7 +29,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -38,28 +40,26 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGDfRTygyzqDK9ENmoJpoWaMYsuHy\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728429149,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n
+      string: "{\n  \"id\": \"chatcmpl-AGZFIW0vj9blv6xpz3O1KXIFQFHwi\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728512096,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello! It looks like you've shared
-        a beautiful landscape image of a grassy area with a pathway, as well as a
-        colorful illustration of a bird. How can I assist you with these?\",\n        \"refusal\":
-        null\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n
-        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 45344,\n    \"completion_tokens\":
-        37,\n    \"total_tokens\": 45381,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
+        \"assistant\",\n        \"content\": \"Hello! How can I assist you today?\",\n
+        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
+        \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 45344,\n    \"completion_tokens\":
+        9,\n    \"total_tokens\": 45353,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
+        1152\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
         0\n    }\n  },\n  \"system_fingerprint\": \"fp_74ba47b4ac\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf9d0d9cc4795a5-TBS
+      - 8d01b9f2de85959d-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 23:12:31 GMT
+      - Wed, 09 Oct 2024 22:14:57 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -68,12 +68,14 @@ interactions:
       - nosniff
       access-control-expose-headers:
       - X-Request-ID
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '803'
+      - '665'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '3723'
+      - '1710'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -91,7 +93,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_9c4264a7e7d88bb42a8191a0d813737e
+      - req_c92c8c9f1a85110d4fe13414a17037c0
     status:
       code: 200
       message: OK

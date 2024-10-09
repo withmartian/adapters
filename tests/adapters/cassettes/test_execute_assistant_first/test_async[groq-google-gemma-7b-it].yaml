@@ -16,7 +16,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,14 +37,13 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-1b5a1e9d-f14c-49af-80d6-e05e691b1b1f\",\"object\":\"chat.completion\",\"created\":1728426943,\"model\":\"gemma-7b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Greetings!
-        \U0001F44B I'm happy to chat with you today. What would you like to talk about?
-        \U0001F609\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.0010131030000000013,\"prompt_tokens\":21,\"prompt_time\":0.026037044,\"completion_tokens\":23,\"completion_time\":0.030818031,\"total_tokens\":44,\"total_time\":0.056855075},\"system_fingerprint\":\"fp_7d8efeb0b1\",\"x_groq\":{\"id\":\"req_01j9q4c8mbfzq95z2yrbm8yywt\"}}\n"
+      string: "{\"id\":\"chatcmpl-73104b3a-1eb5-4fe0-8649-348366be8683\",\"object\":\"chat.completion\",\"created\":1728507377,\"model\":\"gemma-7b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
+        \U0001F44B How can I assist you today? \U0001F60A\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":1.31508191,\"prompt_tokens\":21,\"prompt_time\":0.027281705,\"completion_tokens\":12,\"completion_time\":0.013989212,\"total_tokens\":33,\"total_time\":0.041270917},\"system_fingerprint\":\"fp_7d8efeb0b1\",\"x_groq\":{\"id\":\"req_01j9sh2xmnezj80t2p1zchzvcp\"}}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf99b09be8d1a42-TBS
+      - 8d0146c359e495a6-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -50,7 +51,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:35:43 GMT
+      - Wed, 09 Oct 2024 20:56:19 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -58,7 +59,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '593'
+      - '537'
       vary:
       - Origin
       via:
@@ -76,7 +77,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 48ms
       x-request-id:
-      - req_01j9q4c8mbfzq95z2yrbm8yywt
+      - req_01j9sh2xmnezj80t2p1zchzvcp
     status:
       code: 200
       message: OK

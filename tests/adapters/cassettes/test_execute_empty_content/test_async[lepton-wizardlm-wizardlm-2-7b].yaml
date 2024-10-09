@@ -16,7 +16,7 @@ interactions:
       host:
       - wizardlm-2-7b.lepton.run
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,31 +37,32 @@ interactions:
     uri: https://wizardlm-2-7b.lepton.run/api/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-LFA5CqbES96tXS6x7Z4VGJ","object":"chat.completion","created":1728427445,"model":"wizardlm-2-7b","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like you might have started to type a question or a statement but didn''t
-        finish. How can I assist you today? If you have a question or need help with
-        something, feel free to let me know!","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":19,"total_tokens":65,"completion_tokens":46}}'
+      string: '{"id":"chatcmpl-svKBG9WJD8NrCah3hvyWjL","object":"chat.completion","created":1728508393,"model":"wizardlm-2-7b","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like you might have intended to send a message or ask a question, but
+        it looks like the space bar was pressed without typing any text. How can I
+        assist you today? If you have a question or need information on a topic, feel
+        free to ask!","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":19,"total_tokens":74,"completion_tokens":55}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf9a74cebd795a3-TBS
+      - 8d015f916e7c95a0-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:44:06 GMT
+      - Wed, 09 Oct 2024 21:13:14 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '534'
+      - '583'
       vary:
       - Accept-Encoding
       x-envoy-upstream-service-time:
-      - '589'
+      - '567'
     status:
       code: 200
       message: OK

@@ -16,7 +16,7 @@ interactions:
       host:
       - api.together.xyz
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,27 +37,25 @@ interactions:
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"8cf99e184bc095a6-TBS\",\n  \"object\": \"chat.completion\",\n
-        \ \"created\": 1728427068,\n  \"model\": \"meta-llama/Meta-Llama-3-70B-Instruct-Turbo\",\n
+      string: "{\n  \"id\": \"8d01499d98b895a6-TBS\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1728507494,\n  \"model\": \"meta-llama/Meta-Llama-3-70B-Instruct-Turbo\",\n
         \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
-        \     \"seed\": 8849501785110645000,\n      \"logprobs\": null,\n      \"index\":
+        \     \"seed\": 4325795655542428000,\n      \"logprobs\": null,\n      \"index\":
         0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
-        \"It seems like we've got a conversation started! Is there something on your
-        mind that you'd like to talk about, or are you just looking for some small
-        talk? I'm here to listen and chat!\",\n        \"tool_calls\": []\n      }\n
-        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 24,\n    \"completion_tokens\":
-        43,\n    \"total_tokens\": 67\n  }\n}"
+        \"How's it going?\",\n        \"tool_calls\": []\n      }\n    }\n  ],\n  \"usage\":
+        {\n    \"prompt_tokens\": 24,\n    \"completion_tokens\": 6,\n    \"total_tokens\":
+        30\n  }\n}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf99e184bc095a6-TBS
+      - 8d01499d98b895a6-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 08 Oct 2024 22:37:49 GMT
+      - Wed, 09 Oct 2024 20:58:14 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -64,16 +64,18 @@ interactions:
       - chunked
       access-control-allow-origin:
       - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '685'
+      - '515'
       etag:
-      - W/"2ad-74Da8lQfOq/IfuB3NTDZBB9Hc3I"
+      - W/"203-nGefaHlZF+ZnrlbVM7YxUZQf14Y"
       x-api-call-end:
-      - '2024-10-08T22:37:48.892Z'
+      - '2024-10-09T20:58:14.428Z'
       x-api-call-start:
-      - '2024-10-08T22:37:48.330Z'
+      - '2024-10-09T20:58:14.142Z'
       x-api-received:
-      - '2024-10-08T22:37:48.323Z'
+      - '2024-10-09T20:58:14.136Z'
       x-inference-version:
       - v2
       x-ratelimit:
@@ -83,11 +85,11 @@ interactions:
       x-ratelimit-limit-tokens:
       - '100000'
       x-ratelimit-remaining:
-      - '197'
+      - '198'
       x-ratelimit-remaining-tokens:
       - '100000'
       x-ratelimit-reset:
-      - '0'
+      - '1'
     status:
       code: 200
       message: OK

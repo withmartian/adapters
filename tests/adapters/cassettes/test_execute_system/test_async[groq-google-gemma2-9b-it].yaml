@@ -16,7 +16,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,13 +37,13 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-6c2506f0-a28b-4e3a-8ed0-2891886ceec5\",\"object\":\"chat.completion\",\"created\":1728428686,\"model\":\"gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
-        \U0001F44B How can I help you today?  \U0001F60A \\n\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.013308519,\"prompt_tokens\":11,\"prompt_time\":0.0001442,\"completion_tokens\":16,\"completion_time\":0.029090909,\"total_tokens\":27,\"total_time\":0.029235109},\"system_fingerprint\":\"fp_10c08bf97d\",\"x_groq\":{\"id\":\"req_01j9q61esveapv9rxwhmqgxwfx\"}}\n"
+      string: "{\"id\":\"chatcmpl-adb042a7-5392-4a42-820d-447334a86eac\",\"object\":\"chat.completion\",\"created\":1728511323,\"model\":\"gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
+        \U0001F60A  \\n\\nHow can I help you today?\\n\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.013393678000000001,\"prompt_tokens\":11,\"prompt_time\":0.00009583,\"completion_tokens\":15,\"completion_time\":0.027272727,\"total_tokens\":26,\"total_time\":0.027368557},\"system_fingerprint\":\"fp_10c08bf97d\",\"x_groq\":{\"id\":\"req_01j9smvbfhem69bjg1mfpnxemr\"}}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf9c5979b3a95a3-TBS
+      - 8d01a71bec2c95a5-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -49,7 +51,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 23:04:46 GMT
+      - Wed, 09 Oct 2024 22:02:03 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -57,7 +59,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '539'
+      - '547'
       vary:
       - Origin
       via:
@@ -75,7 +77,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 40ms
       x-request-id:
-      - req_01j9q61esveapv9rxwhmqgxwfx
+      - req_01j9smvbfhem69bjg1mfpnxemr
     status:
       code: 200
       message: OK

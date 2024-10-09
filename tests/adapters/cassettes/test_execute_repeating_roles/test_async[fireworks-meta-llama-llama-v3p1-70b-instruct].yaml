@@ -16,7 +16,7 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,7 +37,7 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"7e6d90a5-639a-4528-b42b-43f750c64c2d","object":"chat.completion","created":1728428264,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi
+      string: '{"id":"7a6d25da-f256-4f90-b665-3ebe87e84a3b","object":"chat.completion","created":1728510493,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi
         again! Is there something I can help you with or would you like to chat?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":28,"total_tokens":47,"completion_tokens":19}}'
     headers:
       Access-Control-Allow-Origin:
@@ -43,7 +45,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8cf9bb46ddff95a9-TBS
+      - 8d0192d12b1e317b-TBS
       Cf-Placement:
       - local-TBS
       Connection:
@@ -51,15 +53,17 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:57:44 GMT
+      - Wed, 09 Oct 2024 21:48:12 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=577.0;desc="Total Response Time"
+      - total;dur=632.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
       - '389'
       fireworks-middleware-version:
@@ -69,11 +73,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.283'
+      - '0.401'
       x-envoy-upstream-service-time:
-      - '284'
+      - '403'
       x-request-id:
-      - 7e6d90a5-639a-4528-b42b-43f750c64c2d
+      - 7a6d25da-f256-4f90-b665-3ebe87e84a3b
     status:
       code: 200
       message: OK

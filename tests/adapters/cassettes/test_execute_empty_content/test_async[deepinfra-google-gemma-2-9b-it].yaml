@@ -16,7 +16,7 @@ interactions:
       host:
       - api.deepinfra.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,19 +37,24 @@ interactions:
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-91e844e8777542f7a576f2c89c66fb45\",\"object\":\"chat.completion\",\"created\":1728427428,\"model\":\"google/gemma-2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
-        provide me with a prompt or question so I can assist you! \U0001F60A \\n\\nI'm
-        ready for anything from writing stories and poems to answering questions and
-        summarizing text.  \\n\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":56,\"completion_tokens\":37,\"estimated_cost\":3.3600000000000004e-06}}"
+      string: "{\"id\":\"chatcmpl-baa67256145c4ce1a85552f1a07e3439\",\"object\":\"chat.completion\",\"created\":1728508364,\"model\":\"google/gemma-2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
+        provide me with a prompt or question so I can assist you. \U0001F60A \\n\\nFor
+        example, you could ask me to:\\n\\n* **Write a story:** \\\"Write a short
+        story about a robot who learns to feel emotions.\\\"\\n* **Answer a question:**
+        \\\"What is the capital of France?\\\"\\n* **Generate creative content:**
+        \\\"Give me a list of unique names for a fantasy character.\\\"\\n* **Translate
+        text:** \\\"Translate 'Hello world' into Spanish.\\\"\\n* **Summarize information:**
+        \\\"Summarize the plot of the movie Inception.\\\"\\n\\nI'm ready for anything!
+        \ \\n\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":144,\"completion_tokens\":125,\"estimated_cost\":8.64e-06}}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '536'
+      - '874'
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:43:48 GMT
+      - Wed, 09 Oct 2024 21:12:44 GMT
       server:
       - uvicorn
       x-robots-tag:

@@ -16,7 +16,7 @@ interactions:
       host:
       - mixtral-8x7b.lepton.run
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - x64
       x-stainless-async:
@@ -26,7 +26,9 @@ interactions:
       x-stainless-os:
       - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,31 +37,38 @@ interactions:
     uri: https://mixtral-8x7b.lepton.run/api/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-FEKp5xGvT7ybEC5d8b9L2b","object":"chat.completion","created":1728427443,"model":"mixtral-8x7b","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? Is there something specific you would like to ask
-        or talk about? I''m here to assist with any questions you have to the best
-        of my ability.","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":20,"total_tokens":61,"completion_tokens":41}}'
+      string: '{"id":"chatcmpl-FPyVWTr4E2Y2B8J34cLmRC","object":"chat.completion","created":1728508389,"model":"mixtral-8x7b","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I help you today? If you have any questions or need assistance with
+        a topic, feel free to ask. I''m here to provide information and support.\n\nTo
+        get started, you can type a question or topic, such as \"what is the capital
+        of France?\" or \"how to solve a quadratic equation.\" I will do my best to
+        provide a clear and accurate response.\n\nIf you''re not sure what to ask,
+        here are some ideas to inspire you:\n\n1. Tell me about a hobby or interest
+        of yours.\n2. Ask for a recommendation, such as a book, movie, or TV show.\n3.
+        Inquire about a historical event or figure.\n4. Request tips on a particular
+        skill or subject.\n5. Share a joke or a funny story.\n\nI''m looking forward
+        to our conversation!","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":20,"total_tokens":204,"completion_tokens":184}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8cf9a73e4843317b-TBS
+      - 8d015f78fc2a95a6-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 08 Oct 2024 22:44:03 GMT
+      - Wed, 09 Oct 2024 21:13:11 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '509'
+      - '1056'
       vary:
       - Accept-Encoding
       x-envoy-upstream-service-time:
-      - '443'
+      - '2157'
     status:
       code: 200
       message: OK
