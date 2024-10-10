@@ -18,50 +18,56 @@ interactions:
       host:
       - martiantest.openai.azure.com
       user-agent:
-      - AsyncAzureOpenAI/Python 1.46.0
+      - AsyncAzureOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o-mini/chat/completions?api-version=2024-05-01-preview
   response:
     body:
-      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"protected_material_code":{"filtered":false,"detected":false},"protected_material_text":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"{\"message\":
-        \"Hello! How can I assist you today using JSON?\"}","role":"assistant"}}],"created":1726705822,"id":"chatcmpl-A8zLqRVzF9wJNs7hRZAN3fi2yYALH","model":"gpt-4o-mini","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"jailbreak":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_80a1bad4c7","usage":{"completion_tokens":16,"prompt_tokens":11,"total_tokens":27}}
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"protected_material_code":{"filtered":false,"detected":false},"protected_material_text":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"{\n  \"greeting\":
+        \"Hello!\",\n  \"message\": \"How can I assist you today?\",\n  \"options\":
+        [\n    {\n      \"action\": \"Ask a question\",\n      \"description\": \"Inquire
+        about any topic.\"\n    },\n    {\n      \"action\": \"Get information\",\n      \"description\":
+        \"Request specific information or data.\"\n    },\n    {\n      \"action\":
+        \"Have a conversation\",\n      \"description\": \"Engage in a casual chat.\"\n    }\n  ]\n}","role":"assistant"}}],"created":1728509184,"id":"chatcmpl-AGYUKRRpUmahGrEr9jwzMgq45lXGN","model":"gpt-4o-mini","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"jailbreak":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_878413d04d","usage":{"completion_tokens":101,"prompt_tokens":11,"total_tokens":112}}
 
         '
     headers:
       Content-Length:
-      - '1041'
+      - '1423'
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:30:21 GMT
+      - Wed, 09 Oct 2024 21:26:25 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - 775e8da6-121a-43ad-bf96-8187795faac4
+      - bdc60e55-b38b-4198-af4e-0e9fed5126a0
       azureml-model-session:
-      - d015-20240906230813
+      - d005-20240921112902
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '165'
+      - '741'
       x-ms-client-request-id:
-      - 775e8da6-121a-43ad-bf96-8187795faac4
+      - bdc60e55-b38b-4198-af4e-0e9fed5126a0
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
@@ -71,7 +77,7 @@ interactions:
       x-ratelimit-remaining-tokens:
       - '1998712'
       x-request-id:
-      - 22502e2c-83b4-43aa-baec-1318f26dc8ba
+      - 48d778a1-22ac-466b-9b1f-70e4b5813a23
     status:
       code: 200
       message: OK

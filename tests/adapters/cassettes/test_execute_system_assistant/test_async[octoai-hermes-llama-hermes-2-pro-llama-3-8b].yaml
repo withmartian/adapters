@@ -17,17 +17,19 @@ interactions:
       host:
       - text.octoai.run
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -36,18 +38,19 @@ interactions:
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-383d284e778b4f9fa0535a8e6182ff5b","object":"chat.completion","created":1727087758,"model":"hermes-2-pro-llama-3-8b","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? If you have any questions or need assistance, feel
-        free to ask."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":28,"completion_tokens":23,"total_tokens":51}}'
+      string: '{"id":"chatcmpl-90697dffbaca429f8b609b10bd209856","object":"chat.completion","created":1728510989,"model":"hermes-2-pro-llama-3-8b","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        It''s nice to see you. Is there anything specific you would like to talk about
+        or ask? I''m here to help with any questions or topics you''d like to bring
+        up."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":28,"completion_tokens":39,"total_tokens":67}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '405'
+      - '471'
       Content-Type:
       - application/json
       Date:
-      - Mon, 23 Sep 2024 10:35:58 GMT
+      - Wed, 09 Oct 2024 21:56:28 GMT
       Server:
       - uvicorn
       Vary:
@@ -55,15 +58,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '0'
+      - '3'
       X-Kong-Upstream-Latency:
-      - '313'
+      - '1002'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1727087759'
+      - '1728510990'
       X-User-Request-Id:
       - ''
     status:

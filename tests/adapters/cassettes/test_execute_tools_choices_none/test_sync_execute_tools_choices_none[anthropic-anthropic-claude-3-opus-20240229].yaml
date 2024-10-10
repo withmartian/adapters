@@ -1,8 +1,10 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
-      "text", "text": "Generate random number"}]}], "model": "claude-3-opus-20240229",
-      "system": "", "tools": []}'
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
+      "role": "user"}], "model": "claude-3-opus-20240229", "tools": [{"input_schema":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate", "description":
+      "Generate random number"}]}'
     headers:
       accept:
       - application/json
@@ -13,7 +15,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '179'
+      - '333'
       content-type:
       - application/json
       host:
@@ -21,39 +23,46 @@ interactions:
       user-agent:
       - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
       - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01RRzBokzYAzFAzy52yHsRr2","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"Here
-        is a random number: 5437728\n\nI generated this random number using Python''s
-        random module and the random.randint() function to select a random integer
-        between 0 and 9999999.\n\nIf you need a random number in a specific range
-        or format, please let me know and I can generate another one for you."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":74}}'
+      string: '{"id":"msg_017wEAAfZX1cmkey1NEzZFnL","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        user has requested to generate a random number. Let''s analyze the available
+        tools to see if we can fulfill this request.\n\nThe \"generate\" tool is relevant
+        for generating random numbers. It takes one parameter:\n- prompt (required):
+        A string description of the random number to generate, like \"5, 4, 3, 10,
+        11\"\n\nThe user did not provide a specific prompt string, but I think I can
+        infer a reasonable default prompt based on the request to \"Generate random
+        number\". A simple prompt like \"1, 2, 3, 4, 5\" should generate a basic random
+        integer, which seems to match the user''s intent.\n\nSo in summary, I believe
+        I have enough information to proceed with calling the \"generate\" tool with
+        an inferred prompt value.\n</thinking>"},{"type":"tool_use","id":"toolu_01W97sfR3HHiFEQxFzNuwc3N","name":"generate","input":{"prompt":"1,
+        2, 3, 4, 5"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":238}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c559b872c40ce60-SJC
+      - 8d01aa768e39317b-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:55:02 GMT
+      - Wed, 09 Oct 2024 22:04:32 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -65,15 +74,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-09-19T00:55:02Z'
+      - '2024-10-09T22:04:32Z'
       content-length:
-      - '537'
+      - '1101'
       request-id:
-      - req_01Wxo7qd9dceHZ4T38zDK7b3
+      - req_014b1rveSiixmMzoo9F2BY72
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 1bbccfdef0ec6de5887f25a84b4840c2
+      - 1ddc24b2269c1b656df6a6b83e950c98
     status:
       code: 200
       message: OK

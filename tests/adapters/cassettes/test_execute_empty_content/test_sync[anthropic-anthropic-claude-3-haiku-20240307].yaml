@@ -1,9 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
-      "text", "text": "\"\""}]}, {"role": "assistant", "content": "\"\""}, {"role":
-      "user", "content": [{"type": "text", "text": "\"\""}]}], "model": "claude-3-haiku-20240307",
-      "system": "", "tools": []}'
+    body: '{"max_tokens": 4096, "messages": [{"content": "\"\"", "role": "user"},
+      {"content": "\"\"", "role": "assistant"}, {"content": "\"\"", "role": "user"}],
+      "model": "claude-3-haiku-20240307"}'
     headers:
       accept:
       - application/json
@@ -14,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '269'
+      - '186'
       content-type:
       - application/json
       host:
@@ -22,37 +21,39 @@ interactions:
       user-agent:
       - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
       - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01CQqHgk6uWK2bNR1rQJoYYX","type":"message","role":"assistant","model":"claude-3-haiku-20240307","content":[{"type":"text","text":"I''m
-        afraid I don''t have enough information to provide a meaningful response.
-        Could you please rephrase your question or provide some additional context?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":32}}'
+      string: '{"id":"msg_01Qf7XSXbF6GNXoJVWVuscAx","type":"message","role":"assistant","model":"claude-3-haiku-20240307","content":[{"type":"text","text":"I''m
+        afraid I don''t have enough context to provide a meaningful response to your
+        blank input. As an AI assistant, I need you to provide me with some text or
+        a question in order for me to engage in a conversation or provide helpful
+        information. Could you please give me something to work with?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":63}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c556eb8efea980b-SJC
+      - 8d0158fc3932959d-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:24:23 GMT
+      - Wed, 09 Oct 2024 21:08:44 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -64,15 +65,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-09-19T00:24:23Z'
+      - '2024-10-09T21:08:44Z'
       content-length:
-      - '390'
+      - '529'
       request-id:
-      - req_01BUNzCoqEtNE93ZPww9QLWD
+      - req_01NkqUmY1H9eFLYtLgha8yza
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 26a246a676239a001225d5514a926142
+      - e0efadc2f3be542de3562f6297dd3fdf
     status:
       code: 200
       message: OK

@@ -17,17 +17,19 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -36,16 +38,16 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-750fc6c4-7364-46b1-af90-e45933949a56","object":"chat.completion","created":1726848727,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
-        It seems like we''re having a lovely exchange of \"hi\"s What can I help you
-        with today?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.01049502,"prompt_tokens":29,"prompt_time":0.00367359,"completion_tokens":24,"completion_time":0.02,"total_tokens":53,"total_time":0.02367359},"system_fingerprint":"fp_179b0f92c9","x_groq":{"id":"req_01j8838yveeme9jhr7c6be5r7n"}}
+      string: '{"id":"chatcmpl-197b7847-1146-49f8-aeda-aff9468c4243","object":"chat.completion","created":1728510973,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
+        It looks like we''re having a friendly exchange of \"Hi\"s! How can I help
+        you or chat with you about something else?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011305254,"prompt_tokens":29,"prompt_time":0.003277576,"completion_tokens":30,"completion_time":0.025,"total_tokens":59,"total_time":0.028277576},"system_fingerprint":"fp_a97cfe35ae","x_groq":{"id":"req_01j9smgnp1fj5twd4w8s6v2q19"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c631864dcdebaff-MXP
+      - 8d019e907df695a0-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -53,13 +55,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 20 Sep 2024 16:12:08 GMT
+      - Wed, 09 Oct 2024 21:56:13 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '578'
+      - '611'
       vary:
       - Origin
       via:
@@ -69,15 +73,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '30000'
       x-ratelimit-remaining-requests:
-      - '14382'
+      - '14399'
       x-ratelimit-remaining-tokens:
       - '29980'
       x-ratelimit-reset-requests:
-      - 1m44.333999999s
+      - 6s
       x-ratelimit-reset-tokens:
       - 40ms
       x-request-id:
-      - req_01j8838yveeme9jhr7c6be5r7n
+      - req_01j9smgnp1fj5twd4w8s6v2q19
     status:
       code: 200
       message: OK

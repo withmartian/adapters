@@ -16,36 +16,38 @@ interactions:
       host:
       - api.deepinfra.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-d7fc41cf6c854bbd8b980dd9811feb55","object":"chat.completion","created":1726706559,"model":"meta-llama/Meta-Llama-3.1-8B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How are you today?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"total_tokens":26,"completion_tokens":7,"estimated_cost":1.43e-06}}'
+      string: '{"id":"chatcmpl-c649d3ca6a374138b0ab04b90e41c541","object":"chat.completion","created":1728509904,"model":"meta-llama/Meta-Llama-3.1-8B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"How''s
+        it going? Is there something I can help you with or would you like to chat?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"total_tokens":39,"completion_tokens":20,"estimated_cost":2.145e-06}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '387'
+      - '445'
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:42:39 GMT
+      - Wed, 09 Oct 2024 21:38:24 GMT
       server:
       - uvicorn
       x-robots-tag:

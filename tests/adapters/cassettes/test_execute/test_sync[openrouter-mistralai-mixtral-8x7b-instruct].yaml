@@ -15,21 +15,23 @@ interactions:
       host:
       - openrouter.ai
       user-agent:
-      - OpenAI/Python 1.46.0
+      - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://openrouter.ai/api/v1/chat/completions
   response:
@@ -39,14 +41,18 @@ interactions:
         \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
         \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
         \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n{\"id\":\"gen-7VEnG36GqdjIClVD57s8vqAfeGGC\",\"model\":\"mistralai/mixtral-8x7b-instruct\",\"object\":\"chat.completion\",\"created\":1726704600,\"choices\":[{\"logprobs\":null,\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
-        Hello! How can I help you today? If you have any questions or need assistance
-        with something, feel free to ask. I'm here to help.\",\"refusal\":\"\"}}],\"system_fingerprint\":\"601a0519fb4d41a706042f153a1732dce93cd158a93180a364be77ef4864bd39\",\"usage\":{\"prompt_tokens\":10,\"completion_tokens\":32,\"total_tokens\":42}}"
+        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n\n         \n{\"id\":\"gen-1728515060-Tfwdzl1RZFIzkyxMcIbq\",\"provider\":\"DeepInfra\",\"model\":\"mistralai/mixtral-8x7b-instruct\",\"object\":\"chat.completion\",\"created\":1728515060,\"choices\":[{\"logprobs\":null,\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
+        Hello! How can I help you today? If you have any questions about a specific
+        topic or just want to chat, feel free to ask. I'm here to provide information
+        and support. Is there something on your mind?\",\"refusal\":\"\"}}],\"usage\":{\"prompt_tokens\":9,\"completion_tokens\":46,\"total_tokens\":55}}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c5559a95c09982a-SJC
+      - 8d020256abf2959f-TBS
       Cache-Control:
       - public, max-age=0, must-revalidate
       Connection:
@@ -54,7 +60,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:10:00 GMT
+      - Wed, 09 Oct 2024 23:04:20 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -66,13 +72,13 @@ interactions:
         Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version,
         HTTP-Referer, X-Windowai-Title, X-Openrouter-Title, X-Title, X-Stainless-Lang,
         X-Stainless-Package-Version, X-Stainless-OS, X-Stainless-Arch, X-Stainless-Runtime,
-        X-Stainless-Runtime-Version
+        X-Stainless-Runtime-Version, X-Stainless-Retry-Count
       access-control-allow-methods:
       - GET,OPTIONS,PATCH,DELETE,POST,PUT
       access-control-allow-origin:
       - '*'
       content-length:
-      - '924'
+      - '1096'
       content-security-policy:
       - 'default-src ''self''; script-src ''self'' ''unsafe-eval'' ''unsafe-inline''
         https://clerk.openrouter.ai https://cunning-heron-18.clerk.accounts.dev https://challenges.cloudflare.com
@@ -92,7 +98,7 @@ interactions:
       x-matched-path:
       - /api/v1/chat/completions
       x-vercel-id:
-      - sfo1::j5brk-1726704600547-4e697488a353
+      - fra1::v8ss2-1728515060306-2c836869a7e3
     status:
       code: 200
       message: OK

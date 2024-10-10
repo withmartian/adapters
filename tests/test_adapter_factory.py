@@ -7,7 +7,6 @@ from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMix
 from tests.utils import *
 
 
-# TODO: Add concrete adapter support
 def test_get_supported_models_ok():
     models = AdapterFactory.get_supported_models()
     found_models = []

@@ -15,49 +15,50 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.46.0
+      - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"6f685368-b3a5-4f50-87af-79573985a842","object":"chat.completion","created":1726705670,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        I''m here to help answer your questions and provide useful information to
-        the best of my ability. I''ll do my best to be truthful, respectful, and positive
-        in my responses. I''m glad you''re here! Is there something specific you''d
-        like to ask or discuss?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":56,"total_tokens":121,"completion_tokens":65}}'
+      string: '{"id":"4742c520-cb5f-43ba-beab-cd538c43c800","object":"chat.completion","created":1728508721,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        I''m here to help you with any questions or issues you might have. I''ll always
+        do my best to provide useful, accurate, and positive responses. Please feel
+        free to ask me anything!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":56,"total_tokens":100,"completion_tokens":44}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8c5573c469f324d6-SJC
+      - 8d01678e2fbc317b-TBS
       Cf-Placement:
-      - remote-SEA
+      - local-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:27:50 GMT
+      - Wed, 09 Oct 2024 21:18:41 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=748.0;desc="Total Response Time"
+      - total;dur=738.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -65,7 +66,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '570'
+      - '498'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -73,9 +74,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.650'
+      - '0.491'
       x-envoy-upstream-service-time:
-      - '652'
+      - '492'
+      x-request-id:
+      - 4742c520-cb5f-43ba-beab-cd538c43c800
     status:
       code: 200
       message: OK

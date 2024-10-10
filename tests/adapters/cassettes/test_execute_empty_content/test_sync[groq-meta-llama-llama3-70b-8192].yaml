@@ -16,17 +16,19 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - OpenAI/Python 1.46.0
+      - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,16 +37,16 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-29bc6493-f7f4-4382-a494-5b3a2c458d8f","object":"chat.completion","created":1726848684,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like you may have accidentally sent a blank message. If you meant to
-        ask or say something, feel free to type it in, and I''ll do my best to help!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.013834295,"prompt_tokens":21,"prompt_time":0.000678945,"completion_tokens":38,"completion_time":0.123072961,"total_tokens":59,"total_time":0.123751906},"system_fingerprint":"fp_87cbfbbc4d","x_groq":{"id":"req_01j8837m1vftt8nn22fdbq66t4"}}
+      string: '{"id":"chatcmpl-2d157bc9-ad7a-4c4a-baa6-7aeaed911888","object":"chat.completion","created":1728508177,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like you didn''t type anything. If you need help with something or have
+        a question, feel free to ask!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.012530303,"prompt_tokens":21,"prompt_time":0.000665937,"completion_tokens":26,"completion_time":0.081337427,"total_tokens":47,"total_time":0.082003364},"system_fingerprint":"fp_753a4aecf6","x_groq":{"id":"req_01j9shvarzedbv1g0wg4g3wz18"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c631752f8d73748-MXP
+      - 8d015a4a9f8595a0-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -52,13 +54,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 20 Sep 2024 16:11:24 GMT
+      - Wed, 09 Oct 2024 21:09:37 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '651'
+      - '607'
       vary:
       - Origin
       via:
@@ -68,15 +72,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '6000'
       x-ratelimit-remaining-requests:
-      - '14393'
+      - '14399'
       x-ratelimit-remaining-tokens:
       - '5985'
       x-ratelimit-reset-requests:
-      - 38.411s
+      - 6s
       x-ratelimit-reset-tokens:
       - 150ms
       x-request-id:
-      - req_01j8837m1vftt8nn22fdbq66t4
+      - req_01j9shvarzedbv1g0wg4g3wz18
     status:
       code: 200
       message: OK

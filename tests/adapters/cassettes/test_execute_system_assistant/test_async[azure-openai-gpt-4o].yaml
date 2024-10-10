@@ -19,27 +19,29 @@ interactions:
       host:
       - martiantest.openai.azure.com
       user-agent:
-      - AsyncAzureOpenAI/Python 1.46.0
+      - AsyncAzureOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview
   response:
     body:
       string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"Hello!
-        How can I assist you today?","role":"assistant"}}],"created":1726707141,"id":"chatcmpl-A8zh7WjBB6mUNy69rORWBhxP7OcvK","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_80a1bad4c7","usage":{"completion_tokens":9,"prompt_tokens":23,"total_tokens":32}}
+        How can I assist you today?","role":"assistant"}}],"created":1728510938,"id":"chatcmpl-AGYwc2jqFtJsKhsHBqCRZCE9ZcAuu","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_67802d9a6d","usage":{"completion_tokens":9,"prompt_tokens":23,"total_tokens":32}}
 
         '
     headers:
@@ -48,13 +50,13 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:52:21 GMT
+      - Wed, 09 Oct 2024 21:55:38 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - a988aab0-d997-49c6-b282-5e5cfe36d2a3
+      - 5cdc8c33-3d97-406b-b564-b676a7384695
       azureml-model-session:
-      - d080-20240814171801
+      - d079-20240926014356
       x-accel-buffering:
       - 'no'
       x-content-type-options:
@@ -62,7 +64,7 @@ interactions:
       x-envoy-upstream-service-time:
       - '181'
       x-ms-client-request-id:
-      - a988aab0-d997-49c6-b282-5e5cfe36d2a3
+      - 5cdc8c33-3d97-406b-b564-b676a7384695
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
@@ -72,7 +74,7 @@ interactions:
       x-ratelimit-remaining-tokens:
       - '149356'
       x-request-id:
-      - 94f36f06-3d71-454b-ab99-1c9ec49f9c51
+      - 7f5a3647-f381-41a4-bc6f-3abd6044f7b7
     status:
       code: 200
       message: OK

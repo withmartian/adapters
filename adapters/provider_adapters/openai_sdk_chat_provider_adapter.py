@@ -1,15 +1,11 @@
-import re
-from typing import Pattern
-
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model, ModelProperties
+from adapters.types import Cost, Model, ModelPredicates
 
 PROVIDER_NAME = "openai"
 BASE_URL = "https://api.openai.com/v1"
 API_KEY_NAME = "OPENAI_API_KEY"
-API_KEY_PATTERN = re.compile(r".*")
-BASE_PROPERTIES = ModelProperties(gdpr_compliant=True)
+BASE_PREDICATES = ModelPredicates(gdpr_compliant=True)
 
 
 class OpenAIModel(Model):
@@ -31,7 +27,7 @@ class OpenAIModel(Model):
     supports_json_output: bool = True
     supports_json_content: bool = True
 
-    properties: ModelProperties = BASE_PROPERTIES
+    predicates: ModelPredicates = BASE_PREDICATES
 
 
 MODELS = [
@@ -59,7 +55,7 @@ MODELS = [
         name="gpt-4o",
         cost=Cost(prompt=2.5e-6, completion=10.0e-6),
         context_length=128000,
-        completion_length=4096,
+        completion_length=16384,
         supports_vision=True,
     ),
     OpenAIModel(
@@ -156,7 +152,3 @@ class OpenAISDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
-
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN

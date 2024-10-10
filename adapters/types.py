@@ -1,8 +1,11 @@
 from enum import Enum
-from typing import Any, Dict, Generic, List, Literal, Optional, TypeVar, Union
+from typing import Any, Dict, List, Literal, Optional, Union
 
-from openai.types.chat import ChatCompletionMessageToolCall
-from openai.types.chat.chat_completion import Choice
+from openai.types.chat import (
+    ChatCompletion,
+    ChatCompletionChunk,
+    ChatCompletionMessageToolCall,
+)
 from openai.types.chat.chat_completion_message import FunctionCall
 from pydantic import BaseModel, Field
 
@@ -19,19 +22,6 @@ class RequestQueryParams(Dict[str, str]):
     pass
 
 
-LLMInputType = TypeVar("LLMInputType")
-LLMOutputType = TypeVar("LLMOutputType")
-LLMStreamOutputType = TypeVar("LLMStreamOutputType")
-LLMAsyncStreamOutputType = TypeVar("LLMAsyncStreamOutputType")
-
-LLMSyncClientType = TypeVar("LLMSyncClientType")
-LLMAsyncClientType = TypeVar("LLMAsyncClientType")
-
-AdapterStreamResponseType = TypeVar("AdapterStreamResponseType")
-
-ResponseSDKType = TypeVar("ResponseSDKType")
-
-
 class ConversationRole(str, Enum):
     user = "user"
     assistant = "assistant"
@@ -40,17 +30,13 @@ class ConversationRole(str, Enum):
     tool = "tool"
 
 
-class FinishReason(str, Enum):
-    stop = "stop"
-    length = "length"
-    tool_calls = "tool_calls"
-    content_filter = "content_filter"
-    function_call = "function_call"
-    stop_sequence = "stop_sequence"
+FinishReason = Literal[
+    "stop", "length", "tool_calls", "content_filter", "function_call"
+]
 
 
 class Turn(BaseModel, use_enum_values=True):
-    role: ConversationRole
+    role: Union[ConversationRole]
     content: str
 
 
@@ -105,7 +91,7 @@ class ImageContentEntry(BaseModel, use_enum_values=True):
 
 
 class ContentTurn(BaseModel, use_enum_values=True, validate_assignment=True):
-    role: Literal[ConversationRole.user] = ConversationRole.user
+    role: str = ConversationRole.user
     content: List[Union[ImageContentEntry, TextContentEntry]]
 
 
@@ -115,17 +101,7 @@ class Cost(BaseModel):
     request: float = 0.0
 
 
-class CompletionTokensDetails(BaseModel):
-    reasoning_tokens: int = 0
-
-
-class Usage(BaseModel):
-    completion_tokens_details: CompletionTokensDetails = Field(
-        default_factory=CompletionTokensDetails
-    )
-
-
-class ModelProperties(BaseModel):
+class ModelPredicates(BaseModel):
     open_source: bool = False
     chinese: bool = False
     gdpr_compliant: bool = False
@@ -157,7 +133,7 @@ class Model(BaseModel):
     supports_last_assistant: bool = False
     supports_first_assistant: bool = False
     completion_length: Optional[int] = None
-    properties: ModelProperties = Field(default_factory=ModelProperties)
+    predicates: ModelPredicates = Field(default_factory=ModelPredicates)
 
     def get_path(self) -> str:
         return f"{self.provider_name}/{self.vendor_name}/{self.name}"
@@ -231,52 +207,17 @@ class Conversation(BaseModel):
 
         return False
 
-    def convert_to_prompt(self) -> "Prompt":
-        return Prompt("".join([f"{turn.role}: {turn.content}" for turn in self.turns]))
 
-    def convert_to_anthropic_prompt(self) -> "Prompt":
-        role_map = {
-            "user": "Human",
-            "assistant": "Assistant",
-            "system": "Human: This is your system prompt. This prompt defines your behavior and personality: \n",
-        }
-        return Prompt(
-            "\n\n".join(
-                [""]
-                + [
-                    f"{role_map.get(turn.role, turn.role)}: {turn.content}"
-                    for turn in self.turns
-                ]
-            )
-            + "\n\nAssistant:"
-        )
-
-
-class Prompt(str):
-    def convert_to_conversation(self) -> Conversation:
-        return Conversation(turns=[Turn(role=ConversationRole.user, content=self)])
-
-
-class AdapterResponse(BaseModel, Generic[LLMOutputType]):
-    response: LLMOutputType
-    token_counts: Optional[Cost] = None
+class AdapterChatCompletion(ChatCompletion):
     cost: float
 
 
-class AdapterStreamResponse(BaseModel, Generic[AdapterStreamResponseType]):
-    response: AdapterStreamResponseType
-
-
-class ChatAdapterResponse(AdapterResponse[Turn]):
+class AdapterChatCompletionChunk(ChatCompletionChunk):
     pass
 
 
-class OpenAIChatAdapterResponse(
-    AdapterResponse[Union[Turn, FunctionCallTurn, ToolsCallTurn]]
-):
-    finish_reason: Optional[str] = None
-    choices: Optional[List[Dict[str, Any]]] | Optional[List[Choice]] = None
-    usage: Optional[Usage] = None
+class AdapterStreamChatCompletion(BaseModel):
+    response: AdapterChatCompletionChunk
 
 
 class AdapterException(Exception):
@@ -285,16 +226,3 @@ class AdapterException(Exception):
 
 class AdapterRateLimitException(AdapterException):
     pass
-
-
-class YouComRagChatAdapterHitEntry(BaseModel):
-    ai_snippets: str
-    description: str
-    snippet: str
-    title: str
-    url: str
-
-
-class YouComRagChatAdapterResponse(ChatAdapterResponse):
-    hits: List[YouComRagChatAdapterHitEntry]
-    latency: float

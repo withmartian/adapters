@@ -16,26 +16,28 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"596b89eb-73de-4ba9-9a62-272142b84168\",\"object\":\"chat.completion\",\"created\":1726705008,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"How
+      string: "{\"id\":\"cd466358-966b-4074-bbd4-bb01b73f7c5c\",\"object\":\"chat.completion\",\"created\":1728507371,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"How
         can I help you today? \U0001F60A  \\n<end_of_turn>\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":22,\"total_tokens\":34,\"completion_tokens\":12}}"
     headers:
       Access-Control-Allow-Origin:
@@ -43,19 +45,19 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8c55639bf8f5fb4c-SJC
+      - 8d0146995bdf95a0-TBS
       Cf-Placement:
-      - remote-SEA
+      - local-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:16:48 GMT
+      - Wed, 09 Oct 2024 20:56:10 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=253.0;desc="Total Response Time"
+      - total;dur=359.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -71,9 +73,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.144'
+      - '0.107'
       x-envoy-upstream-service-time:
-      - '150'
+      - '110'
+      x-request-id:
+      - cd466358-966b-4074-bbd4-bb01b73f7c5c
     status:
       code: 200
       message: OK

@@ -16,17 +16,19 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,13 +37,13 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-07cdee84-07d9-4fff-9415-d2eaaa2c58b2\",\"object\":\"chat.completion\",\"created\":1726848714,\"model\":\"gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
-        \U0001F44B How can I help you today? \U0001F60A  \\n\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.013240429,\"prompt_tokens\":22,\"prompt_time\":0.000742079,\"completion_tokens\":15,\"completion_time\":0.027513751,\"total_tokens\":37,\"total_time\":0.02825583},\"system_fingerprint\":\"fp_10c08bf97d\",\"x_groq\":{\"id\":\"req_01j8838hf9f4bryhe3bwsbfxr5\"}}\n"
+      string: "{\"id\":\"chatcmpl-8427b887-d3d3-429c-b62f-ae6f4466ac1f\",\"object\":\"chat.completion\",\"created\":1728510496,\"model\":\"gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
+        \U0001F44B  What can I do for you today? \U0001F60A  \\n\\n\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.09670633699999999,\"prompt_tokens\":22,\"prompt_time\":0.000434343,\"completion_tokens\":18,\"completion_time\":0.032727273,\"total_tokens\":40,\"total_time\":0.033161616},\"system_fingerprint\":\"fp_10c08bf97d\",\"x_groq\":{\"id\":\"req_01j9sm23p3fdb9j5vncfb9ndtb\"}}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c63180f48bbbaff-MXP
+      - 8d0192ea184a959f-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -49,13 +51,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 20 Sep 2024 16:11:54 GMT
+      - Wed, 09 Oct 2024 21:48:16 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '540'
+      - '555'
       vary:
       - Origin
       via:
@@ -65,15 +69,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '15000'
       x-ratelimit-remaining-requests:
-      - '14386'
+      - '14399'
       x-ratelimit-remaining-tokens:
       - '14985'
       x-ratelimit-reset-requests:
-      - 1m19.744999999s
+      - 6s
       x-ratelimit-reset-tokens:
       - 60ms
       x-request-id:
-      - req_01j8838hf9f4bryhe3bwsbfxr5
+      - req_01j9sm23p3fdb9j5vncfb9ndtb
     status:
       code: 200
       message: OK

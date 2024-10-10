@@ -16,17 +16,19 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - OpenAI/Python 1.46.0
+      - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,19 +37,19 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-2779947c-62c5-44f6-8306-a9feb7dbba56\",\"object\":\"chat.completion\",\"created\":1726848685,\"model\":\"gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
-        provide me with some context or a question! I'm ready to help, but I need
-        to know what you'd like me to do. \U0001F60A  \\n\\nFor example, you could
-        ask me to:\\n\\n* **Answer a question:** \\\"What is the capital of France?\\\"\\n*
-        **Generate creative content:** \\\"Write a short poem about a cat.\\\"\\n*
-        **Summarize text:** \\\"Summarize the plot of the book *Pride and Prejudice*.\\\"\\n*
-        **Translate languages:** \\\"Translate 'Hello, how are you?' into Spanish.\\\"\\n*
-        **And much more!** \\n\\n\\nLet me know how I can be of service. \U0001F44D\\n\\n\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.014084972,\"prompt_tokens\":20,\"prompt_time\":0.000080749,\"completion_tokens\":138,\"completion_time\":0.250909091,\"total_tokens\":158,\"total_time\":0.25098984},\"system_fingerprint\":\"fp_10c08bf97d\",\"x_groq\":{\"id\":\"req_01j8837ntve2rb0fgjat6f70cc\"}}\n"
+      string: "{\"id\":\"chatcmpl-5c59727d-f5b0-4b97-b09d-7f2b3b1b8916\",\"object\":\"chat.completion\",\"created\":1728508178,\"model\":\"gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
+        provide me with a question or a topic so I can help you! \U0001F60A  \\n\\nI'm
+        ready for anything:\\n\\n* **Creative writing:**  I can write stories, poems,
+        or even scripts.\\n* **Information gathering:** Ask me about history, science,
+        or anything else you're curious about.\\n* **Brainstorming:** Stuck on a problem?
+        I can help you generate ideas.\\n* **Language tasks:** I can translate text,
+        summarize articles, or even help you with grammar. \\n\\nLet's have some fun!
+        \U0001F389 \\n\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.013619862,\"prompt_tokens\":20,\"prompt_time\":0.000084359,\"completion_tokens\":119,\"completion_time\":0.216363636,\"total_tokens\":139,\"total_time\":0.216447995},\"system_fingerprint\":\"fp_10c08bf97d\",\"x_groq\":{\"id\":\"req_01j9shvc7wf2f8gpamnttwx6d5\"}}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c63175e59803748-MXP
+      - 8d015a540ddf95a0-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -55,13 +57,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 20 Sep 2024 16:11:26 GMT
+      - Wed, 09 Oct 2024 21:09:39 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '1020'
+      - '969'
       vary:
       - Origin
       via:
@@ -71,15 +75,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '15000'
       x-ratelimit-remaining-requests:
-      - '14393'
+      - '14399'
       x-ratelimit-remaining-tokens:
       - '14985'
       x-ratelimit-reset-requests:
-      - 38.052s
+      - 6s
       x-ratelimit-reset-tokens:
       - 60ms
       x-request-id:
-      - req_01j8837ntve2rb0fgjat6f70cc
+      - req_01j9shvc7wf2f8gpamnttwx6d5
     status:
       code: 200
       message: OK

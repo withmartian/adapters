@@ -16,39 +16,45 @@ interactions:
       host:
       - api.deepinfra.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-2965064321ea4206aff988b2af759b96\",\"object\":\"chat.completion\",\"created\":1726705582,\"model\":\"google/gemma-2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
-        provide me with some context or a question so I can assist you. \U0001F60A
-        \ \\n\\nFor example, you could ask me:\\n\\n* To write a poem\\n* To translate
-        a phrase\\n* To summarize a news article\\n* To answer a trivia question\\n*
-        To generate creative content\\n\\nI'm here to help! \\n\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":87,\"completion_tokens\":68,\"estimated_cost\":5.22e-06}}"
+      string: "{\"id\":\"chatcmpl-baa67256145c4ce1a85552f1a07e3439\",\"object\":\"chat.completion\",\"created\":1728508364,\"model\":\"google/gemma-2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
+        provide me with a prompt or question so I can assist you. \U0001F60A \\n\\nFor
+        example, you could ask me to:\\n\\n* **Write a story:** \\\"Write a short
+        story about a robot who learns to feel emotions.\\\"\\n* **Answer a question:**
+        \\\"What is the capital of France?\\\"\\n* **Generate creative content:**
+        \\\"Give me a list of unique names for a fantasy character.\\\"\\n* **Translate
+        text:** \\\"Translate 'Hello world' into Spanish.\\\"\\n* **Summarize information:**
+        \\\"Summarize the plot of the movie Inception.\\\"\\n\\nI'm ready for anything!
+        \ \\n\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":144,\"completion_tokens\":125,\"estimated_cost\":8.64e-06}}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '621'
+      - '874'
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:26:22 GMT
+      - Wed, 09 Oct 2024 21:12:44 GMT
       server:
       - uvicorn
       x-robots-tag:

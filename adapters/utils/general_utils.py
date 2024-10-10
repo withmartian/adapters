@@ -1,27 +1,11 @@
 import base64
 import os
-from typing import Optional
 
 import httpx
 
-from adapters.types import Cost, RequestBody
+from adapters.types import Cost
 
 EMPTY_CONTENT = '""'
-
-
-def load_request_body_with_additional_params(
-    request_body: RequestBody,
-    temperature: Optional[float] = None,
-    max_tokens: Optional[int] = None,
-    **kwargs,
-) -> RequestBody:
-    for key, value in kwargs.items():
-        request_body.setdefault(key, value)
-    if temperature is not None:
-        request_body.setdefault("temperature", temperature)
-    if max_tokens is not None:
-        request_body.setdefault("max_tokens", max_tokens)
-    return request_body
 
 
 def delete_none_values(dictionary: dict):
@@ -37,7 +21,7 @@ def delete_none_values(dictionary: dict):
     return dictionary
 
 
-def process_image_url(image_url: str):
+def process_image_url_anthropic(image_url: str):
     if image_url.startswith("data:"):
         # Base64 data is passed as a URL
         media_type, _, base64_data = image_url.partition(";base64,")

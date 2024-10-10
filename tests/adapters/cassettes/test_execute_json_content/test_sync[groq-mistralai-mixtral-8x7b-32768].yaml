@@ -15,17 +15,19 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - OpenAI/Python 1.46.0
+      - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -34,17 +36,23 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-bc5515c0-236e-43dd-b992-b46beb52ec9c","object":"chat.completion","created":1726848693,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"I''m
-        here to help you with any information or statistics you need related to sales,
-        marketing, and customer service! What can I help you with today? Do you have
-        any specific questions about these topics?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.012154146000000001,"prompt_tokens":11,"prompt_time":0.001985105,"completion_tokens":43,"completion_time":0.067953509,"total_tokens":54,"total_time":0.069938614},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01j8837x37fttsy8pz1mpset4v"}}
+      string: '{"id":"chatcmpl-bfe498ae-91a1-49a7-9440-8373faf5e9f0","object":"chat.completion","created":1728508725,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"I''m
+        here to help you with any questions or problems you might have related to
+        computer programming. What can I assist you with today? Do you have a specific
+        programming problem or concept you''d like to discuss?\n\nIf you''re new to
+        programming, I recommend starting with some basics such as variables, data
+        types, loops, and functions. Do you have any prior programming experience
+        or are you just getting started?\n\nIf you have some experience, you might
+        want to dive deeper into more advanced topics such as object-oriented programming,
+        algorithms, and data structures. Is there a particular language or topic you''re
+        interested in? I''m happy to help in any way I can. Just let me know!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.012989661999999999,"prompt_tokens":11,"prompt_time":0.001978818,"completion_tokens":149,"completion_time":0.241224227,"total_tokens":160,"total_time":0.243203045},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01j9sjc2myf7p9syr82an0txpg"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c63178cda3a3748-MXP
+      - 8d0167b0381e1a42-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -52,13 +60,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 20 Sep 2024 16:11:33 GMT
+      - Wed, 09 Oct 2024 21:18:46 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '712'
+      - '1198'
       vary:
       - Origin
       via:
@@ -68,15 +78,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '5000'
       x-ratelimit-remaining-requests:
-      - '14391'
+      - '14399'
       x-ratelimit-remaining-tokens:
       - '4993'
       x-ratelimit-reset-requests:
-      - 49.783s
+      - 6s
       x-ratelimit-reset-tokens:
       - 84ms
       x-request-id:
-      - req_01j8837x37fttsy8pz1mpset4v
+      - req_01j9sjc2myf7p9syr82an0txpg
     status:
       code: 200
       message: OK

@@ -7,13 +7,8 @@ from openai.types.chat.chat_completion_chunk import ChatCompletionChunk
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
-    CompletionTokensDetails,
-    ConversationRole,
-    Cost,
-    OpenAIChatAdapterResponse,
+    AdapterChatCompletion,
     RequestBody,
-    Turn,
-    Usage,
 )
 from adapters.utils.openai_client_factory import OpenAIClientFactory
 
@@ -51,38 +46,29 @@ class OpenAISDKChatAdapter(ApiKeyAdapterMixin, SDKChatAdapter):
         self,
         request: RequestBody,
         response: ChatCompletion,
-    ) -> OpenAIChatAdapterResponse:
-        choices = response.choices
-        prompt_tokens = response.usage.prompt_tokens if response.usage else 0
-        completion_tokens = response.usage.completion_tokens if response.usage else 0
-
-        completion_tokens_details = getattr(
-            response.usage, "completion_tokens_details", CompletionTokensDetails()
+    ) -> AdapterChatCompletion:
+        prompt_tokens = float(response.usage.prompt_tokens if response.usage else 0)
+        completion_tokens = float(
+            response.usage.completion_tokens if response.usage else 0
         )
-        reasoning_tokens = getattr(completion_tokens_details, "reasoning_tokens", 0)
+        reasoning_tokens = float(
+            response.usage.completion_tokens_details.reasoning_tokens
+            if response.usage
+            and response.usage.completion_tokens_details
+            and response.usage.completion_tokens_details.reasoning_tokens
+            else 0
+        )
 
         cost = (
             self.get_model().cost.prompt * prompt_tokens
             + self.get_model().cost.completion * completion_tokens
+            + reasoning_tokens * completion_tokens
             + self.get_model().cost.request
         )
 
-        return OpenAIChatAdapterResponse(
-            response=Turn(
-                role=ConversationRole.assistant,
-                content=choices[0].message.content or "",
-            ),  # TODO: Refactor response
-            choices=choices,
+        return AdapterChatCompletion.model_construct(
+            **response.model_dump(),
             cost=cost,
-            token_counts=Cost(
-                prompt=prompt_tokens,
-                completion=completion_tokens,
-            ),
-            usage=Usage(
-                completion_tokens_details=CompletionTokensDetails(
-                    reasoning_tokens=reasoning_tokens
-                )
-            ),
         )
 
     def extract_stream_response(self, request, response: ChatCompletionChunk) -> str:

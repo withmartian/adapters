@@ -17,48 +17,50 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"54528090-54be-4237-96d3-60dde7df7384","object":"chat.completion","created":1726707163,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+      string: '{"id":"4a2619bd-433f-4a97-8f07-8c3c4d349a29","object":"chat.completion","created":1728510969,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
         I''m here to help answer your questions or engage in a conversation. How can
-        I assist you today? If you have any questions about a specific topic, feel
-        free to ask."},"finish_reason":"stop"}],"usage":{"prompt_tokens":66,"total_tokens":106,"completion_tokens":40}}'
+        I assist you today? If you have any concerns about my responses, please don''t
+        hesitate to let me know. I''m here to provide a positive and helpful interaction."},"finish_reason":"stop"}],"usage":{"prompt_tokens":66,"total_tokens":123,"completion_tokens":57}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8c5598381b7afa6a-SJC
+      - 8d019e72f94f959d-TBS
       Cf-Placement:
-      - remote-SEA
+      - local-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:52:43 GMT
+      - Wed, 09 Oct 2024 21:56:09 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=547.0;desc="Total Response Time"
+      - total;dur=778.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -66,7 +68,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '483'
+      - '554'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -74,9 +76,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.445'
+      - '0.529'
       x-envoy-upstream-service-time:
-      - '446'
+      - '530'
+      x-request-id:
+      - 4a2619bd-433f-4a97-8f07-8c3c4d349a29
     status:
       code: 200
       message: OK

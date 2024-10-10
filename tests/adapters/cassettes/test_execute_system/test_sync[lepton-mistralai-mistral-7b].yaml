@@ -16,7 +16,7 @@ interactions:
       host:
       - mistral-7b.lepton.run
       user-agent:
-      - OpenAI/Python 1.46.0
+      - OpenAI/Python 1.50.1
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,39 +26,41 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.10
     method: POST
     uri: https://mistral-7b.lepton.run/api/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-W4uMaYrE5QZqgbU4znmP7N\",\"object\":\"chat.completion\",\"created\":1726706923,\"model\":\"mistral-7b\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
-        How can I assist you today? If you have any questions or need help with something,
-        feel free to ask. I'm here to help! \U0001F60A\",\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":\"stop\",\"audio\":null}],\"usage\":{\"prompt_tokens\":7,\"total_tokens\":42,\"completion_tokens\":35}}"
+      string: "{\"id\":\"chatcmpl-r35x8jiUWsoyjg3M4fzNph\",\"object\":\"chat.completion\",\"created\":1728589006,\"model\":\"mistral-7b\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
+        How can I help you today? If you have any questions or need assistance with
+        something, feel free to ask. I'm here to help. \U0001F60A\",\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":\"stop\",\"audio\":null,\"asr_results\":null}],\"usage\":{\"prompt_tokens\":7,\"total_tokens\":42,\"completion_tokens\":35}}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c55925ddd8b16a0-SJC
+      - 8d090facf925f9ed-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:48:43 GMT
+      - Thu, 10 Oct 2024 19:36:47 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '446'
+      - '469'
       vary:
       - Accept-Encoding
       x-envoy-upstream-service-time:
-      - '453'
+      - '1061'
     status:
       code: 200
       message: OK

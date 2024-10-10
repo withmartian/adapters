@@ -1,15 +1,11 @@
-import re
-from typing import Pattern
-
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model, ModelProperties
+from adapters.types import Cost, Model, ModelPredicates
 
 PROVIDER_NAME = "perplexity"
 PERPLEXITY_BASE_URL = "https://api.perplexity.ai"
 API_KEY_NAME = "PERPLEXITY_API_KEY"
-API_KEY_PATTERN = re.compile(r"^pplx-[a-zA-Z0-9]+$")
-BASE_PROPERTIES = ModelProperties(open_source=True)
+BASE_PREDICATES = ModelPredicates(open_source=True)
 
 
 class PerplexityModel(Model):
@@ -25,7 +21,7 @@ class PerplexityModel(Model):
     supports_first_assistant: bool = False
     supports_last_assistant: bool = False
 
-    properties: ModelProperties = BASE_PROPERTIES
+    predicates: ModelPredicates = BASE_PREDICATES
 
 
 MODELS = [
@@ -70,7 +66,7 @@ MODELS = [
         cost=Cost(prompt=1e-6, completion=1e-6),
         context_length=131072,
         vendor_name="meta-llama",
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
+        predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
     ),
 ]
 
@@ -90,7 +86,3 @@ class PerplexitySDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapte
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
-
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN

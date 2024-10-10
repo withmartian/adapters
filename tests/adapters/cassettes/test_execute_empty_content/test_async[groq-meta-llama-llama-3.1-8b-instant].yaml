@@ -16,17 +16,19 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,14 +37,16 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-6cfebabe-809d-44e2-9ac3-7f9e1ceefc62\",\"object\":\"chat.completion\",\"created\":1726848687,\"model\":\"llama-3.1-8b-instant\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"There
-        will only be this half line. Now let\u2019s consider, what options are you
-        would like to give it to look different ? Starts provided and give.\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.0031622789999999987,\"prompt_tokens\":46,\"prompt_time\":0.011941401,\"completion_tokens\":32,\"completion_time\":0.042666667,\"total_tokens\":78,\"total_time\":0.054608068},\"system_fingerprint\":\"fp_9cb648b966\",\"x_groq\":{\"id\":\"req_01j8837qs9f4rvmk7xtv5e4yvf\"}}\n"
+      string: '{"id":"chatcmpl-0d1904c6-636d-4309-a86e-a76bbaad7cf1","object":"chat.completion","created":1728508383,"model":"llama-3.1-8b-instant","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like you forgot to ask a question or say something. How can I assist
+        you today?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.005014528000000001,"prompt_tokens":46,"prompt_time":0.009279731,"completion_tokens":21,"completion_time":0.028,"total_tokens":67,"total_time":0.037279731},"system_fingerprint":"fp_f66ccb39ec","x_groq":{"id":"req_01j9sj1m47f0fa0yd7dcs81ycq"}}
+
+        '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c63176ade38baff-MXP
+      - 8d015f52ca4095a5-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -50,13 +54,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 20 Sep 2024 16:11:28 GMT
+      - Wed, 09 Oct 2024 21:13:03 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '658'
+      - '594'
       vary:
       - Origin
       via:
@@ -66,15 +72,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '20000'
       x-ratelimit-remaining-requests:
-      - '14392'
+      - '14399'
       x-ratelimit-remaining-tokens:
       - '19985'
       x-ratelimit-reset-requests:
-      - 43.813999999s
+      - 6s
       x-ratelimit-reset-tokens:
       - 45ms
       x-request-id:
-      - req_01j8837qs9f4rvmk7xtv5e4yvf
+      - req_01j9sj1m47f0fa0yd7dcs81ycq
     status:
       code: 200
       message: OK

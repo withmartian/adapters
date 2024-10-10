@@ -16,17 +16,19 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,16 +37,16 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-52e43b21-59a2-4810-91d6-e1557e7d4a3a","object":"chat.completion","created":1726848704,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
-        It looks like we just had a friendly hello exchange. Is there something I
-        can help you with, or would you like to chat?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.016650954000000003,"prompt_tokens":19,"prompt_time":0.002095266,"completion_tokens":30,"completion_time":0.025,"total_tokens":49,"total_time":0.027095266},"system_fingerprint":"fp_af05557ca2","x_groq":{"id":"req_01j883888xftvbnts1rxvt3mdx"}}
+      string: '{"id":"chatcmpl-d1372478-7a92-49db-a7e5-f695b7599965","object":"chat.completion","created":1728509915,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        looks like we''re having a friendly hello session! Hi back to you! Is there
+        something I can help you with or would you like to chat?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011896299,"prompt_tokens":19,"prompt_time":0.002412998,"completion_tokens":32,"completion_time":0.026666667,"total_tokens":51,"total_time":0.029079665},"system_fingerprint":"fp_179b0f92c9","x_groq":{"id":"req_01j9skgcjqfjat6ev8zyp6zsf0"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c6317d45ecabaff-MXP
+      - 8d0184bc8f58959d-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -52,13 +54,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 20 Sep 2024 16:11:44 GMT
+      - Wed, 09 Oct 2024 21:38:35 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '623'
+      - '631'
       vary:
       - Origin
       via:
@@ -68,15 +72,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '30000'
       x-ratelimit-remaining-requests:
-      - '14388'
+      - '14399'
       x-ratelimit-remaining-tokens:
       - '29985'
       x-ratelimit-reset-requests:
-      - 1m8.471s
+      - 6s
       x-ratelimit-reset-tokens:
       - 30ms
       x-request-id:
-      - req_01j883888xftvbnts1rxvt3mdx
+      - req_01j9skgcjqfjat6ev8zyp6zsf0
     status:
       code: 200
       message: OK

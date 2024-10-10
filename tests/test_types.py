@@ -2,11 +2,8 @@ from pydantic import BaseModel
 import pytest
 
 from adapters.types import (
-    ChatAdapterResponse,
     ContentTurn,
     Conversation,
-    ConversationRole,
-    Prompt,
     Turn,
 )
 
@@ -38,44 +35,10 @@ VISION_CALL_TURN_DICT = {
 }
 
 
-def test_chat_adapter_response_create_ok():
-    content = "Hello, world!"
-    turn = Turn(content=content, role=ConversationRole.assistant)
-    response = ChatAdapterResponse(
-        response=turn,
-        token_counts={"prompt": 1.0, "completion": 1.0},
-        cost=1.0,
-    )
-    assert response.response == turn
-
-
 def test_turn_with_invalid_role_fails():
     content = "Hello, world!"
     with pytest.raises(Exception):
         Turn(content=content, role="balbla")
-
-
-def test_prompt_to_conversation_ok():
-    content = "Hello, world!"
-    prompt = Prompt(content)
-    conversation = prompt.convert_to_conversation()
-    assert len(conversation) == 1
-    assert conversation[0].content == content
-    assert conversation[0].role == ConversationRole.user
-
-
-def test_conversation_to_prompt_ok():
-    content = "Hello, world!"
-    conversation = Conversation([Turn(content=content, role=ConversationRole.user)])
-    prompt = conversation.convert_to_prompt()
-    assert prompt == f"{ConversationRole.user.value}: {content}"
-
-
-def test_conversation_to_anthropic_prompt_ok():
-    content = "Hello, world!"
-    conversation = Conversation([Turn(content=content, role=ConversationRole.user)])
-    prompt = conversation.convert_to_anthropic_prompt()
-    assert prompt == "\n\nHuman: Hello, world!\n\nAssistant:"
 
 
 def test_conversation_is_pydantic_model():

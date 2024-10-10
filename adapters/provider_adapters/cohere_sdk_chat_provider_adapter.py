@@ -1,35 +1,36 @@
+from enum import Enum
 import json
-import re
-from typing import Any, Pattern
+import time
+from typing import Any, Dict
 
-from cohere import AsyncClient, Client
+from cohere import AsyncClientV2, ClientV2
+from openai.types import CompletionUsage
+from openai.types.chat import ChatCompletionMessage
+from openai.types.chat.chat_completion import Choice
 
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
-    CompletionTokensDetails,
+    AdapterChatCompletion,
     Conversation,
     ConversationRole,
     Cost,
+    FinishReason,
     Model,
-    ModelProperties,
-    OpenAIChatAdapterResponse,
-    Turn,
-    Usage,
+    ModelPredicates,
 )
 
 API_KEY_NAME = "COHERE_API_KEY"
-API_KEY_PATTERN = re.compile(r".*")
-BASE_URL = "https://api.cohere.ai/v1"
+BASE_URL = "https://api.cohere.com"  # Updated to v2 endpoint
 PROVIDER_NAME = "cohere"
-BASE_PROPERTIES = ModelProperties(open_source=True, gdpr_compliant=True)
+BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
 
 
 class CohereModel(Model):
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
-    properties: ModelProperties = BASE_PROPERTIES
+    predicates: ModelPredicates = BASE_PREDICATES
 
     supports_repeating_roles: bool = True
     supports_system: bool = True
@@ -47,31 +48,33 @@ class CohereModel(Model):
 
 MODELS = [
     CohereModel(
-        name="command-r",
+        name="command-r-plus-08-2024",
         cost=Cost(prompt=0.5e-6, completion=1.5e-6),
         context_length=128000,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
+        predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
     ),
     CohereModel(
         name="command-r-plus",
         cost=Cost(prompt=3.00e-6, completion=15.00e-6),
         context_length=128000,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
+        predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
     ),
 ]
 
-FINISH_REASON_MAPPING = {
-    "COMPLETE": "stop",
-    "MAX_TOKENS": "length",
-}
 
-ROLE_MAPPING = {
-    "user": "USER",
-    "assistant": "CHATBOT",
-    "system": "SYSTEM",
-    "USER": "user",
-    "CHATBOT": "assistant",
-    "SYSTEM": "system",
+class CohereFinishReason(str, Enum):
+    complete = "COMPLETE"
+    max_tokens = "MAX_TOKENS"
+    stop_sequence = "STOP_SEQUENCE"
+    tool_call = "TOOL_CALL"
+    error = "ERROR"
+
+
+FINISH_REASON_MAPPING: Dict[CohereFinishReason, FinishReason] = {
+    CohereFinishReason.complete: "stop",
+    CohereFinishReason.max_tokens: "length",
+    CohereFinishReason.stop_sequence: "stop",
+    CohereFinishReason.tool_call: "tool_calls",
 }
 
 
@@ -84,10 +87,6 @@ class CohereSDKChatProviderAdapter(
     def get_api_key_name() -> str:
         return API_KEY_NAME
 
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN
-
     def get_base_sdk_url(self) -> str:
         return BASE_URL
 
@@ -99,47 +98,35 @@ class CohereSDKChatProviderAdapter(
     def get_supported_models():
         return MODELS
 
-    _sync_client: Client
-    _async_client: AsyncClient
+    _sync_client: ClientV2
+    _async_client: AsyncClientV2
 
     def __init__(
         self,
     ):
         super().__init__()
-        self._sync_client = Client(
+        self._sync_client = ClientV2(
             api_key=self.get_api_key(), base_url=self.get_base_sdk_url()
         )
-        self._async_client = AsyncClient(
+        self._async_client = AsyncClientV2(
             api_key=self.get_api_key(), base_url=self.get_base_sdk_url()
         )
 
     async def _async_client_wrapper(self, **kwargs: Any):
-        stream = kwargs.get("stream", False)
-
-        if "stream" in kwargs:
-            del kwargs["stream"]
-
+        stream = kwargs.pop("stream", False)
         if stream:
-            # Cohere uses a "sync" call to chat_stream, even if it is an async_client.
             return self._async_client.chat_stream(**kwargs)
-
         return await self._async_client.chat(**kwargs)
 
     def _sync_client_wrapper(self, **kwargs: Any):
-        stream = kwargs.get("stream", False)
-
-        if "stream" in kwargs:
-            del kwargs["stream"]
+        stream = kwargs.pop("stream", False)
 
         if stream:
             return self._sync_client.chat_stream(**kwargs)
-
         return self._sync_client.chat(**kwargs)
 
     def set_api_key(self, api_key: str) -> None:
         super().set_api_key(api_key)
-
-        # Using internal variables to set the api_key
         self._sync_client._client_wrapper._token = api_key
         self._async_client._client_wrapper._token = api_key
 
@@ -152,73 +139,82 @@ class CohereSDKChatProviderAdapter(
     def get_params(self, llm_input: Conversation, **kwargs: Any) -> dict[str, Any]:
         params = super().get_params(llm_input, **kwargs)
 
+        messages = []
         for message in params["messages"]:
-            # Use content as message
-            message["message"] = message["content"]
-            del message["content"]
+            new_message = {
+                "role": message["role"],
+                "content": message["content"],
+            }
 
-            # Map role to Cohere's role
-            message["role"] = ROLE_MAPPING.get(message["role"])
-
-            # Join content if it's a list
-            if isinstance(message["message"], list):
-                message["message"] = " ".join(
-                    content.get("text", "") for content in message["message"]
+            if isinstance(new_message["content"], list):
+                new_message["content"] = " ".join(
+                    content.get("text", "") for content in new_message["content"]
                 )
 
-            # Cohere doesn't allow empty strings
-            if message["message"] == "":
-                message["message"] = " "
+            if new_message["content"] == "":
+                new_message["content"] = " "
 
-        last_message = params["messages"][-1]
+            messages.append(new_message)
 
-        params["chat_history"] = params["messages"][:-1]
-        del params["messages"]
-
-        params["message"] = last_message["message"]
-
+        params["messages"] = messages
         return params
 
-    def extract_response(
-        self, request: Any, response: Any
-    ) -> OpenAIChatAdapterResponse:
-        choices = [
-            {
-                "message": {
-                    "role": "assistant",
-                    "content": response.text,
-                },
-                "finish_reason": FINISH_REASON_MAPPING.get(response.finish_reason),
-            }
-        ]
-
-        prompt_tokens = response.meta.tokens.input_tokens
-        completion_tokens = response.meta.tokens.output_tokens
+    def extract_response(self, request: Any, response: Any) -> AdapterChatCompletion:
+        prompt_tokens = (
+            float(response.usage.billed_units.input_tokens)
+            if response.usage and hasattr(response.usage, "billed_units")
+            else 0
+        )
+        completion_tokens = (
+            float(response.usage.billed_units.output_tokens)
+            if response.usage and hasattr(response.usage, "billed_units")
+            else 0
+        )
         cost = (
             self.get_model().cost.prompt * prompt_tokens
             + self.get_model().cost.completion * completion_tokens
             + self.get_model().cost.request
         )
 
-        return OpenAIChatAdapterResponse(
-            response=Turn(
-                role=ConversationRole.assistant,
-                content=choices[0]["message"]["content"],  # type: ignore
-            ),  # TODO: Refactor response
-            choices=choices,
+        finish_reason = FINISH_REASON_MAPPING.get(
+            CohereFinishReason(response.finish_reason), "stop"
+        )
+
+        choices: list[Choice] = []
+        for content in response.message.content:
+            if content.type == "text":
+                choices.append(
+                    Choice(
+                        index=len(choices),
+                        finish_reason=finish_reason,
+                        message=ChatCompletionMessage(
+                            role=ConversationRole.assistant.value,
+                            content=content.text,
+                        ),
+                    )
+                )
+        usage = CompletionUsage(
+            prompt_tokens=response.usage.billed_units.input_tokens,
+            completion_tokens=response.usage.billed_units.output_tokens,
+            total_tokens=response.usage.billed_units.input_tokens
+            + response.usage.billed_units.output_tokens,
+        )
+
+        return AdapterChatCompletion(
+            id=response.id,
+            created=int(time.time()),
+            model=self.get_model().name,
+            object="chat.completion",
             cost=cost,
-            token_counts=Cost(
-                prompt=prompt_tokens,
-                completion=completion_tokens,
-            ),
-            usage=Usage(
-                completion_tokens_details=CompletionTokensDetails(reasoning_tokens=0)
-            ),
+            usage=usage,
+            choices=choices,
         )
 
     def extract_stream_response(self, request: Any, response: Any) -> str:
-        content = getattr(response, "text", "")
-        if response.event_type == "stream-end":
+        content = None
+        if response.type == "content-delta":
+            content = response.delta.message.content.text
+        elif response.type == "stream-end":
             content = None
 
         chunk = json.dumps(

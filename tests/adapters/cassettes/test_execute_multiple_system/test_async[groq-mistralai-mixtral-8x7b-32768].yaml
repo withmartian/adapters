@@ -16,17 +16,19 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,23 +37,19 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-971f3407-6b89-4050-ad90-e6883f9c95b2","object":"chat.completion","created":1726848705,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        It''s nice to see you. How can I help you today? If you have any questions
-        or need assistance with something, feel free to ask. I''m here to help!\n\nJust
-        a heads up, I''m an AI language model, so I can''t provide personalized advice
-        or opinions. I can answer questions, provide information, and engage in conversation
-        on a wide variety of topics. If you need help with something specific, such
-        as troubleshooting a technical issue or seeking professional advice, I recommend
-        consulting a relevant expert or professional.\n\nPlease let me know if you
-        have any questions or if there''s anything specific you''d like to talk about.
-        I''m here to help and look forward to our conversation!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.012348172,"prompt_tokens":12,"prompt_time":0.001945066,"completion_tokens":157,"completion_time":0.251674455,"total_tokens":169,"total_time":0.253619521},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01j88388krfxmrpacpb9cfjd0g"}}
+      string: '{"id":"chatcmpl-6489b540-55f9-4f20-a31e-9a8113d87c88","object":"chat.completion","created":1728509916,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        It''s nice to see you. Is there something specific you would like to talk
+        about or ask me today? I''m here to help with any questions you might have
+        about a wide range of topics, including (but not limited to) mathematics,
+        computer science, physics, chemistry, biology, engineering, and philosophy.
+        Just let me know how I can assist you."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011822339,"prompt_tokens":12,"prompt_time":0.001956431,"completion_tokens":80,"completion_time":0.127481253,"total_tokens":92,"total_time":0.129437684},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01j9skgd6te12rvy97xpnwpsy8"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c6317d689febaff-MXP
+      - 8d0184bfdad8959d-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -59,13 +57,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 20 Sep 2024 16:11:45 GMT
+      - Wed, 09 Oct 2024 21:38:36 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '1188'
+      - '843'
       vary:
       - Origin
       via:
@@ -75,15 +75,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '5000'
       x-ratelimit-remaining-requests:
-      - '14388'
+      - '14399'
       x-ratelimit-remaining-tokens:
       - '4984'
       x-ratelimit-reset-requests:
-      - 1m8.447999999s
+      - 6s
       x-ratelimit-reset-tokens:
       - 192ms
       x-request-id:
-      - req_01j88388krfxmrpacpb9cfjd0g
+      - req_01j9skgd6te12rvy97xpnwpsy8
     status:
       code: 200
       message: OK

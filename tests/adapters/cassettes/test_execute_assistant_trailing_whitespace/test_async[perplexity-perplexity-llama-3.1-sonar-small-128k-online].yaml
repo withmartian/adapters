@@ -16,67 +16,75 @@ interactions:
       host:
       - api.perplexity.ai
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "d2d83e59-1ef1-42f5-8805-5da242167d00", "model": "llama-3.1-sonar-small-128k-online",
-        "created": 1726705406, "usage": {"prompt_tokens": 3, "completion_tokens":
-        353, "total_tokens": 356}, "object": "chat.completion", "choices": [{"index":
+      string: '{"id": "24f8192b-aaa6-4206-b15d-50d0eaa8fc1c", "model": "llama-3.1-sonar-small-128k-online",
+        "created": 1728507943, "usage": {"prompt_tokens": 3, "completion_tokens":
+        357, "total_tokens": 360}, "object": "chat.completion", "choices": [{"index":
         0, "finish_reason": "stop", "message": {"role": "assistant", "content": "The
-        query \"\" appears to be asking about quotes in various contexts. Here are
-        the relevant points from the provided sources:\n\n1. **Empty Quotes in Bullet
-        Journal**: In the context of bullet journaling, a favorite quote for an empty
-        box might be: \"If you focus on the hurt, you will continue to suffer. If
-        you focus on the lesson, you will continue to grow.\"\n\n2. **Empty Quotes
-        in Programming**: In programming, empty quotes (`\"\"`) are used to indicate
-        that the output is expected to be a string. For example, `var output = \"\";`
-        initializes a variable `output` as an empty string, which is a good practice
-        for ensuring the output is a string. Additionally, `output += \"myGlobal:
-        \" + myGlobal;` is a shorthand for `output = output + \"myGlobal: \" + myGlobal;`,
-        adding the specified string to the current value of `output`.\n\n3. **Quotes
-        about Empty Spaces**: In literature and philosophy, quotes about empty spaces
-        often reflect themes of emptiness, silence, and the human experience. For
-        instance:\n   - \"Into the void of silence, into the empty space of nothing,
-        the joy of life is unfurled.\" - C. S. Lewis\n   - \"In a full heart there
-        is room for everything, and in an empty heart there is room for nothing.\"
-        - Antonio Porchia\n\n4. **Keeping Quotes Around Empty Cells in CSV**: When
-        saving a CSV file, quotes around empty cells can be problematic. LibreOffice
-        does not have a standard option to quote empty cells, but you can use a macro
-        to explicitly create empty text for all the empty cells you want to get quoted."},
-        "delta": {"role": "assistant", "content": ""}}]}'
+        query \"\" can refer to different contexts depending on the context in which
+        it is used. Here are a few possible interpretations:\n\n1. **Programming Context**:\n   -
+        In programming, `\"\"` (empty quotes) can be used to initialize a variable
+        as a string. For example, `var output = \"\";` initializes the variable `output`
+        as an empty string. This is a common practice to ensure that the variable
+        is of the correct data type, which in this case is a string.\n\n2. **Quotes
+        and Sayings**:\n   - In quotes and sayings, empty quotes can refer to phrases
+        or statements that convey the idea of emptiness or lack. For instance, \"In
+        a full heart there is room for everything, and in an empty heart there is
+        room for nothing\" by Antonio Porchia.\n\n3. **CSV Files**:\n   - In CSV (Comma
+        Separated Values) files, empty cells are often represented by `\"\"` (double
+        quotes). However, ensuring that these quotes are preserved during export can
+        be challenging, especially in software like LibreOffice. The issue arises
+        because there is no standard option to quote all text cells, including empty
+        ones, when saving a CSV file.\n\n4. **Empty Nest Syndrome**:\n   - In the
+        context of empty nest syndrome, quotes might refer to phrases that describe
+        the emotional state of parents whose children have left home. These quotes
+        often reflect the mixed feelings of sadness and pride that come with this
+        life transition.\n\nWithout more context, it''s difficult to pinpoint exactly
+        which interpretation is most relevant. However, if you''re referring to programming
+        or CSV files, the first two points provide specific explanations. If you''re
+        discussing quotes about emptiness, the third point is relevant."}, "delta":
+        {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c556d40f87996f0-SJC
+      - 8d015480c89d95a9-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:23:26 GMT
+      - Wed, 09 Oct 2024 21:05:43 GMT
       Server:
       - cloudflare
+      Set-Cookie:
+      - __cf_bm=_zIo2wueqf75mkd_FiDcWG20JOUlL.946ZsjlKK1VJk-1728507943-1.0.1.1-o_oJ7NJ1K8FYozTIDfi587jTmXKVAPMLRapoKwgwv.55QyZ5qG73CO2jwxFFYf6BENcb5N14qUD9wrJ5UZHweQ;
+        path=/; expires=Wed, 09-Oct-24 21:35:43 GMT; domain=.perplexity.ai; HttpOnly;
+        Secure; SameSite=None
       Transfer-Encoding:
       - chunked
       content-length:
-      - '1908'
+      - '2058'
     status:
       code: 200
       message: OK

@@ -16,56 +16,55 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.46.0
+      - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"92aa2a99-986f-4b76-bb9b-2dcb1bd83f7b","object":"chat.completion","created":1726705489,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Okay,
-        I see that you''re using the `/tell` command. This is a command we use in
-        Discord where I provide help to users who need technical assistance. However,
-        if you''re encountering a problem with your code and you''d like me to help,
-        please provide the code and the error message you''re receiving. I''ll do
-        my best to help you.\n\nHere are some guidelines on how to format your code:\n\n1.
-        Indent each line of your code by 4 spaces. You can do this easily by highlighting
-        your code and clicking the \"code\" button (`</>`) in the toolbar.\n2. If
-        the error message is long, please make sure to include the entire message,
-        starting from the line that says \"Traceback\" and ending with the error type
-        and message.\n\nThis will help me understand your problem better and provide
-        a more accurate solution. Please go ahead and provide the necessary details."},"finish_reason":"stop"}],"usage":{"prompt_tokens":12,"total_tokens":215,"completion_tokens":203}}'
+      string: '{"id":"1718fd77-f96e-43ce-a73c-eddd7e28fa95","object":"chat.completion","created":1728508168,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"The
+        text \"[INST]\" stands for \"**I**nstruction\". In the previous conversation,
+        I am currently in a role as a helpful assistant who helps answer questions
+        and assist with tasks to the best of its ability. It will always respond respectfully
+        and ensure that conversations are safe and inclusive for all users.\n\nIn
+        this case, the use of \"[INST]\" suggests that there is an instruction or
+        task that needs to be carried out. However, without additional context, it
+        is not possible to determine the exact nature of the instruction or task.\n\nIf
+        you provide more details or context, I will be happy to help further."},"finish_reason":"stop"}],"usage":{"prompt_tokens":12,"total_tokens":144,"completion_tokens":132}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8c556f5aeffa176a-SJC
+      - 8d015a134d3c95a0-TBS
       Cf-Placement:
-      - remote-SEA
+      - local-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:24:51 GMT
+      - Wed, 09 Oct 2024 21:09:30 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=2162.0;desc="Total Response Time"
+      - total;dur=2330.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -73,7 +72,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '1164'
+      - '930'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -81,9 +80,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '2.074'
+      - '2.080'
       x-envoy-upstream-service-time:
-      - '2087'
+      - '2081'
+      x-request-id:
+      - 1718fd77-f96e-43ce-a73c-eddd7e28fa95
     status:
       code: 200
       message: OK

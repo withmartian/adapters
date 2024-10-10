@@ -16,7 +16,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.47.1
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,34 +26,37 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.47.1
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AAoZnSVVkvJuL5dX0y3WylZPpHzlO\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1727141059,\n  \"model\": \"o1-mini-2024-09-12\",\n
+      string: "{\n  \"id\": \"chatcmpl-AGtITKqrHaG4ant4JstDsdV2sRRdZ\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728589173,\n  \"model\": \"o1-mini-2024-09-12\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello! How can I assist you today?\",\n
+        \"assistant\",\n        \"content\": \"Hello! How can I help you today?\",\n
         \       \"refusal\": null\n      },\n      \"finish_reason\": \"stop\"\n    }\n
         \ ],\n  \"usage\": {\n    \"prompt_tokens\": 22,\n    \"completion_tokens\":
-        276,\n    \"total_tokens\": 298,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        256\n    }\n  },\n  \"system_fingerprint\": \"fp_9620a98a6c\"\n}\n"
+        212,\n    \"total_tokens\": 234,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
+        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
+        192\n    }\n  },\n  \"system_fingerprint\": \"fp_692002f015\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c7ef9655fa967f7-SJC
+      - 8d0913baad5d6897-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 24 Sep 2024 01:24:21 GMT
+      - Thu, 10 Oct 2024 19:39:34 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -65,29 +68,29 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '570'
+      - '631'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '1691'
+      - '1863'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
-      - max-age=15552000; includeSubDomains; preload
+      - max-age=31536000; includeSubDomains; preload
       x-ratelimit-limit-requests:
-      - '1000'
+      - '30000'
       x-ratelimit-limit-tokens:
       - '150000000'
       x-ratelimit-remaining-requests:
-      - '999'
+      - '29999'
       x-ratelimit-remaining-tokens:
       - '149999981'
       x-ratelimit-reset-requests:
-      - 60ms
+      - 2ms
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_992a646debbda0cbab0a1e014767e404
+      - req_7b1eec7afc96b8526c55a77121616d23
     status:
       code: 200
       message: OK

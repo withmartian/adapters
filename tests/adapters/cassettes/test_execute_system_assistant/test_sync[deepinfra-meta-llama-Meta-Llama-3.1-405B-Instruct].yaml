@@ -17,29 +17,31 @@ interactions:
       host:
       - api.deepinfra.com
       user-agent:
-      - OpenAI/Python 1.46.0
+      - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-0598b1b07433435b9c136cbb801f0a28","object":"chat.completion","created":1726707068,"model":"meta-llama/Meta-Llama-3.1-405B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like we''re stuck in a loop of hellos! How about we break the cycle
-        and start a conversation? What''s on your mind? Want to talk about something
-        specific or just chat for a bit?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":29,"total_tokens":72,"completion_tokens":43,"estimated_cost":0.00012888}}'
+      string: '{"id":"chatcmpl-6301cefdb45041c5a3a26597343a9f59","object":"chat.completion","created":1728510778,"model":"meta-llama/Meta-Llama-3.1-405B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like we''re stuck in a loop of hellos! Would you like to break the cycle
+        and start a conversation? I''m here to chat and help with any questions or
+        topics you''d like to discuss.","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":29,"total_tokens":72,"completion_tokens":43,"estimated_cost":0.00012888}}'
     headers:
       Connection:
       - keep-alive
@@ -48,7 +50,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:51:08 GMT
+      - Wed, 09 Oct 2024 21:52:58 GMT
       server:
       - uvicorn
       x-robots-tag:

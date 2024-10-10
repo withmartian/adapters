@@ -16,7 +16,7 @@ interactions:
       host:
       - api.deepinfra.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,27 +26,28 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.10
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-7e3d6379df484a58b2078d4e14a083e5\",\"object\":\"chat.completion\",\"created\":1726707001,\"model\":\"Qwen/Qwen2.5-72B-Instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
-        How can I assist you today? Feel free to ask any questions or let me know
-        if you need help with anything. \U0001F31F\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":15,\"total_tokens\":44,\"completion_tokens\":29,\"estimated_cost\":1.685e-05}}"
+      string: '{"id":"chatcmpl-8f2061db29884e6eb8b4b57dcfe288cc","object":"chat.completion","created":1728589135,"model":"Qwen/Qwen2.5-72B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":15,"total_tokens":24,"completion_tokens":9,"estimated_cost":8.85e-06}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '469'
+      - '384'
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:50:01 GMT
+      - Thu, 10 Oct 2024 19:38:55 GMT
       server:
       - uvicorn
       x-robots-tag:

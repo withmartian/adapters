@@ -15,17 +15,19 @@ interactions:
       host:
       - api.together.xyz
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -34,56 +36,48 @@ interactions:
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"8c61d22e5a690e85-MXP\",\n  \"object\": \"chat.completion\",\n
-        \ \"created\": 1726835366,\n  \"model\": \"meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo\",\n
+      string: "{\n  \"id\": \"8d016fa78bec95a5-TBS\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1728509052,\n  \"model\": \"meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo\",\n
         \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
-        \     \"seed\": 9784693712090898000,\n      \"logprobs\": null,\n      \"index\":
+        \     \"seed\": 16254401803947008000,\n      \"logprobs\": null,\n      \"index\":
         0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
-        \"Hi, it's nice to meet you. Is there something I can help you with or would
-        you like to chat?\",\n        \"tool_calls\": []\n      }\n    }\n  ],\n  \"usage\":
-        {\n    \"prompt_tokens\": 39,\n    \"completion_tokens\": 25,\n    \"total_tokens\":
-        64\n  }\n}"
+        \"Hi, how's it going? Is there something I can help you with or would you
+        like to chat?\",\n        \"tool_calls\": []\n      }\n    }\n  ],\n  \"usage\":
+        {\n    \"prompt_tokens\": 39,\n    \"completion_tokens\": 23,\n    \"total_tokens\":
+        62\n  }\n}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c61d22e5a690e85-MXP
+      - 8d016fa78bec95a5-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Sep 2024 12:29:26 GMT
+      - Wed, 09 Oct 2024 21:24:13 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=2592000; includeSubDomains
       Transfer-Encoding:
       - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '595'
+      - '589'
       etag:
-      - W/"253-OvVL6q4DgkSTnlxMFuqD1NhFQXI"
+      - W/"24d-/qTgC8Z43gQvlzp8zpRrF3WF4rA"
       x-api-call-end:
-      - '2024-09-20T12:29:26.617Z'
+      - '2024-10-09T21:24:12.924Z'
       x-api-call-start:
-      - '2024-09-20T12:29:26.236Z'
+      - '2024-10-09T21:24:12.214Z'
       x-api-received:
-      - '2024-09-20T12:29:26.231Z'
-      x-compute-characters:
-      - '244'
-      x-compute-time:
-      - '306'
-      x-hostname:
-      - meta-llama-meta-llama-3-1-70b-instruct-turbo-669f646bd-z6mkn
-      x-inference-time:
-      - '305'
+      - '2024-10-09T21:24:12.208Z'
       x-inference-version:
       - v2
-      x-powered-by:
-      - Express
-      x-queue-time:
-      - '0'
       x-ratelimit:
       - 'false'
       x-ratelimit-limit:
@@ -95,12 +89,6 @@ interactions:
       x-ratelimit-remaining-tokens:
       - '100000'
       x-ratelimit-reset:
-      - '1'
-      x-time-per-token:
-      - '12'
-      x-total-time:
-      - '306'
-      x-validation-time:
       - '1'
     status:
       code: 200

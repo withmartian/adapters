@@ -15,17 +15,19 @@ interactions:
       host:
       - api.together.xyz
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -34,73 +36,59 @@ interactions:
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"8c61d2325ffe0e85-MXP\",\n  \"object\": \"chat.completion\",\n
-        \ \"created\": 1726835367,\n  \"model\": \"meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo\",\n
+      string: "{\n  \"id\": \"8d016fae1bf295a5-TBS\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1728509053,\n  \"model\": \"meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo\",\n
         \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
-        \     \"seed\": 12017501463798733000,\n      \"logprobs\": null,\n      \"index\":
+        \     \"seed\": 4979785466083015000,\n      \"logprobs\": null,\n      \"index\":
         0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
-        \"It seems like we've got a double hello going on. How can I help you today?\",\n
+        \"It seems like we've got a double greeting going on. How can I help you today?\",\n
         \       \"tool_calls\": []\n      }\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
         39,\n    \"completion_tokens\": 20,\n    \"total_tokens\": 59\n  }\n}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c61d2325ffe0e85-MXP
+      - 8d016fae1bf295a5-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Sep 2024 12:29:27 GMT
+      - Wed, 09 Oct 2024 21:24:14 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=2592000; includeSubDomains
       Transfer-Encoding:
       - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '579'
+      - '581'
       etag:
-      - W/"243-BhI1aZrS+UIO49kHx0yx04JsRvU"
+      - W/"245-/FpFODD8aC5LqhvbwVcvu+EDKXY"
       x-api-call-end:
-      - '2024-09-20T12:29:27.587Z'
+      - '2024-10-09T21:24:14.041Z'
       x-api-call-start:
-      - '2024-09-20T12:29:26.895Z'
+      - '2024-10-09T21:24:13.273Z'
       x-api-received:
-      - '2024-09-20T12:29:26.878Z'
-      x-compute-characters:
-      - '244'
-      x-compute-time:
-      - '623'
-      x-hostname:
-      - meta-llama-meta-llama-3-1-405b-instruct-turbo-55f49d68d6-m6lbf
-      x-inference-time:
-      - '623'
+      - '2024-10-09T21:24:13.257Z'
       x-inference-version:
       - v2
-      x-powered-by:
-      - Express
-      x-queue-time:
-      - '0'
       x-ratelimit:
       - 'false'
       x-ratelimit-limit:
-      - '40'
+      - '60'
       x-ratelimit-limit-tokens:
       - '100000'
       x-ratelimit-remaining:
-      - '39'
+      - '59'
       x-ratelimit-remaining-tokens:
       - '100000'
       x-ratelimit-reset:
       - '2'
-      x-time-per-token:
-      - '31'
-      x-total-time:
-      - '623'
-      x-validation-time:
-      - '0'
     status:
       code: 200
       message: OK

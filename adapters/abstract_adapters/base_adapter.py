@@ -1,73 +1,71 @@
 from abc import ABC, abstractmethod
-from typing import Generic
+from typing import Literal, Optional, overload
+
+from openai import NOT_GIVEN, NotGiven
 
 from adapters.types import (
-    AdapterStreamResponse,
+    AdapterChatCompletion,
+    AdapterStreamChatCompletion,
     Conversation,
-    LLMAsyncStreamOutputType,
-    LLMInputType,
-    LLMOutputType,
-    LLMStreamOutputType,
     Model,
-    Prompt,
 )
 
 
-class BaseAdapter(
-    Generic[LLMInputType, LLMOutputType, LLMStreamOutputType, LLMAsyncStreamOutputType],
-    ABC,
-):
-    """
-    Abstract base class for all LLM adapters.
-    It defines the interface for creating subclasses and concrete adapters.
-    Provides the structure to create a nesting of different adapters and LLM access
-    """
-
+class BaseAdapter(ABC):
     @abstractmethod
     def get_model(self) -> Model:
-        """Returns the martian model object, this is used to identify the model which is used by the adapter
+        pass
 
-        Returns:
-            # Model: model object
-        """
+    @overload
+    async def execute_async(
+        self,
+        llm_input: Conversation,
+        stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
+        **kwargs,
+    ) -> AdapterChatCompletion:
+        pass
+
+    @overload
+    async def execute_async(
+        self,
+        llm_input: Conversation,
+        stream: Literal[True],
+        **kwargs,
+    ) -> AdapterStreamChatCompletion:
+        pass
 
     @abstractmethod
     async def execute_async(
-        self, llm_input: LLMInputType, **kwargs
-    ) -> LLMOutputType | AdapterStreamResponse[LLMAsyncStreamOutputType]:
-        """Run an LLM request against the model asynchronously over http
+        self,
+        llm_input: Conversation,
+        stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
+        **kwargs,
+    ) -> AdapterChatCompletion | AdapterStreamChatCompletion:
+        pass
 
-        Args:
-            llm_input (LLMInputType): input to the LLM model (e.g. conversation, prompt, etc.)
+    @overload
+    def execute_sync(
+        self,
+        llm_input: Conversation,
+        stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
+        **kwargs,
+    ) -> AdapterChatCompletion:
+        pass
 
-        Returns:
-            LLMOutputType: output from the LLM (i.e. ChatAdapterResponse, etc.)
-        """
+    @overload
+    def execute_sync(
+        self,
+        llm_input: Conversation,
+        stream: Literal[True],
+        **kwargs,
+    ) -> AdapterStreamChatCompletion:
+        pass
 
     @abstractmethod
     def execute_sync(
-        self, llm_input: LLMInputType, **kwargs
-    ) -> LLMOutputType | AdapterStreamResponse[LLMStreamOutputType]:
-        """Runs an LLM request against the model synchronously over https
-
-        Args:
-            llm_input (LLMInputType): input to the LLM model api (e.g. conversation, prompt, etc.)
-
-        Returns:
-            LLMOutputType: output from the LLM api (i.e. ChatAdapterResponse, etc.)
-        """
-
-    @staticmethod
-    @abstractmethod
-    def convert_to_input(llm_input: Conversation | Prompt) -> LLMInputType:
-        """converts any input to a valid LLM input
-
-        Args:
-            Any: any input
-
-        Returns:
-            LLMInputType: valid LLM input
-        """
-
-    def adjust_temperature(self, temperature: float) -> float:
-        return temperature
+        self,
+        llm_input: Conversation,
+        stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
+        **kwargs,
+    ) -> AdapterChatCompletion | AdapterStreamChatCompletion:
+        pass

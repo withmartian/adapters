@@ -19,47 +19,56 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.46.0
+      - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-A8zjAtbJs6HImLylllHxIDVbk4y0U\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1726707268,\n  \"model\": \"gpt-3.5-turbo-0125\",\n
+      string: "{\n  \"id\": \"chatcmpl-AGZ8tDi9635aIfyvRcEj8iEJBWXMI\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728511699,\n  \"model\": \"gpt-3.5-turbo-0125\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"I can help you with that. Please provide
-        me with more details on how you would like the random number to be generated.\",\n
-        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-        \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 65,\n    \"completion_tokens\":
-        25,\n    \"total_tokens\": 90,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
+        \"assistant\",\n        \"content\": \"Sure! I can generate a random number
+        for you. What range do you want the random number to be in?\",\n        \"refusal\":
+        null\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n
+        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 65,\n    \"completion_tokens\":
+        23,\n    \"total_tokens\": 88,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
+        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
         0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c559aca7cc41736-SJC
+      - 8d01b0448b1f95a3-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:54:28 GMT
+      - Wed, 09 Oct 2024 22:08:19 GMT
       Server:
       - cloudflare
+      Set-Cookie:
+      - __cf_bm=.SRZs1C41DvGUixnzmrR1Md.7V1m5PvM4HaMlb4XmlM-1728511699-1.0.1.1-EliWWI1CcdDi80vkrmEitccJytrKap65dZKCG5CUC1ssVM82Hxdx_v5zgyqf6zDJX9GItZvakpQQyqJ8UHGaGQ;
+        path=/; expires=Wed, 09-Oct-24 22:38:19 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=TziNgPg6eF7Vg_Nzm4xVDPLSWht1c6FuelHeyLbCUMs-1728511699575-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
       X-Content-Type-Options:
@@ -69,15 +78,15 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '663'
+      - '704'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '365'
+      - '366'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
-      - max-age=15552000; includeSubDomains; preload
+      - max-age=31536000; includeSubDomains; preload
       x-ratelimit-limit-requests:
       - '10000'
       x-ratelimit-limit-tokens:
@@ -91,7 +100,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_1c1a06405de9c60c6673d17872096c7a
+      - req_65adde2231d0ccb664911be1bf501111
     status:
       code: 200
       message: OK

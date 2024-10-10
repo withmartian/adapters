@@ -16,17 +16,19 @@ interactions:
       host:
       - text.octoai.run
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,18 +37,18 @@ interactions:
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-040a32883ac041e68af4b21b678e5f94\",\"object\":\"chat.completion\",\"created\":1727087703,\"model\":\"nous-hermes-2-mixtral-8x7b-dpo\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Is
-        there anything in particular you would like to chat about? I'm here to help!
-        \U0001F4AC\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"completion_tokens\":24,\"total_tokens\":43}}"
+      string: '{"id":"chatcmpl-cbad19a48c0a4dc39800153ea9aeff89","object":"chat.completion","created":1728507876,"model":"nous-hermes-2-mixtral-8x7b-dpo","choices":[{"index":0,"message":{"role":"assistant","content":"What
+        would you like to know or discuss today? If you have any questions, concerns,
+        or need help with something, feel free to ask!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"completion_tokens":29,"total_tokens":48}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '400'
+      - '445'
       Content-Type:
       - application/json
       Date:
-      - Mon, 23 Sep 2024 10:35:02 GMT
+      - Wed, 09 Oct 2024 21:04:36 GMT
       Server:
       - uvicorn
       Vary:
@@ -54,15 +56,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '399'
+      - '451'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1727087704'
+      - '1728507877'
       X-User-Request-Id:
       - ''
     status:

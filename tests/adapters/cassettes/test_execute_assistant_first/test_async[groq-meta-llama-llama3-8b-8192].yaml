@@ -16,17 +16,19 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,15 +37,16 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-b56f8e5a-22f0-477d-a4cd-e7a0db8816f5","object":"chat.completion","created":1726848673,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Nice
-        to meet you! Is there something I can help you with or would you like to chat?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.16783366300000002,"prompt_tokens":22,"prompt_time":0.002753035,"completion_tokens":21,"completion_time":0.0175,"total_tokens":43,"total_time":0.020253035},"system_fingerprint":"fp_179b0f92c9","x_groq":{"id":"req_01j88379pwf4r8p2mzap26ap4j"}}
+      string: '{"id":"chatcmpl-a8faf019-8ceb-4a1e-b872-fa6899b6fdd4","object":"chat.completion","created":1728507376,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        looks like we''re starting a conversation! Is there something on your mind
+        that you''d like to talk about, or are you just saying hi? I''m here to listen!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011473497000000001,"prompt_tokens":22,"prompt_time":0.002808653,"completion_tokens":37,"completion_time":0.030833333,"total_tokens":59,"total_time":0.033641986},"system_fingerprint":"fp_179b0f92c9","x_groq":{"id":"req_01j9sh2wtwfzttvt554v06dp7h"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c631710ce10baff-MXP
+      - 8d0146be39e295a6-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -51,13 +54,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 20 Sep 2024 16:11:13 GMT
+      - Wed, 09 Oct 2024 20:56:16 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '583'
+      - '660'
       vary:
       - Origin
       via:
@@ -67,15 +72,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '30000'
       x-ratelimit-remaining-requests:
-      - '14396'
+      - '14399'
       x-ratelimit-remaining-tokens:
       - '29990'
       x-ratelimit-reset-requests:
-      - 20.325s
+      - 6s
       x-ratelimit-reset-tokens:
       - 20ms
       x-request-id:
-      - req_01j88379pwf4r8p2mzap26ap4j
+      - req_01j9sh2wtwfzttvt554v06dp7h
     status:
       code: 200
       message: OK

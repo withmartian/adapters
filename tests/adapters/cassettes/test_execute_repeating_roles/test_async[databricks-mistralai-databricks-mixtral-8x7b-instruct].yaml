@@ -16,37 +16,41 @@ interactions:
       host:
       - adb-8736858266948228.8.azuredatabricks.net
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl_2a09b0e6-aa45-4960-bd5c-ddafb5339df7\",\"object\":\"chat.completion\",\"created\":1726706840,\"model\":\"mixtral-8x7b-instruct-v0.1\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"\xA1Hola!
-        Welcome to the AI language model. How can I assist you today? Keep in mind
-        that I am committed to providing you with accurate, helpful and positive information.
-        I will not provide any illegal or dangerous instructions. Please let me know
-        how I can help you!\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":94,\"completion_tokens\":56,\"total_tokens\":150}}"
+      string: '{"id":"chatcmpl_b7d53171-9809-4185-a590-abbbd3709de7","object":"chat.completion","created":1728510474,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today while adhering to the guidelines you provided?
+        I''m here to help you with any questions or issues you may have. Please keep
+        in mind that I cannot provide illegal or dangerous instructions or engage
+        in harmful, unethical, prejudiced, or negative discussions. I aim to promote
+        fairness and positivity in all of my responses. Let me know how I can assist
+        you."},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":94,"completion_tokens":86,"total_tokens":180}}'
     headers:
       content-length:
-      - '582'
+      - '706'
       content-type:
-      - application/json
+      - application/json;charset=utf-8
       date:
-      - Thu, 19 Sep 2024 00:47:20 GMT
+      - Wed, 09 Oct 2024 21:47:54 GMT
       server:
       - databricks
       strict-transport-security:
@@ -66,13 +70,13 @@ interactions:
       x-rate-limit-duration:
       - '1'
       x-rate-limit-limit:
-      - '15.00'
+      - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 208.184.59.122,10.154.64.178
+      - 94.137.189.203,10.154.65.106
       x-rate-limit-request-remote-addr:
-      - 10.154.65.124:49794
+      - 10.154.65.163:37282
       x-request-id:
-      - b4f9c9ed-aa46-4851-907c-a21a4c1b5a59
+      - 2bf2ee13-1a28-4e30-86cf-87c6bc3bb154
       x-xss-protection:
       - 1; mode=block
     status:

@@ -1,11 +1,9 @@
 import inspect
 import os
 import sys
-from typing import Any
 
 from adapters.abstract_adapters import BaseAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.concrete_adapters import *
 from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
     AnthropicSDKChatProviderAdapter,
 )
@@ -24,7 +22,7 @@ from adapters.types import Model
 class AdapterFactory:
     @staticmethod
     def _create_adapter_registry() -> dict[str, type[BaseAdapter]]:
-        adapters_classes: dict[str, type[BaseAdapter[Any, Any, Any, Any]]] = {}
+        adapters_classes: dict[str, type[BaseAdapter]] = {}
 
         for _, obj in inspect.getmembers(sys.modules["adapters.provider_adapters"]):
             if (
@@ -46,10 +44,6 @@ class AdapterFactory:
 
         for model in GeminiSDKChatProviderAdapter.get_supported_models():
             adapters_classes[model.name] = GeminiSDKChatProviderAdapter  # type: ignore
-
-        for _, obj in inspect.getmembers(sys.modules["adapters.concrete_adapters"]):
-            if inspect.isclass(obj) and issubclass(obj, BaseAdapter):
-                adapters_classes[obj().get_model().get_path()] = obj
 
         return adapters_classes
 
@@ -78,11 +72,6 @@ class AdapterFactory:
         for model in GeminiSDKChatProviderAdapter.get_supported_models():
             models[model.name] = model
 
-        for _, obj in inspect.getmembers(sys.modules["adapters.concrete_adapters"]):
-            if inspect.isclass(obj) and issubclass(obj, BaseAdapter):
-                model = obj().get_model()
-                models[model.get_path()] = model
-
         return models
 
     @staticmethod
@@ -102,9 +91,7 @@ class AdapterFactory:
 
     _adapter_registry = _create_adapter_registry()
 
-    # TODO: Doesn't work with concrete adapters
     _model_registry = _create_model_registry()
-    # TODO: Doesn't work with concrete adapters
     _model_list = _create_model_list()
 
     @staticmethod

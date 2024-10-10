@@ -1,9 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
-      "text", "text": "\"\""}]}, {"role": "assistant", "content": "Hi"}, {"role":
-      "user", "content": [{"type": "text", "text": "Hi"}]}], "model": "claude-3-sonnet-20240229",
-      "system": "", "tools": []}'
+    body: '{"max_tokens": 4096, "messages": [{"content": "\"\"", "role": "user"},
+      {"content": "Hi", "role": "assistant"}, {"content": "Hi", "role": "user"}],
+      "model": "claude-3-sonnet-20240229"}'
     headers:
       accept:
       - application/json
@@ -14,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '266'
+      - '183'
       content-type:
       - application/json
       host:
@@ -22,37 +21,36 @@ interactions:
       user-agent:
       - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
       - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01X3Cg5r7vhFCnPGfqCivqNz","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Hi
-        there! I''m Claude, an AI assistant created by Anthropic. How can I help you
-        today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":26}}'
+      string: '{"id":"msg_013rKf8URJqYiWPk1YSXA6em","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Hello!
+        How can I assist you today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":12}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c5562240a33cfb0-SJC
+      - 8d0145f88d4a95a0-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:15:48 GMT
+      - Wed, 09 Oct 2024 20:55:45 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -64,15 +62,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-09-19T00:15:48Z'
+      - '2024-10-09T20:55:45Z'
       content-length:
-      - '324'
+      - '273'
       request-id:
-      - req_017Yu2ifzMcDumDMCeiLSv8p
+      - req_01LMDMUJp6Voos2ELPC9Lwde
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - cf5b2fcacf489b6e3ace7d16ebb95e0b
+      - b40f3f23c257a4a37b859fbb129e152f
     status:
       code: 200
       message: OK

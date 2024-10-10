@@ -16,17 +16,19 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,13 +37,14 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-1c72b44e-567a-4b09-b8a4-b5232da8fae0\",\"object\":\"chat.completion\",\"created\":1726848681,\"model\":\"gemma-7b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"\U0001F44B!
-        \U0001F44B How can I help you today? \U0001F60A\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.0011297679999999997,\"prompt_tokens\":12,\"prompt_time\":0.015858162,\"completion_tokens\":12,\"completion_time\":0.014754666,\"total_tokens\":24,\"total_time\":0.030612828},\"system_fingerprint\":\"fp_7d8efeb0b1\",\"x_groq\":{\"id\":\"req_01j8837hn1fttrn75vg9jrnw1j\"}}\n"
+      string: "{\"id\":\"chatcmpl-26ad3058-7b5a-4e26-b32f-df0174446872\",\"object\":\"chat.completion\",\"created\":1728507859,\"model\":\"gemma-7b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
+        \U0001F44B ! \U0001F44B It's great to hear from you. What can I do for you
+        today?\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.0055920089999999985,\"prompt_tokens\":12,\"prompt_time\":0.008827921,\"completion_tokens\":21,\"completion_time\":0.026248284,\"total_tokens\":33,\"total_time\":0.035076205},\"system_fingerprint\":\"fp_7d8efeb0b1\",\"x_groq\":{\"id\":\"req_01j9shhmd4ecs8am35eqzsg3gq\"}}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c6317439fc0baff-MXP
+      - 8d015288483b95a3-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -49,13 +52,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 20 Sep 2024 16:11:21 GMT
+      - Wed, 09 Oct 2024 21:04:19 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '545'
+      - '574'
       vary:
       - Origin
       via:
@@ -65,15 +70,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '15000'
       x-ratelimit-remaining-requests:
-      - '14394'
+      - '14399'
       x-ratelimit-remaining-tokens:
       - '14988'
       x-ratelimit-reset-requests:
-      - 32.296999999s
+      - 6s
       x-ratelimit-reset-tokens:
       - 48ms
       x-request-id:
-      - req_01j8837hn1fttrn75vg9jrnw1j
+      - req_01j9shhmd4ecs8am35eqzsg3gq
     status:
       code: 200
       message: OK

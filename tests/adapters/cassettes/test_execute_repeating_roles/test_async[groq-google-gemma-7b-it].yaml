@@ -16,17 +16,19 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,13 +37,13 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-dbc3f4dd-382b-471b-9ba7-6ef75d7fbda5\",\"object\":\"chat.completion\",\"created\":1726848713,\"model\":\"gemma-7b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Greetings!
-        \U0001F44B It's nice to hear from you. How can I assist you today? \U0001F60A\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.0009390820000000008,\"prompt_tokens\":22,\"prompt_time\":0.016974328,\"completion_tokens\":21,\"completion_time\":0.026283754,\"total_tokens\":43,\"total_time\":0.043258082},\"system_fingerprint\":\"fp_7d8efeb0b1\",\"x_groq\":{\"id\":\"req_01j8838h4xemd95dk6ewn57wrv\"}}\n"
+      string: "{\"id\":\"chatcmpl-f3172307-8db6-4eed-9f4b-5ed823e65018\",\"object\":\"chat.completion\",\"created\":1728510496,\"model\":\"gemma-7b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
+        \U0001F44B It's nice to hear from you. How can I help you today? \U0001F60A\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.0009941220000000018,\"prompt_tokens\":22,\"prompt_time\":0.015456388,\"completion_tokens\":21,\"completion_time\":0.02676725,\"total_tokens\":43,\"total_time\":0.042223638},\"system_fingerprint\":\"fp_7d8efeb0b1\",\"x_groq\":{\"id\":\"req_01j9sm23bffh9s4ew6ap2r9ymw\"}}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c63180d3dbfbaff-MXP
+      - 8d0192e7eda0959f-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -49,13 +51,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 20 Sep 2024 16:11:54 GMT
+      - Wed, 09 Oct 2024 21:48:16 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '580'
+      - '573'
       vary:
       - Origin
       via:
@@ -65,15 +69,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '15000'
       x-ratelimit-remaining-requests:
-      - '14386'
+      - '14399'
       x-ratelimit-remaining-tokens:
       - '14983'
       x-ratelimit-reset-requests:
-      - 1m19.743999999s
+      - 6s
       x-ratelimit-reset-tokens:
       - 68ms
       x-request-id:
-      - req_01j8838h4xemd95dk6ewn57wrv
+      - req_01j9sm23bffh9s4ew6ap2r9ymw
     status:
       code: 200
       message: OK

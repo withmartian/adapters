@@ -16,17 +16,19 @@ interactions:
       host:
       - api.together.xyz
       user-agent:
-      - OpenAI/Python 1.46.0
+      - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,56 +37,48 @@ interactions:
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"8c61c2ebcfc0bac9-MXP\",\n  \"object\": \"chat.completion\",\n
-        \ \"created\": 1726834741,\n  \"model\": \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n
+      string: "{\n  \"id\": \"8d0150c23f66a9e9-TBS\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1728507787,\n  \"model\": \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n
         \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
-        \     \"seed\": 7401575962216848000,\n      \"logprobs\": null,\n      \"index\":
+        \     \"seed\": 8451747379786192000,\n      \"logprobs\": null,\n      \"index\":
         0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
-        \"It seems like you might be trying to start a conversation, but you haven't
-        said anything yet. What's on your mind?\",\n        \"tool_calls\": []\n      }\n
-        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 48,\n    \"completion_tokens\":
-        27,\n    \"total_tokens\": 75\n  }\n}"
+        \"It seems like you might have started to say something, but it got cut off.
+        Would you like to continue?\",\n        \"tool_calls\": []\n      }\n    }\n
+        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 49,\n    \"completion_tokens\":
+        24,\n    \"total_tokens\": 73\n  }\n}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c61c2ebcfc0bac9-MXP
+      - 8d0150c23f66a9e9-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Sep 2024 12:19:01 GMT
+      - Wed, 09 Oct 2024 21:03:08 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=2592000; includeSubDomains
       Transfer-Encoding:
       - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '616'
+      - '604'
       etag:
-      - W/"268-bE1IM9Y8qXaSLzuG4ugx1Ud6kIg"
+      - W/"25c-fS6+HhIQffBZBEZXvpPUEcjYcXs"
       x-api-call-end:
-      - '2024-09-20T12:19:01.610Z'
+      - '2024-10-09T21:03:08.096Z'
       x-api-call-start:
-      - '2024-09-20T12:19:01.213Z'
+      - '2024-10-09T21:03:07.316Z'
       x-api-received:
-      - '2024-09-20T12:19:01.206Z'
-      x-compute-characters:
-      - '354'
-      x-compute-time:
-      - '343'
-      x-hostname:
-      - meta-llama-meta-llama-3-1-8b-instruct-turbo-594784ff6c-xxgxc
-      x-inference-time:
-      - '222'
+      - '2024-10-09T21:03:07.311Z'
       x-inference-version:
       - v2
-      x-powered-by:
-      - Express
-      x-queue-time:
-      - '120'
       x-ratelimit:
       - 'false'
       x-ratelimit-limit:
@@ -97,12 +91,6 @@ interactions:
       - '100000'
       x-ratelimit-reset:
       - '2'
-      x-time-per-token:
-      - '8'
-      x-total-time:
-      - '343'
-      x-validation-time:
-      - '0'
     status:
       code: 200
       message: OK

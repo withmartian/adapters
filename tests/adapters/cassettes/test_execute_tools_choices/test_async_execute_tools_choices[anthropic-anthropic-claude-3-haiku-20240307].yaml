@@ -1,8 +1,10 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
-      "text", "text": "Generate random number"}]}], "model": "claude-3-haiku-20240307",
-      "system": "", "tools": []}'
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
+      "role": "user"}], "model": "claude-3-haiku-20240307", "tools": [{"input_schema":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate", "description":
+      "Generate random number"}]}'
     headers:
       accept:
       - application/json
@@ -13,7 +15,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '180'
+      - '334'
       content-type:
       - application/json
       host:
@@ -21,56 +23,36 @@ interactions:
       user-agent:
       - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
       - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_0166yLxFF2xLLTtzETdVS4SY","type":"message","role":"assistant","model":"claude-3-haiku-20240307","content":[{"type":"text","text":"Sure,
-        here''s how you can generate a random number in various programming languages:\n\n1.
-        **JavaScript**:\n   ```javascript\n   const randomNumber = Math.random();\n   console.log(randomNumber);\n   ```\n\n2.
-        **Python**:\n   ```python\n   import random\n   random_number = random.random()\n   print(random_number)\n   ```\n\n3.
-        **Java**:\n   ```java\n   import java.util.Random;\n\n   public class RandomNumber
-        {\n       public static void main(String[] args) {\n           Random rand
-        = new Random();\n           double randomNumber = rand.nextDouble();\n           System.out.println(randomNumber);\n       }\n   }\n   ```\n\n4.
-        **C++**:\n   ```cpp\n   #include <iostream>\n   #include <cstdlib>\n   #include
-        <ctime>\n\n   int main() {\n       srand(time(0)); // Seed the random number
-        generator\n       double randomNumber = static_cast<double>(rand()) / RAND_MAX;\n       std::cout
-        << randomNumber << std::endl;\n       return 0;\n   }\n   ```\n\n5. **C#**:\n   ```csharp\n   using
-        System;\n\n   class Program {\n       static void Main(string[] args) {\n           Random
-        rand = new Random();\n           double randomNumber = rand.NextDouble();\n           Console.WriteLine(randomNumber);\n       }\n   }\n   ```\n\nThe
-        key points are:\n\n- In JavaScript, you can use the built-in `Math.random()`
-        function.\n- In Python, you can use the `random.random()` function from the
-        `random` module.\n- In Java, you need to create a `Random` object and use
-        its `nextDouble()` method.\n- In C++, you need to seed the random number generator
-        using `srand(time(0))` and then use `rand()` to generate a random number,
-        which you can then normalize to a range between 0 and 1.\n- In C#, you can
-        create a `Random` object and use its `NextDouble()` method.\n\nNote that the
-        range of the generated random number is between 0 (inclusive) and 1 (exclusive)
-        in all the examples above."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":523}}'
+      string: '{"id":"msg_01DAp1tgwoTCNXQDoVt1cMRs","type":"message","role":"assistant","model":"claude-3-haiku-20240307","content":[{"type":"tool_use","id":"toolu_01DrNCJmZWhjEQuh13X7djRn","name":"generate","input":{"prompt":"Random
+        number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":339,"output_tokens":52}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c559b26ecedcf15-SJC
+      - 8d01b0d3ef9295a9-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:54:46 GMT
+      - Wed, 09 Oct 2024 22:08:42 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -82,15 +64,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-09-19T00:54:46Z'
+      - '2024-10-09T22:08:42Z'
       content-length:
-      - '2108'
+      - '324'
       request-id:
-      - req_01TuhBXkA33Amgrecw7QaXXZ
+      - req_011sPxUUPYRjBC4uEpAiiVCQ
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 6c04469dd3fc146f108ec5f06eff7f81
+      - 1c32d96ee629eb1fa2aadb40fa170dfb
     status:
       code: 200
       message: OK

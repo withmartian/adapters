@@ -16,17 +16,19 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - OpenAI/Python 1.46.0
+      - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,14 +37,14 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-a529f9d4-b25b-4c59-a055-2e75727a77e6","object":"chat.completion","created":1726848686,"model":"llama3-groq-8b-8192-tool-use-preview","choices":[{"index":0,"message":{"role":"assistant","content":""},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":-9223372036.858812,"prompt_tokens":21,"prompt_time":0.004036791,"completion_tokens":1,"completion_time":0,"total_tokens":22,"total_time":0.004036791},"system_fingerprint":"fp_260dc69250","x_groq":{"id":"req_01j8837pcfftt87wz406cca61h"}}
+      string: '{"id":"chatcmpl-df6a89f6-0396-4451-ac4e-eab8ea4f1871","object":"chat.completion","created":1728508179,"model":"llama3-groq-8b-8192-tool-use-preview","choices":[{"index":0,"message":{"role":"assistant","content":""},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":-9223372036.85852,"prompt_tokens":21,"prompt_time":0.003744857,"completion_tokens":1,"completion_time":0,"total_tokens":22,"total_time":0.003744857},"system_fingerprint":"fp_260dc69250","x_groq":{"id":"req_01j9shvcv6fga86cebk29y9m6n"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c631761eecd3748-MXP
+      - 8d015a57db2395a0-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -50,13 +52,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 20 Sep 2024 16:11:26 GMT
+      - Wed, 09 Oct 2024 21:09:39 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '515'
+      - '514'
       vary:
       - Origin
       via:
@@ -66,15 +70,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '15000'
       x-ratelimit-remaining-requests:
-      - '14393'
+      - '14399'
       x-ratelimit-remaining-tokens:
       - '14985'
       x-ratelimit-reset-requests:
-      - 37.811999999s
+      - 6s
       x-ratelimit-reset-tokens:
       - 60ms
       x-request-id:
-      - req_01j8837pcfftt87wz406cca61h
+      - req_01j9shvcv6fga86cebk29y9m6n
     status:
       code: 200
       message: OK

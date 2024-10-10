@@ -16,17 +16,19 @@ interactions:
       host:
       - dolphin-mixtral-8x7b.lepton.run
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,29 +37,31 @@ interactions:
     uri: https://dolphin-mixtral-8x7b.lepton.run/api/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-HCD6gvzXB9UscPSURCn8W8","object":"chat.completion","created":1727081182,"model":"dolphin-mixtral-8x7b","choices":[{"index":0,"message":{"role":"assistant","content":"Hi
-        ","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null}],"usage":{"prompt_tokens":18,"total_tokens":21,"completion_tokens":3}}'
+      string: "{\"id\":\"chatcmpl-EUqj9UerYrxDoqtGUcfge2\",\"object\":\"chat.completion\",\"created\":1728507870,\"model\":\"dolphin-mixtral-8x7b\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hey,
+        there! \U0001F60A Have you seen any pictures from Mars? They're quite amazing,
+        don't you think? Let me know if you want to hear more about space or if you
+        have any other interests.\",\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":\"stop\",\"audio\":null,\"asr_results\":null}],\"usage\":{\"prompt_tokens\":18,\"total_tokens\":64,\"completion_tokens\":46}}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c79438e18f7959d-TBS
+      - 8d0152caf866959f-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Mon, 23 Sep 2024 08:46:22 GMT
+      - Wed, 09 Oct 2024 21:04:30 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '329'
+      - '525'
       vary:
       - Accept-Encoding
       x-envoy-upstream-service-time:
-      - '159'
+      - '274'
     status:
       code: 200
       message: OK

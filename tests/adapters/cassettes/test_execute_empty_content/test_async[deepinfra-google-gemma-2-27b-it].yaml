@@ -16,40 +16,44 @@ interactions:
       host:
       - api.deepinfra.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-7b3c97e5a73b4626b2e386dd2f145a7f\",\"object\":\"chat.completion\",\"created\":1726705581,\"model\":\"google/gemma-2-27b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
-        provide me with the incomplete thought or question so I can assist you! \U0001F60A
-        \\n\\nFor example, you could say:\\n\\n* \\\"I'm trying to write a poem about
-        nature, but I can't think of a good ...\\\"\\n* \\\"What is the meaning of
-        ...\\\"\\n* \\\"I need help understanding ...\\\" \\n\\nI'm ready to help!
-        \ \\n\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":96,\"completion_tokens\":77,\"estimated_cost\":2.5920000000000003e-05}}"
+      string: "{\"id\":\"chatcmpl-7beeb26c3a0a41cc9ef908563b39c174\",\"object\":\"chat.completion\",\"created\":1728508360,\"model\":\"google/gemma-2-27b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
+        provide me with the context or question you have so I can assist you. \U0001F60A
+        \ \\n\\nFor example, you could ask me:\\n\\n* **To write a story:** \\\"Write
+        me a short story about a cat who goes on an adventure.\\\"\\n* **To answer
+        a question:** \\\"What is the capital of France?\\\"\\n* **To summarize text:**
+        \\\"Can you summarize the plot of the movie Inception?\\\"\\n* **To translate
+        something:** \\\"Translate 'Hello, how are you?' into Spanish.\\\" \\n\\nI'm
+        ready when you are! \U0001F44D \\n\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":136,\"completion_tokens\":117,\"estimated_cost\":3.672e-05}}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '656'
+      - '821'
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:26:21 GMT
+      - Wed, 09 Oct 2024 21:12:40 GMT
       server:
       - uvicorn
       x-robots-tag:

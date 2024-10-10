@@ -1,20 +1,16 @@
-import re
-from typing import Pattern
-
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model, ModelProperties
+from adapters.types import Cost, Model, ModelPredicates
 
 PROVIDER_NAME = "octoai"
 BASE_URL = "https://text.octoai.run/v1"
 API_KEY_NAME = "OCTOAI_API_KEY"
-API_KEY_PATTERN = re.compile(r".*")
-BASE_PROPERTIES = ModelProperties(open_source=True)
+BASE_PREDICATES = ModelPredicates(open_source=True)
 
 
 class OctoaiModel(Model):
     provider_name: str = PROVIDER_NAME
-    properties: ModelProperties = BASE_PROPERTIES
+    predicates: ModelPredicates = BASE_PREDICATES
 
     supports_streaming: bool = True
     supports_repeating_roles: bool = True
@@ -69,7 +65,3 @@ class OctoaiSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
-
-    @staticmethod
-    def get_api_key_pattern() -> Pattern:
-        return API_KEY_PATTERN

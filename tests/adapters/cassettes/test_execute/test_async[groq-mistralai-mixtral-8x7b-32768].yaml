@@ -15,17 +15,19 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.46.0
+      - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -34,18 +36,16 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-1746f205-7977-4465-a620-b1ced166f6b9","object":"chat.completion","created":1726848666,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        It''s nice to meet you. Is there something specific you would like to know
-        or discuss about probability and statistics? I''m here to help and answer
-        any questions you have to the best of my ability. Just let me know how I can
-        assist you."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011649353,"prompt_tokens":9,"prompt_time":0.001839557,"completion_tokens":56,"completion_time":0.088913695,"total_tokens":65,"total_time":0.090753252},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01j883730hftrvexvr553cvd90"}}
+      string: '{"id":"chatcmpl-e03ccf7d-f64d-4257-9f06-9fd9c17172e7","object":"chat.completion","created":1728515180,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        It''s nice to meet you. Is there something you would like to know or talk
+        about? I''m here to help with any questions you have to the best of my ability."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011955621,"prompt_tokens":9,"prompt_time":0.001839548,"completion_tokens":41,"completion_time":0.064453623,"total_tokens":50,"total_time":0.066293171},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01j9srh2c0fe3s642wjhy23h63"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8c6316e5ec11baff-MXP
+      - 8d020548089295a0-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -53,13 +53,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 20 Sep 2024 16:11:06 GMT
+      - Wed, 09 Oct 2024 23:06:21 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
       content-length:
-      - '742'
+      - '658'
       vary:
       - Origin
       via:
@@ -69,15 +71,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '5000'
       x-ratelimit-remaining-requests:
-      - '14398'
+      - '14399'
       x-ratelimit-remaining-tokens:
       - '4994'
       x-ratelimit-reset-requests:
-      - 8.057s
+      - 6s
       x-ratelimit-reset-tokens:
       - 72ms
       x-request-id:
-      - req_01j883730hftrvexvr553cvd90
+      - req_01j9srh2c0fe3s642wjhy23h63
     status:
       code: 200
       message: OK

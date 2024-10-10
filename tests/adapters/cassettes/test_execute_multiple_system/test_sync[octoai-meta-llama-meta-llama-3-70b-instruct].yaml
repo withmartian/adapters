@@ -16,17 +16,19 @@ interactions:
       host:
       - text.octoai.run
       user-agent:
-      - OpenAI/Python 1.46.0
+      - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -35,17 +37,18 @@ interactions:
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-6308bf6f3375494ba548370a3a5856d9","object":"chat.completion","created":1727087735,"model":"meta-llama-3-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like we''re having a \"hi\" conversation! How''s your day going so far?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"completion_tokens":20,"total_tokens":43}}'
+      string: '{"id":"chatcmpl-c8adec13def4423d9318b0b5530e936e","object":"chat.completion","created":1728509457,"model":"meta-llama-3-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
+        It''s nice to meet you. Is there something I can help you with, or would you
+        like to chat?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"completion_tokens":25,"total_tokens":48}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '389'
+      - '404'
       Content-Type:
       - application/json
       Date:
-      - Mon, 23 Sep 2024 10:35:34 GMT
+      - Wed, 09 Oct 2024 21:30:56 GMT
       Server:
       - uvicorn
       Vary:
@@ -53,15 +56,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '0'
+      - '2'
       X-Kong-Upstream-Latency:
-      - '425'
+      - '548'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1727087736'
+      - '1728509458'
       X-User-Request-Id:
       - ''
     status:

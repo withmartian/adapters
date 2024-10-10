@@ -16,46 +16,51 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.46.0
+      - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - arm64
+      - x64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - MacOS
+      - Linux
       x-stainless-package-version:
-      - 1.46.0
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.9
+      - 3.11.6
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"720f51f5-2043-4f62-aaf4-4129f3ae5408","object":"chat.completion","created":1726705493,"model":"accounts/fireworks/models/llama-v3p1-405b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like you haven''t asked a question yet. How can I assist you today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":20,"total_tokens":39,"completion_tokens":19}}'
+      string: '{"id":"b16a148f-2f9a-4d09-bf80-ca8811f93f6a","object":"chat.completion","created":1728508172,"model":"accounts/fireworks/models/llama-v3p1-405b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like you haven''t asked a question or provided any text for me to respond
+        to. Could you please ask a question, share your thoughts, or provide some
+        context so I can better assist you? I''m here to help with any topic or issue
+        you''d like to discuss!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":20,"total_tokens":78,"completion_tokens":58}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8c556f70bb33176a-SJC
+      - 8d015a2b8ced95a0-TBS
       Cf-Placement:
-      - remote-SEA
+      - local-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Sep 2024 00:24:53 GMT
+      - Wed, 09 Oct 2024 21:09:33 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=488.0;desc="Total Response Time"
+      - total;dur=1855.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -63,7 +68,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '390'
+      - '570'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -71,9 +76,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.408'
+      - '1.628'
       x-envoy-upstream-service-time:
-      - '412'
+      - '1629'
+      x-request-id:
+      - b16a148f-2f9a-4d09-bf80-ca8811f93f6a
     status:
       code: 200
       message: OK
