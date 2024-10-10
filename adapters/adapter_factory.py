@@ -7,7 +7,6 @@ from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMix
 from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
     AnthropicSDKChatProviderAdapter,
 )
-
 from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
     GeminiSDKChatProviderAdapter,
 )

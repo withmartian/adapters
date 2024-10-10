@@ -18,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,22 +32,23 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-0c34e14ea0604eed86dc627dfa7e80b0","object":"chat.completion","created":1728511150,"model":"Qwen/Qwen2.5-72B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":15,"total_tokens":24,"completion_tokens":9,"estimated_cost":8.85e-06}}'
+      string: "{\"id\":\"chatcmpl-8300421cd07d45cfb79f39777823c0d3\",\"object\":\"chat.completion\",\"created\":1728588999,\"model\":\"Qwen/Qwen2.5-72B-Instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
+        How can I help you today? Feel free to ask me any questions or let me know
+        if you need any assistance with anything. \U0001F60A\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":15,\"total_tokens\":45,\"completion_tokens\":30,\"estimated_cost\":1.725e-05}}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '384'
+      - '480'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:59:10 GMT
+      - Thu, 10 Oct 2024 19:36:39 GMT
       server:
       - uvicorn
       x-robots-tag:

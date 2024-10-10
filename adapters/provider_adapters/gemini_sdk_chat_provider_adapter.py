@@ -1,12 +1,17 @@
+import time
 from typing import Any, Dict, Literal, Optional
+import uuid
 
 from google.ai.generativelanguage import (
+    GenerateContentResponse,
     GenerativeServiceAsyncClient,
     GenerativeServiceClient,
 )
 from google.api_core.client_options import ClientOptions
 import google.generativeai as genai
+from google.generativeai.types.generation_types import AsyncGenerateContentResponse
 from openai import NOT_GIVEN, NotGiven
+from openai.types import CompletionUsage
 from openai.types.chat import ChatCompletionMessage
 from openai.types.chat.chat_completion import Choice
 
@@ -120,88 +125,89 @@ class GeminiSDKChatProviderAdapter(
             client_options=ClientOptions(api_key=api_key), transport="rest"
         )
         self._async_client = GenerativeServiceAsyncClient(
-            client_options=ClientOptions(api_key=api_key)
+            client_options=ClientOptions(api_key=api_key), transport="rest"
         )
 
-    def extract_response(self, request: Any, response: Any) -> AdapterChatCompletion:
-        choices = [
-            Choice(
-                message=ChatCompletionMessage(
-                    role=ConversationRole.assistant.value,
-                    content=response.text,
-                ),
-                finish_reason="stop",
-                index=0,
+    def extract_response(
+        self, request: Any, response: GenerateContentResponse
+    ) -> AdapterChatCompletion:
+        choices: list[Choice] = []
+
+        for candidate in response.candidates:
+            choices.append(
+                Choice(
+                    message=ChatCompletionMessage(
+                        role=ConversationRole.assistant.value,
+                        content=response.text,
+                    ),
+                    finish_reason="stop",
+                    index=candidate.index,
+                )
             )
-        ]
 
-        # Optimize token count calculation, use async for async and parallelize
-        assert self.model
-        prompt_tokens = self.model.count_tokens(
-            [_map_turn_content_to_str(turn) for turn in request.turns]
-        ).total_tokens
-        completion_tokens = self.model.count_tokens(response.text).total_tokens
+        usage = CompletionUsage(
+            prompt_tokens=response.usage_metadata.prompt_token_count,
+            completion_tokens=response.usage_metadata.candidates_token_count,
+            total_tokens=response.usage_metadata.prompt_token_count
+            + response.usage_metadata.candidates_token_count,
+        )
 
-        dynamic_cost = get_dynamic_cost(self.get_model_name(), prompt_tokens)
+        dynamic_cost = get_dynamic_cost(self.get_model_name(), usage.prompt_tokens)
         cost = (
-            dynamic_cost.prompt * prompt_tokens
-            + dynamic_cost.completion * completion_tokens
+            dynamic_cost.prompt * usage.prompt_tokens
+            + dynamic_cost.completion * usage.completion_tokens
             + self.get_model().cost.request
         )
 
         return AdapterChatCompletion(
-            response=Turn(
-                role=ConversationRole.assistant,
-                content=choices[0]["message"]["content"],  # type: ignore
-            ),  # TODO: Refactor response
-            choices=choices,
+            id=str(uuid.uuid4()),
+            created=int(time.time()),
+            model=self.get_model().name,
+            object="chat.completion",
             cost=cost,
-            token_counts=Cost(
-                prompt=prompt_tokens,
-                completion=completion_tokens,
-            ),
+            usage=usage,
+            choices=choices,
         )
 
     async def extract_response_async(
-        self, request: Any, response: Any
+        self, request: Any, response: AsyncGenerateContentResponse
     ) -> AdapterChatCompletion:
-        model = genai.GenerativeModel(model_name=self.get_model_name())
-        model._async_client = self.get_async_client()
+        choices: list[Choice] = []
 
-        choices = [
-            Choice(
-                message=ChatCompletionMessage(
-                    role=ConversationRole.assistant.value,
-                    content=response.text,
-                ),
-                finish_reason="stop",
-                index=0,
+        for candidate in response.candidates:
+            choices.append(
+                Choice(
+                    message=ChatCompletionMessage(
+                        role=ConversationRole.assistant.value,
+                        content=response.text,
+                    ),
+                    finish_reason="stop",
+                    index=candidate.index,
+                )
             )
-        ]
 
-        prompt_tokens = await model.count_tokens_async(
-            [turn.content for turn in request.turns]
+        usage = CompletionUsage(
+            prompt_tokens=response.usage_metadata.prompt_token_count,
+            completion_tokens=response.usage_metadata.candidates_token_count,
+            total_tokens=response.usage_metadata.prompt_token_count
+            + response.usage_metadata.candidates_token_count,
         )
-        completion_tokens = await model.count_tokens_async(response.text)
 
-        dynamic_cost = get_dynamic_cost(self.get_model_name(), prompt_tokens)
+        dynamic_cost = get_dynamic_cost(self.get_model_name(), usage.prompt_tokens)
         cost = (
-            dynamic_cost.prompt * prompt_tokens
-            + dynamic_cost.completion * completion_tokens
+            dynamic_cost.prompt * usage.prompt_tokens
+            + dynamic_cost.completion * usage.completion_tokens
             + self.get_model().cost.request
         )
 
         return AdapterChatCompletion(
-            response=Turn(
-                role=ConversationRole.assistant,
-                content=choices[0]["message"]["content"],  # type: ignore
-            ),
-            choices=choices,
+            id=str(uuid.uuid4()),
+            created=int(time.time()),
+            model=self.get_model().name,
+            object="chat.completion",
             cost=cost,
-            token_counts=Cost(
-                prompt=prompt_tokens.total_tokens,
-                completion=completion_tokens.total_tokens,
-            ),
+            usage=usage,
+            choices=choices,
         )
 
     def extract_stream_response(self, request, response):
