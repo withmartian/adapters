@@ -121,8 +121,6 @@ class CohereSDKChatProviderAdapter(
     def _sync_client_wrapper(self, **kwargs: Any):
         stream = kwargs.pop("stream", False)
 
-        full_url = f"{self.get_base_sdk_url()}/chat"
-        print(f"Calling Cohere API at: {full_url}")
         if stream:
             return self._sync_client.chat_stream(**kwargs)
         return self._sync_client.chat(**kwargs)
