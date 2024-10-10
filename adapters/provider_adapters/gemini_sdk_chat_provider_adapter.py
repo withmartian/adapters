@@ -129,7 +129,9 @@ class GeminiSDKChatProviderAdapter(
         )
 
     def extract_response(
-        self, request: Any, response: GenerateContentResponse
+        self,
+        request: Any,
+        response: GenerateContentResponse,
     ) -> AdapterChatCompletion:
         choices: list[Choice] = []
 
@@ -170,7 +172,9 @@ class GeminiSDKChatProviderAdapter(
         )
 
     async def extract_response_async(
-        self, request: Any, response: AsyncGenerateContentResponse
+        self,
+        request: Any,  # pylint: disable=unused-argument
+        response: AsyncGenerateContentResponse,
     ) -> AdapterChatCompletion:
         choices: list[Choice] = []
 
