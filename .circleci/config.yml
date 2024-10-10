@@ -148,6 +148,15 @@ jobs:
             git checkout -b update/circle-ci-${CIRCLE_BUILD_NUM}
             cd -
       - run:
+          name: Check directory structure
+          command: |
+            echo "Current working directory:"
+            pwd
+            echo "Contents of home directory:"
+            ls -R ~
+            echo "Contents of gitbook-docs directory:"
+            ls -R ~/gitbook-docs
+      - run:
           name: Run doc update
           command: |
             poetry install
