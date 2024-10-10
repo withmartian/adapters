@@ -168,6 +168,8 @@ jobs:
       - image: cimg/python:3.11.5
     steps:
       - checkout
+      - python/install-packages:
+          pkg-manager: poetry
       - run:
           name: Run command with --record-mode=rewrite
           command: poetry run pytest --record-mode=rewrite
