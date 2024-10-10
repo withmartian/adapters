@@ -1,11 +1,11 @@
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model, ModelPredicates
+from adapters.types import Cost, Model, ModelProperties
 
 PROVIDER_NAME = "perplexity"
 PERPLEXITY_BASE_URL = "https://api.perplexity.ai"
 API_KEY_NAME = "PERPLEXITY_API_KEY"
-BASE_PREDICATES = ModelPredicates(open_source=True)
+BASE_PROPERTIES = ModelProperties(open_source=True)
 
 
 class PerplexityModel(Model):
@@ -21,7 +21,7 @@ class PerplexityModel(Model):
     supports_first_assistant: bool = False
     supports_last_assistant: bool = False
 
-    predicates: ModelPredicates = BASE_PREDICATES
+    properties: ModelProperties = BASE_PROPERTIES
 
 
 MODELS = [
@@ -66,7 +66,7 @@ MODELS = [
         cost=Cost(prompt=1e-6, completion=1e-6),
         context_length=131072,
         vendor_name="meta-llama",
-        predicates=BASE_PREDICATES.model_copy(update={"is_nsfw": True}),
+        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
 ]
 

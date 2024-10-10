@@ -2,12 +2,12 @@ from openai.types.chat.chat_completion_chunk import ChatCompletionChunk
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model, ModelPredicates
+from adapters.types import Cost, Model, ModelProperties
 
 PROVIDER_NAME = "fireworks"
 BASE_URL = "https://api.fireworks.ai/inference/v1"
 API_KEY_NAME = "FIREWORKS_API_KEY"
-BASE_PREDICATES = ModelPredicates(
+BASE_PROPERTIES = ModelProperties(
     open_source=True,
     gdpr_compliant=True,
 )
@@ -15,7 +15,7 @@ BASE_PREDICATES = ModelPredicates(
 
 class FireworksModel(Model):
     provider_name: str = PROVIDER_NAME
-    predicates: ModelPredicates = BASE_PREDICATES
+    properties: ModelProperties = BASE_PROPERTIES
 
     supports_repeating_roles: bool = True
     supports_system: bool = True
@@ -57,14 +57,14 @@ MODELS = [
         cost=Cost(prompt=3.0e-6, completion=3.0e-6),
         context_length=131072,
         vendor_name="meta-llama",
-        predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": False}),
+        properties=BASE_PROPERTIES.model_copy(update={"gdpr_compliant": False}),
     ),
     FireworksModel(
         name="llama-v3p1-70b-instruct",
         cost=Cost(prompt=0.9e-6, completion=0.9e-6),
         context_length=131072,
         vendor_name="meta-llama",
-        predicates=BASE_PREDICATES.model_copy(
+        properties=BASE_PROPERTIES.model_copy(
             update={"is_nsfw": True, "gdpr_compliant": False}
         ),
     ),
@@ -73,7 +73,7 @@ MODELS = [
         cost=Cost(prompt=0.2e-6, completion=0.2e-6),
         context_length=131072,
         vendor_name="meta-llama",
-        predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": False}),
+        properties=BASE_PROPERTIES.model_copy(update={"gdpr_compliant": False}),
     ),
 ]
 
