@@ -1,38 +1,32 @@
-import time
-from typing import Any, Dict, Literal, Optional
-import uuid
+import re
+from typing import Any, Dict, Pattern
 
 from google.ai.generativelanguage import (
-    GenerateContentResponse,
     GenerativeServiceAsyncClient,
     GenerativeServiceClient,
 )
 from google.api_core.client_options import ClientOptions
 import google.generativeai as genai
-from google.generativeai.types.generation_types import AsyncGenerateContentResponse
-from openai import NOT_GIVEN, NotGiven
-from openai.types import CompletionUsage
-from openai.types.chat import ChatCompletionMessage
-from openai.types.chat.chat_completion import Choice
 
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
-    AdapterChatCompletion,
     ContentTurn,
     Conversation,
     ConversationRole,
     Cost,
     Model,
-    ModelPredicates,
+    ModelProperties,
+    OpenAIChatAdapterResponse,
     Turn,
 )
 from adapters.utils.general_utils import get_dynamic_cost
 
 PROVIDER_NAME = "gemini"
 API_KEY_NAME = "GEMINI_API_KEY"
-BASE_PREDICATES = ModelPredicates(gdpr_compliant=True)
+API_KEY_PATTERN = re.compile(r".*")
+BASE_PROPERTIES = ModelProperties(gdpr_compliant=True)
 
 
 class GeminiModel(Model):
@@ -40,7 +34,7 @@ class GeminiModel(Model):
 
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
-    predicates: ModelPredicates = BASE_PREDICATES
+    properties: ModelProperties = BASE_PROPERTIES
 
     supports_repeating_roles: bool = True
     supports_system: bool = True
@@ -94,6 +88,10 @@ class GeminiSDKChatProviderAdapter(
     def get_api_key_name() -> str:
         return API_KEY_NAME
 
+    @staticmethod
+    def get_api_key_pattern() -> Pattern:
+        return API_KEY_PATTERN
+
     _sync_client: GenerativeServiceClient
     _async_client: GenerativeServiceAsyncClient
 
@@ -125,93 +123,88 @@ class GeminiSDKChatProviderAdapter(
             client_options=ClientOptions(api_key=api_key), transport="rest"
         )
         self._async_client = GenerativeServiceAsyncClient(
-            client_options=ClientOptions(api_key=api_key), transport="rest"
+            client_options=ClientOptions(api_key=api_key)
         )
 
     def extract_response(
-        self,
-        request: Any,
-        response: GenerateContentResponse,
-    ) -> AdapterChatCompletion:
-        choices: list[Choice] = []
+        self, request: Any, response: Any
+    ) -> OpenAIChatAdapterResponse:
+        choices = [
+            {
+                "message": {
+                    "role": ConversationRole.assistant,
+                    "content": response.text,
+                },
+                "finish_reason": "stop",
+            }
+        ]
 
-        for candidate in response.candidates:
-            choices.append(
-                Choice(
-                    message=ChatCompletionMessage(
-                        role=ConversationRole.assistant.value,
-                        content=response.text,
-                    ),
-                    finish_reason="stop",
-                    index=candidate.index,
-                )
-            )
+        # Optimize token count calculation, use async for async and parallelize
+        assert self.model
+        prompt_tokens = self.model.count_tokens(
+            [_map_turn_content_to_str(turn) for turn in request.turns]
+        ).total_tokens
+        completion_tokens = self.model.count_tokens(response.text).total_tokens
 
-        usage = CompletionUsage(
-            prompt_tokens=response.usage_metadata.prompt_token_count,
-            completion_tokens=response.usage_metadata.candidates_token_count,
-            total_tokens=response.usage_metadata.prompt_token_count
-            + response.usage_metadata.candidates_token_count,
-        )
-
-        dynamic_cost = get_dynamic_cost(self.get_model_name(), usage.prompt_tokens)
+        dynamic_cost = get_dynamic_cost(self.get_model_name(), prompt_tokens)
         cost = (
-            dynamic_cost.prompt * usage.prompt_tokens
-            + dynamic_cost.completion * usage.completion_tokens
+            dynamic_cost.prompt * prompt_tokens
+            + dynamic_cost.completion * completion_tokens
             + self.get_model().cost.request
         )
 
-        return AdapterChatCompletion(
-            id=str(uuid.uuid4()),
-            created=int(time.time()),
-            model=self.get_model().name,
-            object="chat.completion",
-            cost=cost,
-            usage=usage,
+        return OpenAIChatAdapterResponse(
+            response=Turn(
+                role=ConversationRole.assistant,
+                content=choices[0]["message"]["content"],  # type: ignore
+            ),  # TODO: Refactor response
             choices=choices,
+            cost=cost,
+            token_counts=Cost(
+                prompt=prompt_tokens,
+                completion=completion_tokens,
+            ),
         )
 
     async def extract_response_async(
-        self,
-        request: Any,  # pylint: disable=unused-argument
-        response: AsyncGenerateContentResponse,
-    ) -> AdapterChatCompletion:
-        choices: list[Choice] = []
+        self, request: Any, response: Any
+    ) -> OpenAIChatAdapterResponse:
+        model = genai.GenerativeModel(model_name=self.get_model_name())
+        model._async_client = self.get_async_client()
 
-        for candidate in response.candidates:
-            choices.append(
-                Choice(
-                    message=ChatCompletionMessage(
-                        role=ConversationRole.assistant.value,
-                        content=response.text,
-                    ),
-                    finish_reason="stop",
-                    index=candidate.index,
-                )
-            )
+        choices = [
+            {
+                "message": {
+                    "role": ConversationRole.assistant,
+                    "content": response.text,
+                },
+                "finish_reason": "stop",
+            }
+        ]
 
-        usage = CompletionUsage(
-            prompt_tokens=response.usage_metadata.prompt_token_count,
-            completion_tokens=response.usage_metadata.candidates_token_count,
-            total_tokens=response.usage_metadata.prompt_token_count
-            + response.usage_metadata.candidates_token_count,
+        prompt_tokens = await model.count_tokens_async(
+            [turn.content for turn in request.turns]
         )
+        completion_tokens = await model.count_tokens_async(response.text)
 
-        dynamic_cost = get_dynamic_cost(self.get_model_name(), usage.prompt_tokens)
+        dynamic_cost = get_dynamic_cost(self.get_model_name(), prompt_tokens)
         cost = (
-            dynamic_cost.prompt * usage.prompt_tokens
-            + dynamic_cost.completion * usage.completion_tokens
+            dynamic_cost.prompt * prompt_tokens
+            + dynamic_cost.completion * completion_tokens
             + self.get_model().cost.request
         )
 
-        return AdapterChatCompletion(
-            id=str(uuid.uuid4()),
-            created=int(time.time()),
-            model=self.get_model().name,
-            object="chat.completion",
-            cost=cost,
-            usage=usage,
+        return OpenAIChatAdapterResponse(
+            response=Turn(
+                role=ConversationRole.assistant,
+                content=choices[0]["message"]["content"],  # type: ignore
+            ),
             choices=choices,
+            cost=cost,
+            token_counts=Cost(
+                prompt=prompt_tokens.total_tokens,
+                completion=completion_tokens.total_tokens,
+            ),
         )
 
     def extract_stream_response(self, request, response):
@@ -250,7 +243,6 @@ class GeminiSDKChatProviderAdapter(
     async def execute_async(
         self,
         llm_input: Conversation,
-        stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
         **kwargs,
     ):
         params = self.get_params(llm_input, **kwargs)
@@ -270,7 +262,6 @@ class GeminiSDKChatProviderAdapter(
     def execute_sync(
         self,
         llm_input: Conversation,
-        stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
         **kwargs,
     ):
         params = self.get_params(llm_input, **kwargs)

@@ -3,6 +3,9 @@
 - Each model has it own base url.
 """
 
+import re
+from typing import Pattern
+
 from httpx import URL
 from openai.types.chat.chat_completion_chunk import (
     ChatCompletionChunk,
@@ -12,12 +15,13 @@ from openai.types.chat.chat_completion_chunk import (
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model, ModelPredicates
+from adapters.types import Cost, Model, ModelProperties
 
 PROVIDER_NAME = "lepton"
 BASE_URL = "https://{}.lepton.run/api/v1/"
 API_KEY_NAME = "LEPTON_API_KEY"
-BASE_PREDICATES = ModelPredicates(
+API_KEY_PATTERN = re.compile(r".*")
+BASE_PROPERTIES = ModelProperties(
     open_source=True,
     gdpr_compliant=True,
 )
@@ -36,7 +40,7 @@ class LeptonModel(Model):
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
 
-    predicates: ModelPredicates = BASE_PREDICATES
+    properties: ModelProperties = BASE_PROPERTIES
 
 
 # TODO: add more models
@@ -100,6 +104,10 @@ class LeptonSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
+
+    @staticmethod
+    def get_api_key_pattern() -> Pattern:
+        return API_KEY_PATTERN
 
     def get_base_sdk_url(self) -> str:
         return BASE_URL

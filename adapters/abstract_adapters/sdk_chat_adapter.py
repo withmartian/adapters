@@ -1,24 +1,33 @@
 from abc import abstractmethod
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
-from openai import NOT_GIVEN, NotGiven
+from openai import AsyncStream, Stream
+from openai.types.chat import ChatCompletionChunk
 
 from adapters.abstract_adapters.base_adapter import BaseAdapter
 from adapters.types import (
     AdapterException,
-    AdapterStreamChatCompletion,
+    AdapterStreamResponse,
+    ChatAdapterResponse,
     ContentTurn,
     ContentType,
     Conversation,
     ConversationRole,
     Model,
-    ModelPredicates,
+    Prompt,
 )
 from adapters.utils.adapter_stream_response import stream_generator_auto_close
 from adapters.utils.general_utils import EMPTY_CONTENT, delete_none_values
 
 
-class SDKChatAdapter(BaseAdapter):
+class SDKChatAdapter(
+    BaseAdapter[
+        Conversation,
+        ChatAdapterResponse,
+        Stream[ChatCompletionChunk],
+        AsyncStream[ChatCompletionChunk],
+    ],
+):
     @abstractmethod
     def get_supported_models(self) -> List[Model]:
         pass
@@ -43,14 +52,15 @@ class SDKChatAdapter(BaseAdapter):
     def extract_stream_response(self, request, response):
         pass
 
-    def get_model_predicates(self, model_name: str) -> ModelPredicates:
-        for model in self.get_supported_models():
-            if model.name == model_name:
-                return model.predicates
-        raise ValueError(f"Model {model_name} not found")
+    @staticmethod
+    def convert_to_input(llm_input: Conversation | Prompt) -> Conversation:
+        if isinstance(llm_input, Conversation):
+            return llm_input
 
-    def adjust_temperature(self, temperature: float) -> float:
-        return temperature
+        if isinstance(llm_input, Prompt):
+            return llm_input.convert_to_conversation()
+
+        raise ValueError(f"Llm_input {llm_input} is not a valid input")
 
     # pylint: disable=too-many-statements
     def get_params(
@@ -118,13 +128,9 @@ class SDKChatAdapter(BaseAdapter):
         # Convert json content to string if not supported
         if not self.get_model().supports_json_content:
             for message in messages:
-                if "content" in message and isinstance(message["content"], list):
+                if isinstance(message["content"], list):
                     message["content"] = "\n".join(
-                        [
-                            content["text"]
-                            for content in message["content"]
-                            if "text" in content
-                        ]
+                        [content["text"] for content in message["content"]]
                     )
 
         # Convert empty string to "." if not supported
@@ -147,14 +153,14 @@ class SDKChatAdapter(BaseAdapter):
         # Change system prompt roles to assistant
         if not self.get_model().supports_multiple_system:
             for message in messages[1:]:
-                if message["role"] == ConversationRole.system.value:
-                    message["role"] = ConversationRole.assistant.value
+                if message["role"] == ConversationRole.system:
+                    message["role"] = ConversationRole.assistant
 
         # Change system prompt roles to assistant
         if not self.get_model().supports_system:
             for message in messages:
-                if message["role"] == ConversationRole.system.value:
-                    message["role"] = ConversationRole.assistant.value
+                if message["role"] == ConversationRole.system:
+                    message["role"] = ConversationRole.assistant
 
         # Join messages from the same role
         processed_messages = []
@@ -192,20 +198,18 @@ class SDKChatAdapter(BaseAdapter):
         # If the last message is assistant, add an empty user message
         if (
             self.get_model().supports_first_assistant is False
-            and messages[0]["role"] == ConversationRole.assistant.value
+            and messages[0]["role"] == ConversationRole.assistant
         ):
             messages.insert(
-                0, {"role": ConversationRole.user.value, "content": EMPTY_CONTENT}
+                0, {"role": ConversationRole.user, "content": EMPTY_CONTENT}
             )
 
             # If the first message is assistant, add an empty user message
         if (
             self.get_model().supports_last_assistant is False
-            and messages[-1]["role"] == ConversationRole.assistant.value
+            and messages[-1]["role"] == ConversationRole.assistant
         ):
-            messages.append(
-                {"role": ConversationRole.user.value, "content": EMPTY_CONTENT}
-            )
+            messages.append({"role": ConversationRole.user, "content": EMPTY_CONTENT})
 
         # ====
 
@@ -222,7 +226,6 @@ class SDKChatAdapter(BaseAdapter):
     async def execute_async(
         self,
         llm_input: Conversation,
-        stream: Optional[bool] | NotGiven = NOT_GIVEN,
         **kwargs,
     ):
         params = self.get_params(llm_input, **kwargs)
@@ -231,7 +234,7 @@ class SDKChatAdapter(BaseAdapter):
             **delete_none_values(params),
         )
 
-        if stream:
+        if params.get("stream", False):
 
             async def stream_response():
                 async with stream_generator_auto_close(response):
@@ -245,14 +248,13 @@ class SDKChatAdapter(BaseAdapter):
                             f"Error in streaming response: {e}"
                         ) from e
 
-            return AdapterStreamChatCompletion(response=stream_response())
+            return AdapterStreamResponse(response=stream_response())
 
         return self.extract_response(request=llm_input, response=response)
 
     def execute_sync(
         self,
         llm_input: Conversation,
-        stream: Optional[bool] | NotGiven = NOT_GIVEN,
         **kwargs,
     ):
         params = self.get_params(llm_input, **kwargs)
@@ -261,7 +263,7 @@ class SDKChatAdapter(BaseAdapter):
             model=self.get_model()._get_api_path(), **delete_none_values(params)
         )
 
-        if stream:
+        if params.get("stream", False):
 
             def stream_response():
                 try:
@@ -274,6 +276,6 @@ class SDKChatAdapter(BaseAdapter):
                 finally:
                     response.close()
 
-            return AdapterStreamChatCompletion(response=stream_response())
+            return AdapterStreamResponse(response=stream_response())
 
         return self.extract_response(request=llm_input, response=response)

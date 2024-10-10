@@ -1,11 +1,15 @@
+import re
+from typing import Pattern
+
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model, ModelPredicates
+from adapters.types import Cost, Model, ModelProperties
 
 PROVIDER_NAME = "openrouter"
 BASE_URL = "https://openrouter.ai/api/v1"
 API_KEY_NAME = "OPENROUTER_API_KEY"
-BASE_PREDICATES = ModelPredicates(open_source=True)
+API_KEY_PATTERN = re.compile(r".*")
+BASE_PROPERTIES = ModelProperties(open_source=True)
 
 
 class OpenRouterModel(Model):
@@ -19,7 +23,7 @@ class OpenRouterModel(Model):
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
 
-    predicates: ModelPredicates = BASE_PREDICATES
+    properties: ModelProperties = BASE_PROPERTIES
 
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"
@@ -32,28 +36,28 @@ MODELS = [
         cost=Cost(prompt=1.08e-6, completion=1.08e-6),
         context_length=32_768,
         vendor_name="databricks",
-        predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": True}),
+        properties=BASE_PROPERTIES.model_copy(update={"gdpr_compliant": True}),
     ),
     OpenRouterModel(
         name="mistral-7b-instruct-v2",
         cost=Cost(prompt=0.055e-6, completion=0.055e-6),
         context_length=32_768,
         vendor_name="mistralai",
-        predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": True}),
+        properties=BASE_PROPERTIES.model_copy(update={"gdpr_compliant": True}),
     ),
     OpenRouterModel(
         name="mixtral-8x7b-instruct",
         cost=Cost(prompt=0.24e-6, completion=0.24e-6),
         context_length=32_768,
         vendor_name="mistralai",
-        predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": True}),
+        properties=BASE_PROPERTIES.model_copy(update={"gdpr_compliant": True}),
     ),
     OpenRouterModel(
         name="mixtral-8x22b-instruct",
         cost=Cost(prompt=0.65e-6, completion=0.65e-6),
         context_length=65_536,
         vendor_name="mistralai",
-        predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": True}),
+        properties=BASE_PROPERTIES.model_copy(update={"gdpr_compliant": True}),
     ),
     OpenRouterModel(
         name="mythalion-13b",
@@ -121,3 +125,7 @@ class OpenRouterSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapte
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
+
+    @staticmethod
+    def get_api_key_pattern() -> Pattern:
+        return API_KEY_PATTERN

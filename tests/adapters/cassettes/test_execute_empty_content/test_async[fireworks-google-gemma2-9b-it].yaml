@@ -16,50 +16,53 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.46.0
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
-      - 1.50.1
-      x-stainless-retry-count:
-      - '0'
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"e2653e70-b25b-4c07-93ff-ee58072e4e04\",\"object\":\"chat.completion\",\"created\":1728508368,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
-        provide me with a question or a topic you'd like to discuss! I'm ready for
-        anything from creative writing prompts to answering factual questions. \U0001F60A
-        \ \\n<end_of_turn>\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":55,\"completion_tokens\":36}}"
+      string: "{\"id\":\"f23063f7-83e6-4737-9f0b-6aa83e4d4f5a\",\"object\":\"chat.completion\",\"created\":1726705584,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
+        provide me with a prompt or question so I can assist you! \U0001F60A \\n\\nFor
+        example, you could ask me to:\\n\\n* **Write a story:** \\\"Write a short
+        story about a robot who learns to feel emotions.\\\"\\n* **Answer a question:**
+        \\\"What is the capital of France?\\\"\\n* **Generate creative content:**
+        \\\"Give me a list of unique business names.\\\"\\n* **Translate text:** \\\"Translate
+        'Hello, how are you?' into Spanish.\\\"\\n* **Summarize information:** \\\"Summarize
+        the plot of the movie Inception.\\\"\\n\\n\\nI'm ready for anything! \u2728
+        \\n<end_of_turn>\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":147,\"completion_tokens\":128}}"
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d015ef0f90695a5-TBS
+      - 8c5571ab5b04cfe5-SJC
       Cf-Placement:
-      - local-TBS
+      - remote-SEA
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:12:48 GMT
+      - Thu, 19 Sep 2024 00:26:25 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=613.0;desc="Total Response Time"
+      - total;dur=1194.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -67,7 +70,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '477'
+      - '842'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -75,11 +78,9 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.351'
+      - '1.081'
       x-envoy-upstream-service-time:
-      - '353'
-      x-request-id:
-      - e2653e70-b25b-4c07-93ff-ee58072e4e04
+      - '1089'
     status:
       code: 200
       message: OK

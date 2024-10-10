@@ -16,75 +16,77 @@ interactions:
       host:
       - api.perplexity.ai
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
-      - 1.50.1
-      x-stainless-retry-count:
-      - '0'
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "fa14f8fa-85d9-4ded-9d04-4fbf4f064f6b", "model": "llama-3.1-sonar-huge-128k-online",
-        "created": 1728507783, "usage": {"prompt_tokens": 3, "completion_tokens":
-        461, "total_tokens": 464}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
-        seems like you''re looking for information on how to keep quotes around empty
-        cells when saving a CSV file, particularly in LibreOffice. Here''s a summary
-        based on the relevant search result:\n\n1. **LibreOffice Limitation**: Currently,
-        LibreOffice does not have a standard option to quote empty cells when exporting
-        to CSV. The \"Quote all text cells\" option in the export settings does not
-        apply to empty cells.\n\n2. **Workaround**: To quote empty cells, you need
-        to explicitly create empty text for those cells using the formula `=\"\"`.
-        This can be done manually or through a script that replaces empty cells with
-        this formula within a specified range. Here is a sample script provided in
-        the discussion:\n\n```vb\nSub efficientPrepareUsedAreaOfSheetForFullyQuotedCSVexport(Optional
+      string: '{"id": "7496dbce-0f2a-47bb-9141-5c32013e5671", "model": "llama-3.1-sonar-huge-128k-online",
+        "created": 1726705237, "usage": {"prompt_tokens": 3, "completion_tokens":
+        563, "total_tokens": 566}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "To
+        address your query about keeping quotes around empty cells when saving a CSV
+        file, particularly in LibreOffice, here are some key points from the relevant
+        source:\n\n1. **Restrict Export to a Range**: To quote empty cells, you need
+        to restrict the export to a specific range. There is no standard option in
+        LibreOffice to quote all empty cells automatically.\n\n2. **Use Formula for
+        Empty Cells**: You can use a formula to create empty text in cells that you
+        want to be quoted. For example, using `=\"\"` in the cells will ensure they
+        are quoted in the CSV file.\n\n3. **Macro Solution**: A macro can be used
+        to automate the process of filling empty cells with the formula `=\"\"` before
+        exporting to CSV. This can be done by iterating over the used area of the
+        sheet and applying the formula to empty cells.\n\nHere is a simplified version
+        of the steps and code provided in the source:\n\n- **Manual Method**:\n  1.
+        **Select the Range**: Choose the specific range you want to export.\n  2.
+        **Apply Formula**: Use the formula `=\"\"` in empty cells within this range.\n  3.
+        **Export to CSV**: Ensure to select \"Quote all text cells\" in the export
+        options, though this does not automatically quote empty cells without the
+        formula.\n\n- **Macro Method**:\n  1. **Create a Macro**: Use the following
+        code to automate the process:\n  ```vb\n  Sub efficientPrepareUsedAreaOfSheetForFullyQuotedCSVexport(Optional
         pSheet)\n    If IsMissing(pSheet) Then pSheet = ThisComponent.CurrentController.ActiveSheet\n    cellCursor
         = pSheet.createCursor()\n    cellCursor.gotoStartOfUsedArea(False)\n    cellCursor.gotoEndOfUsedArea(True)\n    emptyRgs
-        = cellCursor.queryEmptyCells()\n    For Each emptyRg In emptyRgs\n        ra
-        = emptyRg.RangeAddress\n        With ra\n            topRow = emptyRg.SpreadSheet.getCellRangeByPosition(
-        _\n                .StartColumn, .StartRow, .EndColumn, .StartRow)\n            topLeftCell
-        = topRow.getCellByPosition(0, 0)\n        End With\n        topLeftCell.Formula
-        = \"=\"\"\"\"\"\n        topRow.fillAuto(1, 1)\n        emptyRg.fillAuto(0,
-        1)\n    Next emptyRg\nEnd Sub\n```\n\nThis script identifies empty cells within
-        the used area of a sheet and fills them with the formula `=\"\"`, ensuring
-        they are quoted when exported to CSV.\n\n3. **Alternative Approach**: Another
-        user suggests checking the exported CSV file for commas without preceding
-        quotes and inserting double quotes via JavaScript as a workaround. However,
-        having an option in LibreOffice would be more consistent and convenient.\n\nIn
-        summary, to keep quotes around empty cells in a CSV file using LibreOffice,
-        you need to use a workaround such as filling empty cells with the formula
-        `=\"\"` either manually or through a script."}, "delta": {"role": "assistant",
-        "content": ""}}]}'
+        = cellCursor.queryEmptyCells()\n    For Each emptyRg In emptyRgs\n      ra
+        = emptyRg.RangeAddress\n      With ra\n        topRow = emptyRg.SpreadSheet.getCellRangeByPosition(
+        _\n        .StartColumn, .StartRow, .EndColumn, .StartRow)\n        topLeftCell
+        = topRow.getCellByPosition(0, 0)\n      End With\n      topLeftCell.Formula
+        = \"=\"\"\"\"\"\n      topRow.fillAuto(1, 1)\n      emptyRg.fillAuto(0, 1)\n    Next
+        emptyRg\n  End Sub\n  ```\n  2. **Run the Macro**: Execute the macro to fill
+        empty cells with the formula.\n  3. **Export to CSV**: Proceed with exporting
+        the modified range to CSV.\n\nThis approach ensures that empty cells are quoted
+        in the CSV file, which is essential for maintaining consistent formatting,
+        especially in automated data processing and scripting contexts."}, "delta":
+        {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d0150165e9395a5-TBS
+      - 8c5568167b38230c-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:03:03 GMT
+      - Thu, 19 Sep 2024 00:20:37 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '2475'
+      - '2799'
     status:
       code: 200
       message: OK

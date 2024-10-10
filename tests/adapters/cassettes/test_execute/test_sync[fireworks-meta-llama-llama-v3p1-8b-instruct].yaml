@@ -15,48 +15,47 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.46.0
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
-      - 1.50.1
-      x-stainless-retry-count:
-      - '0'
+      - 1.46.0
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"dea200a4-84e7-49d2-ba31-90eeaa2fbd76","object":"chat.completion","created":1728515005,"model":"accounts/fireworks/models/llama-v3p1-8b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"How
-        can I assist you today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":12,"total_tokens":20,"completion_tokens":8}}'
+      string: '{"id":"8421fa85-a2db-4bef-8755-32a25a96b3b7","object":"chat.completion","created":1726704583,"model":"accounts/fireworks/models/llama-v3p1-8b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It''s
+        nice to meet you. Is there something I can help you with or would you like
+        to chat?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":12,"total_tokens":35,"completion_tokens":23}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d0200f95ca9959d-TBS
+      - 8c55593ada2b67d7-SJC
       Cf-Placement:
-      - local-TBS
+      - remote-SEA
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 23:03:24 GMT
+      - Thu, 19 Sep 2024 00:09:43 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=478.0;desc="Total Response Time"
+      - total;dur=169.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -64,7 +63,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '339'
+      - '401'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -72,11 +71,9 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.046'
+      - '0.110'
       x-envoy-upstream-service-time:
-      - '47'
-      x-request-id:
-      - dea200a4-84e7-49d2-ba31-90eeaa2fbd76
+      - '114'
     status:
       code: 200
       message: OK

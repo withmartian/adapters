@@ -1,10 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
-      "role": "user"}], "model": "claude-3-opus-20240229", "tools": [{"input_schema":
-      {"type": "object", "properties": {"prompt": {"type": "string", "description":
-      "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate", "description":
-      "Generate random number"}]}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Generate random number"}]}], "model": "claude-3-opus-20240229",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -15,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '333'
+      - '179'
       content-type:
       - application/json
       host:
@@ -23,45 +21,40 @@ interactions:
       user-agent:
       - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01Lt4KzB3QVoxcR3BuuLhbqi","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nTo
-        generate a random number, I need to use the \"generate\" tool. It requires
-        a \"prompt\" parameter which should be a string describing the kind of random
-        number to generate, like \"5, 4, 3, 10, 11\".\n\nThe user''s request of \"Generate
-        random number\" does not specify the exact format or range for the random
-        number. To call the tool properly, I need more information from the user on
-        what kind of random number they want.\n</thinking>\n\nTo generate a random
-        number for you, I need a bit more information. Can you please provide a prompt
-        specifying the range or type of random number you would like? For example,
-        you could say something like \"a number between 1 and 10\" or \"a 3 digit
-        number\"."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":170}}'
+      string: '{"id":"msg_015eSf8HVsnZwWyteXvSoZVn","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"I''m
+        sorry, but I do not have the ability to generate random numbers. As an AI
+        language model, I do not have access to any external sources of randomness
+        or the ability to generate random data. If you need a random number for a
+        specific purpose, I suggest using a random number generator tool or programming
+        language that has built-in random number generation capabilities."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":77}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01afcad8c195a0-TBS
+      - 8c559a7fec33cfa4-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:08:08 GMT
+      - Thu, 19 Sep 2024 00:54:20 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -73,15 +66,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-09T22:08:08Z'
+      - '2024-09-19T00:54:20Z'
       content-length:
-      - '951'
+      - '609'
       request-id:
-      - req_016xGhHLV6Pq23EeTQ3WLUcs
+      - req_015wTiwDJCdBS5TLAohnYdxN
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - a65002637edafc320ccf1a9d4e62a894
+      - e29bf1a99fbe7f88967f11c9fba757ea
     status:
       code: 200
       message: OK

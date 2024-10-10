@@ -1,17 +1,21 @@
+import re
+from typing import Pattern
+
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model, ModelPredicates
+from adapters.types import Cost, Model, ModelProperties
 
 PROVIDER_NAME = "ai21"
 BASE_URL = "https://api.ai21.com/studio/v1"
 API_KEY_NAME = "AI21_API_KEY"
-BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
+API_KEY_PATTERN = re.compile(r".*")
+BASE_PROPERTIES = ModelProperties(open_source=True, gdpr_compliant=True)
 
 
 class AI21Model(Model):
     provider_name: str = PROVIDER_NAME
     vendor_name: str = PROVIDER_NAME
-    predicates: ModelPredicates = BASE_PREDICATES
+    properties: ModelProperties = BASE_PROPERTIES
 
     supports_repeating_roles: bool = True
     supports_system: bool = True
@@ -57,3 +61,7 @@ class AI21SDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
+
+    @staticmethod
+    def get_api_key_pattern() -> Pattern:
+        return API_KEY_PATTERN

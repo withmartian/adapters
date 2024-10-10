@@ -155,7 +155,7 @@ def get_response_content_from_vcr(vcr, adapter: BaseAdapter):
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
         return response["content"][0]["text"]
     elif isinstance(adapter, CohereSDKChatProviderAdapter):
-        return response["message"]["content"][0]["text"]
+        return response["text"]
     elif isinstance(adapter, GeminiSDKChatProviderAdapter):
         return response["candidates"][0]["content"]["parts"][0]["text"]
     else:

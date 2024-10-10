@@ -1,10 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
-      "role": "user"}], "model": "claude-3-5-sonnet-20240620", "tools": [{"input_schema":
-      {"type": "object", "properties": {"prompt": {"type": "string", "description":
-      "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate", "description":
-      "Generate random number"}]}'
+    body: '{"max_tokens": 4096, "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Generate random number"}]}], "model": "claude-3-5-sonnet-20240620",
+      "system": "", "tools": []}'
     headers:
       accept:
       - application/json
@@ -15,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '337'
+      - '183'
       content-type:
       - application/json
       host:
@@ -23,44 +21,40 @@ interactions:
       user-agent:
       - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.9
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01SMUV11mMaiTDBvWPRshYfB","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"Certainly!
-        I''d be happy to generate a random number for you. However, to use the random
-        number generation tool, we need to provide a prompt that specifies the type
-        of random number you''d like. The tool description suggests that we should
-        provide a prompt like \"5, 4, 3, 10, 11\" to indicate the range or type of
-        random number we want.\n\nCould you please specify what kind of random number
-        you''d like? For example:\n- A single digit number (1-9)\n- A number within
-        a specific range (e.g., 1-100)\n- A number with a certain number of digits
-        (e.g., a 3-digit number)\n\nOnce you provide this information, I''ll be able
-        to use the tool to generate a random number for you."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":369,"output_tokens":175}}'
+      string: '{"id":"msg_01WsAMG9scBuF4niVnpAz2bP","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"I''m
+        afraid I don''t have the capability to generate truly random numbers. I can
+        provide information about random number generation, but I can''t actually
+        produce random numbers myself. If you need a random number, I''d suggest using
+        a random number generator website or app, or a programming language with a
+        random number function."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":66}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01aac7deb8959d-TBS
+      - 8c559bb5bf4a16a0-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:04:37 GMT
+      - Thu, 19 Sep 2024 00:55:07 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -72,21 +66,21 @@ interactions:
       anthropic-ratelimit-requests-remaining:
       - '3999'
       anthropic-ratelimit-requests-reset:
-      - '2024-10-09T22:05:08Z'
+      - '2024-09-19T00:55:08Z'
       anthropic-ratelimit-tokens-limit:
       - '8000000'
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-09T22:04:37Z'
+      - '2024-09-19T00:55:07Z'
       content-length:
-      - '912'
+      - '569'
       request-id:
-      - req_01Lcp2Mw8csUferyp4XBUmeH
+      - req_01LTxFbHFStxyd9zvBgcCXF6
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 96c3af6bcb4b353502845c49725aea8e
+      - e7430d9e826ffc6550e8498d5ad4ed67
     status:
       code: 200
       message: OK

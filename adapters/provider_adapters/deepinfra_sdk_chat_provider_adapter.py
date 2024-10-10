@@ -1,16 +1,20 @@
+import re
+from typing import Pattern
+
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.types import Cost, Model, ModelPredicates
+from adapters.types import Cost, Model, ModelProperties
 
 PROVIDER_NAME = "deepinfra"
 DEEPINFRA_BASE_URL = "https://api.deepinfra.com/v1/openai"
 API_KEY_NAME = "DEEPINFRA_API_KEY"
-BASE_PREDICATES = ModelPredicates(open_source=True, gdpr_compliant=True)
+API_KEY_PATTERN = re.compile(r".*")
+BASE_PROPERTIES = ModelProperties(open_source=True, gdpr_compliant=True)
 
 
 class DeepInfraModel(Model):
     provider_name: str = PROVIDER_NAME
-    predicates: ModelPredicates = BASE_PREDICATES
+    properties: ModelProperties = BASE_PROPERTIES
 
     supports_repeating_roles: bool = True
     supports_system: bool = True
@@ -32,7 +36,7 @@ MODELS = [
         context_length=32000,
         vendor_name="meta-llama",
         supports_n=False,
-        predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": False}),
+        properties=BASE_PROPERTIES.model_copy(update={"gdpr_compliant": False}),
     ),
     DeepInfraModel(
         name="Meta-Llama-3.1-8B-Instruct",
@@ -40,7 +44,7 @@ MODELS = [
         context_length=128000,
         vendor_name="meta-llama",
         supports_n=False,
-        predicates=BASE_PREDICATES.model_copy(update={"gdpr_compliant": False}),
+        properties=BASE_PROPERTIES.model_copy(update={"gdpr_compliant": False}),
     ),
     DeepInfraModel(
         name="Meta-Llama-3.1-70B-Instruct",
@@ -48,7 +52,7 @@ MODELS = [
         context_length=128000,
         vendor_name="meta-llama",
         supports_n=False,
-        predicates=BASE_PREDICATES.model_copy(
+        properties=BASE_PROPERTIES.model_copy(
             update={"is_nsfw": True, "gdpr_compliant": False}
         ),
     ),
@@ -94,3 +98,7 @@ class DeepInfraSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
+
+    @staticmethod
+    def get_api_key_pattern() -> Pattern:
+        return API_KEY_PATTERN
