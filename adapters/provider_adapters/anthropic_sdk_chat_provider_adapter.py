@@ -42,20 +42,20 @@ from adapters.types import (
     Cost,
     FinishReason,
     Model,
-    ModelPredicates,
+    ModelProperties,
 )
 from adapters.utils.general_utils import delete_none_values, process_image_url_anthropic
 
 PROVIDER_NAME = "anthropic"
 BASE_URL = "https://api.anthropic.com"
 API_KEY_NAME = "ANTHROPIC_API_KEY"
-BASE_PREDICATES = ModelPredicates(gdpr_compliant=True)
+BASE_PROPERTIES = ModelProperties(gdpr_compliant=True)
 
 
 class AnthropicModel(Model):
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
-    predicates: ModelPredicates = BASE_PREDICATES
+    properties: ModelProperties = BASE_PROPERTIES
 
     supports_tool_choice_required: bool = True
     supports_last_assistant: bool = True

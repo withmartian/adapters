@@ -12,7 +12,7 @@ from adapters.types import (
     Conversation,
     ConversationRole,
     Model,
-    ModelPredicates,
+    ModelProperties,
 )
 from adapters.utils.adapter_stream_response import stream_generator_auto_close
 from adapters.utils.general_utils import EMPTY_CONTENT, delete_none_values
@@ -43,10 +43,10 @@ class SDKChatAdapter(BaseAdapter):
     def extract_stream_response(self, request, response):
         pass
 
-    def get_model_predicates(self, model_name: str) -> ModelPredicates:
+    def get_model_properteis(self, model_name: str) -> ModelProperties:
         for model in self.get_supported_models():
             if model.name == model_name:
-                return model.predicates
+                return model.properties
         raise ValueError(f"Model {model_name} not found")
 
     def adjust_temperature(self, temperature: float) -> float:
