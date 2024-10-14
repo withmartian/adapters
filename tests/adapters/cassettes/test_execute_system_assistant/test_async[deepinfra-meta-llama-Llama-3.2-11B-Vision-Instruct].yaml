@@ -1,0 +1,59 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content":
+      "Hi"}], "model": "meta-llama/Llama-3.2-11B-Vision-Instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '214'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - AsyncOpenAI/Python 1.50.1
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-9d3a3bf4ca274ca5945cd3a0f58c98e2","object":"chat.completion","created":1728903262,"model":"meta-llama/Llama-3.2-11B-Vision-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        What''s on your mind today?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":29,"total_tokens":38,"completion_tokens":9,"estimated_cost":2.09e-06}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '398'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 14 Oct 2024 10:54:22 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1
