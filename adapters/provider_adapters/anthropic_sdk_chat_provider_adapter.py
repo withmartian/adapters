@@ -15,11 +15,8 @@ from anthropic import Anthropic, AsyncAnthropic
 from anthropic.types import (
     Message,
     RawContentBlockDeltaEvent,
-    RawContentBlockStartEvent,
-    RawContentBlockStopEvent,
     RawMessageDeltaEvent,
     RawMessageStartEvent,
-    RawMessageStopEvent,
     RawMessageStreamEvent,
 )
 from anthropic.types.message_create_params import (
@@ -58,7 +55,7 @@ from adapters.types import (
     Model,
     ModelProperties,
 )
-from adapters.utils.general_utils import delete_none_values, process_image_url_anthropic
+from adapters.utils.general_utils import process_image_url_anthropic
 
 PROVIDER_NAME = "anthropic"
 BASE_URL = "https://api.anthropic.com"
@@ -278,7 +275,6 @@ class AnthropicSDKChatProviderAdapter(
             object="chat.completion.chunk",
         )
 
-    # pylint: disable=too-many-locals
     def get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
         params = super().get_params(llm_input, **kwargs)
 

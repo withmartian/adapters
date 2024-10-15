@@ -1,0 +1,59 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "mistralai/Mistral-7B-Instruct-v0.3",
+      "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '188'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - AsyncOpenAI/Python 1.50.1
+      x-stainless-arch:
+      - x64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Linux
+      x-stainless-package-version:
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.6
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/chat/completions
+  response:
+    body:
+      string: "{\"id\":\"chatcmpl-b243af15fdce445ba257af81129aa183\",\"object\":\"chat.completion\",\"created\":1729011915,\"model\":\"mistralai/Mistral-7B-Instruct-v0.3\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
+        Hi again! How can I help you today? \U0001F60A\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":12,\"total_tokens\":24,\"completion_tokens\":12,\"estimated_cost\":1.32e-06}}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '401'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 15 Oct 2024 17:05:15 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -36,7 +36,6 @@ class LeptonModel(Model):
     supports_first_assistant: bool = True
     supports_streaming: bool = False
 
-
     properties: ModelProperties = BASE_PROPERTIES
 
 

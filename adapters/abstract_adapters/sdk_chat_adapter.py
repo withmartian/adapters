@@ -252,7 +252,7 @@ class SDKChatAdapter(BaseAdapter):
                 except Exception as e:
                     raise AdapterException(f"Error in streaming response: {e}") from e
                 finally:
-                    await response.aclose()
+                    await response.close()
 
         return stream_response()
 
