@@ -1,0 +1,89 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi "}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct",
+      "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '167'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.50.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"d456c24c-7500-4745-85f8-437806a0c7e7","object":"chat.completion","created":1729025790,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"!
+        I''m here to help you with any questions or concerns you might have. I''ll
+        do my best to provide accurate and useful information while ensuring a safe
+        and positive interaction. I''m committed to upholding ethical and respectful
+        communication, free from any form of prejudice or negativity. How can I assist
+        you today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":55,"total_tokens":125,"completion_tokens":70}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8d32b7508982cf82-SJC
+      Cf-Placement:
+      - remote-IAD
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 15 Oct 2024 20:56:30 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=925.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '629'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.854'
+      x-envoy-upstream-service-time:
+      - '855'
+      x-request-id:
+      - d456c24c-7500-4745-85f8-437806a0c7e7
+    status:
+      code: 200
+      message: OK
+version: 1

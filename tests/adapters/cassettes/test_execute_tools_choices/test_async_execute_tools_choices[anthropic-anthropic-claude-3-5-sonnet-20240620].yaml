@@ -1,0 +1,94 @@
+interactions:
+- request:
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
+      "role": "user"}], "model": "claude-3-5-sonnet-20240620", "stream": false, "tools":
+      [{"input_schema": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate",
+      "description": "Generate random number"}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      anthropic-version:
+      - '2023-06-01'
+      connection:
+      - keep-alive
+      content-length:
+      - '354'
+      content-type:
+      - application/json
+      host:
+      - api.anthropic.com
+      user-agent:
+      - AsyncAnthropic/Python 0.34.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 0.34.2
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: '{"id":"msg_01SRf3KzRxufCs1PVbc7mTJk","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"Certainly!
+        I can help you generate a random number using the available tool. However,
+        I need a bit more information to proceed. The \"generate\" function requires
+        a prompt parameter that specifies the type of random number you''d like to
+        generate.\n\nCould you please provide more details about the random number
+        you want? For example, do you want a random number between certain values,
+        or a random number with a specific number of digits? \n\nHere are some examples
+        to help guide you:\n- \"Generate a random number between 1 and 10\"\n- \"Give
+        me a random 3-digit number\"\n- \"Generate a random number from 0 to 100\"\n\nOnce
+        you provide this information, I''ll be able to use the tool to generate the
+        random number for you."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":369,"output_tokens":168}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8d32cf3fab9c15fb-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 15 Oct 2024 21:12:53 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3999'
+      anthropic-ratelimit-requests-reset:
+      - '2024-10-15T21:13:08Z'
+      anthropic-ratelimit-tokens-limit:
+      - '8000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '8000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-10-15T21:12:53Z'
+      content-length:
+      - '968'
+      request-id:
+      - req_01KGS8UQJBYyvJaFWm1ttvLS
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - 7044702ff237cda3434ba9f5962191fc
+    status:
+      code: 200
+      message: OK
+version: 1
