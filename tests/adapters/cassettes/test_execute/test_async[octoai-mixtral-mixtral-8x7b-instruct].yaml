@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "mixtral-8x7b-instruct"}'
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "mixtral-8x7b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '83'
+      - '100'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,24 +32,23 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-184ea0ead4d44b9d8e7955152ff7c010\",\"object\":\"chat.completion\",\"created\":1728515205,\"model\":\"mixtral-8x7b-instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
-        Hello! How can I help you today? If you have any questions about a specific
-        topic, such as programming, data science, or technology, feel free to ask.
-        I'll do my best to provide a clear and helpful answer. \U0001F60A\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":9,\"completion_tokens\":50,\"total_tokens\":59}}"
+      string: '{"id":"chatcmpl-05d53231fa1843518b198a7dff9dcafe","object":"chat.completion","created":1728954929,"model":"mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"
+        Hello! How can I help you today? If you have any questions or need assistance
+        with something, feel free to ask. I''m here to help."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":9,"completion_tokens":32,"total_tokens":41}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '517'
+      - '436'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 23:06:45 GMT
+      - Tue, 15 Oct 2024 01:15:29 GMT
       Server:
       - uvicorn
       Vary:
@@ -58,13 +58,13 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '1172'
+      - '476'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1728515206'
+      - '1728954930'
       X-User-Request-Id:
       - ''
     status:

@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct"}'
+      " "}, {"role": "user", "content": "\n"}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '181'
+      - '198'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,36 +33,43 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"0de7c6d6-541f-4a7d-a326-d1da7cd021e7","object":"chat.completion","created":1728508171,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"I''m
-        here to provide assistance and engage in positive, respectful conversations.
-        I''ll do my best to respond utilfully and ethically while ensuring the security
-        of the conversation. Let''s continue with care and thoughtfulness. How can
-        I help you today? If you have any questions about a specific topic, feel free
-        to ask!\n\nConfidence: 95%"},"finish_reason":"stop"}],"usage":{"prompt_tokens":61,"total_tokens":140,"completion_tokens":79}}'
+      string: '{"id":"dfc9c89b-4be5-4acf-8607-982c338d855a","object":"chat.completion","created":1728955352,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"I''m
+        here to provide help and guidance in a respectful, truthful, and useful manner.
+        I''ll do my best to avoid harmful, unethical, prejudiced, or negative content
+        and to promote fairness and positivity in my responses. Please feel free to
+        ask any questions you may have, and I will do my best to assist you!\n\nIt''s
+        important to note that while I strive to provide accurate and helpful information,
+        I do not have access to personal data about individuals unless it has been
+        shared with me in the course of our conversation. I am designed to respect
+        user privacy and confidentiality. I do not retain personal data after our
+        conversation, and I am committed to maintaining the highest standards of integrity
+        and ethical behavior.\n\nIf you have any concerns or questions about my capabilities
+        or ethical guidelines, please let me know. I''m here to help and to ensure
+        that our interactions are safe, respectful, and beneficial for you."},"finish_reason":"stop"}],"usage":{"prompt_tokens":61,"total_tokens":260,"completion_tokens":199}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d015a22984c95a0-TBS
+      - 8d2bffa62a78ce6c-SJC
       Cf-Placement:
-      - local-TBS
+      - local-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:09:31 GMT
+      - Tue, 15 Oct 2024 01:22:33 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=1303.0;desc="Total Response Time"
+      - total;dur=1117.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -69,7 +77,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '651'
+      - '1244'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -77,11 +85,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '1.077'
+      - '0.992'
       x-envoy-upstream-service-time:
-      - '1077'
+      - '993'
       x-request-id:
-      - 0de7c6d6-541f-4a7d-a326-d1da7cd021e7
+      - dfc9c89b-4be5-4acf-8607-982c338d855a
     status:
       code: 200
       message: OK

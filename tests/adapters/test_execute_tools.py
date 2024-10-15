@@ -3,7 +3,7 @@ import json
 import pytest
 
 from adapters.adapter_factory import AdapterFactory
-from tests.adapters.utils.constants import MODEL_PATHS, MODEL_PATHS_ASYNC
+from tests.adapters.utils.constants import MODEL_PATHS
 from tests.utils import SIMPLE_FUNCTION_CALL_USER_ONLY, get_response_choices_from_vcr
 
 tools = [
@@ -68,7 +68,7 @@ def test_sync_execute_tools(vcr, model_name):
     )
 
 
-@pytest.mark.parametrize("model_name", MODEL_PATHS_ASYNC)
+@pytest.mark.parametrize("model_name", MODEL_PATHS)
 @pytest.mark.vcr
 async def test_async_execute_tools(vcr, model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)

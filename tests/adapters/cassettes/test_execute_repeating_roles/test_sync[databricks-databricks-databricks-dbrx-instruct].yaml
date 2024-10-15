@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
       "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "databricks-dbrx-instruct",
-      "max_tokens": 4000}'
+      "max_tokens": 4000, "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '181'
+      - '198'
       content-type:
       - application/json
       host:
@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,12 +33,12 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_6e702bf3-e98b-4271-87a2-febf28ce5ae1","object":"chat.completion","created":1728510330,"model":"dbrx-instruct-071224","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+      string: '{"id":"chatcmpl_90889ac8-f53f-465c-89aa-5581d6d6a40e","object":"chat.completion","created":1728955857,"model":"dbrx-instruct-071224","choices":[{"index":0,"message":{"role":"assistant","content":"Hello.
         How can I assist you today?"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":237,"completion_tokens":9,"total_tokens":246}}'
     headers:
       content-length:
@@ -46,7 +46,7 @@ interactions:
       content-type:
       - application/json;charset=utf-8
       date:
-      - Wed, 09 Oct 2024 21:45:30 GMT
+      - Tue, 15 Oct 2024 01:30:57 GMT
       server:
       - databricks
       strict-transport-security:
@@ -68,11 +68,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.64.129
+      - 208.184.59.122,10.154.64.149
       x-rate-limit-request-remote-addr:
-      - 10.154.65.163:60230
+      - 10.154.65.113:49928
       x-request-id:
-      - dd29b260-e302-4b6c-b445-95558822d47c
+      - 55bdceb4-3c1e-4512-9ae7-a9b4212717d8
       x-xss-protection:
       - 1; mode=block
     status:

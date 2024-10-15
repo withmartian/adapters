@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}], "model": "accounts/fireworks/models/mixtral-8x22b-instruct"}'
+      "content": "Hi "}], "model": "accounts/fireworks/models/mixtral-8x22b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '151'
+      - '168'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,32 +33,35 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"5baae818-765a-4de7-a1fb-b306885c2aa9\",\"object\":\"chat.completion\",\"created\":1728507645,\"model\":\"accounts/fireworks/models/mixtral-8x22b-instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"\U0001F603
-        \U0001F31E, I\u2019m here to help. What brings you to me today?\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":8,\"total_tokens\":33,\"completion_tokens\":25}}"
+      string: "{\"id\":\"b491d295-8c0a-4f34-92d3-d0ec88cecc4e\",\"object\":\"chat.completion\",\"created\":1728955130,\"model\":\"accounts/fireworks/models/mixtral-8x22b-instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"\U0001F44B\U0001F3FF
+        ! How can I help you today? Is there anything you'd like to talk about or
+        ask? I'm here to help answer questions, provide information, and assist with
+        any tasks or problems you might have. Let's work together and make this a
+        productive and positive conversation \U0001F60A.\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":8,\"total_tokens\":77,\"completion_tokens\":69}}"
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d014d499c7595a6-TBS
+      - 8d2bfa3c79ae9e64-SJC
       Cf-Placement:
-      - local-TBS
+      - local-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:00:45 GMT
+      - Tue, 15 Oct 2024 01:18:51 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=674.0;desc="Total Response Time"
+      - total;dur=1094.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -65,7 +69,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '371'
+      - '588'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -73,11 +77,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.341'
+      - '0.956'
       x-envoy-upstream-service-time:
-      - '342'
+      - '958'
       x-request-id:
-      - 5baae818-765a-4de7-a1fb-b306885c2aa9
+      - b491d295-8c0a-4f34-92d3-d0ec88cecc4e
     status:
       code: 200
       message: OK

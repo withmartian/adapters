@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-70b-instruct"}'
+      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-70b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '162'
+      - '179'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,35 +33,34 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "2e2e59a0-9a16-49c5-8b1a-083e95103ca0", "model": "llama-3.1-70b-instruct",
-        "created": 1728507786, "usage": {"prompt_tokens": 24, "completion_tokens":
-        26, "total_tokens": 50}, "object": "chat.completion", "choices": [{"index":
+      string: '{"id": "0888b9fb-ebe8-4bc5-b243-18b06548fc10", "model": "llama-3.1-70b-instruct",
+        "created": 1728955259, "usage": {"prompt_tokens": 24, "completion_tokens":
+        24, "total_tokens": 48}, "object": "chat.completion", "choices": [{"index":
         0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
         looks like you sent an empty message Is there something I can help you with
-        or would you like to start a conversation?"}, "delta": {"role": "assistant",
-        "content": ""}}]}'
+        or would you like to chat?"}, "delta": {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d0150bd9a3195a5-TBS
+      - 8d2bfd5eb8d9ce4c-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:03:06 GMT
+      - Tue, 15 Oct 2024 01:20:59 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '479'
+      - '463'
     status:
       code: 200
       message: OK

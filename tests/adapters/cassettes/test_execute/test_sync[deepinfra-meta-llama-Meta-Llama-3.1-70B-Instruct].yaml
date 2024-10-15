@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "meta-llama/Meta-Llama-3.1-70B-Instruct"}'
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "meta-llama/Meta-Llama-3.1-70B-Instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '100'
+      - '117'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,22 +32,22 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-04d45b1e7f7447379e63369135dc32d9","object":"chat.completion","created":1728514994,"model":"meta-llama/Meta-Llama-3.1-70B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":20,"completion_tokens":9,"estimated_cost":7.45e-06}}'
+      string: '{"id":"chatcmpl-6c45969a0b5f4dd2be47f5566beb2f1d","object":"chat.completion","created":1728954775,"model":"meta-llama/Meta-Llama-3.1-70B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"How''s
+        it going? Is there something I can help you with or would you like to chat?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":31,"completion_tokens":20,"estimated_cost":1.185e-05}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '397'
+      - '446'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 23:03:14 GMT
+      - Tue, 15 Oct 2024 01:12:55 GMT
       server:
       - uvicorn
       x-robots-tag:

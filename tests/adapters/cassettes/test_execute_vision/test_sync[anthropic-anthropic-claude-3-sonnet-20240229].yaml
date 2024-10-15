@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"max_tokens": 4096, "messages": [{"content": "Hi\nHi", "role": "user"}],
-      "model": "claude-3-sonnet-20240229"}'
+      "model": "claude-3-sonnet-20240229", "stream": false}'
     headers:
       accept:
       - application/json
@@ -12,7 +12,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '110'
+      - '127'
       content-type:
       - application/json
       host:
@@ -20,35 +20,36 @@ interactions:
       user-agent:
       - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01VR49XpU6FWuX7GWHsTKFyE","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Hello!"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":5}}'
+      string: '{"id":"msg_01GWUtek2mDPZVu2xJ6cb7MY","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Hi
+        there! How can I assist you today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":13}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01b8e2b89f95a3-TBS
+      - 8d2c1781da37f99b-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:14:12 GMT
+      - Tue, 15 Oct 2024 01:38:49 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -60,15 +61,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-09T22:14:12Z'
+      - '2024-10-15T01:38:49Z'
       content-length:
-      - '244'
+      - '276'
       request-id:
-      - req_01FCadAuLsGL9oYk4XkGKSP6
+      - req_01VrnWaTzZAoZHed1vjgVhL9
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - f12102048e4eabe61f80df8eba6a78df
+      - d3f2cca952db8d992572a91b10336587
     status:
       code: 200
       message: OK

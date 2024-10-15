@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}, {"role": "system", "content": "Hi"}], "model": "accounts/fireworks/models/llama-v3p1-405b-instruct"}'
+      "Hi"}, {"role": "system", "content": "Hi"}], "model": "accounts/fireworks/models/llama-v3p1-405b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '186'
+      - '203'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,12 +33,12 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"389936b8-67a9-4518-88fe-6bed4829734b","object":"chat.completion","created":1728509437,"model":"accounts/fireworks/models/llama-v3p1-405b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"How''s
+      string: '{"id":"45bdc0fb-f211-448e-90e0-a5684b29aa49","object":"chat.completion","created":1728955708,"model":"accounts/fireworks/models/llama-v3p1-405b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"How''s
         it going? Is there something I can help you with or would you like to chat?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"total_tokens":44,"completion_tokens":21}}'
     headers:
       Access-Control-Allow-Origin:
@@ -45,19 +46,19 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d01790c4d541a42-TBS
+      - 8d2c08552d2ccee1-SJC
       Cf-Placement:
-      - local-TBS
+      - local-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:30:37 GMT
+      - Tue, 15 Oct 2024 01:28:28 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=792.0;desc="Total Response Time"
+      - total;dur=562.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -73,11 +74,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.546'
+      - '0.482'
       x-envoy-upstream-service-time:
-      - '547'
+      - '484'
       x-request-id:
-      - 389936b8-67a9-4518-88fe-6bed4829734b
+      - 45bdc0fb-f211-448e-90e0-a5684b29aa49
     status:
       code: 200
       message: OK

@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "mistralai/Mistral-7B-Instruct-v0.3"}'
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "mistralai/Mistral-7B-Instruct-v0.3",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '96'
+      - '113'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,27 +32,23 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-ee773259d0e84f36a0e075eb49a7b1fa\",\"object\":\"chat.completion\",\"created\":1728514996,\"model\":\"mistralai/Mistral-7B-Instruct-v0.3\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
-        Hello! How can I help you today? Is there something specific you would like
-        to talk about or learn more about? I'm here to answer questions and provide
-        information on a wide range of topics, so feel free to ask anything that's
-        on your mind. If you're not sure what you're looking for, that's okay too!
-        I'm always happy to chat and help in any way that I can. \U0001F60A Let's
-        get started! What can I help you with?\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":5,\"total_tokens\":109,\"completion_tokens\":104,\"estimated_cost\":5.995e-06}}"
+      string: '{"id":"chatcmpl-3bde1c6dd6a7499aa370700218109f3f","object":"chat.completion","created":1728954776,"model":"mistralai/Mistral-7B-Instruct-v0.3","choices":[{"index":0,"message":{"role":"assistant","content":"
+        Hello! How can I assist you today? If you have any questions or need help
+        with something, feel free to ask. I''m here to help. :)","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":5,"total_tokens":38,"completion_tokens":33,"estimated_cost":2.09e-06}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '771'
+      - '488'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 23:03:16 GMT
+      - Tue, 15 Oct 2024 01:12:56 GMT
       server:
       - uvicorn
       x-robots-tag:

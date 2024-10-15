@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
       "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}], "model": "gpt-3.5-turbo"}'
+      "Hi"}], "model": "gpt-3.5-turbo", "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '187'
+      - '204'
       content-type:
       - application/json
       host:
@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,39 +33,33 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGYudYRZlKVexFMAz80lvTZZezAUE\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728510815,\n  \"model\": \"gpt-3.5-turbo-0125\",\n
+      string: "{\n  \"id\": \"chatcmpl-AIQlZKQMI4giTMqFY7FvjZdNu6p7Y\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728956157,\n  \"model\": \"gpt-3.5-turbo-0125\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"How are you today?\",\n        \"refusal\":
-        null\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n
-        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 23,\n    \"completion_tokens\":
-        5,\n    \"total_tokens\": 28,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
+        \"assistant\",\n        \"content\": \"Hello! How can I assist you today?\",\n
+        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
+        \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 23,\n    \"completion_tokens\":
+        9,\n    \"total_tokens\": 32,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
         0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
         0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d019ab10a65317c-TBS
+      - 8d2c134dad4415e5-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:53:35 GMT
+      - Tue, 15 Oct 2024 01:35:57 GMT
       Server:
       - cloudflare
-      Set-Cookie:
-      - __cf_bm=NZ3qsH5XZTRYgPcLc16QdQGNFh4NeePJXsKtkXXzhU8-1728510815-1.0.1.1-44zH1Tg.RjERJUgBipYINLQKgw0oi5XBVuCIxtDPvND8Phh4Nkgh2QyyLVYU6aRnZuP.C3S8UZ62MMimHDPQVA;
-        path=/; expires=Wed, 09-Oct-24 22:23:35 GMT; domain=.api.openai.com; HttpOnly;
-        Secure; SameSite=None
-      - _cfuvid=.HKYcP2WhaNhZtohCjjyQfOk690f2zGPwPSqP3hoQrA-1728510815430-0.0.1.1-604800000;
-        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
       X-Content-Type-Options:
@@ -75,11 +69,11 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '625'
+      - '641'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '115'
+      - '266'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -97,7 +91,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_fad4150744be9a266956bcaa9ebd2373
+      - req_4b94c35b473c0576e9682c161f5eaad5
     status:
       code: 200
       message: OK

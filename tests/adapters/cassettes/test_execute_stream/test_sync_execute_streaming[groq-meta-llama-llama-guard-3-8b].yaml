@@ -1,0 +1,93 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "llama-guard-3-8b",
+      "stream": true}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '94'
+      content-type:
+      - application/json
+      host:
+      - api.groq.com
+      user-agent:
+      - OpenAI/Python 1.50.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.50.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.groq.com/openai/v1/chat/completions
+  response:
+    body:
+      string: 'data: {"id":"chatcmpl-32dbcfca-78cf-4a9a-9e89-8a7177eb601e","object":"chat.completion.chunk","created":1728955968,"model":"llama-guard-3-8b","system_fingerprint":"fp_51bb5117ef","choices":[{"index":0,"delta":{"role":"assistant","content":""},"logprobs":null,"finish_reason":null}],"x_groq":{"id":"req_01ja6wwtn6fbvs0k3tc7dbyn6d"}}
+
+
+        data: {"id":"chatcmpl-32dbcfca-78cf-4a9a-9e89-8a7177eb601e","object":"chat.completion.chunk","created":1728955968,"model":"llama-guard-3-8b","system_fingerprint":"fp_51bb5117ef","choices":[{"index":0,"delta":{"content":"safe"},"logprobs":null,"finish_reason":null}]}
+
+
+        data: {"id":"chatcmpl-32dbcfca-78cf-4a9a-9e89-8a7177eb601e","object":"chat.completion.chunk","created":1728955968,"model":"llama-guard-3-8b","system_fingerprint":"fp_51bb5117ef","choices":[{"index":0,"delta":{},"logprobs":null,"finish_reason":"stop"}],"x_groq":{"id":"req_01ja6wwtn6fbvs0k3tc7dbyn6d","usage":{"queue_time":0.008102403,"prompt_tokens":202,"prompt_time":0.005496967,"completion_tokens":2,"completion_time":0.002239275,"total_tokens":204,"total_time":0.007736242}}}
+
+
+        data: [DONE]
+
+
+        '
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8d2c0eb0e8322702-SJC
+      Cache-Control:
+      - no-cache
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/event-stream
+      Date:
+      - Tue, 15 Oct 2024 01:32:48 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      vary:
+      - Origin
+      via:
+      - 1.1 google
+      x-ratelimit-limit-requests:
+      - '14400'
+      x-ratelimit-limit-tokens:
+      - '15000'
+      x-ratelimit-remaining-requests:
+      - '14399'
+      x-ratelimit-remaining-tokens:
+      - '14995'
+      x-ratelimit-reset-requests:
+      - 6s
+      x-ratelimit-reset-tokens:
+      - 20ms
+      x-request-id:
+      - req_01ja6wwtn6fbvs0k3tc7dbyn6d
+    status:
+      code: 200
+      message: OK
+version: 1

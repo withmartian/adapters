@@ -13,10 +13,10 @@ from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMix
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
     AdapterChatCompletion,
+    AdapterFinishReason,
     Conversation,
     ConversationRole,
     Cost,
-    FinishReason,
     Model,
     ModelProperties,
 )
@@ -39,8 +39,8 @@ class CohereModel(Model):
     supports_tool_choice_required: bool = True
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
-    supports_streaming: bool = True
     supports_json_content: bool = True
+    supports_streaming: bool = False
 
     def _get_api_path(self) -> str:
         return self.name
@@ -70,7 +70,7 @@ class CohereFinishReason(str, Enum):
     error = "ERROR"
 
 
-FINISH_REASON_MAPPING: Dict[CohereFinishReason, FinishReason] = {
+FINISH_REASON_MAPPING: Dict[CohereFinishReason, AdapterFinishReason] = {
     CohereFinishReason.complete: "stop",
     CohereFinishReason.max_tokens: "length",
     CohereFinishReason.stop_sequence: "stop",

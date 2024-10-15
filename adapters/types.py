@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Any, Dict, List, Literal, Optional, Union
+from typing import Any, Dict, Generator, List, Literal, Optional, Union
 
 from openai.types.chat import (
     ChatCompletion,
@@ -30,9 +30,12 @@ class ConversationRole(str, Enum):
     tool = "tool"
 
 
-FinishReason = Literal[
-    "stop", "length", "tool_calls", "content_filter", "function_call"
-]
+class AdapterFinishReason(str, Enum):
+    stop = "stop"
+    length = "length"
+    tool_calls = "tool_calls"
+    content_filter = "content_filter"
+    function_call = "function_call"
 
 
 class Turn(BaseModel, use_enum_values=True):
@@ -110,7 +113,7 @@ class ModelProperties(BaseModel):
 
 # Add test cases for all of them
 class Model(BaseModel):
-    _test_async: bool = True
+    test_async: bool = True
 
     name: str
     vendor_name: str
@@ -216,8 +219,7 @@ class AdapterChatCompletionChunk(ChatCompletionChunk):
     pass
 
 
-class AdapterStreamChatCompletion(BaseModel):
-    response: AdapterChatCompletionChunk
+AdapterStreamChatCompletion = Generator[AdapterChatCompletionChunk, Any, None]
 
 
 class AdapterException(Exception):

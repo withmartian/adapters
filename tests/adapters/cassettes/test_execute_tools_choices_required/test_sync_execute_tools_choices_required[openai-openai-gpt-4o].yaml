@@ -1,8 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4o", "tool_choice": "required", "tools": [{"type": "function", "function":
-      {"description": "Generate random number", "name": "generate", "parameters":
+      "gpt-4o", "stream": false, "tool_choice": "required", "tools": [{"type": "function",
+      "function": {"description": "Generate random number", "name": "generate", "parameters":
       {"type": "object", "properties": {"prompt": {"type": "string", "description":
       "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
@@ -13,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '380'
+      - '397'
       content-type:
       - application/json
       host:
@@ -21,13 +21,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -35,16 +35,16 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGZ7Z5o7vKC4c6SwIe0LybxIzU2Dr\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728511617,\n  \"model\": \"gpt-4o-2024-08-06\",\n
+      string: "{\n  \"id\": \"chatcmpl-AIQoF2McPFTTVzPdEhXk5HUsZyYZY\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728956323,\n  \"model\": \"gpt-4o-2024-08-06\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
         \"assistant\",\n        \"content\": null,\n        \"tool_calls\": [\n          {\n
-        \           \"id\": \"call_XA1IkQXftBPEsHMtn7ulCmau\",\n            \"type\":
+        \           \"id\": \"call_K4mrPUhfj9WdY3OZqTmemm3I\",\n            \"type\":
         \"function\",\n            \"function\": {\n              \"name\": \"generate\",\n
         \             \"arguments\": \"{\\\"prompt\\\":\\\"Generate a random number\\\"}\"\n
         \           }\n          }\n        ],\n        \"refusal\": null\n      },\n
@@ -52,18 +52,18 @@ interactions:
         \ ],\n  \"usage\": {\n    \"prompt_tokens\": 62,\n    \"completion_tokens\":
         16,\n    \"total_tokens\": 78,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
         0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_e5e4913e83\"\n}\n"
+        0\n    }\n  },\n  \"system_fingerprint\": \"fp_6b68a8204b\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01ae48b9a2959f-TBS
+      - 8d2c1759be24985e-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:06:58 GMT
+      - Tue, 15 Oct 2024 01:38:43 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -79,7 +79,7 @@ interactions:
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '198'
+      - '846'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -91,13 +91,13 @@ interactions:
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '29999977'
+      - '29999976'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_4b6d045f204d3724e20782619398b26b
+      - req_712cd74e83550bfd84d02a99a1f64e08
     status:
       code: 200
       message: OK

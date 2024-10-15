@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "meta-llama-3-70b-instruct"}'
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "meta-llama-3-70b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '87'
+      - '104'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,12 +32,12 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-dcfe7be2723649938a25ebd3852a59ed","object":"chat.completion","created":1728515203,"model":"meta-llama-3-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
+      string: '{"id":"chatcmpl-75e5e0c136ad4c8788a0262a0905cdc1","object":"chat.completion","created":1728954927,"model":"meta-llama-3-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
         It''s nice to meet you. Is there something I can help you with or would you
         like to chat?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"completion_tokens":24,"total_tokens":35}}'
     headers:
@@ -47,7 +48,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 23:06:43 GMT
+      - Tue, 15 Oct 2024 01:15:26 GMT
       Server:
       - uvicorn
       Vary:
@@ -55,15 +56,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '13'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '576'
+      - '589'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1728515204'
+      - '1728954928'
       X-User-Request-Id:
       - ''
     status:

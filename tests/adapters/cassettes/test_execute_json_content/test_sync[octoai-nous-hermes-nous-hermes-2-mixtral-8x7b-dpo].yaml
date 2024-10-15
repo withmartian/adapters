@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "nous-hermes-2-mixtral-8x7b-dpo"}'
+    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "nous-hermes-2-mixtral-8x7b-dpo",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '96'
+      - '113'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,22 +32,29 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-b638da61597c4629af95ceabe826ea45","object":"chat.completion","created":1728508740,"model":"nous-hermes-2-mixtral-8x7b-dpo","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"completion_tokens":9,"total_tokens":22}}'
+      string: '{"id":"chatcmpl-f12bb9646aa144349686827b95f6fa6b","object":"chat.completion","created":1728955509,"model":"nous-hermes-2-mixtral-8x7b-dpo","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today?\n\nHere are some popular queries you can ask:\n1.
+        Ask for weather information: \"What''s the weather like in [City]?\"\n2. Convert
+        measurements: \"Convert X [unit] to [unit].\"\n3. Calculate math problems:
+        \"What''s the result of X + Y?\"\n4. Get sports updates: \"Who won the [Sport]
+        match between [Team 1] and [Team 2]?\"\n5. Translate text: \"Translate [text]
+        to [language].\"\n6. Ask general knowledge questions: \"Who invented the lightbulb?\"\n7.
+        Look up definitions: \"Define [word].\"\n\nFeel free to ask any of these questions
+        or any other query!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"completion_tokens":169,"total_tokens":182}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '349'
+      - '906'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:19:00 GMT
+      - Tue, 15 Oct 2024 01:25:09 GMT
       Server:
       - uvicorn
       Vary:
@@ -54,15 +62,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '304'
+      - '1936'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1728508741'
+      - '1728955510'
       X-User-Request-Id:
       - ''
     status:

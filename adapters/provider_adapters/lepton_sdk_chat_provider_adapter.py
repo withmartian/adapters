@@ -27,7 +27,6 @@ class LeptonModel(Model):
     base_url: str
     provider_name: str = PROVIDER_NAME
 
-    supports_streaming: bool = True
     supports_repeating_roles: bool = True
     supports_system: bool = True
     supports_multiple_system: bool = True
@@ -35,6 +34,8 @@ class LeptonModel(Model):
     supports_tool_choice_required: bool = True
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
+    supports_streaming: bool = False
+
 
     properties: ModelProperties = BASE_PROPERTIES
 

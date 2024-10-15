@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-sonar-huge-128k-online"}'
+      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-sonar-huge-128k-online",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '172'
+      - '189'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,59 +33,67 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "fa14f8fa-85d9-4ded-9d04-4fbf4f064f6b", "model": "llama-3.1-sonar-huge-128k-online",
-        "created": 1728507783, "usage": {"prompt_tokens": 3, "completion_tokens":
-        461, "total_tokens": 464}, "object": "chat.completion", "choices": [{"index":
+      string: '{"id": "8c0fa719-ed0c-4f92-bce5-d2325cac46a0", "model": "llama-3.1-sonar-huge-128k-online",
+        "created": 1728955257, "usage": {"prompt_tokens": 3, "completion_tokens":
+        601, "total_tokens": 604}, "object": "chat.completion", "choices": [{"index":
         0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
-        seems like you''re looking for information on how to keep quotes around empty
-        cells when saving a CSV file, particularly in LibreOffice. Here''s a summary
-        based on the relevant search result:\n\n1. **LibreOffice Limitation**: Currently,
-        LibreOffice does not have a standard option to quote empty cells when exporting
-        to CSV. The \"Quote all text cells\" option in the export settings does not
-        apply to empty cells.\n\n2. **Workaround**: To quote empty cells, you need
-        to explicitly create empty text for those cells using the formula `=\"\"`.
-        This can be done manually or through a script that replaces empty cells with
-        this formula within a specified range. Here is a sample script provided in
-        the discussion:\n\n```vb\nSub efficientPrepareUsedAreaOfSheetForFullyQuotedCSVexport(Optional
-        pSheet)\n    If IsMissing(pSheet) Then pSheet = ThisComponent.CurrentController.ActiveSheet\n    cellCursor
-        = pSheet.createCursor()\n    cellCursor.gotoStartOfUsedArea(False)\n    cellCursor.gotoEndOfUsedArea(True)\n    emptyRgs
-        = cellCursor.queryEmptyCells()\n    For Each emptyRg In emptyRgs\n        ra
-        = emptyRg.RangeAddress\n        With ra\n            topRow = emptyRg.SpreadSheet.getCellRangeByPosition(
-        _\n                .StartColumn, .StartRow, .EndColumn, .StartRow)\n            topLeftCell
-        = topRow.getCellByPosition(0, 0)\n        End With\n        topLeftCell.Formula
-        = \"=\"\"\"\"\"\n        topRow.fillAuto(1, 1)\n        emptyRg.fillAuto(0,
-        1)\n    Next emptyRg\nEnd Sub\n```\n\nThis script identifies empty cells within
-        the used area of a sheet and fills them with the formula `=\"\"`, ensuring
-        they are quoted when exported to CSV.\n\n3. **Alternative Approach**: Another
-        user suggests checking the exported CSV file for commas without preceding
-        quotes and inserting double quotes via JavaScript as a workaround. However,
-        having an option in LibreOffice would be more consistent and convenient.\n\nIn
-        summary, to keep quotes around empty cells in a CSV file using LibreOffice,
-        you need to use a workaround such as filling empty cells with the formula
-        `=\"\"` either manually or through a script."}, "delta": {"role": "assistant",
+        seems like you''re looking for quotes about empty nest syndrome. Here are
+        some key points and quotes from the first source:\n\n1. **Funny Quotes**:\n   -
+        **Changing Netflix Password**: \"Hey empty nest parents, if you want your
+        kid to call you, just change your Netflix password.\" - Unknown\n   - **Supervisor
+        to Spectator**: \"When mothers talk about the depression of the empty nest,
+        they\u2019re not mourning the passing of all those wet towels on the floor,
+        or the music that numbs your teeth, or even the bottle of capless shampoo
+        dribbling down the shower drain. They\u2019re upset because they\u2019ve gone
+        from supervisor of a child\u2019s life to a spectator.\" - Erma Bombeck\n   -
+        **Free Range Adults**: \"I don\u2019t like the term empty nesters. I prefer
+        \u2018parents of free range adults\u2019.\" - Robin Fox\n\n2. **Comforting
+        Quotes**:\n   - **Allowing Independence**: \"I think that the best thing we
+        can do for our children is to allow them to do things for themselves, allow
+        them to be strong, allow them to experience life on their own terms, allow
+        them to take the subway...let them be better people, let them believe more
+        in themselves.\" - C. JoyBell C.\n   - **Job Well Done**: \"Our children\u2019s
+        independence is a reminder of how much we had to give and all that we have
+        accomplished. It is a pleasure to remember that it is not a form of abandonment
+        but an expression of a job well done.\" - Unknown\n\n3. **Inspiring Quotes**:\n   -
+        **Unlived Life**: \"The greatest burden a child must bear is the unlived life
+        of the parents.\" - Carl Jung\n   - **Reaching for the Sun**: \"It''s not
+        only children who grow. Parents do too. As much as we watch to see what our
+        children do with their lives, they are watching us to see what we do with
+        ours. I can\u2019t tell my children to reach for the sun. All I can do is
+        reach for it myself.\" - Joyce Maynard\n\n4. **Sad Quotes**:\n   - **Letting
+        Go**: \"As a parent, you quickly realize that life is one long series of letting
+        go: watching your kid crawl, then walk, then run, and then drive away.\" -
+        Deborah Mitchell\n   - **Center of Your Life**: \"Empty nest is not just about
+        the loud quiet. It\u2019s about being at the center of your own life where
+        your kids used to be. You\u2019ll be encouraged to embrace your freedom, go
+        back to school, volunteer, but coming first again is not as easy as it sounds.
+        It feels like wearing shoes on the wrong feet.\" - Susan Bonifant\n\nThese
+        quotes provide a range of perspectives on empty nest syndrome, from humorous
+        to comforting, inspiring, and touching."}, "delta": {"role": "assistant",
         "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d0150165e9395a5-TBS
+      - 8d2bfc21eac1ce4c-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:03:03 GMT
+      - Tue, 15 Oct 2024 01:20:57 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '2475'
+      - '2944'
     status:
       code: 200
       message: OK

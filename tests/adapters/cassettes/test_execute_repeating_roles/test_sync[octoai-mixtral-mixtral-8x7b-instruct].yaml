@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "mixtral-8x7b-instruct"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "mixtral-8x7b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '158'
+      - '175'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,24 +33,28 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-ba53c85878644dcb9ae263aa9ad42607","object":"chat.completion","created":1728510360,"model":"mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"
-        Hello! How can I help you today? Is there something you would like to know
-        about artificial intelligence or chemical informatics? I''m here to answer
-        your questions to the best of my ability."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":20,"completion_tokens":41,"total_tokens":61}}'
+      string: '{"id":"chatcmpl-bce52cee781f41ccb342b2c2bff50399","object":"chat.completion","created":1728955880,"model":"mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"
+        Hello. How can I help you today? If you have any questions or need assistance
+        with something, feel free to ask.\n\n(Note: I am an AI language model and
+        can provide information, answer questions, and engage in conversation on a
+        wide range of topics. However, I do not have access to personal data about
+        individuals unless it has been shared with me in the course of our conversation.
+        I am also not able to provide professional advice such as medical, legal,
+        or financial advice.)"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":20,"completion_tokens":100,"total_tokens":120}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '498'
+      - '788'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:46:00 GMT
+      - Tue, 15 Oct 2024 01:31:19 GMT
       Server:
       - uvicorn
       Vary:
@@ -57,15 +62,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '578'
+      - '1214'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1728510361'
+      - '1728955881'
       X-User-Request-Id:
       - ''
     status:

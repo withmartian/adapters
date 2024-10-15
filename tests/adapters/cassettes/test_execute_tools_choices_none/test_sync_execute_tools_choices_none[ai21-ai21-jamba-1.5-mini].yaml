@@ -1,10 +1,10 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "jamba-1.5-mini", "tool_choice": "none", "tools": [{"type": "function", "function":
-      {"description": "Generate random number", "name": "generate", "parameters":
-      {"type": "object", "properties": {"prompt": {"type": "string", "description":
-      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+      "jamba-1.5-mini", "stream": false, "tool_choice": "none", "tools": [{"type":
+      "function", "function": {"description": "Generate random number", "name": "generate",
+      "parameters": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
       accept:
       - application/json
@@ -13,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '384'
+      - '401'
       content-type:
       - application/json
       host:
@@ -21,13 +21,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -35,24 +35,24 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-19a1d9c366234762b2424f420776d4c0","choices":[{"index":0,"message":{"role":"assistant","content":null,"tool_calls":[{"id":"7c267416-7ff2-4989-8c72-b0e418386384","type":"function","function":{"name":"generate","arguments":"{\"prompt\":
+      string: '{"id":"chat-1e4e44f827274ade94d188a98969368a","choices":[{"index":0,"message":{"role":"assistant","content":null,"tool_calls":[{"id":"f75dc174-9610-4f29-972f-a211c1138443","type":"function","function":{"name":"generate","arguments":"{\"prompt\":
         \"5, 4, 3, 10, 11\"}"}}]},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":134,"completion_tokens":39,"total_tokens":173}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01aa594d25959d-TBS
+      - 8d2c1638cfcccfc8-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:04:17 GMT
+      - Tue, 15 Oct 2024 01:37:57 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -62,7 +62,7 @@ interactions:
       content-length:
       - '385'
       request-id:
-      - 571123e2-7915-7ec5-0904-b3f36dc377da
+      - dcd32491-fec5-8585-c6ae-b523220af2b1
       via:
       - 1.1 google
     status:

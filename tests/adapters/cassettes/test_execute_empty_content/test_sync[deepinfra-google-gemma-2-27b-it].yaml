@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "google/gemma-2-27b-it"}'
+      " "}, {"role": "user", "content": "\n"}], "model": "google/gemma-2-27b-it",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '155'
+      - '172'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,25 +33,28 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-1186955c415a44e18728751f73c85b72","object":"chat.completion","created":1728508160,"model":"google/gemma-2-27b-it","choices":[{"index":0,"message":{"role":"assistant","content":"Please
-        provide me with some context or a question so I can assist you. \n\nFor example,
-        you could ask:\n\n* **\"Can you write a poem about a cat?\"**\n* **\"What
-        is the capital of France?\"**\n* **\"Can you explain quantum physics in simple
-        terms?\"**\n\nI''m ready to help! \n","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"total_tokens":93,"completion_tokens":74,"estimated_cost":2.511e-05}}'
+      string: "{\"id\":\"chatcmpl-2a8561b3550d4eff859b39b54b025040\",\"object\":\"chat.completion\",\"created\":1728955344,\"model\":\"google/gemma-2-27b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
+        provide me with some context or information! I need to know what you'd like
+        me to do. For example, you could ask me:\\n\\n* **To write something:** \\\"Write
+        a short story about a robot who learns to feel.\\\"\\n* **To answer a question:**
+        \\\"What is the capital of France?\\\"\\n* **To translate something:** \\\"Translate
+        'Hello, world!' into Spanish.\\\"\\n* **To summarize something:** \\\"Summarize
+        the plot of the movie 'Inception'.\\\"\\n\\nI'm ready for your request! \U0001F916
+        \ \\n\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":134,\"completion_tokens\":115,\"estimated_cost\":3.6179999999999996e-05}}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '624'
+      - '832'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:09:20 GMT
+      - Tue, 15 Oct 2024 01:22:24 GMT
       server:
       - uvicorn
       x-robots-tag:

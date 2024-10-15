@@ -79,30 +79,6 @@ MODELS = [
         context_length=131_072,
         vendor_name="neversleep",
     ),
-    OpenRouterModel(
-        name="o1-mini-2024-09-12",
-        cost=Cost(prompt=3.0e-6, completion=12.0e-6),
-        context_length=128_000,
-        vendor_name="openai",
-    ),
-    OpenRouterModel(
-        name="o1-mini",
-        cost=Cost(prompt=3.0e-6, completion=12.0e-6),
-        context_length=128_000,
-        vendor_name="openai",
-    ),
-    OpenRouterModel(
-        name="o1-preview-2024-09-12",
-        cost=Cost(prompt=15.0e-6, completion=60.0e-6),
-        context_length=128_000,
-        vendor_name="openai",
-    ),
-    OpenRouterModel(
-        name="o1-preview",
-        cost=Cost(prompt=15.0e-6, completion=60.0e-6),
-        context_length=128_000,
-        vendor_name="openai",
-    ),
 ]
 
 

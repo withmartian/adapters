@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}, {"role": "system", "content": "Hi"}], "model": "gemma2-9b-it"}'
+      "Hi"}, {"role": "system", "content": "Hi"}], "model": "gemma2-9b-it", "stream":
+      false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '148'
+      - '165'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,21 +33,18 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-cebd0d51-637b-4f04-bd5d-06d51bc9428c","object":"chat.completion","created":1728509442,"model":"gemma2-9b-it","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        looks like you''re having some fun with greetings!  \n\nIs there anything
-        specific I can help you with today?\n"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.014557088,"prompt_tokens":13,"prompt_time":0.000086179,"completion_tokens":28,"completion_time":0.050909091,"total_tokens":41,"total_time":0.05099527},"system_fingerprint":"fp_10c08bf97d","x_groq":{"id":"req_01j9sk1y3hfxeryd24x5yfvc37"}}
-
-        '
+      string: "{\"id\":\"chatcmpl-03749c29-e9cd-46e5-9635-9d704abccd64\",\"object\":\"chat.completion\",\"created\":1728955710,\"model\":\"gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
+        \U0001F44B  \\n\\nHow can I help you today? \U0001F60A \\n\\n\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.01322951,\"prompt_tokens\":13,\"prompt_time\":0.00011783,\"completion_tokens\":18,\"completion_time\":0.032727273,\"total_tokens\":31,\"total_time\":0.032845103},\"system_fingerprint\":\"fp_10c08bf97d\",\"x_groq\":{\"id\":\"req_01ja6wmyjzf07at4q5p5z9z7pr\"}}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01792ca9ef95a5-TBS
+      - 8d2c0863a81c942f-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -54,7 +52,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:30:42 GMT
+      - Tue, 15 Oct 2024 01:28:30 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -62,7 +60,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '607'
+      - '545'
       vary:
       - Origin
       via:
@@ -80,7 +78,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 60ms
       x-request-id:
-      - req_01j9sk1y3hfxeryd24x5yfvc37
+      - req_01ja6wmyjzf07at4q5p5z9z7pr
     status:
       code: 200
       message: OK

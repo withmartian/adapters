@@ -1,10 +1,10 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-3.5-turbo", "tool_choice": "required", "tools": [{"type": "function", "function":
-      {"description": "Generate random number", "name": "generate", "parameters":
-      {"type": "object", "properties": {"prompt": {"type": "string", "description":
-      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+      "gpt-3.5-turbo", "stream": false, "tool_choice": "required", "tools": [{"type":
+      "function", "function": {"description": "Generate random number", "name": "generate",
+      "parameters": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
       accept:
       - application/json
@@ -13,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '387'
+      - '404'
       content-type:
       - application/json
       host:
@@ -21,13 +21,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -35,18 +35,18 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGZ7WGbdmcqyZ6U4j0rDjG3bG17TB\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728511614,\n  \"model\": \"gpt-3.5-turbo-0125\",\n
+      string: "{\n  \"id\": \"chatcmpl-AIQoCtllCuNmXupzT7Bfno8AvSMQo\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728956320,\n  \"model\": \"gpt-3.5-turbo-0125\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
         \"assistant\",\n        \"content\": null,\n        \"tool_calls\": [\n          {\n
-        \           \"id\": \"call_g4ClriAf7WaVLBOp84k8Yu3c\",\n            \"type\":
+        \           \"id\": \"call_6KnDJA9FMpkVSQlhYZG3JS0V\",\n            \"type\":
         \"function\",\n            \"function\": {\n              \"name\": \"generate\",\n
-        \             \"arguments\": \"{\\\"prompt\\\":\\\"random number\\\"}\"\n
+        \             \"arguments\": \"{\\\"prompt\\\":\\\"Random number\\\"}\"\n
         \           }\n          }\n        ],\n        \"refusal\": null\n      },\n
         \     \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n
         \ \"usage\": {\n    \"prompt_tokens\": 66,\n    \"completion_tokens\": 12,\n
@@ -57,21 +57,15 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01ae3238df959f-TBS
+      - 8d2c1748be26985e-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:06:54 GMT
+      - Tue, 15 Oct 2024 01:38:40 GMT
       Server:
       - cloudflare
-      Set-Cookie:
-      - __cf_bm=K6ck7aan_Y7lkO3ppwV3d.zh5a5WIM3xiUMhNDtSl1Y-1728511614-1.0.1.1-0Js0fJrk.kX_cABmPVkTPpo3RmrVsv6wFCaGxFiSEA4klpXJmnQEbUcV0oI0f8XM0HZAAbQIPYDaUi3q1_wZ6g;
-        path=/; expires=Wed, 09-Oct-24 22:36:54 GMT; domain=.api.openai.com; HttpOnly;
-        Secure; SameSite=None
-      - _cfuvid=9l8uWjMLhgB7Okoh7a79yhfbtygiWmy2bwlbqnu2qDY-1728511614504-0.0.1.1-604800000;
-        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
       X-Content-Type-Options:
@@ -85,7 +79,7 @@ interactions:
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '264'
+      - '551'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -103,7 +97,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_f63354e94db8f6fc3658d0c366e378e0
+      - req_bcf3d69e8032e248b4e9538d08abf5ab
     status:
       code: 200
       message: OK

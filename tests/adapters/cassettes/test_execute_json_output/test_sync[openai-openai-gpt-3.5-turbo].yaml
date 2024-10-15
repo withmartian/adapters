@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "gpt-3.5-turbo",
-      "response_format": {"type": "json_object"}}'
+      "response_format": {"type": "json_object"}, "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '129'
+      - '146'
       content-type:
       - application/json
       host:
@@ -18,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,40 +32,33 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGYU6RPRjhBNKwQr3BHrhrqx4HLt6\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728509170,\n  \"model\": \"gpt-3.5-turbo-0125\",\n
+      string: "{\n  \"id\": \"chatcmpl-AIQccB5VviPAbVzWWyeBwEslq3CdU\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728955602,\n  \"model\": \"gpt-3.5-turbo-0125\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"{\\n  \\\"greeting\\\": \\\"Hello!
-        How can I assist you today?\\\"\\n}\",\n        \"refusal\": null\n      },\n
-        \     \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n
-        \ \"usage\": {\n    \"prompt_tokens\": 11,\n    \"completion_tokens\": 17,\n
-        \   \"total_tokens\": 28,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
+        \"assistant\",\n        \"content\": \"{\\n  \\\"message\\\": \\\"Hello, how
+        can I help you today?\\\"\\n}\",\n        \"refusal\": null\n      },\n      \"logprobs\":
+        null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
+        11,\n    \"completion_tokens\": 16,\n    \"total_tokens\": 27,\n    \"prompt_tokens_details\":
+        {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\":
+        {\n      \"reasoning_tokens\": 0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d017285b997959d-TBS
+      - 8d2c05c03f62ce58-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:26:10 GMT
+      - Tue, 15 Oct 2024 01:26:42 GMT
       Server:
       - cloudflare
-      Set-Cookie:
-      - __cf_bm=gTfEX_ydB4T5u.J9S.cyDhcxRQkoahB31kCIB9lsmIs-1728509170-1.0.1.1-b_zCCuT8vM8BrKVobU0VpgFKdTNfXgWf.LItKGPCZ84gDuSuwn1lZLFUL8Cj6FcplMsmDFvn0lc6vNqfuMR97w;
-        path=/; expires=Wed, 09-Oct-24 21:56:10 GMT; domain=.api.openai.com; HttpOnly;
-        Secure; SameSite=None
-      - _cfuvid=YTiC0ljYm00Eofb9OKsJqJ6iTb9wJ2sTm_Y42.kqf0Q-1728509170628-0.0.1.1-604800000;
-        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
       X-Content-Type-Options:
@@ -75,11 +68,11 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '668'
+      - '665'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '251'
+      - '403'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -97,7 +90,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_615f225ca59b19120b8902630ae2597d
+      - req_8cab66e515b428aecf35266f80ff5ae1
     status:
       code: 200
       message: OK

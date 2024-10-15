@@ -43,57 +43,6 @@ MODELS = [
         vendor_name="meta-llama",
         supports_json_content=False,
     ),
-    TogetherModel(
-        name="Meta-Llama-3-8B-Instruct-Turbo",
-        cost=Cost(prompt=0.18e-6, completion=0.18e-6),
-        context_length=8192,
-        vendor_name="meta-llama",
-        supports_json_content=False,
-    ),
-    TogetherModel(
-        name="Meta-Llama-3-70B-Instruct-Turbo",
-        cost=Cost(prompt=0.88e-6, completion=0.88e-6),
-        context_length=8192,
-        vendor_name="meta-llama",
-        supports_json_content=False,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
-    ),
-    TogetherModel(
-        name="Meta-Llama-3-8B-Instruct-Lite",
-        cost=Cost(prompt=0.1e-6, completion=0.1e-6),
-        context_length=8192,
-        vendor_name="meta-llama",
-        supports_json_content=False,
-    ),
-    TogetherModel(
-        name="Meta-Llama-3-70B-Instruct-Lite",
-        cost=Cost(prompt=0.54e-6, completion=0.54e-6),
-        context_length=8192,
-        vendor_name="meta-llama",
-        supports_json_content=False,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
-    ),
-    TogetherModel(
-        name="Llama-2-13b-chat-hf",
-        cost=Cost(prompt=0.22e-6, completion=0.22e-6),
-        context_length=4096,
-        vendor_name="meta-llama",
-    ),
-    TogetherModel(
-        name="Llama-3-8b-chat-hf",
-        cost=Cost(prompt=0.2e-6, completion=0.2e-6),
-        context_length=8192,
-        vendor_name="meta-llama",
-        supports_json_content=False,
-    ),
-    TogetherModel(
-        name="Llama-3-70b-chat-hf",
-        cost=Cost(prompt=0.9e-6, completion=0.9e-6),
-        context_length=8000,
-        vendor_name="meta-llama",
-        supports_json_content=False,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
-    ),
 ]
 
 

@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "gpt-4o-2024-05-13",
-      "response_format": {"type": "json_object"}}'
+      "response_format": {"type": "json_object"}, "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '133'
+      - '150'
       content-type:
       - application/json
       host:
@@ -18,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,39 +32,31 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGYU8NYUXJeG1BVQhdOOf95GqO0kr\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728509172,\n  \"model\": \"gpt-4o-2024-05-13\",\n
+      string: "{\n  \"id\": \"chatcmpl-AIQcegqvYu2TTKxlj1j6Dxqjb8udO\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728955604,\n  \"model\": \"gpt-4o-2024-05-13\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"\\n\\n{\\n  \\\"greeting\\\": \\\"Hello!\\\",\\n
-        \ \\\"user_instructions\\\": \\\"Please provide more details about what you
-        need help with.\\\",\\n  \\\"examples\\\": [\\n    {\\n      \\\"id\\\": 1,\\n
-        \     \\\"instruction\\\": \\\"Convert an object to JSON format.\\\"\\n    },\\n
-        \   {\\n      \\\"id\\\": 2,\\n      \\\"instruction\\\": \\\"Parse a JSON
-        string.\\\"\\n    },\\n    {\\n      \\\"id\\\": 3,\\n      \\\"instruction\\\":
-        \\\"Modify a JSON object.\\\"\\n    }\\n  ],\\n  \\\"note\\\": \\\"JSON (JavaScript
-        Object Notation) is a lightweight data interchange format that is easy for
-        humans to read and write, and easy for machines to parse and generate.\\\"\\n}\",\n
-        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-        \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 11,\n    \"completion_tokens\":
-        140,\n    \"total_tokens\": 151,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_057232b607\"\n}\n"
+        \"assistant\",\n        \"content\": \"{\\n  \\\"greeting\\\": \\\"Hi, how
+        can I assist you?\\\"\\n}\",\n        \"refusal\": null\n      },\n      \"logprobs\":
+        null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
+        11,\n    \"completion_tokens\": 16,\n    \"total_tokens\": 27,\n    \"prompt_tokens_details\":
+        {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\":
+        {\n      \"reasoning_tokens\": 0\n    }\n  },\n  \"system_fingerprint\": \"fp_568f3bfff7\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d017299bb94959d-TBS
+      - 8d2c05cd5bc0ce58-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:26:14 GMT
+      - Tue, 15 Oct 2024 01:26:44 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -76,11 +68,11 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '1211'
+      - '669'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '1439'
+      - '338'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -98,7 +90,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_5f95c45f20cd2f56ef34033562a47b86
+      - req_2bb22df7f0822bdf51417e323968ee2b
     status:
       code: 200
       message: OK

@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
       "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}], "model": "moonshot-v1-32k"}'
+      "Hi"}], "model": "moonshot-v1-32k", "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '189'
+      - '206'
       content-type:
       - application/json
       host:
@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,26 +33,27 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.moonshot.cn/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-6706fb5951169c79f374fc66","object":"chat.completion","created":1728510809,"model":"moonshot-v1-32k","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"completion_tokens":10,"total_tokens":33}}'
+      string: '{"id":"chatcmpl-670dc6f88ad7f66b61dabac5","object":"chat.completion","created":1728956152,"model":"moonshot-v1-32k","choices":[{"index":0,"message":{"role":"assistant","content":"Hello
+        again! How can I help you today? If you have any questions or need assistance,
+        feel free to ask."},"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"completion_tokens":25,"total_tokens":48}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 09 Oct 2024 21:53:29 GMT
+      - Tue, 15 Oct 2024 01:35:53 GMT
       Msh-Cache:
       - updated
       Msh-Gid:
       - enterprise-tier-2
       Msh-Request-Id:
-      - eb567f37-8688-11ef-865a-56d3b45c7cb7
+      - d079096f-8a95-11ef-baa0-ee83779bc7d3
       Msh-Trace-Mode:
       - 'on'
       Msh-Uid:
@@ -66,9 +67,9 @@ interactions:
       Vary:
       - Origin, Accept-Encoding
       content-length:
-      - '309'
+      - '379'
       server-timing:
-      - inner; dur=336
+      - inner; dur=1102
     status:
       code: 200
       message: OK

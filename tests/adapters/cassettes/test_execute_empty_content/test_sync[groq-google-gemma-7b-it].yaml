@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "gemma-7b-it"}'
+      " "}, {"role": "user", "content": "\n"}], "model": "gemma-7b-it", "stream":
+      false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '145'
+      - '162'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,22 +33,22 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-6e913d7e-a0f4-40c7-9fd4-98bcf6f1255d","object":"chat.completion","created":1728508178,"model":"gemma-7b-it","choices":[{"index":0,"message":{"role":"assistant","content":"**Please
-        provide some context or a specific question to answer.**\n\nWithout any additional
-        information, I am unable to provide a response. Please provide more details
-        or inquire about a specific topic."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.0010826389999999998,"prompt_tokens":20,"prompt_time":0.014319301,"completion_tokens":38,"completion_time":0.049041611,"total_tokens":58,"total_time":0.063360912},"system_fingerprint":"fp_7d8efeb0b1","x_groq":{"id":"req_01j9shvbt4fazr5sd3s6qm97pt"}}
+      string: '{"id":"chatcmpl-78035e9b-f8ba-4852-91b3-3a3ce2b2fa4f","object":"chat.completion","created":1728955355,"model":"gemma-7b-it","choices":[{"index":0,"message":{"role":"assistant","content":"**Please
+        provide more context or a specific question to answer.**\n\nYour prompt lacks
+        context or a specific question. Please provide more information or a specific
+        inquiry to enable me to provide a meaningful response."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.076456183,"prompt_tokens":20,"prompt_time":0.023343317,"completion_tokens":40,"completion_time":0.047301602,"total_tokens":60,"total_time":0.070644919},"system_fingerprint":"fp_7d8efeb0b1","x_groq":{"id":"req_01ja6wa48xfe5thq1vmcmft81z"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d015a5148f395a0-TBS
+      - 8d2bffbb3f2596bf-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -55,7 +56,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:09:38 GMT
+      - Tue, 15 Oct 2024 01:22:35 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -63,7 +64,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '706'
+      - '713'
       vary:
       - Origin
       via:
@@ -81,7 +82,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 68ms
       x-request-id:
-      - req_01j9shvbt4fazr5sd3s6qm97pt
+      - req_01ja6wa48xfe5thq1vmcmft81z
     status:
       code: 200
       message: OK

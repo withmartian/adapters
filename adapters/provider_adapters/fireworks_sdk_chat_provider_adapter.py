@@ -24,7 +24,7 @@ class FireworksModel(Model):
     supports_tool_choice_required: bool = True
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
-    supports_streaming: bool = True
+    supports_streaming: bool = False
 
     def _get_api_path(self) -> str:
         return f"accounts/fireworks/models/{self.name}"

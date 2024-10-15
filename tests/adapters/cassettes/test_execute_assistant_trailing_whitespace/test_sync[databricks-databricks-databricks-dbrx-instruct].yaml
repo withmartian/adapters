@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
       "content": "Hi "}, {"role": "user", "content": ""}], "model": "databricks-dbrx-instruct",
-      "max_tokens": 4000}'
+      "max_tokens": 4000, "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '180'
+      - '197'
       content-type:
       - application/json
       host:
@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,24 +33,20 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl_436c8913-65d9-4192-a4c9-143dfc8f1981\",\"object\":\"chat.completion\",\"created\":1728507629,\"model\":\"dbrx-instruct-071224\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
-        How can I assist you today? Please keep in mind that I can help with various
-        tasks, from writing to coding (using markdown for code blocks \u2014 remember
-        to use ``` with code, JSON, and tables). I don't have real-time data access
-        or code execution capabilities, but I'll do my best to provide helpful and
-        accurate information based on the data available up to December 2023.\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":236,\"completion_tokens\":81,\"total_tokens\":317}}"
+      string: '{"id":"chatcmpl_5b721bd8-8bed-4002-9e31-1ccbdb0559ed","object":"chat.completion","created":1728955124,"model":"dbrx-instruct-071224","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today?"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":236,"completion_tokens":9,"total_tokens":245}}'
     headers:
       content-length:
-      - '691'
+      - '345'
       content-type:
       - application/json;charset=utf-8
       date:
-      - Wed, 09 Oct 2024 21:00:28 GMT
+      - Tue, 15 Oct 2024 01:18:44 GMT
       server:
       - databricks
       strict-transport-security:
@@ -72,11 +68,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.64.71
+      - 208.184.59.122,10.154.64.100
       x-rate-limit-request-remote-addr:
-      - 10.154.65.113:54426
+      - 10.154.65.163:57158
       x-request-id:
-      - 7d3c56d9-0971-4e94-aa25-d0d4d35df09e
+      - c812402c-83cc-42b6-a477-0e6d82e759b0
       x-xss-protection:
       - 1; mode=block
     status:

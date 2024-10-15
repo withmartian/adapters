@@ -1,10 +1,10 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-3.5-turbo", "tool_choice": "none", "tools": [{"type": "function", "function":
-      {"description": "Generate random number", "name": "generate", "parameters":
-      {"type": "object", "properties": {"prompt": {"type": "string", "description":
-      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+      "gpt-3.5-turbo", "stream": false, "tool_choice": "none", "tools": [{"type":
+      "function", "function": {"description": "Generate random number", "name": "generate",
+      "parameters": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
       accept:
       - application/json
@@ -13,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '383'
+      - '400'
       content-type:
       - application/json
       host:
@@ -21,13 +21,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -35,40 +35,34 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGZ5PlGcw3J8RbIlrT8PkQHdKTBVW\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728511483,\n  \"model\": \"gpt-3.5-turbo-0125\",\n
+      string: "{\n  \"id\": \"chatcmpl-AIQnrQrMZ2Z3F4rbWus0p2I8yAVx7\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728956299,\n  \"model\": \"gpt-3.5-turbo-0125\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Sure! I can help you with that. Let
-        me generate a random number for you.\",\n        \"refusal\": null\n      },\n
-        \     \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n
-        \ \"usage\": {\n    \"prompt_tokens\": 65,\n    \"completion_tokens\": 18,\n
-        \   \"total_tokens\": 83,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
+        \"assistant\",\n        \"content\": \"Sure, I can help with that. Please
+        provide me with more details on how you would like the random number to be
+        generated.\",\n        \"refusal\": null\n      },\n      \"logprobs\": null,\n
+        \     \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
+        65,\n    \"completion_tokens\": 26,\n    \"total_tokens\": 91,\n    \"prompt_tokens_details\":
+        {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\":
+        {\n      \"reasoning_tokens\": 0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01ab00dd2895a9-TBS
+      - 8d2c16c4fbbb1576-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:04:43 GMT
+      - Tue, 15 Oct 2024 01:38:20 GMT
       Server:
       - cloudflare
-      Set-Cookie:
-      - __cf_bm=DkPR1wV930VrdLsSH8lnlWlt_gMDZFzc6w4IU0Lg2N8-1728511483-1.0.1.1-nDVBJGOfaPfnmy._P7g4tC16YGormc7kuPQZSyDBvxO3EKuZjna60PpptTGyI.6S4bzR6YCk3ntuH__M6nr_EQ;
-        path=/; expires=Wed, 09-Oct-24 22:34:43 GMT; domain=.api.openai.com; HttpOnly;
-        Secure; SameSite=None
-      - _cfuvid=7jBDB3u.OdHgA.V8xbDOb.21SiB4amiQGhT61FgBoZQ-1728511483856-0.0.1.1-604800000;
-        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
       X-Content-Type-Options:
@@ -78,11 +72,11 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '680'
+      - '728'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '279'
+      - '882'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -100,7 +94,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_f63d042c36f3f3c6b216f41ffed6b6b5
+      - req_930f72974ba696ba2558361c33bb5cce
     status:
       code: 200
       message: OK

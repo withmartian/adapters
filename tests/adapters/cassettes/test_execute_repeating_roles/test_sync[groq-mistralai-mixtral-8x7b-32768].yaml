@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "mixtral-8x7b-32768"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "mixtral-8x7b-32768",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '155'
+      - '172'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,22 +33,22 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-8c9f1f2c-2d83-49aa-ac5b-4301a569cc90","object":"chat.completion","created":1728510345,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? If you have any questions, feel free to ask. I''m
-        here to help with programming, web development, and other technical topics.
-        Let me know if you need any assistance!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.012261472,"prompt_tokens":19,"prompt_time":0.002342295,"completion_tokens":47,"completion_time":0.075069308,"total_tokens":66,"total_time":0.077411603},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01j9skxgazez3arr91h9a3kq2p"}}
+      string: '{"id":"chatcmpl-5cc30ba3-9430-4f65-8851-3afb8b7f1e4e","object":"chat.completion","created":1728955866,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        It''s nice to meet you. Is there something you would like to ask or talk about?
+        I''m here to help with any questions you might have. Just let me know what''s
+        on your mind."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.012896074,"prompt_tokens":19,"prompt_time":0.002330824,"completion_tokens":47,"completion_time":0.074191104,"total_tokens":66,"total_time":0.076521928},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01ja6wsq5eer6ana68t1312pgx"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d018f3b087b95a3-TBS
+      - 8d2c0c342ffd1668-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -55,7 +56,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:45:45 GMT
+      - Tue, 15 Oct 2024 01:31:06 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -63,7 +64,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '698'
+      - '676'
       vary:
       - Origin
       via:
@@ -81,7 +82,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 192ms
       x-request-id:
-      - req_01j9skxgazez3arr91h9a3kq2p
+      - req_01ja6wsq5eer6ana68t1312pgx
     status:
       code: 200
       message: OK

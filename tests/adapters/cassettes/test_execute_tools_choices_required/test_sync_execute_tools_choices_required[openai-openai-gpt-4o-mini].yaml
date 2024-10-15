@@ -1,10 +1,10 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4o-mini", "tool_choice": "required", "tools": [{"type": "function", "function":
-      {"description": "Generate random number", "name": "generate", "parameters":
-      {"type": "object", "properties": {"prompt": {"type": "string", "description":
-      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+      "gpt-4o-mini", "stream": false, "tool_choice": "required", "tools": [{"type":
+      "function", "function": {"description": "Generate random number", "name": "generate",
+      "parameters": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
       accept:
       - application/json
@@ -13,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '385'
+      - '402'
       content-type:
       - application/json
       host:
@@ -21,13 +21,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -35,35 +35,35 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGZ7b5KcyyTMqvltzk1HzaqqmO34w\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728511619,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n
+      string: "{\n  \"id\": \"chatcmpl-AIQoHW2SLwNLwo10w2iuLdKy7ND49\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728956325,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
         \"assistant\",\n        \"content\": null,\n        \"tool_calls\": [\n          {\n
-        \           \"id\": \"call_WFrHh9IzliXigMBj4pI5GYBA\",\n            \"type\":
+        \           \"id\": \"call_t9jPuhr91c9XBzfGzVhBoa5E\",\n            \"type\":
         \"function\",\n            \"function\": {\n              \"name\": \"generate\",\n
-        \             \"arguments\": \"{\\\"prompt\\\":\\\"Generate a random number
-        between 1 and 100.\\\"}\"\n            }\n          }\n        ],\n        \"refusal\":
-        null\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"tool_calls\"\n
-        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 62,\n    \"completion_tokens\":
-        23,\n    \"total_tokens\": 85,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
+        \             \"arguments\": \"{\\\"prompt\\\":\\\"Generate a random number\\\"}\"\n
+        \           }\n          }\n        ],\n        \"refusal\": null\n      },\n
+        \     \"logprobs\": null,\n      \"finish_reason\": \"tool_calls\"\n    }\n
+        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 62,\n    \"completion_tokens\":
+        16,\n    \"total_tokens\": 78,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
         0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_f85bea6784\"\n}\n"
+        0\n    }\n  },\n  \"system_fingerprint\": \"fp_e2bde53e6e\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01ae56d96d959f-TBS
+      - 8d2c176c1814985e-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:07:00 GMT
+      - Tue, 15 Oct 2024 01:38:46 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -75,11 +75,11 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '937'
+      - '918'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '245'
+      - '403'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -97,7 +97,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_1f5d7412015603668c06577e8c1bd76f
+      - req_f945a3a71bf99d139d11237c3803b825
     status:
       code: 200
       message: OK

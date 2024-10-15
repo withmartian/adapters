@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}, {"role": "user", "content": ""}], "model": "databricks-mixtral-8x7b-instruct"}'
+      "content": "Hi "}, {"role": "user", "content": ""}], "model": "databricks-mixtral-8x7b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '168'
+      - '185'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,73 +33,65 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_95c3e1dc-2721-4852-b7d3-4acc70222284","object":"chat.completion","created":1728507564,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"1.
-        How can I improve my coding skills?\n* Practice consistently: Regular practice
-        is key to improving coding skills. Dedicate a specific amount of time each
-        day to coding, and stick to it.\n* Work on personal projects: Building your
-        own projects can help you apply what you''ve learned and gain practical experience.\n*
-        Take online courses: Websites like Codecademy, Udemy, and Coursera offer interactive
-        coding courses for a variety of programming languages.\n* Learn from others:
-        Participate in coding communities, join a local coding club, or collaborate
-        with other developers to learn new techniques and approaches.\n* Read programming
-        books: Books like \"Clean Code\" and \"Code Complete\" can provide valuable
-        insights and best practices.\n* debugging and problem-solving: Getting comfortable
-        with debugging tools and becoming proficient at solving coding problems will
-        greatly help you in the long run.\n2. How can I be more productive?\n* Set
-        clear goals: Establish specific, measurable, achievable, relevant, and time-bound
-        (SMART) goals for yourself to help prioritize tasks and stay focused.\n* Break
-        tasks into smaller chunks: Large tasks can be overwhelming. Breaking them
-        down into smaller parts can make the workload more manageable and help you
-        stay motivated.\n* Eliminate distractions: Identify what distracts you and
-        find ways to eliminate or minimize those distractions when you''re working.\n*
-        Use time management techniques: Techniques like the Pomodoro Technique, where
-        you work for a set amount of time and then take a short break, can help increase
-        productivity.\n* Develop a routine: Having a consistent daily routine can
-        help you establish good habits and make the most of your time.\n* Prioritize:
-        Learn to prioritize your task list, and focus on the most important tasks
-        first.\n3. How can I stay motivated?\n* Set achievable goals: Setting small,
-        achievable goals can help you build momentum and stay motivated.\n* Celebrate
-        successes: Take time to celebrate your accomplishments, no matter how small
-        they may seem.\n* Find your \"why\": Reminding yourself why you''re doing
-        what you''re doing can help you stay motivated, especially when the work gets
-        tough.\n* Stay positive: Maintaining a positive attitude can help you stay
-        motivated and overcome challenges.\n* Surround yourself with positive influences:
-        Surround yourself with people who support and encourage you.\n* Take breaks:
-        Taking short breaks throughout the day can help you recharge and maintain
-        momentum.\n4. How can I reduce stress?\n* Identify stressors: Identify the
-        sources of stress in your life and find ways to minimize or eliminate them.\n*
-        Practice relaxation techniques: Techniques like deep breathing, meditation,
-        or yoga can help you relax and reduce stress.\n* Get regular exercise: Exercise
-        is a natural stress-reliever, and can help you feel better overall.\n* Get
-        enough sleep: Getting enough rest is crucial for managing stress.\n* Talk
-        to someone: Talking to a friend, family member, or mental health professional
-        about your feelings can help you manage stress.\n* Learn to say no: Setting
-        boundaries and learning to say no can help you manage your workload and reduce
-        stress.\n5. How can I improve my communication skills?\n* Practice active
-        listening: Pay attention to what other people are saying, ask questions, and
-        clarify to ensure you understand their point of view.\n* Be clear and concise:
-        Avoid using jargon or being overly verbose. Get to the point and be clear
-        about what you''re trying to say.\n* Use nonverbal communication: Make eye
-        contact, use body language, and pay attention to your tone of voice to help
-        convey your message more effectively.\n* Practice empathy: Try to understand
-        other people''s perspectives and feelings, and communicate in a way that takes
-        those into account.\n* Ask for feedback: Asking for feedback on your communication
-        style can help you identify areas for improvement and make adjustments.\n*
-        Practice, practice, practice: Like any skill, communication takes practice.
-        Put yourself in situations where you can practice your communication skills,
-        and seek out feedback to help you improve."},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":94,"completion_tokens":893,"total_tokens":987}}'
+      string: '{"id":"chatcmpl_c3213ceb-2cd1-48a1-b0aa-106077d8f2f8","object":"chat.completion","created":1728955097,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"
+        | Keyword Cluster | Keyword | Search Intent | Title | Meta Description |\n|
+        --- | --- | --- | --- | --- |\n| Skincare routines | Morning skincare routine
+        | Informational | \"Master Your Morning: The Ultimate Guide to a Daily Skincare
+        Routine\" | Start your day off right with a skincare routine that leaves your
+        skin glowing and refreshed. Learn the steps to a perfect morning routine in
+        our comprehensive guide. |\n| Skincare routines | Evening skincare routine
+        | Informational | \"Unwind and Revitalize: The Ultimate Evening Skincare Routine
+        Guide\" | End your day on a high note with a relaxing and rejuvenating evening
+        skincare routine. Discover the best products and techniques for a glowing
+        complexion in our expert guide. |\n| Skincare products | Natural skincare
+        products | Transactional | \"Go Au Naturel: The Best Natural Skincare Products
+        for a Healthy Glow\" | Make the switch to natural skincare products and give
+        your skin the nourishment it deserves. Our top picks for the best natural
+        skincare products will leave your skin looking and feeling its best. |\n|
+        Skincare tips | Skincare tips for oily skin | Informational | \"Tame the Oil:
+        Expert Skincare Tips for Oily Skin\" | Say goodbye to shine and hello to a
+        matte, clear complexion with our expert skincare tips for oily skin. Learn
+        the best products and techniques for keeping oily skin under control. |\n|
+        Skincare treatments | At-home skincare treatments | Transactional | \"DIY
+        Glow: The Best At-Home Skincare Treatments for Radiant Skin\" | Get salon-quality
+        results at home with our top picks for at-home skincare treatments. From masks
+        to peels, we''ve got you covered for a radiant, glowing complexion. |\n| Skincare
+        for men | Men''s skincare routine | Informational | \"Level Up Your Grooming:
+        The Ultimate Guide to Men''s Skincare\" | It''s time to take your grooming
+        game to the next level with a solid skincare routine. Our guide to men''s
+        skincare will have you looking and feeling your best in no time. |\n| Skincare
+        concerns | Acne skincare routine | Informational | \"Banish Blemishes: The
+        Acne Skincare Routine You Need\" | Don''t let acne get the best of you. Our
+        expert-approved acne skincare routine will have you on your way to clear,
+        confident skin in no time. |\n| Skincare ingredients | Vitamin C skincare
+        products | Transactional | \"Brighten Up: The Best Vitamin C Skincare Products
+        for a Radiant Glow\" | Get your glow on with the best Vitamin C skincare products.
+        Our top picks will leave your skin looking brighter, smoother, and more youthful.
+        |\n| Skincare brands | Affordable skincare brands | Transactional | \"Beauty
+        on a Budget: The Best Affordable Skincare Brands\" | You don''t have to break
+        the bank to get great skincare. Our guide to the best affordable skincare
+        brands has got you covered for a healthy, glowing complexion. |\n| Skincare
+        tools | Facial rollers | Transactional | \"Roll Your Way to Radiance: The
+        Best Facial Rollers for a Youthful Glow\" | Give your skin a boost with the
+        best facial rollers. Our top picks will have you looking and feeling refreshed,
+        revitalized, and ready to take on the day. |\n\nNote: The above table provides
+        a list of potential keywords and their corresponding clusters, along with
+        suggested search intents, titles, and meta descriptions for a blog post or
+        webpage. It is important to ensure that the content is helpful, ethical, unbiased,
+        and safe, and does not provide illegal or dangerous instructions. The responses
+        should also be concise and avoid restating the instructions."},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":94,"completion_tokens":900,"total_tokens":994}}'
     headers:
       content-length:
-      - '4459'
+      - '3842'
       content-type:
       - application/json;charset=utf-8
       date:
-      - Wed, 09 Oct 2024 20:59:24 GMT
+      - Tue, 15 Oct 2024 01:18:17 GMT
       server:
       - databricks
       strict-transport-security:
@@ -120,11 +113,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.64.129
+      - 208.184.59.122,10.154.64.178
       x-rate-limit-request-remote-addr:
-      - 10.154.65.163:47384
+      - 10.154.65.113:33350
       x-request-id:
-      - 059f8790-3de6-4189-a6f6-e2137de5b0e3
+      - ff432a0d-b488-42b0-898f-2006dcbc4294
       x-xss-protection:
       - 1; mode=block
     status:

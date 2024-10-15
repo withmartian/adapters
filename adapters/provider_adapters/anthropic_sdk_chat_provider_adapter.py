@@ -12,7 +12,16 @@ from typing import (
 )
 
 from anthropic import Anthropic, AsyncAnthropic
-from anthropic.types import Message
+from anthropic.types import (
+    Message,
+    RawContentBlockDeltaEvent,
+    RawContentBlockStartEvent,
+    RawContentBlockStopEvent,
+    RawMessageDeltaEvent,
+    RawMessageStartEvent,
+    RawMessageStopEvent,
+    RawMessageStreamEvent,
+)
 from anthropic.types.message_create_params import (
     Metadata,
     ToolChoice,
@@ -21,11 +30,15 @@ from anthropic.types.message_create_params import (
     ToolChoiceToolChoiceTool,
 )
 from anthropic.types.message_param import MessageParam
+from anthropic.types.raw_content_block_delta_event import (
+    TextDelta,
+)
 from anthropic.types.text_block_param import TextBlockParam
 from anthropic.types.tool_param import ToolParam
 from openai.types import CompletionUsage
 from openai.types.chat import ChatCompletionMessage
 from openai.types.chat.chat_completion import Choice
+from openai.types.chat.chat_completion_chunk import Choice as ChoiceChunk, ChoiceDelta
 from openai.types.chat.chat_completion_message_tool_call import (
     ChatCompletionMessageToolCall,
     Function,
@@ -37,10 +50,11 @@ from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMix
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
     AdapterChatCompletion,
+    AdapterChatCompletionChunk,
+    AdapterFinishReason,
     Conversation,
     ConversationRole,
     Cost,
-    FinishReason,
     Model,
     ModelProperties,
 )
@@ -100,11 +114,11 @@ class AnthropicFinishReason(str, Enum):
     tool_use = "tool_use"
 
 
-FINISH_REASON_MAPPING: Dict[AnthropicFinishReason, FinishReason] = {
-    AnthropicFinishReason.end_turn: "stop",
-    AnthropicFinishReason.max_tokens: "length",
-    AnthropicFinishReason.stop_sequence: "stop",
-    AnthropicFinishReason.tool_use: "tool_calls",
+FINISH_REASON_MAPPING: Dict[AnthropicFinishReason, AdapterFinishReason] = {
+    AnthropicFinishReason.end_turn: AdapterFinishReason.stop,
+    AnthropicFinishReason.max_tokens: AdapterFinishReason.length,
+    AnthropicFinishReason.stop_sequence: AdapterFinishReason.stop,
+    AnthropicFinishReason.tool_use: AdapterFinishReason.tool_calls,
 }
 
 
@@ -175,7 +189,7 @@ class AnthropicSDKChatProviderAdapter(
         self, request: Conversation, response: Message
     ) -> AdapterChatCompletion:
         finish_reason = FINISH_REASON_MAPPING.get(
-            AnthropicFinishReason(response.stop_reason), "stop"
+            AnthropicFinishReason(response.stop_reason), AdapterFinishReason.stop
         )
 
         choices: list[Choice] = []
@@ -184,7 +198,7 @@ class AnthropicSDKChatProviderAdapter(
                 choices.append(
                     Choice(
                         index=len(choices),
-                        finish_reason=finish_reason,
+                        finish_reason=finish_reason.value,
                         message=ChatCompletionMessage(
                             role=ConversationRole.assistant.value,
                             content=content.text,
@@ -195,7 +209,7 @@ class AnthropicSDKChatProviderAdapter(
                 choices.append(
                     Choice(
                         index=len(choices),
-                        finish_reason=finish_reason,
+                        finish_reason=finish_reason.value,
                         message=ChatCompletionMessage(
                             role=ConversationRole.assistant.value,
                             tool_calls=[
@@ -234,27 +248,35 @@ class AnthropicSDKChatProviderAdapter(
             choices=choices,
         )
 
-    # TODO: match openai format 1:1
-    def extract_stream_response(self, request, response):
-        content = getattr(getattr(response, "delta", None), "text", "")
-
-        if getattr(response, "type", None) == "message_stop":
-            content = None
-
-        chunk = json.dumps(
-            {
-                "choices": [
-                    {
-                        "delta": {
-                            "role": ConversationRole.assistant.value,
-                            "content": content,
-                        },
-                    }
-                ]
-            }
+    # TODO: add streaming tools support
+    def extract_stream_response(
+        self, request, response: RawMessageStreamEvent, state: dict
+    ) -> AdapterChatCompletionChunk:
+        choice_chunk = ChoiceChunk(
+            index=0,
+            delta=ChoiceDelta(role=ConversationRole.assistant.value, content=""),
         )
 
-        return f"data: {chunk}\n\n"
+        if isinstance(response, RawMessageStartEvent):
+            state["id"] = response.message.id
+            state["created"] = int(time.time())
+        elif isinstance(response, RawContentBlockDeltaEvent) and isinstance(
+            response.delta, TextDelta
+        ):
+            choice_chunk.delta.content = response.delta.text
+        elif isinstance(response, RawMessageDeltaEvent) and response.delta.stop_reason:
+            choice_chunk.finish_reason = FINISH_REASON_MAPPING.get(
+                AnthropicFinishReason(response.delta.stop_reason),
+                AdapterFinishReason.stop,
+            ).value
+
+        return AdapterChatCompletionChunk(
+            id=state["id"],
+            choices=[choice_chunk],
+            created=state["created"],
+            model=self.get_model().name,
+            object="chat.completion.chunk",
+        )
 
     # pylint: disable=too-many-locals
     def get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
@@ -295,8 +317,8 @@ class AnthropicSDKChatProviderAdapter(
                 message["content"] = anthropic_content
 
         # Convert tools to anthropic format
-        openai_tools = kwargs.get("tools")
-        openai_tools_choice = kwargs.get("tool_choice")
+        openai_tools = params.get("tools")
+        openai_tools_choice = params.get("tool_choice")
 
         anthropic_tools: Optional[list[ToolParam]] = None
         anthropic_tool_choice: Optional[ToolChoice] = None
@@ -330,17 +352,16 @@ class AnthropicSDKChatProviderAdapter(
 
                 anthropic_tools.append(anthropic_tool)
 
-        anthropic_create = AnthropicCreate(
-            max_tokens=kwargs.get("max_tokens", self.get_model().completion_length),
+        return AnthropicCreate(
+            max_tokens=params.get("max_tokens", self.get_model().completion_length),
             messages=messages,
+            metadata=params.get("metadata"),
+            stop_sequences=params.get("stop_sequences"),
+            stream=params.get("stream"),
             system=system_prompt,
+            temperature=params.get("temperature"),
             tool_choice=anthropic_tool_choice,
             tools=anthropic_tools,
-        )
-
-        return delete_none_values(
-            {
-                **params,
-                **anthropic_create.model_dump(),
-            }
-        )
+            top_k=params.get("top_k"),
+            top_p=params.get("top_p"),
+        ).model_dump()

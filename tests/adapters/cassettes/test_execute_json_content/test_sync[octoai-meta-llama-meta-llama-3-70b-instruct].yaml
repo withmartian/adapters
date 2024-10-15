@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "meta-llama-3-70b-instruct"}'
+    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "meta-llama-3-70b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '91'
+      - '108'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,23 +32,22 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-7e4ccd6d5dac4a098ab1ec379cbd1607","object":"chat.completion","created":1728508739,"model":"meta-llama-3-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
-        It''s nice to meet you. Is there something I can help you with or would you
-        like to chat?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"completion_tokens":24,"total_tokens":37}}'
+      string: '{"id":"chatcmpl-e6397c7ff6fe45bc8eded02fc221f172","object":"chat.completion","created":1728955509,"model":"meta-llama-3-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
+        How''s it going?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"completion_tokens":7,"total_tokens":20}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '403'
+      - '329'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:18:58 GMT
+      - Tue, 15 Oct 2024 01:25:08 GMT
       Server:
       - uvicorn
       Vary:
@@ -55,15 +55,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '573'
+      - '360'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1728508740'
+      - '1728955510'
       X-User-Request-Id:
       - ''
     status:

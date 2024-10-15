@@ -5,8 +5,9 @@ from openai import NOT_GIVEN, NotGiven
 
 from adapters.abstract_adapters.base_adapter import BaseAdapter
 from adapters.types import (
+    AdapterChatCompletion,
+    AdapterChatCompletionChunk,
     AdapterException,
-    AdapterStreamChatCompletion,
     ContentTurn,
     ContentType,
     Conversation,
@@ -36,11 +37,13 @@ class SDKChatAdapter(BaseAdapter):
         pass
 
     @abstractmethod
-    def extract_response(self, request, response):
+    def extract_response(self, request, response) -> AdapterChatCompletion:
         pass
 
     @abstractmethod
-    def extract_stream_response(self, request, response):
+    def extract_stream_response(
+        self, request, response, state
+    ) -> AdapterChatCompletionChunk:
         pass
 
     def get_model_properteis(self, model_name: str) -> ModelProperties:
@@ -58,6 +61,9 @@ class SDKChatAdapter(BaseAdapter):
         llm_input: Conversation,
         **kwargs,  # TODO: type kwargs
     ) -> Dict[str, Any]:
+        if kwargs.get("stream") == NOT_GIVEN:
+            kwargs["stream"] = False
+
         completion_length = self.get_model().completion_length
         if (
             kwargs.get("max_tokens")
@@ -211,12 +217,12 @@ class SDKChatAdapter(BaseAdapter):
 
         return {
             "messages": messages,
-            **kwargs,
             **(
                 {"temperature": self.adjust_temperature(kwargs.get("temperature", 1))}
                 if kwargs.get("temperature") is not None
                 else {}
             ),
+            **kwargs,
         }
 
     async def execute_async(
@@ -225,29 +231,30 @@ class SDKChatAdapter(BaseAdapter):
         stream: Optional[bool] | NotGiven = NOT_GIVEN,
         **kwargs,
     ):
-        params = self.get_params(llm_input, **kwargs)
+        params = self.get_params(llm_input, stream=stream, **kwargs)
+
         response = await self.get_async_client()(
             model=self.get_model()._get_api_path(),
             **delete_none_values(params),
         )
 
-        if stream:
+        if not stream:
+            return self.extract_response(request=llm_input, response=response)
 
-            async def stream_response():
-                async with stream_generator_auto_close(response):
-                    try:
-                        async for chunk in response:
-                            yield self.extract_stream_response(
-                                request=llm_input, response=chunk
-                            )
-                    except Exception as e:
-                        raise AdapterException(
-                            f"Error in streaming response: {e}"
-                        ) from e
+        async def stream_response():
+            state = {}
+            async with stream_generator_auto_close(response):
+                try:
+                    async for chunk in response:
+                        yield self.extract_stream_response(
+                            request=llm_input, response=chunk, state=state
+                        )
+                except Exception as e:
+                    raise AdapterException(f"Error in streaming response: {e}") from e
+                finally:
+                    await response.aclose()
 
-            return AdapterStreamChatCompletion(response=stream_response())
-
-        return self.extract_response(request=llm_input, response=response)
+        return stream_response()
 
     def execute_sync(
         self,
@@ -255,25 +262,26 @@ class SDKChatAdapter(BaseAdapter):
         stream: Optional[bool] | NotGiven = NOT_GIVEN,
         **kwargs,
     ):
-        params = self.get_params(llm_input, **kwargs)
+        params = self.get_params(llm_input, stream=stream, **kwargs)
 
         response = self.get_sync_client()(
-            model=self.get_model()._get_api_path(), **delete_none_values(params)
+            model=self.get_model()._get_api_path(),
+            **delete_none_values(params),
         )
 
-        if stream:
+        if not stream:
+            return self.extract_response(request=llm_input, response=response)
 
-            def stream_response():
-                try:
-                    for chunk in response:
-                        yield self.extract_stream_response(
-                            request=llm_input, response=chunk
-                        )
-                except Exception as e:
-                    raise AdapterException(f"Error in streaming response: {e}") from e
-                finally:
-                    response.close()
+        def stream_response():
+            state = {}
+            try:
+                for chunk in response:
+                    yield self.extract_stream_response(
+                        request=llm_input, response=chunk, state=state
+                    )
+            except Exception as e:
+                raise AdapterException(f"Error in streaming response: {e}") from e
+            finally:
+                response.close()
 
-            return AdapterStreamChatCompletion(response=stream_response())
-
-        return self.extract_response(request=llm_input, response=response)
+        return stream_response()

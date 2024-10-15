@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
       "Hi"}, {"role": "assistant", "content": "Hi"}, {"role": "user", "content": "\"\""}],
-      "model": "llama-3.1-sonar-large-128k-online"}'
+      "model": "llama-3.1-sonar-large-128k-online", "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '209'
+      - '226'
       content-type:
       - application/json
       host:
@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,50 +33,66 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "c302ca53-e6b8-4921-bd42-c69263501480", "model": "llama-3.1-sonar-large-128k-online",
-        "created": 1728509525, "usage": {"prompt_tokens": 4, "completion_tokens":
-        289, "total_tokens": 293}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "To
-        match a JSON key with a non-empty string value using a regular expression,
-        you need to ensure that the string inside the quotes is not empty. Here\u2019s
-        how you can achieve this:\n\n## Using Regular Expressions\n\nYou can use a
-        regular expression that matches the key and ensures the value is not an empty
-        string. Here is an example:\n\n```regex\n\"key\":\"[^\"]+\"\n```\n\n- `[^\"]+`
-        matches one or more characters that are not double quotes, ensuring the string
-        is not empty.\n\nHere\u2019s a more complete example to match the specific
-        structure of your JSON:\n\n```regex\n\"key\":\"[^\"]+\"\n```\n\nThis will
-        match any instance of `\"key\": \"some_string_value\"` where `some_string_value`
-        is not empty.\n\n## Example in Notepad++\n\nIf you are using Notepad++''s
-        regex search tool, you can use the following regex to find such instances:\n\n-
-        Search for: `\"key\":\"[^\"]+\"`\n\nThis will highlight all occurrences of
-        the key `\"key\"` with a non-empty string value.\n\n## Explanation\n\n- `\"key\":`
-        matches the literal string `\"key\":`.\n- `\"[^\"]+\"` matches a double quote
-        followed by one or more characters that are not double quotes, and then another
-        double quote. This ensures the string value is not empty.\n\nThis approach
-        should help you find the keys with non-empty string values in your JSON file."},
-        "delta": {"role": "assistant", "content": ""}}]}'
+      string: '{"id": "3bc86f5f-77b8-428b-84c6-40d7aadb66f3", "model": "llama-3.1-sonar-large-128k-online",
+        "created": 1728955777, "usage": {"prompt_tokens": 4, "completion_tokens":
+        561, "total_tokens": 565}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "If
+        you are looking for quotes related to the concept of an \"empty nest,\" which
+        often refers to the period when children leave their parents'' home to start
+        their independent lives, here are some notable and varied quotes:\n\n## Funny
+        Quotes\n- \"Hey empty nest parents, if you want your kid to call you, just
+        change your Netflix password.\" - Unknown.\n- \"When mothers talk about the
+        depression of the empty nest, they\u2019re not mourning the passing of all
+        those wet towels on the floor, or the music that numbs your teeth, or even
+        the bottle of capless shampoo dribbling down the shower drain. They\u2019re
+        upset because they\u2019ve gone from supervisor of a child\u2019s life to
+        a spectator. It\u2019s like being the vice president of the United States.\u201d
+        - Erma Bombeck.\n- \"I don\u2019t like the term empty nesters. I prefer \u2018parents
+        of free range adults\u2019.\u201d - Robin Fox.\n\n## Comforting Quotes\n-
+        \"Our children\u2019s independence is a reminder of how much we had to give
+        and all that we have accomplished. It is a pleasure to remember that it is
+        not a form of abandonment but an expression of a job well done.\u201d - Unknown.\n-
+        \"I think that the best thing we can do for our children is to allow them
+        to do things for themselves, allow them to be strong, allow them to experience
+        life on their own terms, allow them to take the subway...let them be better
+        people, let them believe more in themselves.\u201d - C. JoyBell C..\n\n##
+        Inspiring Quotes\n- \"Give the ones you love wings to fly, roots to come back,
+        reasons to stay.\u201d - Dalai Lama.\n- \"It''s not only children who grow.
+        Parents do too. As much as we watch to see what our children do with their
+        lives, they are watching us to see what we do with ours. I can\u2019t tell
+        my children to reach for the sun. All I can do is reach for it myself.\" -
+        Joyce Maynard.\n\n## Sad but Touching Quotes\n- \"As a parent, you quickly
+        realize that life is one long series of letting go: watching your kid crawl,
+        then walk, then run, and then drive away.\u201d - Deborah Mitchell.\n- \"Empty
+        nest is not just about the loud quiet. It\u2019s about being at the center
+        of your own life where your kids used to be. You\u2019ll be encouraged to
+        embrace your freedom, go back to school, volunteer, but coming first again
+        is not as easy as it sounds. It feels like wearing shoes on the wrong feet.\u201d
+        - Susan Bonifant.\n\nThese quotes capture the various emotions and reflections
+        that parents often experience during the empty nest phase."}, "delta": {"role":
+        "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d017b104a9b317c-TBS
+      - 8d2c09cdc96ed021-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:32:05 GMT
+      - Tue, 15 Oct 2024 01:29:37 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '1689'
+      - '2888'
     status:
       code: 200
       message: OK

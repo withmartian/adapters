@@ -8,6 +8,7 @@ from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
     AdapterChatCompletion,
+    AdapterChatCompletionChunk,
     RequestBody,
 )
 from adapters.utils.openai_client_factory import OpenAIClientFactory
@@ -71,5 +72,9 @@ class OpenAISDKChatAdapter(ApiKeyAdapterMixin, SDKChatAdapter):
             cost=cost,
         )
 
-    def extract_stream_response(self, request, response: ChatCompletionChunk) -> str:
-        return f"data: {json.dumps(response.dict())}\n\n"
+    def extract_stream_response(
+        self, request, response: ChatCompletionChunk, state: dict
+    ) -> AdapterChatCompletionChunk:
+        return AdapterChatCompletionChunk.model_construct(
+            **response.model_dump(),
+        )
