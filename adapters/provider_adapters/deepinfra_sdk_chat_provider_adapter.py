@@ -27,8 +27,24 @@ class DeepInfraModel(Model):
 
 MODELS = [
     DeepInfraModel(
+        name="Llama-3.2-11B-Vision-Instruct",
+        cost=Cost(prompt=0.055e-6, completion=0.055e-6),
+        context_length=128000,
+        vendor_name="meta-llama",
+        supports_n=False,
+        properties=BASE_PROPERTIES.model_copy(update={"gdpr_compliant": False}),
+    ),
+    DeepInfraModel(
+        name="Llama-3.2-90B-Vision-Instruct",
+        cost=Cost(prompt=0.35e-6, completion=0.40e-6),
+        context_length=128000,
+        vendor_name="meta-llama",
+        supports_n=False,
+        properties=BASE_PROPERTIES.model_copy(update={"gdpr_compliant": False}),
+    ),
+    DeepInfraModel(
         name="Meta-Llama-3.1-405B-Instruct",
-        cost=Cost(prompt=2.7e-6, completion=2.7e-6),
+        cost=Cost(prompt=1.79e-6, completion=1.79e-6),
         context_length=32000,
         vendor_name="meta-llama",
         supports_n=False,
