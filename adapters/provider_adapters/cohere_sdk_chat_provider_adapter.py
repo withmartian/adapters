@@ -12,6 +12,7 @@ from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMix
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
     AdapterChatCompletion,
+    AdapterChatCompletionChunk,
     AdapterFinishReason,
     Conversation,
     ConversationRole,
@@ -209,24 +210,27 @@ class CohereSDKChatProviderAdapter(
             choices=choices,
         )
 
-    # def extract_stream_response(self, request: Any, response: Any) -> str:
-    #     content = None
-    #     if response.type == "content-delta":
-    #         content = response.delta.message.content.text
-    #     elif response.type == "stream-end":
-    #         content = None
+    def extract_stream_response(
+        self, request: Any, response: Any, state
+    ) -> AdapterChatCompletionChunk:
+        raise NotImplementedError
+        # content = None
+        # if response.type == "content-delta":
+        #     content = response.delta.message.content.text
+        # elif response.type == "stream-end":
+        #     content = None
 
-    #     chunk = json.dumps(
-    #         {
-    #             "choices": [
-    #                 {
-    #                     "delta": {
-    #                         "role": ConversationRole.assistant,
-    #                         "content": content,
-    #                     },
-    #                 }
-    #             ]
-    #         }
-    #     )
+        # chunk = json.dumps(
+        #     {
+        #         "choices": [
+        #             {
+        #                 "delta": {
+        #                     "role": ConversationRole.assistant,
+        #                     "content": content,
+        #                 },
+        #             }
+        #         ]
+        #     }
+        # )
 
-    #     return f"data: {chunk}\n\n"
+        # return f"data: {chunk}\n\n"
