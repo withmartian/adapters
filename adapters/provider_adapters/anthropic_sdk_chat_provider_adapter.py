@@ -45,6 +45,7 @@ from pydantic import BaseModel
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
+from adapters.general_utils import process_image_url_anthropic
 from adapters.types import (
     AdapterChatCompletion,
     AdapterChatCompletionChunk,
@@ -55,7 +56,6 @@ from adapters.types import (
     Model,
     ModelProperties,
 )
-from adapters.utils.general_utils import process_image_url_anthropic
 
 PROVIDER_NAME = "anthropic"
 BASE_URL = "https://api.anthropic.com"

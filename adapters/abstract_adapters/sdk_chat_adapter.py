@@ -4,6 +4,11 @@ from typing import Any, Dict, List, Optional
 from openai import NOT_GIVEN, NotGiven
 
 from adapters.abstract_adapters.base_adapter import BaseAdapter
+from adapters.general_utils import (
+    EMPTY_CONTENT,
+    delete_none_values,
+    stream_generator_auto_close,
+)
 from adapters.types import (
     AdapterChatCompletion,
     AdapterChatCompletionChunk,
@@ -15,8 +20,6 @@ from adapters.types import (
     Model,
     ModelProperties,
 )
-from adapters.utils.adapter_stream_response import stream_generator_auto_close
-from adapters.utils.general_utils import EMPTY_CONTENT, delete_none_values
 
 
 class SDKChatAdapter(BaseAdapter):

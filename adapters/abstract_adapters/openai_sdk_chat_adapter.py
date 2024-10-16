@@ -9,7 +9,6 @@ from adapters.types import (
     AdapterChatCompletionChunk,
     RequestBody,
 )
-from adapters.utils.openai_client_factory import OpenAIClientFactory
 
 
 class OpenAISDKChatAdapter(ApiKeyAdapterMixin, SDKChatAdapter):
@@ -20,11 +19,11 @@ class OpenAISDKChatAdapter(ApiKeyAdapterMixin, SDKChatAdapter):
         self,
     ):
         super().__init__()
-        self._sync_client = OpenAIClientFactory.get_openai_sync_client(
+        self._sync_client = OpenAI(
             api_key=self.get_api_key(),
             base_url=self.get_base_sdk_url(),
         )
-        self._async_client = OpenAIClientFactory.get_openai_async_client(
+        self._async_client = AsyncOpenAI(
             api_key=self.get_api_key(),
             base_url=self.get_base_sdk_url(),
         )

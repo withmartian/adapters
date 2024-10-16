@@ -18,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,21 +32,20 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-87031658-2b51-4a62-82fe-d78049312b01","object":"chat.completion","created":1729011440,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"How''s
-        it going? Is there something I can help you with or would you like to chat
-        about something in particular?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.012629169999999999,"prompt_tokens":22,"prompt_time":0.002024908,"completion_tokens":25,"completion_time":0.076268212,"total_tokens":47,"total_time":0.07829312},"system_fingerprint":"fp_753a4aecf6","x_groq":{"id":"req_01ja8hsppzftms191qsr7d618x"}}
+      string: '{"id":"chatcmpl-f26b10f6-229c-452d-8071-aca815e25eaf","object":"chat.completion","created":1729109163,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"How''s
+        your day going so far?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.014077794999999999,"prompt_tokens":22,"prompt_time":0.000653785,"completion_tokens":9,"completion_time":0.029024884,"total_tokens":31,"total_time":0.029678669},"system_fingerprint":"fp_87cbfbbc4d","x_groq":{"id":"req_01jabezzkqexmv8qek5qw8hvyk"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3158fd69bc1a42-TBS
+      - 8d3aaad09a8e6893-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -54,15 +53,19 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 15 Oct 2024 16:57:20 GMT
+      - Wed, 16 Oct 2024 20:06:03 GMT
       Server:
       - cloudflare
+      Set-Cookie:
+      - __cf_bm=X40aQ4oN9QwlR0oFv9_DukOVnbuabXjz0eRkpnkxhEE-1729109163-1.0.1.1-tr4HHtebCCDJ77Tt02cNEtO8RSCRuFgD.1ZQiCqg60AyrGIQTtBQ_pCWWOmkLpNQFeFq1oC3u5NQNvMsfJsOCg;
+        path=/; expires=Wed, 16-Oct-24 20:36:03 GMT; domain=.groq.com; HttpOnly; Secure;
+        SameSite=None
       Transfer-Encoding:
       - chunked
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '617'
+      - '534'
       vary:
       - Origin
       via:
@@ -80,7 +83,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 100ms
       x-request-id:
-      - req_01ja8hsppzftms191qsr7d618x
+      - req_01jabezzkqexmv8qek5qw8hvyk
     status:
       code: 200
       message: OK

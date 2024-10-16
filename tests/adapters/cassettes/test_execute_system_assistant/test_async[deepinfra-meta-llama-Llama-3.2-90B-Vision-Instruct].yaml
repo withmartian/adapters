@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
       "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}], "model": "meta-llama/Llama-3.2-90B-Vision-Instruct"}'
+      "Hi"}], "model": "meta-llama/Llama-3.2-90B-Vision-Instruct", "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '214'
+      - '231'
       content-type:
       - application/json
       host:
@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,23 +33,22 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-5bca7186962d45ef8141201d12c9f158","object":"chat.completion","created":1728903264,"model":"meta-llama/Llama-3.2-90B-Vision-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like we''re stuck in a loop of \"Hi\"s. How about we start a conversation
-        instead? How''s your day going so far?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":29,"total_tokens":59,"completion_tokens":30,"estimated_cost":2.215e-05}}'
+      string: '{"id":"chatcmpl-8f9943dea6064584b6914db89293d659","object":"chat.completion","created":1729113906,"model":"meta-llama/Llama-3.2-90B-Vision-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems we''re having a bit of a \"hi\" loop! How''s your day going so far?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":29,"total_tokens":51,"completion_tokens":22,"estimated_cost":1.895e-05}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '486'
+      - '441'
       Content-Type:
       - application/json
       Date:
-      - Mon, 14 Oct 2024 10:54:24 GMT
+      - Wed, 16 Oct 2024 21:25:06 GMT
       server:
       - uvicorn
       x-robots-tag:

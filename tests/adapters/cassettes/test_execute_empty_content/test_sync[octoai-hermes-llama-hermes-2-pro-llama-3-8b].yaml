@@ -38,39 +38,49 @@ interactions:
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-48fd2d630ad04ce58f0c3d5862e062bc","object":"chat.completion","created":1728955368,"model":"hermes-2-pro-llama-3-8b","choices":[{"index":0,"message":{"role":"assistant","content":"Here''s
-        a Python script that can help you backup or restore specific files or directories
-        in your system:\n\n```python\nimport os\nimport shutil\n\ndef backup(source,
-        destination):\n    for subdir, dirs, files in os.walk(source):\n        for
-        file in files:\n            source_file = os.path.join(subdir, file)\n            destination_file
-        = os.path.join(destination, os.path.relpath(source_file, source))\n            if
-        not os.path.exists(os.path.dirname(destination_file)):\n                os.makedirs(os.path.dirname(destination_file))\n            shutil.copy2(source_file,
-        destination_file)\n\ndef restore(source, destination):\n    for subdir, dirs,
-        files in os.walk(source):\n        for file in files:\n            source_file
-        = os.path.join(subdir, file)\n            destination_file = os.path.join(destination,
-        os.path.relpath(source_file, source))\n            if os.path.exists(destination_file):\n                shutil.copy2(source_file,
-        destination_file)\n            else:\n                print(f\"Warning: {file}
-        does not exist in source directory.\")\n\nsource_directory = \"/path/to/source/directory\"\ndestination_directory
-        = \"/path/to/destination/directory\"\n\n# To perform a backup\nbackup(source_directory,
-        destination_directory)\n\n# To perform a restore\nrestore(source_directory,
-        destination_directory)\n```\n\nThis script uses the `os` module for file operations
-        and the `shutil` module for copying and creating directories. The `backup`
-        function traverses the source directory and copies each file to the destination
-        directory by creating the appropriate subdirectories if they don''t exist.
-        The `restore` function attempts to copy each file from the source directory
-        to the destination directory, creating subdirectories if needed. If a file
-        already exists in the destination directory, it will not be overwritten.\n\nMake
-        sure to replace `/path/to/source/directory` and `/path/to/destination/directory`
-        with the appropriate paths for your situation."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"completion_tokens":377,"total_tokens":396}}'
+      string: '{"id":"chatcmpl-ddf329b8661c4b22b4c9478744a735c6","object":"chat.completion","created":1729111931,"model":"hermes-2-pro-llama-3-8b","choices":[{"index":0,"message":{"role":"assistant","content":"1.
+        District Pivot Table\n2. Form Elements & Flashcards\n3. List of Parties\n4.
+        Mailroom Summary\n5. User Group Summary\n6. POS Summary\n7. Membership Summary\n8.
+        Package Album\n9. Entree Category Listing\n10. Gift Card Functionality\n11.
+        Screen Flow Diagram\n12. Folders Table\n13. Party Scenic Route\n14. Running
+        Sales Totals\n15. Dropdown Menus with Event Planning Details\n16. Direct Connect
+        to entree Category & Recipeadd-in\n17. Guest Email Confirmation\n\nThe above
+        list represents a range of tasks or functionalities that might be found in
+        a software or application designed for event planning, catering or a similar
+        industry. Each item in the list corresponds to a different feature or component
+        of this software. Here is a brief explanation of each item:\n\n1. District
+        Pivot Table: This allows users to view sales data or other key metrics in
+        a structured and organized manner, making it easier to analyze and draw insights.\n2.
+        Form Elements & Flashcards: This feature provides users with customizable
+        forms and flashcards to manage information related to events, parties, or
+        catering services.\n3. List of Parties: A simple table or list displaying
+        all upcoming or past parties, events, or catering services.\n4. Mailroom Summary:
+        A summary of emails or communications related to event planning, catering,
+        or other relevant tasks.\n5. User Group Summary: A summary of key metrics
+        or performance indicators for different user groups, such as event planners,
+        chefs, or servers.\n6. POS Summary: A summary of sales data or performance
+        metrics related to point-of-sale transactions.\n7. Membership Summary: A summary
+        of membership data related to subscribers, clients, or other stakeholders
+        who are part of the catering service.\n8. Package Album: An album or gallery
+        displaying images of catering packages or services offered.\n9. Entree Category
+        Listing: A listing of different entree categories or menu options available
+        for events or parties.\n10. Gift Card Functionality: The ability to purchase,
+        distribute, and redeem gift cards for the catering service.\n11. Screen Flow
+        Diagram: A visual representation of the workflow or user journey within the
+        application or software.\n12. Folders Table: A table or directory displaying
+        different folders or categories within the software, such as documents or
+        media.\n13. Party Scenic Route: A feature that allows users to visualize or
+        map out the planned route or location of a party or event.\n14. Running Sales
+        Totals: A real-time display of current sales or"},"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":19,"completion_tokens":512,"total_tokens":531}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '2296'
+      - '2828'
       Content-Type:
       - application/json
       Date:
-      - Tue, 15 Oct 2024 01:22:47 GMT
+      - Wed, 16 Oct 2024 20:52:11 GMT
       Server:
       - uvicorn
       Vary:
@@ -78,15 +88,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '4465'
+      - '5731'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1728955369'
+      - '1729111932'
       X-User-Request-Id:
       - ''
     status:

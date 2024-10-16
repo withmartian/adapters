@@ -18,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,20 +32,21 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-1861c22d-18b7-4f93-8c19-24c0d141fd69","object":"chat.completion","created":1729011440,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"How''s
-        it going? Is there something I can help you with or would you like to chat?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011612733,"prompt_tokens":22,"prompt_time":0.002724745,"completion_tokens":21,"completion_time":0.0175,"total_tokens":43,"total_time":0.020224745},"system_fingerprint":"fp_179b0f92c9","x_groq":{"id":"req_01ja8hsq4efzzrwftnpfstcny8"}}
+      string: '{"id":"chatcmpl-4f414abd-f8e6-4914-88e0-ccd41763b359","object":"chat.completion","created":1729109163,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        looks like you started to type something, but it got cut off. Is there something
+        you''d like to talk about or ask? I''m here to listen and help if I can!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011439055,"prompt_tokens":22,"prompt_time":0.002448935,"completion_tokens":39,"completion_time":0.0325,"total_tokens":61,"total_time":0.034948935},"system_fingerprint":"fp_6a6771ae9c","x_groq":{"id":"req_01jabezzrwexmvd4vsfe4j1fkb"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3159001d111a42-TBS
+      - 8d3aaad1ad887aca-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -53,15 +54,19 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 15 Oct 2024 16:57:20 GMT
+      - Wed, 16 Oct 2024 20:06:03 GMT
       Server:
       - cloudflare
+      Set-Cookie:
+      - __cf_bm=NSm0rFZ0CwIB2Y5syKEIjrFsn.D6Pt.8SZUi29rI7aQ-1729109163-1.0.1.1-aMD_YD5BBDnh_oMi0Gfa5PkIZ8ylNoGZCG_EfNrkjtYE9_ueFyPNq69EmtWSrGST5tkTI9n_CsBuMAi2CXEm5A;
+        path=/; expires=Wed, 16-Oct-24 20:36:03 GMT; domain=.groq.com; HttpOnly; Secure;
+        SameSite=None
       Transfer-Encoding:
       - chunked
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '573'
+      - '646'
       vary:
       - Origin
       via:
@@ -79,7 +84,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 20ms
       x-request-id:
-      - req_01ja8hsq4efzzrwftnpfstcny8
+      - req_01jabezzrwexmvd4vsfe4j1fkb
     status:
       code: 200
       message: OK
