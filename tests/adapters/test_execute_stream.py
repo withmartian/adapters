@@ -49,7 +49,7 @@ async def test_async_execute_streaming(model_name):
         stream=True,
     )
 
-    chunks = list(adapter_response)
+    chunks = [data_chunk async for data_chunk in adapter_response]
 
     response = "".join(
         [
