@@ -1,7 +1,7 @@
+from adapters import general_utils
 from adapters.abstract_adapters import *
 from adapters.adapter_factory import AdapterFactory
 from adapters.types import *
-from adapters.utils import general_utils
 
 imported_symbols = []
 for module in [

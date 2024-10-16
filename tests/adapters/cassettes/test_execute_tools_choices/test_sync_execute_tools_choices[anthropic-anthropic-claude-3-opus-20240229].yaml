@@ -40,28 +40,32 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01CAqahUxiKFjNb2AanPsqZG","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
-        function \"generate\" is relevant for this request to generate a random number.
-        It requires a \"prompt\" parameter, which should be a string like \"5, 4,
-        3, 10, 11\" to specify what kind of number to generate. \n\nThe user did not
-        provide a value for the \"prompt\" parameter. There is not enough context
-        to reasonably infer what specific kind of random number they want.\n\nTo proceed,
-        I will need to ask the user to clarify what kind of random number they want
-        by providing an example prompt string.\n</thinking>\n\nTo generate a random
-        number, I need a little more information. Can you provide an example of the
-        kind of number you want, like \"5, 4, 3, 10, 11\"? This will help me understand
-        the range and type of random number to generate for you."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":186}}'
+      string: '{"id":"msg_01J1MTosiDE2W3mhErX7UQnf","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        provided tools are:\n1. generate - Generate random number\n\nTo generate a
+        random number, the generate tool requires a \"prompt\" parameter specifying
+        a random number as a string like \"5, 4, 3, 10, 11\".\n\nThe user''s request
+        of \"Generate random number\" does not provide a specific number range. To
+        properly call the generate tool, we need the user to provide more details
+        on what kind of random number they want, such as the range or some example
+        numbers.\n\nSince no other tools are available that could help determine the
+        desired number range, we will need to ask the user for clarification before
+        proceeding with the generate tool.\n</thinking>\n\nTo generate a random number,
+        could you please provide some more details on what kind of number you are
+        looking for? For example, specifying a range like \"between 1 and 10\" or
+        giving a few example numbers like \"5, 4, 3, 10, 11\" would help me understand
+        what type of random number to generate for you. Let me know and I''ll be happy
+        to generate a random number based on your prompt!"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":242}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d2c157fce2424e8-SJC
+      - 8d3b22069875cf7e-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 15 Oct 2024 01:37:37 GMT
+      - Wed, 16 Oct 2024 21:27:38 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -73,15 +77,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-15T01:37:37Z'
+      - '2024-10-16T21:27:38Z'
       content-length:
-      - '1006'
+      - '1293'
       request-id:
-      - req_012DL9vVHXU8rQXkUQUpiQu1
+      - req_01SXAt7av19GuUKZEaUcR2fk
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 442fcffcb69c6061b9353cc75ccfc9ca
+      - c30c9f05563be0903ae8dbf4d9257944
     status:
       code: 200
       message: OK

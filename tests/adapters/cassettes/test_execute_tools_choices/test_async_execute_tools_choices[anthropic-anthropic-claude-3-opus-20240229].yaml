@@ -40,27 +40,26 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_015rGVgMTosfGaMsnKHJYWdj","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
-        \"generate\" function was provided to generate random numbers. This function
-        takes in one required parameter:\nprompt: A string description of the kind
-        of random number to generate\n\nThe user''s request of \"Generate random number\"
-        does not specify any details about what kind of random number they want. To
-        properly call the generate function, we need more information from the user
-        about the desired number range or type of number.\n</thinking>\n\nTo generate
-        a random number, I need a few more details. Could you please provide a description
-        of the kind of random number you would like, such as the range (e.g. between
-        1 and 10) or type of number (e.g. single digit, two digit, etc.)?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":156}}'
+      string: '{"id":"msg_01JoL6kT5ZVGeJgtLa45fgQ4","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        generate tool is relevant for generating a random number, which is what the
+        user requested. It has one required parameter:\nprompt - This should be a
+        string description of the type of random number to generate. The user did
+        not provide this, but based on the examples like \"5, 4, 3, 10, 11\" it seems
+        a small positive integer would be appropriate to infer here.\nSince all required
+        parameters are available (by inferring a reasonable prompt value), we can
+        proceed with calling the generate tool.\n</thinking>"},{"type":"tool_use","id":"toolu_011HHiTcpKh72q2KZ5BvGgyY","name":"generate","input":{"prompt":"A
+        small positive integer like 7, 2, 5, 8"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":181}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d32cefa0906cf0a-SJC
+      - 8d3b22c5ff3c1703-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 15 Oct 2024 21:12:48 GMT
+      - Wed, 16 Oct 2024 21:28:10 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -72,15 +71,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-15T21:12:48Z'
+      - '2024-10-16T21:28:10Z'
       content-length:
-      - '943'
+      - '902'
       request-id:
-      - req_01SKF3oxj8VWdo74yrQbf2CR
+      - req_012n8yej1aL1vrbJzxFWfG4T
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - c6f07cd873e9c8d890cad02e9d151256
+      - bca76ee50f10b187b294484722663371
     status:
       code: 200
       message: OK

@@ -53,12 +53,12 @@ MODELS = [
         context_length=128000,
         properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
-    CohereModel(
-        name="command-r-plus",
-        cost=Cost(prompt=3.00e-6, completion=15.00e-6),
-        context_length=128000,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
-    ),
+    # CohereModel(
+    #     name="command-r-plus",
+    #     cost=Cost(prompt=3.00e-6, completion=15.00e-6),
+    #     context_length=128000,
+    #     properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
+    # ),
 ]
 
 

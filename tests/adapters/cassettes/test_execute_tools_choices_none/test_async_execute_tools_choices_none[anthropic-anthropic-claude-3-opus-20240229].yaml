@@ -40,25 +40,29 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01MYuVxZopUvvdi3arhrUfwB","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
-        only tool provided is \"generate\" which takes a \"prompt\" parameter with
-        a description like \"Random number like 5, 4, 3, 10, 11\". \nThe user''s request
-        to \"Generate random number\" doesn''t specify any additional details, so
-        we can infer that the user wants a random number without any specific constraints.
-        The \"generate\" tool should be sufficient to handle this request without
-        needing any additional information from the user.\n</thinking>"},{"type":"tool_use","id":"toolu_01CYUiFJ3CHxVB2G3wZscDsN","name":"generate","input":{"prompt":"Random
-        number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":154}}'
+      string: '{"id":"msg_01BB2pk3Gu6gExzBiChEbgev","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        user has requested to generate a random number. Let''s analyze the available
+        tools to see if we can fulfill this request.\n\nLooking at the \"generate\"
+        function, it has a single required parameter \"prompt\":\n\"prompt\": {\"description\":
+        \"Random number like 5, 4, 3, 10, 11\", \"type\": \"string\"}\n\nThe user
+        did not provide a specific prompt string, but based on the description, it
+        seems the prompt should be an example sequence of numbers to generate a random
+        number similar to those.\n\nSince no specific numbers were provided by the
+        user, I will infer a reasonable default prompt of \"1, 2, 3, 4, 5\" to generate
+        a small random integer. This should fulfill the user''s request sufficiently
+        given the lack of additional details provided.\n</thinking>"},{"type":"tool_use","id":"toolu_01LcVkyDEkKqFmPY8KMQiVJH","name":"generate","input":{"prompt":"1,
+        2, 3, 4, 5"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":240}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d32cfaa9da41597-SJC
+      - 8d3b244bda4dcea0-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 15 Oct 2024 21:13:15 GMT
+      - Wed, 16 Oct 2024 21:29:13 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -70,15 +74,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-15T21:13:15Z'
+      - '2024-10-16T21:29:13Z'
       content-length:
-      - '813'
+      - '1124'
       request-id:
-      - req_01Df1Hzhp8LS9waxgKLpaPBY
+      - req_01KJ13xvVfJ6KAKmR8BSHnAo
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - eb524a8dc87c3ca2ffb7657c0d51dfc3
+      - 721005cc1dfd99da671c0ff0077ef867
     status:
       code: 200
       message: OK
