@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
       "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}], "model": "mixtral-8x7b"}'
+      "Hi"}], "model": "mixtral-8x7b", "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '186'
+      - '203'
       content-type:
       - application/json
       host:
@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,38 +33,37 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://mixtral-8x7b.lepton.run/api/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-iZRFAAncV9Rp9NGfoQJJNd","object":"chat.completion","created":1728510977,"model":"mixtral-8x7b","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? Is there a specific topic you''d like to talk about?
-        I''m here to answer any questions you have to the best of my ability. You
-        can also just chat with me if you''d like. I''m here to assist and make your
-        experience as enjoyable as possible. Let me know how I can help. Is there
-        anything on your mind?","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":21,"total_tokens":104,"completion_tokens":83}}'
+      string: '{"id":"chatcmpl-uJErZXmwC4mZkASqoLSC8Y","object":"chat.completion","created":1729026648,"model":"mixtral-8x7b","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I help you today? Is there something specific you would like to know
+        or talk about? I''m here to answer any questions you have to the best of my
+        ability. Just let me know what''s on your mind. I''ll do my best to help you
+        out.","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":21,"total_tokens":83,"completion_tokens":62}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d019ea79ee1959d-TBS
+      - 8d32cc480c9ccf72-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:56:18 GMT
+      - Tue, 15 Oct 2024 21:10:49 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '668'
+      - '576'
       vary:
       - Accept-Encoding
       x-envoy-upstream-service-time:
-      - '780'
+      - '963'
     status:
       code: 200
       message: OK

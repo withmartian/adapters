@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
       "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}], "model": "moonshot-v1-128k"}'
+      "Hi"}], "model": "moonshot-v1-128k", "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '190'
+      - '207'
       content-type:
       - application/json
       host:
@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,26 +33,27 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.moonshot.cn/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-6706fc0cfc173475f10fc76c","object":"chat.completion","created":1728510988,"model":"moonshot-v1-128k","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"completion_tokens":10,"total_tokens":33}}'
+      string: '{"id":"chatcmpl-670eda5f86584debbda790ac","object":"chat.completion","created":1729026655,"model":"moonshot-v1-128k","choices":[{"index":0,"message":{"role":"assistant","content":"Hello
+        again! How can I assist you today? If you have any questions or need help
+        with something, feel free to ask."},"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"completion_tokens":27,"total_tokens":50}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 09 Oct 2024 21:56:28 GMT
+      - Tue, 15 Oct 2024 21:10:56 GMT
       Msh-Cache:
       - updated
       Msh-Gid:
       - enterprise-tier-2
       Msh-Request-Id:
-      - 55d9ca45-8689-11ef-865a-56d3b45c7cb7
+      - f75ee152-8b39-11ef-9bb2-ce778cc0789f
       Msh-Trace-Mode:
       - 'on'
       Msh-Uid:
@@ -66,9 +67,9 @@ interactions:
       Vary:
       - Origin, Accept-Encoding
       content-length:
-      - '310'
+      - '391'
       server-timing:
-      - inner; dur=269
+      - inner; dur=966
     status:
       code: 200
       message: OK

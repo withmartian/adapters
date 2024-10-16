@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "accounts/fireworks/models/gemma2-9b-it"}'
+      " "}, {"role": "user", "content": "\n"}], "model": "accounts/fireworks/models/gemma2-9b-it",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '172'
+      - '189'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,39 +33,35 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"95a0e416-3759-416c-8c1b-1967c4a50278\",\"object\":\"chat.completion\",\"created\":1728508167,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
-        provide me with a prompt or question so I can assist you! \U0001F60A \\n\\nFor
-        example, you could ask me to:\\n\\n* **Write a story:** \\\"Write a short
-        story about a robot who learns to feel emotions.\\\"\\n* **Answer a question:**
-        \\\"What is the capital of France?\\\"\\n* **Summarize text:** \\\"Summarize
-        the plot of the novel Pride and Prejudice.\\\"\\n* **Translate language:**
-        \\\"Translate 'Hello, how are you?' into Spanish.\\\"\\n* **Generate creative
-        content:** \\\"Write a poem about the beauty of nature.\\\"\\n\\n\\nI'm ready
-        for anything! \u2728 \\n<end_of_turn>\\n\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":149,\"completion_tokens\":130}}"
+      string: "{\"id\":\"5bfca7e8-d280-440e-ad1a-2800f3a03139\",\"object\":\"chat.completion\",\"created\":1728955350,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
+        provide me with a question or a task so I can assist you. \U0001F60A \\n\\nFor
+        example, you could ask me:\\n\\n* To write a poem\\n* To translate a phrase\\n*
+        To summarize a topic\\n* To answer a trivia question\\n* To help you brainstorm
+        ideas \\n\\n\\nI'm ready for anything! \\n<end_of_turn>\\n\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":91,\"completion_tokens\":72}}"
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d015a08aeaf95a0-TBS
+      - 8d2bff987c24ce6c-SJC
       Cf-Placement:
-      - local-TBS
+      - local-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:09:28 GMT
+      - Tue, 15 Oct 2024 01:22:30 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=1648.0;desc="Total Response Time"
+      - total;dur=734.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -72,7 +69,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '851'
+      - '588'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -80,11 +77,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '1.094'
+      - '0.620'
       x-envoy-upstream-service-time:
-      - '1098'
+      - '624'
       x-request-id:
-      - 95a0e416-3759-416c-8c1b-1967c4a50278
+      - 5bfca7e8-d280-440e-ad1a-2800f3a03139
     status:
       code: 200
       message: OK

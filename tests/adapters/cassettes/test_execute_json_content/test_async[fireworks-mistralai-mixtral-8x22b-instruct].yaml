@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "accounts/fireworks/models/mixtral-8x22b-instruct"}'
+    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "accounts/fireworks/models/mixtral-8x22b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '114'
+      - '131'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,34 +32,33 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"9f8ff55f-e2f1-4d0a-ab85-94b199601f55","object":"chat.completion","created":1728508904,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? Is there something specific you''d like to talk
-        about or ask me? I''m here to provide information and help answer your questions
-        to the best of my ability."},"finish_reason":"stop"}],"usage":{"prompt_tokens":8,"total_tokens":52,"completion_tokens":44}}'
+      string: '{"id":"e53379b9-0d13-42ce-bd50-019f21cf25c5","object":"chat.completion","created":1729026101,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I help you today? If you have any questions, need information, or
+        just want to chat, feel free to ask. I''m here to help! :)"},"finish_reason":"stop"}],"usage":{"prompt_tokens":8,"total_tokens":46,"completion_tokens":38}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d016c08698395a0-TBS
+      - 8d32beed090296cb-SJC
       Cf-Placement:
-      - local-TBS
+      - remote-IAD
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:21:44 GMT
+      - Tue, 15 Oct 2024 21:01:41 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=727.0;desc="Total Response Time"
+      - total;dur=553.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -66,7 +66,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '498'
+      - '450'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -74,11 +74,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.500'
+      - '0.494'
       x-envoy-upstream-service-time:
-      - '501'
+      - '496'
       x-request-id:
-      - 9f8ff55f-e2f1-4d0a-ab85-94b199601f55
+      - e53379b9-0d13-42ce-bd50-019f21cf25c5
     status:
       code: 200
       message: OK

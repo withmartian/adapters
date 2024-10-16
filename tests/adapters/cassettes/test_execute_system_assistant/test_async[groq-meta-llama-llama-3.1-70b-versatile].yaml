@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
       "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}], "model": "llama-3.1-70b-versatile"}'
+      "Hi"}], "model": "llama-3.1-70b-versatile", "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '197'
+      - '214'
       content-type:
       - application/json
       host:
@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,21 +33,20 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-ad659d8c-b54b-432b-b454-b2f0c75f0c6a","object":"chat.completion","created":1728510972,"model":"llama-3.1-70b-versatile","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        looks like we''re stuck in a loop of hellos. Would you like to talk about
-        something in particular or is there something I can help you with?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.005303667,"prompt_tokens":49,"prompt_time":0.011592493,"completion_tokens":33,"completion_time":0.132,"total_tokens":82,"total_time":0.143592493},"system_fingerprint":"fp_5c5d1b5cfb","x_groq":{"id":"req_01j9smgmftenv8m6bk1tdfb0az"}}
+      string: '{"id":"chatcmpl-d99ad35d-f8b2-40a5-8d2b-e3073e2c690f","object":"chat.completion","created":1729026646,"model":"llama-3.1-70b-versatile","choices":[{"index":0,"message":{"role":"assistant","content":"Hi
+        again. Is there something I can help you with or would you like to chat?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.004983069000000001,"prompt_tokens":49,"prompt_time":0.01221414,"completion_tokens":19,"completion_time":0.076484295,"total_tokens":68,"total_time":0.088698435},"system_fingerprint":"fp_b6828be2c9","x_groq":{"id":"req_01ja909rbxese9srmmq07rjt3n"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d019e880aa795a0-TBS
+      - 8d32cc3bd85ffa2a-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -55,19 +54,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:56:12 GMT
+      - Tue, 15 Oct 2024 21:10:46 GMT
       Server:
       - cloudflare
-      Set-Cookie:
-      - __cf_bm=UUfcNCX2thzdgNSn_YgwS5JEDcPZjjUqydSGyidlVtQ-1728510972-1.0.1.1-ZGEZ7DutAKBCEq01ULx48M3Sq8IkqAl6Kym7PXHVcFoU8SxYiUouWiRkb2Ar1csURbtv.hc3Vnf82TaWISJ6gw;
-        path=/; expires=Wed, 09-Oct-24 22:26:12 GMT; domain=.groq.com; HttpOnly; Secure;
-        SameSite=None
       Transfer-Encoding:
       - chunked
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '642'
+      - '589'
       vary:
       - Origin
       via:
@@ -85,7 +80,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 60ms
       x-request-id:
-      - req_01j9smgmftenv8m6bk1tdfb0az
+      - req_01ja909rbxese9srmmq07rjt3n
     status:
       code: 200
       message: OK

@@ -214,7 +214,7 @@ class GeminiSDKChatProviderAdapter(
             choices=choices,
         )
 
-    def extract_stream_response(self, request, response):
+    def extract_stream_response(self, request, response, state):
         return response
 
     def get_params(

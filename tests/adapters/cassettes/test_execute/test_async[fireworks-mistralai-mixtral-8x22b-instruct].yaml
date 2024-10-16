@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "accounts/fireworks/models/mixtral-8x22b-instruct"}'
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "accounts/fireworks/models/mixtral-8x22b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '110'
+      - '127'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,32 +32,36 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"b599e159-3b01-498f-a37b-e7df1c4451a4\",\"object\":\"chat.completion\",\"created\":1728515174,\"model\":\"accounts/fireworks/models/mixtral-8x22b-instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
-        How can I assist you today? \U0001F916\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":6,\"total_tokens\":21,\"completion_tokens\":15}}"
+      string: '{"id":"199b0e68-a066-4553-8d4b-05a42daad225","object":"chat.completion","created":1728954912,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today? Is there something specific you''d like to discuss
+        or learn about? I''m here to help with any questions you might have. Please
+        keep in mind that I strive to provide accurate and helpful information, but
+        my knowledge is based on a wide range of topics and the data available up
+        to 2021."},"finish_reason":"stop"}],"usage":{"prompt_tokens":6,"total_tokens":81,"completion_tokens":75}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d02051dbf37a9e9-TBS
+      - 8d2bf4e9cd946802-SJC
       Cf-Placement:
-      - local-TBS
+      - local-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 23:06:14 GMT
+      - Tue, 15 Oct 2024 01:15:13 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=472.0;desc="Total Response Time"
+      - total;dur=1133.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -64,7 +69,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '351'
+      - '630'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -72,11 +77,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.201'
+      - '1.008'
       x-envoy-upstream-service-time:
-      - '202'
+      - '1009'
       x-request-id:
-      - b599e159-3b01-498f-a37b-e7df1c4451a4
+      - 199b0e68-a066-4553-8d4b-05a42daad225
     status:
       code: 200
       message: OK

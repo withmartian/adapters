@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}, {"role": "system", "content": "Hi"}], "model": "mistralai/Mistral-7B-Instruct-v0.3"}'
+      "Hi"}, {"role": "system", "content": "Hi"}], "model": "mistralai/Mistral-7B-Instruct-v0.3",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '170'
+      - '187'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,24 +33,24 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-a5df17eb83154e6eaa523b4025123978","object":"chat.completion","created":1728509908,"model":"mistralai/Mistral-7B-Instruct-v0.3","choices":[{"index":0,"message":{"role":"assistant","content":"
-        Hello there! How can I assist you today? It''s nice to have multiple greetings
-        to start a conversation. Is there something specific you would like to talk
-        about or ask? I''m here to help!","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":9,"total_tokens":54,"completion_tokens":45,"estimated_cost":2.97e-06}}'
+      string: "{\"id\":\"chatcmpl-faed72827a744361bdc972c45ca51fbc\",\"object\":\"chat.completion\",\"created\":1729026336,\"model\":\"mistralai/Mistral-7B-Instruct-v0.3\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
+        Hello! It seems like we have a few friends joining our chat. Let's make the
+        most of this interaction. If you have any questions or topics you'd like to
+        discuss, feel free to ask. I'm here to help! \U0001F60A\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":9,\"total_tokens\":61,\"completion_tokens\":52,\"estimated_cost\":3.355e-06}}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '545'
+      - '562'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:38:28 GMT
+      - Tue, 15 Oct 2024 21:05:36 GMT
       server:
       - uvicorn
       x-robots-tag:

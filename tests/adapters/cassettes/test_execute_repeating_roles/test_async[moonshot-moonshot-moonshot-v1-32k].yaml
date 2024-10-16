@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "moonshot-v1-32k"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "moonshot-v1-32k",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '152'
+      - '169'
       content-type:
       - application/json
       host:
@@ -37,21 +38,22 @@ interactions:
     uri: https://api.moonshot.cn/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-6706fa29fc173475f10fc4a4","object":"chat.completion","created":1728510505,"model":"moonshot-v1-32k","choices":[{"index":0,"message":{"role":"assistant","content":"Hello
-        again! How can I assist you today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":18,"completion_tokens":11,"total_tokens":29}}'
+      string: '{"id":"chatcmpl-670ea0dcd8ad7aa5dc1828d3","object":"chat.completion","created":1729011932,"model":"moonshot-v1-32k","choices":[{"index":0,"message":{"role":"assistant","content":"Hello
+        again! How can I help you today? If you have any questions or need assistance,
+        feel free to ask."},"finish_reason":"stop"}],"usage":{"prompt_tokens":18,"completion_tokens":25,"total_tokens":43}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 09 Oct 2024 21:48:25 GMT
+      - Tue, 15 Oct 2024 17:05:33 GMT
       Msh-Cache:
       - updated
       Msh-Gid:
       - enterprise-tier-2
       Msh-Request-Id:
-      - 35e6eccd-8688-11ef-b531-3ef778122435
+      - afb9d6fe-8b17-11ef-a7c2-2e238f2a707b
       Msh-Trace-Mode:
       - 'on'
       Msh-Uid:
@@ -65,9 +67,9 @@ interactions:
       Vary:
       - Origin, Accept-Encoding
       content-length:
-      - '317'
+      - '379'
       server-timing:
-      - inner; dur=368
+      - inner; dur=1175
     status:
       code: 200
       message: OK

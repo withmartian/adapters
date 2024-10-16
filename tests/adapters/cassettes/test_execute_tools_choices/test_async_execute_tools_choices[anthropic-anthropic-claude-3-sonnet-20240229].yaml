@@ -1,10 +1,10 @@
 interactions:
 - request:
     body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
-      "role": "user"}], "model": "claude-3-sonnet-20240229", "tools": [{"input_schema":
-      {"type": "object", "properties": {"prompt": {"type": "string", "description":
-      "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate", "description":
-      "Generate random number"}]}'
+      "role": "user"}], "model": "claude-3-sonnet-20240229", "stream": false, "tools":
+      [{"input_schema": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate",
+      "description": "Generate random number"}]}'
     headers:
       accept:
       - application/json
@@ -15,7 +15,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '335'
+      - '352'
       content-type:
       - application/json
       host:
@@ -23,37 +23,36 @@ interactions:
       user-agent:
       - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01YCQrNUADVaFkbhgjMgaHK3","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"OK,
-        let me invoke the \"generate\" tool to get a random number:"},{"type":"tool_use","id":"toolu_01CEm2s4WFUt4tTyewXKM7fN","name":"generate","input":{"prompt":"Random
-        number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":234,"output_tokens":69}}'
+      string: '{"id":"msg_01VRfPLuQNGxVR1EreAPzpPj","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Here
+        is how to generate a random number using the provided tool:"},{"type":"tool_use","id":"toolu_01DW5pfQLuT98RbrshdL9AmG","name":"generate","input":{"prompt":"5"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":234,"output_tokens":65}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01b090e8ae317b-TBS
+      - 8d32cef22e57255a-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:08:32 GMT
+      - Tue, 15 Oct 2024 21:12:38 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -65,15 +64,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-09T22:08:32Z'
+      - '2024-10-15T21:12:38Z'
       content-length:
-      - '414'
+      - '403'
       request-id:
-      - req_01UAxUMp1c2jj2boGZEkimVW
+      - req_017DsBwe4zCsSHDnwEbd1AKW
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 8df1cf7349ff04026f6d5fb54feaf329
+      - faa9b8fbd86531d9d86d9b8df209a7eb
     status:
       code: 200
       message: OK

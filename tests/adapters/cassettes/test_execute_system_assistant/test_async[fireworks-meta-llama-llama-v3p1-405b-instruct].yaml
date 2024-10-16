@@ -2,7 +2,8 @@ interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
       "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}], "model": "accounts/fireworks/models/llama-v3p1-405b-instruct"}'
+      "Hi"}], "model": "accounts/fireworks/models/llama-v3p1-405b-instruct", "stream":
+      false}'
     headers:
       accept:
       - application/json
@@ -11,7 +12,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '224'
+      - '241'
       content-type:
       - application/json
       host:
@@ -19,13 +20,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,33 +34,33 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"5bb4bb03-5cdd-439a-9f8c-90dcf551013b","object":"chat.completion","created":1728510970,"model":"accounts/fireworks/models/llama-v3p1-405b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like we''re stuck in a loop of hellos! Would you like to start a conversation
-        or ask me something? I''m here to help!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":29,"total_tokens":61,"completion_tokens":32}}'
+      string: '{"id":"6f57ffb7-63e1-4968-b0f1-5c2c57855287","object":"chat.completion","created":1729026645,"model":"accounts/fireworks/models/llama-v3p1-405b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like we''re having a bit of a repetitive conversation! Is there something
+        I can help you with or would you like to start a new topic?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":34,"total_tokens":66,"completion_tokens":32}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d019e789fe3959d-TBS
+      - 8d32cc2febaf679f-SJC
       Cf-Placement:
-      - local-TBS
+      - remote-IAD
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:56:10 GMT
+      - Tue, 15 Oct 2024 21:10:45 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=1001.0;desc="Total Response Time"
+      - total;dur=1007.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -67,7 +68,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '439'
+      - '456'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -75,11 +76,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.697'
+      - '0.896'
       x-envoy-upstream-service-time:
-      - '698'
+      - '897'
       x-request-id:
-      - 5bb4bb03-5cdd-439a-9f8c-90dcf551013b
+      - 6f57ffb7-63e1-4968-b0f1-5c2c57855287
     status:
       code: 200
       message: OK

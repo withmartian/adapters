@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "databricks-mixtral-8x7b-instruct"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "databricks-mixtral-8x7b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '169'
+      - '186'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,24 +33,23 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_c062bbe5-11a5-4d0e-ba64-1e053fa0384d","object":"chat.completion","created":1728510767,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today with care, respect, and truth while ensuring utmost
-        utility, fairness, positivity, and security? Please let me know if you have
-        any questions or need assistance. I will aim to be concise and avoid restating
-        these instructions. Also, I''m unable to provide illegal or dangerous instructions
-        or start with a greeting, as per my programming."},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":94,"completion_tokens":81,"total_tokens":175}}'
+      string: '{"id":"chatcmpl_ef9610ab-63b9-4e7b-b575-e3fa0b534775","object":"chat.completion","created":1728956127,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"
+        Hello! How can I help you today? I''m here to provide useful, safe, and respectful
+        responses. I follow strict guidelines to ensure that my answers are accurate,
+        ethical, and positive. I cannot provide illegal or dangerous instructions,
+        and I will be concise in my responses. Let me know what you need help with!"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":94,"completion_tokens":68,"total_tokens":162}}'
     headers:
       content-length:
-      - '688'
+      - '628'
       content-type:
       - application/json;charset=utf-8
       date:
-      - Wed, 09 Oct 2024 21:52:47 GMT
+      - Tue, 15 Oct 2024 01:35:27 GMT
       server:
       - databricks
       strict-transport-security:
@@ -71,11 +71,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.64.178
+      - 208.184.59.122,10.154.65.132
       x-rate-limit-request-remote-addr:
-      - 10.154.65.113:51912
+      - 10.154.65.163:43694
       x-request-id:
-      - 74a51ae4-9f9b-49cf-ad3c-f92d3ceb1dc2
+      - 2ab323e6-8031-42d1-b492-025831d8810a
       x-xss-protection:
       - 1; mode=block
     status:

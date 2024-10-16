@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "mistralai/mixtral-8x7b-instruct"}'
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "mistralai/mixtral-8x7b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '93'
+      - '110'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,7 +32,7 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://openrouter.ai/api/v1/chat/completions
   response:
@@ -44,15 +45,25 @@ interactions:
         \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
         \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
         \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n{\"id\":\"gen-1728515060-Tfwdzl1RZFIzkyxMcIbq\",\"provider\":\"DeepInfra\",\"model\":\"mistralai/mixtral-8x7b-instruct\",\"object\":\"chat.completion\",\"created\":1728515060,\"choices\":[{\"logprobs\":null,\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
+        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n\n         \n\n         \n\n         \n{\"id\":\"gen-1728954819-CXJF0vhnaehPi4nz3ICC\",\"provider\":\"DeepInfra\",\"model\":\"mistralai/mixtral-8x7b-instruct\",\"object\":\"chat.completion\",\"created\":1728954819,\"choices\":[{\"logprobs\":null,\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
         Hello! How can I help you today? If you have any questions about a specific
-        topic or just want to chat, feel free to ask. I'm here to provide information
-        and support. Is there something on your mind?\",\"refusal\":\"\"}}],\"usage\":{\"prompt_tokens\":9,\"completion_tokens\":46,\"total_tokens\":55}}"
+        topic, such as programming, data science, or technology in general, feelsh
+        free to ask. I'll do my best to provide a clear and helpful answer. If you
+        don't have a specific question in mind, I can also provide some interesting
+        facts or trivia on a topic of your choice. Just let me know how I can assist
+        you.\",\"refusal\":\"\"}}],\"usage\":{\"prompt_tokens\":9,\"completion_tokens\":91,\"total_tokens\":100}}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d020256abf2959f-TBS
+      - 8d2bf2a2faa3cf1a-SJC
       Cache-Control:
       - public, max-age=0, must-revalidate
       Connection:
@@ -60,7 +71,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 23:04:20 GMT
+      - Tue, 15 Oct 2024 01:13:39 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -72,13 +83,13 @@ interactions:
         Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version,
         HTTP-Referer, X-Windowai-Title, X-Openrouter-Title, X-Title, X-Stainless-Lang,
         X-Stainless-Package-Version, X-Stainless-OS, X-Stainless-Arch, X-Stainless-Runtime,
-        X-Stainless-Runtime-Version, X-Stainless-Retry-Count
+        X-Stainless-Runtime-Version, X-Stainless-Retry-Count, Protection-Key
       access-control-allow-methods:
       - GET,OPTIONS,PATCH,DELETE,POST,PUT
       access-control-allow-origin:
       - '*'
       content-length:
-      - '1096'
+      - '1765'
       content-security-policy:
       - 'default-src ''self''; script-src ''self'' ''unsafe-eval'' ''unsafe-inline''
         https://clerk.openrouter.ai https://cunning-heron-18.clerk.accounts.dev https://challenges.cloudflare.com
@@ -87,9 +98,9 @@ interactions:
         connect-src ''self'' https://clerk.openrouter.ai https://cunning-heron-18.clerk.accounts.dev
         https://checkout.stripe.com https://api.stripe.com https://maps.googleapis.com
         *.google-analytics.com https://www.googletagmanager.com https://raw.githubusercontent.com
-        https://*.ingest.sentry.io; frame-src ''self'' https://challenges.cloudflare.com
-        https://checkout.stripe.com https://connect-js.stripe.com https://js.stripe.com
-        https://hooks.stripe.com https://us5.datadoghq.com https://*.ingest.sentry.io;
+        wss://www.walletlink.org/rpc https://*.ingest.sentry.io; frame-src ''self''
+        https://challenges.cloudflare.com https://checkout.stripe.com https://connect-js.stripe.com
+        https://js.stripe.com https://hooks.stripe.com https://us5.datadoghq.com https://*.ingest.sentry.io;
         img-src ''self'' data: blob: https://img.clerk.com https://*.stripe.com https://www.googletagmanager.com
         https://t0.gstatic.com; worker-src ''self'' blob:; style-src ''self'' ''unsafe-inline''
         sha256-0hAheEzaMe6uXIKV4EehS9pu1am1lj/KnnzrOYqckXk=; upgrade-insecure-requests'
@@ -98,7 +109,7 @@ interactions:
       x-matched-path:
       - /api/v1/chat/completions
       x-vercel-id:
-      - fra1::v8ss2-1728515060306-2c836869a7e3
+      - sfo1::9r6vb-1728954819043-4d8031ab8144
     status:
       code: 200
       message: OK

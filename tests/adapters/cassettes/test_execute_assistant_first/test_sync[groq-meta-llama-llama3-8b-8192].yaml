@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
-      "content": "Hi"}], "model": "llama3-8b-8192"}'
+      "content": "Hi"}], "model": "llama3-8b-8192", "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '116'
+      - '133'
       content-type:
       - application/json
       host:
@@ -18,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,22 +32,22 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-d60f9b4f-d9af-4c05-a2bb-4aed7707d4d9","object":"chat.completion","created":1728507215,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        looks like we''re having a bit of a silent conversation! Hi again! Would you
-        like to chat about something specific or just shoot the breeze? I''m here
-        to listen and respond."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.018043529000000003,"prompt_tokens":22,"prompt_time":0.003718951,"completion_tokens":39,"completion_time":0.0325,"total_tokens":61,"total_time":0.036218951},"system_fingerprint":"fp_af05557ca2","x_groq":{"id":"req_01j9sgxzscfwnth3srny7r2bt4"}}
+      string: '{"id":"chatcmpl-3716b98b-19ee-4315-88eb-68442fe1f9c3","object":"chat.completion","created":1728955009,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like we got disconnected there for a second. How can I help you with
+        anything today? Do you have a question or topic you''d like to discuss? I''m
+        here to listen and assist you in any way I can!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.009631701,"prompt_tokens":22,"prompt_time":0.003486279,"completion_tokens":48,"completion_time":0.04,"total_tokens":70,"total_time":0.043486279},"system_fingerprint":"fp_a97cfe35ae","x_groq":{"id":"req_01ja6vzjq6epgaefgrxtp0fm8j"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d0142d11e49a9e9-TBS
+      - 8d2bf74aeda41694-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -55,7 +55,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 20:53:35 GMT
+      - Tue, 15 Oct 2024 01:16:49 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -63,7 +63,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '675'
+      - '690'
       vary:
       - Origin
       via:
@@ -81,7 +81,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 20ms
       x-request-id:
-      - req_01j9sgxzscfwnth3srny7r2bt4
+      - req_01ja6vzjq6epgaefgrxtp0fm8j
     status:
       code: 200
       message: OK

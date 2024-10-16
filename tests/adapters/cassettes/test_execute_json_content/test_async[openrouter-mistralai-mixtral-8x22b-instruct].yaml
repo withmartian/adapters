@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "mistralai/mixtral-8x22b-instruct"}'
+    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "mistralai/mixtral-8x22b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '98'
+      - '115'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,23 +32,21 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://openrouter.ai/api/v1/chat/completions
   response:
     body:
       string: "\n         \n\n         \n\n         \n\n         \n\n         \n\n
         \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n\n         \n{\"id\":\"gen-1728508968-WtMe9EuudMBR42bC8LyF\",\"provider\":\"Fireworks\",\"model\":\"mistralai/mixtral-8x22b-instruct\",\"object\":\"chat.completion\",\"created\":1728508968,\"choices\":[{\"logprobs\":null,\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\",
-        here is the response.\\n\\nHello! It's lovely to meet you. How can I assist
-        you today? I'm here to help answer your questions or provide information on
-        a variety of topics. Is there something specific you'd like to discuss or
-        ask about?\",\"refusal\":\"\"}}],\"usage\":{\"prompt_tokens\":6,\"completion_tokens\":58,\"total_tokens\":64}}"
+        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n\n
+        \        \n\n         \n\n         \n\n         \n{\"id\":\"gen-1729026144-nd3zxnpPOG4mFzW7CuNL\",\"provider\":\"Together\",\"model\":\"mistralai/mixtral-8x22b-instruct\",\"object\":\"chat.completion\",\"created\":1729026144,\"choices\":[{\"logprobs\":null,\"finish_reason\":\"eos\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
+        Hello! How can I assist you today? Let's make the most of this conversation.\",\"refusal\":\"\"}}],\"usage\":{\"prompt_tokens\":7,\"completion_tokens\":20,\"total_tokens\":27}}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d016d9b0efa95a3-TBS
+      - 8d32bff76aef15e5-SJC
       Cache-Control:
       - public, max-age=0, must-revalidate
       Connection:
@@ -55,7 +54,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:22:48 GMT
+      - Tue, 15 Oct 2024 21:02:24 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -67,13 +66,13 @@ interactions:
         Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version,
         HTTP-Referer, X-Windowai-Title, X-Openrouter-Title, X-Title, X-Stainless-Lang,
         X-Stainless-Package-Version, X-Stainless-OS, X-Stainless-Arch, X-Stainless-Runtime,
-        X-Stainless-Runtime-Version, X-Stainless-Retry-Count
+        X-Stainless-Runtime-Version, X-Stainless-Retry-Count, Protection-Key
       access-control-allow-methods:
       - GET,OPTIONS,PATCH,DELETE,POST,PUT
       access-control-allow-origin:
       - '*'
       content-length:
-      - '748'
+      - '653'
       content-security-policy:
       - 'default-src ''self''; script-src ''self'' ''unsafe-eval'' ''unsafe-inline''
         https://clerk.openrouter.ai https://cunning-heron-18.clerk.accounts.dev https://challenges.cloudflare.com
@@ -82,9 +81,9 @@ interactions:
         connect-src ''self'' https://clerk.openrouter.ai https://cunning-heron-18.clerk.accounts.dev
         https://checkout.stripe.com https://api.stripe.com https://maps.googleapis.com
         *.google-analytics.com https://www.googletagmanager.com https://raw.githubusercontent.com
-        https://*.ingest.sentry.io; frame-src ''self'' https://challenges.cloudflare.com
-        https://checkout.stripe.com https://connect-js.stripe.com https://js.stripe.com
-        https://hooks.stripe.com https://us5.datadoghq.com https://*.ingest.sentry.io;
+        wss://www.walletlink.org/rpc https://*.ingest.sentry.io; frame-src ''self''
+        https://challenges.cloudflare.com https://checkout.stripe.com https://connect-js.stripe.com
+        https://js.stripe.com https://hooks.stripe.com https://us5.datadoghq.com https://*.ingest.sentry.io;
         img-src ''self'' data: blob: https://img.clerk.com https://*.stripe.com https://www.googletagmanager.com
         https://t0.gstatic.com; worker-src ''self'' blob:; style-src ''self'' ''unsafe-inline''
         sha256-0hAheEzaMe6uXIKV4EehS9pu1am1lj/KnnzrOYqckXk=; upgrade-insecure-requests'
@@ -93,7 +92,7 @@ interactions:
       x-matched-path:
       - /api/v1/chat/completions
       x-vercel-id:
-      - fra1::b87bz-1728508968205-2264d0388b2d
+      - sfo1::2dsh7-1729026143926-6ea0f941c20f
     status:
       code: 200
       message: OK

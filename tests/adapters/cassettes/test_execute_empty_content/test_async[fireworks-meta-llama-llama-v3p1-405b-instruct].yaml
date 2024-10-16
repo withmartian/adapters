@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "accounts/fireworks/models/llama-v3p1-405b-instruct"}'
+      " "}, {"role": "user", "content": "\n"}], "model": "accounts/fireworks/models/llama-v3p1-405b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '184'
+      - '201'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,33 +33,33 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"b9189e33-34ad-4d25-9878-4f1637c9c159","object":"chat.completion","created":1728508380,"model":"accounts/fireworks/models/llama-v3p1-405b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like you haven''t asked a question or provided any information. How
-        can I assist you today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":20,"total_tokens":42,"completion_tokens":22}}'
+      string: '{"id":"7356ea33-29c7-4382-b23a-eb464b5f8138","object":"chat.completion","created":1729025987,"model":"accounts/fireworks/models/llama-v3p1-405b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like you haven''t asked a question yet. What would you like to talk
+        about or ask? I''m here to help!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":25,"total_tokens":53,"completion_tokens":28}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d015f3f9b7d95a5-TBS
+      - 8d32bc250bec15ff-SJC
       Cf-Placement:
-      - local-TBS
+      - remote-IAD
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:13:00 GMT
+      - Tue, 15 Oct 2024 20:59:48 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=759.0;desc="Total Response Time"
+      - total;dur=738.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -66,7 +67,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '414'
+      - '422'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -74,11 +75,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.518'
+      - '0.662'
       x-envoy-upstream-service-time:
-      - '519'
+      - '664'
       x-request-id:
-      - b9189e33-34ad-4d25-9878-4f1637c9c159
+      - 7356ea33-29c7-4382-b23a-eb464b5f8138
     status:
       code: 200
       message: OK

@@ -1,11 +1,11 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4o-mini", "tool_choice": {"type": "function", "function": {"name": "generate"}},
-      "tools": [{"type": "function", "function": {"description": "Generate random
-      number", "name": "generate", "parameters": {"type": "object", "properties":
-      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
-      11"}}, "required": ["prompt"]}}}]}'
+      "gpt-4o-mini", "stream": false, "tool_choice": {"type": "function", "function":
+      {"name": "generate"}}, "tools": [{"type": "function", "function": {"description":
+      "Generate random number", "name": "generate", "parameters": {"type": "object",
+      "properties": {"prompt": {"type": "string", "description": "Random number like
+      5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
       accept:
       - application/json
@@ -16,7 +16,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '429'
+      - '446'
       content-type:
       - application/json
       host:
@@ -24,13 +24,13 @@ interactions:
       user-agent:
       - AsyncAzureOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -38,46 +38,46 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o-mini/chat/completions?api-version=2024-05-01-preview
   response:
     body:
-      string: '{"choices":[{"content_filter_results":{},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":null,"role":"assistant","tool_calls":[{"function":{"arguments":"{\"prompt\":\"Generate
-        a random number\"}","name":"generate"},"id":"call_TCKP4xNfy56YFnyTvALFcdSD","type":"function"}]}}],"created":1728511816,"id":"chatcmpl-AGZAmXCHJirhAkDBMZhEQkmVw03Kv","model":"gpt-4o-mini","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"jailbreak":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_878413d04d","usage":{"completion_tokens":8,"prompt_tokens":70,"total_tokens":78}}
+      string: '{"choices":[{"content_filter_results":{},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":null,"role":"assistant","tool_calls":[{"function":{"arguments":"{\"prompt\":\"Random
+        number\"}","name":"generate"},"id":"call_bpV0Rxt7rayFhSiMnRFi6NLu","type":"function"}]}}],"created":1729026747,"id":"chatcmpl-AIj877pyRpudmpE0eUaVf7WVVSoBh","model":"gpt-4o-mini","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"jailbreak":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_878413d04d","usage":{"completion_tokens":6,"prompt_tokens":70,"total_tokens":76}}
 
         '
     headers:
       Content-Length:
-      - '827'
+      - '816'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:10:16 GMT
+      - Tue, 15 Oct 2024 21:12:27 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - e39ca9f8-ec36-4458-9d89-54da7b9e5803
+      - f36def4a-a16c-49e2-b832-46757d6e4cb7
       azureml-model-session:
-      - d009-20240926131256
+      - d006-20240925050409
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '213'
+      - '254'
       x-ms-client-request-id:
-      - e39ca9f8-ec36-4458-9d89-54da7b9e5803
+      - f36def4a-a16c-49e2-b832-46757d6e4cb7
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
       - East US
       x-ratelimit-remaining-requests:
-      - '19998'
+      - '19999'
       x-ratelimit-remaining-tokens:
-      - '1998708'
+      - '1999354'
       x-request-id:
-      - d1ca462f-18e6-4e4d-98e1-570509187dea
+      - b6701189-3555-471a-813c-6138a5a5c606
     status:
       code: 200
       message: OK

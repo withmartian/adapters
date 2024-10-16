@@ -1,8 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4o-mini", "tool_choice": "none", "tools": [{"type": "function", "function":
-      {"description": "Generate random number", "name": "generate", "parameters":
+      "gpt-4o-mini", "stream": false, "tool_choice": "none", "tools": [{"type": "function",
+      "function": {"description": "Generate random number", "name": "generate", "parameters":
       {"type": "object", "properties": {"prompt": {"type": "string", "description":
       "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
@@ -15,7 +15,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '381'
+      - '398'
       content-type:
       - application/json
       host:
@@ -23,13 +23,13 @@ interactions:
       user-agent:
       - AsyncAzureOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -37,13 +37,13 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o-mini/chat/completions?api-version=2024-05-01-preview
   response:
     body:
       string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"protected_material_code":{"filtered":false,"detected":false},"protected_material_text":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"How
-        many random numbers would you like to generate?","role":"assistant"}}],"created":1728511513,"id":"chatcmpl-AGZ5tR7c4uVaFFo0VPz4jBQ02GEVa","model":"gpt-4o-mini","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"jailbreak":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_878413d04d","usage":{"completion_tokens":10,"prompt_tokens":63,"total_tokens":73}}
+        many random numbers would you like to generate?","role":"assistant"}}],"created":1729026802,"id":"chatcmpl-AIj90tTdDeBsEeA9ATQJCGsZYnjhY","model":"gpt-4o-mini","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"jailbreak":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_878413d04d","usage":{"completion_tokens":10,"prompt_tokens":63,"total_tokens":73}}
 
         '
     headers:
@@ -52,31 +52,31 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:05:12 GMT
+      - Tue, 15 Oct 2024 21:13:21 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - b681d3a0-f4c5-4f06-837e-44d6965ea88d
+      - 5954b45c-91cf-4be4-bc67-7927e7096f41
       azureml-model-session:
-      - d020-20240921144801
+      - d018-20240921125527
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '310'
+      - '190'
       x-ms-client-request-id:
-      - b681d3a0-f4c5-4f06-837e-44d6965ea88d
+      - 5954b45c-91cf-4be4-bc67-7927e7096f41
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
       - East US
       x-ratelimit-remaining-requests:
-      - '19998'
+      - '19997'
       x-ratelimit-remaining-tokens:
-      - '1998708'
+      - '1998062'
       x-request-id:
-      - 7a507cf2-a4e7-447c-9b88-2ecc07b6fbb8
+      - 5af3f095-16fd-44c5-ac90-dc853cabd462
     status:
       code: 200
       message: OK

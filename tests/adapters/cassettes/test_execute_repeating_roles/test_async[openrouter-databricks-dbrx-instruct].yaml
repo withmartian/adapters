@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "databricks/dbrx-instruct"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "databricks/dbrx-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '161'
+      - '178'
       content-type:
       - application/json
       host:
@@ -38,13 +39,11 @@ interactions:
   response:
     body:
       string: "\n         \n\n         \n\n         \n\n         \n\n         \n\n
-        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n{\"id\":\"gen-1728510529-k8dEWF7Mwh5KhDLEuWR1\",\"provider\":\"Together\",\"model\":\"databricks/dbrx-instruct\",\"object\":\"chat.completion\",\"created\":1728510529,\"choices\":[{\"logprobs\":null,\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
+        \        \n\n         \n\n         \n\n         \n\n         \n\n         \n{\"id\":\"gen-1729011981-zusZwDSqqbvN1SdS8ZqH\",\"provider\":\"Together\",\"model\":\"databricks/dbrx-instruct\",\"object\":\"chat.completion\",\"created\":1729011981,\"choices\":[{\"logprobs\":null,\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
         How can I assist you today?\",\"refusal\":\"\"}}],\"usage\":{\"prompt_tokens\":237,\"completion_tokens\":10,\"total_tokens\":247}}"
     headers:
-      CF-Cache-Status:
-      - DYNAMIC
       CF-RAY:
-      - 8d0193b6184d95a0-TBS
+      - 8d3166276d841a42-TBS
       Cache-Control:
       - public, max-age=0, must-revalidate
       Connection:
@@ -52,7 +51,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:48:49 GMT
+      - Tue, 15 Oct 2024 17:06:22 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -64,11 +63,13 @@ interactions:
         Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version,
         HTTP-Referer, X-Windowai-Title, X-Openrouter-Title, X-Title, X-Stainless-Lang,
         X-Stainless-Package-Version, X-Stainless-OS, X-Stainless-Arch, X-Stainless-Runtime,
-        X-Stainless-Runtime-Version, X-Stainless-Retry-Count
+        X-Stainless-Runtime-Version, X-Stainless-Retry-Count, Protection-Key
       access-control-allow-methods:
       - GET,OPTIONS,PATCH,DELETE,POST,PUT
       access-control-allow-origin:
       - '*'
+      cf-cache-status:
+      - DYNAMIC
       content-length:
       - '496'
       content-security-policy:
@@ -79,18 +80,20 @@ interactions:
         connect-src ''self'' https://clerk.openrouter.ai https://cunning-heron-18.clerk.accounts.dev
         https://checkout.stripe.com https://api.stripe.com https://maps.googleapis.com
         *.google-analytics.com https://www.googletagmanager.com https://raw.githubusercontent.com
-        https://*.ingest.sentry.io; frame-src ''self'' https://challenges.cloudflare.com
-        https://checkout.stripe.com https://connect-js.stripe.com https://js.stripe.com
-        https://hooks.stripe.com https://us5.datadoghq.com https://*.ingest.sentry.io;
+        wss://www.walletlink.org/rpc https://*.ingest.sentry.io; frame-src ''self''
+        https://challenges.cloudflare.com https://checkout.stripe.com https://connect-js.stripe.com
+        https://js.stripe.com https://hooks.stripe.com https://us5.datadoghq.com https://*.ingest.sentry.io;
         img-src ''self'' data: blob: https://img.clerk.com https://*.stripe.com https://www.googletagmanager.com
         https://t0.gstatic.com; worker-src ''self'' blob:; style-src ''self'' ''unsafe-inline''
         sha256-0hAheEzaMe6uXIKV4EehS9pu1am1lj/KnnzrOYqckXk=; upgrade-insecure-requests'
       strict-transport-security:
       - max-age=63072000
+      vary:
+      - accept-encoding
       x-matched-path:
       - /api/v1/chat/completions
       x-vercel-id:
-      - fra1::jmwrc-1728510529026-8c21426e4791
+      - fra1::5bzsj-1729011979654-3a51efa6c5fa
     status:
       code: 200
       message: OK

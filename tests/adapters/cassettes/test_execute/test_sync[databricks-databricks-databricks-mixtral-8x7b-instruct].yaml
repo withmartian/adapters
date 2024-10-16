@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "databricks-mixtral-8x7b-instruct"}'
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "databricks-mixtral-8x7b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '94'
+      - '111'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,31 +32,54 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_579eb885-0a50-4b7d-9c63-d487501b2d2a","object":"chat.completion","created":1728514976,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"1.
-        Can you help me understand the concept of blockchain technology?\n2. What
-        are some effective ways to manage stress?\n3. How can I improve my writing
-        skills?\n4. What are some simple steps to start learning a new language?\n5.
-        Can you explain the basics of quantum physics?\n6. How can I boost my metabolism?\n7.
-        What are the best practices for working from home?\n8. How can I improve my
-        public speaking skills?\n9. Can you help me understand the principles of machine
-        learning?\n10. What are some tips for healthy eating?\n\nPlease let me know
-        if you have any specific questions or if there is a particular topic you would
-        like me to help you with. I am here to provide useful, secure, and respectful
-        responses that promote fairness and positivity. I will avoid harmful, unethical,
-        prejudiced, or negative content and will not provide illegal or dangerous
-        instructions. My goal is to be concise and helpful."},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":83,"completion_tokens":211,"total_tokens":294}}'
+      string: "{\"id\":\"chatcmpl_b4a1bccd-f6f7-4b0f-b4e6-f88efa4c494f\",\"object\":\"chat.completion\",\"created\":1728954754,\"model\":\"mixtral-8x7b-instruct-v0.1\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"1.
+        Can you help me understand the difference between a regular loan and a secured
+        loan?\\nA regular loan is an unsecured loan that doesn't require collateral,
+        while a secured loan requires the borrower to provide an asset as collateral,
+        which can be seized if the borrower fails to repay the loan.\\n\\n2. How do
+        I calculate the monthly payment for a mortgage?\\nYou can use the following
+        formula to calculate the monthly payment for a mortgage: M = P [ i(1 + i)^n
+        ] / [ (1 + i)^n \u2013 1], where M is the monthly payment, P is the principal
+        loan amount, i is the monthly interest rate, and n is the number of payments.\\n\\n3.
+        What is the difference between a credit card and a charge card?\\nA credit
+        card allows the user to carry a balance from month to month, while a charge
+        card requires the user to pay the balance in full each month.\\n\\n4. How
+        can I improve my credit score?\\nYou can improve your credit score by paying
+        your bills on time, reducing the amount of debt you owe, keeping your credit
+        card balances low, and avoiding new credit inquiries.\\n\\n5. Can I negotiate
+        a lower interest rate on my credit card?\\nYes, you can negotiate a lower
+        interest rate on your credit card by contacting your credit card company and
+        explaining your situation and history with the card.\\n\\n6. What is a 401(k)
+        plan?\\nA 401(k) plan is a retirement savings plan sponsored by an employer
+        that allows employees to save and invest a portion of their paycheck before
+        taxes.\\n\\n7. How does a Roth IRA work?\\nA Roth IRA is a retirement savings
+        account that allows you to make contributions with after-tax dollars, and
+        then withdraw the earnings tax-free in retirement.\\n\\n8. What is the difference
+        between a traditional IRA and a Roth IRA?\\nThe main difference between a
+        traditional IRA and a Roth IRA is the tax treatment. Traditional IRA contributions
+        are tax-deductible, but withdrawals are taxed as ordinary income. Roth IRA
+        contributions are made with after-tax dollars, but withdrawals are tax-free
+        in retirement.\\n\\n9. How can I save for my child's education?\\nYou can
+        save for your child's education using a 529 college savings plan, which allows
+        you to invest after-tax dollars in a variety of investment options and then
+        withdraw the earnings tax-free for qualified education expenses.\\n\\n10.
+        What is the difference between a mutual fund and an ETF?\\nA mutual fund is
+        a professionally managed investment vehicle that pools money from multiple
+        investors and invests in a diversified portfolio of securities. An ETF, or
+        exchange-traded fund, is a type of mutual fund that is traded on an exchange
+        like a stock.\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":83,\"completion_tokens\":615,\"total_tokens\":698}}"
     headers:
       content-length:
-      - '1229'
+      - '2915'
       content-type:
       - application/json;charset=utf-8
       date:
-      - Wed, 09 Oct 2024 23:02:56 GMT
+      - Tue, 15 Oct 2024 01:12:34 GMT
       server:
       - databricks
       strict-transport-security:
@@ -77,11 +101,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.64.71
+      - 208.184.59.122,10.154.64.100
       x-rate-limit-request-remote-addr:
-      - 10.154.65.113:54882
+      - 10.154.65.113:41184
       x-request-id:
-      - 407f6b6e-340f-4f62-8b1c-289469ebbfbd
+      - a6bc5880-e3f2-43e7-9e1c-e48bf493357e
       x-xss-protection:
       - 1; mode=block
     status:

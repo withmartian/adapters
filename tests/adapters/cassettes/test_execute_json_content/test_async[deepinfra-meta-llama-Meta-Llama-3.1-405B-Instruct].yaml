@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "meta-llama/Meta-Llama-3.1-405B-Instruct"}'
+    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "meta-llama/Meta-Llama-3.1-405B-Instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '105'
+      - '122'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,23 +32,22 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-a74bf67a7ade4130b97a6ca8d440541e","object":"chat.completion","created":1728508897,"model":"meta-llama/Meta-Llama-3.1-405B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        looks like you said \"Hi\" twice! How are you doing today? Is there something
-        I can help you with or would you like to chat?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"total_tokens":44,"completion_tokens":31,"estimated_cost":7.876e-05}}'
+      string: '{"id":"chatcmpl-ab359c2cc9264ea590a72ff7f1a5d2ad","object":"chat.completion","created":1729026098,"model":"meta-llama/Meta-Llama-3.1-405B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi
+        back to you! How''s your day going so far?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"total_tokens":26,"completion_tokens":13,"estimated_cost":4.653999999999999e-05}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '493'
+      - '422'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:21:37 GMT
+      - Tue, 15 Oct 2024 21:01:38 GMT
       server:
       - uvicorn
       x-robots-tag:

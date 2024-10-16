@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "gpt-4o",
-      "response_format": {"type": "json_object"}}'
+      "response_format": {"type": "json_object"}, "stream": false}'
     headers:
       accept:
       - application/json
@@ -12,7 +12,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '122'
+      - '139'
       content-type:
       - application/json
       host:
@@ -20,13 +20,13 @@ interactions:
       user-agent:
       - AsyncAzureOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -34,45 +34,37 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview
   response:
     body:
-      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"{\n  \"message\":
-        \"Sure! How can I assist you with JSON?\",\n  \"examples\": [\n    {\n      \"description\":
-        \"Creating a simple JSON object\",\n      \"json\": {\n        \"name\": \"John
-        Doe\",\n        \"age\": 30,\n        \"email\": \"john.doe@example.com\"\n      }\n    },\n    {\n      \"description\":
-        \"Nested JSON object\",\n      \"json\": {\n        \"person\": {\n          \"name\":
-        \"Jane Doe\",\n          \"contacts\": [\n            {\n              \"type\":
-        \"email\",\n              \"contact\": \"jane.doe@example.com\"\n            },\n            {\n              \"type\":
-        \"phone\",\n              \"contact\": \"+1234567890\"\n            }\n          ]\n        }\n      }\n    },\n    {\n      \"description\":
-        \"JSON array of objects\",\n      \"json\": {\n        \"users\": [\n          {\n            \"id\":
-        1,\n            \"name\": \"Alice\"\n          },\n          {\n            \"id\":
-        2,\n            \"name\": \"Bob\"\n          }\n        ]\n      }\n    }\n  ]\n}","role":"assistant"}}],"created":1728509181,"id":"chatcmpl-AGYUHNItdGPKTrKGCAW36g6nSDvQr","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_67802d9a6d","usage":{"completion_tokens":222,"prompt_tokens":11,"total_tokens":233}}
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"\n\n{\n  \"greeting\":
+        \"Hello! How can I help you today?\",\n  \"instructions\": \"Please specify
+        your request in detail so I can assist you better.\"\n}","role":"assistant"}}],"created":1729026197,"id":"chatcmpl-AIizFfsNmSs7h4aSaa0rR8XjRHTbI","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_67802d9a6d","usage":{"completion_tokens":37,"prompt_tokens":11,"total_tokens":48}}
 
         '
     headers:
       Content-Length:
-      - '1823'
+      - '965'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:26:22 GMT
+      - Tue, 15 Oct 2024 21:03:16 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - fd8f4802-873b-4a19-9adc-1949ba756c0e
+      - 5f1ebaea-d710-4d7f-9d7e-d9e46d248444
       azureml-model-session:
-      - d089-20240922175854
+      - d019-20240925050557
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '2298'
+      - '388'
       x-ms-client-request-id:
-      - fd8f4802-873b-4a19-9adc-1949ba756c0e
+      - 5f1ebaea-d710-4d7f-9d7e-d9e46d248444
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
@@ -80,9 +72,9 @@ interactions:
       x-ratelimit-remaining-requests:
       - '149'
       x-ratelimit-remaining-tokens:
-      - '148712'
+      - '149356'
       x-request-id:
-      - 02b4bd05-0176-4877-9dab-33ec1a683a6a
+      - b9a5a71b-f034-497c-b2df-cf94b116ca4a
     status:
       code: 200
       message: OK

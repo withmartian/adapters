@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
-      "content": "Hi"}], "model": "google/gemma-2-27b-it"}'
+      "content": "Hi"}], "model": "google/gemma-2-27b-it", "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '123'
+      - '140'
       content-type:
       - application/json
       host:
@@ -37,17 +37,18 @@ interactions:
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-bb413c86008b451887139d9034c140a3\",\"object\":\"chat.completion\",\"created\":1728507367,\"model\":\"google/gemma-2-27b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"How
-        can I help you today? \U0001F60A  \",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":21,\"total_tokens\":30,\"completion_tokens\":9,\"estimated_cost\":8.1e-06}}"
+      string: "{\"id\":\"chatcmpl-7385ad7e7f4047e69ed67cbff2fb8e0a\",\"object\":\"chat.completion\",\"created\":1729011425,\"model\":\"google/gemma-2-27b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"How
+        can I help you today? \U0001F60A  \\n\\nDo you have a question, need help
+        with a task, or just want to chat?\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":21,\"total_tokens\":49,\"completion_tokens\":28,\"estimated_cost\":1.323e-05}}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '377'
+      - '452'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 20:56:07 GMT
+      - Tue, 15 Oct 2024 16:57:05 GMT
       server:
       - uvicorn
       x-robots-tag:

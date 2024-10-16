@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}, {"role": "system", "content": "Hi"}], "model": "meta-llama-3-70b-instruct"}'
+      "Hi"}, {"role": "system", "content": "Hi"}], "model": "meta-llama-3-70b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '161'
+      - '178'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,23 +33,24 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-c8adec13def4423d9318b0b5530e936e","object":"chat.completion","created":1728509457,"model":"meta-llama-3-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
-        It''s nice to meet you. Is there something I can help you with, or would you
-        like to chat?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"completion_tokens":25,"total_tokens":48}}'
+      string: '{"id":"chatcmpl-ed3013f50dab4a4ea236ec25499bb0b7","object":"chat.completion","created":1728955720,"model":"meta-llama-3-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like we''re having a hi- conversation! How are you doing today? Is there
+        anything on your mind that you''d like to talk about, or is it just a casual
+        hello?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"completion_tokens":39,"total_tokens":62}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '404'
+      - '474'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:30:56 GMT
+      - Tue, 15 Oct 2024 01:28:39 GMT
       Server:
       - uvicorn
       Vary:
@@ -56,15 +58,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '2'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '548'
+      - '784'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1728509458'
+      - '1728955721'
       X-User-Request-Id:
       - ''
     status:

@@ -1,11 +1,11 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4o-2024-08-06", "tool_choice": {"type": "function", "function": {"name":
-      "generate"}}, "tools": [{"type": "function", "function": {"description": "Generate
-      random number", "name": "generate", "parameters": {"type": "object", "properties":
-      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
-      11"}}, "required": ["prompt"]}}}]}'
+      "gpt-4o-2024-08-06", "stream": false, "tool_choice": {"type": "function", "function":
+      {"name": "generate"}}, "tools": [{"type": "function", "function": {"description":
+      "Generate random number", "name": "generate", "parameters": {"type": "object",
+      "properties": {"prompt": {"type": "string", "description": "Random number like
+      5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
       accept:
       - application/json
@@ -14,7 +14,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '435'
+      - '452'
       content-type:
       - application/json
       host:
@@ -22,13 +22,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -36,35 +36,35 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGZAd9lViOLqtnYlwCMpgZSPTIA22\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728511807,\n  \"model\": \"gpt-4o-2024-08-06\",\n
+      string: "{\n  \"id\": \"chatcmpl-AIQmsrebX9G97scaNbur1bPpaB0Jw\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728956238,\n  \"model\": \"gpt-4o-2024-08-06\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
         \"assistant\",\n        \"content\": null,\n        \"tool_calls\": [\n          {\n
-        \           \"id\": \"call_JUTg9xXZD0JZdbKMqkQJ57AT\",\n            \"type\":
+        \           \"id\": \"call_HBvg677qu8xtjKH0ZXhnHL6c\",\n            \"type\":
         \"function\",\n            \"function\": {\n              \"name\": \"generate\",\n
-        \             \"arguments\": \"{\\\"prompt\\\":\\\"Generate a random number
-        for me.\\\"}\"\n            }\n          }\n        ],\n        \"refusal\":
-        null\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n
-        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 70,\n    \"completion_tokens\":
-        11,\n    \"total_tokens\": 81,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
+        \             \"arguments\": \"{\\\"prompt\\\":\\\"Generate random number\\\"}\"\n
+        \           }\n          }\n        ],\n        \"refusal\": null\n      },\n
+        \     \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n
+        \ \"usage\": {\n    \"prompt_tokens\": 70,\n    \"completion_tokens\": 7,\n
+        \   \"total_tokens\": 77,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
         0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_e5e4913e83\"\n}\n"
+        0\n    }\n  },\n  \"system_fingerprint\": \"fp_6b68a8204b\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01b2ea9c9095a0-TBS
+      - 8d2c154b99559464-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:10:07 GMT
+      - Tue, 15 Oct 2024 01:37:19 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -76,11 +76,11 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '915'
+      - '904'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '200'
+      - '514'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -98,7 +98,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_bda900e425e10f5cacbf98641aa81968
+      - req_7fcde3dc3ea2674baa86d3b8b736bd51
     status:
       code: 200
       message: OK

@@ -1,10 +1,10 @@
 interactions:
 - request:
     body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
-      "role": "user"}], "model": "claude-3-sonnet-20240229", "tool_choice": {"type":
-      "any"}, "tools": [{"input_schema": {"type": "object", "properties": {"prompt":
-      {"type": "string", "description": "Random number like 5, 4, 3, 10, 11"}}}, "name":
-      "generate", "description": "Generate random number"}]}'
+      "role": "user"}], "model": "claude-3-sonnet-20240229", "stream": false, "tool_choice":
+      {"type": "any"}, "tools": [{"input_schema": {"type": "object", "properties":
+      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
+      11"}}}, "name": "generate", "description": "Generate random number"}]}'
     headers:
       accept:
       - application/json
@@ -15,7 +15,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '367'
+      - '384'
       content-type:
       - application/json
       host:
@@ -23,35 +23,35 @@ interactions:
       user-agent:
       - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01HB5K7wvbJvZUj5XiKg9y5V","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"tool_use","id":"toolu_016NscxfCQSzKKVUzoRRGBZq","name":"generate","input":{"prompt":"<UNKNOWN>"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":325,"output_tokens":37}}'
+      string: '{"id":"msg_01BPXH9Axu32d8GoNrD8tChj","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"tool_use","id":"toolu_01TXt1GMkQh1x3YGuyYt1TEe","name":"generate","input":{"prompt":"<UNKNOWN>"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":325,"output_tokens":37}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01ade71ba395a5-TBS
+      - 8d2c171768c667dd-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:06:43 GMT
+      - Tue, 15 Oct 2024 01:38:33 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -63,15 +63,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-09T22:06:43Z'
+      - '2024-10-15T01:38:33Z'
       content-length:
       - '321'
       request-id:
-      - req_01J73HSg16QZojYsUFqt5huj
+      - req_01FxyyB17RfmB5pdJQ2q28DE
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 135f6826a03862af5aa677c5723c7f8f
+      - a0ac5fe31128f6604acd00b96e7a905b
     status:
       code: 200
       message: OK

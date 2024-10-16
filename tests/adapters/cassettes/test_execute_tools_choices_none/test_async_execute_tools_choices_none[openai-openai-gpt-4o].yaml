@@ -1,8 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4o", "tool_choice": "none", "tools": [{"type": "function", "function":
-      {"description": "Generate random number", "name": "generate", "parameters":
+      "gpt-4o", "stream": false, "tool_choice": "none", "tools": [{"type": "function",
+      "function": {"description": "Generate random number", "name": "generate", "parameters":
       {"type": "object", "properties": {"prompt": {"type": "string", "description":
       "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
@@ -13,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '376'
+      - '393'
       content-type:
       - application/json
       host:
@@ -21,13 +21,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -35,33 +35,32 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGZ5x8mTxdBKp7oiCIvswKQgUTB35\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728511517,\n  \"model\": \"gpt-4o-2024-08-06\",\n
+      string: "{\n  \"id\": \"chatcmpl-AIj9A58cUI70KGumMrww4SFHdVxti\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1729026812,\n  \"model\": \"gpt-4o-2024-08-06\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
         \"assistant\",\n        \"content\": \"Could you please specify the range
-        or any specific criteria for the random number you'd like to generate? For
-        example, between 1 and 100, or any other details you'd like to provide.\",\n
+        or any additional details you want for the random number generation?\",\n
         \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
         \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 63,\n    \"completion_tokens\":
-        38,\n    \"total_tokens\": 101,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
+        18,\n    \"total_tokens\": 81,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
         0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_e5e4913e83\"\n}\n"
+        0\n    }\n  },\n  \"system_fingerprint\": \"fp_6b68a8204b\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01abd9d995959f-TBS
+      - 8d32d04b7cf07abc-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:05:18 GMT
+      - Tue, 15 Oct 2024 21:13:33 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -73,11 +72,11 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '800'
+      - '721'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '442'
+      - '724'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -95,7 +94,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_47a81c7e3740967c69473e9ac48a9429
+      - req_0ee0bc007f9cc8606653024a34383695
     status:
       code: 200
       message: OK

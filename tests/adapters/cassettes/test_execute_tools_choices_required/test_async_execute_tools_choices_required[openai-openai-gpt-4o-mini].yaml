@@ -1,10 +1,10 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4o-mini", "tool_choice": "required", "tools": [{"type": "function", "function":
-      {"description": "Generate random number", "name": "generate", "parameters":
-      {"type": "object", "properties": {"prompt": {"type": "string", "description":
-      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+      "gpt-4o-mini", "stream": false, "tool_choice": "required", "tools": [{"type":
+      "function", "function": {"description": "Generate random number", "name": "generate",
+      "parameters": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
       accept:
       - application/json
@@ -13,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '385'
+      - '402'
       content-type:
       - application/json
       host:
@@ -21,13 +21,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -35,35 +35,35 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGZ7xW6layaemSTgHpazPi7jhRPRI\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728511641,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n
+      string: "{\n  \"id\": \"chatcmpl-AIj9UiJ2bZSwV8LumJaTelaOMtbOn\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1729026832,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
         \"assistant\",\n        \"content\": null,\n        \"tool_calls\": [\n          {\n
-        \           \"id\": \"call_wTjZ112TPJDXDRt6eWsUPB3i\",\n            \"type\":
+        \           \"id\": \"call_3cIcFIh5jyVqV48DqZEuoluo\",\n            \"type\":
         \"function\",\n            \"function\": {\n              \"name\": \"generate\",\n
-        \             \"arguments\": \"{\\\"prompt\\\":\\\"1-100\\\"}\"\n            }\n
-        \         }\n        ],\n        \"refusal\": null\n      },\n      \"logprobs\":
-        null,\n      \"finish_reason\": \"tool_calls\"\n    }\n  ],\n  \"usage\":
-        {\n    \"prompt_tokens\": 62,\n    \"completion_tokens\": 15,\n    \"total_tokens\":
-        77,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0\n    },\n
-        \   \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0\n    }\n
-        \ },\n  \"system_fingerprint\": \"fp_f85bea6784\"\n}\n"
+        \             \"arguments\": \"{\\\"prompt\\\":\\\"Generate a random number
+        like 5, 4, 3, 10, 11.\\\"}\"\n            }\n          }\n        ],\n        \"refusal\":
+        null\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"tool_calls\"\n
+        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 62,\n    \"completion_tokens\":
+        32,\n    \"total_tokens\": 94,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
+        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
+        0\n    }\n  },\n  \"system_fingerprint\": \"fp_e2bde53e6e\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01aedf5d4995a9-TBS
+      - 8d32d0c88a2d6435-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:07:22 GMT
+      - Tue, 15 Oct 2024 21:13:53 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -75,11 +75,11 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '899'
+      - '940'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '344'
+      - '710'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -91,13 +91,13 @@ interactions:
       x-ratelimit-remaining-requests:
       - '29999'
       x-ratelimit-remaining-tokens:
-      - '149999976'
+      - '149999977'
       x-ratelimit-reset-requests:
       - 2ms
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_3e6ca40cbc2c7d6fa8791a18da1791b4
+      - req_f7b1b4a34744905d540aaa2d756f7eb6
     status:
       code: 200
       message: OK

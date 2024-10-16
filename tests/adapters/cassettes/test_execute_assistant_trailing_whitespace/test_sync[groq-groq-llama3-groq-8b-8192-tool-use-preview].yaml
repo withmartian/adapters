@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}], "model": "llama3-groq-8b-8192-tool-use-preview"}'
+      "content": "Hi "}], "model": "llama3-groq-8b-8192-tool-use-preview", "stream":
+      false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '139'
+      - '156'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,20 +33,20 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-301f0b9e-1a6c-4426-bb4f-f12749c636c0","object":"chat.completion","created":1728507651,"model":"llama3-groq-8b-8192-tool-use-preview","choices":[{"index":0,"message":{"role":"assistant","content":"
-        How can I assist you today?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.01112556,"prompt_tokens":13,"prompt_time":0.003233787,"completion_tokens":8,"completion_time":0.006595138,"total_tokens":21,"total_time":0.009828925},"system_fingerprint":"fp_260dc69250","x_groq":{"id":"req_01j9shb8xkfterv9hzqj1fqyj5"}}
+      string: '{"id":"chatcmpl-6d18d49c-90b3-4217-9289-1fdd03823d3f","object":"chat.completion","created":1728955134,"model":"llama3-groq-8b-8192-tool-use-preview","choices":[{"index":0,"message":{"role":"assistant","content":"
+        How can I assist you today?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":-0.003511867,"prompt_tokens":13,"prompt_time":0.003539777,"completion_tokens":8,"completion_time":0.00652943,"total_tokens":21,"total_time":0.010069207},"system_fingerprint":"fp_260dc69250","x_groq":{"id":"req_01ja6w3cmvfwd9cr7z5jc68t54"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d014d71eb19959d-TBS
+      - 8d2bfa573f1eceed-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -53,7 +54,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:00:51 GMT
+      - Tue, 15 Oct 2024 01:18:54 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -61,7 +62,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '545'
+      - '546'
       vary:
       - Origin
       via:
@@ -79,7 +80,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 40ms
       x-request-id:
-      - req_01j9shb8xkfterv9hzqj1fqyj5
+      - req_01ja6w3cmvfwd9cr7z5jc68t54
     status:
       code: 200
       message: OK

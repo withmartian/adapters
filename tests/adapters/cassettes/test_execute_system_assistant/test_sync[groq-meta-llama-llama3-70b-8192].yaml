@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
       "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}], "model": "llama3-70b-8192"}'
+      "Hi"}], "model": "llama3-70b-8192", "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '189'
+      - '206'
       content-type:
       - application/json
       host:
@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,22 +33,21 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-f56644b7-f24c-4ee5-ba28-2e2a71d1a93f","object":"chat.completion","created":1728510788,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like we''re having a \"hi\" conversation! Would you like to chat about
-        something in particular or is there anything on your mind that you''d like
-        to talk about? I''m here to listen!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011903324000000002,"prompt_tokens":29,"prompt_time":0.001495235,"completion_tokens":43,"completion_time":0.135887478,"total_tokens":72,"total_time":0.137382713},"system_fingerprint":"fp_c1a4bcec29","x_groq":{"id":"req_01j9smb0wsepbskm6c9nb2e1q6"}}
+      string: '{"id":"chatcmpl-77a5b770-0071-4d12-80ab-5702eb37b912","object":"chat.completion","created":1728956145,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"We''re
+        stuck in a loop! How about we break the chain and start a conversation? What''s
+        on your mind, or would you like to talk about something random?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.111765512,"prompt_tokens":29,"prompt_time":0.002557159,"completion_tokens":35,"completion_time":0.106843989,"total_tokens":64,"total_time":0.109401148},"system_fingerprint":"fp_753a4aecf6","x_groq":{"id":"req_01ja6x27v1fksbyq2yvnmydz33"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d019a0b5d6095a0-TBS
+      - 8d2c13053f246450-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -56,7 +55,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:53:08 GMT
+      - Tue, 15 Oct 2024 01:35:45 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -64,7 +63,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '694'
+      - '646'
       vary:
       - Origin
       via:
@@ -82,7 +81,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 200ms
       x-request-id:
-      - req_01j9smb0wsepbskm6c9nb2e1q6
+      - req_01ja6x27v1fksbyq2yvnmydz33
     status:
       code: 200
       message: OK

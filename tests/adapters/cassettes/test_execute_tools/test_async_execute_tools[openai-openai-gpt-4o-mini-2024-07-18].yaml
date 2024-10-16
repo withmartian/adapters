@@ -1,11 +1,11 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4o-mini-2024-07-18", "tool_choice": {"type": "function", "function": {"name":
-      "generate"}}, "tools": [{"type": "function", "function": {"description": "Generate
-      random number", "name": "generate", "parameters": {"type": "object", "properties":
-      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
-      11"}}, "required": ["prompt"]}}}]}'
+      "gpt-4o-mini-2024-07-18", "stream": false, "tool_choice": {"type": "function",
+      "function": {"name": "generate"}}, "tools": [{"type": "function", "function":
+      {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
       accept:
       - application/json
@@ -14,7 +14,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '440'
+      - '457'
       content-type:
       - application/json
       host:
@@ -22,13 +22,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -36,35 +36,35 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGZAtyVVyFLIuagcRlLWg7jzUzPtD\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728511823,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n
+      string: "{\n  \"id\": \"chatcmpl-AIj8EfpS8jzSlDcEuBiW369EmNPr6\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1729026754,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
         \"assistant\",\n        \"content\": null,\n        \"tool_calls\": [\n          {\n
-        \           \"id\": \"call_Mld1t4rdkPtZQl6zWvwLy7tk\",\n            \"type\":
+        \           \"id\": \"call_To5SiTz27eriRgRu38aW2iDu\",\n            \"type\":
         \"function\",\n            \"function\": {\n              \"name\": \"generate\",\n
-        \             \"arguments\": \"{\\\"prompt\\\":\\\"Generate a random number
-        like 5, 4, 3, 10, 11\\\"}\"\n            }\n          }\n        ],\n        \"refusal\":
-        null\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n
-        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 70,\n    \"completion_tokens\":
-        23,\n    \"total_tokens\": 93,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
+        \             \"arguments\": \"{\\\"prompt\\\":\\\"Generate a random number\\\"}\"\n
+        \           }\n          }\n        ],\n        \"refusal\": null\n      },\n
+        \     \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n
+        \ \"usage\": {\n    \"prompt_tokens\": 70,\n    \"completion_tokens\": 8,\n
+        \   \"total_tokens\": 78,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
         0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_f85bea6784\"\n}\n"
+        0\n    }\n  },\n  \"system_fingerprint\": \"fp_e2bde53e6e\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01b34f8d2c95a3-TBS
+      - 8d32cedbaa04cf2e-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:10:24 GMT
+      - Tue, 15 Oct 2024 21:12:34 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -76,11 +76,11 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '933'
+      - '911'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '732'
+      - '654'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -98,7 +98,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_e4185ead1ea94ee35174bcd6066b4740
+      - req_1adddedd87c60fa542257d5d685b3d30
     status:
       code: 200
       message: OK

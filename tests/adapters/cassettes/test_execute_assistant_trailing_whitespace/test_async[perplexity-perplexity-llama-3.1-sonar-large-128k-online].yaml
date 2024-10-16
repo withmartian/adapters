@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-sonar-large-128k-online"}'
+      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-sonar-large-128k-online",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '173'
+      - '190'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,54 +33,58 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "f9204138-240c-4ae3-b726-a7b7a3b0d51f", "model": "llama-3.1-sonar-large-128k-online",
-        "created": 1728507950, "usage": {"prompt_tokens": 3, "completion_tokens":
-        360, "total_tokens": 363}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "When
-        dealing with the concept of assigning empty quotes to a variable, here are
-        some key points to understand:\n\n## Purpose of Empty Quotes\nAssigning empty
-        quotes to a variable, such as `var output = \"\";`, is a way to initialize
-        the variable as a string. This practice ensures that the variable is explicitly
-        defined as a string type, even if it does not yet contain any content. This
-        can be important for maintaining consistency and clarity in your code, especially
-        when the variable is expected to hold string values later on.\n\n## Concatenation\nWhen
-        you use the shorthand `+=` operator to append strings to the variable, it
-        works similarly to the longer form of string concatenation. For example:\n```javascript\noutput
-        += \"myGlobal: \" + myGlobal;\n```\nis equivalent to:\n```javascript\noutput
-        = output + \"myGlobal: \" + myGlobal;\n```\nThis means that the current value
-        of `output` is concatenated with the new string and the result is assigned
-        back to `output`.\n\n## Context in Coding\nIn coding, initializing a variable
-        with empty quotes can be useful in various scenarios, such as:\n- When you
-        need to build a string incrementally.\n- When you want to ensure that the
-        variable is treated as a string from the outset.\n- When you are working with
-        functions or methods that expect string inputs.\n\n## Example\nHere is a simple
-        example to illustrate this:\n```javascript\nvar output = \"\";\nvar myGlobal
-        = 10;\noutput += \"myGlobal: \" + myGlobal;\nconsole.log(output); // Output:
-        \"myGlobal: 10\"\n```\nIn this example, `output` is initialized as an empty
-        string and then concatenated with the string representation of `myGlobal`
-        and other text."}, "delta": {"role": "assistant", "content": ""}}]}'
+      string: '{"id": "fefbbdd4-d7a4-4500-a35c-edcb06fc4e49", "model": "llama-3.1-sonar-large-128k-online",
+        "created": 1729025856, "usage": {"prompt_tokens": 3, "completion_tokens":
+        471, "total_tokens": 474}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "If
+        you are looking for quotes that reflect various perspectives on the concept
+        of \"empty\" or \"emptiness,\" here are some noteworthy examples:\n\n## Philosophical
+        and Spiritual Emptiness\n- \"The empty mind - the pure mind - is not a blank,
+        zero-land, where you''re not feeling or caring about anything. It''s an effulgence
+        of the mind. It''s a brightness that is truly sensitive and accepting. It''s
+        an ability to accept life as it is.\"\n- \"Empty is the perfect state of being.
+        Nothing inside to anchor you. Nothing inside to chain you down, keep you from
+        living your dreams. Empty, almost weightless, you are an eyelash afloat on
+        a blink of breeze.\"\n\n## Emotional and Psychological Emptiness\n- \"If emptiness
+        is empty, how can something be borne or awaken from it?\" - Dejan Stojanovic\n-
+        \"They say you don\u2019t get over someone until you find someone or something
+        better. As humans, we don\u2019t deal well with emptiness. Any empty space
+        must be filled. Immediately. The pain of emptiness is too strong.\"\n\n##
+        Literary and Poetic Emptiness\n- \"Into the void of silence, into the empty
+        space of nothing, the joy of life is unfurled.\" - C.S. Lewis\n- \"Every little
+        girl knows how dreadful it is to find a room empty where she thought somebody
+        was.\" - George Macdonald\n\n## Practical and Everyday Emptiness\n- \"No one
+        has ever sent me a letter. Every day my mailbox is empty. That is why waiting
+        for the mail is a sad time for me.\" - Arnold Lobel\n- \"When an empty person
+        sits on an empty chair, the chair will still remain empty!\" - Mehmet Murat
+        ildan\n\n## Humorous Perspective on Emptiness (Empty Nest Syndrome)\n- \"Hey
+        empty nest parents, if you want your kid to call you, just change your Netflix
+        password.\" - Unknown\n- \"If the nest is truly empty, who owns all this junk?\"
+        - Erma Bombeck\n\nThese quotes cover a wide range of themes, from the philosophical
+        and spiritual to the emotional, literary, and humorous."}, "delta": {"role":
+        "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d015495eafa95a9-TBS
+      - 8d32b8c128cd9818-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:05:50 GMT
+      - Tue, 15 Oct 2024 20:57:36 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '2033'
+      - '2312'
     status:
       code: 200
       message: OK

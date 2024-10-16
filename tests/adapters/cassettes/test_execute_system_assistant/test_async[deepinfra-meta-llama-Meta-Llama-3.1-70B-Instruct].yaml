@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
       "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}], "model": "meta-llama/Meta-Llama-3.1-70B-Instruct"}'
+      "Hi"}], "model": "meta-llama/Meta-Llama-3.1-70B-Instruct", "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '212'
+      - '229'
       content-type:
       - application/json
       host:
@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,23 +33,23 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-7daa40f3645846a98692e26de1d2ba43","object":"chat.completion","created":1728510964,"model":"meta-llama/Meta-Llama-3.1-70B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"I
-        think we''ve got a pattern going on here! Would you like to chat about something
-        in particular or just keep saying hi?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":29,"total_tokens":55,"completion_tokens":26,"estimated_cost":2.0549999999999998e-05}}'
+      string: '{"id":"chatcmpl-89148fd246b540f8b4de8b911122d4c2","object":"chat.completion","created":1729026641,"model":"meta-llama/Meta-Llama-3.1-70B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        looks like we''re stuck in a loop of hellos. Would you like to break the cycle
+        and start a conversation? I''m here to chat about anything you''d like!","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":29,"total_tokens":65,"completion_tokens":36,"estimated_cost":2.4549999999999997e-05}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '497'
+      - '528'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:56:04 GMT
+      - Tue, 15 Oct 2024 21:10:41 GMT
       server:
       - uvicorn
       x-robots-tag:

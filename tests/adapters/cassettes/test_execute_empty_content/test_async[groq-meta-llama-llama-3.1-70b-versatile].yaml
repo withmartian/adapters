@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "llama-3.1-70b-versatile"}'
+      " "}, {"role": "user", "content": "\n"}], "model": "llama-3.1-70b-versatile",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '157'
+      - '174'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,21 +33,21 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-8fb2e683-f5ad-479d-b701-998f5f483f2a","object":"chat.completion","created":1728508382,"model":"llama-3.1-70b-versatile","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like you haven''t asked a question or provided any information. If you
-        have a question or need help with something, I''d be happy to assist you."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.004760886000000001,"prompt_tokens":46,"prompt_time":0.011012525,"completion_tokens":34,"completion_time":0.136,"total_tokens":80,"total_time":0.147012525},"system_fingerprint":"fp_9260b4bb2e","x_groq":{"id":"req_01j9sj1kgjf2srewtbdetjrf8p"}}
+      string: '{"id":"chatcmpl-59323893-9c53-45ae-b5d9-691e35b76848","object":"chat.completion","created":1729025989,"model":"llama-3.1-70b-versatile","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like you didn''t ask a question or provide information for me to respond
+        to. How can I help you today?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.005094985,"prompt_tokens":46,"prompt_time":0.014458453,"completion_tokens":26,"completion_time":0.104,"total_tokens":72,"total_time":0.118458453},"system_fingerprint":"fp_5c5d1b5cfb","x_groq":{"id":"req_01ja8znq3ee77va3h9jmjaw7sp"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d015f4e7a8f95a5-TBS
+      - 8d32bc33bb329803-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -54,19 +55,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:13:03 GMT
+      - Tue, 15 Oct 2024 20:59:49 GMT
       Server:
       - cloudflare
-      Set-Cookie:
-      - __cf_bm=TsEb5lRe5mdWqpYSlELKVyoXpGvPVvaDtdNdwYXH8i8-1728508383-1.0.1.1-IvpCTDS4HZyIRxy0ouCmxL4WsaRoHE_9iMVCmzIFU8MaVRKdIVseM800Om1A4XDPMM34AMvkvxTN7qAtL0GUVg;
-        path=/; expires=Wed, 09-Oct-24 21:43:03 GMT; domain=.groq.com; HttpOnly; Secure;
-        SameSite=None
       Transfer-Encoding:
       - chunked
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '660'
+      - '610'
       vary:
       - Origin
       via:
@@ -84,7 +81,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 45ms
       x-request-id:
-      - req_01j9sj1kgjf2srewtbdetjrf8p
+      - req_01ja8znq3ee77va3h9jmjaw7sp
     status:
       code: 200
       message: OK

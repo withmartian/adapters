@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "accounts/fireworks/models/llama-v3p1-8b-instruct"}'
+      " "}, {"role": "user", "content": "\n"}], "model": "accounts/fireworks/models/llama-v3p1-8b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '182'
+      - '199'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,34 +33,33 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"21068ef3-f746-4307-a79f-3d6a6175ff50","object":"chat.completion","created":1728508382,"model":"accounts/fireworks/models/llama-v3p1-8b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like your question got cut off. Could you please rephrase or provide
-        more context about what you''d like to talk about? I''m here to help with
-        any questions or topics you''d like to discuss."},"finish_reason":"stop"}],"usage":{"prompt_tokens":21,"total_tokens":65,"completion_tokens":44}}'
+      string: '{"id":"9eb2c82c-172c-4901-b092-60fdf6df235f","object":"chat.completion","created":1729025989,"model":"accounts/fireworks/models/llama-v3p1-8b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like you started to ask a question, but it was cut off. Could you please
+        rephrase or complete your question so I can assist you better?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":21,"total_tokens":54,"completion_tokens":33}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d015f49aa2695a5-TBS
+      - 8d32bc30994615ff-SJC
       Cf-Placement:
-      - local-TBS
+      - remote-IAD
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:13:02 GMT
+      - Tue, 15 Oct 2024 20:59:49 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=538.0;desc="Total Response Time"
+      - total;dur=275.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -67,7 +67,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '509'
+      - '457'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -75,11 +75,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.224'
+      - '0.157'
       x-envoy-upstream-service-time:
-      - '225'
+      - '159'
       x-request-id:
-      - 21068ef3-f746-4307-a79f-3d6a6175ff50
+      - 9eb2c82c-172c-4901-b092-60fdf6df235f
     status:
       code: 200
       message: OK

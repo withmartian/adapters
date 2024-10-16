@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "databricks-mixtral-8x7b-instruct"}'
+      " "}, {"role": "user", "content": "\n"}], "model": "databricks-mixtral-8x7b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '166'
+      - '183'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,28 +33,34 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_8e481783-b737-4848-a28f-268903ffc889","object":"chat.completion","created":1728508345,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"1.
-        How do I create a strong password?\n\nA strong password should be unique,
-        complex, and personal. Here''s how to create one:\n\n- Use a combination of
-        uppercase and lowercase letters, numbers, and special characters.\n- Make
-        it at least 12 characters long.\n- Avoid using personal information such as
-        your name, birthdate, or common words.\n- Consider using a passphrase, a sequence
-        of words that are meaningful to you but hard for others to guess.\n- Use a
-        different password for each account.\n- Use a password manager to keep track
-        of your passwords.\n\nRemember, never share your passwords with anyone or
-        write them down. Regularly update your passwords to maintain security."},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":94,"completion_tokens":157,"total_tokens":251}}'
+      string: '{"id":"chatcmpl_74a371a1-cc19-42ad-b669-b416b348db14","object":"chat.completion","created":1729025941,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"1.
+        Can you explain what a blockchain is and how it works?\n\nBlockchain is a
+        decentralized and distributed digital ledger technology that securely records
+        transactions across multiple computers so that any involved record cannot
+        be altered retroactively, without the alteration of all subsequent blocks.
+        This technology allows participants to verify and audit transactions independently.\n\nIn
+        a blockchain, transactions are stored in blocks and then linked together by
+        cryptography, forming a chain. Each block contains a list of transactions,
+        a unique code called a hash, and the hash of the previous block in the chain.
+        This structure ensures data integrity and transparency, as any change in a
+        single block''s data will result in a different hash, which breaks the chain
+        and can be easily detected.\n\nBlockchain is secured through consensus algorithms,
+        such as Proof of Work (PoW) or Proof of Stake (PoS), which prevent double-spending
+        and ensure agreement on the validity of transactions. The decentralized nature
+        of blockchain removes the need for intermediaries, increasing efficiency,
+        security, and accessibility."},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":94,"completion_tokens":228,"total_tokens":322}}'
     headers:
       content-length:
-      - '998'
+      - '1439'
       content-type:
       - application/json;charset=utf-8
       date:
-      - Wed, 09 Oct 2024 21:12:25 GMT
+      - Tue, 15 Oct 2024 20:59:01 GMT
       server:
       - databricks
       strict-transport-security:
@@ -75,11 +82,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.64.149
+      - 208.184.59.122,10.154.64.25
       x-rate-limit-request-remote-addr:
-      - 10.154.65.113:33228
+      - 10.154.64.30:60926
       x-request-id:
-      - 78fefa69-2809-455e-9f10-1ad1eda4c4b8
+      - 24a475c8-318f-4b6e-85ce-459a24e89e26
       x-xss-protection:
       - 1; mode=block
     status:

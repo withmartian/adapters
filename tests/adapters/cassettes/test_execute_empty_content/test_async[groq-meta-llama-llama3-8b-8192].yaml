@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "llama3-8b-8192"}'
+      " "}, {"role": "user", "content": "\n"}], "model": "llama3-8b-8192", "stream":
+      false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '148'
+      - '165'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,22 +33,22 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-abd3a1d4-80cf-4bad-85c1-af40559ea48e","object":"chat.completion","created":1728508384,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like you may have accidentally sent an empty message or a blank space.
-        If you meant to ask or say something, feel free to type it again, and I''ll
-        do my best to help!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011391519,"prompt_tokens":21,"prompt_time":0.002682452,"completion_tokens":42,"completion_time":0.035,"total_tokens":63,"total_time":0.037682452},"system_fingerprint":"fp_179b0f92c9","x_groq":{"id":"req_01j9sj1mvyfyn9q3st71kvg0b0"}}
+      string: '{"id":"chatcmpl-6288b28c-ea92-4abf-b9f5-f743d2868c04","object":"chat.completion","created":1729025990,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like you didn''t ask a question or provide any context. I''m here to
+        help with any questions or topics you''d like to discuss. Is there something
+        specific you''d like to talk about or ask?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.009648681,"prompt_tokens":21,"prompt_time":0.003907459,"completion_tokens":44,"completion_time":0.036666667,"total_tokens":65,"total_time":0.040574126},"system_fingerprint":"fp_a97cfe35ae","x_groq":{"id":"req_01ja8znqmfexdbwb8t8wgk2xcg"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d015f580b0595a5-TBS
+      - 8d32bc372e619803-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -55,7 +56,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:13:04 GMT
+      - Tue, 15 Oct 2024 20:59:50 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -63,7 +64,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '665'
+      - '690'
       vary:
       - Origin
       via:
@@ -81,7 +82,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 30ms
       x-request-id:
-      - req_01j9sj1mvyfyn9q3st71kvg0b0
+      - req_01ja8znqmfexdbwb8t8wgk2xcg
     status:
       code: 200
       message: OK

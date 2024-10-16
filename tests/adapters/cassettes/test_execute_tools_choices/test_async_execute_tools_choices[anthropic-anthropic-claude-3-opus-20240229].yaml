@@ -1,10 +1,10 @@
 interactions:
 - request:
     body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
-      "role": "user"}], "model": "claude-3-opus-20240229", "tools": [{"input_schema":
-      {"type": "object", "properties": {"prompt": {"type": "string", "description":
-      "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate", "description":
-      "Generate random number"}]}'
+      "role": "user"}], "model": "claude-3-opus-20240229", "stream": false, "tools":
+      [{"input_schema": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate",
+      "description": "Generate random number"}]}'
     headers:
       accept:
       - application/json
@@ -15,7 +15,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '333'
+      - '350'
       content-type:
       - application/json
       host:
@@ -23,42 +23,44 @@ interactions:
       user-agent:
       - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01G9XcgahHTUv1fxVBTnSE8k","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
-        generate tool is relevant for this request, as the user is asking to generate
-        a random number.\n\nRequired parameters for the generate tool:\n- prompt:
-        The user provided \"Generate random number\" which gives enough context to
-        infer a prompt like \"5, 4, 3, 10, 11\". No other tools are needed to obtain
-        this value.\n\nAll required parameters are available, so we can proceed with
-        calling the generate tool.\n</thinking>"},{"type":"tool_use","id":"toolu_01LtesKwq28nEyZcca5JXntd","name":"generate","input":{"prompt":"5,
-        4, 3, 10, 11"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":161}}'
+      string: '{"id":"msg_015rGVgMTosfGaMsnKHJYWdj","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        \"generate\" function was provided to generate random numbers. This function
+        takes in one required parameter:\nprompt: A string description of the kind
+        of random number to generate\n\nThe user''s request of \"Generate random number\"
+        does not specify any details about what kind of random number they want. To
+        properly call the generate function, we need more information from the user
+        about the desired number range or type of number.\n</thinking>\n\nTo generate
+        a random number, I need a few more details. Could you please provide a description
+        of the kind of random number you would like, such as the range (e.g. between
+        1 and 10) or type of number (e.g. single digit, two digit, etc.)?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":156}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01b09b5875959f-TBS
+      - 8d32cefa0906cf0a-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:08:41 GMT
+      - Tue, 15 Oct 2024 21:12:48 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -70,15 +72,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-09T22:08:41Z'
+      - '2024-10-15T21:12:48Z'
       content-length:
-      - '788'
+      - '943'
       request-id:
-      - req_01VAnCGg4nsivVPiogioQb35
+      - req_01SKF3oxj8VWdo74yrQbf2CR
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 89bfe9ab6721320ef46563b506e6cb54
+      - c6f07cd873e9c8d890cad02e9d151256
     status:
       code: 200
       message: OK

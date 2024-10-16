@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "llama3-70b-8192"}'
+    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "llama3-70b-8192",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '81'
+      - '98'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,21 +32,21 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-cc42c84f-68de-4431-8236-8d72d59b65dd","object":"chat.completion","created":1728508909,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
-        It looks like we''ve got a case of simultaneous \"Hi\"s! How''s your day going
-        so far?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.013768055,"prompt_tokens":13,"prompt_time":0.000476433,"completion_tokens":25,"completion_time":0.078475212,"total_tokens":38,"total_time":0.078951645},"system_fingerprint":"fp_c1a4bcec29","x_groq":{"id":"req_01j9sjhnkrf3xb7jtye6q4e5a8"}}
+      string: '{"id":"chatcmpl-0207d9c4-fa61-4a19-b8f1-f3c475f5717e","object":"chat.completion","created":1729026104,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
+        It seems like you said \"hi\" twice! Is there something I can help you with
+        or would you like to chat?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.012597825,"prompt_tokens":13,"prompt_time":0.000492985,"completion_tokens":28,"completion_time":0.089235932,"total_tokens":41,"total_time":0.089728917},"system_fingerprint":"fp_87cbfbbc4d","x_groq":{"id":"req_01ja8zs79wfmbsj9fkgrktdz0a"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d016c29791695a9-TBS
+      - 8d32bf01dfd61563-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -53,7 +54,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:21:49 GMT
+      - Tue, 15 Oct 2024 21:01:44 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -61,7 +62,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '586'
+      - '604'
       vary:
       - Origin
       via:
@@ -79,7 +80,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 60ms
       x-request-id:
-      - req_01j9sjhnkrf3xb7jtye6q4e5a8
+      - req_01ja8zs79wfmbsj9fkgrktdz0a
     status:
       code: 200
       message: OK

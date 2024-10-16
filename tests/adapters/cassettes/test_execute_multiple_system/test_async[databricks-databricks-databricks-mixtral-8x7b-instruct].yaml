@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
       "Hi"}, {"role": "assistant", "content": "Hi"}, {"role": "user", "content": ""}],
-      "model": "databricks-mixtral-8x7b-instruct"}'
+      "model": "databricks-mixtral-8x7b-instruct", "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '204'
+      - '221'
       content-type:
       - application/json
       host:
@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,120 +33,65 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_087558f3-bc2b-4ea6-9e8f-0492109a1090","object":"chat.completion","created":1728509850,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"
+      string: '{"id":"chatcmpl_c94a4866-536c-4b07-b41e-fe8e64cc6bb9","object":"chat.completion","created":1729026293,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"
         | Keyword Cluster | Keyword | Search Intent | Title | Meta Description |\n|
-        --- | --- | --- | --- | --- |\n| Python Basics | Python Tutorial | Informational
-        | \"Python Tutorial: Learn Python Basics for Beginners\" | Start your Python
-        journey with our comprehensive tutorial! Learn the fundamentals of Python
-        and start coding today. |\n|  | Python Syntax | Informational | \"Understanding
-        Python Syntax: A Beginner''s Guide\" | Dive into the world of Python with
-        our beginner''s guide to Python syntax. Learn the rules and conventions for
-        writing Python code. |\n|  | Python Variables | Informational | \"Python Variables:
-        A Comprehensive Guide for Beginners\" | Learn all about Python variables in
-        this comprehensive guide for beginners. Understand how to declare, assign,
-        and manipulate variables in Python. |\n|  | Python Data Types | Informational
-        | \"Python Data Types: A Beginner''s Guide\" | Discover the different data
-        types in Python and learn how to use them effectively in your code. |\n|  |
-        Python Control Structures | Informational | \"Python Control Structures: Master
-        the Fundamentals\" | Master the basics of Python control structures, including
-        if/else statements and loops, with our comprehensive guide. |\n|  | Python
-        Functions | Informational | \"Python Functions: A Beginner''s Guide\" | Learn
-        all about Python functions and how to use them effectively in your code. Understand
-        the different types of functions and how to define your own. |\n|  | Python
-        Error Handling | Informational | \"Python Error Handling: A Beginner''s Guide\"
-        | Learn how to handle errors and exceptions in Python with our comprehensive
-        guide for beginners. |\n| Python Development | Python IDEs | Informational
-        | \"Python IDEs: The Best Tools for Python Development\" | Discover the best
-        IDEs for Python development and learn how to use them effectively to improve
-        your workflow and productivity. |\n|  | Python Libraries and Frameworks |
-        Informational | \"Python Libraries and Frameworks: A Guide for Developers\"
-        | Explore the most popular Python libraries and frameworks for web development,
-        data science, and machine learning. |\n|  | Python Web Development | Informational
-        | \"Python Web Development: A Beginner''s Guide\" | Dive into the world of
-        Python web development with our beginner''s guide. Learn about popular frameworks,
-        tools, and best practices for building web applications with Python. |\n|  |
-        Python Data Science | Informational | \"Python Data Science: A Beginner''s
-        Guide\" | Discover the power of Python for data science with our comprehensive
-        guide for beginners. Learn about popular libraries, tools, and best practices
-        for data analysis, visualization, and machine learning. |\n|  | Python Machine
-        Learning | Informational | \"Python Machine Learning: A Beginner''s Guide\"
-        | Dive into the world of machine learning with Python. Learn about popular
-        libraries, tools, and best practices for building and training machine learning
-        models. |\n| Python Projects | Python Projects for Beginners | Informational
-        | \"Python Projects for Beginners: Get Started with Real-World Applications\"
-        | Jumpstart your Python journey with our guide to Python projects for beginners.
-        Build real-world applications and improve your skills. |\n|  | Python Projects
-        for Experts | Informational | \"Python Projects for Experts: Advanced Applications
-        and Techniques\" | Take your Python skills to the next level with our guide
-        to advanced Python projects. Build complex applications and master advanced
-        techniques. |\n| Python Community | Python Meetups | Informational | \"Python
-        Meetups: Connect with Other Python Enthusiasts\" | Find and join Python meetups
-        in your area to connect with other Python enthusiasts and learn from each
-        other. |\n|  | Python Conferences | Informational | \"Python Conferences:
-        The Ultimate Guide\" | Discover the best Python conferences to attend, learn
-        about the latest trends, and connect with other Python professionals and enthusiasts.
-        |\n|  | Python Blogs | Informational | \"Python Blogs: Stay Up-to-Date with
-        the Latest News and Trends\" | Stay up-to-date with the latest news and trends
-        in the world of Python with our guide to the best Python blogs and resources.
-        |\n|  | Python Books | Informational | \"Python Books: The Best Resources
-        for Learning Python\" | Discover the best books for learning Python and improving
-        your skills. |\n| Python Careers | Python Careers and Jobs | Informational
-        | \"Python Careers and Jobs: How to Land Your Dream Python Role\" | Learn
-        about the various careers and job opportunities in Python, and how to land
-        your dream role. |\n|  | Python Salaries | Informational | \"Python Salaries:
-        How Much Can You Make as a Python Developer?\" | Discover the average salaries
-        for Python developers and learn how to negotiate your salary. |\n|  | Python
-        Freelancing | Informational | \"Python Freelancing: How to Succeed as a Python
-        Consultant\" | Learn how to succeed as a Python freelancer, and how to find
-        clients and projects. |\n| Python Tools | Python Text Editors | Informational
-        | \"Python Text Editors: The Best Tools for Python Development\" | Discover
-        the best text editors for Python development and learn how to use them effectively
-        to improve your workflow and productivity. |\n|  | Python Code Review Tools
-        | Informational | \"Python Code Review Tools: The Best Resources for Improving
-        Your Code Quality\" | Discover the best code review tools for Python and learn
-        how to use them to improve your code quality and productivity. |\n|  | Python
-        Version Control | Informational | \"Python Version Control: The Best Resources
-        for Managing Your Python Code\" | Discover the best version control tools
-        for Python and learn how to use them effectively to manage your codebase and
-        collaborate with other developers. |\n|  | Python Cloud Services | Informational
-        | \"Python Cloud Services: The Best Resources for Building and Deploying Python
-        Applications in the Cloud\" | Discover the best cloud services for building
-        and deploying Python applications, and learn how to use them effectively.
-        |\n\nThis keyword cluster focuses on the various aspects of Python programming,
-        including basics, development, projects, community, careers, and tools. Each
-        keyword has a corresponding search intent, title, and meta description that
-        is optimized for SEO and user experience.\n\nFor each keyword, the search
-        intent is identified as either informational, navigational, commercial, or
-        transactional. The title and meta description are written to match the search
-        intent, and they include the keyword to improve SEO.\n\nThe keyword cluster
-        is organized into several categories, including Python Basics, Python Development,
-        Python Projects, Python Community, Python Careers, and Python Tools. This
-        structure allows for easy navigation and a clear understanding of the content
-        covered in each keyword.\n\nThe content for each keyword can be further broken
-        down into subtopics, such as Python Syntax, Python Variables, Python Data
-        Types, Python Control Structures, Python Functions, Python Error Handling,
-        Python IDEs, Python Libraries and Frameworks, Python Web Development, Python
-        Data Science, Python Machine Learning, Python Projects for Beginners, Python
-        Projects for Experts, Python Meetups, Python Conferences, Python Blogs, Python
-        Books, Python Careers and Jobs, Python Salaries, Python Freelancing, Python
-        Text Editors, Python Code Review Tools, Python Version Control, and Python
-        Cloud Services.\n\nBy using this keyword cluster, you can create a comprehensive
-        guide to Python programming that covers all the important topics and subtopics
-        in a clear and organized manner. This will help you attract and engage users
-        who are interested in Python programming, and provide them with the information
-        they need to improve their skills and succeed in their careers."},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":24,"completion_tokens":1743,"total_tokens":1767}}'
+        --- | --- | --- | --- | --- |\n| Dog Breeds | golden retriever | informational
+        | \"Discover the Joy of Owning a Golden Retriever\" | Uncover the lovable
+        personality and unique attributes of the Golden Retriever. Learn more about
+        this loyal breed and their care needs. |\n| Dog Breeds | german shepherd |
+        informational | \"The Ultimate Guide to German Shepherds\" | Learn about the
+        history, temperament, and care needs of the German Shepherd, one of the most
+        intelligent and versatile breeds. |\n| Dog Breeds | labrador retriever | informational
+        | \"Labrador Retrievers: The Perfect Family Pet\" | Find out why Labrador
+        Retrievers are one of the most popular breeds for families. Learn about their
+        playful personalities and care needs. |\n| Dog Health | dog vaccinations |
+        transactional | \"Dog Vaccinations: Protecting Your Furry Friend\" | Ensure
+        your dog''s health with the right vaccinations. Find out what they need and
+        where to get them. |\n| Dog Health | dog dental care | transactional | \"Maintaining
+        Your Dog''s Dental Health\" | Keep your dog''s teeth and gums healthy with
+        these tips and tricks. Learn about the importance of dental care for your
+        furry friend. |\n| Dog Health | dog arthritis | transactional | \"Easing Your
+        Dog''s Arthritis Pain\" | Discover natural remedies and treatments for your
+        dog''s arthritis. Learn how to alleviate their pain and improve their mobility.
+        |\n| Dog Training | positive reinforcement | informational | \"Training Your
+        Dog with Positive Reinforcement\" | Use positive reinforcement to train your
+        dog and build a strong bond. Learn how to effectively communicate with your
+        furry friend. |\n| Dog Training | clicker training | informational | \"Clicker
+        Training: A Fun and Effective Way to Train Your Dog\" | Discover the benefits
+        of clicker training and how to get started. Learn how to train your dog using
+        this simple and effective method. |\n| Dog Training | potty training | transactional
+        | \"Potty Training Your Dog: A Step-by-Step Guide\" | Learn how to potty train
+        your dog with this easy-to-follow guide. Get tips for success and avoid common
+        mistakes. |\n| Dog Food | dog nutrition | informational | \"Understanding
+        Your Dog''s Nutritional Needs\" | Learn about the essential nutrients your
+        dog needs for a healthy and balanced diet. Find out how to choose the right
+        food for your furry friend. |\n| Dog Food | dog food brands | transactional
+        | \"The Best Dog Food Brands for Your Furry Friend\" | Discover the top-rated
+        dog food brands and what makes them stand out. Find the perfect food for your
+        dog''s unique needs. |\n| Dog Food | homemade dog food | transactional | \"Making
+        Homemade Dog Food: A Healthy Alternative\" | Learn how to make homemade dog
+        food that is both healthy and delicious. Find recipes and tips for success.
+        |\n| Dog Accessories | dog toys | transactional | \"The Best Dog Toys for
+        Endless Fun\" | Discover the best dog toys for your furry friend. Find the
+        perfect toy for their play style and keep them entertained for hours. |\n|
+        Dog Accessories | dog beds | transactional | \"Providing Comfort with the
+        Best Dog Beds\" | Learn how to choose the best dog bed for your furry friend.
+        Find the perfect bed for their size, age, and comfort needs. |\n| Dog Accessories
+        | dog grooming | transactional | \"Grooming Your Dog: Tips and Tricks\" |
+        Keep your dog looking and feeling great with these grooming tips and tricks.
+        Learn how to properly brush, bathe, and trim your furry friend. |"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":24,"completion_tokens":869,"total_tokens":893}}'
     headers:
       content-length:
-      - '8136'
+      - '3853'
       content-type:
       - application/json;charset=utf-8
       date:
-      - Wed, 09 Oct 2024 21:37:30 GMT
+      - Tue, 15 Oct 2024 21:04:53 GMT
       server:
       - databricks
       strict-transport-security:
@@ -168,11 +113,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.64.71
+      - 208.184.59.122,10.154.65.132
       x-rate-limit-request-remote-addr:
-      - 10.154.65.113:56048
+      - 10.154.64.30:33862
       x-request-id:
-      - f5022e0e-2e62-4c4a-bd66-c1278af53f8a
+      - 2f4b612d-d332-4887-ada0-b64382e8f6ba
       x-xss-protection:
       - 1; mode=block
     status:

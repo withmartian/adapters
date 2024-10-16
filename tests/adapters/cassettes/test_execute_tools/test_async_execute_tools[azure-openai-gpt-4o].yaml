@@ -1,9 +1,9 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4o", "tool_choice": {"type": "function", "function": {"name": "generate"}},
-      "tools": [{"type": "function", "function": {"description": "Generate random
-      number", "name": "generate", "parameters": {"type": "object", "properties":
+      "gpt-4o", "stream": false, "tool_choice": {"type": "function", "function": {"name":
+      "generate"}}, "tools": [{"type": "function", "function": {"description": "Generate
+      random number", "name": "generate", "parameters": {"type": "object", "properties":
       {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
       11"}}, "required": ["prompt"]}}}]}'
     headers:
@@ -16,7 +16,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '424'
+      - '441'
       content-type:
       - application/json
       host:
@@ -24,13 +24,13 @@ interactions:
       user-agent:
       - AsyncAzureOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -38,13 +38,13 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview
   response:
     body:
       string: '{"choices":[{"content_filter_results":{},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":null,"role":"assistant","tool_calls":[{"function":{"arguments":"{\"prompt\":\"Generate
-        a random number\"}","name":"generate"},"id":"call_ktvw1c0BuKZL9sRQk5lFK8E6","type":"function"}]}}],"created":1728511815,"id":"chatcmpl-AGZAlJPIWSywUOGbI8uHD4HHrStJY","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_67802d9a6d","usage":{"completion_tokens":8,"prompt_tokens":70,"total_tokens":78}}
+        a random number\"}","name":"generate"},"id":"call_vFoNUE1qvYjvuxugzk1yrvTm","type":"function"}]}}],"created":1729026746,"id":"chatcmpl-AIj86VrwXgaNoMO4lMN92lFZARrxm","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_67802d9a6d","usage":{"completion_tokens":8,"prompt_tokens":70,"total_tokens":78}}
 
         '
     headers:
@@ -53,21 +53,21 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:10:14 GMT
+      - Tue, 15 Oct 2024 21:12:26 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - 2a452257-e64e-4fe9-a94c-b17035c076d2
+      - 9ec508df-1c9b-47b3-b24f-65a7943a6dbc
       azureml-model-session:
-      - d079-20240922030444
+      - d083-20240922105455
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '157'
+      - '155'
       x-ms-client-request-id:
-      - 2a452257-e64e-4fe9-a94c-b17035c076d2
+      - 9ec508df-1c9b-47b3-b24f-65a7943a6dbc
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
@@ -75,9 +75,9 @@ interactions:
       x-ratelimit-remaining-requests:
       - '149'
       x-ratelimit-remaining-tokens:
-      - '148708'
+      - '149354'
       x-request-id:
-      - ec9164ed-20e1-477c-87f9-d0e2ffb12c85
+      - a3cf903a-0839-4002-9f2d-267e09d69f35
     status:
       code: 200
       message: OK

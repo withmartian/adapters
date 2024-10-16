@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "accounts/fireworks/models/gemma2-9b-it"}'
+      " "}, {"role": "user", "content": "\n"}], "model": "accounts/fireworks/models/gemma2-9b-it",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '172'
+      - '189'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,34 +33,38 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"e2653e70-b25b-4c07-93ff-ee58072e4e04\",\"object\":\"chat.completion\",\"created\":1728508368,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
-        provide me with a question or a topic you'd like to discuss! I'm ready for
-        anything from creative writing prompts to answering factual questions. \U0001F60A
-        \ \\n<end_of_turn>\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":55,\"completion_tokens\":36}}"
+      string: "{\"id\":\"e597328c-a47a-4089-9a28-df983213210d\",\"object\":\"chat.completion\",\"created\":1729025964,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
+        provide me with a prompt or question so I can assist you! \U0001F60A \\n\\nFor
+        example, you could ask me to:\\n\\n* **Write a story:** \\\"Write a short
+        story about a cat who goes on an adventure.\\\"\\n* **Answer a question:**
+        \\\"What is the capital of France?\\\"\\n* **Generate creative content:**
+        \\\"Give me some ideas for a birthday party.\\\"\\n* **Translate text:** \\\"Translate
+        'Hello world' into Spanish.\\\"\\n* **Summarize information:** \\\"Summarize
+        the plot of the movie Inception.\\\"\\n\\nI'm ready for anything! \u2728 \\n<end_of_turn>\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":144,\"completion_tokens\":125}}"
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d015ef0f90695a5-TBS
+      - 8d32bb90191415ff-SJC
       Cf-Placement:
-      - local-TBS
+      - remote-IAD
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:12:48 GMT
+      - Tue, 15 Oct 2024 20:59:24 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=613.0;desc="Total Response Time"
+      - total;dur=1140.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -67,7 +72,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '477'
+      - '827'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -75,11 +80,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.351'
+      - '1.054'
       x-envoy-upstream-service-time:
-      - '353'
+      - '1057'
       x-request-id:
-      - e2653e70-b25b-4c07-93ff-ee58072e4e04
+      - e597328c-a47a-4089-9a28-df983213210d
     status:
       code: 200
       message: OK

@@ -1,8 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4-turbo", "tool_choice": "none", "tools": [{"type": "function", "function":
-      {"description": "Generate random number", "name": "generate", "parameters":
+      "gpt-4-turbo", "stream": false, "tool_choice": "none", "tools": [{"type": "function",
+      "function": {"description": "Generate random number", "name": "generate", "parameters":
       {"type": "object", "properties": {"prompt": {"type": "string", "description":
       "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
@@ -13,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '381'
+      - '398'
       content-type:
       - application/json
       host:
@@ -21,13 +21,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -35,33 +35,33 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGZ8ugIhIlYuGahjrGknhMzk1YYeX\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728511700,\n  \"model\": \"gpt-4-turbo-2024-04-09\",\n
+      string: "{\n  \"id\": \"chatcmpl-AIQnMYYVZq4Mh1EvI1oX1oJsKZ2XT\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728956268,\n  \"model\": \"gpt-4-turbo-2024-04-09\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"I need a bit more information to generate
-        a random number. Could you specify a range or let me know the type of numbers
-        you are looking for (like 1 to 10, 1 to 100, etc.)?\",\n        \"refusal\":
-        null\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n
-        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 65,\n    \"completion_tokens\":
-        46,\n    \"total_tokens\": 111,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_82bed303cf\"\n}\n"
+        \"assistant\",\n        \"content\": \"Please specify the type of random number
+        you would like to generate. For example, you can request a number from a specific
+        range such as between 1 to 10, or a number with certain properties like an
+        odd or even number.\",\n        \"refusal\": null\n      },\n      \"logprobs\":
+        null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
+        65,\n    \"completion_tokens\": 47,\n    \"total_tokens\": 112,\n    \"prompt_tokens_details\":
+        {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\":
+        {\n      \"reasoning_tokens\": 0\n    }\n  },\n  \"system_fingerprint\": \"fp_83975a045a\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01b050dfa795a3-TBS
+      - 8d2c16048ad9156b-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:08:22 GMT
+      - Tue, 15 Oct 2024 01:37:49 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -73,11 +73,11 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '795'
+      - '841'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '1568'
+      - '1519'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -95,7 +95,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_582daf8579ee8771d9db113751f1cc00
+      - req_92198db2dac970f63b9d923126b65a56
     status:
       code: 200
       message: OK

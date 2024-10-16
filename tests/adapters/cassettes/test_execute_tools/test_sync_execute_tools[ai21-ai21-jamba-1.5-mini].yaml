@@ -1,11 +1,11 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "jamba-1.5-mini", "tool_choice": {"type": "function", "function": {"name": "generate"}},
-      "tools": [{"type": "function", "function": {"description": "Generate random
-      number", "name": "generate", "parameters": {"type": "object", "properties":
-      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
-      11"}}, "required": ["prompt"]}}}]}'
+      "jamba-1.5-mini", "stream": false, "tool_choice": {"type": "function", "function":
+      {"name": "generate"}}, "tools": [{"type": "function", "function": {"description":
+      "Generate random number", "name": "generate", "parameters": {"type": "object",
+      "properties": {"prompt": {"type": "string", "description": "Random number like
+      5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
       accept:
       - application/json
@@ -14,7 +14,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '432'
+      - '449'
       content-type:
       - application/json
       host:
@@ -22,13 +22,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -36,24 +36,24 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-fb487b95ecf2432bb5f7d0e12facefdc","choices":[{"index":0,"message":{"role":"assistant","content":null,"tool_calls":[{"id":"c9b53afb-8ea9-475f-afcc-d15f535ebd62","type":"function","function":{"name":"generate","arguments":"{\"prompt\":
-        \"5\"}"}}]},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":134,"completion_tokens":25,"total_tokens":159}}'
+      string: '{"id":"chat-d4cc7b6fd02b40bbbde36a0b8348f906","choices":[{"index":0,"message":{"role":"assistant","content":null,"tool_calls":[{"id":"d11ab377-eb9d-44a7-9043-3923eb1d296d","type":"function","function":{"name":"generate","arguments":"{\"prompt\":
+        \"5, 4, 3, 10, 11\"}"}}]},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":134,"completion_tokens":39,"total_tokens":173}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01b298ee9495a9-TBS
+      - 8d2c14f12c01cf97-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:09:55 GMT
+      - Tue, 15 Oct 2024 01:37:05 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -61,9 +61,9 @@ interactions:
       Transfer-Encoding:
       - chunked
       content-length:
-      - '371'
+      - '385'
       request-id:
-      - cc5e3e2b-0505-35c6-1188-92131f28c8f9
+      - f9185c67-0c5d-3986-1595-25aafe80c18c
       via:
       - 1.1 google
     status:

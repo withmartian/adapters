@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "llama3-70b-8192"}'
+      " "}, {"role": "user", "content": "\n"}], "model": "llama3-70b-8192", "stream":
+      false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '149'
+      - '166'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,21 +33,21 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-2d157bc9-ad7a-4c4a-baa6-7aeaed911888","object":"chat.completion","created":1728508177,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like you didn''t type anything. If you need help with something or have
-        a question, feel free to ask!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.012530303,"prompt_tokens":21,"prompt_time":0.000665937,"completion_tokens":26,"completion_time":0.081337427,"total_tokens":47,"total_time":0.082003364},"system_fingerprint":"fp_753a4aecf6","x_groq":{"id":"req_01j9shvarzedbv1g0wg4g3wz18"}}
+      string: '{"id":"chatcmpl-82ef005b-59e5-4add-b897-6fab67269430","object":"chat.completion","created":1728955354,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like you didn''t type anything. Please feel free to ask me a question,
+        share your thoughts, or initiate a conversation. I''m here to listen and help!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.035440921,"prompt_tokens":21,"prompt_time":0.000819417,"completion_tokens":36,"completion_time":0.110251056,"total_tokens":57,"total_time":0.111070473},"system_fingerprint":"fp_753a4aecf6","x_groq":{"id":"req_01ja6wa3qqfzx8r8ew66923fsz"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d015a4a9f8595a0-TBS
+      - 8d2bffb7cc2996bf-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -54,7 +55,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:09:37 GMT
+      - Tue, 15 Oct 2024 01:22:35 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -62,7 +63,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '607'
+      - '654'
       vary:
       - Origin
       via:
@@ -80,7 +81,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 150ms
       x-request-id:
-      - req_01j9shvarzedbv1g0wg4g3wz18
+      - req_01ja6wa3qqfzx8r8ew66923fsz
     status:
       code: 200
       message: OK

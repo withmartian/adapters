@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "llama-3.1-sonar-small-128k-online"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "llama-3.1-sonar-small-128k-online",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '170'
+      - '187'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,47 +33,45 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "183ad87c-66eb-4f33-ba74-c571c0631d47", "model": "llama-3.1-sonar-small-128k-online",
-        "created": 1728511055, "usage": {"prompt_tokens": 3, "completion_tokens":
-        186, "total_tokens": 189}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "The
-        word \"hi\" is an informal greeting used to acknowledge or greet someone.
-        It is commonly used in casual settings and is more relaxed than formal greetings
-        like \"hello.\" Here are some key points about the word \"hi\":\n\n- **Usage**:
-        \"Hi\" is used as an informal greeting, suitable for people you know or in
-        casual conversations.\n- **Etymology**: The word \"hi\" likely originated
-        from a variant of Middle English \"hey\" or \"hy,\" and has been used as an
-        interjection to attract attention or greet someone.\n- **Synonyms**: Other
-        informal greetings include \"hey,\" \"hello,\" \"hiya,\" and \"howdy\".\n-
-        **Examples**: \"Hi, there!\" or \"Hi, how are you?\" are common ways to use
-        the word in greetings.\n\nFor more detailed information, you can refer to
-        the sources listed above."}, "delta": {"role": "assistant", "content": ""}}]}'
+      string: '{"id": "a478999f-95d8-4245-ae7c-ede06b333e4c", "model": "llama-3.1-sonar-small-128k-online",
+        "created": 1729026707, "usage": {"prompt_tokens": 3, "completion_tokens":
+        207, "total_tokens": 210}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "\"Hi\"
+        is an informal greeting used to acknowledge someone''s presence or to initiate
+        a conversation. It is commonly used in both written and spoken communication,
+        particularly in casual settings. Here are some key points about the word \"hi\":\n\n-
+        **Definition**: An interjection used as a friendly, informal, and casual greeting.\n-
+        **Usage**: Often used in place of \"hello\" in more relaxed environments.
+        It can be used in various contexts, such as greeting someone you know or simply
+        to say hello.\n- **Etymology**: The word \"hi\" is believed to have originated
+        from Middle English \"hey\" or \"hy,\" which was used to attract attention.\n-
+        **Variations**: While \"hi\" is widely recognized, other informal greetings
+        like \"hey,\" \"hello,\" and \"howdy\" are also used in different regions
+        and cultures.\n\nIn summary, \"hi\" is a versatile and widely accepted greeting
+        that is suitable for most casual interactions."}, "delta": {"role": "assistant",
+        "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01a083dab8a9e9-TBS
+      - 8d32cdad694f643e-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:57:35 GMT
+      - Tue, 15 Oct 2024 21:11:47 GMT
       Server:
       - cloudflare
-      Set-Cookie:
-      - __cf_bm=FBFDC42s4CsOwTnmwhGUirBe1ouvFrDpJ5BLswk4p4E-1728511055-1.0.1.1-aDA.vaCP4vSmhO6ZUlWREVW8gstHI7Ni7CvtOV3NmaG9EzKg3PoHdtk4FhwKgr4_q.gDqSLocSqOmwIrUusEuQ;
-        path=/; expires=Wed, 09-Oct-24 22:27:35 GMT; domain=.perplexity.ai; HttpOnly;
-        Secure; SameSite=None
       Transfer-Encoding:
       - chunked
       content-length:
-      - '1159'
+      - '1293'
     status:
       code: 200
       message: OK

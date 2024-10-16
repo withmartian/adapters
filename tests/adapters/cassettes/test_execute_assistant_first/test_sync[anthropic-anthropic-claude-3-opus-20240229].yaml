@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"max_tokens": 4096, "messages": [{"content": "\"\"", "role": "user"},
       {"content": "Hi", "role": "assistant"}, {"content": "Hi", "role": "user"}],
-      "model": "claude-3-opus-20240229"}'
+      "model": "claude-3-opus-20240229", "stream": false}'
     headers:
       accept:
       - application/json
@@ -13,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '181'
+      - '198'
       content-type:
       - application/json
       host:
@@ -21,37 +21,36 @@ interactions:
       user-agent:
       - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_018Z9f4fzdCYH7gJYxxpZT6L","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"Hello!
-        How can I assist you today? Feel free to ask me anything and I''ll do my best
-        to help."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":27}}'
+      string: '{"id":"msg_018KRL6mqmmaxdLEQauz8d56","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"Hello!
+        How can I assist you today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":12}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d0141f21902959d-TBS
+      - 8d2bf6a5dacc67eb-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 20:53:01 GMT
+      - Tue, 15 Oct 2024 01:16:24 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -63,15 +62,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-09T20:53:01Z'
+      - '2024-10-15T01:16:24Z'
       content-length:
-      - '329'
+      - '271'
       request-id:
-      - req_01KRXzKzzFzrQKH6sCiqZ59w
+      - req_018gtze6yxkWFXVg7wVoKTHY
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - fdf20678506c66a72867d8be10b834b9
+      - 49f08aa88b0d7cdbc16ec5571937a6b2
     status:
       code: 200
       message: OK

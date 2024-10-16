@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
-      "content": "Hi"}], "model": "accounts/fireworks/models/mixtral-8x22b-instruct"}'
+      "content": "Hi"}], "model": "accounts/fireworks/models/mixtral-8x22b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '150'
+      - '167'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,35 +33,34 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"54f1d0d2-1cb6-4451-85a0-196f9487a236","object":"chat.completion","created":1728507210,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? If you have any questions about coding, web development,
-        programming languages, or technology in general, feel free to ask. I''m here
-        to provide information and guidance to the best of my ability. Is there something
-        specific you''d like to know or discuss?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":8,"total_tokens":71,"completion_tokens":63}}'
+      string: '{"id":"13be4381-f50f-4d28-9ec8-c54c656e3172","object":"chat.completion","created":1728955004,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I help you today? Is there something specific you''d like to talk
+        about or ask me a question about? I''m here to provide information and answer
+        any questions you might have to the best of my ability."},"finish_reason":"stop"}],"usage":{"prompt_tokens":8,"total_tokens":57,"completion_tokens":49}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d0142acbb04317b-TBS
+      - 8d2bf725cddacf1a-SJC
       Cf-Placement:
-      - local-TBS
+      - local-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 20:53:30 GMT
+      - Tue, 15 Oct 2024 01:16:44 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=1040.0;desc="Total Response Time"
+      - total;dur=717.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -68,7 +68,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '599'
+      - '524'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -76,11 +76,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.667'
+      - '0.602'
       x-envoy-upstream-service-time:
-      - '669'
+      - '604'
       x-request-id:
-      - 54f1d0d2-1cb6-4451-85a0-196f9487a236
+      - 13be4381-f50f-4d28-9ec8-c54c656e3172
     status:
       code: 200
       message: OK

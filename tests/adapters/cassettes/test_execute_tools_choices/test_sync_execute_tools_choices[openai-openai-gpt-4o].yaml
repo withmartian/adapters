@@ -1,8 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4o", "tool_choice": "none", "tools": [{"type": "function", "function":
-      {"description": "Generate random number", "name": "generate", "parameters":
+      "gpt-4o", "stream": false, "tool_choice": "none", "tools": [{"type": "function",
+      "function": {"description": "Generate random number", "name": "generate", "parameters":
       {"type": "object", "properties": {"prompt": {"type": "string", "description":
       "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
@@ -13,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '376'
+      - '393'
       content-type:
       - application/json
       host:
@@ -21,13 +21,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -35,32 +35,33 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGZ8widFcSKx1uLrYhElBzhfnQTRB\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728511702,\n  \"model\": \"gpt-4o-2024-08-06\",\n
+      string: "{\n  \"id\": \"chatcmpl-AIQnOCECCWIYblyFvEzSOUMJYVsuD\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728956270,\n  \"model\": \"gpt-4o-2024-08-06\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Could you please specify a prompt or
-        context for generating the random number?\",\n        \"refusal\": null\n
+        \"assistant\",\n        \"content\": \"Please provide a prompt or a description
+        to generate the random number you desire. For example, you can specify a range
+        or any specific requirements you have in mind.\",\n        \"refusal\": null\n
         \     },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n
         \ ],\n  \"usage\": {\n    \"prompt_tokens\": 63,\n    \"completion_tokens\":
-        14,\n    \"total_tokens\": 77,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
+        32,\n    \"total_tokens\": 95,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
         0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_e5e4913e83\"\n}\n"
+        0\n    }\n  },\n  \"system_fingerprint\": \"fp_6b68a8204b\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01b05d2d2d95a3-TBS
+      - 8d2c160f7f3a156b-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:08:23 GMT
+      - Tue, 15 Oct 2024 01:37:51 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -72,11 +73,11 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '696'
+      - '784'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '251'
+      - '1103'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -94,7 +95,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_215ef2ab80ef4db6da362f381767a7dd
+      - req_fdd46b25ed3214cedb6e38073966e674
     status:
       code: 200
       message: OK

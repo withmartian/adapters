@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
       "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}], "model": "mistral-7b"}'
+      "Hi"}], "model": "mistral-7b", "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '184'
+      - '201'
       content-type:
       - application/json
       host:
@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,35 +33,34 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://mistral-7b.lepton.run/api/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-8p3QESQjv8pkCgpfar8qRP\",\"object\":\"chat.completion\",\"created\":1728510791,\"model\":\"mistral-7b\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
-        How can I help you today? If you have any questions or need assistance with
-        something, feel free to ask. I'm here to help. \U0001F60A\",\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":\"stop\",\"audio\":null,\"asr_results\":null}],\"usage\":{\"prompt_tokens\":13,\"total_tokens\":48,\"completion_tokens\":35}}"
+      string: "{\"id\":\"chatcmpl-D4wCjZW66bi5XRAP9Diskx\",\"object\":\"chat.completion\",\"created\":1728956146,\"model\":\"mistral-7b\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
+        How can I help you today? \U0001F60A\",\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":\"stop\",\"audio\":null,\"asr_results\":null}],\"usage\":{\"prompt_tokens\":13,\"total_tokens\":25,\"completion_tokens\":12}}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d019a204b6f317b-TBS
+      - 8d2c130bcac1985a-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:53:12 GMT
+      - Tue, 15 Oct 2024 01:35:46 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '470'
+      - '373'
       vary:
       - Accept-Encoding
       x-envoy-upstream-service-time:
-      - '463'
+      - '379'
     status:
       code: 200
       message: OK

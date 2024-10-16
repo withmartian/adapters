@@ -1,8 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4o", "tool_choice": "none", "tools": [{"type": "function", "function":
-      {"description": "Generate random number", "name": "generate", "parameters":
+      "gpt-4o", "stream": false, "tool_choice": "none", "tools": [{"type": "function",
+      "function": {"description": "Generate random number", "name": "generate", "parameters":
       {"type": "object", "properties": {"prompt": {"type": "string", "description":
       "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
@@ -15,7 +15,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '376'
+      - '393'
       content-type:
       - application/json
       host:
@@ -23,13 +23,13 @@ interactions:
       user-agent:
       - AsyncAzureOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -37,37 +37,37 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview
   response:
     body:
-      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"What
-        prompt would you like to use for generating the random number? For example,
-        it could be something like \"Generate a random number between 1 and 100.\"","role":"assistant"}}],"created":1728511511,"id":"chatcmpl-AGZ5rfHTD1joF0UI7AGFLuGTdaUZw","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_67802d9a6d","usage":{"completion_tokens":33,"prompt_tokens":63,"total_tokens":96}}
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"Could
+        you please specify the range or any other details for the random number you
+        want to generate? For example, a random number between 1 and 10.","role":"assistant"}}],"created":1729026801,"id":"chatcmpl-AIj8zms5dcRpG1pN7qek4RvbGoGli","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_67802d9a6d","usage":{"completion_tokens":32,"prompt_tokens":63,"total_tokens":95}}
 
         '
     headers:
       Content-Length:
-      - '966'
+      - '957'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:05:12 GMT
+      - Tue, 15 Oct 2024 21:13:21 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - 152a255e-11e5-4ab6-99a3-04850ff7b9c6
+      - f930af7e-7fab-4c5c-80e7-574916193621
       azureml-model-session:
-      - d037-20240921161002
+      - d042-20240925135506
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '493'
+      - '500'
       x-ms-client-request-id:
-      - 152a255e-11e5-4ab6-99a3-04850ff7b9c6
+      - f930af7e-7fab-4c5c-80e7-574916193621
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
@@ -75,9 +75,9 @@ interactions:
       x-ratelimit-remaining-requests:
       - '149'
       x-ratelimit-remaining-tokens:
-      - '148708'
+      - '148062'
       x-request-id:
-      - ce99085e-688f-4a26-9dd3-0e5d65d0aeee
+      - a31a3adc-8573-4109-be50-86b34da72478
     status:
       code: 200
       message: OK

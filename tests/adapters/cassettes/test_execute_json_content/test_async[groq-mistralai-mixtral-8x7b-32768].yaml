@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "mixtral-8x7b-32768"}'
+    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "mixtral-8x7b-32768",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '84'
+      - '101'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,26 +32,21 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-899c7b33-b38c-40cb-865a-872aa6a894db","object":"chat.completion","created":1728508909,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"I''m
-        here to help you with any questions or problems you have related to programming.
-        What can I do for you today? Do you have any questions about Python, JavaScript,
-        web development, or something else? Let me know and I''ll do my best to assist
-        you.\n\nAlso, if you have a specific problem or error message that you need
-        help with, please provide as much detail as possible. This will help me understand
-        the issue and provide a more accurate and helpful solution.\n\nPlease let
-        me know if you need any help. I am here for you."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011820961,"prompt_tokens":11,"prompt_time":0.002014388,"completion_tokens":120,"completion_time":0.19304649,"total_tokens":131,"total_time":0.195060878},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01j9sjhpc3efzte4hayva082vg"}}
+      string: '{"id":"chatcmpl-59938dc1-f978-4f48-ae9b-9863df53917a","object":"chat.completion","created":1729026104,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"I''m
+        here to help you. What would you like to learn about today? Programming, data
+        science, or something else? Let me know how I can help you."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011870135,"prompt_tokens":11,"prompt_time":0.002226944,"completion_tokens":37,"completion_time":0.058271606,"total_tokens":48,"total_time":0.06049855},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01ja8zs7k0extanmv3m931fb3x"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d016c2e6fd895a9-TBS
+      - 8d32bf03a9b51563-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -58,7 +54,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:21:50 GMT
+      - Tue, 15 Oct 2024 21:01:45 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -66,7 +62,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '1027'
+      - '641'
       vary:
       - Origin
       via:
@@ -84,7 +80,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 84ms
       x-request-id:
-      - req_01j9sjhpc3efzte4hayva082vg
+      - req_01ja8zs7k0extanmv3m931fb3x
     status:
       code: 200
       message: OK

@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}, {"role": "user", "content": ""}], "model": "databricks-meta-llama-3-1-70b-instruct"}'
+      "content": "Hi "}, {"role": "user", "content": ""}], "model": "databricks-meta-llama-3-1-70b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '174'
+      - '191'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,21 +33,22 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_b4c5d00d-beed-43fe-a645-b34f27f7795f","object":"chat.completion","created":1728507808,"model":"meta-llama-3.1-70b-instruct-082724","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like you might have sent a blank message. Is there something I can help
-        you with or would you like to chat?"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":23,"completion_tokens":27,"total_tokens":50}}'
+      string: '{"id":"chatcmpl_7dffcc79-e43d-4920-b797-36c96f33e808","object":"chat.completion","created":1729025733,"model":"meta-llama-3.1-70b-instruct-082724","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        looks like you might have started to type something, but it got cut off! If
+        you''d like to start again or say hello, I''m here to chat with you. What''s
+        on your mind?"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":23,"completion_tokens":43,"total_tokens":66}}'
     headers:
       content-length:
-      - '440'
+      - '490'
       content-type:
       - application/json;charset=utf-8
       date:
-      - Wed, 09 Oct 2024 21:03:27 GMT
+      - Tue, 15 Oct 2024 20:55:33 GMT
       server:
       - databricks
       strict-transport-security:
@@ -68,11 +70,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.64.42
+      - 208.184.59.122,10.154.64.100
       x-rate-limit-request-remote-addr:
-      - 10.154.65.163:59872
+      - 10.154.64.24:53994
       x-request-id:
-      - 8cdb4967-5e99-4d30-9458-4165629911e4
+      - 299ae190-9477-4725-8f76-ce8fb45ae504
       x-xss-protection:
       - 1; mode=block
     status:

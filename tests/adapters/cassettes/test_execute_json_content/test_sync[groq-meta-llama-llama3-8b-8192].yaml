@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "llama3-8b-8192"}'
+    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "llama3-8b-8192",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '80'
+      - '97'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,21 +32,21 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-d99597de-d47a-4cb4-a37d-b1f7d06ef1c0","object":"chat.completion","created":1728508725,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        looks like we''re having a friendly \"hello\" conversation! How are you doing
-        today?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.091010278,"prompt_tokens":13,"prompt_time":0.004693304,"completion_tokens":20,"completion_time":0.016666667,"total_tokens":33,"total_time":0.021359971},"system_fingerprint":"fp_a97cfe35ae","x_groq":{"id":"req_01j9sjc24kfh9916qrj08w7zv8"}}
+      string: '{"id":"chatcmpl-1a50078d-0fbd-4868-92de-52403167a987","object":"chat.completion","created":1728955498,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
+        It looks like you''re saying hello back to yourself! Would you like to chat
+        about something specific or just hang out for a bit?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.013200049,"prompt_tokens":13,"prompt_time":0.00154792,"completion_tokens":30,"completion_time":0.025,"total_tokens":43,"total_time":0.02654792},"system_fingerprint":"fp_179b0f92c9","x_groq":{"id":"req_01ja6wefvjfx19k42x4g63ays0"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d0167acecff1a42-TBS
+      - 8d2c03389b9867d6-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -53,7 +54,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:18:45 GMT
+      - Tue, 15 Oct 2024 01:24:58 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -61,7 +62,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '583'
+      - '620'
       vary:
       - Origin
       via:
@@ -79,7 +80,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 12ms
       x-request-id:
-      - req_01j9sjc24kfh9916qrj08w7zv8
+      - req_01ja6wefvjfx19k42x4g63ays0
     status:
       code: 200
       message: OK

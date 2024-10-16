@@ -1,5 +1,4 @@
 from enum import Enum
-import json
 import time
 from typing import Any, Dict
 
@@ -13,10 +12,11 @@ from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMix
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
     AdapterChatCompletion,
+    AdapterChatCompletionChunk,
+    AdapterFinishReason,
     Conversation,
     ConversationRole,
     Cost,
-    FinishReason,
     Model,
     ModelProperties,
 )
@@ -39,8 +39,8 @@ class CohereModel(Model):
     supports_tool_choice_required: bool = True
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
-    supports_streaming: bool = True
     supports_json_content: bool = True
+    supports_streaming: bool = False
 
     def _get_api_path(self) -> str:
         return self.name
@@ -70,11 +70,11 @@ class CohereFinishReason(str, Enum):
     error = "ERROR"
 
 
-FINISH_REASON_MAPPING: Dict[CohereFinishReason, FinishReason] = {
-    CohereFinishReason.complete: "stop",
-    CohereFinishReason.max_tokens: "length",
-    CohereFinishReason.stop_sequence: "stop",
-    CohereFinishReason.tool_call: "tool_calls",
+FINISH_REASON_MAPPING: Dict[CohereFinishReason, AdapterFinishReason] = {
+    CohereFinishReason.complete: AdapterFinishReason.stop,
+    CohereFinishReason.max_tokens: AdapterFinishReason.length,
+    CohereFinishReason.stop_sequence: AdapterFinishReason.stop,
+    CohereFinishReason.tool_call: AdapterFinishReason.tool_calls,
 }
 
 
@@ -177,7 +177,7 @@ class CohereSDKChatProviderAdapter(
         )
 
         finish_reason = FINISH_REASON_MAPPING.get(
-            CohereFinishReason(response.finish_reason), "stop"
+            CohereFinishReason(response.finish_reason), AdapterFinishReason.stop
         )
 
         choices: list[Choice] = []
@@ -186,7 +186,7 @@ class CohereSDKChatProviderAdapter(
                 choices.append(
                     Choice(
                         index=len(choices),
-                        finish_reason=finish_reason,
+                        finish_reason=finish_reason.value,
                         message=ChatCompletionMessage(
                             role=ConversationRole.assistant.value,
                             content=content.text,
@@ -210,24 +210,27 @@ class CohereSDKChatProviderAdapter(
             choices=choices,
         )
 
-    def extract_stream_response(self, request: Any, response: Any) -> str:
-        content = None
-        if response.type == "content-delta":
-            content = response.delta.message.content.text
-        elif response.type == "stream-end":
-            content = None
+    def extract_stream_response(
+        self, request: Any, response: Any, state
+    ) -> AdapterChatCompletionChunk:
+        raise NotImplementedError
+        # content = None
+        # if response.type == "content-delta":
+        #     content = response.delta.message.content.text
+        # elif response.type == "stream-end":
+        #     content = None
 
-        chunk = json.dumps(
-            {
-                "choices": [
-                    {
-                        "delta": {
-                            "role": ConversationRole.assistant,
-                            "content": content,
-                        },
-                    }
-                ]
-            }
-        )
+        # chunk = json.dumps(
+        #     {
+        #         "choices": [
+        #             {
+        #                 "delta": {
+        #                     "role": ConversationRole.assistant,
+        #                     "content": content,
+        #                 },
+        #             }
+        #         ]
+        #     }
+        # )
 
-        return f"data: {chunk}\n\n"
+        # return f"data: {chunk}\n\n"

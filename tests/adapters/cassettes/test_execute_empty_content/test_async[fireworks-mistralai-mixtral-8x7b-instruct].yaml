@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct"}'
+      " "}, {"role": "user", "content": "\n"}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '181'
+      - '198'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,38 +33,36 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"306c768c-2ba1-4c97-be20-b03a548a05e8","object":"chat.completion","created":1728508379,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"I''m
-        here to provide helpful, respectful, and honest responses. I''ll do my best
-        to promote positivity, avoid harm, and uphold ethical standards. If you have
-        any questions or need assistance, feel free to ask!\n\nWishing you a great
-        day!\n\nLet''s start with a fun fact: Did you know that octopuses have three
-        hearts? Two pump blood to the gills, while the third pumps it to the rest
-        of the body. Fascinating, isn''t it? Is there anything specific you''d like
-        to know or discuss?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":61,"total_tokens":185,"completion_tokens":124}}'
+      string: '{"id":"7c7b2eac-a19d-41a6-905a-c3cc59aa243d","object":"chat.completion","created":1729025986,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"I''m
+        here to provide helpful, respectful, and truthful responses. I''ll do my best
+        to be useful and secure while avoiding any harmful, unethical, prejudiced,
+        or negative content. I''m committed to promoting fairness and positivity in
+        all our interactions. If you have any questions or need assistance, feel free
+        to ask!\n\nWarm regards,\nYour AI Assistant"},"finish_reason":"stop"}],"usage":{"prompt_tokens":61,"total_tokens":145,"completion_tokens":84}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d015f391a8b95a5-TBS
+      - 8d32bc1eabc215ff-SJC
       Cf-Placement:
-      - local-TBS
+      - remote-IAD
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:12:59 GMT
+      - Tue, 15 Oct 2024 20:59:47 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=899.0;desc="Total Response Time"
+      - total;dur=859.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -71,7 +70,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '788'
+      - '665'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -79,11 +78,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.646'
+      - '0.792'
       x-envoy-upstream-service-time:
-      - '647'
+      - '793'
       x-request-id:
-      - 306c768c-2ba1-4c97-be20-b03a548a05e8
+      - 7c7b2eac-a19d-41a6-905a-c3cc59aa243d
     status:
       code: 200
       message: OK

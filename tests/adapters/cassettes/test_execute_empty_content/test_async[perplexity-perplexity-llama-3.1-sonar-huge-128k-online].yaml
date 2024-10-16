@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
-      "content": "\"\""}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-sonar-huge-128k-online"}'
+      "content": "\"\""}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-sonar-huge-128k-online",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '175'
+      - '192'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,34 +33,35 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "7b6d24a5-d459-4269-a4a6-eb6272484023", "model": "llama-3.1-sonar-huge-128k-online",
-        "created": 1728508560, "usage": {"prompt_tokens": 23, "completion_tokens":
-        21, "total_tokens": 44}, "object": "chat.completion", "choices": [{"index":
+      string: '{"id": "b5acb5cd-f5a2-44cc-8092-7c86567a06d3", "model": "llama-3.1-sonar-huge-128k-online",
+        "created": 1729026068, "usage": {"prompt_tokens": 23, "completion_tokens":
+        34, "total_tokens": 57}, "object": "chat.completion", "choices": [{"index":
         0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
-        seems like you''re not entering any text. Could you please type something
-        so I can assist you?"}, "delta": {"role": "assistant", "content": ""}}]}'
+        seems like you''re not typing anything. How can I assist you today? Do you
+        have a question or topic you''d like to discuss? I''m here to help"}, "delta":
+        {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d0163990b6ea9e9-TBS
+      - 8d32be0efce8cff9-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:16:00 GMT
+      - Tue, 15 Oct 2024 21:01:08 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '464'
+      - '509'
     status:
       code: 200
       message: OK

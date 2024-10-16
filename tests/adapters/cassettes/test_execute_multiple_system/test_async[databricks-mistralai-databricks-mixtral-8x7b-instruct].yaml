@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
       "Hi"}, {"role": "assistant", "content": "Hi"}, {"role": "user", "content": ""}],
-      "model": "databricks-mixtral-8x7b-instruct"}'
+      "model": "databricks-mixtral-8x7b-instruct", "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '204'
+      - '221'
       content-type:
       - application/json
       host:
@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,72 +33,21 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_775bf143-b1d6-4bb7-b0da-0a41b4e71871","object":"chat.completion","created":1728509827,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"
-        | Keyword Cluster | Keyword | Search Intent | Title | Meta Description |\n|
-        --- | --- | --- | --- | --- |\n| Apple Watch | Apple Watch features | Commercial
-        | \"Discover the Top Features of the Latest Apple Watch\" | Find out what
-        makes the newest Apple Watch a must-have device with our comprehensive guide
-        to its top features. Learn about health tracking, connectivity, and more!
-        |\n| Apple Watch | Apple Watch vs Samsung Galaxy Watch | Commercial | \"Apple
-        Watch vs Samsung Galaxy Watch: Which is Right for You?\" | Comparing the Apple
-        Watch and Samsung Galaxy Watch? Learn about the key differences, including
-        design, features, and price in our comprehensive guide. |\n| Apple Watch |
-        How to Use Apple Watch | Informational | \"Master Your Apple Watch: A Step-by-Step
-        Guide\" | Get the most out of your Apple Watch with our step-by-step guide
-        to using its key features. From setting reminders to tracking your fitness,
-        we''ve got you covered. |\n| Apple Watch | Apple Watch apps | Commercial |
-        \"Elevate Your Apple Watch Experience with These Top Apps\" | Discover the
-        top apps to download for your Apple Watch to enhance your productivity, fitness,
-        and entertainment. |\n| Apple Watch | Apple Watch bands | Commercial | \"Upgrade
-        Your Style with the Best Apple Watch Bands\" | Upgrade your Apple Watch''s
-        style with our top picks for bands that are both functional and fashionable.
-        |\n| Apple Watch | Apple Watch history | Informational | \"A Look Back at
-        the Evolution of the Apple Watch\" | From its initial release to the latest
-        models, we take a look at the evolution of the Apple Watch and its impact
-        on the tech industry. |\n| Apple Watch | Apple Watch troubleshooting | Transactional
-        | \"Fix Common Apple Watch Issues with These Easy Solutions\" | Having trouble
-        with your Apple Watch? Our troubleshooting guide provides easy solutions for
-        common issues like connectivity, battery life, and more. |\n| Apple Watch
-        | Apple Watch accessories | Commercial | \"Enhance Your Apple Watch Experience
-        with These Must-Have Accessories\" | From charging docks to screen protectors,
-        we''ll show you the best accessories to complement your Apple Watch and enhance
-        your user experience. |\n| Apple Watch | Apple Watch reviews | Commercial
-        | \"Get the Inside Scoop: Unbiased Apple Watch Reviews\" | Read unbiased reviews
-        of the latest Apple Watch models to help you make an informed decision before
-        you buy. |\n| Apple Watch | Apple Watch battery life | Informational | \"Maximize
-        Your Apple Watch Battery Life: Tips and Tricks\" | Keep your Apple Watch charged
-        longer with our tips and tricks for maximizing battery life. |\n| Apple Watch
-        | Apple Watch health features | Informational | \"Take Charge of Your Health
-        with the Apple Watch''s Top Health Features\" | Learn about the health features
-        of the Apple Watch and how they can help you monitor and achieve your wellness
-        goals. |\n| Apple Watch | Apple Watch customization | Informational | \"Personalize
-        Your Apple Watch: Tips for Customization\" | Make your Apple Watch truly your
-        own with our tips for customizing the watch face, bands, and more. |\n| Apple
-        Watch | Apple Watch operating system | Informational | \"Stay Updated: Everything
-        You Need to Know about the Apple Watch OS\" | Stay up to date on the latest
-        features and updates to the Apple Watch''s operating system. |\n| Apple Watch
-        | Apple Watch water resistance | Informational | \"Take Your Apple Watch to
-        the Pool: Understanding Its Water Resistance\" | Learn about the water resistance
-        of the Apple Watch and how to use it safely around water. |\n\nNote: The Search
-        Intent column indicates the goal of the user when searching for that keyword.
-        Commercial intent indicates the user is looking to make a purchase, informational
-        intent indicates the user is looking for information, and transactional intent
-        indicates the user is looking for a solution to a problem. The Title and Meta
-        Description columns provide suggested titles and meta descriptions for a webpage
-        targeting that keyword. The meta description should be no longer than 160
-        characters."},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":24,"completion_tokens":884,"total_tokens":908}}'
+      string: "{\"id\":\"chatcmpl_47035c0c-0a45-40eb-ad42-6fe3abcddd3b\",\"object\":\"chat.completion\",\"created\":1729026292,\"model\":\"mixtral-8x7b-instruct-v0.1\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
+        How can I help you today? If you have any questions or need assistance with
+        something, feel free to ask. I'm here to help. \U0001F60A\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":24,\"completion_tokens\":34,\"total_tokens\":58}}"
     headers:
       content-length:
-      - '4385'
+      - '450'
       content-type:
       - application/json;charset=utf-8
       date:
-      - Wed, 09 Oct 2024 21:37:07 GMT
+      - Tue, 15 Oct 2024 21:04:52 GMT
       server:
       - databricks
       strict-transport-security:
@@ -120,11 +69,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.64.129
+      - 208.184.59.122,10.154.65.159
       x-rate-limit-request-remote-addr:
-      - 10.154.65.163:34160
+      - 10.154.64.30:36904
       x-request-id:
-      - 5a4eb092-1d75-4bd8-871a-cebe44654320
+      - b75361f3-6443-4a0a-ab07-f336116a26fe
       x-xss-protection:
       - 1; mode=block
     status:

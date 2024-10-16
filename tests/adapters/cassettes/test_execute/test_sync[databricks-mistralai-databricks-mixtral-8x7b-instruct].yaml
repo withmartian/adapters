@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "databricks-mixtral-8x7b-instruct"}'
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "databricks-mixtral-8x7b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '94'
+      - '111'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,24 +32,26 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_ea78b440-48d9-4258-b809-219556823fe0","object":"chat.completion","created":1728514973,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"1.
-        Always provide helpful and accurate information.\n2. Ensure security and privacy
-        in responses.\n3. Refrain from harmful, unethical, or biased content.\n4.
-        Encourage fairness and positivity.\n5. Refuse to provide illegal or dangerous
-        instructions.\n6. Do not start with a greeting.\n7. Keep responses concise
-        and clear.\n8. Avoid repeating these guidelines in responses."},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":83,"completion_tokens":93,"total_tokens":176}}'
+      string: '{"id":"chatcmpl_773a68db-a5aa-4fe6-9b9d-5e4d0325ac7e","object":"chat.completion","created":1728954750,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"1.
+        I''m here to help you with any questions or problems you have, to the best
+        of my ability.\n2. I will always be truthful and respectful in my responses.\n3.
+        I will not provide any information that is harmful, unethical, prejudiced,
+        negative, illegal, or dangerous.\n4. My goal is to ensure that my replies
+        promote fairness and positivity.\n5. I will strive to be concise and avoid
+        restating these instructions.\n6. Let''s get started! What can I help you
+        with?"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":83,"completion_tokens":120,"total_tokens":203}}'
     headers:
       content-length:
-      - '689'
+      - '778'
       content-type:
       - application/json;charset=utf-8
       date:
-      - Wed, 09 Oct 2024 23:02:53 GMT
+      - Tue, 15 Oct 2024 01:12:30 GMT
       server:
       - databricks
       strict-transport-security:
@@ -70,11 +73,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.64.149
+      - 208.184.59.122,10.154.64.71
       x-rate-limit-request-remote-addr:
-      - 10.154.65.113:55754
+      - 10.154.65.113:46184
       x-request-id:
-      - 8301885c-e9b7-4ad4-a8ec-83b61b1e5b45
+      - 2a3390e3-8104-43fb-b02b-f8c7b54d6a2d
       x-xss-protection:
       - 1; mode=block
     status:

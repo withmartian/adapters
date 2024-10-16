@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "meta-llama/Meta-Llama-3.1-8B-Instruct"}'
+    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '103'
+      - '120'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,24 +32,22 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-730061592b524173be1c6363f9044050","object":"chat.completion","created":1728508898,"model":"meta-llama/Meta-Llama-3.1-8B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        looks like you''re trying to initiate a conversation. I''d be happy to chat
-        with you. Is there something on your mind that you''d like to talk about,
-        or are you just looking for some small talk?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"total_tokens":57,"completion_tokens":44,"estimated_cost":3.1349999999999996e-06}}'
+      string: '{"id":"chatcmpl-4ad3ed9802ce46ccaa7157083331be26","object":"chat.completion","created":1729026098,"model":"meta-llama/Meta-Llama-3.1-8B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi
+        back! Is there something I can help you with or would you like to chat?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"total_tokens":31,"completion_tokens":18,"estimated_cost":1.705e-06}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '571'
+      - '438'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:21:38 GMT
+      - Tue, 15 Oct 2024 21:01:38 GMT
       server:
       - uvicorn
       x-robots-tag:

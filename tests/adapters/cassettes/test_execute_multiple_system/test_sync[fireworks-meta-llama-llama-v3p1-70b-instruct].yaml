@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}, {"role": "system", "content": "Hi"}], "model": "accounts/fireworks/models/llama-v3p1-70b-instruct"}'
+      "Hi"}, {"role": "system", "content": "Hi"}], "model": "accounts/fireworks/models/llama-v3p1-70b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '185'
+      - '202'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,33 +33,33 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"514358ff-506c-474c-a859-e9506a373f0c","object":"chat.completion","created":1728509438,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        looks like we''ve got a loop going on! Would you like to start a conversation
-        or is there something specific you''d like to talk about?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"total_tokens":54,"completion_tokens":31}}'
+      string: '{"id":"cb10176e-079e-4a6b-9b71-4d558554b5a5","object":"chat.completion","created":1728955709,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like we''re having a repetitive conversation. Would you like to talk
+        about something specific or just chat? I''m here to listen!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"total_tokens":52,"completion_tokens":29}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d017911a9201a42-TBS
+      - 8d2c0859aa97cee1-SJC
       Cf-Placement:
-      - local-TBS
+      - local-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:30:38 GMT
+      - Tue, 15 Oct 2024 01:28:28 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=837.0;desc="Total Response Time"
+      - total;dur=373.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -66,7 +67,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '450'
+      - '449'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -74,11 +75,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.604'
+      - '0.271'
       x-envoy-upstream-service-time:
-      - '607'
+      - '273'
       x-request-id:
-      - 514358ff-506c-474c-a859-e9506a373f0c
+      - cb10176e-079e-4a6b-9b71-4d558554b5a5
     status:
       code: 200
       message: OK

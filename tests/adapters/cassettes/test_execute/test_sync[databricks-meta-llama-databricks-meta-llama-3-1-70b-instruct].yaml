@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "databricks-meta-llama-3-1-70b-instruct"}'
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "databricks-meta-llama-3-1-70b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '100'
+      - '117'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,20 +32,21 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_73904ad9-e48e-406a-acf8-132a1f3ec9b5","object":"chat.completion","created":1728514971,"model":"meta-llama-3.1-70b-instruct-082724","choices":[{"index":0,"message":{"role":"assistant","content":"How''s
-        it going? Is there something I can help you with or would you like to chat?"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":11,"completion_tokens":21,"total_tokens":32}}'
+      string: '{"id":"chatcmpl_4ef5a482-00cd-40d6-8b33-be7c0e686d74","object":"chat.completion","created":1728954748,"model":"meta-llama-3.1-70b-instruct-082724","choices":[{"index":0,"message":{"role":"assistant","content":"It''s
+        nice to meet you. Is there something I can help you with or would you like
+        to chat?"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":11,"completion_tokens":23,"total_tokens":34}}'
     headers:
       content-length:
-      - '405'
+      - '412'
       content-type:
       - application/json;charset=utf-8
       date:
-      - Wed, 09 Oct 2024 23:02:51 GMT
+      - Tue, 15 Oct 2024 01:12:28 GMT
       server:
       - databricks
       strict-transport-security:
@@ -66,11 +68,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.64.149
+      - 208.184.59.122,10.154.64.100
       x-rate-limit-request-remote-addr:
-      - 10.154.65.113:60370
+      - 10.154.65.163:36246
       x-request-id:
-      - 8c3b2e53-a940-4d65-9345-c227512ec32e
+      - 592bce1f-981c-49e8-804e-f4b5bbdbc25a
       x-xss-protection:
       - 1; mode=block
     status:

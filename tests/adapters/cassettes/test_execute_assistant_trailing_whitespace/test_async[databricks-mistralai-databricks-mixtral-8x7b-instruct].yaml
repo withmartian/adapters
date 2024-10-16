@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}, {"role": "user", "content": ""}], "model": "databricks-mixtral-8x7b-instruct"}'
+      "content": "Hi "}, {"role": "user", "content": ""}], "model": "databricks-mixtral-8x7b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '168'
+      - '185'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,73 +33,66 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_9da636c0-ae7d-423c-9db6-39019bf32499","object":"chat.completion","created":1728507811,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"
-        | Keyword Cluster | Keyword | Search Intent | Title | Meta Description |\n|
-        --- | --- | --- | --- | --- |\n| Skincare | Best natural face wash | Commercial
-        | \"Discover the Best Natural Face Washes for a Radiant Glow\" | \"Say goodbye
-        to harsh chemicals and hello to radiant skin with our top picks for natural
-        face washes. Shop now and reveal your best skin yet!\" |\n| Makeup | How to
-        apply eyeshadow | Informational | \"Master the Art of Eyeshadow: A Step-by-Step
-        Guide\" | \"Get ready to elevate your eye game with our comprehensive guide
-        on how to apply eyeshadow. From beginner to pro, we''ve got you covered.\"
-        |\n| Haircare | Curly hair care routine | Informational | \"Transform Your
-        Curly Hair with Our Ultimate Care Routine\" | \"Struggling with curly hair?
-        Our expert-approved care routine is here to help. Unlock the secrets to defined
-        curls and frizz-free locks today.\" |\n| Beauty | Beauty tools every woman
-        needs | Commercial | \"Unleash Your Inner Beauty Expert: The Top Tools Every
-        Woman Needs\" | \"From makeup brushes to skincare gadgets, we''ve rounded
-        up the essential beauty tools that every woman needs in her arsenal. Upgrade
-        your routine today!\" |\n| Fashion | How to style a blazer | Informational
-        | \"Blaze a Fashion Trail: How to Style a Blazer for Any Occasion\" | \"Whether
-        you''re heading to the office or out on the town, our style guide will show
-        you how to wear a blazer like a pro. Get ready to turn heads!\" |\n| Health
-        | Home remedies for anxiety | Informational | \"Say Goodbye to Anxiety: Natural
-        Remedies You Can Try at Home\" | \"Feeling anxious? Discover the soothing
-        power of home remedies for anxiety. Find relief and calm your mind, naturally.\"
-        |\n| Travel | Best affordable destinations | Transactional | \"Escape the
-        Everyday: The Best Affordable Destinations for Your Next Vacation\" | \"Budget-friendly
-        doesn''t mean boring. Explore the world''s best value destinations and plan
-        your dream getaway without breaking the bank.\" |\n| Food | Healthy meal prep
-        ideas | Informational | \"Healthy Eating, Simplified: 10 Meal Prep Ideas to
-        Keep You on Track\" | \"Say goodbye to last-minute takeout and hello to healthy,
-        home-cooked meals with our easy and delicious meal prep ideas. Get started
-        today!\" |\n| Technology | How to choose a gaming laptop | Informational |
-        \"Game On: How to Choose the Perfect Gaming Laptop for You\" | \"Ready to
-        up your gaming game? Our guide to choosing a gaming laptop will help you find
-        the perfect machine for your needs and budget.\" |\n| Entertainment | Best
-        romantic comedies on Netflix | Commercial | \"Love is in the Air: The Best
-        Romantic Comedies on Netflix Right Now\" | \"Get ready for laughter, love,
-        and happy endings with our top picks for romantic comedies on Netflix. Pop
-        the popcorn and settle in for a cozy night in.\" |\n| Personal Finance | Budgeting
-        tips for beginners | Informational | \"Take Control of Your Finances: Budgeting
-        Tips for Beginners\" | \"Feeling overwhelmed by your finances? Our budgeting
-        tips for beginners will help you get started on the path to financial freedom.
-        Start today!\" |\n| Education | How to choose a college major | Informational
-        | \"Charting Your Future: How to Choose a College Major That''s Right for
-        You\" | \"Undecided on a major? Our guide to choosing a college major will
-        help you find your passion and set yourself up for success. Read on!\" |\n\n**Note**:
-        The above table is an example of a keyword cluster for a beauty and lifestyle
-        website. Each row represents a different keyword cluster, with the first column
-        showing the overarching theme and the second column showing the specific keyword.
-        The third column indicates the search intent of the keyword, which can be
-        commercial (indicating a purchase intent), informational (indicating a desire
-        to learn more), or transactional (indicating a desire to complete a specific
-        action). The fourth column is the title of a potential blog post or webpage,
-        and the fifth column is a meta description for that page. This table can be
-        used as a starting point for creating content that is optimized for search
-        engines while still providing value to the reader."},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":94,"completion_tokens":1010,"total_tokens":1104}}'
+      string: '{"id":"chatcmpl_8b14a991-4fc5-46fb-968a-c3341e694b10","object":"chat.completion","created":1729025736,"model":"mixtral-8x7b-instruct-v0.1","choices":[{"index":0,"message":{"role":"assistant","content":"
+        | Keyword Clusters | Keyword | Search Intent | Title | Meta Description |\n|
+        --- | --- | --- | --- | --- |\n| Product Review | Best Espresso Machines |
+        Commercial | Top 10 Best Espresso Machines of 2022 | Discover the top-rated
+        espresso machines of the year! Our comprehensive review helps you find the
+        perfect machine for your commercial needs. |\n| Product Review | Best Semi-Automatic
+        Espresso Machines | Commercial | 7 Best Semi-Automatic Espresso Machines for
+        Business | Looking for a reliable semi-automatic espresso machine for your
+        business? Check out our top picks for 2022 and make the perfect espresso every
+        time. |\n| Product Review | Best Automatic Espresso Machines | Commercial
+        | The 5 Top-Rated Automatic Espresso Machines for Your Business | Upgrade
+        your business with a top-of-the-line automatic espresso machine. Our review
+        highlights the best machines on the market. |\n| Product Review | Best Super-Automatic
+        Espresso Machines | Commercial | 8 Super-Automatic Espresso Machines to Elevate
+        Your Business | Take your business to the next level with a super-automatic
+        espresso machine. Our review features the top-rated machines for commercial
+        use. |\n| Product Review | Best Manual Espresso Machines | Commercial | The
+        6 Best Manual Espresso Machines for Your Business | Experience the art of
+        espresso-making with a manual espresso machine. Our review highlights the
+        top-rated options for commercial use. |\n| Product Review | Best Portable
+        Espresso Machines | Commercial | 5 Portable Espresso Machines Perfect for
+        Business Use | Don''t let location limit your espresso options. Our review
+        features the top-rated portable espresso machines for commercial use. |\n|
+        Product Review | Best Budget Espresso Machines | Commercial | 7 High-Quality
+        Espresso Machines for Your Business on a Budget | Don''t break the bank for
+        a quality espresso machine. Our review highlights the top-rated options for
+        commercial use on a budget. |\n| Product Review | Best Luxury Espresso Machines
+        | Commercial | The 5 Most Luxurious Espresso Machines for Your Business |
+        Add a touch of luxury to your business with a high-end espresso machine. Our
+        review features the top-rated options on the market. |\n| Product Review |
+        Best Commercial Espresso Machines for Small Spaces | Commercial | 5 Compact
+        Espresso Machines Perfect for Small Businesses | Don''t let limited space
+        hold you back. Our review highlights the top-rated compact espresso machines
+        for commercial use. |\n| Product Review | Best Commercial Espresso Machines
+        for Large Spaces | Commercial | The 7 Best Espresso Machines for Large Businesses
+        | Make a statement with a top-of-the-line espresso machine for your large
+        business. Our review features the top-rated options on the market. |\n| Product
+        Review | Best Commercial Espresso Machines for High Volume | Commercial |
+        6 High-Volume Espresso Machines for Busy Businesses | Keep up with demand
+        and make the perfect espresso every time with our top picks for high-volume
+        commercial espresso machines. |\n| Product Review | Best Commercial Espresso
+        Machines for Low Volume | Commercial | 5 Low-Volume Espresso Machines for
+        Small Businesses | Don''t overpay for an espresso machine you don''t need.
+        Our review features the top-rated options for low-volume commercial use. |\n\n**Note**:
+        Ensure that the content is written in a way that is helpful, unbiased, and
+        informative, and avoid any harmful, unethical, prejudiced, or negative content.
+        Also, ensure that the content promotes fairness and positivity and does not
+        provide illegal or dangerous instructions."},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":94,"completion_tokens":860,"total_tokens":954}}'
     headers:
       content-length:
-      - '4463'
+      - '3883'
       content-type:
       - application/json;charset=utf-8
       date:
-      - Wed, 09 Oct 2024 21:03:30 GMT
+      - Tue, 15 Oct 2024 20:55:36 GMT
       server:
       - databricks
       strict-transport-security:
@@ -120,11 +114,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.65.106
+      - 208.184.59.122,10.154.64.100
       x-rate-limit-request-remote-addr:
-      - 10.154.65.163:41398
+      - 10.154.64.24:58674
       x-request-id:
-      - bd3bac96-4805-49a0-bc50-b136a7cc9440
+      - f8df2bb6-698d-40f2-b65a-69b609e5d6c2
       x-xss-protection:
       - 1; mode=block
     status:

@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "llama-3.1-8b-instant"}'
+      " "}, {"role": "user", "content": "\n"}], "model": "llama-3.1-8b-instant", "stream":
+      false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '154'
+      - '171'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,21 +33,21 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-0d1904c6-636d-4309-a86e-a76bbaad7cf1","object":"chat.completion","created":1728508383,"model":"llama-3.1-8b-instant","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like you forgot to ask a question or say something. How can I assist
-        you today?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.005014528000000001,"prompt_tokens":46,"prompt_time":0.009279731,"completion_tokens":21,"completion_time":0.028,"total_tokens":67,"total_time":0.037279731},"system_fingerprint":"fp_f66ccb39ec","x_groq":{"id":"req_01j9sj1m47f0fa0yd7dcs81ycq"}}
+      string: '{"id":"chatcmpl-a4303574-8ef8-4930-b0bd-155132b3c33b","object":"chat.completion","created":1729025989,"model":"llama-3.1-8b-instant","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like you started to ask a question or initiate a conversation, but it
+        got cut off. How can I assist you today?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.004126689000000001,"prompt_tokens":46,"prompt_time":0.009253681,"completion_tokens":28,"completion_time":0.037333333,"total_tokens":74,"total_time":0.046587014},"system_fingerprint":"fp_9cb648b966","x_groq":{"id":"req_01ja8znq9yfk4bzdprsgqc9bpq"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d015f52ca4095a5-TBS
+      - 8d32bc350c6e9803-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -54,7 +55,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:13:03 GMT
+      - Tue, 15 Oct 2024 20:59:50 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -62,7 +63,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '594'
+      - '631'
       vary:
       - Origin
       via:
@@ -80,7 +81,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 45ms
       x-request-id:
-      - req_01j9sj1m47f0fa0yd7dcs81ycq
+      - req_01ja8znq9yfk4bzdprsgqc9bpq
     status:
       code: 200
       message: OK

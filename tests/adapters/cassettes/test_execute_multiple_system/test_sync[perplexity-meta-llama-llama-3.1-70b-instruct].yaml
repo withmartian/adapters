@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
       "Hi"}, {"role": "assistant", "content": "Hi"}, {"role": "user", "content": "\"\""}],
-      "model": "llama-3.1-70b-instruct"}'
+      "model": "llama-3.1-70b-instruct", "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '198'
+      - '215'
       content-type:
       - application/json
       host:
@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,35 +33,34 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "3efe5e59-b14b-44eb-a17a-8684c2f5af70", "model": "llama-3.1-70b-instruct",
-        "created": 1728509800, "usage": {"prompt_tokens": 29, "completion_tokens":
-        27, "total_tokens": 56}, "object": "chat.completion", "choices": [{"index":
+      string: '{"id": "5fd897d4-b40a-4338-bd8b-4b3877a20b91", "model": "llama-3.1-70b-instruct",
+        "created": 1728955812, "usage": {"prompt_tokens": 29, "completion_tokens":
+        24, "total_tokens": 53}, "object": "chat.completion", "choices": [{"index":
         0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
-        looks like you sent an empty message Is everything okay? Would you like to
-        chat about something in particular or just say hello?"}, "delta": {"role":
-        "assistant", "content": ""}}]}'
+        looks like you sent an empty message Is there something I can help you with
+        or would you like to chat?"}, "delta": {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d0181ebf8de317c-TBS
+      - 8d2c0ae15a32d021-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:36:41 GMT
+      - Tue, 15 Oct 2024 01:30:12 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '489'
+      - '463'
     status:
       code: 200
       message: OK

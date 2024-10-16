@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "meta-llama/Meta-Llama-3.1-70B-Instruct"}'
+      " "}, {"role": "user", "content": "\n"}], "model": "meta-llama/Meta-Llama-3.1-70B-Instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '172'
+      - '189'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,22 +33,24 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-08530d15a1834395bafe07dd88d7e4d6","object":"chat.completion","created":1728508357,"model":"meta-llama/Meta-Llama-3.1-70B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like you didn''t type anything. How can I assist you today?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":20,"total_tokens":36,"completion_tokens":16,"estimated_cost":1.34e-05}}'
+      string: '{"id":"chatcmpl-41b30fae9c8a41769fc39a6a30d4ed94","object":"chat.completion","created":1729025951,"model":"meta-llama/Meta-Llama-3.1-70B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        seems like you might have accidentally sent an empty message. If you''d like
+        to ask a question or start a conversation, I''m here to help! What''s on your
+        mind?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":20,"total_tokens":57,"completion_tokens":37,"estimated_cost":2.18e-05}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '431'
+      - '524'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:12:37 GMT
+      - Tue, 15 Oct 2024 20:59:11 GMT
       server:
       - uvicorn
       x-robots-tag:

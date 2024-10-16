@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct"}'
+      "content": "Hi "}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '150'
+      - '167'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,37 +33,36 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"d3ec40ad-041e-4436-af8d-b03269e98a50","object":"chat.completion","created":1728507854,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"!
-        I''m here to help you with any questions or issues you might have. I''ll do
-        my best to provide useful, truthful, and respectful responses. I''m committed
-        to ensuring the security and privacy of our interaction, and I''ll avoid harmful,
-        unethical, prejudiced, or negative content. I''m glad we can have this conversation,
-        and I hope we can promote fairness and positivity together! Is there something
-        specific you''d like to talk about?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":55,"total_tokens":158,"completion_tokens":103}}'
+      string: '{"id":"d456c24c-7500-4745-85f8-437806a0c7e7","object":"chat.completion","created":1729025790,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"!
+        I''m here to help you with any questions or concerns you might have. I''ll
+        do my best to provide accurate and useful information while ensuring a safe
+        and positive interaction. I''m committed to upholding ethical and respectful
+        communication, free from any form of prejudice or negativity. How can I assist
+        you today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":55,"total_tokens":125,"completion_tokens":70}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d015265c83d317c-TBS
+      - 8d32b7508982cf82-SJC
       Cf-Placement:
-      - local-TBS
+      - remote-IAD
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:04:15 GMT
+      - Tue, 15 Oct 2024 20:56:30 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=1463.0;desc="Total Response Time"
+      - total;dur=925.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -70,7 +70,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '745'
+      - '629'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -78,11 +78,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.857'
+      - '0.854'
       x-envoy-upstream-service-time:
-      - '858'
+      - '855'
       x-request-id:
-      - d3ec40ad-041e-4436-af8d-b03269e98a50
+      - d456c24c-7500-4745-85f8-437806a0c7e7
     status:
       code: 200
       message: OK

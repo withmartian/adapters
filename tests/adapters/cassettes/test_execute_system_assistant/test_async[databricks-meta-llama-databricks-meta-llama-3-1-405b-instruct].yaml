@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "databricks-meta-llama-3-1-405b-instruct"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "databricks-meta-llama-3-1-405b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '176'
+      - '193'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,21 +33,20 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_973dda06-d362-497e-ab7d-e6ec47f103ea","object":"chat.completion","created":1728510944,"model":"meta-llama-3.1-405b-instruct-081924","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        looks like we''re stuck in a loop of hellos! Would you like to start a conversation
-        or ask a question? I''m here to help!"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":24,"completion_tokens":32,"total_tokens":56}}'
+      string: '{"id":"chatcmpl_cb61237d-f268-4b60-8cc7-a2cd4679da74","object":"chat.completion","created":1729026626,"model":"meta-llama-3.1-405b-instruct-081924","choices":[{"index":0,"message":{"role":"assistant","content":"Hi
+        again! Is there something I can help you with or would you like to chat?"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":24,"completion_tokens":19,"total_tokens":43}}'
     headers:
       content-length:
-      - '447'
+      - '400'
       content-type:
       - application/json;charset=utf-8
       date:
-      - Wed, 09 Oct 2024 21:55:44 GMT
+      - Tue, 15 Oct 2024 21:10:25 GMT
       server:
       - databricks
       strict-transport-security:
@@ -68,11 +68,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 94.137.189.203,10.154.65.106
+      - 208.184.59.122,10.154.65.159
       x-rate-limit-request-remote-addr:
-      - 10.154.65.163:47088
+      - 10.154.64.30:45358
       x-request-id:
-      - ef3d7217-67b2-423c-a4a8-17164d7c3f5f
+      - 87a6b653-7415-48a0-aacb-9e2f645d5e5a
       x-xss-protection:
       - 1; mode=block
     status:

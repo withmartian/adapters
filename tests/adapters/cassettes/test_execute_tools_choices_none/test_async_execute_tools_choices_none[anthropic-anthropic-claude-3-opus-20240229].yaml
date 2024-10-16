@@ -1,10 +1,10 @@
 interactions:
 - request:
     body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
-      "role": "user"}], "model": "claude-3-opus-20240229", "tools": [{"input_schema":
-      {"type": "object", "properties": {"prompt": {"type": "string", "description":
-      "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate", "description":
-      "Generate random number"}]}'
+      "role": "user"}], "model": "claude-3-opus-20240229", "stream": false, "tools":
+      [{"input_schema": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate",
+      "description": "Generate random number"}]}'
     headers:
       accept:
       - application/json
@@ -15,7 +15,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '333'
+      - '350'
       content-type:
       - application/json
       host:
@@ -23,44 +23,42 @@ interactions:
       user-agent:
       - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_018eTv4nHwG7eZuMyE3yVJf5","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
-        user is asking to generate a random number. The \"generate\" tool is directly
-        relevant to this request and should be sufficient to fulfill it.\n\nLooking
-        at the \"generate\" tool''s parameters:\n- prompt (required): The user did
-        not provide a specific prompt string. However, the request itself implies
-        they want a simple random number generated, so we can infer a reasonable prompt
-        like \"a random number\" for this parameter.\n\nThe required \"prompt\" parameter
-        can be reasonably inferred from the user''s request, so we have all the necessary
-        information to proceed with calling the \"generate\" tool.\n</thinking>"},{"type":"tool_use","id":"toolu_01N2rCzp5rTKTrma95XRDwER","name":"generate","input":{"prompt":"a
-        random number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":183}}'
+      string: '{"id":"msg_01MYuVxZopUvvdi3arhrUfwB","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        only tool provided is \"generate\" which takes a \"prompt\" parameter with
+        a description like \"Random number like 5, 4, 3, 10, 11\". \nThe user''s request
+        to \"Generate random number\" doesn''t specify any additional details, so
+        we can infer that the user wants a random number without any specific constraints.
+        The \"generate\" tool should be sufficient to handle this request without
+        needing any additional information from the user.\n</thinking>"},{"type":"tool_use","id":"toolu_01CYUiFJ3CHxVB2G3wZscDsN","name":"generate","input":{"prompt":"Random
+        number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":154}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01ab4e3cfd95a6-TBS
+      - 8d32cfaa9da41597-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:05:05 GMT
+      - Tue, 15 Oct 2024 21:13:15 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -72,15 +70,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-09T22:05:05Z'
+      - '2024-10-15T21:13:15Z'
       content-length:
-      - '984'
+      - '813'
       request-id:
-      - req_01J7QYyqaHcU11NVBHA7HpqU
+      - req_01Df1Hzhp8LS9waxgKLpaPBY
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - b3e46554a4cbc825aad0e1d1145efd93
+      - eb524a8dc87c3ca2ffb7657c0d51dfc3
     status:
       code: 200
       message: OK

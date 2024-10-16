@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "llama-3.1-70b-instruct"}'
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "llama-3.1-70b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '84'
+      - '101'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,33 +32,34 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "006d941a-c1c6-4418-80ab-2a3754f4db99", "model": "llama-3.1-70b-instruct",
-        "created": 1728515300, "usage": {"prompt_tokens": 11, "completion_tokens":
-        9, "total_tokens": 20}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "Hello
-        How can I assist you today?"}, "delta": {"role": "assistant", "content": ""}}]}'
+      string: '{"id": "51edad73-75c9-4f4e-b238-14933b806967", "model": "llama-3.1-70b-instruct",
+        "created": 1728954978, "usage": {"prompt_tokens": 11, "completion_tokens":
+        22, "total_tokens": 33}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It''s
+        nice to meet you. Is there something I can help you with or would you like
+        to chat?"}, "delta": {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d020831dd6295a9-TBS
+      - 8d2bf6878b56254e-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 23:08:20 GMT
+      - Tue, 15 Oct 2024 01:16:19 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '390'
+      - '446'
     status:
       code: 200
       message: OK

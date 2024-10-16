@@ -2,7 +2,8 @@ interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
       "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}], "model": "accounts/fireworks/models/mixtral-8x22b-instruct"}'
+      "Hi"}], "model": "accounts/fireworks/models/mixtral-8x22b-instruct", "stream":
+      false}'
     headers:
       accept:
       - application/json
@@ -11,7 +12,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '222'
+      - '239'
       content-type:
       - application/json
       host:
@@ -19,13 +20,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,32 +34,38 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"ead35d4d-9bb2-451a-98f0-79f94910f317","object":"chat.completion","created":1728510784,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        What can I assist you with today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":14,"total_tokens":25,"completion_tokens":11}}'
+      string: '{"id":"f4555184-732f-4215-beb5-f6baa4ef1353","object":"chat.completion","created":1728956142,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        I''m a language learning model, and I''m here to help you improve your language
+        skills. Whether you''re looking to learn a new language or just want to brush
+        up on your existing skills, I''m here to help.\n\nI can assist you with things
+        like translating text, explaining grammatical concepts, and giving you examples
+        of how to use new vocabulary in context. I can also answer questions you have
+        about different aspects of language, like pronunciation, spelling, and usage.\n\nDo
+        you have a specific question or topic you''d like to work on today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":14,"total_tokens":142,"completion_tokens":128}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d0199ed3d4a959f-TBS
+      - 8d2c12f00f2b182a-SJC
       Cf-Placement:
-      - local-TBS
+      - local-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:53:04 GMT
+      - Tue, 15 Oct 2024 01:35:43 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=767.0;desc="Total Response Time"
+      - total;dur=1582.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -66,7 +73,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '353'
+      - '863'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -74,11 +81,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.162'
+      - '1.477'
       x-envoy-upstream-service-time:
-      - '164'
+      - '1478'
       x-request-id:
-      - ead35d4d-9bb2-451a-98f0-79f94910f317
+      - f4555184-732f-4215-beb5-f6baa4ef1353
     status:
       code: 200
       message: OK

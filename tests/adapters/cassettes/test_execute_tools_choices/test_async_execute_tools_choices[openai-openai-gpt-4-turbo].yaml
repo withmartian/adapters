@@ -1,8 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4-turbo", "tool_choice": "none", "tools": [{"type": "function", "function":
-      {"description": "Generate random number", "name": "generate", "parameters":
+      "gpt-4-turbo", "stream": false, "tool_choice": "none", "tools": [{"type": "function",
+      "function": {"description": "Generate random number", "name": "generate", "parameters":
       {"type": "object", "properties": {"prompt": {"type": "string", "description":
       "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
@@ -13,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '381'
+      - '398'
       content-type:
       - application/json
       host:
@@ -21,13 +21,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -35,33 +35,33 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGZ9QUo7ACuuCVnt6AKzMBDQ3rQtW\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728511732,\n  \"model\": \"gpt-4-turbo-2024-04-09\",\n
+      string: "{\n  \"id\": \"chatcmpl-AIj8aCIsA5sC40zaNJndngJZCIUGZ\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1729026776,\n  \"model\": \"gpt-4-turbo-2024-04-09\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"To generate a random number, I need
-        to know the range. Could you please provide me with the minimum and maximum
-        values for the number you'd like to generate?\",\n        \"refusal\": null\n
-        \     },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n
-        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 65,\n    \"completion_tokens\":
-        33,\n    \"total_tokens\": 98,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_82bed303cf\"\n}\n"
+        \"assistant\",\n        \"content\": \"You haven't specified the range or
+        any other criteria for the random number. Could you please specify the range
+        or any details about the random number you need? For example, a number between
+        1 and 100.\",\n        \"refusal\": null\n      },\n      \"logprobs\": null,\n
+        \     \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
+        65,\n    \"completion_tokens\": 43,\n    \"total_tokens\": 108,\n    \"prompt_tokens_details\":
+        {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\":
+        {\n      \"reasoning_tokens\": 0\n    }\n  },\n  \"system_fingerprint\": \"fp_83975a045a\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01b114eccb95a3-TBS
+      - 8d32cf6a68b01590-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:08:53 GMT
+      - Tue, 15 Oct 2024 21:12:58 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -73,11 +73,11 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '780'
+      - '825'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '1389'
+      - '1786'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -95,7 +95,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_a3b95d299302fefe92d401b934811e4b
+      - req_28007474727d7283d26d194807a7ab1c
     status:
       code: 200
       message: OK

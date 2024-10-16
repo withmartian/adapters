@@ -1,10 +1,10 @@
 interactions:
 - request:
     body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
-      "role": "user"}], "model": "claude-3-sonnet-20240229", "tools": [{"input_schema":
-      {"type": "object", "properties": {"prompt": {"type": "string", "description":
-      "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate", "description":
-      "Generate random number"}]}'
+      "role": "user"}], "model": "claude-3-sonnet-20240229", "stream": false, "tools":
+      [{"input_schema": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate",
+      "description": "Generate random number"}]}'
     headers:
       accept:
       - application/json
@@ -15,7 +15,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '335'
+      - '352'
       content-type:
       - application/json
       host:
@@ -23,37 +23,35 @@ interactions:
       user-agent:
       - AsyncAnthropic/Python 0.34.2
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01GSXox5bmVCzZJZhFbS3wGM","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Okay,
-        let''s invoke the \"generate\" tool to get a random number:"},{"type":"tool_use","id":"toolu_01D74zeYSJCpmrcQkAeiq2qj","name":"generate","input":{"prompt":"Random
-        number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":234,"output_tokens":70}}'
+      string: '{"id":"msg_01RzV5WGU697UTsrNMB8dDEA","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"tool_use","id":"toolu_014H8xMB3xdqsSa9Fyt6u9V4","name":"generate","input":{"prompt":"7"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":234,"output_tokens":51}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01ab43ee0f95a5-TBS
+      - 8d32cfa40c0315e5-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:04:55 GMT
+      - Tue, 15 Oct 2024 21:13:06 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -65,15 +63,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-09T22:04:55Z'
+      - '2024-10-15T21:13:06Z'
       content-length:
-      - '415'
+      - '313'
       request-id:
-      - req_01MEy5noCwWQvj7qAp56tSzL
+      - req_01JrfHivLi2sBvVLmabZb8i7
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 7951ecca6e12c4a70d98275a99a5a496
+      - 7796d9ecca196365ace9477ff05783da
     status:
       code: 200
       message: OK

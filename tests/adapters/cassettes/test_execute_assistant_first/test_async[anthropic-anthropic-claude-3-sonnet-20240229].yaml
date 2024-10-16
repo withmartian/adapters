@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"max_tokens": 4096, "messages": [{"content": "\"\"", "role": "user"},
       {"content": "Hi", "role": "assistant"}, {"content": "Hi", "role": "user"}],
-      "model": "claude-3-sonnet-20240229"}'
+      "model": "claude-3-sonnet-20240229", "stream": false}'
     headers:
       accept:
       - application/json
@@ -13,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '183'
+      - '200'
       content-type:
       - application/json
       host:
@@ -38,19 +38,20 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_013rKf8URJqYiWPk1YSXA6em","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Hello!
-        How can I assist you today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":12}}'
+      string: '{"id":"msg_01RecZ6tTZq1aaNr6mkkQYGj","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Hi
+        there! I''m Claude, an AI assistant created by Anthropic. How can I help you
+        today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":26}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d0145f88d4a95a0-TBS
+      - 8d3157fae9bd317c-TBS
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 20:55:45 GMT
+      - Tue, 15 Oct 2024 16:56:39 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -62,15 +63,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-09T20:55:45Z'
+      - '2024-10-15T16:56:39Z'
       content-length:
-      - '273'
+      - '324'
       request-id:
-      - req_01LMDMUJp6Voos2ELPC9Lwde
+      - req_01RFJrqHZnAuGxPzqyf2grWS
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - b40f3f23c257a4a37b859fbb129e152f
+      - 9bb938e4c809589c0676d9c23e952c35
     status:
       code: 200
       message: OK

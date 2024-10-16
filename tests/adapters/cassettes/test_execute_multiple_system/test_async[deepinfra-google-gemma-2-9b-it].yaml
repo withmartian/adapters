@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}, {"role": "system", "content": "Hi"}], "model": "google/gemma-2-9b-it"}'
+      "Hi"}, {"role": "system", "content": "Hi"}], "model": "google/gemma-2-9b-it",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '156'
+      - '173'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,22 +33,22 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-96d5d6d1ccb94841a071dbbd1897c61c\",\"object\":\"chat.completion\",\"created\":1728509907,\"model\":\"google/gemma-2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
-        How are you?  \U0001F604 \\n\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":23,\"total_tokens\":33,\"completion_tokens\":10,\"estimated_cost\":1.9799999999999997e-06}}"
+      string: "{\"id\":\"chatcmpl-f31b336be053423b965dc5bf3eddc182\",\"object\":\"chat.completion\",\"created\":1729026335,\"model\":\"google/gemma-2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hi
+        there!  What can I do for you today? \U0001F604 \\n\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":23,\"total_tokens\":38,\"completion_tokens\":15,\"estimated_cost\":2.28e-06}}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '388'
+      - '393'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:38:27 GMT
+      - Tue, 15 Oct 2024 21:05:35 GMT
       server:
       - uvicorn
       x-robots-tag:

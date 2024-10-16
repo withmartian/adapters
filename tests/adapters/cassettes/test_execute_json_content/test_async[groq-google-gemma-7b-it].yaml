@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "gemma-7b-it"}'
+    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "gemma-7b-it",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '77'
+      - '94'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,18 +32,18 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-0cddb5b0-b6fa-4b49-9367-89b6b108a86c\",\"object\":\"chat.completion\",\"created\":1728508910,\"model\":\"gemma-7b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
-        \U0001F44B It's great to hear from you. How can I help you today? \U0001F60A\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.005721905999999999,\"prompt_tokens\":12,\"prompt_time\":0.008733762,\"completion_tokens\":21,\"completion_time\":0.026312119,\"total_tokens\":33,\"total_time\":0.035045881},\"system_fingerprint\":\"fp_7d8efeb0b1\",\"x_groq\":{\"id\":\"req_01j9sjhpycf3xagjah9kzaah6g\"}}\n"
+      string: "{\"id\":\"chatcmpl-4af470bb-ef1d-428f-a8fb-363247989890\",\"object\":\"chat.completion\",\"created\":1729026105,\"model\":\"gemma-7b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
+        \U0001F44B How can I help you today? \U0001F60A\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.005091766000000001,\"prompt_tokens\":12,\"prompt_time\":0.007951913,\"completion_tokens\":12,\"completion_time\":0.013128484,\"total_tokens\":24,\"total_time\":0.021080397},\"system_fingerprint\":\"fp_7d8efeb0b1\",\"x_groq\":{\"id\":\"req_01ja8zs7qsf8q9c017kbwaxq4f\"}}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d016c321ca495a9-TBS
+      - 8d32bf049aa21563-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -50,7 +51,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:21:50 GMT
+      - Tue, 15 Oct 2024 21:01:45 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -58,7 +59,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '574'
+      - '545'
       vary:
       - Origin
       via:
@@ -76,7 +77,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 32ms
       x-request-id:
-      - req_01j9sjhpycf3xagjah9kzaah6g
+      - req_01ja8zs7qsf8q9c017kbwaxq4f
     status:
       code: 200
       message: OK

@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}, {"role": "system", "content": "Hi"}], "model": "llama3-70b-8192"}'
+      "Hi"}, {"role": "system", "content": "Hi"}], "model": "llama3-70b-8192", "stream":
+      false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '151'
+      - '168'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,21 +33,22 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-35242b6d-ac13-4f12-9e9e-1c0c374c872d","object":"chat.completion","created":1728509915,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Hi
-        again! It seems like we''re having a repetitive conversation. Would you like
-        to start a new topic or ask me a question? I''m here to help!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.013480760999999999,"prompt_tokens":19,"prompt_time":0.000994546,"completion_tokens":34,"completion_time":0.104447129,"total_tokens":53,"total_time":0.105441675},"system_fingerprint":"fp_2f30b0b571","x_groq":{"id":"req_01j9skgc3ze32tce02x5d6e6d2"}}
+      string: '{"id":"chatcmpl-db11411d-ff0b-4287-88da-bb2fdc5aec41","object":"chat.completion","created":1729026340,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
+        It seems like we''re having a fun conversation already! Is there something
+        on your mind that you''d like to chat about, or would you like me to suggest
+        some topics?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.01276631,"prompt_tokens":19,"prompt_time":0.000484309,"completion_tokens":38,"completion_time":0.117098578,"total_tokens":57,"total_time":0.117582887},"system_fingerprint":"fp_2f30b0b571","x_groq":{"id":"req_01ja900dr8ehxsbvckzkp2nph8"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d0184b99ad6959d-TBS
+      - 8d32c4c4a819fa72-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -54,7 +56,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:38:35 GMT
+      - Tue, 15 Oct 2024 21:05:40 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -62,7 +64,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '646'
+      - '663'
       vary:
       - Origin
       via:
@@ -80,7 +82,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 150ms
       x-request-id:
-      - req_01j9skgc3ze32tce02x5d6e6d2
+      - req_01ja900dr8ehxsbvckzkp2nph8
     status:
       code: 200
       message: OK

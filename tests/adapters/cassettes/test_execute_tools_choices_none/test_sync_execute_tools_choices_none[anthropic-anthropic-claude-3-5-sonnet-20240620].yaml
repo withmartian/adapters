@@ -1,10 +1,10 @@
 interactions:
 - request:
     body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
-      "role": "user"}], "model": "claude-3-5-sonnet-20240620", "tools": [{"input_schema":
-      {"type": "object", "properties": {"prompt": {"type": "string", "description":
-      "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate", "description":
-      "Generate random number"}]}'
+      "role": "user"}], "model": "claude-3-5-sonnet-20240620", "stream": false, "tools":
+      [{"input_schema": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate",
+      "description": "Generate random number"}]}'
     headers:
       accept:
       - application/json
@@ -15,7 +15,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '337'
+      - '354'
       content-type:
       - application/json
       host:
@@ -23,44 +23,43 @@ interactions:
       user-agent:
       - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01SMUV11mMaiTDBvWPRshYfB","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"Certainly!
-        I''d be happy to generate a random number for you. However, to use the random
-        number generation tool, we need to provide a prompt that specifies the type
-        of random number you''d like. The tool description suggests that we should
-        provide a prompt like \"5, 4, 3, 10, 11\" to indicate the range or type of
-        random number we want.\n\nCould you please specify what kind of random number
-        you''d like? For example:\n- A single digit number (1-9)\n- A number within
-        a specific range (e.g., 1-100)\n- A number with a certain number of digits
-        (e.g., a 3-digit number)\n\nOnce you provide this information, I''ll be able
-        to use the tool to generate a random number for you."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":369,"output_tokens":175}}'
+      string: '{"id":"msg_01XFYB4L9BGEDb1itDxfmaqG","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"Certainly!
+        I can help you generate a random number using the available tool. However,
+        I need a bit more information to proceed. The \"generate\" function requires
+        a prompt parameter that specifies the range or type of random number you''d
+        like.\n\nCould you please provide more details about the random number you
+        want? For example:\n1. Do you want a single digit number (like 5, 4, 3)?\n2.
+        Do you want a two-digit number (like 10, 11)?\n3. Or do you have a specific
+        range in mind?\n\nOnce you provide this information, I''ll be able to generate
+        the random number for you."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":369,"output_tokens":142}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01aac7deb8959d-TBS
+      - 8d2c169b38749864-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:04:37 GMT
+      - Tue, 15 Oct 2024 01:38:17 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -72,21 +71,21 @@ interactions:
       anthropic-ratelimit-requests-remaining:
       - '3999'
       anthropic-ratelimit-requests-reset:
-      - '2024-10-09T22:05:08Z'
+      - '2024-10-15T01:39:08Z'
       anthropic-ratelimit-tokens-limit:
       - '8000000'
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-09T22:04:37Z'
+      - '2024-10-15T01:38:17Z'
       content-length:
-      - '912'
+      - '813'
       request-id:
-      - req_01Lcp2Mw8csUferyp4XBUmeH
+      - req_014c41i4mSTdr3x2irzUGrHX
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 96c3af6bcb4b353502845c49725aea8e
+      - a8d21e9e9bd9ca4c910a950f4fcf2a8b
     status:
       code: 200
       message: OK

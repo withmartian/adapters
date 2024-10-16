@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "hermes-2-pro-llama-3-8b"}'
+      " "}, {"role": "user", "content": "\n"}], "model": "hermes-2-pro-llama-3-8b",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '157'
+      - '174'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,31 +33,44 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-aad33157bd5f430b908ec781b358b4e4","object":"chat.completion","created":1728508194,"model":"hermes-2-pro-llama-3-8b","choices":[{"index":0,"message":{"role":"assistant","content":"Before
-        we begin, I need some more information to provide a detailed and personalized
-        response. \n\nTo create a marketing plan for a new business, I need to know
-        the following information:\n\n1. What is the nature of your business? (Type
-        of product and/or service)\n2. Who is your target market? (Age, demographics,
-        preferences, etc.)\n3. What are your marketing goals?\n4. What are your marketing
-        budget and available resources?\n5. How will your business differentiate from
-        competitors?\n6. What marketing channels will you use (social media, email,
-        search engine optimization, etc.)?\n7. What specific tactics and strategies
-        will you employ?\n\nPlease provide the information above so I can create a
-        comprehensive marketing plan for your new business."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"completion_tokens":150,"total_tokens":169}}'
+      string: '{"id":"chatcmpl-48fd2d630ad04ce58f0c3d5862e062bc","object":"chat.completion","created":1728955368,"model":"hermes-2-pro-llama-3-8b","choices":[{"index":0,"message":{"role":"assistant","content":"Here''s
+        a Python script that can help you backup or restore specific files or directories
+        in your system:\n\n```python\nimport os\nimport shutil\n\ndef backup(source,
+        destination):\n    for subdir, dirs, files in os.walk(source):\n        for
+        file in files:\n            source_file = os.path.join(subdir, file)\n            destination_file
+        = os.path.join(destination, os.path.relpath(source_file, source))\n            if
+        not os.path.exists(os.path.dirname(destination_file)):\n                os.makedirs(os.path.dirname(destination_file))\n            shutil.copy2(source_file,
+        destination_file)\n\ndef restore(source, destination):\n    for subdir, dirs,
+        files in os.walk(source):\n        for file in files:\n            source_file
+        = os.path.join(subdir, file)\n            destination_file = os.path.join(destination,
+        os.path.relpath(source_file, source))\n            if os.path.exists(destination_file):\n                shutil.copy2(source_file,
+        destination_file)\n            else:\n                print(f\"Warning: {file}
+        does not exist in source directory.\")\n\nsource_directory = \"/path/to/source/directory\"\ndestination_directory
+        = \"/path/to/destination/directory\"\n\n# To perform a backup\nbackup(source_directory,
+        destination_directory)\n\n# To perform a restore\nrestore(source_directory,
+        destination_directory)\n```\n\nThis script uses the `os` module for file operations
+        and the `shutil` module for copying and creating directories. The `backup`
+        function traverses the source directory and copies each file to the destination
+        directory by creating the appropriate subdirectories if they don''t exist.
+        The `restore` function attempts to copy each file from the source directory
+        to the destination directory, creating subdirectories if needed. If a file
+        already exists in the destination directory, it will not be overwritten.\n\nMake
+        sure to replace `/path/to/source/directory` and `/path/to/destination/directory`
+        with the appropriate paths for your situation."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"completion_tokens":377,"total_tokens":396}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '1064'
+      - '2296'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:09:53 GMT
+      - Tue, 15 Oct 2024 01:22:47 GMT
       Server:
       - uvicorn
       Vary:
@@ -64,15 +78,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '1830'
+      - '4465'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1728508195'
+      - '1728955369'
       X-User-Request-Id:
       - ''
     status:

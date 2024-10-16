@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "mixtral-8x7b-instruct"}'
+    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "mixtral-8x7b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '87'
+      - '104'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,34 +32,39 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-16acec0aa7594bb1a47fa6cd9f2d650a","object":"chat.completion","created":1728508927,"model":"mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"
-        Hello! How can I help you today? If you have any questions or need help with
-        something, feel free to ask.\n\nI am an assistant trained to help with a variety
-        of tasks, such as:\n\n1. Answering questions: I can provide information on
-        a wide range of topics, from general knowledge to specific queries.\n2. Setting
-        reminders and appointments: I can help you keep track of your schedule and
-        remind you of important events.\n3. Sending messages and making calls: I can
-        assist in communicating with your contacts.\n4. Providing recommendations:
-        I can suggest movies, books, or restaurants based on your preferences.\n5.
-        Performing calculations and conversions: I can help with math problems and
-        converting units.\n6. Managing tasks and to-do lists: I can help you organize
-        and prioritize your tasks.\n7. Providing news and weather updates: I can keep
-        you informed about current events and weather conditions.\n\nPlease let me
-        know how I can assist you!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"completion_tokens":215,"total_tokens":226}}'
+      string: '{"id":"chatcmpl-4f3dc222f18844dc9af72e4ace7a921f","object":"chat.completion","created":1729026117,"model":"mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"
+        How can I help you today? I''m here to answer any questions you have about
+        computer programming, web development, data science, or any other topic you''re
+        curious about.\n\nJust let me know what''s on your mind and I''ll do my best
+        to assist you.\n\nIf you don''t have any specific questions, I can also provide
+        some suggestions for things to learn or resources you might find helpful.\n\nFor
+        example, if you''re interested in learning to code, I''d recommend starting
+        with a beginner-friendly programming language like Python or JavaScript. There
+        are many free resources available online to help you get started, including
+        tutorials, documentation, and forums where you can ask questions and get help
+        from more experienced developers.\n\nSome popular online platforms for learning
+        to code include Codecademy, freeCodeCamp, and Udemy. These platforms offer
+        a variety of courses and tutorials on a wide range of topics, from web development
+        and data science to game development and machine learning.\n\nIf you''re not
+        sure where to start, I''d be happy to help you find some resources that are
+        tailored to your interests and goals. Just let me know what you''re looking
+        for and I''ll do my best to assist you.\n\nI''m here to help, so don''t hesitate
+        to ask me anything. I''ll do my best to provide clear and concise answers
+        that are easy to understand.\n\nSo, what can I help you with today?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"completion_tokens":317,"total_tokens":328}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '1257'
+      - '1687'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:22:06 GMT
+      - Tue, 15 Oct 2024 21:01:56 GMT
       Server:
       - uvicorn
       Vary:
@@ -66,15 +72,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '2'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '2493'
+      - '3607'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1728508927'
+      - '1729026118'
       X-User-Request-Id:
       - ''
     status:

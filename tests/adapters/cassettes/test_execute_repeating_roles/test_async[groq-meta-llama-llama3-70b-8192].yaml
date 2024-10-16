@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "llama3-70b-8192"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "llama3-70b-8192",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '152'
+      - '169'
       content-type:
       - application/json
       host:
@@ -37,16 +38,15 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-6ce43ccb-dce2-4d03-9fe6-66a427609eab","object":"chat.completion","created":1728510494,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Hi
-        again! Is there something on your mind that you''d like to chat about, or
-        are you just saying hi? I''m here to listen!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.013737220999999999,"prompt_tokens":23,"prompt_time":0.000810589,"completion_tokens":31,"completion_time":0.094990962,"total_tokens":54,"total_time":0.095801551},"system_fingerprint":"fp_2f30b0b571","x_groq":{"id":"req_01j9sm221xfh99sk0tarfv9x4f"}}
+      string: '{"id":"chatcmpl-603c9680-1d6d-4430-8d2f-cde6505b0b5b","object":"chat.completion","created":1729011922,"model":"llama3-70b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Hi
+        again! Is there something I can help you with or would you like to chat?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011181194,"prompt_tokens":23,"prompt_time":0.003003904,"completion_tokens":19,"completion_time":0.058335895,"total_tokens":42,"total_time":0.061339799},"system_fingerprint":"fp_2f30b0b571","x_groq":{"id":"req_01ja8j8dbae0vah5mgpwh0sb23"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d0192df9c48959f-TBS
+      - 8d3164c17ffa1a42-TBS
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -54,7 +54,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:48:15 GMT
+      - Tue, 15 Oct 2024 17:05:22 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -62,7 +62,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '626'
+      - '573'
       vary:
       - Origin
       via:
@@ -80,7 +80,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 150ms
       x-request-id:
-      - req_01j9sm221xfh99sk0tarfv9x4f
+      - req_01ja8j8dbae0vah5mgpwh0sb23
     status:
       code: 200
       message: OK

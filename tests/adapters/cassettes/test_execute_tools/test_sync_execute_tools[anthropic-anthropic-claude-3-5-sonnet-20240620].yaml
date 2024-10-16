@@ -1,10 +1,10 @@
 interactions:
 - request:
     body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
-      "role": "user"}], "model": "claude-3-5-sonnet-20240620", "tool_choice": {"name":
-      "generate", "type": "tool"}, "tools": [{"input_schema": {"type": "object", "properties":
-      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
-      11"}}}, "name": "generate", "description": "Generate random number"}]}'
+      "role": "user"}], "model": "claude-3-5-sonnet-20240620", "stream": false, "tool_choice":
+      {"name": "generate", "type": "tool"}, "tools": [{"input_schema": {"type": "object",
+      "properties": {"prompt": {"type": "string", "description": "Random number like
+      5, 4, 3, 10, 11"}}}, "name": "generate", "description": "Generate random number"}]}'
     headers:
       accept:
       - application/json
@@ -15,7 +15,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '390'
+      - '407'
       content-type:
       - application/json
       host:
@@ -23,35 +23,35 @@ interactions:
       user-agent:
       - Anthropic/Python 0.34.2
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 0.34.2
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01TRxjT9dRJtGet3so3eaF8D","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"tool_use","id":"toolu_0146q9PVH44Wx3WwUC4t93tu","name":"generate","input":{"prompt":"10"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":354,"output_tokens":33}}'
+      string: '{"id":"msg_01UtsPFpi44QJWnLN4nhA1XQ","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"tool_use","id":"toolu_015EjEmR8cZUCEwHG79pH2pk","name":"generate","input":{"prompt":"10"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":354,"output_tokens":33}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01b7d50e2f95a3-TBS
+      - 8d2c1522b8d2981e-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:13:29 GMT
+      - Tue, 15 Oct 2024 01:37:13 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -63,21 +63,21 @@ interactions:
       anthropic-ratelimit-requests-remaining:
       - '3999'
       anthropic-ratelimit-requests-reset:
-      - '2024-10-09T22:14:08Z'
+      - '2024-10-15T01:38:08Z'
       anthropic-ratelimit-tokens-limit:
       - '8000000'
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-09T22:13:29Z'
+      - '2024-10-15T01:37:13Z'
       content-length:
       - '316'
       request-id:
-      - req_01GbgLWBedPG88igQJ3xNdvv
+      - req_0177AmXTb5mTmzcuwMDeHzn4
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - 25e00f07f70f45d7735b57f856aa0f64
+      - 686f714b24fd7e3154232b77907d3b3d
     status:
       code: 200
       message: OK

@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "mixtral-8x7b-instruct"}'
+      " "}, {"role": "user", "content": "\n"}], "model": "mixtral-8x7b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '155'
+      - '172'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,29 +33,23 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-dd08815ff4bb40afa20ebafb0f6be3df\",\"object\":\"chat.completion\",\"created\":1728508409,\"model\":\"mixtral-8x7b-instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
-        Hello! How can I assist you today?\\n\\nTo answer your question, there are
-        several ways to say \\\"I love you\\\" in different languages. Here are a
-        few examples:\\n\\n* Spanish: Te quiero\\n* French: Je t'aime\\n* German:
-        Ich liebe dich\\n* Italian: Ti amo\\n* Portuguese: Eu te amo\\n* Russian:
-        \u042F \u0442\u0435\u0431\u044F \u043B\u044E\u0431\u043B\u044E (Ya tebya lyublyu)\\n*
-        Chinese: \u6211\u7231\u4F60 (W\u01D2 \xE0i n\u01D0)\\n* Japanese: suitai (suki
-        desu)\\n* Korean: \uC0AC\uB791\uD574 (Saranghae)\\n\\nI hope this helps! Let
-        me know if you have any other questions.\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"completion_tokens\":159,\"total_tokens\":178}}"
+      string: '{"id":"chatcmpl-2264b73a94884b01b51082cc62b9af40","object":"chat.completion","created":1729026010,"model":"mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"
+        Hello! How can I help you today? If you have any questions about a specific
+        topic or just need some general information, feel free to ask!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"completion_tokens":30,"total_tokens":49}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '803'
+      - '446'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:13:29 GMT
+      - Tue, 15 Oct 2024 21:00:09 GMT
       Server:
       - uvicorn
       Vary:
@@ -62,15 +57,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '1834'
+      - '463'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1728508410'
+      - '1729026011'
       X-User-Request-Id:
       - ''
     status:

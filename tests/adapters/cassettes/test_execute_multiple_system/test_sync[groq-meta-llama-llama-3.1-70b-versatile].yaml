@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}, {"role": "system", "content": "Hi"}], "model": "llama-3.1-70b-versatile"}'
+      "Hi"}, {"role": "system", "content": "Hi"}], "model": "llama-3.1-70b-versatile",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '159'
+      - '176'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,21 +33,20 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-8987031b-4cce-46b1-bc66-33cc47582420","object":"chat.completion","created":1728509439,"model":"llama-3.1-70b-versatile","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like we got a bit repetitive. How can I help you today or would you
-        like to chat?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.005024631,"prompt_tokens":39,"prompt_time":0.012387705,"completion_tokens":23,"completion_time":0.092,"total_tokens":62,"total_time":0.104387705},"system_fingerprint":"fp_9260b4bb2e","x_groq":{"id":"req_01j9sk1vmxebpttnkvsmhqnsrf"}}
+      string: '{"id":"chatcmpl-8fbbd88f-8256-4760-92e6-4e122ce5d515","object":"chat.completion","created":1728955709,"model":"llama-3.1-70b-versatile","choices":[{"index":0,"message":{"role":"assistant","content":"How''s
+        your day going so far?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.005441339999999999,"prompt_tokens":39,"prompt_time":0.00991098,"completion_tokens":9,"completion_time":0.036013448,"total_tokens":48,"total_time":0.045924428},"system_fingerprint":"fp_b3ae7e594e","x_groq":{"id":"req_01ja6wmxr6eyfrkvvtfa41wtxb"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01791c1a1c95a5-TBS
+      - 8d2c085e4b6c942f-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -54,19 +54,19 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:30:39 GMT
+      - Tue, 15 Oct 2024 01:28:29 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=baJI0Fkni0D6D8lHtVBr61_78q3j25szzq7ABOJXWY4-1728509439-1.0.1.1-FEqUb3NYHnhk8CFwGgh4IdFuy2xh5dCF6_Y_gj1qQNKqrTHGk7z4w9_rBcU4m8B2Hj9C.ny8EvsI01oUS6uvCg;
-        path=/; expires=Wed, 09-Oct-24 22:00:39 GMT; domain=.groq.com; HttpOnly; Secure;
+      - __cf_bm=diZAe5jnF5mBP9G3pVSecyi6W1oC8wbwR4HLu2My1s4-1728955709-1.0.1.1-PbQ023nY_9wm5a7rpAyh2CVHeK4y.9YwqUIPZk.UDC4wZ1uW9DsXCL7pIftCMSa5mwFZ_KppoaAVrOGBcC7noQ;
+        path=/; expires=Tue, 15-Oct-24 01:58:29 GMT; domain=.groq.com; HttpOnly; Secure;
         SameSite=None
       Transfer-Encoding:
       - chunked
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '590'
+      - '541'
       vary:
       - Origin
       via:
@@ -84,7 +84,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 45ms
       x-request-id:
-      - req_01j9sk1vmxebpttnkvsmhqnsrf
+      - req_01ja6wmxr6eyfrkvvtfa41wtxb
     status:
       code: 200
       message: OK

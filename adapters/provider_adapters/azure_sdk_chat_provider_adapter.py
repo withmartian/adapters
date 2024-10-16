@@ -23,12 +23,12 @@ class AzureModel(Model):
     supports_empty_content: bool = True
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
-    supports_streaming: bool = True
     supports_functions: bool = True
     supports_tools: bool = True
     supports_n: bool = True
     supports_json_output: bool = True
     supports_json_content: bool = True
+    supports_streaming: bool = False
 
     properties: ModelProperties = BASE_PROPERTIES
 

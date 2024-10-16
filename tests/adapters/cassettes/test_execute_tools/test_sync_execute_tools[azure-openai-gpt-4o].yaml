@@ -1,9 +1,9 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4o", "tool_choice": {"type": "function", "function": {"name": "generate"}},
-      "tools": [{"type": "function", "function": {"description": "Generate random
-      number", "name": "generate", "parameters": {"type": "object", "properties":
+      "gpt-4o", "stream": false, "tool_choice": {"type": "function", "function": {"name":
+      "generate"}}, "tools": [{"type": "function", "function": {"description": "Generate
+      random number", "name": "generate", "parameters": {"type": "object", "properties":
       {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
       11"}}, "required": ["prompt"]}}}]}'
     headers:
@@ -16,7 +16,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '424'
+      - '441'
       content-type:
       - application/json
       host:
@@ -24,13 +24,13 @@ interactions:
       user-agent:
       - AzureOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -38,36 +38,36 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview
   response:
     body:
-      string: '{"choices":[{"content_filter_results":{},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":null,"role":"assistant","tool_calls":[{"function":{"arguments":"{\"prompt\":\"Random
-        number\"}","name":"generate"},"id":"call_EzqquOJ1fnaxGw0eTqV7NhXk","type":"function"}]}}],"created":1728511799,"id":"chatcmpl-AGZAVXIvDIvB44uXafwmco8Q2RGa1","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_67802d9a6d","usage":{"completion_tokens":6,"prompt_tokens":70,"total_tokens":76}}
+      string: '{"choices":[{"content_filter_results":{},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":null,"role":"assistant","tool_calls":[{"function":{"arguments":"{\"prompt\":\"Generate
+        a random number\"}","name":"generate"},"id":"call_nKSwsHtlQYVXtPk0fvt8SVjY","type":"function"}]}}],"created":1728956234,"id":"chatcmpl-AIQmojXqJso1hUOWiVJsP8TTgLfaM","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_67802d9a6d","usage":{"completion_tokens":8,"prompt_tokens":70,"total_tokens":78}}
 
         '
     headers:
       Content-Length:
-      - '774'
+      - '785'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:09:59 GMT
+      - Tue, 15 Oct 2024 01:37:13 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - f18fddb9-0590-49f5-b443-1ce608b7f6f4
+      - f5a77384-dbb4-43bd-a294-67a87293af25
       azureml-model-session:
-      - d038-20240921171908
+      - d080-20240922054600
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '167'
+      - '162'
       x-ms-client-request-id:
-      - f18fddb9-0590-49f5-b443-1ce608b7f6f4
+      - f5a77384-dbb4-43bd-a294-67a87293af25
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
@@ -77,7 +77,7 @@ interactions:
       x-ratelimit-remaining-tokens:
       - '149354'
       x-request-id:
-      - 8cfd208f-bfb7-40ac-a1ff-e6558288b8d6
+      - d4a49204-d97f-44d5-972b-e9d3b6e0f2c5
     status:
       code: 200
       message: OK

@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "gpt-4o-2024-05-13",
-      "response_format": {"type": "json_object"}}'
+      "response_format": {"type": "json_object"}, "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '133'
+      - '150'
       content-type:
       - application/json
       host:
@@ -18,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,37 +32,33 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGYUPoTtS0jSLJNvZwoRsF3eTkb7B\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728509189,\n  \"model\": \"gpt-4o-2024-05-13\",\n
+      string: "{\n  \"id\": \"chatcmpl-AIj0Ucf1oU5gIJrqKHrbmqP4SbbEh\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1729026274,\n  \"model\": \"gpt-4o-2024-05-13\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"\\n  {\\n    \\\"message\\\": \\\"Hi!
-        How can I assist you today?\\\",\\n    \\\"instructions\\\": [\\n      {\\n
-        \       \\\"action\\\": \\\"Provide information\\\",\\n        \\\"description\\\":
-        \\\"You can ask me any question, and I'll do my best to give you a helpful
-        answer.\\\"\\n      },\\n      {\\n        \\\"action\\\": \\\"Perform a task\\\",\\n
-        \       \\\"description\\\": \\\"I can help with various tasks such as setting
-        reminders, writing texts, generating ideas, etc.\\\"\\n      }\\n    ]\\n
-        \ }\",\n        \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-        \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 11,\n    \"completion_tokens\":
-        99,\n    \"total_tokens\": 110,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
+        \"assistant\",\n        \"content\": \"\\n{\\n  \\\"greeting\\\": \\\"Hi,
+        how can I assist you today?\\\",\\n  \\\"instructions\\\": \\\"Please provide
+        more details on what you need help with using JSON format.\\\"\\n}\",\n        \"refusal\":
+        null\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n
+        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 11,\n    \"completion_tokens\":
+        37,\n    \"total_tokens\": 48,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
         0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_057232b607\"\n}\n"
+        0\n    }\n  },\n  \"system_fingerprint\": \"fp_568f3bfff7\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d0172fe1afc959d-TBS
+      - 8d32c3264f0afaaa-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:26:30 GMT
+      - Tue, 15 Oct 2024 21:04:35 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -74,11 +70,11 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '1074'
+      - '777'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '1113'
+      - '792'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -96,7 +92,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_2d13c16f372ff96b2775e4e8fb306d82
+      - req_aa195b224885bf785522093dc6dac637
     status:
       code: 200
       message: OK

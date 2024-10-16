@@ -1,11 +1,11 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4o-2024-05-13", "tool_choice": {"type": "function", "function": {"name":
-      "generate"}}, "tools": [{"type": "function", "function": {"description": "Generate
-      random number", "name": "generate", "parameters": {"type": "object", "properties":
-      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
-      11"}}, "required": ["prompt"]}}}]}'
+      "gpt-4o-2024-05-13", "stream": false, "tool_choice": {"type": "function", "function":
+      {"name": "generate"}}, "tools": [{"type": "function", "function": {"description":
+      "Generate random number", "name": "generate", "parameters": {"type": "object",
+      "properties": {"prompt": {"type": "string", "description": "Random number like
+      5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
       accept:
       - application/json
@@ -14,7 +14,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '435'
+      - '452'
       content-type:
       - application/json
       host:
@@ -22,13 +22,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -36,16 +36,16 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AGZAcw5pKdU5m9oW3ziZdGtQAzBme\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1728511806,\n  \"model\": \"gpt-4o-2024-05-13\",\n
+      string: "{\n  \"id\": \"chatcmpl-AIQms0XLCcEBAXI2c2MxN8coy0gIp\",\n  \"object\":
+        \"chat.completion\",\n  \"created\": 1728956238,\n  \"model\": \"gpt-4o-2024-05-13\",\n
         \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
         \"assistant\",\n        \"content\": null,\n        \"tool_calls\": [\n          {\n
-        \           \"id\": \"call_YEMkJDj9zz9mR2vhGJ15MvKY\",\n            \"type\":
+        \           \"id\": \"call_vjSEsPMFyXCjJZpLdzpZWxa2\",\n            \"type\":
         \"function\",\n            \"function\": {\n              \"name\": \"generate\",\n
         \             \"arguments\": \"{\\\"prompt\\\":\\\"Generate a random number\\\"}\"\n
         \           }\n          }\n        ],\n        \"refusal\": null\n      },\n
@@ -53,18 +53,18 @@ interactions:
         \ \"usage\": {\n    \"prompt_tokens\": 70,\n    \"completion_tokens\": 8,\n
         \   \"total_tokens\": 78,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
         0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_5796ac6771\"\n}\n"
+        0\n    }\n  },\n  \"system_fingerprint\": \"fp_568f3bfff7\"\n}\n"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d01b2e6e87895a0-TBS
+      - 8d2c15490e579464-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 22:10:06 GMT
+      - Tue, 15 Oct 2024 01:37:18 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -80,7 +80,7 @@ interactions:
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '180'
+      - '255'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -98,7 +98,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_4092a6012eee1a1cf66c0fe017a9d33e
+      - req_127902dfc5ff54d585c648ccf0523ec1
     status:
       code: 200
       message: OK

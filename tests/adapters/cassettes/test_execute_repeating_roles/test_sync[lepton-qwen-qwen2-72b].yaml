@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "qwen2-72b"}'
+      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "qwen2-72b",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '146'
+      - '163'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,24 +33,24 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://qwen2-72b.lepton.run/api/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-CTgwJHCFb6bdKERvQUrDkH","object":"chat.completion","created":1728510349,"model":"qwen2-72b","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+      string: '{"id":"chatcmpl-XMtHDenJGX4eRtZwNXjC2z","object":"chat.completion","created":1728955868,"model":"qwen2-72b","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
         How can I assist you today?","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":21,"total_tokens":31,"completion_tokens":10}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d018f545eed95a9-TBS
+      - 8d2c0c41bde31668-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 21:45:50 GMT
+      - Tue, 15 Oct 2024 01:31:08 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -59,7 +60,7 @@ interactions:
       vary:
       - Accept-Encoding
       x-envoy-upstream-service-time:
-      - '426'
+      - '427'
     status:
       code: 200
       message: OK

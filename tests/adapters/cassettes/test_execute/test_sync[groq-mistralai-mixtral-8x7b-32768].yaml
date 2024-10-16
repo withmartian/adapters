@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "mixtral-8x7b-32768"}'
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "mixtral-8x7b-32768",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '80'
+      - '97'
       content-type:
       - application/json
       host:
@@ -17,13 +18,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -31,22 +32,25 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-fee40b70-5b06-4a29-a7dc-3de88299091e","object":"chat.completion","created":1728515008,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        It''s nice to meet you. Is there something specific you would like to know
-        or discuss about data structures and algorithms? I''m here to help. Just let
-        me know what''s on your mind."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011834822,"prompt_tokens":9,"prompt_time":0.001832798,"completion_tokens":46,"completion_time":0.073203172,"total_tokens":55,"total_time":0.07503597},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01j9srbt8qfjf864pqtcm6bd8p"}}
+      string: '{"id":"chatcmpl-95b50540-637e-4087-b3dd-4f84c40d3a6b","object":"chat.completion","created":1728954783,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        It''s nice to meet you. Is there something you would like to ask or talk about?
+        I''m here to help with any questions you might have about a wide variety of
+        topics, including but not limited to math, science, programming, and English.
+        I can also provide general knowledge information, generate creative ideas,
+        and engage in conversation on a wide range of subjects. Let me know how I
+        can assist you."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011661981,"prompt_tokens":9,"prompt_time":0.001846869,"completion_tokens":88,"completion_time":0.14098432,"total_tokens":97,"total_time":0.142831189},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01ja6vrnakf9qvhetvyqd71asj"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d0201143a7495a5-TBS
+      - 8d2bf1c1fcda2554-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
@@ -54,7 +58,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 23:03:28 GMT
+      - Tue, 15 Oct 2024 01:13:03 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -62,7 +66,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '684'
+      - '902'
       vary:
       - Origin
       via:
@@ -80,7 +84,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 72ms
       x-request-id:
-      - req_01j9srbt8qfjf864pqtcm6bd8p
+      - req_01ja6vrnakf9qvhetvyqd71asj
     status:
       code: 200
       message: OK

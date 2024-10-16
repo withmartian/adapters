@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
-      "content": "Hi"}], "model": "mistralai/Mistral-7B-Instruct-v0.3"}'
+      "content": "Hi"}], "model": "mistralai/Mistral-7B-Instruct-v0.3", "stream":
+      false}'
     headers:
       accept:
       - application/json
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '136'
+      - '153'
       content-type:
       - application/json
       host:
@@ -18,13 +19,13 @@ interactions:
       user-agent:
       - OpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - 'false'
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -32,28 +33,32 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-5bb94112e8a745d1b77a5e4edb41786d","object":"chat.completion","created":1728507207,"model":"mistralai/Mistral-7B-Instruct-v0.3","choices":[{"index":0,"message":{"role":"assistant","content":"
+      string: '{"id":"chatcmpl-dab0505834c74750b11829b2f2b4533d","object":"chat.completion","created":1728955002,"model":"mistralai/Mistral-7B-Instruct-v0.3","choices":[{"index":0,"message":{"role":"assistant","content":"
         How can I assist you today? If you have any questions or need help with something,
-        feel free to ask!\n\nHere are some topics I can help with:\n\n* Answering
-        general questions\n* Helping to brainstorm ideas\n* Finding resources and
-        information online\n* Providing explanations and advice on various topics\n*
-        Generating creative content such as writing, poetry, or song lyrics\n* Assisting
-        with math problems and other academic tasks\n* and much more!\n\nWhat can
-        I help you with today?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":122,"completion_tokens":111,"estimated_cost":6.709999999999999e-06}}'
+        feel free to ask! If you want me to provide an answer for a specific question,
+        you can ask me directly. What would you like to know or discuss?\n\nI can
+        help you with various tasks, such as:\n\n- Answering questions about a wide
+        range of topics (e.g., general knowledge, science, history, mathematics, etc.)\n-
+        Providing explanations for complex concepts or ideas\n- Helping you understand
+        difficult language or express yourself clearly\n- Giving suggestions and recommendations
+        for various things (e.g., books, movies, restaurants, etc.)\n- Generating
+        creative ideas\n- Assisting you with your research\n- And more!\n\nIf you
+        need help with something specific or have a question in mind, please let me
+        know, and I''ll do my best to help!","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":201,"completion_tokens":190,"estimated_cost":1.1055e-05}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '861'
+      - '1185'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Oct 2024 20:53:27 GMT
+      - Tue, 15 Oct 2024 01:16:42 GMT
       server:
       - uvicorn
       x-robots-tag:
