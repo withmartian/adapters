@@ -4,11 +4,6 @@
 """
 
 from httpx import URL
-from openai.types.chat.chat_completion_chunk import (
-    ChatCompletionChunk,
-    Choice,
-    ChoiceDelta,
-)
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
@@ -110,19 +105,19 @@ class LeptonSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
         self._sync_client.base_url = URL(self._current_model.base_url)
         self._async_client.base_url = URL(self._current_model.base_url)
 
-    def extract_stream_response(self, request, response: ChatCompletionChunk) -> str:
-        # It must be the last response from Lepton that is empty.
-        if not response.choices:
-            response.choices = [
-                Choice(
-                    delta=ChoiceDelta(),
-                    finish_reason="stop",
-                    index=0,
-                ),
-            ]
-        elif response.choices[0].delta.content is None:
-            # It must be the first response.
-            # Most models start with an empty string.
-            response.choices[0].delta.content = ""
+    # def extract_stream_response(self, request, response: ChatCompletionChunk) -> str:
+    #     # It must be the last response from Lepton that is empty.
+    #     if not response.choices:
+    #         response.choices = [
+    #             Choice(
+    #                 delta=ChoiceDelta(),
+    #                 finish_reason="stop",
+    #                 index=0,
+    #             ),
+    #         ]
+    #     elif response.choices[0].delta.content is None:
+    #         # It must be the first response.
+    #         # Most models start with an empty string.
+    #         response.choices[0].delta.content = ""
 
-        return f"data: {response.model_dump_json()}\n\n"
+    #     return f"data: {response.model_dump_json()}\n\n"

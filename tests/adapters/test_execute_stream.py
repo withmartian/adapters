@@ -1,5 +1,3 @@
-import json
-
 import pytest
 
 from adapters.adapter_factory import AdapterFactory
@@ -11,7 +9,7 @@ from tests.utils import (
 
 @pytest.mark.parametrize("model_name", MODEL_PATHS)
 @pytest.mark.vcr
-def test_sync_execute_streaming(vcr, model_name):
+def test_sync_execute_streaming(model_name):
     adapter = AdapterFactory.get_adapter_by_path(model_name)
 
     assert adapter is not None
@@ -24,7 +22,7 @@ def test_sync_execute_streaming(vcr, model_name):
         stream=True,
     )
 
-    chunks = [data_chunk for data_chunk in adapter_response]
+    chunks = list(adapter_response)
 
     response = "".join(
         [
@@ -51,7 +49,7 @@ async def test_async_execute_streaming(model_name):
         stream=True,
     )
 
-    chunks = [data_chunk async for data_chunk in adapter_response]
+    chunks = list(adapter_response)
 
     response = "".join(
         [
