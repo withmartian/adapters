@@ -109,13 +109,13 @@ class GeminiSDKChatProviderAdapter(
             raise ValueError("Model not set")
         return self._current_model.name
 
-    def get_async_client(self):
+    def _call_async(self):
         return self._async_client
 
-    def get_sync_client(self):
+    def _call_sync(self):
         return self._sync_client
 
-    def adjust_temperature(self, temperature: float) -> float:
+    def _adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
 
     def set_api_key(self, api_key: str) -> None:
@@ -128,7 +128,7 @@ class GeminiSDKChatProviderAdapter(
             client_options=ClientOptions(api_key=api_key), transport="rest"
         )
 
-    def extract_response(
+    def _extract_response(
         self,
         request: Any,
         response: GenerateContentResponse,
@@ -214,7 +214,7 @@ class GeminiSDKChatProviderAdapter(
             choices=choices,
         )
 
-    def extract_stream_response(self, request, response, state):
+    def _extract_stream_response(self, request, response, state):
         return response
 
     def get_params(
@@ -259,7 +259,7 @@ class GeminiSDKChatProviderAdapter(
             model_name=self.get_model_name(),
             generation_config=params["config"],
         )
-        model._async_client = self.get_async_client()
+        model._async_client = self._call_async()
 
         convo = model.start_chat(history=params["history"])
 
@@ -279,11 +279,11 @@ class GeminiSDKChatProviderAdapter(
             model_name=self.get_model_name(),
             generation_config=params.get("config") or None,
         )
-        self.model._client = self.get_sync_client()
+        self.model._client = self._call_sync()
 
         chat = self.model.start_chat(history=params["history"])
         result = chat.send_message(params["prompt"])
-        return self.extract_response(request=llm_input, response=result)
+        return self._extract_response(request=llm_input, response=result)
 
 
 def _map_content_to_str(

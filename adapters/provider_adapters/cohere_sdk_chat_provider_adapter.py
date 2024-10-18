@@ -130,10 +130,10 @@ class CohereSDKChatProviderAdapter(
         self._sync_client._client_wrapper._token = api_key
         self._async_client._client_wrapper._token = api_key
 
-    def get_async_client(self):
+    def _call_async(self):
         return self._async_client_wrapper
 
-    def get_sync_client(self):
+    def _call_sync(self):
         return self._sync_client_wrapper
 
     def get_params(self, llm_input: Conversation, **kwargs: Any) -> dict[str, Any]:
@@ -159,7 +159,7 @@ class CohereSDKChatProviderAdapter(
         params["messages"] = messages
         return params
 
-    def extract_response(self, request: Any, response: Any) -> AdapterChatCompletion:
+    def _extract_response(self, request: Any, response: Any) -> AdapterChatCompletion:
         prompt_tokens = (
             float(response.usage.billed_units.input_tokens)
             if response.usage and hasattr(response.usage, "billed_units")
@@ -210,7 +210,7 @@ class CohereSDKChatProviderAdapter(
             choices=choices,
         )
 
-    def extract_stream_response(
+    def _extract_stream_response(
         self, request: Any, response: Any, state
     ) -> AdapterChatCompletionChunk:
         raise NotImplementedError

@@ -167,13 +167,13 @@ class AnthropicSDKChatProviderAdapter(
             api_key=self.get_api_key(),
         )
 
-    def get_sync_client(self):
+    def _call_sync(self):
         return self._sync_client.messages.create
 
-    def get_async_client(self):
+    def _call_async(self):
         return self._async_client.messages.create
 
-    def adjust_temperature(self, temperature: float) -> float:
+    def _adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
 
     def set_api_key(self, api_key: str) -> None:
@@ -182,7 +182,7 @@ class AnthropicSDKChatProviderAdapter(
         self._sync_client.api_key = api_key
         self._async_client.api_key = api_key
 
-    def extract_response(
+    def _extract_response(
         self, request: Conversation, response: Message
     ) -> AdapterChatCompletion:
         finish_reason = FINISH_REASON_MAPPING.get(
@@ -246,7 +246,7 @@ class AnthropicSDKChatProviderAdapter(
         )
 
     # TODO: add streaming tools support
-    def extract_stream_response(
+    def _extract_stream_response(
         self, request, response: RawMessageStreamEvent, state: dict
     ) -> AdapterChatCompletionChunk:
         choice_chunk = ChoiceChunk(

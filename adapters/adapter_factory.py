@@ -1,6 +1,7 @@
 import inspect
 import os
 import sys
+from typing import Any
 
 from adapters.abstract_adapters import BaseAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
@@ -13,10 +14,12 @@ from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
 from adapters.provider_adapters.openai_sdk_chat_provider_adapter import (
     OpenAISDKChatProviderAdapter,
 )
-from adapters.provider_adapters.together_sdk_chat_provider_adapter import (
-    TogetherSDKChatProviderAdapter,
-)
 from adapters.types import Model
+
+
+# key: base_url-api_key
+# value: function that calls client
+_client_cache: dict[str, Any] = {}
 
 
 class AdapterFactory:
@@ -34,16 +37,13 @@ class AdapterFactory:
                     adapters_classes[model.get_path()] = obj
 
         for model in OpenAISDKChatProviderAdapter.get_supported_models():
-            adapters_classes[model.name] = OpenAISDKChatProviderAdapter  # type: ignore
+            adapters_classes[model.name] = OpenAISDKChatProviderAdapter
 
         for model in AnthropicSDKChatProviderAdapter.get_supported_models():
-            adapters_classes[model.name] = AnthropicSDKChatProviderAdapter  # type: ignore
-
-        for model in TogetherSDKChatProviderAdapter.get_supported_models():
-            adapters_classes[model.name] = TogetherSDKChatProviderAdapter  # type: ignore
+            adapters_classes[model.name] = AnthropicSDKChatProviderAdapter
 
         for model in GeminiSDKChatProviderAdapter.get_supported_models():
-            adapters_classes[model.name] = GeminiSDKChatProviderAdapter  # type: ignore
+            adapters_classes[model.name] = GeminiSDKChatProviderAdapter
 
         return adapters_classes
 
@@ -64,9 +64,6 @@ class AdapterFactory:
             models[model.name] = model
 
         for model in AnthropicSDKChatProviderAdapter.get_supported_models():
-            models[model.name] = model
-
-        for model in TogetherSDKChatProviderAdapter.get_supported_models():
             models[model.name] = model
 
         for model in GeminiSDKChatProviderAdapter.get_supported_models():
@@ -102,6 +99,11 @@ class AdapterFactory:
         if adapter_class is None or model is None:
             return None
 
+        # if _adapter_cache.get(model.provider_name) is None:
+        #     _adapter_cache[model.provider_name] = adapter_class()
+
+        # adapter = _adapter_cache[model.provider_name]
+
         adapter = adapter_class()
 
         if isinstance(adapter, ProviderAdapterMixin):
@@ -115,6 +117,11 @@ class AdapterFactory:
 
         if adapter_class is None:
             return None
+
+        # if _adapter_cache.get(model.get_path()) is None:
+        #     _adapter_cache[model.get_path()] = adapter_class()
+
+        # adapter = _adapter_cache[model.get_path()]
 
         adapter = adapter_class()
 

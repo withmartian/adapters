@@ -3,6 +3,7 @@ from typing import Any, Dict, List, Optional
 
 from openai import NOT_GIVEN, NotGiven
 
+from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.base_adapter import BaseAdapter
 from adapters.general_utils import (
     EMPTY_CONTENT,
@@ -22,7 +23,23 @@ from adapters.types import (
 )
 
 
-class SDKChatAdapter(BaseAdapter):
+class SDKChatAdapter(BaseAdapter, ApiKeyAdapterMixin):
+    @abstractmethod
+    def _call_sync(self):
+        pass
+
+    @abstractmethod
+    def _call_async(self):
+        pass
+
+    @abstractmethod
+    def _client_sync(self, base_url: str, api_key: str):
+        pass
+
+    @abstractmethod
+    def _client_async(self, base_url: str, api_key: str):
+        pass
+
     @abstractmethod
     def get_supported_models(self) -> List[Model]:
         pass
@@ -32,31 +49,23 @@ class SDKChatAdapter(BaseAdapter):
         pass
 
     @abstractmethod
-    def get_async_client(self):
+    def _extract_response(self, request, response) -> AdapterChatCompletion:
         pass
 
     @abstractmethod
-    def get_sync_client(self):
-        pass
-
-    @abstractmethod
-    def extract_response(self, request, response) -> AdapterChatCompletion:
-        pass
-
-    @abstractmethod
-    def extract_stream_response(
+    def _extract_stream_response(
         self, request, response, state
     ) -> AdapterChatCompletionChunk:
         pass
+
+    def _adjust_temperature(self, temperature: float) -> float:
+        return temperature
 
     def get_model_properteis(self, model_name: str) -> ModelProperties:
         for model in self.get_supported_models():
             if model.name == model_name:
                 return model.properties
         raise ValueError(f"Model {model_name} not found")
-
-    def adjust_temperature(self, temperature: float) -> float:
-        return temperature
 
     # pylint: disable=too-many-statements
     def get_params(
@@ -221,7 +230,7 @@ class SDKChatAdapter(BaseAdapter):
         return {
             "messages": messages,
             **(
-                {"temperature": self.adjust_temperature(kwargs.get("temperature", 1))}
+                {"temperature": self._adjust_temperature(kwargs.get("temperature", 1))}
                 if kwargs.get("temperature") is not None
                 else {}
             ),
@@ -236,20 +245,20 @@ class SDKChatAdapter(BaseAdapter):
     ):
         params = self.get_params(llm_input, stream=stream, **kwargs)
 
-        response = await self.get_async_client()(
+        response = await self._call_async()(
             model=self.get_model()._get_api_path(),
             **delete_none_values(params),
         )
 
         if not stream:
-            return self.extract_response(request=llm_input, response=response)
+            return self._extract_response(request=llm_input, response=response)
 
         async def stream_response():
             state = {}
             async with stream_generator_auto_close(response):
                 try:
                     async for chunk in response:
-                        yield self.extract_stream_response(
+                        yield self._extract_stream_response(
                             request=llm_input, response=chunk, state=state
                         )
                 except Exception as e:
@@ -267,19 +276,19 @@ class SDKChatAdapter(BaseAdapter):
     ):
         params = self.get_params(llm_input, stream=stream, **kwargs)
 
-        response = self.get_sync_client()(
+        response = self._call_sync()(
             model=self.get_model()._get_api_path(),
             **delete_none_values(params),
         )
 
         if not stream:
-            return self.extract_response(request=llm_input, response=response)
+            return self._extract_response(request=llm_input, response=response)
 
         def stream_response():
             state = {}
             try:
                 for chunk in response:
-                    yield self.extract_stream_response(
+                    yield self._extract_stream_response(
                         request=llm_input, response=chunk, state=state
                     )
             except Exception as e:

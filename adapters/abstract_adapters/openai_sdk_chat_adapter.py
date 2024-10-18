@@ -9,9 +9,10 @@ from adapters.types import (
     AdapterChatCompletionChunk,
     RequestBody,
 )
+from adapters.adapter_factory import _client_cache
 
 
-class OpenAISDKChatAdapter(ApiKeyAdapterMixin, SDKChatAdapter):
+class OpenAISDKChatAdapter(SDKChatAdapter):
     _sync_client: OpenAI
     _async_client: AsyncOpenAI
 
@@ -28,19 +29,46 @@ class OpenAISDKChatAdapter(ApiKeyAdapterMixin, SDKChatAdapter):
             base_url=self.get_base_sdk_url(),
         )
 
-    def get_async_client(self):
+    def _call_sync(self):
+        return self._sync_client.chat.completions.create
+
+    def _call_async(self):
         return self._async_client.chat.completions.create
 
-    def get_sync_client(self):
-        return self._sync_client.chat.completions.create
+    def _client_sync(self, base_url: str, api_key: str):
+        return OpenAI(
+            base_url=base_url,
+            api_key=api_key,
+        )
+
+    def _client_async(self, base_url: str, api_key: str):
+        return AsyncOpenAI(
+            base_url=base_url,
+            api_key=api_key,
+        )
 
     def set_api_key(self, api_key: str) -> None:
         super().set_api_key(api_key)
 
-        self._sync_client.api_key = api_key
-        self._async_client.api_key = api_key
+        cached_client_sync_path = f"{self.get_base_sdk_url()}-{api_key}-sync"
+        cached_client_async_path = f"{self.get_base_sdk_url()}-{api_key}-async"
 
-    def extract_response(
+        if not _client_cache.get(cached_client_sync_path):
+            _client_cache[cached_client_sync_path] = OpenAI(
+                api_key=api_key,
+                base_url=self.get_base_sdk_url(),
+            )
+
+        if not _client_cache.get(cached_client_async_path):
+            _client_cache[cached_client_async_path] = AsyncOpenAI(
+                api_key=api_key,
+                base_url=self.get_base_sdk_url(),
+            )
+
+        self._sync_client = _client_cache[cached_client_sync_path]
+        self._async_client = _client_cache[cached_client_async_path]
+
+    def _extract_response(
         self,
         request: RequestBody,
         response: ChatCompletion,
@@ -69,7 +97,7 @@ class OpenAISDKChatAdapter(ApiKeyAdapterMixin, SDKChatAdapter):
             cost=cost,
         )
 
-    def extract_stream_response(
+    def _extract_stream_response(
         self, request, response: ChatCompletionChunk, state: dict
     ) -> AdapterChatCompletionChunk:
         return AdapterChatCompletionChunk.model_construct(
