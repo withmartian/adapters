@@ -62,7 +62,7 @@ class TogetherSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter)
     def get_api_key_name() -> str:
         return API_KEY_NAME
 
-    def adjust_temperature(self, temperature: float) -> float:
+    def _adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
 
     def get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:

@@ -1,5 +1,6 @@
 import base64
 import os
+from typing import Any
 
 import httpx
 
@@ -67,3 +68,17 @@ def get_dynamic_cost(model_name: str, token_count: int) -> Cost:
             return Cost(prompt=0.15e-6, completion=0.60e-6)
     else:
         raise ValueError(f"Unknown model: {model_name}")
+
+
+class stream_generator_auto_close:
+    _agen: Any
+
+    def __init__(self, agen):
+        self._agen = agen
+
+    async def __aenter__(self):
+        return self._agen
+
+    async def __aexit__(self, *args):
+        if getattr(self._agen, "close", False):
+            await self._agen.close()

@@ -40,27 +40,28 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01UiCnCeRfAsrP3Vst6Z7xTx","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
-        generate tool is relevant for generating a random number. It requires a \"prompt\"
-        parameter which should be a string like \"5, 4, 3, 10, 11\". \nThe user''s
-        request of \"Generate random number\" does not directly specify the value
-        for the \"prompt\" parameter. However, the request implies they want a single
-        random number generated, so I can infer a reasonable value like \"1, 2, 3,
-        4, 5\" for the prompt to generate a random number between 1 and 5.\nSince
-        I have a value I can use for the required \"prompt\" parameter, I can proceed
-        with calling the generate tool.\n</thinking>"},{"type":"tool_use","id":"toolu_01XLgQQdVTdLkBChJWtpPVA8","name":"generate","input":{"prompt":"1,
-        2, 3, 4, 5"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":212}}'
+      string: '{"id":"msg_013hyauXAUc5LuayyBctPoA3","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        user has requested to generate a random number. Looking at the available tools,
+        there is a \"generate\" function that takes a \"prompt\" parameter described
+        as \"Random number like 5, 4, 3, 10, 11\". \n\nThe user did not specify what
+        kind of random number they want, so I do not have enough information to fill
+        in the \"prompt\" parameter. I will need to ask the user to clarify what type
+        of random number they are looking for.\n</thinking>\n\nTo generate a random
+        number, I''ll need a bit more information from you. Can you please provide
+        an example of the type of random number you are looking for, such as a single
+        digit number, a number between 1-100, etc? Once I know the range or type of
+        number you need, I can generate one for you."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":180}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d2c164fc9a1cf49-SJC
+      - 8d3b23974d5a7af8-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 15 Oct 2024 01:38:10 GMT
+      - Wed, 16 Oct 2024 21:28:39 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -72,15 +73,15 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-15T01:38:10Z'
+      - '2024-10-16T21:28:39Z'
       content-length:
-      - '946'
+      - '992'
       request-id:
-      - req_012X434LAzjSc3dE83cfjxEs
+      - req_01L7a2zh2kdy84hNvcjZRh79
       via:
       - 1.1 google
       x-cloud-trace-context:
-      - c7bb8530e83f67114cea83be7a261628
+      - 502882d3d98c33fbdd67b0fba34c495a
     status:
       code: 200
       message: OK
