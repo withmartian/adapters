@@ -3,7 +3,22 @@ from typing import Any, Callable, Dict
 from openai import AsyncAzureOpenAI, AzureOpenAI, OpenAI
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.types import Conversation, Cost, Model, ModelProperties
+from adapters.types import Conversation, ConversationRole, Cost, Model, ModelProperties
+
+from typing import Callable
+
+from openai import AsyncOpenAI, OpenAI
+from openai.types.chat import ChatCompletion
+from openai.types.chat.chat_completion_chunk import ChatCompletionChunk
+
+from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
+from adapters.types import (
+    AdapterChatCompletion,
+    AdapterChatCompletionChunk,
+    RequestBody,
+)
+
+from openai.types.chat.chat_completion_chunk import Choice as ChoiceChunk, ChoiceDelta
 
 VENDOR_NAME = "openai"
 PROVIDER_NAME = "azure"
@@ -27,7 +42,7 @@ class AzureModel(Model):
     supports_n: bool = True
     supports_json_output: bool = True
     supports_json_content: bool = True
-    supports_streaming: bool = False
+    supports_streaming: bool = True
 
     properties: ModelProperties = BASE_PROPERTIES
 
@@ -49,9 +64,6 @@ MODELS = [
 
 
 class AzureSDKChatProviderAdapter(OpenAISDKChatAdapter):
-    # _sync_client: AzureOpenAI
-    # _async_client: AsyncAzureOpenAI
-
     @staticmethod
     def get_supported_models():
         return MODELS
@@ -99,3 +111,22 @@ class AzureSDKChatProviderAdapter(OpenAISDKChatAdapter):
             **params,
             "tool_choice": azure_tool_choice,
         }
+
+    def _extract_stream_response(
+        self, request, response: ChatCompletionChunk, state: dict
+    ) -> AdapterChatCompletionChunk:
+        adapter_response = AdapterChatCompletionChunk.model_construct(
+            **response.model_dump(),
+        )
+
+        if len(adapter_response.choices) == 0:
+            adapter_response.choices = [
+                ChoiceChunk(
+                    index=0,
+                    delta=ChoiceDelta(
+                        role=ConversationRole.assistant.value, content=""
+                    ),
+                )
+            ]
+
+        return adapter_response
