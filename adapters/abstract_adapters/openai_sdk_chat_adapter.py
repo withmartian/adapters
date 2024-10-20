@@ -47,7 +47,7 @@ class OpenAISDKChatAdapter(SDKChatAdapter):
         )
 
     def set_api_key(self, api_key: str) -> None:
-        # super().set_api_key(api_key)
+        super().set_api_key(api_key)
 
         cached_client_sync_path = f"{self.get_base_sdk_url()}-{api_key}-sync"
         cached_client_async_path = f"{self.get_base_sdk_url()}-{api_key}-async"
