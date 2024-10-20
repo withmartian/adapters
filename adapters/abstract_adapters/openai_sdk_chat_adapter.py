@@ -36,11 +36,9 @@ class OpenAISDKChatAdapter(SDKChatAdapter[OpenAI, AsyncOpenAI]):
         request: RequestBody,
         response: ChatCompletion,
     ) -> AdapterChatCompletion:
-        prompt_tokens = float(response.usage.prompt_tokens if response.usage else 0)
-        completion_tokens = float(
-            response.usage.completion_tokens if response.usage else 0
-        )
-        reasoning_tokens = float(
+        prompt_tokens = response.usage.prompt_tokens if response.usage else 0
+        completion_tokens = response.usage.completion_tokens if response.usage else 0
+        reasoning_tokens = (
             response.usage.completion_tokens_details.reasoning_tokens
             if response.usage
             and response.usage.completion_tokens_details

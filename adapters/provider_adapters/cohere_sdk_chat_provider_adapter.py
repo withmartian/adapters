@@ -2,7 +2,7 @@ from enum import Enum
 import time
 from typing import Any, Dict
 
-from cohere import AsyncClientV2, ClientV2
+from cohere import AsyncClientV2, ChatResponse, ClientV2
 from openai.types import CompletionUsage
 from openai.types.chat import ChatCompletionMessage
 from openai.types.chat.chat_completion import Choice
@@ -47,13 +47,13 @@ class CohereModel(Model):
 MODELS = [
     CohereModel(
         name="command-r-plus-08-2024",
-        cost=Cost(prompt=0.5e-6, completion=1.5e-6),
+        cost=Cost(prompt=2.50e-6, completion=10.00e-6),
         context_length=128000,
         properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
     CohereModel(
         name="command-r-plus",
-        cost=Cost(prompt=3.00e-6, completion=15.00e-6),
+        cost=Cost(prompt=2.50e-6, completion=10.00e-6),
         context_length=128000,
         properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
@@ -92,7 +92,7 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
     def _sync_client_wrapper(self, **kwargs: Any):
         if kwargs.pop("stream", False):
             return self._client_sync.chat_stream(**kwargs)
-        return self._client_async.chat(**kwargs)
+        return self._client_sync.chat(**kwargs)
 
     async def _async_client_wrapper(self, **kwargs: Any):
         if kwargs.pop("stream", False):
@@ -134,17 +134,24 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
         params["messages"] = messages
         return params
 
-    def _extract_response(self, request: Any, response: Any) -> AdapterChatCompletion:
-        prompt_tokens = (
-            float(response.usage.billed_units.input_tokens)
-            if response.usage and hasattr(response.usage, "billed_units")
+    def _extract_response(
+        self, request: Any, response: ChatResponse
+    ) -> AdapterChatCompletion:
+        prompt_tokens = int(
+            response.usage.billed_units.input_tokens
+            if response.usage
+            and response.usage.billed_units
+            and response.usage.billed_units.input_tokens
             else 0
         )
-        completion_tokens = (
-            float(response.usage.billed_units.output_tokens)
-            if response.usage and hasattr(response.usage, "billed_units")
+        completion_tokens = int(
+            response.usage.billed_units.output_tokens
+            if response.usage
+            and response.usage.billed_units
+            and response.usage.billed_units.output_tokens
             else 0
         )
+
         cost = (
             self.get_model().cost.prompt * prompt_tokens
             + self.get_model().cost.completion * completion_tokens
@@ -156,23 +163,35 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
         )
 
         choices: list[Choice] = []
-        for content in response.message.content:
-            if content.type == "text":
-                choices.append(
-                    Choice(
-                        index=len(choices),
-                        finish_reason=finish_reason.value,
-                        message=ChatCompletionMessage(
-                            role=ConversationRole.assistant.value,
-                            content=content.text,
-                        ),
+        if response.message and response.message.content:
+            for content in response.message.content:
+                if content.type == "text":
+                    choices.append(
+                        Choice(
+                            index=len(choices),
+                            finish_reason=finish_reason.value,
+                            message=ChatCompletionMessage(
+                                role=ConversationRole.assistant.value,
+                                content=content.text,
+                            ),
+                        )
                     )
+        else:
+            choices.append(
+                Choice(
+                    index=len(choices),
+                    finish_reason=finish_reason.value,
+                    message=ChatCompletionMessage(
+                        role=ConversationRole.assistant.value,
+                        content="",
+                    ),
                 )
+            )
+
         usage = CompletionUsage(
-            prompt_tokens=response.usage.billed_units.input_tokens,
-            completion_tokens=response.usage.billed_units.output_tokens,
-            total_tokens=response.usage.billed_units.input_tokens
-            + response.usage.billed_units.output_tokens,
+            prompt_tokens=prompt_tokens,
+            completion_tokens=completion_tokens,
+            total_tokens=prompt_tokens + completion_tokens,
         )
 
         return AdapterChatCompletion(
