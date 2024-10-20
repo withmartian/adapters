@@ -93,11 +93,6 @@ class AdapterFactory:
         if adapter_class is None or model is None:
             return None
 
-        # if _adapter_cache.get(model.provider_name) is None:
-        #     _adapter_cache[model.provider_name] = adapter_class()
-
-        # adapter = _adapter_cache[model.provider_name]
-
         adapter = adapter_class()
 
         if isinstance(adapter, ProviderAdapterMixin):
@@ -111,11 +106,6 @@ class AdapterFactory:
 
         if adapter_class is None:
             return None
-
-        # if _adapter_cache.get(model.get_path()) is None:
-        #     _adapter_cache[model.get_path()] = adapter_class()
-
-        # adapter = _adapter_cache[model.get_path()]
 
         adapter = adapter_class()
 

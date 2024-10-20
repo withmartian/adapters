@@ -41,15 +41,26 @@ class SDKChatAdapter(
         self,
     ):
         super().__init__()
+        self._setup_clients(self.get_api_key())
 
-        self._client_sync = self._create_client_sync(
-            api_key=self.get_api_key(),
-            base_url=self.get_base_sdk_url(),
-        )
-        self._client_async = self._create_client_async(
-            api_key=self.get_api_key(),
-            base_url=self.get_base_sdk_url(),
-        )
+    def _setup_clients(self, api_key: str) -> None:
+        cached_client_sync_path = f"{self.get_base_sdk_url()}-{api_key}-sync"
+        cached_client_async_path = f"{self.get_base_sdk_url()}-{api_key}-async"
+
+        if not _client_cache.get(cached_client_sync_path):
+            _client_cache[cached_client_sync_path] = self._create_client_sync(
+                api_key=api_key,
+                base_url=self.get_base_sdk_url(),
+            )
+
+        if not _client_cache.get(cached_client_async_path):
+            _client_cache[cached_client_async_path] = self._create_client_async(
+                api_key=api_key,
+                base_url=self.get_base_sdk_url(),
+            )
+
+        self._client_sync = _client_cache[cached_client_sync_path]
+        self._client_async = _client_cache[cached_client_async_path]
 
     @abstractmethod
     def _call_sync(self) -> Callable:
@@ -81,42 +92,11 @@ class SDKChatAdapter(
     ) -> AdapterChatCompletionChunk:
         pass
 
-    def get_model(self) -> Model:
-        if self._current_model is None:
-            raise ValueError("Model is not set")
-        return self._current_model
-
     def _adjust_temperature(self, temperature: float) -> float:
         return temperature
 
-    def get_model_properteis(self, model_name: str) -> ModelProperties:
-        for model in self.get_supported_models():
-            if model.name == model_name:
-                return model.properties
-        raise ValueError(f"Model {model_name} not found")
+        # pylint: disable=too-many-statements
 
-    def set_api_key(self, api_key: str) -> None:
-        super().set_api_key(api_key)
-
-        cached_client_sync_path = f"{self.get_base_sdk_url()}-{api_key}-sync"
-        cached_client_async_path = f"{self.get_base_sdk_url()}-{api_key}-async"
-
-        if not _client_cache.get(cached_client_sync_path):
-            _client_cache[cached_client_sync_path] = self._create_client_sync(
-                api_key=api_key,
-                base_url=self.get_base_sdk_url(),
-            )
-
-        if not _client_cache.get(cached_client_async_path):
-            _client_cache[cached_client_async_path] = self._create_client_async(
-                api_key=api_key,
-                base_url=self.get_base_sdk_url(),
-            )
-
-        self._client_sync = _client_cache[cached_client_sync_path]
-        self._client_async = _client_cache[cached_client_async_path]
-
-    # pylint: disable=too-many-statements
     def _get_params(
         self,
         llm_input: Conversation,
@@ -285,6 +265,21 @@ class SDKChatAdapter(
             ),
             **kwargs,
         }
+
+    def get_model(self) -> Model:
+        if self._current_model is None:
+            raise ValueError("Model is not set")
+        return self._current_model
+
+    def get_model_properteis(self, model_name: str) -> ModelProperties:
+        for model in self.get_supported_models():
+            if model.name == model_name:
+                return model.properties
+        raise ValueError(f"Model {model_name} not found")
+
+    def set_api_key(self, api_key: str) -> None:
+        super().set_api_key(api_key)
+        self._setup_clients(api_key)
 
     async def execute_async(
         self,
