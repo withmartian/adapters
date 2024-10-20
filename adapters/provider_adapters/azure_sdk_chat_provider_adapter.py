@@ -1,24 +1,21 @@
 from typing import Any, Callable, Dict
 
 from openai import AsyncAzureOpenAI, AzureOpenAI, OpenAI
-
-from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.types import Conversation, ConversationRole, Cost, Model, ModelProperties
-
-from typing import Callable
-
-from openai import AsyncOpenAI, OpenAI
-from openai.types.chat import ChatCompletion
-from openai.types.chat.chat_completion_chunk import ChatCompletionChunk
-
-from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
-from adapters.types import (
-    AdapterChatCompletion,
-    AdapterChatCompletionChunk,
-    RequestBody,
+from openai.types.chat.chat_completion_chunk import (
+    ChatCompletionChunk,
+    Choice as ChoiceChunk,
+    ChoiceDelta,
 )
 
-from openai.types.chat.chat_completion_chunk import Choice as ChoiceChunk, ChoiceDelta
+from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
+from adapters.types import (
+    AdapterChatCompletionChunk,
+    Conversation,
+    ConversationRole,
+    Cost,
+    Model,
+    ModelProperties,
+)
 
 VENDOR_NAME = "openai"
 PROVIDER_NAME = "azure"
