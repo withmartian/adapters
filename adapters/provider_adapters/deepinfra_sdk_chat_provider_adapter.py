@@ -89,7 +89,7 @@ MODELS = [
         name="Qwen2.5-72B-Instruct",
         cost=Cost(prompt=0.35e-6, completion=0.40e-6),
         context_length=32768,
-        vendor_name="Qwen",
+        vendor_name="qwen",
     ),
 ]
 
