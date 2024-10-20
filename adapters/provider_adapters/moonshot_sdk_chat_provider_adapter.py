@@ -11,13 +11,13 @@ class MoonshotModel(Model):
     provider_name: str = PROVIDER_NAME
     properties: ModelProperties = BASE_PROPERTIES
 
-    supports_streaming: bool = True
     supports_repeating_roles: bool = True
     supports_system: bool = True
     supports_multiple_system: bool = True
     supports_tool_choice_required: bool = True
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
+    supports_streaming: bool = True
 
 
 # Cost measured in CNY, converted to USD on Apr 27 2024

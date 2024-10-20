@@ -22,6 +22,7 @@ class DatabricksModel(Model):
     supports_empty_content: bool = True
     supports_tool_choice_required: bool = True
     supports_last_assistant: bool = True
+    supports_streaming: bool = True
 
 
 MODELS = [

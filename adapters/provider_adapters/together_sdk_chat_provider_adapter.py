@@ -10,9 +10,10 @@ BASE_PROPERTIES = ModelProperties(open_source=True)
 
 
 class TogetherModel(Model):
-    supports_streaming: bool = True
-    supports_json_content: bool = True
     provider_name: str = PROVIDER_NAME
+    supports_json_content: bool = True
+    supports_streaming: bool = True
+
     properties: ModelProperties = BASE_PROPERTIES
 
     def _get_api_path(self) -> str:
