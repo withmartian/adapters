@@ -82,8 +82,8 @@ class AzureSDKChatProviderAdapter(OpenAISDKChatAdapter):
     def get_api_key_name() -> str:
         return API_KEY_NAME
 
-    def get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
-        params = super().get_params(llm_input, **kwargs)
+    def _get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
+        params = super()._get_params(llm_input, **kwargs)
 
         azure_tool_choice = kwargs.get("tool_choice")
 

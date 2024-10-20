@@ -1,9 +1,10 @@
+from typing import Callable
+
 from openai import AsyncOpenAI, OpenAI
 from openai.types.chat import ChatCompletion
 from openai.types.chat.chat_completion_chunk import ChatCompletionChunk
 
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
-from adapters.client_cache import _client_cache
 from adapters.types import (
     AdapterChatCompletion,
     AdapterChatCompletionChunk,
@@ -11,61 +12,24 @@ from adapters.types import (
 )
 
 
-class OpenAISDKChatAdapter(SDKChatAdapter):
-    _sync_client: OpenAI
-    _async_client: AsyncOpenAI
+class OpenAISDKChatAdapter(SDKChatAdapter[OpenAI, AsyncOpenAI]):
+    def _call_sync(self) -> Callable:
+        return self._client_sync.chat.completions.create
 
-    def __init__(
-        self,
-    ):
-        super().__init__()
-        self._sync_client = OpenAI(
-            api_key=self.get_api_key(),
-            base_url=self.get_base_sdk_url(),
-        )
-        self._async_client = AsyncOpenAI(
-            api_key=self.get_api_key(),
-            base_url=self.get_base_sdk_url(),
-        )
+    def _call_async(self) -> Callable:
+        return self._client_async.chat.completions.create
 
-    def _call_sync(self):
-        return self._sync_client.chat.completions.create
-
-    def _call_async(self):
-        return self._async_client.chat.completions.create
-
-    def _client_sync(self, base_url: str, api_key: str):
+    def _create_client_sync(self, base_url: str, api_key: str) -> OpenAI:
         return OpenAI(
             base_url=base_url,
             api_key=api_key,
         )
 
-    def _client_async(self, base_url: str, api_key: str):
+    def _create_client_async(self, base_url: str, api_key: str) -> AsyncOpenAI:
         return AsyncOpenAI(
             base_url=base_url,
             api_key=api_key,
         )
-
-    def set_api_key(self, api_key: str) -> None:
-        super().set_api_key(api_key)
-
-        cached_client_sync_path = f"{self.get_base_sdk_url()}-{api_key}-sync"
-        cached_client_async_path = f"{self.get_base_sdk_url()}-{api_key}-async"
-
-        if not _client_cache.get(cached_client_sync_path):
-            _client_cache[cached_client_sync_path] = OpenAI(
-                api_key=api_key,
-                base_url=self.get_base_sdk_url(),
-            )
-
-        if not _client_cache.get(cached_client_async_path):
-            _client_cache[cached_client_async_path] = AsyncOpenAI(
-                api_key=api_key,
-                base_url=self.get_base_sdk_url(),
-            )
-
-        self._sync_client = _client_cache[cached_client_sync_path]
-        self._async_client = _client_cache[cached_client_async_path]
 
     def _extract_response(
         self,

@@ -1,11 +1,12 @@
 from abc import abstractmethod
-from typing import Any, Dict, Optional
+from typing import Any, Callable, Dict, Generic, Optional, TypeVar
 
 from openai import NOT_GIVEN, NotGiven
 
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.base_adapter import BaseAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
+from adapters.client_cache import _client_cache
 from adapters.general_utils import (
     EMPTY_CONTENT,
     delete_none_values,
@@ -23,22 +24,47 @@ from adapters.types import (
     ModelProperties,
 )
 
+CLIENT_SYNC = TypeVar("CLIENT_SYNC")
+CLIENT_ASYNC = TypeVar("CLIENT_ASYNC")
 
-class SDKChatAdapter(BaseAdapter, ApiKeyAdapterMixin, ProviderAdapterMixin):
+
+class SDKChatAdapter(
+    BaseAdapter,
+    ApiKeyAdapterMixin,
+    ProviderAdapterMixin,
+    Generic[CLIENT_SYNC, CLIENT_ASYNC],
+):
+    _client_sync: CLIENT_SYNC
+    _client_async: CLIENT_ASYNC
+
+    def __init__(
+        self,
+    ):
+        super().__init__()
+
+        self._client_sync = self._create_client_sync(
+            api_key=self.get_api_key(),
+            base_url=self.get_base_sdk_url(),
+        )
+        self._client_async = self._create_client_async(
+            api_key=self.get_api_key(),
+            base_url=self.get_base_sdk_url(),
+        )
+
     @abstractmethod
-    def _call_sync(self):
+    def _call_sync(self) -> Callable:
         pass
 
     @abstractmethod
-    def _call_async(self):
+    def _call_async(self) -> Callable:
         pass
 
     @abstractmethod
-    def _client_sync(self, base_url: str, api_key: str):
+    def _create_client_sync(self, base_url: str, api_key: str) -> CLIENT_SYNC:
         pass
 
     @abstractmethod
-    def _client_async(self, base_url: str, api_key: str):
+    def _create_client_async(self, base_url: str, api_key: str) -> CLIENT_ASYNC:
         pass
 
     @abstractmethod
@@ -69,8 +95,29 @@ class SDKChatAdapter(BaseAdapter, ApiKeyAdapterMixin, ProviderAdapterMixin):
                 return model.properties
         raise ValueError(f"Model {model_name} not found")
 
+    def set_api_key(self, api_key: str) -> None:
+        super().set_api_key(api_key)
+
+        cached_client_sync_path = f"{self.get_base_sdk_url()}-{api_key}-sync"
+        cached_client_async_path = f"{self.get_base_sdk_url()}-{api_key}-async"
+
+        if not _client_cache.get(cached_client_sync_path):
+            _client_cache[cached_client_sync_path] = self._create_client_sync(
+                api_key=api_key,
+                base_url=self.get_base_sdk_url(),
+            )
+
+        if not _client_cache.get(cached_client_async_path):
+            _client_cache[cached_client_async_path] = self._create_client_async(
+                api_key=api_key,
+                base_url=self.get_base_sdk_url(),
+            )
+
+        self._client_sync = _client_cache[cached_client_sync_path]
+        self._client_async = _client_cache[cached_client_async_path]
+
     # pylint: disable=too-many-statements
-    def get_params(
+    def _get_params(
         self,
         llm_input: Conversation,
         **kwargs,  # TODO: type kwargs
@@ -245,7 +292,7 @@ class SDKChatAdapter(BaseAdapter, ApiKeyAdapterMixin, ProviderAdapterMixin):
         stream: Optional[bool] | NotGiven = NOT_GIVEN,
         **kwargs,
     ):
-        params = self.get_params(llm_input, stream=stream, **kwargs)
+        params = self._get_params(llm_input, stream=stream, **kwargs)
 
         response = await self._call_async()(
             model=self.get_model()._get_api_path(),
@@ -276,7 +323,7 @@ class SDKChatAdapter(BaseAdapter, ApiKeyAdapterMixin, ProviderAdapterMixin):
         stream: Optional[bool] | NotGiven = NOT_GIVEN,
         **kwargs,
     ):
-        params = self.get_params(llm_input, stream=stream, **kwargs)
+        params = self._get_params(llm_input, stream=stream, **kwargs)
 
         response = self._call_sync()(
             model=self.get_model()._get_api_path(),

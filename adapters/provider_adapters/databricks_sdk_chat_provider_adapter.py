@@ -75,12 +75,12 @@ class DatabricksSDKChatProviderAdapter(OpenAISDKChatAdapter):
     def get_base_sdk_url(self) -> str:
         return DATABRICKS_BASE_URL
 
-    def get_params(
+    def _get_params(
         self,
         llm_input: Conversation,
         **kwargs,
     ) -> Dict[str, Any]:
-        params = super().get_params(llm_input, **kwargs)
+        params = super()._get_params(llm_input, **kwargs)
 
         messages = params["messages"]
         databricksTools = kwargs.get("tools")

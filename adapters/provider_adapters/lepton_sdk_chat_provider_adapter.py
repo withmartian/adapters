@@ -101,8 +101,8 @@ class LeptonSDKChatProviderAdapter(OpenAISDKChatAdapter):
     def _set_current_model(self, model: Model) -> None:
         super()._set_current_model(model)
 
-        self._sync_client.base_url = URL(self._current_model.base_url)
-        self._async_client.base_url = URL(self._current_model.base_url)
+        self._client_sync.base_url = URL(self._current_model.base_url)
+        self._client_async.base_url = URL(self._current_model.base_url)
 
     # def extract_stream_response(self, request, response: ChatCompletionChunk) -> str:
     #     # It must be the last response from Lepton that is empty.

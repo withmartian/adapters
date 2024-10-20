@@ -120,7 +120,7 @@
 #         return self._sync_client.chat(**kwargs)
 
 #     def set_api_key(self, api_key: str) -> None:
-#         # super().set_api_key(api_key)
+#         super().set_api_key(api_key)
 #         self._sync_client._client_wrapper._token = api_key
 #         self._async_client._client_wrapper._token = api_key
 

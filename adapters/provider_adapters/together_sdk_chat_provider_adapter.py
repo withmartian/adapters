@@ -64,8 +64,8 @@ class TogetherSDKChatProviderAdapter(OpenAISDKChatAdapter):
     def _adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
 
-    def get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
-        params = super().get_params(llm_input, **kwargs)
+    def _get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
+        params = super()._get_params(llm_input, **kwargs)
         messages = params["messages"]
         # Remove trailing whitespace from the last assistant message
         if len(messages) > 0 and messages[-1]["role"] == ConversationRole.assistant:

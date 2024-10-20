@@ -72,7 +72,9 @@ MODELS = [
 
 
 # TODO: max_tokens doesnt work
-class GeminiSDKChatProviderAdapter(SDKChatAdapter):
+class GeminiSDKChatProviderAdapter(
+    SDKChatAdapter[GenerativeServiceClient, GenerativeServiceAsyncClient]
+):
     @staticmethod
     def get_supported_models():
         return MODELS
@@ -88,14 +90,10 @@ class GeminiSDKChatProviderAdapter(SDKChatAdapter):
     def get_api_key_name() -> str:
         return API_KEY_NAME
 
-    _sync_client: GenerativeServiceClient
-    _async_client: GenerativeServiceAsyncClient
-
     def __init__(
         self,
     ) -> None:
         super().__init__()
-        self.set_api_key(self.get_api_key())
         self.model: genai.GenerativeModel | None = None
 
     def get_model_name(self) -> str:
@@ -103,24 +101,24 @@ class GeminiSDKChatProviderAdapter(SDKChatAdapter):
             raise ValueError("Model not set")
         return self._current_model.name
 
-    def _call_async(self):
-        return self._async_client
-
     def _call_sync(self):
-        return self._sync_client
+        return self._client_sync
+
+    def _call_async(self):
+        return self._client_async
+
+    def _create_client_sync(self, base_url: str, api_key: str):
+        return GenerativeServiceClient(
+            client_options=ClientOptions(api_key=api_key), transport="rest"
+        )
+
+    def _create_client_async(self, base_url: str, api_key: str):
+        return GenerativeServiceAsyncClient(
+            client_options=ClientOptions(api_key=api_key), transport="rest"
+        )
 
     def _adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
-
-    def set_api_key(self, api_key: str) -> None:
-        # super().set_api_key(api_key)
-
-        self._sync_client = GenerativeServiceClient(
-            client_options=ClientOptions(api_key=api_key), transport="rest"
-        )
-        self._async_client = GenerativeServiceAsyncClient(
-            client_options=ClientOptions(api_key=api_key), transport="rest"
-        )
 
     def _extract_response(
         self,
@@ -165,7 +163,7 @@ class GeminiSDKChatProviderAdapter(SDKChatAdapter):
             choices=choices,
         )
 
-    async def extract_response_async(
+    async def _extract_response_async(
         self,
         request: Any,  # pylint: disable=unused-argument
         response: AsyncGenerateContentResponse,
@@ -211,12 +209,12 @@ class GeminiSDKChatProviderAdapter(SDKChatAdapter):
     def _extract_stream_response(self, request, response, state):
         return response
 
-    def get_params(
+    def _get_params(
         self,
         llm_input: Conversation,
         **kwargs,
     ) -> Dict[str, Any]:
-        params = super().get_params(llm_input, **kwargs)
+        params = super()._get_params(llm_input, **kwargs)
 
         last_message = params["messages"].pop()
         last_content = last_message["content"] or " "
@@ -247,7 +245,7 @@ class GeminiSDKChatProviderAdapter(SDKChatAdapter):
         stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
         **kwargs,
     ):
-        params = self.get_params(llm_input, **kwargs)
+        params = self._get_params(llm_input, **kwargs)
 
         model = genai.GenerativeModel(
             model_name=self.get_model_name(),
@@ -259,7 +257,7 @@ class GeminiSDKChatProviderAdapter(SDKChatAdapter):
 
         result = await convo.send_message_async(params["prompt"])
 
-        return await self.extract_response_async(request=llm_input, response=result)
+        return await self._extract_response_async(request=llm_input, response=result)
 
     def execute_sync(
         self,
@@ -267,7 +265,7 @@ class GeminiSDKChatProviderAdapter(SDKChatAdapter):
         stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
         **kwargs,
     ):
-        params = self.get_params(llm_input, **kwargs)
+        params = self._get_params(llm_input, **kwargs)
 
         self.model = genai.GenerativeModel(
             model_name=self.get_model_name(),

@@ -3,6 +3,7 @@ import json
 import time
 from typing import (
     Any,
+    Callable,
     Dict,
     Iterable,
     List,
@@ -43,6 +44,7 @@ from openai.types.chat.chat_completion_message_tool_call import (
 from pydantic import BaseModel
 
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
+from adapters.client_cache import _client_cache
 from adapters.general_utils import process_image_url_anthropic
 from adapters.types import (
     AdapterChatCompletion,
@@ -131,7 +133,7 @@ class AnthropicCreate(BaseModel):
     top_p: Optional[float] = None
 
 
-class AnthropicSDKChatProviderAdapter(SDKChatAdapter):
+class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic]):
     @staticmethod
     def get_supported_models():
         return SUPPORTED_MODELS
@@ -140,41 +142,30 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter):
     def get_provider_name() -> str:
         return PROVIDER_NAME
 
-    def get_base_sdk_url(self) -> str:
-        return BASE_URL
-
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
 
-    _sync_client: Anthropic
-    _async_client: AsyncAnthropic
+    def _call_sync(self) -> Callable:
+        return self._client_sync.messages.create
 
-    def __init__(
-        self,
-    ):
-        super().__init__()
-        self._sync_client = Anthropic(
-            api_key=self.get_api_key(),
-        )
-        self._async_client = AsyncAnthropic(
-            api_key=self.get_api_key(),
+    def _call_async(self) -> Callable:
+        return self._client_async.messages.create
+
+    def _create_client_sync(self, base_url: str, api_key: str):
+        return Anthropic(
+            base_url=base_url,
+            api_key=api_key,
         )
 
-    def _call_sync(self):
-        return self._sync_client.messages.create
-
-    def _call_async(self):
-        return self._async_client.messages.create
+    def _create_client_async(self, base_url: str, api_key: str):
+        return AsyncAnthropic(
+            base_url=base_url,
+            api_key=api_key,
+        )
 
     def _adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
-
-    def set_api_key(self, api_key: str) -> None:
-        # super().set_api_key(api_key)
-
-        self._sync_client.api_key = api_key
-        self._async_client.api_key = api_key
 
     def _extract_response(
         self, request: Conversation, response: Message
@@ -269,8 +260,8 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter):
             object="chat.completion.chunk",
         )
 
-    def get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
-        params = super().get_params(llm_input, **kwargs)
+    def _get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
+        params = super()._get_params(llm_input, **kwargs)
 
         # messages = cast(List[Choice], params["messages"])
         messages = params["messages"]
