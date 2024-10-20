@@ -28,7 +28,7 @@ class LeptonModel(Model):
     supports_tool_choice_required: bool = True
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
-    supports_streaming: bool = False
+    supports_streaming: bool = True
 
     properties: ModelProperties = BASE_PROPERTIES
 
