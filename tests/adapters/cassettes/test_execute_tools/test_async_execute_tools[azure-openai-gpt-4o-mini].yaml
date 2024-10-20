@@ -22,7 +22,7 @@ interactions:
       host:
       - martiantest.openai.azure.com
       user-agent:
-      - AsyncAzureOpenAI/Python 1.50.1
+      - AsyncAzureOpenAI/Python 1.52.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -32,7 +32,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -40,43 +40,44 @@ interactions:
       x-stainless-runtime-version:
       - 3.11.10
     method: POST
-    uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o-mini/chat/completions?api-version=2024-05-01-preview
+    uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o-mini/chat/completions?api-version=2024-06-01
   response:
     body:
-      string: '{"choices":[{"content_filter_results":{},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":null,"role":"assistant","tool_calls":[{"function":{"arguments":"{\"prompt\":\"5\"}","name":"generate"},"id":"call_zKYZPJqhisnPXLgt8KjcXGGe","type":"function"}]}}],"created":1729114033,"id":"chatcmpl-AJ5pxTN8mT9SjEtpyqJLmcTb16drJ","model":"gpt-4o-mini","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"jailbreak":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_878413d04d","usage":{"completion_tokens":5,"prompt_tokens":70,"total_tokens":75}}
+      string: '{"choices":[{"content_filter_results":{},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":null,"role":"assistant","tool_calls":[{"function":{"arguments":"{\"prompt\":\"Generate
+        a random number between 1 and 100.\"}","name":"generate"},"id":"call_3apYzPvcbt3BWkCtYelSKmug","type":"function"}]}}],"created":1729405960,"id":"chatcmpl-AKJmS5whu8684CLs93FB7JOexRUCO","model":"gpt-4o-mini","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"jailbreak":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_878413d04d","usage":{"completion_tokens":15,"prompt_tokens":70,"total_tokens":85}}
 
         '
     headers:
       Content-Length:
-      - '804'
+      - '847'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:27:13 GMT
+      - Sun, 20 Oct 2024 06:32:39 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - 4b532d51-aa7b-45db-a1c3-932cd975af0a
+      - 96be3436-b1d2-408d-ac87-6df4a70db4dc
       azureml-model-session:
-      - d026-20240921213539
+      - d017-20240921115920
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '121'
+      - '180'
       x-ms-client-request-id:
-      - 4b532d51-aa7b-45db-a1c3-932cd975af0a
+      - 96be3436-b1d2-408d-ac87-6df4a70db4dc
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
       - East US
       x-ratelimit-remaining-requests:
-      - '19998'
+      - '19982'
       x-ratelimit-remaining-tokens:
-      - '1998708'
+      - '1987136'
       x-request-id:
-      - 86a17bc7-73ac-4190-bc54-7d452691699a
+      - 098beed1-8603-468d-b024-ab994aec863d
     status:
       code: 200
       message: OK

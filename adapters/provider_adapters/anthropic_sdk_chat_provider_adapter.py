@@ -346,3 +346,6 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
             top_k=params.get("top_k"),
             top_p=params.get("top_p"),
         ).model_dump()
+
+    def get_base_sdk_url(self) -> str:
+        return BASE_URL

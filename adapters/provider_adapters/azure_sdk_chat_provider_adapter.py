@@ -1,6 +1,6 @@
-from typing import Any, Dict
+from typing import Any, Callable, Dict
 
-from openai import AsyncAzureOpenAI, AzureOpenAI
+from openai import AsyncAzureOpenAI, AzureOpenAI, OpenAI
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.types import Conversation, Cost, Model, ModelProperties
@@ -49,23 +49,8 @@ MODELS = [
 
 
 class AzureSDKChatProviderAdapter(OpenAISDKChatAdapter):
-    _sync_client: AzureOpenAI
-    _async_client: AsyncAzureOpenAI
-
-    def __init__(
-        self,
-    ):
-        super().__init__()
-        self._sync_client = AzureOpenAI(
-            api_key=self.get_api_key(),
-            azure_endpoint=self.get_base_sdk_url(),
-            api_version="2024-05-01-preview",
-        )
-        self._async_client = AsyncAzureOpenAI(
-            api_key=self.get_api_key(),
-            azure_endpoint=self.get_base_sdk_url(),
-            api_version="2024-05-01-preview",
-        )
+    # _sync_client: AzureOpenAI
+    # _async_client: AsyncAzureOpenAI
 
     @staticmethod
     def get_supported_models():
@@ -75,12 +60,32 @@ class AzureSDKChatProviderAdapter(OpenAISDKChatAdapter):
     def get_provider_name() -> str:
         return PROVIDER_NAME
 
-    def get_base_sdk_url(self) -> str:
-        return BASE_URL
-
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
+
+    def _call_sync(self) -> Callable:
+        return self._client_sync.chat.completions.create
+
+    def _call_async(self) -> Callable:
+        return self._client_async.chat.completions.create
+
+    def _create_client_sync(self, base_url: str, api_key: str) -> OpenAI:
+        return AzureOpenAI(
+            api_key=api_key,
+            azure_endpoint=base_url,
+            api_version="2024-06-01",
+        )
+
+    def _create_client_async(self, base_url: str, api_key: str) -> AsyncAzureOpenAI:
+        return AsyncAzureOpenAI(
+            api_key=api_key,
+            azure_endpoint=base_url,
+            api_version="2024-06-01",
+        )
+
+    def get_base_sdk_url(self) -> str:
+        return BASE_URL
 
     def _get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
         params = super()._get_params(llm_input, **kwargs)
