@@ -1,7 +1,6 @@
 from typing import Any, Dict
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.types import Conversation, ConversationRole, Cost, Model, ModelProperties
 
 PROVIDER_NAME = "together"
@@ -46,7 +45,7 @@ MODELS = [
 ]
 
 
-class TogetherSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
+class TogetherSDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
     def get_supported_models():
         return MODELS

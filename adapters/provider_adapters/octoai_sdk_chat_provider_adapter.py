@@ -1,5 +1,4 @@
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.types import Cost, Model, ModelProperties
 
 PROVIDER_NAME = "octoai"
@@ -50,7 +49,7 @@ MODELS = [
 ]
 
 
-class OctoaiSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
+class OctoaiSDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
     def get_supported_models():
         return MODELS

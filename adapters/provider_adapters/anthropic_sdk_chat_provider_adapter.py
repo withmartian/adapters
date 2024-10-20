@@ -42,8 +42,6 @@ from openai.types.chat.chat_completion_message_tool_call import (
 )
 from pydantic import BaseModel
 
-from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
-from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.general_utils import process_image_url_anthropic
 from adapters.types import (
@@ -133,11 +131,7 @@ class AnthropicCreate(BaseModel):
     top_p: Optional[float] = None
 
 
-class AnthropicSDKChatProviderAdapter(
-    ProviderAdapterMixin,
-    ApiKeyAdapterMixin,
-    SDKChatAdapter,
-):
+class AnthropicSDKChatProviderAdapter(SDKChatAdapter):
     @staticmethod
     def get_supported_models():
         return SUPPORTED_MODELS
@@ -177,7 +171,7 @@ class AnthropicSDKChatProviderAdapter(
         return temperature / 2
 
     def set_api_key(self, api_key: str) -> None:
-        super().set_api_key(api_key)
+        # super().set_api_key(api_key)
 
         self._sync_client.api_key = api_key
         self._async_client.api_key = api_key

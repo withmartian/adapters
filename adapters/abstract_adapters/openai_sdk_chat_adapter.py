@@ -2,14 +2,13 @@ from openai import AsyncOpenAI, OpenAI
 from openai.types.chat import ChatCompletion
 from openai.types.chat.chat_completion_chunk import ChatCompletionChunk
 
-from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
+from adapters.client_cache import _client_cache
 from adapters.types import (
     AdapterChatCompletion,
     AdapterChatCompletionChunk,
     RequestBody,
 )
-from adapters.adapter_factory import _client_cache
 
 
 class OpenAISDKChatAdapter(SDKChatAdapter):
@@ -48,7 +47,7 @@ class OpenAISDKChatAdapter(SDKChatAdapter):
         )
 
     def set_api_key(self, api_key: str) -> None:
-        super().set_api_key(api_key)
+        # super().set_api_key(api_key)
 
         cached_client_sync_path = f"{self.get_base_sdk_url()}-{api_key}-sync"
         cached_client_async_path = f"{self.get_base_sdk_url()}-{api_key}-async"

@@ -1,10 +1,11 @@
 from abc import abstractmethod
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, Optional
 
 from openai import NOT_GIVEN, NotGiven
 
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.base_adapter import BaseAdapter
+from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.general_utils import (
     EMPTY_CONTENT,
     delete_none_values,
@@ -23,7 +24,7 @@ from adapters.types import (
 )
 
 
-class SDKChatAdapter(BaseAdapter, ApiKeyAdapterMixin):
+class SDKChatAdapter(BaseAdapter, ApiKeyAdapterMixin, ProviderAdapterMixin):
     @abstractmethod
     def _call_sync(self):
         pass
@@ -41,10 +42,6 @@ class SDKChatAdapter(BaseAdapter, ApiKeyAdapterMixin):
         pass
 
     @abstractmethod
-    def get_supported_models(self) -> List[Model]:
-        pass
-
-    @abstractmethod
     def get_base_sdk_url(self) -> str:
         pass
 
@@ -57,6 +54,11 @@ class SDKChatAdapter(BaseAdapter, ApiKeyAdapterMixin):
         self, request, response, state
     ) -> AdapterChatCompletionChunk:
         pass
+
+    def get_model(self) -> Model:
+        if self._current_model is None:
+            raise ValueError("Model is not set")
+        return self._current_model
 
     def _adjust_temperature(self, temperature: float) -> float:
         return temperature

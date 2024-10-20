@@ -14,8 +14,3 @@ class ProviderAdapterMixin:
     @abstractmethod
     def get_supported_models() -> List[Model]:
         pass
-
-    def get_model(self) -> Model:
-        if self._current_model is None:
-            raise ValueError("Model is not set")
-        return self._current_model

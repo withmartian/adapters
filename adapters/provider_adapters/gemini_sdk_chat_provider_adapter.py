@@ -15,8 +15,6 @@ from openai.types import CompletionUsage
 from openai.types.chat import ChatCompletionMessage
 from openai.types.chat.chat_completion import Choice
 
-from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
-from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.general_utils import get_dynamic_cost
 from adapters.types import (
@@ -74,11 +72,7 @@ MODELS = [
 
 
 # TODO: max_tokens doesnt work
-class GeminiSDKChatProviderAdapter(
-    ProviderAdapterMixin,
-    ApiKeyAdapterMixin,
-    SDKChatAdapter,
-):
+class GeminiSDKChatProviderAdapter(SDKChatAdapter):
     @staticmethod
     def get_supported_models():
         return MODELS
@@ -119,7 +113,7 @@ class GeminiSDKChatProviderAdapter(
         return temperature / 2
 
     def set_api_key(self, api_key: str) -> None:
-        super().set_api_key(api_key)
+        # super().set_api_key(api_key)
 
         self._sync_client = GenerativeServiceClient(
             client_options=ClientOptions(api_key=api_key), transport="rest"

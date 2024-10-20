@@ -3,7 +3,6 @@ from typing import Any, Dict
 from openai import AsyncAzureOpenAI, AzureOpenAI
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.types import Conversation, Cost, Model, ModelProperties
 
 VENDOR_NAME = "openai"
@@ -49,7 +48,7 @@ MODELS = [
 ]
 
 
-class AzureSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
+class AzureSDKChatProviderAdapter(OpenAISDKChatAdapter):
     _sync_client: AzureOpenAI
     _async_client: AsyncAzureOpenAI
 

@@ -1,7 +1,6 @@
 import inspect
 import os
 import sys
-from typing import Any
 
 from adapters.abstract_adapters import BaseAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
@@ -15,11 +14,6 @@ from adapters.provider_adapters.openai_sdk_chat_provider_adapter import (
     OpenAISDKChatProviderAdapter,
 )
 from adapters.types import Model
-
-
-# key: base_url-api_key
-# value: function that calls client
-_client_cache: dict[str, Any] = {}
 
 
 class AdapterFactory:

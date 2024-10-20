@@ -1,7 +1,6 @@
 from typing import Any, Dict
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.types import Conversation, ConversationRole, Cost, Model, ModelProperties
 
 PROVIDER_NAME = "databricks"
@@ -60,10 +59,7 @@ MODELS = [
 ]
 
 
-class DatabricksSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
-    def get_base_sdk_url(self) -> str:
-        return DATABRICKS_BASE_URL
-
+class DatabricksSDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
     def get_supported_models():
         return MODELS
@@ -75,6 +71,9 @@ class DatabricksSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapte
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
+
+    def get_base_sdk_url(self) -> str:
+        return DATABRICKS_BASE_URL
 
     def get_params(
         self,
