@@ -44,7 +44,6 @@ from openai.types.chat.chat_completion_message_tool_call import (
 from pydantic import BaseModel
 
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
-from adapters.client_cache import _client_cache
 from adapters.general_utils import process_image_url_anthropic
 from adapters.types import (
     AdapterChatCompletion,
