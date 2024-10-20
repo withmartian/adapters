@@ -52,8 +52,32 @@ MODELS = [
         properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
     CohereModel(
+        name="command-r-plus-04-2024",
+        cost=Cost(prompt=2.50e-6, completion=10.00e-6),
+        context_length=128000,
+        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
+    ),
+    CohereModel(
         name="command-r-plus",
         cost=Cost(prompt=2.50e-6, completion=10.00e-6),
+        context_length=128000,
+        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
+    ),
+    CohereModel(
+        name="command-r-08-2024",
+        cost=Cost(prompt=0.15e-6, completion=0.60e-6),
+        context_length=128000,
+        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
+    ),
+    CohereModel(
+        name="command-r-03-2024",
+        cost=Cost(prompt=0.15e-6, completion=0.60e-6),
+        context_length=128000,
+        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
+    ),
+    CohereModel(
+        name="command-r",
+        cost=Cost(prompt=0.15e-6, completion=0.60e-6),
         context_length=128000,
         properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
