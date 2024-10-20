@@ -157,8 +157,7 @@ def get_response_content_from_vcr(vcr, adapter: BaseAdapter):
     elif isinstance(adapter, CohereSDKChatProviderAdapter):
         return (
             response["message"]["content"][0]["text"]
-            if getattr(response, "message", None)
-            and getattr(response.message, "content", None)
+            if response.get("message") and response["message"].get("content")
             else ""
         )
     elif isinstance(adapter, GeminiSDKChatProviderAdapter):

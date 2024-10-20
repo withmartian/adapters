@@ -21,7 +21,7 @@ interactions:
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.34.2
+      - AsyncAnthropic/Python 0.36.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -31,7 +31,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.34.2
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -40,29 +42,28 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01BB2pk3Gu6gExzBiChEbgev","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
-        user has requested to generate a random number. Let''s analyze the available
-        tools to see if we can fulfill this request.\n\nLooking at the \"generate\"
-        function, it has a single required parameter \"prompt\":\n\"prompt\": {\"description\":
-        \"Random number like 5, 4, 3, 10, 11\", \"type\": \"string\"}\n\nThe user
-        did not provide a specific prompt string, but based on the description, it
-        seems the prompt should be an example sequence of numbers to generate a random
-        number similar to those.\n\nSince no specific numbers were provided by the
-        user, I will infer a reasonable default prompt of \"1, 2, 3, 4, 5\" to generate
-        a small random integer. This should fulfill the user''s request sufficiently
-        given the lack of additional details provided.\n</thinking>"},{"type":"tool_use","id":"toolu_01LcVkyDEkKqFmPY8KMQiVJH","name":"generate","input":{"prompt":"1,
-        2, 3, 4, 5"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":240}}'
+      string: '{"id":"msg_01FbXR5ufoCQ5Axra47vvDcb","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        user has requested to generate a random number. Let''s look at the available
+        tools and see if we have one that can help with this:\n\ngenerate: This function
+        takes a \"prompt\" parameter to generate a random number. The prompt should
+        be something like \"5, 4, 3, 10, 11\" to specify the type of random number
+        to generate.\n\nThe user did not provide any details on what kind of random
+        number they want. The \"prompt\" parameter is required for the generate function,
+        but the user has not given any information we can use to infer a value for
+        it.\n\nSince we don''t have enough information to call the generate function,
+        we will need to ask the user to provide more details on what kind of random
+        number they would like.\n</thinking>"}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":183}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b244bda4dcea0-SJC
+      - 8d57fa4ccb95cfb0-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:29:13 GMT
+      - Sun, 20 Oct 2024 09:28:34 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -74,15 +75,13 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-16T21:29:13Z'
+      - '2024-10-20T09:28:34Z'
       content-length:
-      - '1124'
+      - '985'
       request-id:
-      - req_01KJ13xvVfJ6KAKmR8BSHnAo
+      - req_017tKQptMWkkedTSJgbJJtAj
       via:
       - 1.1 google
-      x-cloud-trace-context:
-      - 721005cc1dfd99da671c0ff0077ef867
     status:
       code: 200
       message: OK

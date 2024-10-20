@@ -21,7 +21,7 @@ interactions:
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.34.2
+      - Anthropic/Python 0.36.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -31,7 +31,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.34.2
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -40,18 +42,18 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01FXcjf7cEioTSKH7pPuThgP","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"tool_use","id":"toolu_013gQ8WUNqvhGcjBrhbcJqQR","name":"generate","input":{"prompt":"<UNKNOWN>"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":328,"output_tokens":34}}'
+      string: '{"id":"msg_01PwBm7fKYy1fniohkny9ZxL","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"tool_use","id":"toolu_01HUgkHKtT6YfUPmppHSqoPg","name":"generate","input":{"prompt":"10"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":328,"output_tokens":33}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b21068830968e-SJC
+      - 8d57f61c28cf176b-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:26:47 GMT
+      - Sun, 20 Oct 2024 09:25:36 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -63,15 +65,13 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-16T21:26:47Z'
+      - '2024-10-20T09:25:36Z'
       content-length:
-      - '321'
+      - '314'
       request-id:
-      - req_018VH3kzkj73pwpVeVbhrwTZ
+      - req_01BGhDD4kVwUwedgDNG1zoVi
       via:
       - 1.1 google
-      x-cloud-trace-context:
-      - f11bc03d1e8ad1c0f9e11f8d495c59f3
     status:
       code: 200
       message: OK

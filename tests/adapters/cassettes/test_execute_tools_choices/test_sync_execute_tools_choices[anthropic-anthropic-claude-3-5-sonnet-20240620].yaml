@@ -21,7 +21,7 @@ interactions:
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.34.2
+      - Anthropic/Python 0.36.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -31,7 +31,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.34.2
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -40,26 +42,27 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01WUvQ6uc4jCyXQFQUhJApk3","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"Certainly!
-        I can help you generate a random number using the available tool. However,
-        I need a bit more information to proceed. The \"generate\" function requires
-        a prompt parameter that specifies the type of random number you want, like
-        \"5\", \"4\", \"3\", \"10\", or \"11\".\n\nCould you please provide more details
-        about the random number you''d like to generate? For example:\n1. What range
-        of numbers are you interested in?\n2. Do you want a single digit or multiple
-        digits?\n3. Any specific upper or lower limit?\n\nOnce you provide this information,
-        I can use the tool to generate a random number for you."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":369,"output_tokens":142}}'
+      string: '{"id":"msg_01Sq2kiS5mvX7tmN7NuiA4j8","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"Certainly!
+        I''d be happy to generate a random number for you. However, to use the random
+        number generation tool, we need to provide a prompt that specifies the type
+        of random number you''d like. The tool description suggests that we should
+        provide a prompt like \"5, 4, 3, 10, 11\" to indicate the range or type of
+        random number we want.\n\nCould you please specify what kind of random number
+        you''d like? For example:\n1. A single digit number (1-9)\n2. A number within
+        a specific range (e.g., 1-100)\n3. A number with a certain number of digits
+        (e.g., a 3-digit number)\n\nOnce you provide this information, I''ll be able
+        to generate the random number for you using the tool."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":369,"output_tokens":177}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b22592f4d983a-SJC
+      - 8d57f6975ad2176b-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:27:42 GMT
+      - Sun, 20 Oct 2024 09:25:59 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -71,21 +74,19 @@ interactions:
       anthropic-ratelimit-requests-remaining:
       - '3999'
       anthropic-ratelimit-requests-reset:
-      - '2024-10-16T21:28:08Z'
+      - '2024-10-20T09:26:08Z'
       anthropic-ratelimit-tokens-limit:
       - '8000000'
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-16T21:27:42Z'
+      - '2024-10-20T09:25:59Z'
       content-length:
-      - '855'
+      - '916'
       request-id:
-      - req_013ui37mKvzkbmvV71p9N3TM
+      - req_01EaFTn343yxUxS3b9pwwzrL
       via:
       - 1.1 google
-      x-cloud-trace-context:
-      - 435df2a1d9827d8728e60584054d363a
     status:
       code: 200
       message: OK

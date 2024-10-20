@@ -21,7 +21,7 @@ interactions:
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.34.2
+      - Anthropic/Python 0.36.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -31,7 +31,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.34.2
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -40,19 +42,18 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01CZ8Uz4zYnjUvEL2n5LMLj2","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"tool_use","id":"toolu_012q5zyUxWPYWihCATQjNHdV","name":"generate","input":{"prompt":"5,
-        7, 12, 4, 9"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":374,"output_tokens":45}}'
+      string: '{"id":"msg_018xEipwVorphqWjPULzGtwi","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"tool_use","id":"toolu_01F6uvr9e4N3ncmDXaa8J9bV","name":"generate","input":{"prompt":"10"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":374,"output_tokens":33}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b21109d0ff9d4-SJC
+      - 8d57f627ca2d176b-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:26:50 GMT
+      - Sun, 20 Oct 2024 09:25:39 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -64,15 +65,13 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-16T21:26:50Z'
+      - '2024-10-20T09:25:39Z'
       content-length:
-      - '324'
+      - '312'
       request-id:
-      - req_01CYvHyqB4YRFwWXmmrYbPxp
+      - req_01EHQEtwzGaXrYaqT6vmjtDB
       via:
       - 1.1 google
-      x-cloud-trace-context:
-      - f09661fccd79f3cb7cde21ff515c3b2d
     status:
       code: 200
       message: OK

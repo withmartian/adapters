@@ -21,7 +21,7 @@ interactions:
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.34.2
+      - Anthropic/Python 0.36.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -31,7 +31,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.34.2
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -40,20 +42,20 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01GHkor5XV5fGprwNeU4Xq5E","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Okay,
-        let me invoke the \"generate\" tool to get a random number for you."},{"type":"tool_use","id":"toolu_01LyTAs5gn12BNbWod6yap2N","name":"generate","input":{"prompt":"Random
+      string: '{"id":"msg_01YCYd86zZXx8Av2UrEANsdm","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Okay,
+        let me invoke the \"generate\" tool to generate a random number for you."},{"type":"tool_use","id":"toolu_01HuyGBeDfRVvcq1Ftzj7ha4","name":"generate","input":{"prompt":"Random
         number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":234,"output_tokens":72}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b21fdb81ff96f-SJC
+      - 8d57f65a2974176b-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:27:26 GMT
+      - Sun, 20 Oct 2024 09:25:45 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -65,15 +67,13 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-16T21:27:26Z'
+      - '2024-10-20T09:25:45Z'
       content-length:
-      - '424'
+      - '429'
       request-id:
-      - req_011RaSahQzoQbwLWvdZv1bRn
+      - req_01ApaNzuZo5hT2eoFFcdPMun
       via:
       - 1.1 google
-      x-cloud-trace-context:
-      - b2d1fe08dc537b18a95815fbb1de23f4
     status:
       code: 200
       message: OK

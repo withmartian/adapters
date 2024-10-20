@@ -21,7 +21,7 @@ interactions:
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.34.2
+      - Anthropic/Python 0.36.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -31,7 +31,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.34.2
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -40,18 +42,19 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_011nvEf6tNjqBfADvvm2uFxh","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"tool_use","id":"toolu_01VKZ1cPxBmgrweaGYXizHGW","name":"generate","input":{"prompt":"10"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":371,"output_tokens":36}}'
+      string: '{"id":"msg_012tBywEDD6RS8GGAXrSbU32","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"tool_use","id":"toolu_019LJ1e4CreKTbVSdYdTVWCG","name":"generate","input":{"prompt":"5,
+        4, 3, 10, 11"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":371,"output_tokens":48}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b2517d96c1664-SJC
+      - 8d57f72ecf6f176b-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:29:34 GMT
+      - Sun, 20 Oct 2024 09:26:20 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -63,15 +66,13 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-16T21:29:34Z'
+      - '2024-10-20T09:26:20Z'
       content-length:
-      - '312'
+      - '325'
       request-id:
-      - req_018JkJDKVC3h1Uc3ZN2MKGm9
+      - req_011p8o5MjuLR2EoewwBs46WS
       via:
       - 1.1 google
-      x-cloud-trace-context:
-      - d515ab129ac2320c8fbdd544daf206d0
     status:
       code: 200
       message: OK
