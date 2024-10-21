@@ -8,6 +8,7 @@ from adapters.types import (
     AdapterStreamChatCompletion,
     Conversation,
     Model,
+    Prompt,
 )
 
 
@@ -72,3 +73,10 @@ class BaseAdapter(ABC):
         **kwargs,
     ) -> AdapterChatCompletion | AdapterStreamChatCompletion:
         pass
+
+    # Deprecated
+    @staticmethod
+    def convert_to_input(llm_input: Conversation | Prompt) -> Conversation:
+        if isinstance(llm_input, Conversation):
+            return llm_input
+        return llm_input.convert_to_conversation()

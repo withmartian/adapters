@@ -1,12 +1,12 @@
 from abc import abstractmethod
-from typing import Any, Callable, Dict, Generic, Optional, TypeVar
+from typing import Any, Callable, Dict, Generic, Literal, Optional, TypeVar
 
 from openai import NOT_GIVEN, NotGiven
 
 from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.base_adapter import BaseAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from adapters.client_cache import _client_cache
+from adapters.client_cache import client_cache
 from adapters.general_utils import (
     EMPTY_CONTENT,
     delete_none_values,
@@ -43,24 +43,27 @@ class SDKChatAdapter(
         super().__init__()
         self._setup_clients(self.get_api_key())
 
+    def _get_or_create_client(
+        self, api_key: str, client_type: Literal["sync", "async"]
+    ) -> Any:
+        client = client_cache.get_client(self.get_base_sdk_url(), api_key, client_type)
+        if not client:
+            create_client_method = getattr(self, f"_create_client_{client_type}")
+            client = create_client_method(
+                api_key=api_key,
+                base_url=self.get_base_sdk_url(),
+            )
+            client_cache.set_client(
+                self.get_base_sdk_url(),
+                api_key,
+                client_type,
+                client,
+            )
+        return client
+
     def _setup_clients(self, api_key: str) -> None:
-        cached_client_sync_path = f"{self.get_base_sdk_url()}-{api_key}-sync"
-        cached_client_async_path = f"{self.get_base_sdk_url()}-{api_key}-async"
-
-        if not _client_cache.get(cached_client_sync_path):
-            _client_cache[cached_client_sync_path] = self._create_client_sync(
-                api_key=api_key,
-                base_url=self.get_base_sdk_url(),
-            )
-
-        if not _client_cache.get(cached_client_async_path):
-            _client_cache[cached_client_async_path] = self._create_client_async(
-                api_key=api_key,
-                base_url=self.get_base_sdk_url(),
-            )
-
-        self._client_sync = _client_cache[cached_client_sync_path]
-        self._client_async = _client_cache[cached_client_async_path]
+        self._client_sync = self._get_or_create_client(api_key, "sync")
+        self._client_async = self._get_or_create_client(api_key, "async")
 
     @abstractmethod
     def _call_sync(self) -> Callable:

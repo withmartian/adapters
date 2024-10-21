@@ -62,8 +62,6 @@ from adapters import AdapterFactory, Prompt
 
 adapter = AdapterFactory.get_adapter_by_path("openai/openai/gpt-4o-mini")
 
-prompt = Prompt("Who is your favorite Martian?")
-
 conversation = Conversation(
     [Turn(role=ConversationRole.user, content="Hi")]
 )
