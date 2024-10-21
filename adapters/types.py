@@ -211,6 +211,12 @@ class Conversation(BaseModel):
         return False
 
 
+# Deprecated
+class Prompt(str):
+    def convert_to_conversation(self) -> Conversation:
+        return Conversation(turns=[Turn(role=ConversationRole.user, content=self)])
+
+
 class AdapterChatCompletion(ChatCompletion):
     cost: float
 
