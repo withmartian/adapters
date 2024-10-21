@@ -59,6 +59,7 @@ poetry run pytest
 
 ```python
 from adapters import AdapterFactory, Prompt
+from adapters.types import Conversation, ConversationRole, Turn
 
 adapter = AdapterFactory.get_adapter_by_path("openai/openai/gpt-4o-mini")
 
