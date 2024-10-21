@@ -248,4 +248,4 @@ class Prompt(str):
 AdapterResponse = AdapterChatCompletion
 
 # Deprecated, Use AdapterStreamChatCompletion
-AdapterStreamResponse = AdapterStreamChatCompletion
+AdapterStreamResponse = Generator
