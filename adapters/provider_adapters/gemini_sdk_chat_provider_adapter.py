@@ -161,6 +161,10 @@ class GeminiSDKChatProviderAdapter(
             cost=cost,
             usage=usage,
             choices=choices,
+            response=Turn(
+                role=ConversationRole.assistant,
+                content=choices[0].message.content or "",
+            ),
         )
 
     async def _extract_response_async(
@@ -204,6 +208,10 @@ class GeminiSDKChatProviderAdapter(
             cost=cost,
             usage=usage,
             choices=choices,
+            response=Turn(
+                role=ConversationRole.assistant,
+                content=choices[0].message.content or "",
+            ),
         )
 
     def _extract_stream_response(self, request, response, state):

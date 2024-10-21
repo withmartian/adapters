@@ -8,7 +8,9 @@ from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
     AdapterChatCompletion,
     AdapterChatCompletionChunk,
+    ConversationRole,
     RequestBody,
+    Turn,
 )
 
 
@@ -56,6 +58,10 @@ class OpenAISDKChatAdapter(SDKChatAdapter[OpenAI, AsyncOpenAI]):
         return AdapterChatCompletion.model_construct(
             **response.model_dump(),
             cost=cost,
+            response=Turn(
+                role=ConversationRole.assistant,
+                content=response.choices[0].message.content or "",
+            ),
         )
 
     def _extract_stream_response(
