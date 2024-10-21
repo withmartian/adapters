@@ -209,6 +209,9 @@ class Conversation(BaseModel):
             )
 
         return False
+    
+    def convert_to_prompt(self) -> "Prompt":
+        return Prompt("".join([f"{turn.role}: {turn.content}" for turn in self.turns]))
 
 
 class AdapterChatCompletion(ChatCompletion):
