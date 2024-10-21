@@ -220,6 +220,9 @@ class Prompt(str):
 class AdapterChatCompletion(ChatCompletion):
     cost: float
 
+    # Deprecated. Use Choices
+    response: Turn
+
 
 class AdapterChatCompletionChunk(ChatCompletionChunk):
     pass

@@ -17,6 +17,7 @@ from adapters.types import (
     Cost,
     Model,
     ModelProperties,
+    Turn,
 )
 
 API_KEY_NAME = "COHERE_API_KEY"
@@ -226,6 +227,10 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
             cost=cost,
             usage=usage,
             choices=choices,
+            response=Turn(
+                role=ConversationRole.assistant,
+                content=choices[0].message.content or "",
+            ),
         )
 
     def _extract_stream_response(

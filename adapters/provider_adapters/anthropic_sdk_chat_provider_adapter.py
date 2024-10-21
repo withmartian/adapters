@@ -54,6 +54,7 @@ from adapters.types import (
     Cost,
     Model,
     ModelProperties,
+    Turn,
 )
 
 PROVIDER_NAME = "anthropic"
@@ -227,6 +228,10 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
             cost=cost,
             usage=usage,
             choices=choices,
+            response=Turn(
+                role=ConversationRole.assistant,
+                content=choices[0].message.content or "",
+            ),
         )
 
     # TODO: add streaming tools support
