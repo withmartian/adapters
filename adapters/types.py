@@ -211,17 +211,13 @@ class Conversation(BaseModel):
         return False
 
 
-# Deprecated
-class Prompt(str):
-    def convert_to_conversation(self) -> Conversation:
-        return Conversation(turns=[Turn(role=ConversationRole.user, content=self)])
-
-
 class AdapterChatCompletion(ChatCompletion):
     cost: float
 
-    # Deprecated. Use Choices
+    # Deprecated. Use choices
     response: Turn
+    # Deprecated. Use usage
+    token_counts: Optional[Cost] = None
 
 
 class AdapterChatCompletionChunk(ChatCompletionChunk):
@@ -237,3 +233,16 @@ class AdapterException(Exception):
 
 class AdapterRateLimitException(AdapterException):
     pass
+
+
+# Deprecated
+class Prompt(str):
+    def convert_to_conversation(self) -> Conversation:
+        return Conversation(turns=[Turn(role=ConversationRole.user, content=self)])
+
+
+# Deprecated, Use AdapterChatCompletion
+AdapterResponse = AdapterChatCompletion
+
+# Deprecated, Use AdapterStreamChatCompletion
+AdapterStreamResponse = AdapterStreamChatCompletion

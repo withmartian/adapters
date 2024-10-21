@@ -9,6 +9,7 @@ from adapters.types import (
     AdapterChatCompletion,
     AdapterChatCompletionChunk,
     ConversationRole,
+    Cost,
     RequestBody,
     Turn,
 )
@@ -58,9 +59,15 @@ class OpenAISDKChatAdapter(SDKChatAdapter[OpenAI, AsyncOpenAI]):
         return AdapterChatCompletion.model_construct(
             **response.model_dump(),
             cost=cost,
+            # Deprecated
             response=Turn(
                 role=ConversationRole.assistant,
                 content=response.choices[0].message.content or "",
+            ),
+            token_counts=Cost(
+                prompt=prompt_tokens,
+                completion=completion_tokens,
+                request=self.get_model().cost.request,
             ),
         )
 
