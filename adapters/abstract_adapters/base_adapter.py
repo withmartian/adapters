@@ -12,6 +12,9 @@ from adapters.types import (
 
 
 class BaseAdapter(ABC):
+    def set_api_key(self, api_key: str) -> None:
+        pass
+
     @abstractmethod
     def get_model(self) -> Model:
         pass

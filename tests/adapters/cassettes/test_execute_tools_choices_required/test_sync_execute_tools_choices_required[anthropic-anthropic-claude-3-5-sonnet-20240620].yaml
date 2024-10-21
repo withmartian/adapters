@@ -21,7 +21,7 @@ interactions:
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.34.2
+      - Anthropic/Python 0.36.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -31,7 +31,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.34.2
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -40,18 +42,19 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01P6DtqXmJYpA98Du1KERmf9","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"tool_use","id":"toolu_01EYEeCqiAFyMbV9vMWn4KSz","name":"generate","input":{"prompt":"5"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":351,"output_tokens":36}}'
+      string: '{"id":"msg_01NTRN4XxbE7yKnuRCLVeKEN","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"tool_use","id":"toolu_01XcBkKs6GMPeXaRGoRXHFDa","name":"generate","input":{"prompt":"Random
+        number like 5, 4, 3, 10, 11"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":351,"output_tokens":52}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d2c173e68ba67f7-SJC
+      - 8d57f7448f60176b-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 15 Oct 2024 01:38:39 GMT
+      - Sun, 20 Oct 2024 09:26:23 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -63,21 +66,19 @@ interactions:
       anthropic-ratelimit-requests-remaining:
       - '3999'
       anthropic-ratelimit-requests-reset:
-      - '2024-10-15T01:39:08Z'
+      - '2024-10-20T09:27:08Z'
       anthropic-ratelimit-tokens-limit:
       - '8000000'
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-15T01:38:39Z'
+      - '2024-10-20T09:26:23Z'
       content-length:
-      - '315'
+      - '348'
       request-id:
-      - req_018SVHHkGQkkPcGr87Wt7gE6
+      - req_019RoJFQjBzQCYj8ZAdkeL6y
       via:
       - 1.1 google
-      x-cloud-trace-context:
-      - 0961111d03d32cc0e235bf8d21cd1ff0
     status:
       code: 200
       message: OK

@@ -21,7 +21,7 @@ interactions:
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.34.2
+      - AsyncAnthropic/Python 0.36.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -31,7 +31,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.34.2
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -40,28 +42,28 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01QJFUXJxTP8wsdxPPy27JKh","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"Certainly!
-        I''d be happy to generate a random number for you. However, I need a bit more
-        information to use the random number generation tool effectively. The tool
-        requires a prompt that specifies the type of random number you''d like, such
-        as \"5\" for a random number between 0 and 5, or \"4, 3\" for a random number
-        between 4 and 3.\n\nCould you please provide more details about the range
-        or type of random number you''d like? For example:\n1. A single number like
-        \"10\" to generate a random number between 0 and 10\n2. Two numbers like \"5,
-        15\" to generate a random number between 5 and 15\n3. Multiple numbers like
-        \"1, 2, 3, 4, 5\" to pick a random number from this set\n\nOnce you provide
-        this information, I''ll be able to generate the random number for you."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":369,"output_tokens":204}}'
+      string: '{"id":"msg_018hfoh99RBeLJHLNVaEgJWj","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"Certainly!
+        I''d be happy to generate a random number for you. However, to use the random
+        number generation tool, we need to provide a prompt that specifies the kind
+        of random number you''re looking for. The tool expects a prompt like \"5\",
+        \"4\", \"3\", \"10\", or \"11\", which likely represents the range or type
+        of random number to generate.\n\nCould you please provide more information
+        about what kind of random number you''d like? For example:\n- Do you want
+        a random number between 1 and a specific number (e.g., \"5\" for a random
+        number between 1 and 5)?\n- Or do you have a specific range in mind?\n\nOnce
+        you provide this information, I''ll be able to use the tool to generate a
+        random number for you."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":369,"output_tokens":173}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d32cfeb1cc0236e-SJC
+      - 8d580383a9bc172e-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 15 Oct 2024 21:13:21 GMT
+      - Sun, 20 Oct 2024 09:34:49 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -73,21 +75,19 @@ interactions:
       anthropic-ratelimit-requests-remaining:
       - '3999'
       anthropic-ratelimit-requests-reset:
-      - '2024-10-15T21:14:08Z'
+      - '2024-10-20T09:35:08Z'
       anthropic-ratelimit-tokens-limit:
       - '8000000'
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-15T21:13:21Z'
+      - '2024-10-20T09:34:49Z'
       content-length:
-      - '1008'
+      - '951'
       request-id:
-      - req_01PPQNDyG7dB4uTxkBR6wG3d
+      - req_01MTVjr29gafVKHWPuTePzA6
       via:
       - 1.1 google
-      x-cloud-trace-context:
-      - 0758bf9939537b1c7e05df5b9d244c3b
     status:
       code: 200
       message: OK

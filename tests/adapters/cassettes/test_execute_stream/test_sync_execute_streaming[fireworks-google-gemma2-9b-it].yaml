@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "accounts/fireworks/models/gemma2-9b-it",
+      "stream": true}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '116'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - OpenAI/Python 1.52.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: "data: {\"id\":\"d37d5b3a-5adc-4112-a189-049bff917e07\",\"object\":\"chat.completion.chunk\",\"created\":1729454691,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"assistant\"},\"finish_reason\":null}],\"usage\":null}\n\ndata:
+        {\"id\":\"d37d5b3a-5adc-4112-a189-049bff917e07\",\"object\":\"chat.completion.chunk\",\"created\":1729454691,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"Hi!\"},\"finish_reason\":null}],\"usage\":null}\n\ndata:
+        {\"id\":\"d37d5b3a-5adc-4112-a189-049bff917e07\",\"object\":\"chat.completion.chunk\",\"created\":1729454691,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"
+        \U0001F44B  What can I do for\"},\"finish_reason\":null}],\"usage\":null}\n\ndata:
+        {\"id\":\"d37d5b3a-5adc-4112-a189-049bff917e07\",\"object\":\"chat.completion.chunk\",\"created\":1729454691,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"
+        you today?<end_of_turn>\\n\"},\"finish_reason\":null}],\"usage\":null}\n\ndata:
+        {\"id\":\"d37d5b3a-5adc-4112-a189-049bff917e07\",\"object\":\"chat.completion.chunk\",\"created\":1729454691,\"model\":\"accounts/fireworks/models/gemma2-9b-it\",\"choices\":[{\"index\":0,\"delta\":{},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":10,\"total_tokens\":25,\"completion_tokens\":15}}\n\ndata:
+        [DONE]\n\n"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8d5b9e893f68cf87-SJC
+      Cf-Placement:
+      - remote-SEA
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Date:
+      - Sun, 20 Oct 2024 20:04:51 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=298.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-time-to-first-token:
+      - '0.034'
+      x-envoy-upstream-service-time:
+      - '36'
+      x-request-id:
+      - d37d5b3a-5adc-4112-a189-049bff917e07
+    status:
+      code: 200
+      message: OK
+version: 1

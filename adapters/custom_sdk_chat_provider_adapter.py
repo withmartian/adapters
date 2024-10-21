@@ -1,8 +1,7 @@
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 
 
-class CustomAISDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
+class CustomAISDKChatProviderAdapter(OpenAISDKChatAdapter):
     def __init__(self, base_url: str):
         self.base_url = base_url
         super().__init__()

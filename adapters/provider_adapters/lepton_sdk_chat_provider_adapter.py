@@ -6,7 +6,6 @@
 from httpx import URL
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.types import Cost, Model, ModelProperties
 
 PROVIDER_NAME = "lepton"
@@ -29,7 +28,7 @@ class LeptonModel(Model):
     supports_tool_choice_required: bool = True
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
-    supports_streaming: bool = False
+    supports_streaming: bool = True
 
     properties: ModelProperties = BASE_PROPERTIES
 
@@ -81,7 +80,7 @@ MODELS = [
 ]
 
 
-class LeptonSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
+class LeptonSDKChatProviderAdapter(OpenAISDKChatAdapter):
     _current_model: LeptonModel
 
     @staticmethod
@@ -102,8 +101,8 @@ class LeptonSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
     def _set_current_model(self, model: Model) -> None:
         super()._set_current_model(model)
 
-        self._sync_client.base_url = URL(self._current_model.base_url)
-        self._async_client.base_url = URL(self._current_model.base_url)
+        self._client_sync.base_url = URL(self._current_model.base_url)
+        self._client_async.base_url = URL(self._current_model.base_url)
 
     # def extract_stream_response(self, request, response: ChatCompletionChunk) -> str:
     #     # It must be the last response from Lepton that is empty.

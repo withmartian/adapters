@@ -2,13 +2,11 @@ from enum import Enum
 import time
 from typing import Any, Dict
 
-from cohere import AsyncClientV2, ClientV2
+from cohere import AsyncClientV2, ChatResponse, ClientV2
 from openai.types import CompletionUsage
 from openai.types.chat import ChatCompletionMessage
 from openai.types.chat.chat_completion import Choice
 
-from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
-from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
     AdapterChatCompletion,
@@ -49,13 +47,37 @@ class CohereModel(Model):
 MODELS = [
     CohereModel(
         name="command-r-plus-08-2024",
-        cost=Cost(prompt=0.5e-6, completion=1.5e-6),
+        cost=Cost(prompt=2.50e-6, completion=10.00e-6),
+        context_length=128000,
+        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
+    ),
+    CohereModel(
+        name="command-r-plus-04-2024",
+        cost=Cost(prompt=2.50e-6, completion=10.00e-6),
         context_length=128000,
         properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
     CohereModel(
         name="command-r-plus",
-        cost=Cost(prompt=3.00e-6, completion=15.00e-6),
+        cost=Cost(prompt=2.50e-6, completion=10.00e-6),
+        context_length=128000,
+        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
+    ),
+    CohereModel(
+        name="command-r-08-2024",
+        cost=Cost(prompt=0.15e-6, completion=0.60e-6),
+        context_length=128000,
+        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
+    ),
+    CohereModel(
+        name="command-r-03-2024",
+        cost=Cost(prompt=0.15e-6, completion=0.60e-6),
+        context_length=128000,
+        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
+    ),
+    CohereModel(
+        name="command-r",
+        cost=Cost(prompt=0.15e-6, completion=0.60e-6),
         context_length=128000,
         properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
@@ -78,17 +100,10 @@ FINISH_REASON_MAPPING: Dict[CohereFinishReason, AdapterFinishReason] = {
 }
 
 
-class CohereSDKChatProviderAdapter(
-    ProviderAdapterMixin,
-    ApiKeyAdapterMixin,
-    SDKChatAdapter,
-):
+class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
     @staticmethod
     def get_api_key_name() -> str:
         return API_KEY_NAME
-
-    def get_base_sdk_url(self) -> str:
-        return BASE_URL
 
     @staticmethod
     def get_provider_name() -> str:
@@ -98,46 +113,30 @@ class CohereSDKChatProviderAdapter(
     def get_supported_models():
         return MODELS
 
-    _sync_client: ClientV2
-    _async_client: AsyncClientV2
-
-    def __init__(
-        self,
-    ):
-        super().__init__()
-        self._sync_client = ClientV2(
-            api_key=self.get_api_key(), base_url=self.get_base_sdk_url()
-        )
-        self._async_client = AsyncClientV2(
-            api_key=self.get_api_key(), base_url=self.get_base_sdk_url()
-        )
+    def _sync_client_wrapper(self, **kwargs: Any):
+        if kwargs.pop("stream", False):
+            return self._client_sync.chat_stream(**kwargs)
+        return self._client_sync.chat(**kwargs)
 
     async def _async_client_wrapper(self, **kwargs: Any):
-        stream = kwargs.pop("stream", False)
-        if stream:
-            return self._async_client.chat_stream(**kwargs)
-        return await self._async_client.chat(**kwargs)
+        if kwargs.pop("stream", False):
+            return self._client_async.chat_stream(**kwargs)
+        return await self._client_async.chat(**kwargs)
 
-    def _sync_client_wrapper(self, **kwargs: Any):
-        stream = kwargs.pop("stream", False)
-
-        if stream:
-            return self._sync_client.chat_stream(**kwargs)
-        return self._sync_client.chat(**kwargs)
-
-    def set_api_key(self, api_key: str) -> None:
-        super().set_api_key(api_key)
-        self._sync_client._client_wrapper._token = api_key
-        self._async_client._client_wrapper._token = api_key
-
-    def get_async_client(self):
+    def _call_async(self):
         return self._async_client_wrapper
 
-    def get_sync_client(self):
+    def _call_sync(self):
         return self._sync_client_wrapper
 
-    def get_params(self, llm_input: Conversation, **kwargs: Any) -> dict[str, Any]:
-        params = super().get_params(llm_input, **kwargs)
+    def _create_client_sync(self, base_url: str, api_key: str) -> ClientV2:
+        return ClientV2(base_url=base_url, api_key=api_key)
+
+    def _create_client_async(self, base_url: str, api_key: str) -> AsyncClientV2:
+        return AsyncClientV2(base_url=base_url, api_key=api_key)
+
+    def _get_params(self, llm_input: Conversation, **kwargs: Any) -> dict[str, Any]:
+        params = super()._get_params(llm_input, **kwargs)
 
         messages = []
         for message in params["messages"]:
@@ -159,17 +158,24 @@ class CohereSDKChatProviderAdapter(
         params["messages"] = messages
         return params
 
-    def extract_response(self, request: Any, response: Any) -> AdapterChatCompletion:
-        prompt_tokens = (
-            float(response.usage.billed_units.input_tokens)
-            if response.usage and hasattr(response.usage, "billed_units")
+    def _extract_response(
+        self, request: Any, response: ChatResponse
+    ) -> AdapterChatCompletion:
+        prompt_tokens = int(
+            response.usage.billed_units.input_tokens
+            if response.usage
+            and response.usage.billed_units
+            and response.usage.billed_units.input_tokens
             else 0
         )
-        completion_tokens = (
-            float(response.usage.billed_units.output_tokens)
-            if response.usage and hasattr(response.usage, "billed_units")
+        completion_tokens = int(
+            response.usage.billed_units.output_tokens
+            if response.usage
+            and response.usage.billed_units
+            and response.usage.billed_units.output_tokens
             else 0
         )
+
         cost = (
             self.get_model().cost.prompt * prompt_tokens
             + self.get_model().cost.completion * completion_tokens
@@ -181,23 +187,35 @@ class CohereSDKChatProviderAdapter(
         )
 
         choices: list[Choice] = []
-        for content in response.message.content:
-            if content.type == "text":
-                choices.append(
-                    Choice(
-                        index=len(choices),
-                        finish_reason=finish_reason.value,
-                        message=ChatCompletionMessage(
-                            role=ConversationRole.assistant.value,
-                            content=content.text,
-                        ),
+        if response.message and response.message.content:
+            for content in response.message.content:
+                if content.type == "text":
+                    choices.append(
+                        Choice(
+                            index=len(choices),
+                            finish_reason=finish_reason.value,
+                            message=ChatCompletionMessage(
+                                role=ConversationRole.assistant.value,
+                                content=content.text,
+                            ),
+                        )
                     )
+        else:
+            choices.append(
+                Choice(
+                    index=len(choices),
+                    finish_reason=finish_reason.value,
+                    message=ChatCompletionMessage(
+                        role=ConversationRole.assistant.value,
+                        content="",
+                    ),
                 )
+            )
+
         usage = CompletionUsage(
-            prompt_tokens=response.usage.billed_units.input_tokens,
-            completion_tokens=response.usage.billed_units.output_tokens,
-            total_tokens=response.usage.billed_units.input_tokens
-            + response.usage.billed_units.output_tokens,
+            prompt_tokens=prompt_tokens,
+            completion_tokens=completion_tokens,
+            total_tokens=prompt_tokens + completion_tokens,
         )
 
         return AdapterChatCompletion(
@@ -210,7 +228,7 @@ class CohereSDKChatProviderAdapter(
             choices=choices,
         )
 
-    def extract_stream_response(
+    def _extract_stream_response(
         self, request: Any, response: Any, state
     ) -> AdapterChatCompletionChunk:
         raise NotImplementedError
@@ -234,3 +252,6 @@ class CohereSDKChatProviderAdapter(
         # )
 
         # return f"data: {chunk}\n\n"
+
+    def get_base_sdk_url(self) -> str:
+        return BASE_URL

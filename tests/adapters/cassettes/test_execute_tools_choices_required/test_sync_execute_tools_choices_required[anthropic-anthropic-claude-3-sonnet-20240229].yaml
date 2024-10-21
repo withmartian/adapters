@@ -21,7 +21,7 @@ interactions:
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.34.2
+      - Anthropic/Python 0.36.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -31,7 +31,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.34.2
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -40,18 +42,19 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01BPXH9Axu32d8GoNrD8tChj","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"tool_use","id":"toolu_01TXt1GMkQh1x3YGuyYt1TEe","name":"generate","input":{"prompt":"<UNKNOWN>"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":325,"output_tokens":37}}'
+      string: '{"id":"msg_0189jUdn39MHAamMvRbww2mW","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"tool_use","id":"toolu_013eYhrNnfDiBiVzVjV25mmz","name":"generate","input":{"prompt":"Random
+        number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":325,"output_tokens":37}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d2c171768c667dd-SJC
+      - 8d57f727695a176b-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 15 Oct 2024 01:38:33 GMT
+      - Sun, 20 Oct 2024 09:26:18 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -63,15 +66,13 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-15T01:38:33Z'
+      - '2024-10-20T09:26:18Z'
       content-length:
-      - '321'
+      - '325'
       request-id:
-      - req_01FxyyB17RfmB5pdJQ2q28DE
+      - req_01HdaWCxdCSLNs8E5YTLTYun
       via:
       - 1.1 google
-      x-cloud-trace-context:
-      - a0ac5fe31128f6604acd00b96e7a905b
     status:
       code: 200
       message: OK

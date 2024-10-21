@@ -13,7 +13,7 @@ pip install martian-adapters
 
 ### Prerequisites
 
-- Python version: 3.11.6
+- Python version: 3.11.10
 - [Poetry](https://python-poetry.org/docs/#installation)
 
 ### Installation
@@ -63,7 +63,10 @@ from adapters import AdapterFactory, Prompt
 adapter = AdapterFactory.get_adapter_by_path("openai/openai/gpt-4o-mini")
 
 prompt = Prompt("Who is your favorite Martian?")
-conversation = adapter.convert_to_input(prompt)
+
+conversation = Conversation(
+    [Turn(role=ConversationRole.user, content="Hi")]
+)
 
 adapter.execute_sync(conversation)
 ```

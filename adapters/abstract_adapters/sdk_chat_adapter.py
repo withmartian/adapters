@@ -1,9 +1,17 @@
 from abc import abstractmethod
-from typing import Any, Dict, List, Optional
+from typing import Any, Callable, Dict, Generic, Optional, TypeVar
 
 from openai import NOT_GIVEN, NotGiven
 
+from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.base_adapter import BaseAdapter
+from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
+from adapters.client_cache import _client_cache
+from adapters.general_utils import (
+    EMPTY_CONTENT,
+    delete_none_values,
+    stream_generator_auto_close,
+)
 from adapters.types import (
     AdapterChatCompletion,
     AdapterChatCompletionChunk,
@@ -15,13 +23,59 @@ from adapters.types import (
     Model,
     ModelProperties,
 )
-from adapters.utils.adapter_stream_response import stream_generator_auto_close
-from adapters.utils.general_utils import EMPTY_CONTENT, delete_none_values
+
+CLIENT_SYNC = TypeVar("CLIENT_SYNC")
+CLIENT_ASYNC = TypeVar("CLIENT_ASYNC")
 
 
-class SDKChatAdapter(BaseAdapter):
+class SDKChatAdapter(
+    BaseAdapter,
+    ApiKeyAdapterMixin,
+    ProviderAdapterMixin,
+    Generic[CLIENT_SYNC, CLIENT_ASYNC],
+):
+    _client_sync: CLIENT_SYNC
+    _client_async: CLIENT_ASYNC
+
+    def __init__(
+        self,
+    ):
+        super().__init__()
+        self._setup_clients(self.get_api_key())
+
+    def _setup_clients(self, api_key: str) -> None:
+        cached_client_sync_path = f"{self.get_base_sdk_url()}-{api_key}-sync"
+        cached_client_async_path = f"{self.get_base_sdk_url()}-{api_key}-async"
+
+        if not _client_cache.get(cached_client_sync_path):
+            _client_cache[cached_client_sync_path] = self._create_client_sync(
+                api_key=api_key,
+                base_url=self.get_base_sdk_url(),
+            )
+
+        if not _client_cache.get(cached_client_async_path):
+            _client_cache[cached_client_async_path] = self._create_client_async(
+                api_key=api_key,
+                base_url=self.get_base_sdk_url(),
+            )
+
+        self._client_sync = _client_cache[cached_client_sync_path]
+        self._client_async = _client_cache[cached_client_async_path]
+
     @abstractmethod
-    def get_supported_models(self) -> List[Model]:
+    def _call_sync(self) -> Callable:
+        pass
+
+    @abstractmethod
+    def _call_async(self) -> Callable:
+        pass
+
+    @abstractmethod
+    def _create_client_sync(self, base_url: str, api_key: str) -> CLIENT_SYNC:
+        pass
+
+    @abstractmethod
+    def _create_client_async(self, base_url: str, api_key: str) -> CLIENT_ASYNC:
         pass
 
     @abstractmethod
@@ -29,34 +83,21 @@ class SDKChatAdapter(BaseAdapter):
         pass
 
     @abstractmethod
-    def get_async_client(self):
+    def _extract_response(self, request, response) -> AdapterChatCompletion:
         pass
 
     @abstractmethod
-    def get_sync_client(self):
-        pass
-
-    @abstractmethod
-    def extract_response(self, request, response) -> AdapterChatCompletion:
-        pass
-
-    @abstractmethod
-    def extract_stream_response(
+    def _extract_stream_response(
         self, request, response, state
     ) -> AdapterChatCompletionChunk:
         pass
 
-    def get_model_properteis(self, model_name: str) -> ModelProperties:
-        for model in self.get_supported_models():
-            if model.name == model_name:
-                return model.properties
-        raise ValueError(f"Model {model_name} not found")
-
-    def adjust_temperature(self, temperature: float) -> float:
+    def _adjust_temperature(self, temperature: float) -> float:
         return temperature
 
-    # pylint: disable=too-many-statements
-    def get_params(
+        # pylint: disable=too-many-statements
+
+    def _get_params(
         self,
         llm_input: Conversation,
         **kwargs,  # TODO: type kwargs
@@ -218,12 +259,27 @@ class SDKChatAdapter(BaseAdapter):
         return {
             "messages": messages,
             **(
-                {"temperature": self.adjust_temperature(kwargs.get("temperature", 1))}
+                {"temperature": self._adjust_temperature(kwargs.get("temperature", 1))}
                 if kwargs.get("temperature") is not None
                 else {}
             ),
             **kwargs,
         }
+
+    def get_model(self) -> Model:
+        if self._current_model is None:
+            raise ValueError("Model is not set")
+        return self._current_model
+
+    def get_model_properteis(self, model_name: str) -> ModelProperties:
+        for model in self.get_supported_models():
+            if model.name == model_name:
+                return model.properties
+        raise ValueError(f"Model {model_name} not found")
+
+    def set_api_key(self, api_key: str) -> None:
+        super().set_api_key(api_key)
+        self._setup_clients(api_key)
 
     async def execute_async(
         self,
@@ -231,22 +287,22 @@ class SDKChatAdapter(BaseAdapter):
         stream: Optional[bool] | NotGiven = NOT_GIVEN,
         **kwargs,
     ):
-        params = self.get_params(llm_input, stream=stream, **kwargs)
+        params = self._get_params(llm_input, stream=stream, **kwargs)
 
-        response = await self.get_async_client()(
+        response = await self._call_async()(
             model=self.get_model()._get_api_path(),
             **delete_none_values(params),
         )
 
         if not stream:
-            return self.extract_response(request=llm_input, response=response)
+            return self._extract_response(request=llm_input, response=response)
 
         async def stream_response():
             state = {}
             async with stream_generator_auto_close(response):
                 try:
                     async for chunk in response:
-                        yield self.extract_stream_response(
+                        yield self._extract_stream_response(
                             request=llm_input, response=chunk, state=state
                         )
                 except Exception as e:
@@ -262,21 +318,21 @@ class SDKChatAdapter(BaseAdapter):
         stream: Optional[bool] | NotGiven = NOT_GIVEN,
         **kwargs,
     ):
-        params = self.get_params(llm_input, stream=stream, **kwargs)
+        params = self._get_params(llm_input, stream=stream, **kwargs)
 
-        response = self.get_sync_client()(
+        response = self._call_sync()(
             model=self.get_model()._get_api_path(),
             **delete_none_values(params),
         )
 
         if not stream:
-            return self.extract_response(request=llm_input, response=response)
+            return self._extract_response(request=llm_input, response=response)
 
         def stream_response():
             state = {}
             try:
                 for chunk in response:
-                    yield self.extract_stream_response(
+                    yield self._extract_stream_response(
                         request=llm_input, response=chunk, state=state
                     )
             except Exception as e:

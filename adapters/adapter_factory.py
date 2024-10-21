@@ -13,9 +13,6 @@ from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
 from adapters.provider_adapters.openai_sdk_chat_provider_adapter import (
     OpenAISDKChatProviderAdapter,
 )
-from adapters.provider_adapters.together_sdk_chat_provider_adapter import (
-    TogetherSDKChatProviderAdapter,
-)
 from adapters.types import Model
 
 
@@ -34,16 +31,13 @@ class AdapterFactory:
                     adapters_classes[model.get_path()] = obj
 
         for model in OpenAISDKChatProviderAdapter.get_supported_models():
-            adapters_classes[model.name] = OpenAISDKChatProviderAdapter  # type: ignore
+            adapters_classes[model.name] = OpenAISDKChatProviderAdapter
 
         for model in AnthropicSDKChatProviderAdapter.get_supported_models():
-            adapters_classes[model.name] = AnthropicSDKChatProviderAdapter  # type: ignore
-
-        for model in TogetherSDKChatProviderAdapter.get_supported_models():
-            adapters_classes[model.name] = TogetherSDKChatProviderAdapter  # type: ignore
+            adapters_classes[model.name] = AnthropicSDKChatProviderAdapter
 
         for model in GeminiSDKChatProviderAdapter.get_supported_models():
-            adapters_classes[model.name] = GeminiSDKChatProviderAdapter  # type: ignore
+            adapters_classes[model.name] = GeminiSDKChatProviderAdapter
 
         return adapters_classes
 
@@ -64,9 +58,6 @@ class AdapterFactory:
             models[model.name] = model
 
         for model in AnthropicSDKChatProviderAdapter.get_supported_models():
-            models[model.name] = model
-
-        for model in TogetherSDKChatProviderAdapter.get_supported_models():
             models[model.name] = model
 
         for model in GeminiSDKChatProviderAdapter.get_supported_models():

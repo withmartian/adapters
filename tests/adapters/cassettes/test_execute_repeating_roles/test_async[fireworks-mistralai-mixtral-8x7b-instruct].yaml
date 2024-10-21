@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.50.1
       x-stainless-arch:
-      - x64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Linux
+      - MacOS
       x-stainless-package-version:
       - 1.50.1
       x-stainless-retry-count:
@@ -33,34 +33,37 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.11.6
+      - 3.11.10
     method: POST
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"83d63792-69bf-4c8b-889e-215b959b27b1","object":"chat.completion","created":1729011919,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today? Please note that I am an AI and my purpose is
-        to provide useful, accurate, and positive information while ensuring your
-        data stays private."},"finish_reason":"stop"}],"usage":{"prompt_tokens":64,"total_tokens":101,"completion_tokens":37}}'
+      string: '{"id":"6d5c0256-4e52-4a2c-9c54-3e2e3a294aa7","object":"chat.completion","created":1729113137,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today? Please remember that while I strive to provide
+        helpful and accurate information, I strongly recommend double-checking with
+        other sources or professionals when important decisions are at hand. Also,
+        I am committed to upholding ethical guidelines, so I will not generate harmful,
+        unethical, prejudiced, or negative content. I''m here to promote a positive
+        and respectful environment."},"finish_reason":"stop"}],"usage":{"prompt_tokens":64,"total_tokens":150,"completion_tokens":86}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d3164abb889317c-TBS
+      - 8d3b0bd07fd3176d-SJC
       Cf-Placement:
-      - local-TBS
+      - remote-EZE
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 15 Oct 2024 17:05:19 GMT
+      - Wed, 16 Oct 2024 21:12:17 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=765.0;desc="Total Response Time"
+      - total;dur=1088.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -68,7 +71,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '487'
+      - '728'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -76,11 +79,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.439'
+      - '0.844'
       x-envoy-upstream-service-time:
-      - '440'
+      - '846'
       x-request-id:
-      - 83d63792-69bf-4c8b-889e-215b959b27b1
+      - 6d5c0256-4e52-4a2c-9c54-3e2e3a294aa7
     status:
       code: 200
       message: OK

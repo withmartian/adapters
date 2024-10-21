@@ -1,7 +1,6 @@
 from typing import Any, Dict
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.types import Conversation, ConversationRole, Cost, Model, ModelProperties
 
 PROVIDER_NAME = "together"
@@ -11,9 +10,10 @@ BASE_PROPERTIES = ModelProperties(open_source=True)
 
 
 class TogetherModel(Model):
-    supports_streaming: bool = True
-    supports_json_content: bool = True
     provider_name: str = PROVIDER_NAME
+    supports_json_content: bool = True
+    supports_streaming: bool = True
+
     properties: ModelProperties = BASE_PROPERTIES
 
     def _get_api_path(self) -> str:
@@ -46,7 +46,7 @@ MODELS = [
 ]
 
 
-class TogetherSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
+class TogetherSDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
     def get_supported_models():
         return MODELS
@@ -62,11 +62,11 @@ class TogetherSDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter)
     def get_api_key_name() -> str:
         return API_KEY_NAME
 
-    def adjust_temperature(self, temperature: float) -> float:
+    def _adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
 
-    def get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
-        params = super().get_params(llm_input, **kwargs)
+    def _get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
+        params = super()._get_params(llm_input, **kwargs)
         messages = params["messages"]
         # Remove trailing whitespace from the last assistant message
         if len(messages) > 0 and messages[-1]["role"] == ConversationRole.assistant:

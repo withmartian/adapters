@@ -1,5 +1,4 @@
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.types import Cost, Model, ModelProperties
 
 PROVIDER_NAME = "openai"
@@ -20,12 +19,12 @@ class OpenAIModel(Model):
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
     supports_user: bool = True
-    supports_streaming: bool = True
     supports_functions: bool = True
     supports_tools: bool = True
     supports_n: bool = True
     supports_json_output: bool = True
     supports_json_content: bool = True
+    supports_streaming: bool = True
 
     properties: ModelProperties = BASE_PROPERTIES
 
@@ -141,7 +140,7 @@ MODELS = [
 ]
 
 
-class OpenAISDKChatProviderAdapter(ProviderAdapterMixin, OpenAISDKChatAdapter):
+class OpenAISDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
     def get_supported_models():
         return MODELS

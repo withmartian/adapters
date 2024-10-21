@@ -10,7 +10,6 @@
 # from openai.types.chat.chat_completion import Choice
 
 # from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
-# from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 # from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 # from adapters.types import (
 #     AdapterChatCompletion,

@@ -21,7 +21,7 @@ interactions:
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.34.2
+      - AsyncAnthropic/Python 0.36.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -31,7 +31,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.34.2
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -40,27 +42,26 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_015rGVgMTosfGaMsnKHJYWdj","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
-        \"generate\" function was provided to generate random numbers. This function
-        takes in one required parameter:\nprompt: A string description of the kind
-        of random number to generate\n\nThe user''s request of \"Generate random number\"
-        does not specify any details about what kind of random number they want. To
-        properly call the generate function, we need more information from the user
-        about the desired number range or type of number.\n</thinking>\n\nTo generate
-        a random number, I need a few more details. Could you please provide a description
-        of the kind of random number you would like, such as the range (e.g. between
-        1 and 10) or type of number (e.g. single digit, two digit, etc.)?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":156}}'
+      string: '{"id":"msg_01CDs5cp7e15vejLwtGccz5v","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        user has requested to generate a random number. Let''s look at the available
+        tools:\n\ngenerate:\n- Description: Generate random number\n- Parameters:\n  -
+        prompt: Random number like 5, 4, 3, 10, 11 (required, string)\n \nThe generate
+        tool looks relevant for this request. It takes one required parameter:\n-
+        prompt: The user provided \"Generate random number\" which I can pass directly
+        as the prompt value\n\nSince the required prompt parameter is provided by
+        the user, I have all the necessary information to call the generate tool.\n</thinking>"},{"type":"tool_use","id":"toolu_01Wjv2pypGaDMkD69FtDMAmG","name":"generate","input":{"prompt":"Generate
+        random number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":182}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d32cefa0906cf0a-SJC
+      - 8d57fa17ccb0cf2e-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 15 Oct 2024 21:12:48 GMT
+      - Sun, 20 Oct 2024 09:28:25 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -72,15 +73,13 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-15T21:12:48Z'
+      - '2024-10-20T09:28:25Z'
       content-length:
-      - '943'
+      - '922'
       request-id:
-      - req_01SKF3oxj8VWdo74yrQbf2CR
+      - req_01322KcgNWHx2RP1UZCEPnU5
       via:
       - 1.1 google
-      x-cloud-trace-context:
-      - c6f07cd873e9c8d890cad02e9d151256
     status:
       code: 200
       message: OK
