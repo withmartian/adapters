@@ -227,9 +227,15 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
             cost=cost,
             usage=usage,
             choices=choices,
+            # Deprecated
             response=Turn(
                 role=ConversationRole.assistant,
                 content=choices[0].message.content or "",
+            ),
+            token_counts=Cost(
+                prompt=usage.prompt_tokens,
+                completion=usage.completion_tokens,
+                request=self.get_model().cost.request,
             ),
         )
 
