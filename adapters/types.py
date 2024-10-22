@@ -227,20 +227,14 @@ class AdapterChatCompletionChunk(ChatCompletionChunk):
     pass
 
 
-class AdapterStreamChatCompletion:
+class AdapterStreamChatCompletion(BaseModel):
     response: Union[
         Generator[AdapterChatCompletionChunk, Any, None],
         AsyncGenerator[AdapterChatCompletionChunk, Any],
     ]
 
-    def __init__(
-        self,
-        response: Union[
-            Generator[AdapterChatCompletionChunk, Any, None],
-            AsyncGenerator[AdapterChatCompletionChunk, Any],
-        ],
-    ) -> None:
-        self.response = response
+    class Config:
+        arbitrary_types_allowed = True
 
 
 class AdapterStreamSyncChatCompletion(AdapterStreamChatCompletion):
