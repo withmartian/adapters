@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Any, Dict, Generator, List, Literal, Optional, Union
+from typing import Any, AsyncGenerator, Dict, Generator, List, Literal, Optional, Union
 
 from openai.types.chat import (
     ChatCompletion,
@@ -227,7 +227,28 @@ class AdapterChatCompletionChunk(ChatCompletionChunk):
     pass
 
 
-AdapterStreamChatCompletion = Generator[AdapterChatCompletionChunk, Any, None]
+class AdapterStreamChatCompletion:
+    response: Union[
+        Generator[AdapterChatCompletionChunk, Any, None],
+        AsyncGenerator[AdapterChatCompletionChunk, Any],
+    ]
+
+    def __init__(
+        self,
+        response: Union[
+            Generator[AdapterChatCompletionChunk, Any, None],
+            AsyncGenerator[AdapterChatCompletionChunk, Any],
+        ],
+    ) -> None:
+        self.response = response
+
+
+class AdapterStreamSyncChatCompletion(AdapterStreamChatCompletion):
+    response: Generator[AdapterChatCompletionChunk, Any, None]
+
+
+class AdapterStreamAsyncChatCompletion(AdapterStreamChatCompletion):
+    response: AsyncGenerator[AdapterChatCompletionChunk, Any]
 
 
 class AdapterException(Exception):
@@ -248,4 +269,4 @@ class Prompt(str):
 AdapterResponse = AdapterChatCompletion
 
 # Deprecated, Use AdapterStreamChatCompletion
-AdapterStreamResponse = Generator
+AdapterStreamResponse = AdapterStreamChatCompletion
