@@ -26,12 +26,14 @@ class OpenAISDKChatAdapter(SDKChatAdapter[OpenAI, AsyncOpenAI]):
         return OpenAI(
             base_url=base_url,
             api_key=api_key,
+            max_retries=0,
         )
 
     def _create_client_async(self, base_url: str, api_key: str) -> AsyncOpenAI:
         return AsyncOpenAI(
             base_url=base_url,
             api_key=api_key,
+            max_retries=0,
         )
 
     def _extract_response(
