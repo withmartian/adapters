@@ -16,6 +16,8 @@ from adapters.types import (
     AdapterChatCompletion,
     AdapterChatCompletionChunk,
     AdapterException,
+    AdapterStreamAsyncChatCompletion,
+    AdapterStreamSyncChatCompletion,
     ContentTurn,
     ContentType,
     Conversation,
@@ -313,7 +315,7 @@ class SDKChatAdapter(
                 finally:
                     await response.close()
 
-        return stream_response()
+        return AdapterStreamAsyncChatCompletion(response=stream_response())
 
     def execute_sync(
         self,
@@ -343,4 +345,4 @@ class SDKChatAdapter(
             finally:
                 response.close()
 
-        return stream_response()
+        return AdapterStreamSyncChatCompletion(response=stream_response())

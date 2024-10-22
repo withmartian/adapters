@@ -5,7 +5,8 @@ from openai import NOT_GIVEN, NotGiven
 
 from adapters.types import (
     AdapterChatCompletion,
-    AdapterStreamChatCompletion,
+    AdapterStreamAsyncChatCompletion,
+    AdapterStreamSyncChatCompletion,
     Conversation,
     Model,
     Prompt,
@@ -21,33 +22,6 @@ class BaseAdapter(ABC):
         pass
 
     @overload
-    async def execute_async(
-        self,
-        llm_input: Conversation,
-        stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
-        **kwargs,
-    ) -> AdapterChatCompletion:
-        pass
-
-    @overload
-    async def execute_async(
-        self,
-        llm_input: Conversation,
-        stream: Literal[True],
-        **kwargs,
-    ) -> AdapterStreamChatCompletion:
-        pass
-
-    @abstractmethod
-    async def execute_async(
-        self,
-        llm_input: Conversation,
-        stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
-        **kwargs,
-    ) -> AdapterChatCompletion | AdapterStreamChatCompletion:
-        pass
-
-    @overload
     def execute_sync(
         self,
         llm_input: Conversation,
@@ -62,7 +36,7 @@ class BaseAdapter(ABC):
         llm_input: Conversation,
         stream: Literal[True],
         **kwargs,
-    ) -> AdapterStreamChatCompletion:
+    ) -> AdapterStreamSyncChatCompletion:
         pass
 
     @abstractmethod
@@ -71,7 +45,34 @@ class BaseAdapter(ABC):
         llm_input: Conversation,
         stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
         **kwargs,
-    ) -> AdapterChatCompletion | AdapterStreamChatCompletion:
+    ) -> AdapterChatCompletion | AdapterStreamSyncChatCompletion:
+        pass
+
+    @overload
+    async def execute_async(
+        self,
+        llm_input: Conversation,
+        stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
+        **kwargs,
+    ) -> AdapterChatCompletion:
+        pass
+
+    @overload
+    async def execute_async(
+        self,
+        llm_input: Conversation,
+        stream: Literal[True],
+        **kwargs,
+    ) -> AdapterStreamAsyncChatCompletion:
+        pass
+
+    @abstractmethod
+    async def execute_async(
+        self,
+        llm_input: Conversation,
+        stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
+        **kwargs,
+    ) -> AdapterChatCompletion | AdapterStreamAsyncChatCompletion:
         pass
 
     # Deprecated
