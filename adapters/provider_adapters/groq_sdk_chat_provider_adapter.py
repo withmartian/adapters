@@ -47,12 +47,12 @@ MODELS = [
         context_length=8192,
         vendor_name="meta-llama",
     ),
-    GroqModel(
-        name="mixtral-8x7b-32768",
-        cost=Cost(prompt=0.24e-6, completion=0.24e-6),
-        context_length=32768,
-        vendor_name="mistralai",
-    ),
+    # GroqModel(
+    #     name="mixtral-8x7b-32768",
+    #     cost=Cost(prompt=0.24e-6, completion=0.24e-6),
+    #     context_length=32768,
+    #     vendor_name="mistralai",
+    # ),
     GroqModel(
         name="gemma-7b-it",
         cost=Cost(prompt=0.07e-6, completion=0.07e-6),
