@@ -1,5 +1,7 @@
 import json
 
+import brotli
+
 from adapters.abstract_adapters.base_adapter import BaseAdapter
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
@@ -148,7 +150,14 @@ SIMPLE_CONVERSATION_VISION = Conversation(
 
 
 def get_response_content_from_vcr(vcr, adapter: BaseAdapter):
-    response = json.loads(vcr.responses[-1]["body"]["string"])
+    response = vcr.responses[-1]["body"]["string"]
+
+    try:
+        response = brotli.decompress(response)
+    except Exception as _:  # pylint: disable=W0718
+        print("Failed to decompress response")
+
+    response = json.loads(response)
 
     if isinstance(adapter, OpenAISDKChatAdapter):
         return response["choices"][0]["message"]["content"]
