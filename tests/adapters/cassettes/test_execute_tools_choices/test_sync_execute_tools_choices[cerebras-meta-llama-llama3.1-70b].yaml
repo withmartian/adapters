@@ -1,0 +1,87 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "llama3.1-70b", "stream": false, "tool_choice": "none", "tools": [{"type": "function",
+      "function": {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '399'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - OpenAI/Python 1.52.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-4040285f-dcea-40e5-9b62-aab15f612cee","choices":[{"finish_reason":"stop","index":0,"message":{"content":"The
+        random number is: 854","role":"assistant"}}],"created":1730167193,"model":"llama3.1-70b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":38,"completion_tokens":8,"total_tokens":46},"time_info":{"queue_time":2.807e-05,"prompt_time":0.002758009142857143,"completion_time":0.0020991428571428576,"total_time":0.006975412368774414,"created":1730167193}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '514'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 29 Oct 2024 01:59:53 GMT
+      Via:
+      - 1.1 85ad38fe9460fa7a535877f1fbdd29b6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - QQtQ1SgDJ0OmwHw0nHY3ngeJ4_iIvAlAm4Lf-DTj5O4tmrLqEPGrpQ==
+      X-Amz-Cf-Pop:
+      - LAX3-C4
+      X-Cache:
+      - Miss from cloudfront
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14373'
+      x-ratelimit-remaining-tokens-minute:
+      - '57646'
+      x-ratelimit-reset-requests-day:
+      - '79206.56823396683'
+      x-ratelimit-reset-tokens-minute:
+      - '6.568233966827393'
+      x-request-id:
+      - QQtQ1SgDJ0OmwHw0nHY3ngeJ4_iIvAlAm4Lf-DTj5O4tmrLqEPGrpQ==
+    status:
+      code: 200
+      message: OK
+version: 1

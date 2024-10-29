@@ -1,0 +1,83 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "llama3.1-8b",
+      "response_format": {"type": "json_object"}, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '144'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.52.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-a8733828-b400-470d-95f8-fb6aa100f976","choices":[{"finish_reason":"stop","index":0,"message":{"content":"{}","role":"assistant"}}],"created":1730167164,"model":"llama3.1-8b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":47,"completion_tokens":2,"total_tokens":49},"time_info":{"queue_time":2.085e-05,"prompt_time":0.002746368,"completion_time":0.0009066439999999999,"total_time":0.019088268280029297,"created":1730167164}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '481'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 29 Oct 2024 01:59:24 GMT
+      Via:
+      - 1.1 0ee59da61923d229aa7d17cdea2474a8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - sCBkCNV4iHRoykYWCZWExJZAk5dkiRA8Ppxh-l9sWrz1hmUSWVGUIA==
+      X-Amz-Cf-Pop:
+      - SFO20-C1
+      X-Cache:
+      - Miss from cloudfront
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14388'
+      x-ratelimit-remaining-tokens-minute:
+      - '58812'
+      x-ratelimit-reset-requests-day:
+      - '79235.25542926788'
+      x-ratelimit-reset-tokens-minute:
+      - '35.2554292678833'
+      x-request-id:
+      - sCBkCNV4iHRoykYWCZWExJZAk5dkiRA8Ppxh-l9sWrz1hmUSWVGUIA==
+    status:
+      code: 200
+      message: OK
+version: 1

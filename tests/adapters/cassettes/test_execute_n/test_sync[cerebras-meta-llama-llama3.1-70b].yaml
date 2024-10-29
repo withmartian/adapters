@@ -1,0 +1,69 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "llama3.1-70b",
+      "n": 2, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '99'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - OpenAI/Python 1.52.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"message":"\"n\" > 1 is not currently supported","type":"invalid_request_error","param":"n","code":"wrong_api_format"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '119'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 29 Oct 2024 01:59:29 GMT
+      Via:
+      - 1.1 3ac908fbf7ece372aa92fb8586b6b0cc.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - InzVddhfGQ9eYGzXbmk9-xqqfV7jSYzE6eVd08IyTw1yIuIi9UcAfw==
+      X-Amz-Cf-Pop:
+      - SFO20-C1
+      X-Cache:
+      - Error from cloudfront
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 400
+      message: Bad Request
+version: 1

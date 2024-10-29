@@ -1,0 +1,103 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "llama3.1-70b", "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '151'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - OpenAI/Python 1.52.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-c571109b-9ccb-4c59-9809-06b145537712","choices":[{"finish_reason":"stop","index":0,"message":{"content":"It
+        appears you have a list of dictionaries in Python, where each dictionary represents
+        a message with a ''type'' and ''text''. \n\nHere''s how you can work with
+        this data:\n\n```python\n# The list of messages\nmessages = [{''type'': ''text'',
+        ''text'': ''Hi''}, {''type'': ''text'', ''text'': ''Hi''}]\n\n# You can iterate
+        over the messages like this:\nfor message in messages:\n    print(f\"Type:
+        {message[''type'']}, Text: {message[''text'']}\")\n\n# If you want to get
+        a specific message:\nprint(messages[0][''text''])  # prints ''Hi''\n\n# If
+        you want to check if a message is of type ''text'':\nfor message in messages:\n    if
+        message[''type''] == ''text'':\n        print(message[''text''])\n```\n\nHowever,
+        it would be more Pythonic and safer to use classes or dataclasses to represent
+        messages:\n\n```python\nfrom dataclasses import dataclass\n\n@dataclass\nclass
+        Message:\n    type: str\n    text: str\n\nmessages = [Message(''text'', ''Hi''),
+        Message(''text'', ''Hi'')]\n\nfor message in messages:\n    print(f\"Type:
+        {message.type}, Text: {message.text}\")\n```\n\nIf you are using these messages
+        in a web application or any sort of chat bot, be sure to validate and clean
+        the input text to avoid potential security issues.","role":"assistant"}}],"created":1730167159,"model":"llama3.1-70b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":61,"completion_tokens":290,"total_tokens":351},"time_info":{"queue_time":2.827e-05,"prompt_time":0.00338592939100346,"completion_time":0.15917624660899654,"total_time":0.16427278518676758,"created":1730167159}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 29 Oct 2024 01:59:20 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 34d694cee116d42560f77448eb932ac8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - jaoPw-DDEed6V33vy3ZVCSn7ALRF7E0fRD1VlkHgo78Hzd2Qz3Jlbw==
+      X-Amz-Cf-Pop:
+      - SFO20-C1
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '1678'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      vary:
+      - accept-encoding
+      x-content-type-options:
+      - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14391'
+      x-ratelimit-remaining-tokens-minute:
+      - '59536'
+      x-ratelimit-reset-requests-day:
+      - '79239.84122753143'
+      x-ratelimit-reset-tokens-minute:
+      - '39.841227531433105'
+      x-request-id:
+      - jaoPw-DDEed6V33vy3ZVCSn7ALRF7E0fRD1VlkHgo78Hzd2Qz3Jlbw==
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,109 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "llama3.1-8b", "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '150'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - OpenAI/Python 1.52.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-9ba46c0b-37f9-4f54-be89-5207481491cf","choices":[{"finish_reason":"stop","index":0,"message":{"content":"This
+        appears to be a JSON (JavaScript Object Notation) object containing two text
+        elements with identical text: ''Hi''. \n\nIf you''d like to process or analyze
+        this data, here are a few possible approaches:\n\n1. **Remove duplicates**:
+        If you have a list with duplicate elements and you only want to keep unique
+        elements, you can use a set to remove duplicates.\n\n    ```python\nimport
+        json\n\n# Load JSON data\ndata = json.loads(''[{\"type\": \"text\", \"text\":
+        \"Hi\"}, {\"type\": \"text\", \"text\": \"Hi\"}]'')\n\n# Create a set to store
+        unique text elements\nunique_texts = set()\n\n# Loop through each element
+        in the data\nfor element in data:\n    # Add the text to the set\n    unique_texts.add(element[''text''])\n\n#
+        Print unique texts\nprint(unique_texts)\n```\n\n2. **Extract text**: If you
+        want to extract the text from the JSON elements, you can use a list comprehension.\n\n    ```python\nimport
+        json\n\n# Load JSON data\ndata = json.loads(''[{\"type\": \"text\", \"text\":
+        \"Hi\"}, {\"type\": \"text\", \"text\": \"Hi\"}]'')\n\n# Extract text from
+        each element\ntexts = [element[''text''] for element in data]\n\n# Print texts\nprint(texts)\n```\n\n3.
+        **Count occurrences of each text**: If you want to count how many times each
+        text appears in the data, you can use a dictionary.\n\n    ```python\nimport
+        json\n\n# Load JSON data\ndata = json.loads(''[{\"type\": \"text\", \"text\":
+        \"Hi\"}, {\"type\": \"text\", \"text\": \"Hi\"}]'')\n\n# Create a dictionary
+        to store text counts\ntext_counts = {}\n\n# Loop through each element in the
+        data\nfor element in data:\n    # Get the text\n    text = element[''text'']\n    \n    #
+        Increment the count in the dictionary\n    if text in text_counts:\n        text_counts[text]
+        += 1\n    else:\n        text_counts[text] = 1\n\n# Print text counts\nprint(text_counts)\n```","role":"assistant"}}],"created":1730167159,"model":"llama3.1-8b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":61,"completion_tokens":434,"total_tokens":495},"time_info":{"queue_time":2.311e-05,"prompt_time":0.0034829402147806003,"completion_time":0.1968679487852194,"total_time":0.2155165672302246,"created":1730167159}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 29 Oct 2024 01:59:19 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 d643c18c094f3cd17f1bf4efe422c294.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - jIbLVFodYcxGvRUb0wDqXaYtuoBto-TEkV0h45XTQPPHG9eAB1wnTA==
+      X-Amz-Cf-Pop:
+      - SFO20-C1
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '2307'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      vary:
+      - accept-encoding
+      x-content-type-options:
+      - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14391'
+      x-ratelimit-remaining-tokens-minute:
+      - '59563'
+      x-ratelimit-reset-requests-day:
+      - '79240.0862865448'
+      x-ratelimit-reset-tokens-minute:
+      - '40.086286544799805'
+      x-request-id:
+      - jIbLVFodYcxGvRUb0wDqXaYtuoBto-TEkV0h45XTQPPHG9eAB1wnTA==
+    status:
+      code: 200
+      message: OK
+version: 1

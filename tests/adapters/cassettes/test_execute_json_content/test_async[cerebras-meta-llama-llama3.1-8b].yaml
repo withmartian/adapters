@@ -1,0 +1,95 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "llama3.1-8b", "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '150'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.52.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-55b1c25d-dd29-4795-a2e0-68db1df96581","choices":[{"finish_reason":"stop","index":0,"message":{"content":"This
+        is a JSON (JavaScript Object Notation) object containing two elements, both
+        of which are text messages with the word \"Hi\". \n\nIf we were to parse this
+        JSON object in Python, it would look something like this:\n\n```python\nimport
+        json\n\njson_string = ''[{\"type\": \"text\", \"text\": \"Hi\"}, {\"type\":
+        \"text\", \"text\": \"Hi\"}]''\n\ndata = json.loads(json_string)\n\nprint(data[0][''text''])  #
+        Outputs: Hi\nprint(data[1][''text''])  # Outputs: Hi\n```\n\nThis code uses
+        the `json` module to parse the JSON string into a Python object, and then
+        prints out the text of each message.","role":"assistant"}}],"created":1730167161,"model":"llama3.1-8b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":61,"completion_tokens":146,"total_tokens":207},"time_info":{"queue_time":2.556e-05,"prompt_time":0.003494157724137931,"completion_time":0.06639689827586208,"total_time":0.08319926261901855,"created":1730167161}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 29 Oct 2024 01:59:21 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 affc2fdf5df0fb7bfb7e10bab49bc714.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - Y__Fzp_GH7pCevM0z1yIBSCg1lv01ymi_P83GEbberX10P9-y_NNVw==
+      X-Amz-Cf-Pop:
+      - SFO20-C1
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '1078'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      vary:
+      - accept-encoding
+      x-content-type-options:
+      - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14390'
+      x-ratelimit-remaining-tokens-minute:
+      - '59068'
+      x-ratelimit-reset-requests-day:
+      - '79238.34331440926'
+      x-ratelimit-reset-tokens-minute:
+      - '38.34331440925598'
+      x-request-id:
+      - Y__Fzp_GH7pCevM0z1yIBSCg1lv01ymi_P83GEbberX10P9-y_NNVw==
+    status:
+      code: 200
+      message: OK
+version: 1
