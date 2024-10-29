@@ -74,6 +74,7 @@ class AnthropicModel(Model):
     supports_json_content: bool = False
     supports_tools: bool = True
     supports_vision: bool = True
+    supports_temperature: bool = True
 
 
 SUPPORTED_MODELS = [

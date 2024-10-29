@@ -19,6 +19,7 @@ class OctoaiModel(Model):
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
     supports_streaming: bool = True
+    supports_temperature: bool = True
 
 
 MODELS = [

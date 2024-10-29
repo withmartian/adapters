@@ -47,6 +47,7 @@ class GeminiModel(Model):
     supports_tool_choice_required: bool = True
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
+    supports_temperature: bool = True
 
 
 MODELS = [

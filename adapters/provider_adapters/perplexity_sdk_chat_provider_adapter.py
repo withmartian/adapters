@@ -15,6 +15,7 @@ class PerplexityModel(Model):
     supports_system: bool = True
     supports_tool_choice_required: bool = True
     supports_streaming: bool = True
+    supports_temperature: bool = True
 
     properties: ModelProperties = BASE_PROPERTIES
 

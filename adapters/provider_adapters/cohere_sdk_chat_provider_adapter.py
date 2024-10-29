@@ -39,6 +39,8 @@ class CohereModel(Model):
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
     supports_json_content: bool = True
+    supports_temperature: bool = True
+
     supports_streaming: bool = False
 
     def _get_api_path(self) -> str:

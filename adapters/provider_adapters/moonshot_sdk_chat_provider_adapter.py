@@ -18,6 +18,7 @@ class MoonshotModel(Model):
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
     supports_streaming: bool = True
+    supports_temperature: bool = True
 
 
 # Cost measured in CNY, converted to USD on Apr 27 2024

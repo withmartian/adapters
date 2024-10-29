@@ -13,6 +13,7 @@ class TogetherModel(Model):
     provider_name: str = PROVIDER_NAME
     supports_json_content: bool = True
     supports_streaming: bool = True
+    supports_temperature: bool = True
 
     properties: ModelProperties = BASE_PROPERTIES
 

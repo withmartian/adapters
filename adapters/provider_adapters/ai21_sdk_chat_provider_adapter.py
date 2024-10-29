@@ -22,6 +22,7 @@ class AI21Model(Model):
     supports_json_output: bool = True
     supports_tools: bool = True
     supports_n: bool = True
+    supports_temperature: bool = True
 
     def _get_api_path(self) -> str:
         return f"{self.name}"

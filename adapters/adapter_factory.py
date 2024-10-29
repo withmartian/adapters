@@ -118,6 +118,7 @@ class AdapterFactory:
     def get_model_by_path(model_path: str) -> Model | None:
         return AdapterFactory._model_registry.get(model_path)
 
+    # TODO: add more supports filtering
     @staticmethod
     def get_supported_models(
         supports_streaming: bool = False,
@@ -127,6 +128,7 @@ class AdapterFactory:
         supports_n: bool = False,
         supports_json_output: bool = False,
         supports_json_content: bool = False,
+        supports_temperature: bool = False,
     ) -> list[Model]:
         disabled_models = os.getenv("ADAPTER_DISABLED_MODELS", "").split(",")
 
@@ -140,5 +142,6 @@ class AdapterFactory:
             and (not supports_n or model.supports_n)
             and (not supports_json_output or model.supports_json_output)
             and (not supports_json_content or model.supports_json_content)
+            and (not supports_temperature or model.supports_temperature)
             and model.name not in disabled_models
         ]

@@ -100,8 +100,7 @@ class SDKChatAdapter(
     def _adjust_temperature(self, temperature: float) -> float:
         return temperature
 
-        # pylint: disable=too-many-statements
-
+    # pylint: disable=too-many-statements
     def _get_params(
         self,
         llm_input: Conversation,
@@ -109,6 +108,12 @@ class SDKChatAdapter(
     ) -> Dict[str, Any]:
         if kwargs.get("stream") == NOT_GIVEN:
             kwargs["stream"] = False
+
+        if (
+            kwargs.get("temperature") is not None
+            and self.get_model().supports_temperature is False
+        ):
+            del kwargs["temperature"]
 
         completion_length = self.get_model().completion_length
         if (
