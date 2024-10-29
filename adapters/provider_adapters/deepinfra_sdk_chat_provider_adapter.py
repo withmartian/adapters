@@ -19,6 +19,7 @@ class DeepInfraModel(Model):
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
     supports_streaming: bool = True
+    supports_temperature: bool = True
 
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"

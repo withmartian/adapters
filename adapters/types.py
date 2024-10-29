@@ -120,6 +120,8 @@ class Model(BaseModel):
     provider_name: str
     cost: Cost
     context_length: int
+    completion_length: Optional[int] = None
+
     supports_user: bool = False
     supports_repeating_roles: bool = False
     supports_streaming: bool = False
@@ -135,7 +137,8 @@ class Model(BaseModel):
     supports_json_content: bool = False
     supports_last_assistant: bool = False
     supports_first_assistant: bool = False
-    completion_length: Optional[int] = None
+    supports_temperature: bool = False
+
     properties: ModelProperties = Field(default_factory=ModelProperties)
 
     def get_path(self) -> str:

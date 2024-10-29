@@ -40,6 +40,7 @@ class AzureModel(Model):
     supports_json_output: bool = True
     supports_json_content: bool = True
     supports_streaming: bool = True
+    supports_temperature: bool = True
 
     properties: ModelProperties = BASE_PROPERTIES
 

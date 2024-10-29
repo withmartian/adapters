@@ -25,6 +25,8 @@ class OpenAIModel(Model):
     supports_json_output: bool = True
     supports_json_content: bool = True
     supports_streaming: bool = True
+    supports_temperature: bool = True
+    supports_vision: bool = True
 
     properties: ModelProperties = BASE_PROPERTIES
 
@@ -35,6 +37,7 @@ MODELS = [
         cost=Cost(prompt=3.0e-6, completion=6.0e-6),
         context_length=16385,
         completion_length=16385,
+        supports_vision=False,
     ),
     OpenAIModel(
         name="gpt-4",
@@ -42,48 +45,43 @@ MODELS = [
         context_length=8192,
         completion_length=8192,
         supports_json_output=False,
+        supports_vision=False,
     ),
     OpenAIModel(
         name="gpt-4-turbo",
         cost=Cost(prompt=10.0e-6, completion=30.0e-6),
         context_length=128000,
         completion_length=4096,
-        supports_vision=True,
     ),
     OpenAIModel(
         name="gpt-4o",
         cost=Cost(prompt=2.5e-6, completion=10.0e-6),
         context_length=128000,
         completion_length=16384,
-        supports_vision=True,
     ),
     OpenAIModel(
         name="gpt-4o-2024-05-13",
         cost=Cost(prompt=5.0e-6, completion=15.0e-6),
         context_length=128000,
         completion_length=4096,
-        supports_vision=True,
     ),
     OpenAIModel(
         name="gpt-4o-2024-08-06",
         cost=Cost(prompt=2.5e-6, completion=10.0e-6),
         context_length=128000,
         completion_length=16384,
-        supports_vision=True,
     ),
     OpenAIModel(
         name="gpt-4o-mini",
         cost=Cost(prompt=0.15e-6, completion=0.6e-6),
         context_length=128000,
         completion_length=16385,
-        supports_vision=True,
     ),
     OpenAIModel(
         name="gpt-4o-mini-2024-07-18",
         cost=Cost(prompt=0.15e-6, completion=0.6e-6),
         context_length=128000,
         completion_length=16385,
-        supports_vision=True,
     ),
     OpenAIModel(
         name="o1-preview",
@@ -97,6 +95,8 @@ MODELS = [
         supports_json_output=False,
         supports_n=False,
         supports_streaming=False,
+        supports_vision=False,
+        supports_temperature=False,
     ),
     OpenAIModel(
         name="o1-preview-2024-09-12",
@@ -110,6 +110,8 @@ MODELS = [
         supports_json_output=False,
         supports_n=False,
         supports_streaming=False,
+        supports_vision=False,
+        supports_temperature=False,
     ),
     OpenAIModel(
         name="o1-mini",
@@ -123,6 +125,8 @@ MODELS = [
         supports_json_output=False,
         supports_n=False,
         supports_streaming=False,
+        supports_vision=False,
+        supports_temperature=False,
     ),
     OpenAIModel(
         name="o1-mini-2024-09-12",
@@ -136,6 +140,8 @@ MODELS = [
         supports_json_output=False,
         supports_n=False,
         supports_streaming=False,
+        supports_vision=False,
+        supports_temperature=False,
     ),
 ]
 
