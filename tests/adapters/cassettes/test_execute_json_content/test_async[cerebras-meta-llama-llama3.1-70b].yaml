@@ -1,0 +1,101 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "llama3.1-70b", "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '151'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.52.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-43186288-edc5-4884-b152-15f8eaec6bfb","choices":[{"finish_reason":"stop","index":0,"message":{"content":"It
+        seems like you have a list of JSON-like objects, each containing a ''type''
+        and ''text'' key.\n\n```python\nmessages = [{''type'': ''text'', ''text'':
+        ''Hi''}, {''type'': ''text'', ''text'': ''Hi''}]\n```\n\nThis data structure
+        is commonly used in messaging applications, such as chatbots or messaging
+        platforms, to represent a series of messages. Here''s how you can work with
+        it:\n\n### Accessing Messages\n\nTo access the text of each message, you can
+        iterate over the list and print the ''text'' value of each dictionary:\n\n```python\nfor
+        message in messages:\n    print(message[''text''])\n```\n\nThis would output:\n\n```\nHi\nHi\n```\n\n###
+        Creating New Messages\n\nTo create a new message, you can create a new dictionary
+        with the ''type'' and ''text'' keys, and append it to the list:\n\n```python\nnew_message
+        = {''type'': ''text'', ''text'': ''Hello''}\nmessages.append(new_message)\n```\n\nNow
+        the `messages` list would contain three messages:\n\n```python\n[{''type'':
+        ''text'', ''text'': ''Hi''}, \n {''type'': ''text'', ''text'': ''Hi''}, \n
+        {''type'': ''text'', ''text'': ''Hello''}]\n```","role":"assistant"}}],"created":1730167161,"model":"llama3.1-70b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":61,"completion_tokens":264,"total_tokens":325},"time_info":{"queue_time":2.75e-05,"prompt_time":0.003354161349809886,"completion_time":0.1415807316501901,"total_time":0.14708948135375977,"created":1730167161}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 29 Oct 2024 01:59:21 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 818b6b525d2eddbd06b7b29e74f7b270.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - AoptkbjfBnY8voZJdJlQndcN1QmhlGjvBUUslX-pmqY2hQwv9GPmmQ==
+      X-Amz-Cf-Pop:
+      - SFO20-C1
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '1534'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      vary:
+      - accept-encoding
+      x-content-type-options:
+      - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14390'
+      x-ratelimit-remaining-tokens-minute:
+      - '59185'
+      x-ratelimit-reset-requests-day:
+      - '79238.10857653618'
+      x-ratelimit-reset-tokens-minute:
+      - '38.10857653617859'
+      x-request-id:
+      - AoptkbjfBnY8voZJdJlQndcN1QmhlGjvBUUslX-pmqY2hQwv9GPmmQ==
+    status:
+      code: 200
+      message: OK
+version: 1

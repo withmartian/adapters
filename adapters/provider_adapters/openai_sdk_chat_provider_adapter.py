@@ -11,22 +11,22 @@ class OpenAIModel(Model):
     vendor_name: str = PROVIDER_NAME
     provider_name: str = PROVIDER_NAME
 
+    supports_user: bool = True
     supports_repeating_roles: bool = True
+    supports_streaming: bool = True
+    supports_vision: bool = True
+    supports_functions: bool = True
+    supports_tools: bool = True
+    supports_n: bool = True
     supports_system: bool = True
     supports_multiple_system: bool = True
     supports_empty_content: bool = True
     supports_tool_choice_required: bool = True
-    supports_last_assistant: bool = True
-    supports_first_assistant: bool = True
-    supports_user: bool = True
-    supports_functions: bool = True
-    supports_tools: bool = True
-    supports_n: bool = True
     supports_json_output: bool = True
     supports_json_content: bool = True
-    supports_streaming: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
     supports_temperature: bool = True
-    supports_vision: bool = True
 
     properties: ModelProperties = BASE_PROPERTIES
 

@@ -1,0 +1,87 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "llama3.1-8b", "stream": false, "tool_choice": "required", "tools": [{"type":
+      "function", "function": {"description": "Generate random number", "name": "generate",
+      "parameters": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '402'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - OpenAI/Python 1.52.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-ba1c3f1b-2406-45a7-9c7a-91022bd822ca","choices":[{"finish_reason":"tool_calls","index":0,"message":{"tool_calls":[{"id":"c40356220","type":"function","function":{"name":"generate","arguments":"{\"prompt\":
+        5}"}}],"role":"assistant"}}],"created":1730167730,"model":"llama3.1-8b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":209,"completion_tokens":11,"total_tokens":220},"time_info":{"queue_time":2.473e-05,"prompt_time":0.0113219968,"completion_time":0.0050086542000000005,"total_time":0.031909942626953125,"created":1730167730}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '589'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 29 Oct 2024 02:08:50 GMT
+      Via:
+      - 1.1 c099bd7c2996b30981c7e133183562ba.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - TrfpibPjLtzSfoQrEvplVo2qRYt_opABXuLhMUfe8B7o8wGYLFuzfQ==
+      X-Amz-Cf-Pop:
+      - LAX3-C4
+      X-Cache:
+      - Miss from cloudfront
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14368'
+      x-ratelimit-remaining-tokens-minute:
+      - '60000'
+      x-ratelimit-reset-requests-day:
+      - '78669.11237621307'
+      x-ratelimit-reset-tokens-minute:
+      - '9.11237621307373'
+      x-request-id:
+      - TrfpibPjLtzSfoQrEvplVo2qRYt_opABXuLhMUfe8B7o8wGYLFuzfQ==
+    status:
+      code: 200
+      message: OK
+version: 1
