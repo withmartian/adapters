@@ -5,10 +5,7 @@ from adapters.types import Cost, Model, ModelProperties, Provider, Vendor
 class LeptonModel(Model):
     provider_name: str = Provider.lepton.value
 
-    properties = ModelProperties(
-        open_source=True,
-        gdpr_compliant=True,
-    )
+    properties: ModelProperties = ModelProperties(open_source=True, gdpr_compliant=True)
 
 
 MODELS = [

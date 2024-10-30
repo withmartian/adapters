@@ -17,7 +17,7 @@ class TogetherModel(Model):
 
     supports_n: bool = False  # Suports with temperature
 
-    properties = ModelProperties(open_source=True)
+    properties: ModelProperties = ModelProperties(open_source=True)
 
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"

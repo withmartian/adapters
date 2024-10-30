@@ -34,7 +34,7 @@ class GeminiModel(Model):
     provider_name: str = Provider.gemini.value
     vendor_name: str = Vendor.gemini.value
 
-    properties = ModelProperties(gdpr_compliant=True)
+    properties: ModelProperties = ModelProperties(gdpr_compliant=True)
 
 
 MODELS = [

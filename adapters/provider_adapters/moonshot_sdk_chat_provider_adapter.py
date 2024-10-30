@@ -6,11 +6,10 @@ class MoonshotModel(Model):
     provider_name: str = Provider.moonshot.value
     vendor_name: str = Vendor.moonshot.value
 
-    properties = ModelProperties(chinese=True)
+    properties: ModelProperties = ModelProperties(chinese=True)
 
 
 # Cost measured in CNY, converted to USD on Apr 27 2024
-# TODO: add more models
 MODELS = [
     MoonshotModel(
         name="moonshot-v1-8k",

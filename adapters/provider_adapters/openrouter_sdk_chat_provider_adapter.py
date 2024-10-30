@@ -5,7 +5,7 @@ from adapters.types import Model, ModelProperties, Provider
 class OpenRouterModel(Model):
     provider_name: str = Provider.openrouter.value
 
-    properties = ModelProperties(open_source=True)
+    properties: ModelProperties = ModelProperties(open_source=True)
 
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"

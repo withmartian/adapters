@@ -5,7 +5,7 @@ from adapters.types import Cost, Model, ModelProperties, Provider, Vendor
 class FireworksModel(Model):
     provider_name: str = Provider.fireworks.value
 
-    properties = ModelProperties(open_source=True)
+    properties: ModelProperties = ModelProperties(open_source=True)
 
     def _get_api_path(self) -> str:
         return f"accounts/fireworks/models/{self.name}"

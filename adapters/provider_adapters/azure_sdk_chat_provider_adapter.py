@@ -23,7 +23,7 @@ from adapters.types import (
 class AzureModel(Model):
     provider_name: str = Provider.azure.value
 
-    properties = ModelProperties(gdpr_compliant=True)
+    properties: ModelProperties = ModelProperties(gdpr_compliant=True)
 
 
 MODELS = [

@@ -15,7 +15,7 @@ from adapters.types import (
 class DatabricksModel(Model):
     provider_name: str = Provider.databricks.value
 
-    properties = ModelProperties(open_source=True, gdpr_compliant=True)
+    properties: ModelProperties = ModelProperties(open_source=True, gdpr_compliant=True)
 
 
 DBU_USD_RATE = 0.07

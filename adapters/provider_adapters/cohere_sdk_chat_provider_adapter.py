@@ -27,7 +27,9 @@ class CohereModel(Model):
     provider_name: str = Provider.cohere.value
     vendor_name: str = Vendor.cohere.value
 
-    properties = ModelProperties(open_source=True, gdpr_compliant=True, is_nsfw=True)
+    properties: ModelProperties = ModelProperties(
+        open_source=True, gdpr_compliant=True, is_nsfw=True
+    )
 
     supports_streaming: bool = False
 

@@ -6,7 +6,7 @@ class OpenAIModel(Model):
     provider_name: str = Provider.openai.value
     vendor_name: str = Vendor.openai.value
 
-    properties = ModelProperties(gdpr_compliant=True)
+    properties: ModelProperties = ModelProperties(gdpr_compliant=True)
 
 
 MODELS = [
