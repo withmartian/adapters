@@ -10,16 +10,36 @@ from openai.types.chat.chat_completion_message import FunctionCall
 from pydantic import BaseModel, Field
 
 
-class ResponseBody(Dict[str, Any]):
-    pass
+class Provider(str, Enum):
+    ai21 = "ai21"
+    anthropic = "anthropic"
+    azure = "azure"
+    cerebras = "cerebras"
+    cohere = "cohere"
+    databricks = "databricks"
+    deepinfra = "deepinfra"
+    fireworks = "fireworks"
+    gemini = "gemini"
+    groq = "groq"
+    lepton = "lepton"
+    moonshot = "moonshot"
+    octoai = "octoai"
+    openai = "openai"
+    openrouter = "openrouter"
+    perplexity = "perplexity"
+    together = "together"
+    vertex = "vertex"
 
 
-class RequestBody(Dict[str, Any]):
-    pass
+class Vendor(str, Enum):
+    meta_llama = "meta-llama"
+    perplexity = "perplexity"
 
-
-class RequestQueryParams(Dict[str, str]):
-    pass
+    anthropic = "anthropic"
+    cohere = "cohere"
+    vertex = "vertex"
+    gemini = "gemini"
+    together = "together"
 
 
 class ConversationRole(str, Enum):

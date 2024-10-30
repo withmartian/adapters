@@ -1,0 +1,103 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "stream": false, "tool_choice":
+      "none", "tools": [{"type": "function", "function": {"description": "Generate
+      random number", "name": "generate", "parameters": {"type": "object", "properties":
+      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
+      11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '430'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - OpenAI/Python 1.52.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.together.xyz/chat/completions
+  response:
+    body:
+      string: "{\n  \"id\": \"8da72d466efe15b2-SJC\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1730246969,\n  \"model\": \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"tool_calls\",\n
+        \     \"seed\": 4257884731811458600,\n      \"logprobs\": null,\n      \"index\":
+        0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
+        null,\n        \"tool_calls\": [\n          {\n            \"index\": 0,\n
+        \           \"id\": \"call_h14ji8uk8leybbvws9ufpnb0\",\n            \"type\":
+        \"function\",\n            \"function\": {\n              \"arguments\": \"{\\\"prompt\\\":\\\"random
+        number\\\"}\",\n              \"name\": \"generate\"\n            }\n          }\n
+        \       ]\n      }\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 289,\n
+        \   \"completion_tokens\": 15,\n    \"total_tokens\": 304\n  }\n}"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8da72d466efe15b2-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 30 Oct 2024 00:09:29 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '787'
+      etag:
+      - W/"313-mR9PJzdVkAnx9Ah4HaVHieh7lAA"
+      x-api-call-end:
+      - '2024-10-30T00:09:29.842Z'
+      x-api-call-start:
+      - '2024-10-30T00:09:29.420Z'
+      x-api-received:
+      - '2024-10-30T00:09:29.414Z'
+      x-inference-version:
+      - v2
+      x-ratelimit:
+      - 'false'
+      x-ratelimit-limit:
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-remaining-tokens:
+      - '100000'
+      x-ratelimit-reset:
+      - '2'
+    status:
+      code: 200
+      message: OK
+version: 1

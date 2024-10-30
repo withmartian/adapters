@@ -10,7 +10,6 @@ from adapters.types import (
     AdapterChatCompletionChunk,
     ConversationRole,
     Cost,
-    RequestBody,
     Turn,
 )
 
@@ -38,7 +37,7 @@ class OpenAISDKChatAdapter(SDKChatAdapter[OpenAI, AsyncOpenAI]):
 
     def _extract_response(
         self,
-        request: RequestBody,
+        request: dict,
         response: ChatCompletion,
     ) -> AdapterChatCompletion:
         prompt_tokens = response.usage.prompt_tokens if response.usage else 0

@@ -1,0 +1,99 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "function_call": {"name": "generate"},
+      "functions": [{"description": "Generate random number", "name": "generate"}],
+      "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '259'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - OpenAI/Python 1.52.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.together.xyz/chat/completions
+  response:
+    body:
+      string: "{\n  \"id\": \"8da72b981e229870-SJC\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1730246900,\n  \"model\": \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
+        \     \"seed\": 13237234653700800000,\n      \"logprobs\": null,\n      \"index\":
+        0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
+        \"The random number is: **854219**\\n\\nWould you like me to generate another
+        one?\",\n        \"tool_calls\": []\n      }\n    }\n  ],\n  \"usage\": {\n
+        \   \"prompt_tokens\": 39,\n    \"completion_tokens\": 19,\n    \"total_tokens\":
+        58\n  }\n}"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8da72b981e229870-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 30 Oct 2024 00:08:20 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '581'
+      etag:
+      - W/"245-3SwIYmGiqN1L9Bq7xXS0GMMWQa0"
+      x-api-call-end:
+      - '2024-10-30T00:08:20.960Z'
+      x-api-call-start:
+      - '2024-10-30T00:08:20.523Z'
+      x-api-received:
+      - '2024-10-30T00:08:20.517Z'
+      x-inference-version:
+      - v2
+      x-ratelimit:
+      - 'false'
+      x-ratelimit-limit:
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
+      x-ratelimit-remaining:
+      - '194'
+      x-ratelimit-remaining-tokens:
+      - '97798'
+      x-ratelimit-reset:
+      - '0'
+    status:
+      code: 200
+      message: OK
+version: 1
