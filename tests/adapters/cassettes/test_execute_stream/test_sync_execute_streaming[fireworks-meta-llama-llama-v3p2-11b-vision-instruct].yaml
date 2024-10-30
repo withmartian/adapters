@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.52.0
+      - OpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.52.0
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,18 +37,37 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: 'data: {"id":"0d8a77fc-5036-4b97-b94d-b3b6d04e87d5","object":"chat.completion.chunk","created":1729463557,"model":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct","choices":[{"index":0,"delta":{"role":"assistant"},"finish_reason":null}],"usage":null}
+      string: 'data: {"id":"507e8ae6-7e1f-469a-9b24-486098cda93a","object":"chat.completion.chunk","created":1730331400,"model":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct","choices":[{"index":0,"delta":{"role":"assistant"},"finish_reason":null}],"usage":null}
 
 
-        data: {"id":"0d8a77fc-5036-4b97-b94d-b3b6d04e87d5","object":"chat.completion.chunk","created":1729463557,"model":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct","choices":[{"index":0,"delta":{"content":"How
-        can"},"finish_reason":null}],"usage":null}
+        data: {"id":"507e8ae6-7e1f-469a-9b24-486098cda93a","object":"chat.completion.chunk","created":1730331400,"model":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct","choices":[{"index":0,"delta":{"content":"It''s"},"finish_reason":null}],"usage":null}
 
 
-        data: {"id":"0d8a77fc-5036-4b97-b94d-b3b6d04e87d5","object":"chat.completion.chunk","created":1729463557,"model":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct","choices":[{"index":0,"delta":{"content":"
-        I assist you?"},"finish_reason":null}],"usage":null}
+        data: {"id":"507e8ae6-7e1f-469a-9b24-486098cda93a","object":"chat.completion.chunk","created":1730331400,"model":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct","choices":[{"index":0,"delta":{"content":"
+        nice to meet"},"finish_reason":null}],"usage":null}
 
 
-        data: {"id":"0d8a77fc-5036-4b97-b94d-b3b6d04e87d5","object":"chat.completion.chunk","created":1729463557,"model":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct","choices":[{"index":0,"delta":{},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":18,"completion_tokens":7}}
+        data: {"id":"507e8ae6-7e1f-469a-9b24-486098cda93a","object":"chat.completion.chunk","created":1730331400,"model":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct","choices":[{"index":0,"delta":{"content":"
+        you. Is there"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"507e8ae6-7e1f-469a-9b24-486098cda93a","object":"chat.completion.chunk","created":1730331400,"model":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct","choices":[{"index":0,"delta":{"content":"
+        something I can"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"507e8ae6-7e1f-469a-9b24-486098cda93a","object":"chat.completion.chunk","created":1730331400,"model":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct","choices":[{"index":0,"delta":{"content":"
+        help you with"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"507e8ae6-7e1f-469a-9b24-486098cda93a","object":"chat.completion.chunk","created":1730331400,"model":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct","choices":[{"index":0,"delta":{"content":"
+        or would you like"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"507e8ae6-7e1f-469a-9b24-486098cda93a","object":"chat.completion.chunk","created":1730331400,"model":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct","choices":[{"index":0,"delta":{"content":"
+        to chat?"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"507e8ae6-7e1f-469a-9b24-486098cda93a","object":"chat.completion.chunk","created":1730331400,"model":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct","choices":[{"index":0,"delta":{},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":34,"completion_tokens":23}}
 
 
         data: [DONE]
@@ -61,19 +80,19 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d5c77018f35173e-SJC
+      - 8daf3a91fc77945f-SJC
       Cf-Placement:
-      - remote-IAD
+      - local-SJC
       Connection:
       - keep-alive
       Content-Type:
       - text/event-stream; charset=utf-8
       Date:
-      - Sun, 20 Oct 2024 22:32:37 GMT
+      - Wed, 30 Oct 2024 23:36:40 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=72.0;desc="Total Response Time"
+      - total;dur=282.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -87,11 +106,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-time-to-first-token:
-      - '0.039'
+      - '0.075'
       x-envoy-upstream-service-time:
-      - '41'
+      - '77'
       x-request-id:
-      - 0d8a77fc-5036-4b97-b94d-b3b6d04e87d5
+      - 507e8ae6-7e1f-469a-9b24-486098cda93a
     status:
       code: 200
       message: OK

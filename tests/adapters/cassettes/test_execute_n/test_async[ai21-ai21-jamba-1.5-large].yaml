@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.ai21.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,30 +37,32 @@ interactions:
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-03c9637900f4444bbe65d1a688d3aa60","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today?","tool_calls":null},"logprobs":null,"finish_reason":"stop"},{"index":1,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today?","tool_calls":null},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"completion_tokens":20,"total_tokens":31}}'
+      string: !!binary |
+        IZQGACC+6W/TWt4c7r4ZsMIwe1rwVDB748BxsPNhHHRdcMDFrnnQ23Tl3Yk9RznMT9j+4rBGA7Pn
+        Wz/lTcFZrfWaTVbEhnVRmThexzrdVkXOIIyuD65opl9cpC9oIkJfxBWaLy5eNmjA1+vhemN3A8E0
+        rtNgvBHxPTX2T2XYqYkKHVNvf1c3v+b3CISb97I0LHJF4+4if4L4Xbh4TSLBQc0st1VN0OB68wF/
+        SuuFGDwn3KtTh4u34ba8+dPGXdHEMZQNsrkdvJNcEhF+HAAspfH/bwAD
     headers:
-      CF-Cache-Status:
-      - DYNAMIC
       CF-RAY:
-      - 8d3b07b0aab5173e-SJC
+      - 8daf4e583bd715ea-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:09:28 GMT
+      - Wed, 30 Oct 2024 23:50:10 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      content-length:
-      - '422'
+      cf-cache-status:
+      - DYNAMIC
       request-id:
-      - c618b9f2-fb6a-647d-eb81-160941345102
+      - 3aa1c8fc-2dc4-5ca6-34b5-e89f36ff4076
       via:
       - 1.1 google
     status:

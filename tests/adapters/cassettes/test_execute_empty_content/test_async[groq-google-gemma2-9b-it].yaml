@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,39 +38,42 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-9b487ecc-0ad7-49f8-b7b8-9617fbbe2b8a\",\"object\":\"chat.completion\",\"created\":1729112099,\"model\":\"gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
-        provide me with a prompt or question so I can assist you! \U0001F60A \\n\\nFor
-        example, you could ask me to:\\n\\n* **Generate creative content:** Write
-        a poem, a short story, a song lyric\\n* **Answer your questions:**  Explain
-        a concept, provide facts about a topic\\n* **Summarize text:**  Condense a
-        lengthy article or document\\n* **Translate languages:**  Convert text from
-        one language to another\\n* **And much more!** \\n\\nI'm here to help, just
-        let me know what you need. \u2728\\n\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.01401793,\"prompt_tokens\":20,\"prompt_time\":0.00008502,\"completion_tokens\":119,\"completion_time\":0.216363636,\"total_tokens\":139,\"total_time\":0.216448656},\"system_fingerprint\":\"fp_10c08bf97d\",\"x_groq\":{\"id\":\"req_01jabhsjavet0936bvd08ysb40\"}}\n"
+      string: !!binary |
+        IRwNACCX04w/QZv97pFvJPvcxALzqMFUl7Xji6X1SbrrAeSH/zzrAIBMOwOnyoqi9j0WThcOu9EE
+        B/7h8/tPA9/AAtxzwxmagedEpD199oRjhxrbxzq0Zp5imTfLpE8o7vqG4qWUZVyVXRKnWd6S6vs2
+        lTUK5GZFbWDGiwiDyMgWBWYtv4s61KpIZZomSuYCDXc0ocaBjKmTuGriMaDATPg5HvX1CR+4z1FL
+        gWEWY1Cf0PFEqLH2fvShtnyNbAPZgBo/T1R7gnARGUz7r7QGIQGwAxWUgGe4gra2IE8FHHhzAS+/
+        /v+AG3tjr94beJQ/h54d6FGFvrE3NoIourR+Rw4OvJH6wUcR1A1vAth8GXAPgeex9Qt2WBmPBQLd
+        ZMYtVWkLo0hA+6drfGA3khcwMxkvgB000+q33JEgMS0/Ib+i+yjCt3zbGFO78UgQaB9Q4aXtwCGx
+        iyja6qhPGx9gogCG4MnyDnaPtTouAEvULeDl18/vcGPxWeDEw+y48ajtZpoEVq1L3HcIW48afeAZ
+        n28Fbs7rP+sNbeg+jIZQy4VUaZLneSFwdmzmcB/4iaxHnUgwpH8hpSwTVVUCzQkxpVQKBRZxVZ4t
+        Z0ngpxCgYSqlwAJ9PEvzYrl8FliLoOC+H+1AbnajOc3u53slW1k2fVV0KHB/Pzheo74iGzha30u1
+        avp9VZDtm7Dt5sYPWWqHxK/w+fmVAQM=
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af27b9bb7ceb9-SJC
+      - 8daf4bcf8c0617dc-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:54:59 GMT
+      - Wed, 30 Oct 2024 23:48:26 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=tfhysV4gU_5b72_7GXXTPSHi5oDyt5pfLwcfX3vBiug-1729112099-1.0.1.1-eku_t2zYMLkZWUCPgBTq9Jffhrt7HwbOkMuRu9JJLJjfmZQpJGkZNr65KpXVG_45cXC9TWetbKtuESksJ9Rdag;
-        path=/; expires=Wed, 16-Oct-24 21:24:59 GMT; domain=.groq.com; HttpOnly; Secure;
+      - __cf_bm=TQAp_xEQkZMcLKw.etpEl9r6XRT2hSLVTUgFN6RcbCc-1730332106-1.0.1.1-SfCSCf48s4SrciZp2DA0p0UbitDYrZXdDqceT21BqVc1L9gX6qVQNH5XXgmB0iWnnQ5fyqLYxTSvA0E48GFswg;
+        path=/; expires=Thu, 31-Oct-24 00:18:26 GMT; domain=.groq.com; HttpOnly; Secure;
         SameSite=None
       Transfer-Encoding:
       - chunked
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '974'
       vary:
       - Origin
       via:
@@ -88,7 +91,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 60ms
       x-request-id:
-      - req_01jabhsjavet0936bvd08ysb40
+      - req_01jbfx97enfbtvdpbsg53ng2sj
     status:
       code: 200
       message: OK

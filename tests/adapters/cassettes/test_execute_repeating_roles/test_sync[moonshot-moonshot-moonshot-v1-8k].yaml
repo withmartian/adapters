@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.moonshot.cn
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,22 +38,27 @@ interactions:
     uri: https://api.moonshot.cn/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-67102bc063ba36738c11515a","object":"chat.completion","created":1729113024,"model":"moonshot-v1-8k","choices":[{"index":0,"message":{"role":"assistant","content":"Hello
-        again! How can I help you today? If you have any questions or need assistance,
-        feel free to ask."},"finish_reason":"stop"}],"usage":{"prompt_tokens":18,"completion_tokens":25,"total_tokens":43}}'
+      string: !!binary |
+        IeQFACAmU21a9TfjuHS+rckwfyUgp2FkO6U/PXArSyAIwzhMMMASCT6/nL+bXk+mBBh757h/x8ZB
+        w67NwfaDj6o6y2xRlGXKaeFs1lZtveyMg4Ist2wPATTrKjAbCVCYVP6OHXRa50mep3VaK/Ti2EOj
+        Fwn7tRyiUxo1OyjMvy/20F93nLWv0IlCc8Uv6Dsm8QwNs99v9gcTDlBgnus15uy9MEUcvtBczmRN
+        oAWt2Q90lSMdxJnrJy06jTtTX0y4EhbDnmSiwOwoxb5lRR2zp25ipoOQ2e9meCoQtYW/pVhnaOwP
+        MuD5o3Asdj1M0g+Hv4PsOOyh00YAGzSlrFT4WwA6c5E/nwM=
     headers:
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 16 Oct 2024 21:10:24 GMT
+      - Wed, 30 Oct 2024 23:42:01 GMT
       Msh-Cache:
       - updated
       Msh-Gid:
       - enterprise-tier-2
       Msh-Request-Id:
-      - 0f5dafde-8c03-11ef-9b3e-72be8e316c2f
+      - 8cea7a10-9718-11ef-9cfa-c27271c4a01e
       Msh-Trace-Mode:
       - 'on'
       Msh-Uid:
@@ -66,10 +71,8 @@ interactions:
       - chunked
       Vary:
       - Origin, Accept-Encoding
-      content-length:
-      - '378'
       server-timing:
-      - inner; dur=680
+      - inner; dur=4835
     status:
       code: 200
       message: OK

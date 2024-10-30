@@ -1,23 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
-      "content": "\"\""}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-sonar-large-128k-chat",
+    body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
+      " "}, {"role": "user", "content": "\n"}], "model": "llama-3.1-sonar-large-128k-chat",
       "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '191'
+      - '182'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,36 +38,27 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "077d0985-0d7f-4373-943b-0afaa5e07a16", "model": "llama-3.1-sonar-large-128k-chat",
-        "created": 1729112198, "usage": {"prompt_tokens": 23, "completion_tokens":
-        48, "total_tokens": 71}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
-        looks like you might be trying to communicate something, but the double quotes
-        are empty. If you have a question, need information, or want to discuss a
-        topic, feel free to let me know How can I assist you today?"}, "delta": {"role":
-        "assistant", "content": ""}}]}'
+      string: '{"error":{"message":"Message content was empty","type":"invalid_message","code":400}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af4e0abe27e30-SJC
+      - 8daf4c47185a270a-SJC
       Connection:
       - keep-alive
+      Content-Length:
+      - '85'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:56:38 GMT
+      - Wed, 30 Oct 2024 23:48:45 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=WE_JkI5O0U7QtbZks25DH7x0ilKicZFIxkQnbcfnv6s-1729112198-1.0.1.1-OvNetAajaNBL8LsG5QhtUpzqHbl.e_1EiQ2cE8LRJSJFz7aSKWyH9FbgqAAnHDd1a0BOGaKtTWkgnnSOA61Yfw;
-        path=/; expires=Wed, 16-Oct-24 21:26:38 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=K1eteNjTX.gt3Rf5Wtiro4NoFeZjnwOGNEs0thf41bw-1730332125-1.0.1.1-aSdzD_3GP7VOKCVYY1EMGzNP0KB.Gy3O.f4e85CN3hfSmQ5kQQkr594ZhGR1Sx9BnaJEo3BtG8Wu5nKcFRA3Tw;
+        path=/; expires=Thu, 31-Oct-24 00:18:45 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
-      Transfer-Encoding:
-      - chunked
-      content-length:
-      - '582'
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
 version: 1

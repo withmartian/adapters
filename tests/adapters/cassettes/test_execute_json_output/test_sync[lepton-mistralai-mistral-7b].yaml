@@ -1,0 +1,76 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "mistral-7b",
+      "response_format": {"type": "json_object"}, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '143'
+      content-type:
+      - application/json
+      host:
+      - mistral-7b.lepton.run
+      user-agent:
+      - OpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://mistral-7b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-26cDuk5eJwmeBQva87QpwR","object":"chat.completion","created":1730332456,"model":"mistral-7b","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        I can help you with JSON (JavaScript Object Notation). Here are some common
+        operations you can perform with JSON:\n\n1. **Parsing JSON:** To parse JSON
+        in JavaScript, you can use the `JSON.parse()` function. Here''s an example:\n\n```javascript\nconst
+        jsonString = ''{\"name\": \"John\", \"age\": 30, \"city\": \"New York\"}'';\nconst
+        jsonObject = JSON.parse(jsonString);\nconsole.log(jsonObject); // Output:
+        { name: ''John'', age: 30, city: ''New York'' }\n```\n\n2. **Stringifying
+        JSON:** To convert a JavaScript object to JSON string, you can use the `JSON.stringify()`
+        function. Here''s an example:\n\n```javascript\nconst jsonObject = { name:
+        \"John\", age: 30, city: \"New York\" };\nconst jsonString = JSON.stringify(jsonObject);\nconsole.log(jsonString);
+        // Output: ''{\"name\":\"John\",\"age\":30,\"city\":\"New York\"}''\n```\n\n3.
+        **Accessing JSON properties:** You can","tool_calls":null},"logprobs":null,"finish_reason":"length","audio":null,"asr_results":null}],"usage":{"prompt_tokens":8,"total_tokens":264,"completion_tokens":256}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daf545d0c2226b0-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:54:18 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1216'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '1817'
+    status:
+      code: 200
+      message: OK
+version: 1

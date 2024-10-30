@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,34 +37,34 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5RFpPTSEFsrNxMcj8AVUzyRSRIt\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729112501,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"{\\\"response\\\": \\\"Hello! How can
-        I assist you today using JSON? If you have specific data or a structure in
-        mind, please let me know!\\\"}\",\n        \"refusal\": null\n      },\n      \"logprobs\":
-        null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
-        11,\n    \"completion_tokens\": 32,\n    \"total_tokens\": 43,\n    \"prompt_tokens_details\":
-        {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\":
-        {\n      \"reasoning_tokens\": 0\n    }\n  },\n  \"system_fingerprint\": \"fp_8552ec53e1\"\n}\n"
+      string: !!binary |
+        IbwKACBK6nLPMqmakz6wC4whtC/2Aw3eBBqoPTq4dcAe/mfhEwm8qHQaaMRl65wMi9P39cyEd5cW
+        wDSgAP3ENX6pCufg7kh1HppzfX40eTw/6R955v09T6qRuZkOaVsApZeFvvFkm1sMzFRWEHxy+V0Y
+        UKA16DQ7nXav3TM+LGUQFhRgrIzTlU6ZVqnTbra7TnPgtAKQ8/GPNAW+LABY9mYA38DvUqBpj+Id
+        GYIC+BHAWhYhBehqnWrjVoY2oFDCzivA72r5zaL6TYFvnodFITdwLqfw3QoXaL9hLseYpibB5dPd
+        LYwM3PneN9fchWftp92CAtW4KGLydbKpQsaqlp7GEBG4GNzg7+KtcQpQG6noaa0t4GdSxmOdKlS1
+        LJX5MzIPK02BVkvjgEtRBIBB4ecECrat9tBmZH9164Z6Uvfou34SBqzTpiWvJm4tDZQ4S6s4N8RE
+        LTbOEgEnf1FaxWGt6nSZriP11/TcZtBqd6MWrbVlAAM=
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3afc4c1a2faaac-SJC
+      - 8daf560689889e4d-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:01:42 GMT
+      - Wed, 30 Oct 2024 23:55:26 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=he09Zc4v.Q7VWkCv4HU0DHAInoyPUVikWZu7Q.Keq.A-1729112502-1.0.1.1-4iHCAFVXAJHQIQEyxloFOS9owwaUqltQktEhzBVHc4jk4AGoHGIfxktGa00pc3t91WYy2O5ncT63pKedU3_uEg;
-        path=/; expires=Wed, 16-Oct-24 21:31:42 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=JNjlZtsdD.1GozNC9WuG.WF9ro0huHTIS.s.c9GBd0I-1730332526-1.0.1.1-WEXjkfdJBKZFGc_jhXwIg0YutsmGIQPZIskns3AhR8LVlVloin8MFipkQ3AZRUJiBb5HuodM1HzG0mzj8PCAuw;
+        path=/; expires=Thu, 31-Oct-24 00:25:26 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=U4GTdRGpKH0J00moU35mBSV_FYe34thjbFehkIsbwE8-1729112502627-0.0.1.1-604800000;
+      - _cfuvid=0WKkjTLUzfsrIqdEh4oYAIDz3GErQZiCjlp.9xukz8Y-1730332526056-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -74,12 +74,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '758'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '1369'
+      - '382'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -97,7 +95,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_63eab8801371fc468686fdf5fbf7665f
+      - req_520f177eda9e2d18159ed7961dad0fe6
     status:
       code: 200
       message: OK

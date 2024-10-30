@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.deepinfra.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,19 +38,18 @@ interactions:
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-7ea818473fe24108a068b32624263279","object":"chat.completion","created":1729111718,"model":"mistralai/Mistral-7B-Instruct-v0.3","choices":[{"index":0,"message":{"role":"assistant","content":"
+      string: "{\"id\":\"chatcmpl-c886eb646ef7485bac95438b764681cc\",\"object\":\"chat.completion\",\"created\":1730332151,\"model\":\"mistralai/Mistral-7B-Instruct-v0.3\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
         there! How can I help you today? Let me know if you have any questions or
-        if there''s something you''d like to talk about. I''m here to assist you with
-        information, solutions, or just to chat if that''s what you''d prefer. :-)","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":6,"total_tokens":65,"completion_tokens":59,"estimated_cost":3.5749999999999997e-06}}'
+        topics you'd like to talk about. I'm here to assist you. \U0001F60A\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":6,\"total_tokens\":43,\"completion_tokens\":37,\"estimated_cost\":2.3650000000000002e-06}}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '595'
+      - '509'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:48:38 GMT
+      - Wed, 30 Oct 2024 23:49:11 GMT
       server:
       - uvicorn
       x-robots-tag:

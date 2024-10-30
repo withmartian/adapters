@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.ai21.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,29 +38,32 @@ interactions:
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-d0b2f36d99c741009ae0729961b53d99","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today?","tool_calls":null},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":15,"completion_tokens":10,"total_tokens":25}}'
+      string: !!binary |
+        IUgEACAWzqlsdroMdhOaC/yBEenkwPFgnzdPOMAEw4CCONCWae5gnVEN4xCuv5haJGjG6qZXXV/V
+        ru91VWR5dhxEbd31rdf7ThtZYetBw+j64Ipk+8VF+orE0tAX8YXki4ukDgmq63W63ipxg4bQuEmC
+        dUckV2wtn6ypBNsw6xp7yzu7ybZ6l9Bwk5KOTUV0RSLuRH8NJAd1kTVJDQlq5ritao0E15tU+O81
+        3Evp1UVydTve5NKJKxLbR8IVdbdJCslZGh4KAFYc//83AAM=
     headers:
-      CF-Cache-Status:
-      - DYNAMIC
       CF-RAY:
-      - 8d3afca79a2bce74-SJC
+      - 8daf4ded3b9e9682-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:01:56 GMT
+      - Wed, 30 Oct 2024 23:49:53 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      content-length:
-      - '275'
+      cf-cache-status:
+      - DYNAMIC
       request-id:
-      - 414e5f11-f492-61dd-4e08-5c06628171f6
+      - 1971f6dd-a0bd-2308-7ba6-f3fff899ef17
       via:
       - 1.1 google
     status:

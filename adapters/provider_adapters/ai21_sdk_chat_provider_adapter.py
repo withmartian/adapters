@@ -6,6 +6,9 @@ class AI21Model(Model):
     provider_name: str = Provider.ai21.value
     vendor_name: str = Vendor.ai21.value
 
+    supports_vision: bool = False
+    supports_tools: bool = False
+
     properties: ModelProperties = ModelProperties(open_source=True, gdpr_compliant=True)
 
     def _get_api_path(self) -> str:

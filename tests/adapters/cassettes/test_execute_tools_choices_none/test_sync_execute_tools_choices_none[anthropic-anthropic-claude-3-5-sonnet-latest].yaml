@@ -21,7 +21,7 @@ interactions:
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.34.2
+      - Anthropic/Python 0.36.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -31,7 +31,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.34.2
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -40,41 +42,42 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01B9Yig8fZtJZfANHwahZxCs","type":"message","role":"assistant","model":"claude-3-5-sonnet-20241022","content":[{"type":"text","text":"I''ll
-        help you generate a random number. However, I need you to specify what kind
-        of random number you''d like (like a number between certain values). The generate
-        function needs a prompt parameter indicating the desired number pattern.\n\nWould
-        you like a random number between specific values? For example, I could help
-        generate:\n- A single digit (1-9)\n- A number between 1-100\n- Or any other
-        range you prefer\n\nPlease let me know what type of random number you''d like
-        to generate."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":369,"output_tokens":110}}'
+      string: '{"id":"msg_01NpHsG8FYyRwb7Y7YUiGLw9","type":"message","role":"assistant","model":"claude-3-5-sonnet-20241022","content":[{"type":"text","text":"I''ll
+        help you generate a random number using the `generate` function. Let me do
+        that for you."},{"type":"tool_use","id":"toolu_01Qr3HUKZfkWPgvi8qVnvmh2","name":"generate","input":{"prompt":"5"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":388,"output_tokens":75}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d6bf6d55f2ffb44-SJC
+      - 8daebe5e6e5315d8-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 22 Oct 2024 19:41:23 GMT
+      - Wed, 30 Oct 2024 22:11:54 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       X-Robots-Tag:
       - none
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3999'
+      anthropic-ratelimit-requests-reset:
+      - '2024-10-30T22:12:08Z'
       anthropic-ratelimit-tokens-limit:
       - '8000000'
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-22T19:41:23Z'
+      - '2024-10-30T22:11:54Z'
       content-length:
-      - '728'
+      - '434'
       request-id:
-      - req_01FnUKH7NB4bHBKKxAY7EprR
+      - req_01Us5GiCqBFvu1AjWqAwbugU
       via:
       - 1.1 google
     status:

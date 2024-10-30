@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "mixtral-8x7b-32768",
-      "stream": false}'
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "mixtral-8x7b-32768", "stream":
+      false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '101'
+      - '157'
       content-type:
       - application/json
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,37 +38,34 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-c98a2986-af15-4050-8fe1-ccdaae406a1c","object":"chat.completion","created":1729112384,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"I''m
-        here to help you with any questions or problems you have related to programming.
-        What can I assist you with today? Do you have any specific questions about
-        Python, data structures, algorithms, or something else?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011342395000000002,"prompt_tokens":11,"prompt_time":0.002214504,"completion_tokens":45,"completion_time":0.071732597,"total_tokens":56,"total_time":0.073947101},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01jabj28gkep6akq26r39fna2y"}}
+      string: '{"error":{"message":"Service Unavailable","type":"internal_server_error"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af96fff8c1668-SJC
+      - 8daf4d74f8031701-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
       - keep-alive
+      Content-Length:
+      - '75'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:59:44 GMT
+      - Wed, 30 Oct 2024 23:49:33 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=B7yWrJzM6bqwJyM9PnEwPDe7RPzKEBA16KcBW4C3Um8-1729112384-1.0.1.1-DW1Ah7fWHseepVO.zZkYPTRl.O0h8W5YuUsX6IB.oMWM7HfaW8bBHgVzRYMphDMMmEN8uXvBw3QnDBXWhmLU3w;
-        path=/; expires=Wed, 16-Oct-24 21:29:44 GMT; domain=.groq.com; HttpOnly; Secure;
+      - __cf_bm=i4qajoPtsTvXjgZmbk9vL0bAKrJ77S74.EZs_cbvC6I-1730332173-1.0.1.1-Ox7_WYfmhzmXFhmu1tXkulhjj4jD.M5mtPdA3LoSCzAmzQ_IBr8Gwa4XPJGp1oIvg.W3x_44nTMd4BdGp9RjzQ;
+        path=/; expires=Thu, 31-Oct-24 00:19:33 GMT; domain=.groq.com; HttpOnly; Secure;
         SameSite=None
-      Transfer-Encoding:
-      - chunked
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '725'
+      retry-after:
+      - '15'
       vary:
       - Origin
       via:
@@ -77,16 +75,18 @@ interactions:
       x-ratelimit-limit-tokens:
       - '5000'
       x-ratelimit-remaining-requests:
-      - '14399'
+      - '14395'
       x-ratelimit-remaining-tokens:
       - '4993'
       x-ratelimit-reset-requests:
-      - 6s
+      - 29.379s
       x-ratelimit-reset-tokens:
       - 84ms
       x-request-id:
-      - req_01jabj28gkep6akq26r39fna2y
+      - req_01jbfxb99rfc88c6wqjtx5bymy
+      x-should-retry:
+      - 'false'
     status:
-      code: 200
-      message: OK
+      code: 503
+      message: Service Unavailable
 version: 1

@@ -1,0 +1,79 @@
+interactions:
+- request:
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
+      "role": "user"}], "model": "claude-3-opus-latest", "stream": false, "tool_choice":
+      {"name": "generate", "type": "tool"}, "tools": [{"input_schema": {"type": "object",
+      "properties": {"prompt": {"type": "string", "description": "Random number like
+      5, 4, 3, 10, 11"}}}, "name": "generate", "description": "Generate random number"}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      anthropic-version:
+      - '2023-06-01'
+      connection:
+      - keep-alive
+      content-length:
+      - '401'
+      content-type:
+      - application/json
+      host:
+      - api.anthropic.com
+      user-agent:
+      - AsyncAnthropic/Python 0.36.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: '{"id":"msg_018dArn4iqRSh7uHNexF4vXP","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"tool_use","id":"toolu_01Psjzupu3edQ15PtDDE9LAu","name":"generate","input":{"prompt":"random
+        number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":374,"output_tokens":36}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8dae924d981796e1-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 21:41:51 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '5000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '5000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-10-30T21:41:51Z'
+      content-length:
+      - '323'
+      request-id:
+      - req_01SphBTx5AvMg53Zna9yhYqk
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+version: 1

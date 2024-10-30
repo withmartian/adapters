@@ -1,0 +1,73 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "mixtral-8x7b-instruct",
+      "response_format": {"type": "json_object"}, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '154'
+      content-type:
+      - application/json
+      host:
+      - text.octoai.run
+      user-agent:
+      - AsyncOpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://text.octoai.run/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-b76b1f7a3f5b4e5eac7871500f993b03","object":"chat.completion","created":1730332573,"model":"mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"{\n\"answer\":
+        \"Hello! I will respond to your messages using only JSON format, as you''ve
+        requested.\"\n}"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":68,"completion_tokens":27,"total_tokens":95}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '412'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:56:12 GMT
+      Server:
+      - uvicorn
+      Vary:
+      - Origin
+      Via:
+      - kong/3.2.2
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '425'
+      X-Ratelimit-Limit:
+      - '4'
+      X-Ratelimit-Remaining:
+      - '3'
+      X-Ratelimit-Reset:
+      - '1730332574'
+      X-User-Request-Id:
+      - ''
+    status:
+      code: 200
+      message: OK
+version: 1

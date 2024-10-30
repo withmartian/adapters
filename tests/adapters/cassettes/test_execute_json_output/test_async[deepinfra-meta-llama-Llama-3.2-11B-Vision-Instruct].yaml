@@ -1,0 +1,58 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "meta-llama/Llama-3.2-11B-Vision-Instruct",
+      "response_format": {"type": "json_object"}, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '173'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - AsyncOpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-c6693526f9de479a8cf31b8b9315c621","object":"chat.completion","created":1730332246,"model":"meta-llama/Llama-3.2-11B-Vision-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"{\"message\":\"What
+        do you need to do with JSON?\"}\r","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":14,"total_tokens":29,"completion_tokens":15,"estimated_cost":1.595e-06}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '420'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:50:46 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -15,6 +15,8 @@ from adapters.types import (
 class DatabricksModel(Model):
     provider_name: str = Provider.databricks.value
 
+    supports_vision: bool = False
+
     properties: ModelProperties = ModelProperties(open_source=True, gdpr_compliant=True)
 
 
@@ -37,13 +39,8 @@ MODELS = [
         name="databricks-mixtral-8x7b-instruct",
         cost=Cost(prompt=7.143 * DBU_USD_RATE, completion=14.286 * DBU_USD_RATE),
         context_length=32000,
-        vendor_name=Vendor.mistralai.value,
-    ),
-    DatabricksModel(
-        name="databricks-mixtral-8x7b-instruct",
-        cost=Cost(prompt=7.143 * DBU_USD_RATE, completion=14.286 * DBU_USD_RATE),
-        context_length=32000,
         vendor_name=Vendor.databricks.value,
+        supports_tools=False,
     ),
     DatabricksModel(
         name="databricks-dbrx-instruct",

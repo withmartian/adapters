@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,37 +37,40 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-e1fafcd8-6589-44a9-a0c2-336ad3a3f777","object":"chat.completion","created":1729108693,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        It''s nice to meet you. Is there something specific you would like to know
-        or discuss about computer science and information technology? I''m here to
-        help and answer any questions you have to the best of my ability."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.012341425,"prompt_tokens":9,"prompt_time":0.001959193,"completion_tokens":48,"completion_time":0.076212586,"total_tokens":57,"total_time":0.078171779},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01jabehmb7es0bxfh5xeta7ssq"}}
-
-        '
+      string: !!binary |
+        IUAKACD+o07bu0y/r3Qgx0CxjtbLMB8YJcf4FUtu2XIHbn/QliYWxhXFCYUP3laWtJonUeABBphu
+        E6TjNA3MXufs7BuGDhLtuXbtYmavTbJUh23o1W2jvaRNQ+8Y162X6SBudJMUcdFAgJtRtc5ZHioM
+        jIFXCKCW71UdZJjHQRyFRRYLLNypGRLL8Oy2evaOz3njxVGeHSGAh89YyD9vGHNfQwYCxRavIN+w
+        8awgUVs7WFevDgKd6HZI/FbzzNd0cg+W1qFV5JgWpRy98H6gkyXUd8Sd0AvvRCAV6Ov9TLWdiDdy
+        9TxR3fDuftHpYaHVdkxnNRt6GtyZ6vWFLlXYw6wx+J0R/D30EFjWtLwQU9S5Az4EZu7Nxo2FXPd5
+        Fuj/FpRcW8uQsI4NPv4J7DH/c9nVrko3LAoyOARhlBRZGKQCZuPFuNLxpFYLWWjJ/iKIgiJKw1Qg
+        MfCJJOEWOV5kaZIHRZILfK8ARKWBFuaVPM3iJIs+BED9M6Ue1l5tZhsyMqxN2aY6Cpq0aUIIPJf9
+        xhfIt7ZgU5cyCMdGT5PRr3rpiv7VhGH/2Ib2HOLj48oAAw==
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3a9f554a76fb4c-SJC
+      - 8dae542fdcde7ae0-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 19:58:13 GMT
+      - Wed, 30 Oct 2024 20:59:23 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=5Ver.zarR0lk6j3rl92MuKr9UH3EXvm.xEYuBNgkwt0-1729108693-1.0.1.1-gDNi_NOmofL5MLl9zhWKd7E88DWcmkbLD9.0H.i4PdAru4x9M2mji7G0ADnx..R2MEYPO1Y0pxfNmSbfhc1JAQ;
-        path=/; expires=Wed, 16-Oct-24 20:28:13 GMT; domain=.groq.com; HttpOnly; Secure;
+      - __cf_bm=yXYdefwuOMwXBroxUHNtIzOM8TZZBTsmuaw_lITCbAE-1730321963-1.0.1.1-0dJfFtu2uOF3SD4f2ZKgrUvGnyGBhzFtI5xRjDDVKI652xDjdClDYHcVnFCUVfqhQGzLVdMImSiChzxTD2Eqew;
+        path=/; expires=Wed, 30-Oct-24 21:29:23 GMT; domain=.groq.com; HttpOnly; Secure;
         SameSite=None
       Transfer-Encoding:
       - chunked
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '720'
       vary:
       - Origin
       via:
@@ -85,7 +88,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 72ms
       x-request-id:
-      - req_01jabehmb7es0bxfh5xeta7ssq
+      - req_01jbfkkpfzfmd9gzp11gvc1sh1
     status:
       code: 200
       message: OK

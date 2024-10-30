@@ -1,23 +1,22 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}, {"role": "assistant", "content": "Hi"}, {"role": "user", "content": "\"\""}],
-      "model": "llama-3.1-sonar-small-128k-online", "stream": false}'
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "llama-3.1-sonar-small-128k-online",
+      "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '226'
+      - '112'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,48 +37,44 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "3f4eaf01-66ee-4ea9-80e0-b89fc9592100", "model": "llama-3.1-sonar-small-128k-online",
-        "created": 1729112909, "usage": {"prompt_tokens": 4, "completion_tokens":
-        290, "total_tokens": 294}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
-        seems like your query is incomplete. However, if you''re asking about how
-        to keep empty quotes when saving a CSV file in LibreOffice, here\u2019s the
-        relevant information:\n\nTo keep empty quotes when saving a CSV file in LibreOffice,
-        you need to ensure that the empty cells are properly represented in the CSV
-        format. Here are the steps:\n\n1. **Set the Separator and String Delimiter**:
-        When saving your file as a CSV, click on \"Edit filter settings\" and set
-        the separator and string delimiter (in this case, double quotes) as needed.\n\n2.
-        **Check for Formulas**: If you have formulas that return two double quotes,
-        ensure that you save the file as calculated values rather than formulae. This
-        will prevent the empty quotes from being lost.\n\n3. **Export Empty Cells**:
-        If you have headings for your columns, the empty cells will be exported but
-        just defined by the separator. For example, if you have a structure like:\n\n```\n\"Current\";\"Fruit
-        1\";\"Fruit 2\";\"Fruit 3\";\"Fruit 4\";\"Fruit 5\"\n\"ex\";\"apple\";\"banana\";;;\n```\n\nThe
-        empty cells will be represented by the separator.\n\nBy following these steps,
-        you should be able to keep the empty quotes in your CSV file. If you have
-        any specific context or additional details, please provide them so I can give
-        a more precise answer."}, "delta": {"role": "assistant", "content": ""}}]}'
+      string: '{"id": "8f36652c-2c90-4cba-9dee-b0ed53cc575f", "model": "llama-3.1-sonar-small-128k-online",
+        "created": 1730332225, "usage": {"prompt_tokens": 1, "completion_tokens":
+        216, "total_tokens": 217}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "The
+        word \"hi\" is an informal greeting used to acknowledge someone''s presence
+        or to express a friendly hello. Here are the key points about \"hi\" from
+        various sources:\n\n- **Definition**: \"Hi\" is an interjection used especially
+        as a greeting, more casual than \"hello\".\n- **Etymology**: It likely originated
+        from Middle English \"hey\" or \"hy,\" and has been used since at least the
+        1800s in American English.\n- **Usage**: It is commonly used in informal settings,
+        such as among friends or in casual conversations.\n- **Variations**: Other
+        similar greetings include \"hey,\" \"hello,\" and \"howdy,\" but \"hi\" is
+        generally the most common.\n- **Cultural Context**: In small towns, it might
+        seem like everyone greets each other with \"hi\" as they pass by.\n\nOverall,
+        \"hi\" is a versatile and widely used greeting that is appropriate in most
+        social interactions except for the most formal circumstances."}, "delta":
+        {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b0631e8e01742-SJC
+      - 8daf4eadb86317ee-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:08:29 GMT
+      - Wed, 30 Oct 2024 23:50:25 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=YrD7eo4CNWgs6jIWnl.YB2XOcpDieJpNRXjSWmS9lmQ-1729112909-1.0.1.1-4h6kh_kQU.weXxMSlcsM9KANpgfsePmPNBh51LsfLHM7.lBLWNkvjBDTpoIe3MjfpQaoRtGGexmUJoLU9f7EIQ;
-        path=/; expires=Wed, 16-Oct-24 21:38:29 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=fVaUOx3MCXQDim5Hv8Q35Bm80GBRR3rdxsLEnTuvUIs-1730332225-1.0.1.1-tVmfzy0jt8.BPGvVAXpNxPHvlgN24KK58aIwzxy1YJRgdg75CBRQIQetziFYG8r4i03Gjzhx6qsmNmYgdGTrlg;
+        path=/; expires=Thu, 31-Oct-24 00:20:25 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
       Transfer-Encoding:
       - chunked
       content-length:
-      - '1675'
+      - '1285'
     status:
       code: 200
       message: OK

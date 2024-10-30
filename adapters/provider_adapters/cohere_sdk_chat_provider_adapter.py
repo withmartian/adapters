@@ -32,6 +32,7 @@ class CohereModel(Model):
     )
 
     supports_streaming: bool = False
+    supports_tools: bool = False
 
     def _get_api_path(self) -> str:
         return self.name

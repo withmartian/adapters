@@ -1,0 +1,67 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "google/gemma-2-27b-it",
+      "response_format": {"type": "json_object"}, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '154'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - OpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-7853832b25c948c7ab11c36f41202aac","object":"chat.completion","created":1730332192,"model":"google/gemma-2-27b-it","choices":[{"index":0,"message":{"role":"assistant","content":"Please
+        give me something to do with JSON! I can:\n\n* **Parse JSON**: If you give
+        me a JSON string, I can read it and understand its structure.\n\n* **Generate
+        JSON**: If you tell me what data you want, I can create a JSON string representing
+        it.\n\n* **Modify JSON**: I can update, add, or remove data within a JSON
+        object.\n* **Validate JSON**: I can check if a given string is valid JSON.\n*
+        **Compare JSON**: I can tell you if two JSON objects are the same.\n\n**For
+        example, you could ask me:**\n\n* \"Parse this JSON: `{\\\"name\\\": \\\"John\\\",
+        \\\"age\\\": 30}`\"\n* \"Generate JSON for a person with name ''Alice'' and
+        age 25\"\n* \"Add a ''city'' field to this JSON: `{\\\"name\\\": \\\"Bob\\\"}`\"\n\n\nWhat
+        would you like me to do?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"total_tokens":209,"completion_tokens":196,"estimated_cost":5.642999999999999e-05}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1103'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:49:52 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1

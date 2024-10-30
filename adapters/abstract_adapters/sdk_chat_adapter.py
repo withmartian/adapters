@@ -207,11 +207,11 @@ class SDKChatAdapter(
                 if message["role"] == ConversationRole.system.value:
                     message["role"] = ConversationRole.assistant.value
 
-        # Change system prompt roles to assistant
+        # Change system prompt roles to user
         if not self.get_model().supports_system:
             for message in messages:
                 if message["role"] == ConversationRole.system.value:
-                    message["role"] = ConversationRole.assistant.value
+                    message["role"] = ConversationRole.user.value
 
         # Join messages from the same role
         processed_messages = []

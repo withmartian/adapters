@@ -63,6 +63,8 @@ class AnthropicModel(Model):
     vendor_name: str = Vendor.anthropic.value
     provider_name: str = Provider.anthropic.value
 
+    supports_vision: bool = False
+
 
 SUPPORTED_MODELS = [
     AnthropicModel(
@@ -288,6 +290,10 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
         if len(messages) > 0 and messages[0]["role"] == ConversationRole.system.value:
             system_prompt = messages[0]["content"]
             messages = messages[1:]
+
+        for message in messages:
+            if message["role"] == ConversationRole.system.value:
+                message["role"] = ConversationRole.user.value
 
         # Remove trailing whitespace from the last assistant message
         if (

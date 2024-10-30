@@ -1,23 +1,22 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
-      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "llama-3.1-sonar-huge-128k-online",
-      "stream": false}'
+    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
+      "content": "Hi"}], "model": "llama-3.1-sonar-huge-128k-online", "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '188'
+      - '151'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,52 +37,28 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "7da4b9d8-5277-4da4-a435-a54856c3c28c", "model": "llama-3.1-sonar-huge-128k-online",
-        "created": 1729109239, "usage": {"prompt_tokens": 3, "completion_tokens":
-        374, "total_tokens": 377}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "The
-        term \"hi\" is primarily used as a casual greeting. Here are some key points
-        about its usage and meaning:\n\n1. **Greeting**: \"Hi\" is an informal greeting
-        used to acknowledge someone''s presence, often in casual or familiar settings.\n\n2.
-        **Variations**: It can be used in various forms such as \"hi,\" \"hey,\" \"hello,\"
-        and \"hiya,\" but \"hi\" is the most common and versatile.\n\n3. **Formality**:
-        \"Hi\" is generally less formal than \"hello\" and is suitable for most everyday
-        interactions, except in very formal situations.\n\n4. **Etymology**: The word
-        \"hi\" originated as a variant of Middle English \"hey\" or \"hy,\" used to
-        attract attention.\n\n5. **Other Meanings**: \"Hi\" can also be an abbreviation
-        for \"Hawaii,\" \"high intensity,\" and \"humidity index,\" but these are
-        distinct from its use as a greeting.\n\n### Example Sentences:\n- **Greeting**:
-        \"Hi, how are you doing?\"\n- **Informal Use**: \"Just called to say hi.\"\n-
-        **In Writing**: \"Love from Sophie. PS Say hi to Gemma.\"\n\n### Key Sources:\n-
-        **Merriam-Webster**: Provides definitions and examples of \"hi\" as a greeting
-        and abbreviation.\n- **Vocabulary.com**: Explains the casual nature of \"hi\"
-        and its appropriateness in various contexts.\n- **Cambridge English Dictionary**:
-        Offers examples and definitions of \"hi\" as an informal greeting.\n- **Wiktionary**:
-        Discusses the etymology and various uses of \"hi,\" including its historical
-        origins and modern applications."}, "delta": {"role": "assistant", "content":
-        ""}}]}'
+      string: '{"error":{"message":"After the (optional) system message(s), user and
+        assistant roles should be alternating.","type":"invalid_message","code":400}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3aac128a4322d2-SJC
+      - 8daf4b4f1a14f99b-SJC
       Connection:
       - keep-alive
+      Content-Length:
+      - '147'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:07:19 GMT
+      - Wed, 30 Oct 2024 23:48:05 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=gpXQhWkV7jo8Yfhj_eMyJleRHPSYoZZ74zGAh.G3VMQ-1729109239-1.0.1.1-dYRF.St3VWVYSBAYeliOGoCt7HwMojJn6oVosHvq.juHcfix5VNa2XTqOZvdUcct8WPxRq_K4tNsxcPqkEAT5A;
-        path=/; expires=Wed, 16-Oct-24 20:37:19 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=OE80yNlzFvINWkU5R3kfJhY7jFP0PG4qY8wa0mjTWrY-1730332085-1.0.1.1-hFA7rbImY84S4Ck3Ewl8lgI0PW0krbDiOpEA3eTdKZ19PU4j8V9644txKjJ9yR9GHNoy8M6_ePGFgBq0lDlM8g;
+        path=/; expires=Thu, 31-Oct-24 00:18:05 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
-      Transfer-Encoding:
-      - chunked
-      content-length:
-      - '1840'
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
 version: 1

@@ -5,6 +5,9 @@ from adapters.types import Cost, Model, ModelProperties, Provider, Vendor
 class OctoaiModel(Model):
     provider_name: str = Provider.octoai.value
 
+    supports_vision: bool = False
+    supports_tools: bool = False
+
     properties: ModelProperties = ModelProperties(open_source=True)
 
 

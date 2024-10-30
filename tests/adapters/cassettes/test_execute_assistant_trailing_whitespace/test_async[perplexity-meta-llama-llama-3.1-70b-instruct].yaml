@@ -1,23 +1,22 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-70b-instruct",
-      "stream": false}'
+      "content": "Hi "}], "model": "llama-3.1-70b-instruct", "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '179'
+      - '142'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,34 +37,27 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "544435cd-570a-40e7-aacd-9e9e4febbeb3", "model": "llama-3.1-70b-instruct",
-        "created": 1729111845, "usage": {"prompt_tokens": 24, "completion_tokens":
-        24, "total_tokens": 48}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
-        looks like you sent an empty message Is there something I can help you with
-        or would you like to chat?"}, "delta": {"role": "assistant", "content": ""}}]}'
+      string: '{"error":{"message":"Last message must have role `user`.","type":"invalid_message","code":400}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3aec447edbd011-SJC
+      - 8daf4c42ea98cf23-SJC
       Connection:
       - keep-alive
+      Content-Length:
+      - '95'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:50:45 GMT
+      - Wed, 30 Oct 2024 23:48:44 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=bFyYEF17iGBH_4Na6FnUWqi8cMlAZsnusR_vxJYOmU8-1729111845-1.0.1.1-ekemLjs58u4X7C.yshVrhFODbtH_hx1JCVnkrSCsgmwiK3z2b9B3BU6Eys_m0vcOeO5sjEyvYMa30QEInWmA5Q;
-        path=/; expires=Wed, 16-Oct-24 21:20:45 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=fWdNcRio4b7t7hb3H76CD225g029X_dRL7R3rCJYi7Q-1730332124-1.0.1.1-nPUmy7m3tXuGO5w.nKLL5403TqlA1dB4N32BcqK7P2gVOxMAgn2wHXoJ3CKOBovjMAMmTjuWPJwvB3HnuxtJFw;
+        path=/; expires=Thu, 31-Oct-24 00:18:44 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
-      Transfer-Encoding:
-      - chunked
-      content-length:
-      - '463'
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
 version: 1

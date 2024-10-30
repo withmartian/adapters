@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.moonshot.cn
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,23 +37,28 @@ interactions:
     uri: https://api.moonshot.cn/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-6710260c2b0703259f4c9322\",\"object\":\"chat.completion\",\"created\":1729111564,\"model\":\"moonshot-v1-8k\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"\U0001F44B!
-        I'm Kimi, your AI assistant developed by Moonshot AI. I'm here to help with
-        a wide range of topics, from reading documents to answering questions. If
-        you need assistance or have any inquiries, feel free to ask!\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":10,\"completion_tokens\":53,\"total_tokens\":63}}"
+      string: !!binary |
+        IawHACCLU0VU1c5z3zMr3APop7bSOEmt+LUfoKEBNADo1h24/XaB32+F5wsGGHhbbYGEUUs0wKfb
+        9PH4DGFYr851/ohGo0RVZFGtm7o9mQ4GatKbUX8w6aneeKRH46mazVEgL0tSMYE6XQWZYYsCJ5Xf
+        I42yPx32hsNBfzITuGZNNUpcM9tQcGxv+u1ZhQLn31cCyrcjytpXlD2BzRVRKI/ouSaUmIVgQsxs
+        RIHMcxsS//9+f1rweLOGZ7M2AvacPCwewR0QriUalnt4RSCweOxkfijIE0SGguoGtiYW8GaHwDlE
+        bowKArY9DfCUaWNXoFmlNdkYQJe/CVvyxq6gxA+hA4857DmBMP61zO7BWJeMNxSAPVgiDbOpSEBO
+        VEPuCY/JQtXCs0BqOPe1hmsfJYbIDZ4/BKbyzBvP6yZ+Ra7IBpT9nsFt4FExHgr8KQGM8mR4PhsD
     headers:
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 16 Oct 2024 20:46:05 GMT
+      - Wed, 30 Oct 2024 23:49:30 GMT
       Msh-Cache:
       - updated
       Msh-Gid:
       - enterprise-tier-2
       Msh-Request-Id:
-      - a9355c21-8bff-11ef-9b3e-72be8e316c2f
+      - 99ad57bc-9719-11ef-9c4b-ae72ccef760a
       Msh-Trace-Mode:
       - 'on'
       Msh-Uid:
@@ -66,10 +71,8 @@ interactions:
       - chunked
       Vary:
       - Origin, Accept-Encoding
-      content-length:
-      - '492'
       server-timing:
-      - inner; dur=1278
+      - inner; dur=2654
     status:
       code: 200
       message: OK

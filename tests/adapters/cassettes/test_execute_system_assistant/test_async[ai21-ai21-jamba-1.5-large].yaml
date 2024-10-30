@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.ai21.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,29 +38,32 @@ interactions:
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-faa2ff71997643d98de706707339b279","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today?","tool_calls":null},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"completion_tokens":10,"total_tokens":33}}'
+      string: !!binary |
+        IcgDACBWzqX0ry7hCfXCc4EDqDrRyYnY4QIHLQwwwYSCxFumuY15hgqNVVbXN44ZhGkfXJxlQ7+M
+        Y7UWTV11TTnMRV71w1QVfdFUWY8Io+sLC3rduEhfoCxCX8QX6IaRbAFhsPawbhAOEULjFgjP44EI
+        Tkr2mwbGLEh4xkIEJjdl5EgiQkRa+K2j2oNgnVQInwi+1qyM5Mr9nLwWYUFFCcMVW9whhZTKCA8D
+        cF42IRgD
     headers:
-      CF-Cache-Status:
-      - DYNAMIC
       CF-RAY:
-      - 8d3b1e3c6b9d22de-SJC
+      - 8daee4478e10965d-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:24:52 GMT
+      - Wed, 30 Oct 2024 22:37:46 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      content-length:
-      - '275'
+      cf-cache-status:
+      - DYNAMIC
       request-id:
-      - 6ea65d4e-15c6-c1a3-8b4f-d1ff9c6f2226
+      - 513df7c3-185f-4e45-4c8b-26feb285cae5
       via:
       - 1.1 google
     status:

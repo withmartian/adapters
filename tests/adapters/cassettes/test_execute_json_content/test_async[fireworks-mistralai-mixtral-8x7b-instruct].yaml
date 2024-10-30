@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct",
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct",
       "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '130'
+      - '186'
       content-type:
       - application/json
       host:
       - api.fireworks.ai
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,51 +38,41 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"97779d0e-146e-46be-99ea-4366eed108ce","object":"chat.completion","created":1729112380,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        I''m here to help answer your questions and engage in a positive and respectful
-        manner. Is there something you''d like to ask or talk about? I strive to provide
-        useful and ethical responses, while avoiding harmful, prejudiced, or negative
-        content. Let''s have a great conversation together!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":56,"total_tokens":121,"completion_tokens":65}}'
+      string: '{"error":{"object":"error","type":"internal_server_error","message":"server
+        had an error while processing your request, please retry again after a brief
+        wait"}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d3af952bdbacfa4-SJC
+      - 8daf4d6ead7267cb-SJC
       Cf-Placement:
-      - remote-HKG
+      - local-SJC
       Connection:
       - keep-alive
+      Content-Length:
+      - '160'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:59:40 GMT
+      - Wed, 30 Oct 2024 23:49:32 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=971.0;desc="Total Response Time"
-      Transfer-Encoding:
-      - chunked
+      - total;dur=69.0;desc="Total Response Time"
       Vary:
       - Accept-Encoding
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '607'
       fireworks-middleware-version:
       - v2
-      fireworks-sampling-options:
-      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
-        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
-        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
-      fireworks-server-processing-time:
-      - '0.733'
       x-envoy-upstream-service-time:
-      - '734'
+      - '2'
       x-request-id:
-      - 97779d0e-146e-46be-99ea-4366eed108ce
+      - 222d377d-2e9a-40f3-a434-ee1f0a6707a4
     status:
-      code: 200
-      message: OK
+      code: 500
+      message: Internal Server Error
 version: 1

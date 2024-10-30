@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "meta-llama-3-70b-instruct",
-      "stream": false}'
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "meta-llama-3-70b-instruct", "stream":
+      false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '108'
+      - '164'
       content-type:
       - application/json
       host:
       - text.octoai.run
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,18 +38,19 @@ interactions:
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-1f6cf7f52d7b4928bc127454aefd0aaa","object":"chat.completion","created":1729112394,"model":"meta-llama-3-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
-        It seems like you''re excited to chat! Is there something on your mind that
-        you''d like to talk about, or are you just saying hello?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"completion_tokens":32,"total_tokens":45}}'
+      string: '{"id":"chatcmpl-bf8f053cb1244d60bc757f2b6f42ef85","object":"chat.completion","created":1730332191,"model":"meta-llama-3-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"It
+        looks like you''ve sent a list of two identical greetings: \"Hi\" and \"Hi\".
+        Would you like to chat about something or is there something on your mind
+        that you''d like to talk about? I''m here to listen and help if I can!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":16,"completion_tokens":53,"total_tokens":69}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '445'
+      - '533'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:59:53 GMT
+      - Wed, 30 Oct 2024 23:49:50 GMT
       Server:
       - uvicorn
       Vary:
@@ -58,13 +60,13 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '579'
+      - '914'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1729112395'
+      - '1730332192'
       X-User-Request-Id:
       - ''
     status:

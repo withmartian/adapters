@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.ai21.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,17 +37,22 @@ interactions:
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-001e5071e4e04cd0945234131ac84a3f","choices":[{"index":0,"message":{"role":"assistant","content":"How
-        can I assist you today?","tool_calls":null},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":16,"completion_tokens":8,"total_tokens":24}}'
+      string: !!binary |
+        ISgEACBW2la1ma1fFVooar8XDblgppMDx4N93jzQNMAEE2hB4i3T9GTfQz5BKBzXX4wNMtQD3cyo
+        ruvEo67zkiRwoo46L23aLo5TcoLKa2BgdH1yRbb54iJ9ReYY6Iv4QvbFhWWLDHS9jtcbqRsMmMaV
+        GVb8FDUpsRY5a+LNd3Hjht5LGLgxy0NNUl6RqbuUfwOSe33hSqQB6zR3WFO1R4brjTX+OwP3GmZ9
+        4ZO+HW48t+qKzI1gTlq2t5FVKCQGHgkAihf8/wM=
     headers:
       CF-RAY:
-      - 8d3aadc04c4ace50-SJC
+      - 8daf4bb8b8f467f1-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:08:04 GMT
+      - Wed, 30 Oct 2024 23:48:23 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -56,10 +61,8 @@ interactions:
       - chunked
       cf-cache-status:
       - DYNAMIC
-      content-length:
-      - '267'
       request-id:
-      - d30032ec-f203-20a6-e7ec-6c9cad1ee14a
+      - 5c0d8104-e2c2-04c6-348b-bcac04fb0cb8
       via:
       - 1.1 google
     status:

@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - text.octoai.run
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,17 +38,21 @@ interactions:
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-017fefd18ad045e9b82a02603422a1ec","object":"chat.completion","created":1729112116,"model":"nous-hermes-2-mixtral-8x7b-dpo","choices":[{"index":0,"message":{"role":"assistant","content":"Willkommen!
-        Wie kann ich Ihnen heute behilflich sein?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":24,"completion_tokens":18,"total_tokens":42}}'
+      string: '{"id":"chatcmpl-25fd1171e03e4959b8dd69754374c76c","object":"chat.completion","created":1730332081,"model":"nous-hermes-2-mixtral-8x7b-dpo","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today? \n\nPlease feel free to ask any questions or let
+        me know what you need help with. \n\nIf you''re looking for information, I
+        can search the web for the latest news, weather updates, or answer general
+        knowledge questions. If you need help with a task, I can provide guidance,
+        tutorials or links to resources to help you achieve your goal."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":24,"completion_tokens":85,"total_tokens":109}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '369'
+      - '687'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:55:15 GMT
+      - Wed, 30 Oct 2024 23:48:00 GMT
       Server:
       - uvicorn
       Vary:
@@ -56,15 +60,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '326'
+      - '1204'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1729112117'
+      - '1730332082'
       X-User-Request-Id:
       - ''
     status:

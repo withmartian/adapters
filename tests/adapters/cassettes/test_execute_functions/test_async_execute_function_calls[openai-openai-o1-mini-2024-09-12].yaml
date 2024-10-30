@@ -1,0 +1,97 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "o1-mini-2024-09-12", "function_call": {"name": "generate"}, "functions": [{"description":
+      "Generate random number", "name": "generate"}], "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '234'
+      content-type:
+      - application/json
+      host:
+      - api.openai.com
+      user-agent:
+      - AsyncOpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.openai.com/v1/chat/completions
+  response:
+    body:
+      string: "{\n  \"error\": {\n    \"message\": \"Unsupported parameter: 'function_call'
+        is not supported with this model.\",\n    \"type\": \"invalid_request_error\",\n
+        \   \"param\": \"function_call\",\n    \"code\": \"unsupported_parameter\"\n
+        \ }\n}"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daf4c636cac15d8-SJC
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '214'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:48:50 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=3VMZb4UVj2kIyYDtTtZvj_XkKTwTt.MViiEs2C3PwOk-1730332130-1.0.1.1-X4h.nCfNAL4g9aTdkqBC5o_g7dyeMVwjvc1SjjwaFOuxowdePn2r5zhfPtG9tnEEnwPm3V7nb3eQYHiAgDJmPw;
+        path=/; expires=Thu, 31-Oct-24 00:18:50 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=NqLygc6qtf2ow373JbZKDUGu7rfF0Z9iDUCbRc6KuTs-1730332130062-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      access-control-expose-headers:
+      - X-Request-ID
+      alt-svc:
+      - h3=":443"; ma=86400
+      openai-organization:
+      - martian-4
+      openai-processing-ms:
+      - '111'
+      openai-version:
+      - '2020-10-01'
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      x-ratelimit-limit-requests:
+      - '30000'
+      x-ratelimit-limit-tokens:
+      - '150000000'
+      x-ratelimit-remaining-requests:
+      - '29999'
+      x-ratelimit-remaining-tokens:
+      - '149999976'
+      x-ratelimit-reset-requests:
+      - 2ms
+      x-ratelimit-reset-tokens:
+      - 0s
+      x-request-id:
+      - req_def5254c19f16686d59b91f1944ba117
+    status:
+      code: 400
+      message: Bad Request
+version: 1

@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.deepinfra.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,18 +38,20 @@ interactions:
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-ab02ab1e30f54780a12fd1b2020b46b7","object":"chat.completion","created":1729112550,"model":"mistralai/Mistral-7B-Instruct-v0.3","choices":[{"index":0,"message":{"role":"assistant","content":"
-        Hello! It''s nice to see you again. If you have any questions or topics you''d
-        like to discuss, feel free to share. I''m here to help!","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":9,"total_tokens":46,"completion_tokens":37,"estimated_cost":2.5299999999999995e-06}}'
+      string: '{"id":"chatcmpl-166b50e49ef04fed8318ada7166458b1","object":"chat.completion","created":1730332215,"model":"mistralai/Mistral-7B-Instruct-v0.3","choices":[{"index":0,"message":{"role":"assistant","content":"
+        Hello there! It seems like we both said \"Hi\" a few times. I''m here if you''d
+        like to chat about something in particular or ask a question. Just let me
+        know! If you''re just saying hi, that''s great too! I''m always happy to chat.
+        :)","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":9,"total_tokens":73,"completion_tokens":64,"estimated_cost":4.015e-06}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '505'
+      - '591'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:02:30 GMT
+      - Wed, 30 Oct 2024 23:50:15 GMT
       server:
       - uvicorn
       x-robots-tag:

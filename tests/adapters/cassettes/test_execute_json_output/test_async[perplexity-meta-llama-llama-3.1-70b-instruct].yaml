@@ -1,0 +1,68 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "llama-3.1-70b-instruct",
+      "response_format": {"type": "json_object"}, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '155'
+      content-type:
+      - application/json
+      host:
+      - api.perplexity.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.perplexity.ai/chat/completions
+  response:
+    body:
+      string: '{"error":{"message":"[\"At body -> response_format -> ResponseFormatText
+        -> type: Input should be ''text''\", \"At body -> response_format -> ResponseFormatJSONSchema
+        -> type: Input should be ''json_schema''\", \"At body -> response_format ->
+        ResponseFormatJSONSchema -> json_schema: Field required\", \"At body -> response_format
+        -> ResponseFormatRegex -> type: Input should be ''regex''\", \"At body ->
+        response_format -> ResponseFormatRegex -> regex: Field required\"]","type":"bad_request","code":400}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daf4d931ddb9855-SJC
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '500'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:49:38 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=JrDpks0JWIUSaD6ii00MWBoknzOrVLnkNMH1iPFex1c-1730332178-1.0.1.1-MNtYu1CjBHZkbsTbJPLhsnwqOB8YFcBGeewF_SzmeUuz3neTVwovvSIHqw97bGRsJGLhPbgID9EV1vWSGmssHw;
+        path=/; expires=Thu, 31-Oct-24 00:19:38 GMT; domain=.perplexity.ai; HttpOnly;
+        Secure; SameSite=None
+    status:
+      code: 400
+      message: Bad Request
+version: 1

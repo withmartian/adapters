@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,110 +38,46 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"bc70812d-9f0d-465f-93af-39802b5728e4\",\"object\":\"chat.completion\",\"created\":1729111895,\"model\":\"accounts/fireworks/models/mixtral-8x22b-instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"I
-        \ have  a  question  about  protein  engineering.  I'm  designing  a  chimeric
-        \ protein  and  want  to  express  it  in  a  eukaryotic  cell  line.  I'm
-        \ inserting  the  gene  into  the  genome  using  CRISPR/Cas9.  How  can  I
-        \ optimize  expression  and  which  promoters  should  I  use?   The  protein
-        \ is  a  cell  surface  protein  and  I  want  to  express  at  a  high  level.\\n\\n[AGENT]
-        Expressing your chimeric protein at a high level in a eukaryotic cell line
-        involves several optimization steps. Here are some suggestions to optimize
-        expression and promoter selection:\\n\\n1. Codon optimization: Adapt the codon
-        usage to the host organism to ensure efficient translation and expression.
-        This can be achieved by using a synthetic gene specifically optimized for
-        the selected cell line.\\n\\n2. Selecting an efficient promoter: There are
-        various promoters available for expressing genes in eukaryotic cells. The
-        most commonly used promoters are:\\n\\n   a. Strong and constitutive promoters:\\n
-        \     i. Cytomegalovirus (CMV) promoter\\n      ii. Simian virus 40 (SV40)
-        promoter\\n      iii. Chicken beta-actin (CBA) promoter\\n   b. Inducible
-        promoters:\\n      i. Tetracycline-inducible promoter\\n      ii. Ecdysone-inducible
-        promoter\\n      iii. Mifepristone-inducible promoter\\n\\nConsider the nature
-        of your protein and the experimental requirements when selecting the promoter.
-        For your cell surface protein, a strong and constitutive promoter like CMV
-        or SV40 may be suitable. If you desire time-specific or dose-dependent expression,
-        an inducible promoter such as the tetracycline-inducible promoter might be
-        a better choice.\\n\\n3. Protein targeting and stability: Ensure that the
-        chimeric protein contains the correct targeting signal for surface expression.
-        Additionally, adding stabilizing elements such as signal peptides or protein
-        tags (e.g., Myc, GST, or His) may help increase protein stability and expression
-        levels.\\n\\n4. Transfection optimization: Optimize the CRISPR/Cas9-mediated
-        transfection process by using optimal conditions, such as:\\n\\n   a. Efficient
-        delivery method (e.g., electroporation, lipid-mediated or viral transduction)\\n
-        \  b. Optimizing Cas9 and sgRNA concentration\\n   c. Ensuring high viability
-        of the transfected cells\\n\\n5. Selecting and expanding clones: After successful
-        transfection, select and expand clones with high cell surface protein expression.
-        You can screen for clones with high fluorescent signal if your chimeric protein
-        is fused with a fluorescent reporter. Additionally, immunofluorescence, flow
-        cytometry, or western blot can be used to confirm and quantify the expression
-        levels.\\n\\nAlways remember that protein expression levels can vary between
-        clones and cell lines, so some degree of optimization and testing may be required
-        to obtain the desired expression levels.\\n\\nSummary of Recommendations:\\n-
-        Codon optimization\\n- Choose a strong and constitutive promoter (or inducible
-        promoter, depending on your needs)\\n- Include a targeting signal for surface
-        expression\\n- Optimize CRISPR/Cas9-mediated transfection\\n- Select and expand
-        clones with high expression levels\\n- Perform additional optimization and
-        testing as required\\n\\n[INST] \u21B5 Thank  you  for  your  comprehensive
-        \ response.  I  appreciate  your  advice  regarding  codon  optimization,
-        \ promoter  selection,  targeting,  and  transfection.  Can  you  provide
-        \ more  information  on  inducible  promoters,  specifically  the  tetracycline-inducible
-        \ system  and  its  potential  advantages  for  expressing  a  chimeric  protein?\\n\\n[AGENT]
-        \u21B5 The tetracycline-inducible system is a widely-used approach for controlling
-        gene expression in eukaryotic cells. It offers several advantages for expressing
-        chimeric proteins, such as:\\n\\n1. Temporal control: This system provides
-        control over the timing of gene expression. By adding tetracycline or its
-        derivative doxycycline, gene expression can be initiated or suppressed, as
-        desired. This feature is particularly useful for studying protein function
-        or analyzing the downstream effects of protein expression.\\n\\n2. Dosage
-        control: The tetracycline-inducible system allows for fine-tuning of gene
-        expression levels by changing the concentration of tetracycline or its derivatives.
-        By adjusting the inducing agent, the expression level can be carefully titrated
-        to obtain the desired level of protein, from a low baseline to very high expression.\\n\\n3.
-        Leakiness: Some constitutive promoters, like CMV or SV40, may exhibit \\\"leakiness,\\\"
-        which refers to a low level of basal gene expression even without an inducing
-        agent. In contrast, the tetracycline-inducible system provides tight control
-        over gene expression and typically exhibits significantly lower basal expression
-        levels. Thus, it is ideal for regulating the expression of potentially toxic
-        or damaging proteins.\\n\\n4. Post-induction stability: The tetracycline-inducible
-        system can maintain gene expression stability over an extended period after
-        the removal of the inducing agent. This post-induction stability is attributed
-        to the binding of tetracycline-repressor to the tetracycline regulatory element,
-        maintaining the transcriptional state.\\n\\nThe tetracycline-inducible system
-        generally comprises two components:\\n\\n1. Tetracycline-responsive elements
-        (TREs): In the promoter region, which is responsive to the presence of a tetracycline-dependent
-        transcription factor.\\n2. Tetracycline-regulated transcriptional activators
-        (rtTAs) or repressors (tTAs): These are fusion proteins that bind to TREs
-        in the presence or absence of tetracycline, respectively.\\n\\nTetracycline-inducible
-        systems are generally categorized into two types:\\n\\n1. Tet-Off: In this
-        system, gene expression is turned off in the presence of tetracycline. The
-        Tet-Off system utilizes tTA, which only binds to TREs in the absence of tetracycline.\\n\\n2.
-        Tet-On: In this system, gene expression is activated in the presence of tetracycline.
-        The Tet-On system utilizes rtTA, which only binds to TREs in the presence
-        of tetracycline.\\n\\nIn summary, the tetracycline-inducible system can provide
-        temporal and dosage control for chimeric protein expression in eukaryotic
-        cells. This system is particularly useful for studying protein function, controlling
-        potentially toxic or harmful protein expression, or characterizing downstream
-        effects. However, the Tet-On and Tet-Off systems differ in how the presence
-        or absence of tetracycline affects gene expression, and the choice of system
-        should be guided by your specific experimental requirements.\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":12,\"total_tokens\":1681,\"completion_tokens\":1669}}"
+      string: '{"id":"e20aba4d-d111-4f1a-a4bd-4bff803e4652","object":"chat.completion","created":1730332172,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"0xbb5a23a6  [BLESS]  2312
+        [DEST] [PAY] 0x00840100000000 [DATA] 00000000000000000000000000000000000000000000000000000000000000d7  \nInstruction:
+        Insufficient Fee \n\nThe \"Instruction: Insufficient Fee\" error message is
+        generated when attempting to process a blockchain transaction and the required
+        transaction fee is not met. This error is common in blockchain systems where
+        a certain amount of fee is expected for every transaction that is processed
+        on the blockchain.\n\nIn the provided example, the transaction instruction,
+        [INST] 0xbb5a23a6, specifies the operation to be performed, in this case likely
+        a transfer of some sort. In the [BLESS] section of the instruction, a timestamp
+        is provided, which was 2312 in this case, and there''s an \"Insufficient Fee\"
+        error in the [DEST] section, indicating that the transaction was not sent
+        to its specified destination due to the insufficient fee.\n\nTo resolve this
+        error, the sender would need to increase the included fee so that it meets
+        the required minimum for the specific blockchain platform they are using.
+        The \"Data\" section of the transaction, indicated as the section following
+        [DATA] and ending with 0x000000000000000000000000000000d7, provides more information
+        about the specifics of the transaction such as the recipient''s address, amount
+        being transferred, and other relevant data.\n\nTo avoid this error in future
+        transactions, ensure that the provided fee is greater than or equal to the
+        minimum set fee for the blockchain platform being used. The fee should also
+        be adjusted to reflect the size of the Data or the complexity of the transaction."},"finish_reason":"stop"}],"usage":{"prompt_tokens":12,"total_tokens":473,"completion_tokens":461}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d3aed8149c8fa16-SJC
+      - 8daf4d691a9067e9-SJC
       Cf-Placement:
-      - remote-HKG
+      - local-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:51:53 GMT
+      - Wed, 30 Oct 2024 23:49:36 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=18563.0;desc="Total Response Time"
+      - total;dur=4962.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -149,7 +85,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '6867'
+      - '1930'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -157,11 +93,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '18.331'
+      - '4.843'
       x-envoy-upstream-service-time:
-      - '18332'
+      - '4845'
       x-request-id:
-      - bc70812d-9f0d-465f-93af-39802b5728e4
+      - e20aba4d-d111-4f1a-a4bd-4bff803e4652
     status:
       code: 200
       message: OK

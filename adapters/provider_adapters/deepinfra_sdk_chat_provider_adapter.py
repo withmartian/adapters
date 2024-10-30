@@ -5,6 +5,9 @@ from adapters.types import Cost, Model, ModelProperties, Provider
 class DeepInfraModel(Model):
     provider_name: str = Provider.deepinfra.value
 
+    supports_vision: bool = False
+    supports_tools: bool = False
+
     properties: ModelProperties = ModelProperties(open_source=True)
 
     def _get_api_path(self) -> str:

@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,34 +38,34 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5MfUsLYy7wS7uUa5MSwJHJe0NLx\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729112217,\n  \"model\": \"gpt-4o-2024-08-06\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": null,\n        \"function_call\": {\n
-        \         \"name\": \"generate\",\n          \"arguments\": \"{}\"\n        },\n
-        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-        \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 45,\n    \"completion_tokens\":
-        1,\n    \"total_tokens\": 46,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_6b68a8204b\"\n}\n"
+      string: !!binary |
+        ISgLACDG6+bvWaZ7N0OhYtm+mKKpxmo2cTmhF3kQXgvHBBtrN20BZc9p+NalgUaczulj4m9GaRne
+        yNxvdwLgsKQEi0E2L4zX4dHDybBU18dXZ5/Li87tyVGj+eU7bx+fr3lryEAAdPlIFXNPplJiIA+d
+        hSAnl2+pkhLVdj2u12vVWtv4hXGl0pRg38/Dhgtrca0Rxp0wbjlvDtywUDNK/AgA2K0uAF5/X6dE
+        HDxFijE4SuCfAE6dVpRgNpsNZ/PMzhkASt3rViXsQmsjWiXxmBSZ1qQOgDYzs3Tu+lgNDWCig5Tg
+        7kDF8UG8dOV9INNwUCjoOWrX91OXz4Jj2ChulHyUa4oSnM2dVwEPAvg75yIRn9BPnfHzZO7Gys4o
+        0WgmYcRtKgHo6ij9VIGS6V6jFRAySUu78SxHayyyYqBKbzLW2+kg20gDveHF0PZjgJlowcaye8CL
+        pDe0fTX10+E2vsGeT6rNbtmpN6pFQXEQAw==
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af55e086767e5-SJC
+      - 8daf4c55aca0943e-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:56:57 GMT
+      - Wed, 30 Oct 2024 23:48:48 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=3ElZAc0oPu.QemTWUaMbeSwa0ugmUtYPePhylkRrZsI-1729112217-1.0.1.1-xV3MI2S66XMfvv1jzsJ_kINQEgJLzv7XPlf5LstISQiwhHdwxHGulNPb4I1Q.NSnHAwjdhrOEg1gFUYQGVlqyA;
-        path=/; expires=Wed, 16-Oct-24 21:26:57 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=3LLr14acSSF1V_y1tWR3VpMsA2_D9zqFOr9xHZUFTwg-1730332128-1.0.1.1-26RV41oNr.3k3TpRjs5E21nnhNmVdukoQbo3csA6..x1udWTCi9QeIUXgbbGQSYB.zKJcMjfVBFeaRVYzpHRlA;
+        path=/; expires=Thu, 31-Oct-24 00:18:48 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=vphR0j1QZ3Ux9M03r1CyADqkwrROosSVmvb7vNQcuH4-1729112217800-0.0.1.1-604800000;
+      - _cfuvid=Ndvk2YCH1BO8j0TwPLLVj8tB4gWacg6psyVKjByHZ3I-1730332128189-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -75,12 +75,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '715'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '403'
+      - '372'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -92,13 +90,13 @@ interactions:
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '29999977'
+      - '29999976'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_bbae890df62954cabe5ea10662127ab4
+      - req_81072c15536a61be54b1b1a1962e3d2b
     status:
       code: 200
       message: OK

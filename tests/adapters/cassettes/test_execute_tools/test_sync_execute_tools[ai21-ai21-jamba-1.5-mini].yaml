@@ -10,7 +10,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -20,7 +20,7 @@ interactions:
       host:
       - api.ai21.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -30,7 +30,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -41,29 +41,33 @@ interactions:
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-b8642953d3144771ac80d715f433c075","choices":[{"index":0,"message":{"role":"assistant","content":null,"tool_calls":[{"id":"29beaac8-d48e-4ff6-93c6-02d3de5b4c6a","type":"function","function":{"name":"generate","arguments":"{\"prompt\":
-        \"5\"}"}}]},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":134,"completion_tokens":25,"total_tokens":159}}'
+      string: !!binary |
+        IcgFACD+/3T+tPbcmVQh8qa1in3FYvb0wKUl2pZkAYdhgAEmlHXBHw96wOsNy/HTwr/B6RW/BgT9
+        I7usFEVeCn4+V+LMc50rybW01VchuCz1xYJBur5oQfcVF+kr6MzAi/gFWtFEZ0GQbfvbdjJ0YBga
+        N1LonWPoYnRvLZ1DumBAKNQl/zJSZ+JcyYzfjMwqXdyy4qo1V4JbJQQYujlZEEgNAcweaEWQ3oKg
+        jy4WDF3YA8L6QGqiT90DdHhAPLBj3587g4vfqYmqTRLns7n3Lqw9CG0XE/YnQ18ogC3eXfy3oQVd
+        bpyBZUG/MfjSVTD8K8BEs6j23QAD
     headers:
-      CF-Cache-Status:
-      - DYNAMIC
       CF-RAY:
-      - 8d3b20f5ad8c983a-SJC
+      - 8dae8d5a88b117f0-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:26:43 GMT
+      - Wed, 30 Oct 2024 21:38:25 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      content-length:
-      - '371'
+      cf-cache-status:
+      - DYNAMIC
       request-id:
-      - dabe3e88-f1e6-dbc5-dcfb-7e77319bb23f
+      - 5a390b85-cb0f-cd82-3c80-e6c7560ec19f
       via:
       - 1.1 google
     status:

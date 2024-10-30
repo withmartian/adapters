@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "meta-llama/Llama-3.2-90B-Vision-Instruct",
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "meta-llama/Llama-3.2-90B-Vision-Instruct",
       "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '123'
+      - '179'
       content-type:
       - application/json
       host:
       - api.deepinfra.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,19 +38,17 @@ interactions:
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-ed792a0ecbda4827b634d087d11e2462","object":"chat.completion","created":1729112371,"model":"meta-llama/Llama-3.2-90B-Vision-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi
-        back at you! It seems like you''re feeling extra friendly today with the double
-        \"Hi\". Is there something on your mind that you''d like to chat about, or
-        are you just looking for some casual conversation?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"total_tokens":57,"completion_tokens":44,"estimated_cost":2.215e-05}}'
+      string: '{"id":"chat-084f7174c9af4f4d820a4d800af19fb6","object":"chat.completion","created":1730332139,"model":"meta-llama/Llama-3.2-90B-Vision-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi,
+        is there something I can help you with or would you like to chat?","name":null,"tool_calls":[]},"finish_reason":"stop"}],"usage":{"prompt_tokens":38,"total_tokens":56,"completion_tokens":18,"estimated_cost":2.0499999999999997e-05}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '573'
+      - '443'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:59:31 GMT
+      - Wed, 30 Oct 2024 23:48:59 GMT
       server:
       - uvicorn
       x-robots-tag:

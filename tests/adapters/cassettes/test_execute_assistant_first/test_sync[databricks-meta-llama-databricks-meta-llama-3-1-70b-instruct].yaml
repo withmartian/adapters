@@ -1,23 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
-      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "databricks-meta-llama-3-1-70b-instruct",
-      "stream": false}'
+    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
+      "content": "Hi"}], "model": "databricks-meta-llama-3-1-70b-instruct", "stream":
+      false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '194'
+      - '157'
       content-type:
       - application/json
       host:
       - adb-8736858266948228.8.azuredatabricks.net
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,15 +38,17 @@ interactions:
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_fa54b1d9-fe75-42a9-8a74-2224588249d6","object":"chat.completion","created":1729108902,"model":"meta-llama-3.1-70b-instruct-082724","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like we started with a blank slate. How can I assist you today?"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":23,"completion_tokens":18,"total_tokens":41}}'
+      string: '{"error_code":"BAD_REQUEST","message":"Bad request: Chat message input
+        roles must alternate (user -> assistant -> u -> a -> ...) with an optional
+        system at the start. Tool messages are optional and must follow a preceding
+        assistant message containing tool calls.\n"}'
     headers:
       content-length:
-      - '396'
+      - '266'
       content-type:
-      - application/json;charset=utf-8
+      - application/json
       date:
-      - Wed, 16 Oct 2024 20:01:42 GMT
+      - Wed, 30 Oct 2024 23:48:01 GMT
       server:
       - databricks
       strict-transport-security:
@@ -59,6 +61,7 @@ interactions:
       x-content-type-options:
       - nosniff
       - nosniff
+      - nosniff
       x-databricks-org-id:
       - '8736858266948228'
       x-frame-options:
@@ -68,14 +71,14 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 208.184.59.122,10.154.64.25
+      - 208.184.59.122,10.154.64.10
       x-rate-limit-request-remote-addr:
-      - 10.154.64.30:53714
+      - 10.154.64.16:52786
       x-request-id:
-      - f31e259d-9f52-4ee3-a68e-f0599bc7b46c
+      - 107bcf72-74b1-49a4-a618-a4ecc4eb89b5
       x-xss-protection:
       - 1; mode=block
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
 version: 1

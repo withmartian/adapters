@@ -15,6 +15,7 @@ from adapters.types import (
 class TogetherModel(Model):
     provider_name: str = Provider.together.value
 
+    supports_vision: bool = False
     supports_n: bool = False  # Suports with temperature
 
     properties: ModelProperties = ModelProperties(open_source=True)

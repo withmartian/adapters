@@ -9,7 +9,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -19,7 +19,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -29,7 +29,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -40,35 +40,37 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5tPPnRcbyQayDYhNhlvFnC5rolt\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729114247,\n  \"model\": \"gpt-4-turbo-2024-04-09\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello! How can I assist you with these
-        images? The first image depicts a beautiful natural landscape with a wooden
-        pathway extending through lush greenery, while the second image is a colorful
-        illustration of a bird.\",\n        \"refusal\": null\n      },\n      \"logprobs\":
-        null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
-        1369,\n    \"completion_tokens\": 41,\n    \"total_tokens\": 1410,\n    \"prompt_tokens_details\":
-        {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\":
-        {\n      \"reasoning_tokens\": 0\n    }\n  },\n  \"system_fingerprint\": \"fp_4dba7dd7b3\"\n}\n"
+      string: !!binary |
+        IUgPACB+6czvaarnreFSkP1DDgItIJ/QagJ2nv/LgcsNun80l+3dWBb+ALPDXlrUaYMCjbivc/qZ
+        30wAlb5S2G+vC4CsIQVqep2bIbjqwbsH75qzDz/e2Efn70+/yde4Ocy+fnj73r4bApUFQFKfcpM1
+        weSJgWzFixCZy+fYkMJ8u5wtF8v5frf47SCGHSlQF3K1qvIYa6kWs8Wqmq2q2d7CbC+24UQKvwoA
+        uJ5BAPXA75PCrPxKvMjgSAn+CaAojkmBdEo2Ze0zlQIjCrunFOg5OydHeC7naLTHCyghx6WMOLe5
+        R+45MeygO073QCDctzFliGdcogaNMFyG096kRodCZFFpnIsY9jjX7nCuL9GJ9R0qTf1Ew42pRxeZ
+        PVrLzqCY1FNosPXeQO1GRjpcTvyTSd2xLU3DJmgPOri+FQ9poZHs/rp2dKhtNGVSicDAetTZCgfH
+        rTDmBzEcPV67AJD0WRO8aM8/au2fwE4yQSI8G7JbiYO/c13LmO8IRYmW2aGNzMgCnQ5HVz/q+r+r
+        HSn40bmQ0Lex7DjpQpQ6yZAxJrjy9v7VJdskBUpZAkXUuS2AP5g5HGHwHIUoQ8j/shzYJ1KYLzf7
+        sUdYHYkw2/kY/VqC0ZoyX62wtsQq+Eftt59wN0WNbno2+sez4ogrPK80gx0Tsr7bBW6JKqzRxKJw
+        519rfccxRIvkx234Z9Zmt9rs9hum4rYwAAM=
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b26d39c237af4-SJC
+      - 8dae72426cac67d3-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:30:49 GMT
+      - Wed, 30 Oct 2024 21:20:01 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=5ghsk7HToOoPGWIk_Frtt49XH54NDyQ2GAbUB0r_W2Y-1729114249-1.0.1.1-4c2LA79s5oYv8rayBYYtg.rJgYD0w32bSkEco8XeztdXDky2Z2M2VFIDs5y1rI3_cY6Ts8064mZYB80Aca.S8A;
-        path=/; expires=Wed, 16-Oct-24 22:00:49 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=_o3MyOjWym7kyGxn4c.D5_c8ngwrSx4RanC85cFmjj0-1730323201-1.0.1.1-qnIBoj.6O06awpv5rrDVT620nDXWpDwHcB4VPc7YQIYnesn4EjttweAQZu20eGH6Bvur5HKzqhXbQVFP4DVPJg;
+        path=/; expires=Wed, 30-Oct-24 21:50:01 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=DO56RXuOBXcajVeSV9e0xtxQ4cJNn.M08X4vZyHAVuM-1729114249241-0.0.1.1-604800000;
+      - _cfuvid=AX2113A8mP0hgj6Mjg4A3CcnBG1rFZ5dk23hrgb.wgc-1730323201668-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -78,12 +80,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '843'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '6000'
+      - '6286'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -101,7 +101,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 46ms
       x-request-id:
-      - req_d1b558eb0858cf68274f61ef1b4ed4f7
+      - req_2a7d60fc5b76dcd6d24ca6cf859fcdc2
     status:
       code: 200
       message: OK

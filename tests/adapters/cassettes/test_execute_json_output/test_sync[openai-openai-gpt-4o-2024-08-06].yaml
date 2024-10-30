@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,33 +37,35 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5RDfKVv9Sccz5BPjPoHexCP0r4g\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729112499,\n  \"model\": \"gpt-4o-2024-08-06\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"\\n{\\\"message\\\": \\\"Hello! How
-        can I assist you today?\\\"}\",\n        \"refusal\": null\n      },\n      \"logprobs\":
-        null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
-        11,\n    \"completion_tokens\": 15,\n    \"total_tokens\": 26,\n    \"prompt_tokens_details\":
-        {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\":
-        {\n      \"reasoning_tokens\": 0\n    }\n  },\n  \"system_fingerprint\": \"fp_6b68a8204b\"\n}\n"
+      string: !!binary |
+        IZQMACBW5rK/P6/OvO0ssMJ8gEuKPIZEq1FZCtDUOaEHtP9FYoMVSIYNi2TnUVo0Gw98YNOp2+1j
+        YqSFFBa/ifPdjwSgOicFMpWOZuVttndz4NsP4TX8ev0WwuHVqK66VxdvfnTMRzeUJgDJ/QObyOTW
+        lxiotTgI9ubyLc5JoTPqtXu97qDbNd5YSc6WFKj0MetL1m13+1l7nLWH5M1KasOBFP4nAPBxVQFo
+        +/smKbTTu9hiDIEU8CeAGrFMCqRDqEPULlIK8HWve0KBpu5j6oAplQ1zrF05JYUpnbK1sjaldKAw
+        6LDLC4x2OEOAKbzJE6Lk+m2HFCgKZO68tawDw3LEivHo5AUvlXZw0THnqNh6vNSxgjTQ7g3PB6x6
+        dCB8qPQzr09p6r5k+TbT79SWFNyTtXK5L91OslL6Ru4DBrdhLehyi899tZIChSiesqV9JcCsHsWn
+        FO8h38jKx0WUR3aBFDqd9OZoAvgAoN/3/a8Bn61tMEg9cotueXwI2AWQ0abinF1uJ/Ii4ka6gRKb
+        a1eebOKNp8YEPYuidiU3vqlnyHrhF53BJB/3+h1jKPlKDAM=
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3afc3e0c7c983a-SJC
+      - 8daf55f73c79cf45-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:01:39 GMT
+      - Wed, 30 Oct 2024 23:55:23 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=xE6XI99Z5_6bnk68ArCiQIW0o7fFG8tjZwRjnnNHgsc-1729112499-1.0.1.1-TI_nzHMDyH3Gu0u93Db6ogyKkvN6lcK5doDHBzZJrlIAph9_V0qXcWlAEt53AxTCbEaFbiDw7bV.Nz1NO2PWMQ;
-        path=/; expires=Wed, 16-Oct-24 21:31:39 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=kdRu5QRo0_AhZunozlE5zpMDpleY6B926qpgrM5bBsY-1730332523-1.0.1.1-TtKnmjp4aMv0jsBVX79Y2mR8pNlYYlt5cGNThscR7hMPCcuhwvHv8BuOz1IEVGDa3jFGkGqO4Fzn0LsfGIvwLA;
+        path=/; expires=Thu, 31-Oct-24 00:25:23 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=6NJzu1gll76e12f97D9c4W9V2mhOGqMVuAdsPpP4yUg-1729112499837-0.0.1.1-604800000;
+      - _cfuvid=9xmS.B_6VGtZ5qelukkoKDcINnNBSEN5PxdE3DKicA0-1730332523736-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -73,12 +75,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '673'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '837'
+      - '1514'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -96,7 +96,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_7aa140e4fdb6727039cc1274a0c7f702
+      - req_1c437f2dd0470ebb5e944ada366dcf7f
     status:
       code: 200
       message: OK

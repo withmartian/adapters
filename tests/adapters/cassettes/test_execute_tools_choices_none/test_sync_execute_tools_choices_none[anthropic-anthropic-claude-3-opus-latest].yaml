@@ -1,0 +1,93 @@
+interactions:
+- request:
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
+      "role": "user"}], "model": "claude-3-opus-latest", "stream": false, "tools":
+      [{"input_schema": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate",
+      "description": "Generate random number"}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      anthropic-version:
+      - '2023-06-01'
+      connection:
+      - keep-alive
+      content-length:
+      - '348'
+      content-type:
+      - application/json
+      host:
+      - api.anthropic.com
+      user-agent:
+      - Anthropic/Python 0.36.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: '{"id":"msg_01GMEiCxKuzJ619hEYAQxhg2","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        \"generate\" tool is relevant to this request, as it can generate a random
+        number based on an input prompt.\n\nThe \"generate\" tool has one required
+        parameter:\n- prompt: A string describing the type of random number to generate\n\nThe
+        user provided the prompt \"Generate random number\", which gives a general
+        instruction but does not specify the exact type or range of random number
+        desired.\n\nTo generate a more useful random number, it would be helpful to
+        have additional details on what kind of number the user wants, such as the
+        range of values or number of digits. \n</thinking>\n\nTo generate a random
+        number for you, I would need some additional details. Could you please provide
+        more specifics on the type of random number you need, such as:\n- The range
+        of values the number should be between (e.g. 1 to 10, 1 to 100, etc.) \n-
+        The number of digits the random number should have\n- Any other constraints
+        or requirements for the number\n\nWith those details, I can generate a more
+        targeted random number for your needs. Let me know if you can provide that
+        additional information!"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":243}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daebde96b4acfb4-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 22:11:47 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '5000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '5000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-10-30T22:11:47Z'
+      content-length:
+      - '1346'
+      request-id:
+      - req_01V4NWm5JhfJ9ifqekbRYftC
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+version: 1

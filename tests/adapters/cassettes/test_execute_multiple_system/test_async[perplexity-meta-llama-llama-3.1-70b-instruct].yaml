@@ -1,23 +1,22 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}, {"role": "assistant", "content": "Hi"}, {"role": "user", "content": "\"\""}],
-      "model": "llama-3.1-70b-instruct", "stream": false}'
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "llama-3.1-70b-instruct",
+      "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '215'
+      - '101'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,34 +37,33 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "eebbc3e5-ccd7-4350-bd69-b958855e40c0", "model": "llama-3.1-70b-instruct",
-        "created": 1729112953, "usage": {"prompt_tokens": 29, "completion_tokens":
-        29, "total_tokens": 58}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
-        looks like you sent an empty message Is there something on your mind that
-        you''d like to chat about? I''m here to listen"}, "delta": {"role": "assistant",
-        "content": ""}}]}'
+      string: '{"id": "d4793d4b-6d4a-463c-835c-05924aa4509a", "model": "llama-3.1-70b-instruct",
+        "created": 1730332245, "usage": {"prompt_tokens": 11, "completion_tokens":
+        20, "total_tokens": 31}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "How''s
+        it going? Is there something I can help you with or would you like to chat?"},
+        "delta": {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b0750e83215d2-SJC
+      - 8daf4f3419f19657-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:09:13 GMT
+      - Wed, 30 Oct 2024 23:50:45 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=qRnqsKCUZlilV3yLL4bDY7K.Vdft6arFNsFFNpnN7Wo-1729112953-1.0.1.1-pz.5xs8wMGuKbp92K1VVKn2IBiYGadbC2ux0y8b1kXqqMCd_lE8MkXZolypAuM9ui66_yhp9EvfWjkeF6d9UFw;
-        path=/; expires=Wed, 16-Oct-24 21:39:13 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=NBN2pDR8GY.wcL05yDRXLDRRBVtyuN2p2cMgRtFRk1I-1730332245-1.0.1.1-OIzPd74Krxt9GJC.y32NstRbTrjJt1sknKGaPeZFi.6_gP_VsokCFDsEwsMVXu.rl56TPytaqZaTLbmjq.vpOw;
+        path=/; expires=Thu, 31-Oct-24 00:20:45 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
       Transfer-Encoding:
       - chunked
       content-length:
-      - '479'
+      - '439'
     status:
       code: 200
       message: OK

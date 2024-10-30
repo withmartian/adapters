@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,34 +38,34 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-6b2207dc-f5ed-4201-b4a7-f028d34da533\",\"object\":\"chat.completion\",\"created\":1729112558,\"model\":\"mixtral-8x7b-32768\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
-        It's nice to see you. How can I help you today? If you have any questions
-        or need assistance with something, feel free to ask. I'm here to help! \U0001F60A\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.012616117999999999,\"prompt_tokens\":12,\"prompt_time\":0.0019494,\"completion_tokens\":43,\"completion_time\":0.068004669,\"total_tokens\":55,\"total_time\":0.069954069},\"system_fingerprint\":\"fp_c5f20b5bb1\",\"x_groq\":{\"id\":\"req_01jabj7k1mewj8eyda36qy3y8k\"}}\n"
+      string: '{"error":{"message":"Service Unavailable","type":"internal_server_error"}}
+
+        '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3afdb368dafa52-SJC
+      - 8daf4d4b2b307ad6-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
       - keep-alive
+      Content-Length:
+      - '75'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:02:38 GMT
+      - Wed, 30 Oct 2024 23:49:26 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=oNHGvLiuJSUWKFlY3M6FaKWHLahzNyFc2oagCDRIUAQ-1729112558-1.0.1.1-oW7QaKT35cV1.1AKC1fWw.5O3nnnxEJ2usMZPhHw8T5vGm78T207_KZdpRZKW8n4E3vyTeObKmpad2nQS3NvrQ;
-        path=/; expires=Wed, 16-Oct-24 21:32:38 GMT; domain=.groq.com; HttpOnly; Secure;
+      - __cf_bm=UgJJiMeLTzVFMHUSBP0hhCCFAiSOd_H7lQ6q7n_oEGc-1730332166-1.0.1.1-PPa3o3orNPPY0pvOcRpBUh1QzNj5jtxe8vktcFeYhim8560Y5tShhQR7k..cGV5IKkbSF1cPs_gMkl7S2MTaFw;
+        path=/; expires=Thu, 31-Oct-24 00:19:26 GMT; domain=.groq.com; HttpOnly; Secure;
         SameSite=None
-      Transfer-Encoding:
-      - chunked
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '664'
+      retry-after:
+      - '15'
       vary:
       - Origin
       via:
@@ -75,16 +75,18 @@ interactions:
       x-ratelimit-limit-tokens:
       - '5000'
       x-ratelimit-remaining-requests:
-      - '14399'
+      - '14396'
       x-ratelimit-remaining-tokens:
       - '4984'
       x-ratelimit-reset-requests:
-      - 6s
+      - 23.574s
       x-ratelimit-reset-tokens:
       - 192ms
       x-request-id:
-      - req_01jabj7k1mewj8eyda36qy3y8k
+      - req_01jbfxb2rgf2584g3grem4092t
+      x-should-retry:
+      - 'false'
     status:
-      code: 200
-      message: OK
+      code: 503
+      message: Service Unavailable
 version: 1

@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - AsyncOpenAI/Python 1.52.0
+      - AsyncOpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.52.0
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,18 +37,17 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: 'data: {"id":"db561fa8-2237-4f83-bfd0-38751ff505b9","object":"chat.completion.chunk","created":1729463561,"model":"accounts/fireworks/models/llama-v3p2-3b-instruct","choices":[{"index":0,"delta":{"role":"assistant"},"finish_reason":null}],"usage":null}
+      string: 'data: {"id":"a1d5931a-6905-4deb-a209-371fde1ab0c9","object":"chat.completion.chunk","created":1730331548,"model":"accounts/fireworks/models/llama-v3p2-3b-instruct","choices":[{"index":0,"delta":{"role":"assistant"},"finish_reason":null}],"usage":null}
 
 
-        data: {"id":"db561fa8-2237-4f83-bfd0-38751ff505b9","object":"chat.completion.chunk","created":1729463561,"model":"accounts/fireworks/models/llama-v3p2-3b-instruct","choices":[{"index":0,"delta":{"content":"How
-        can"},"finish_reason":null}],"usage":null}
+        data: {"id":"a1d5931a-6905-4deb-a209-371fde1ab0c9","object":"chat.completion.chunk","created":1730331548,"model":"accounts/fireworks/models/llama-v3p2-3b-instruct","choices":[{"index":0,"delta":{"content":"How''s"},"finish_reason":null}],"usage":null}
 
 
-        data: {"id":"db561fa8-2237-4f83-bfd0-38751ff505b9","object":"chat.completion.chunk","created":1729463561,"model":"accounts/fireworks/models/llama-v3p2-3b-instruct","choices":[{"index":0,"delta":{"content":"
-        I assist you today?"},"finish_reason":null}],"usage":null}
+        data: {"id":"a1d5931a-6905-4deb-a209-371fde1ab0c9","object":"chat.completion.chunk","created":1730331548,"model":"accounts/fireworks/models/llama-v3p2-3b-instruct","choices":[{"index":0,"delta":{"content":"
+        your day going so far?"},"finish_reason":null}],"usage":null}
 
 
-        data: {"id":"db561fa8-2237-4f83-bfd0-38751ff505b9","object":"chat.completion.chunk","created":1729463561,"model":"accounts/fireworks/models/llama-v3p2-3b-instruct","choices":[{"index":0,"delta":{},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":19,"completion_tokens":8}}
+        data: {"id":"a1d5931a-6905-4deb-a209-371fde1ab0c9","object":"chat.completion.chunk","created":1730331548,"model":"accounts/fireworks/models/llama-v3p2-3b-instruct","choices":[{"index":0,"delta":{},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":20,"completion_tokens":9}}
 
 
         data: [DONE]
@@ -61,19 +60,19 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d5c77191cf096cf-SJC
+      - 8daf3e2b2b3b2513-SJC
       Cf-Placement:
-      - remote-IAD
+      - local-SJC
       Connection:
       - keep-alive
       Content-Type:
       - text/event-stream; charset=utf-8
       Date:
-      - Sun, 20 Oct 2024 22:32:41 GMT
+      - Wed, 30 Oct 2024 23:39:07 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=85.0;desc="Total Response Time"
+      - total;dur=161.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -87,11 +86,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-time-to-first-token:
-      - '0.010'
+      - '0.012'
       x-envoy-upstream-service-time:
-      - '13'
+      - '15'
       x-request-id:
-      - db561fa8-2237-4f83-bfd0-38751ff505b9
+      - a1d5931a-6905-4deb-a209-371fde1ab0c9
     status:
       code: 200
       message: OK

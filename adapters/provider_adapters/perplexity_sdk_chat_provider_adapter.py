@@ -5,6 +5,9 @@ from adapters.types import Cost, Model, ModelProperties, Provider, Vendor
 class PerplexityModel(Model):
     provider_name: str = Provider.perplexity.value
 
+    supports_tools: bool = False
+    supports_system: bool = False
+
 
 MODELS = [
     PerplexityModel(

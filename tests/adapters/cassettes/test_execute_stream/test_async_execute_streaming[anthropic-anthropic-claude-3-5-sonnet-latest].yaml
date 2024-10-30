@@ -18,7 +18,7 @@ interactions:
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.34.2
+      - AsyncAnthropic/Python 0.36.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -28,7 +28,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.34.2
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -39,7 +41,7 @@ interactions:
     body:
       string: 'event: message_start
 
-        data: {"type":"message_start","message":{"id":"msg_01CCuemZ2iGHMs5P75Lgeumw","type":"message","role":"assistant","model":"claude-3-5-sonnet-20241022","content":[],"stop_reason":null,"stop_sequence":null,"usage":{"input_tokens":8,"output_tokens":4}}           }
+        data: {"type":"message_start","message":{"id":"msg_01GVbQaSW43k3KLmZGjJVyAF","type":"message","role":"assistant","model":"claude-3-5-sonnet-20241022","content":[],"stop_reason":null,"stop_sequence":null,"usage":{"input_tokens":8,"output_tokens":5}}           }
 
 
         event: content_block_start
@@ -55,35 +57,28 @@ interactions:
         event: content_block_delta
 
         data: {"type":"content_block_delta","index":0,"delta":{"type":"text_delta","text":"Hello!
-        How can"}     }
+        How can I"}}
 
 
         event: content_block_delta
 
         data: {"type":"content_block_delta","index":0,"delta":{"type":"text_delta","text":"
-        I help"}               }
-
-
-        event: content_block_delta
-
-        data: {"type":"content_block_delta","index":0,"delta":{"type":"text_delta","text":"
-        you today?"}      }
+        help you today?"} }
 
 
         event: content_block_stop
 
-        data: {"type":"content_block_stop","index":0            }
+        data: {"type":"content_block_stop","index":0             }
 
 
         event: message_delta
 
-        data: {"type":"message_delta","delta":{"stop_reason":"end_turn","stop_sequence":null},"usage":{"output_tokens":12}
-        }
+        data: {"type":"message_delta","delta":{"stop_reason":"end_turn","stop_sequence":null},"usage":{"output_tokens":16}         }
 
 
         event: message_stop
 
-        data: {"type":"message_stop"}
+        data: {"type":"message_stop"      }
 
 
         '
@@ -91,7 +86,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d6bf9356d959444-SJC
+      - 8daf3d09d81efb50-SJC
       Cache-Control:
       - no-cache
       Connection:
@@ -99,21 +94,27 @@ interactions:
       Content-Type:
       - text/event-stream; charset=utf-8
       Date:
-      - Tue, 22 Oct 2024 19:42:57 GMT
+      - Wed, 30 Oct 2024 23:38:21 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       X-Robots-Tag:
       - none
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3999'
+      anthropic-ratelimit-requests-reset:
+      - '2024-10-30T23:39:08Z'
       anthropic-ratelimit-tokens-limit:
       - '8000000'
       anthropic-ratelimit-tokens-remaining:
       - '7996000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-22T19:42:56Z'
+      - '2024-10-30T23:38:21Z'
       request-id:
-      - req_01GhJUv4aX1dx6j82i6dkiEg
+      - req_01Th6kQkaVmGrXe48pC4RXWc
       via:
       - 1.1 google
     status:

@@ -1,22 +1,22 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "llama3-8b-8192",
-      "stream": false}'
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "llama3-8b-8192", "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '97'
+      - '153'
       content-type:
       - application/json
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,37 +37,39 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-f0d2b473-3169-4b7a-b097-10fbc22c6273","object":"chat.completion","created":1729112383,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
-        It seems like you''re just saying hello! Is there something on your mind that
-        you''d like to chat about, or are you just looking for some friendly conversation?
-        I''m here to listen and help if I can!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.017561858,"prompt_tokens":13,"prompt_time":0.00166308,"completion_tokens":47,"completion_time":0.039166667,"total_tokens":60,"total_time":0.040829747},"system_fingerprint":"fp_af05557ca2","x_groq":{"id":"req_01jabj28a0e8zbxa1vjgqgqp39"}}
-
-        '
+      string: !!binary |
+        IQOgEABADNS1nWUqh1j6kXqw9YcNvCqp/rvZDtz2Np3YcBx2GQ3n3RVQnQdFkc9uWYbJQBcxO+//
+        HlEmkIiLcI7bvtHjJOFuxE2dR56pm9xN9NC0mM6dKIpDy4ji2ASBiqo0nsG8mjAwpepAwFr+Lk0g
+        uWMwwxDcMQhalaQNJJombENDdyPd5Z4AARe+M0H+HHHivkIygkGLLMgjRtWkkAinqZzmsJtBsIXO
+        lViX6/LyxFvarLS9Wi61jyKc7yZt6d9xJmhU3o8qmiC7pWkIVq9V/jNXx5CYZtXj/EewhNwelnRJ
+        /blsU0i2Ylw4nFmG46kMgn5UbT/7s6rTboLkwkzIiHHbsV2ToDgFpsFdwEUet23bdgi+OAAiwrAi
+        sQlzTcNizpmAWL/jZ2WXp2M/lpVZzno/9Jw4Sw0rTEGw8/NRDZD9PjCmg894FWW7yDPD7DBEGxaK
+        YrffFruDifP5wgAD
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af96ead6e67e9-SJC
+      - 8daf4d73eade7ae8-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:59:43 GMT
+      - Wed, 30 Oct 2024 23:49:33 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=rMLH3L7gmVdq4I6U2t6TjD8KfcYCOpH4zfiLeCMokVg-1729112383-1.0.1.1-h.9vqrbK_.a2cV0R29c70c1iWUTrxjF10GXTbPiJNAoHh2EvUJYVIF7ytZ1AGnQS90PjI8EmrNXY3FVQbNUjRw;
-        path=/; expires=Wed, 16-Oct-24 21:29:43 GMT; domain=.groq.com; HttpOnly; Secure;
+      - __cf_bm=BCBtcWF33MII.jnKcsrJPprb2mOG69i24tG.6d3H6f8-1730332173-1.0.1.1-re6bRW4zPEPn7vdaZNeuWfdJX2n5Ju4LfPQBWVf63FBxnVuKSyTIIMNnHP8v2gzl281cEA660U4jNLiJwPmNfA;
+        path=/; expires=Thu, 31-Oct-24 00:19:33 GMT; domain=.groq.com; HttpOnly; Secure;
         SameSite=None
       Transfer-Encoding:
       - chunked
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '696'
       vary:
       - Origin
       via:
@@ -77,15 +79,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '30000'
       x-ratelimit-remaining-requests:
-      - '14399'
+      - '14395'
       x-ratelimit-remaining-tokens:
       - '29994'
       x-ratelimit-reset-requests:
-      - 6s
+      - 29.371s
       x-ratelimit-reset-tokens:
       - 12ms
       x-request-id:
-      - req_01jabj28a0e8zbxa1vjgqgqp39
+      - req_01jbfxb94afzqbv0a2hxywhxz4
     status:
       code: 200
       message: OK

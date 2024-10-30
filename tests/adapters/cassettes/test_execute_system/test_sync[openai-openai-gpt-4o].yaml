@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,33 +37,34 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5gCfeadUkOcfIluQt9scMjm5CcG\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729113428,\n  \"model\": \"gpt-4o-2024-08-06\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello! How can I assist you today?\",\n
-        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-        \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 13,\n    \"completion_tokens\":
-        9,\n    \"total_tokens\": 22,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_a20a4ee344\"\n}\n"
+      string: !!binary |
+        ISgKACD26PbuLNP1zdAvnoro5jE0hrU+dRNcfqwKN9gCmft8kXQe9foaaOCBpXpG4rjE2tq4Gd79
+        jQAqFDGQzHknbTDJ3s3+pVOH17cH4mbvkRfTyd3Vwffez8WefCgojgDyotSyY+rrWwy8wjsIOrlc
+        phUxjBaT4WQ8X84XxgfWK22IgbLQJVOfjIfjaTJcJsM5WZr7QuqWGJ4iAPhtrQB6/n5EDMO4F23G
+        MIkBfwKo8UYTA/G2LdqOu45iQCF7nRIDnWpj/BpO/SckdzgD6Qu+fY/OK/69Qy48WT/NDTG43hhR
+        49+blPFZaLxoMdhLlOht8Hap1jgxUNv5QD75/xHwEvW4D0SFQuNt6N46X2nXEsNoEsSAprkA0Fa1
+        8CkCBdPReBwL6m8p6Yx2vDOAJJe5Vmw+LIv+h62VARGuCpf5AJW0SM2g0/8v3tLCZboJTbEM92l4
+        m85kOpsqzTVF/5EBAw==
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b12f00c1c2710-SJC
+      - 8daecbe76e77176a-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:17:09 GMT
+      - Wed, 30 Oct 2024 22:21:07 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=eQJXbxxOvzsuZsFb.iuJOkrKSCtSMrSk8V3abLQCFFc-1729113429-1.0.1.1-NojDPke7gM1w8nGDSiEARl32yuFV1QMJYFhgJ97hH9i3SVr.O_mmTA0xIhvgBYgS0wZEXFj.tcbReBtVzH4.wA;
-        path=/; expires=Wed, 16-Oct-24 21:47:09 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=xKlfQiqP5njfB1xBLzPJjkuofJGm9K1svP.eQ7R.pw4-1730326867-1.0.1.1-x1TlDO0Jr6xTRAvmOmlb8UOBzd3VqLu_3ZsPnVGjctDOZdZTRjm.uEpEiXJHd0qOtvm45SQenO3IEoRdnPulMg;
+        path=/; expires=Wed, 30-Oct-24 22:51:07 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=YvCCe11aXvLDEWImiuon0w28aAhDP8pNSNk1Ty4kjOw-1729113429450-0.0.1.1-604800000;
+      - _cfuvid=CeyqD.eKfcyHRSlI9HFJlq.oeeFuSzeUpK_1CupRn2o-1730326867739-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -73,12 +74,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '651'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '820'
+      - '460'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -90,13 +89,13 @@ interactions:
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '29999980'
+      - '29999981'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_d59dabb191d01c76b2a829b5efce9302
+      - req_3607fc1353ac95c187082539cd2a2217
     status:
       code: 200
       message: OK

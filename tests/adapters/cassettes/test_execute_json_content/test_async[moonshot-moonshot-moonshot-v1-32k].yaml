@@ -1,22 +1,22 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "moonshot-v1-32k",
-      "stream": false}'
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "moonshot-v1-32k", "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '98'
+      - '154'
       content-type:
       - application/json
       host:
       - api.moonshot.cn
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,22 +37,27 @@ interactions:
     uri: https://api.moonshot.cn/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-67102946e240927581843bc7","object":"chat.completion","created":1729112390,"model":"moonshot-v1-32k","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? If you have any questions or need assistance, feel
-        free to ask."},"finish_reason":"stop"}],"usage":{"prompt_tokens":10,"completion_tokens":24,"total_tokens":34}}'
+      string: !!binary |
+        IQQGACC+r7qmVfzZ6VRzZYVhvmpskXTlxaa0pweOWQJBWBaHCQaYQLvcf6DvpukNX/2T0v4N3j9Q
+        O2jYygTbj120XOW5XWbG2vmS0+Vq6Qp3WPMcCnJo2IYCjFUFppYBCk7lH9lBZ6siLYo8Wy8VenHc
+        QaMXGXwlITpnUZG3UDDALzz01wN37Qt0qqCumIJ+YJKOoWG8r30wQ4DC6DnV2NW0yGk7o51cyJqB
+        9hQbusmJgjhz+6T9EXFn6rMZbsTFlSeZaGB2VHE30qUOFXFyqujI3NFxYqYgZHw7w0thYlv42451
+        DQ0fZMTrR+HU9MA4ST+GvyAtDx56o8ARZFK+UvhfAKBULF8vAwM=
     headers:
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 16 Oct 2024 20:59:51 GMT
+      - Wed, 30 Oct 2024 23:49:48 GMT
       Msh-Cache:
-      - updated
+      - hit
       Msh-Gid:
       - enterprise-tier-2
       Msh-Request-Id:
-      - 95dc8da2-8c01-11ef-9259-0a86f55c9222
+      - a4a7f13f-9719-11ef-b42f-b2ed748f9e35
       Msh-Trace-Mode:
       - 'on'
       Msh-Uid:
@@ -65,10 +70,8 @@ interactions:
       - chunked
       Vary:
       - Origin, Accept-Encoding
-      content-length:
-      - '373'
       server-timing:
-      - inner; dur=655
+      - inner; dur=1820
     status:
       code: 200
       message: OK

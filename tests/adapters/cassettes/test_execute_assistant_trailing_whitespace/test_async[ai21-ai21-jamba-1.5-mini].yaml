@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.ai21.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,29 +37,32 @@ interactions:
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-0f6e05f745394199aa60a665df9a3535","choices":[{"index":0,"message":{"role":"assistant","content":"Hello,
-        I''m here to help. How can I assist you today?","tool_calls":null},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":16,"completion_tokens":17,"total_tokens":33}}'
+      string: !!binary |
+        IQOQCABALJxT2ex0GewmNBf4AyPSyYHjwT5vnnCACYYBBXGgLdPcwTqjGsYhXH8xtUjQjNVN9+2g
+        d/0ojBvP8Wq/qmrP6dzIcd0oDquqhYbR9cEVyfaLi/QViaWhL+ILyRcXSR0SVNfrdL1V4gYNoXGT
+        BOuOSK7YWj5ZUwm2YdY19pZ3dpNt9S6h4SYlHZuK6IpE3In+GkgO6iJrkhoS1MxxW9UaCa43qfDf
+        a7iX0quL5Op2vMmlE1ckdoCEK+pukxSSszQ8FACsOMH/bwAD
     headers:
-      CF-Cache-Status:
-      - DYNAMIC
       CF-RAY:
-      - 8d3ae80bf97faaaf-SJC
+      - 8daf4c5068171583-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:47:52 GMT
+      - Wed, 30 Oct 2024 23:48:47 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      content-length:
-      - '293'
+      cf-cache-status:
+      - DYNAMIC
       request-id:
-      - 2e2f8fdb-4d57-281d-2fbb-d410ccfc0664
+      - 65cda5a0-b4a8-8eac-49a9-ca40def376b7
       via:
       - 1.1 google
     status:

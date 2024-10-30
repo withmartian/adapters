@@ -1,0 +1,68 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "mixtral-8x7b", "function_call": {"name": "generate"}, "functions": [{"description":
+      "Generate random number", "name": "generate"}], "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '228'
+      content-type:
+      - application/json
+      host:
+      - mixtral-8x7b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://mixtral-8x7b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-nPaq8LVKMzQQ977uV2GvcX","object":"chat.completion","created":1730332075,"model":"mixtral-8x7b","choices":[{"index":0,"message":{"role":"assistant","content":"Sure,
+        here is a random number between 1 and 100: 73.\n\nNote that I can only generate
+        one random number at a time. If you need more, just let me know!","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":11,"total_tokens":57,"completion_tokens":46}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daf4b122fa9fa1e-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:47:57 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '488'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '1451'
+    status:
+      code: 200
+      message: OK
+version: 1

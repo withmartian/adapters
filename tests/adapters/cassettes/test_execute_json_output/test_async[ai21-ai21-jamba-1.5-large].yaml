@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.ai21.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,29 +37,33 @@ interactions:
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-2725ee4ef77840ca9da7d00a31aed8ab","choices":[{"index":0,"message":{"role":"assistant","content":"{\n    \"response\":
-        \"Hello! How can I assist you today?\"\n}","tool_calls":null},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":87,"completion_tokens":19,"total_tokens":106}}'
+      string: !!binary |
+        ISAGACC+r86mVf0H5Guo6GG6brcXAy4qVl7kAj09cAgCSwILAi1MMMCEgot/iZ+OuRM9RzjajzJ9
+        x66CRbnNw+9gnBb9rF+Nk7TfG2euGBWjJE2KKhuOB73+Ggar6wuFnd7hSF9hY4O5iC3YO1phB4tc
+        dach9wEGR+M6i/vMExHNwGd3Bksz/Dlm6dDko6ata51ZQ+eQf4yC0NZx06V/drk6YheodnTwcqbz
+        Ng90leNHRVvUv4RyPZC0VO20PKpKXn0x+WCmSqi+knwDKGXdaf+N7gwz/4RBEOFlmTMrrD8yPw1Y
+        Nk0rBUgGZ9vCUiJrDwsN0uA5NzjyPzet1E1YBjk4r7CjYZi6YRd24lOpNzD4YgCikmTZ82kAAw==
     headers:
-      CF-Cache-Status:
-      - DYNAMIC
       CF-RAY:
-      - 8d3afc5e1a22cf1b-SJC
+      - 8daf4dff1e33159c-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:01:44 GMT
+      - Wed, 30 Oct 2024 23:49:56 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      content-length:
-      - '304'
+      cf-cache-status:
+      - DYNAMIC
       request-id:
-      - 6bd7d590-b5ef-946c-841f-8ffdd5c51bae
+      - ef129964-0572-2e78-bf7d-717264dabf2a
       via:
       - 1.1 google
     status:

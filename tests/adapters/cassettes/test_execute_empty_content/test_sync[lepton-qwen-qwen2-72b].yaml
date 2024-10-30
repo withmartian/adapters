@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - qwen2-72b.lepton.run
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,28 +37,31 @@ interactions:
     uri: https://qwen2-72b.lepton.run/api/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-5J9wJcfdrGVQiY6477uxGk\",\"object\":\"chat.completion\",\"created\":1729111922,\"model\":\"qwen2-72b\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"\u60A8\u597D\uFF01\u770B\u8D77\u6765\u60A8\u8FD8\u6CA1\u6709\u5F00\u59CB\u63D0\u95EE\u3002\u6211\u80FD\u5E2E\u52A9\u60A8\u89E3\u7B54\u4EFB\u4F55\u95EE\u9898\u6216\u5B8C\u6210\u4EFB\u4F55\u4EFB\u52A1\u3002\u65E0\u8BBA\u662F\u4FE1\u606F\u67E5\u8BE2\u3001\u89E3\u51B3\u95EE\u9898\u8FD8\u662F\u5176\u4ED6\u4EFB\u4F55\u4E8B\u60C5\uFF0C\u8BF7\u544A\u8BC9\u6211\u60A8\u7684\u9700\u6C42\u3002\",\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":\"stop\",\"audio\":null,\"asr_results\":null}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":53,\"completion_tokens\":34}}"
+      string: '{"id":"chatcmpl-eYkyvoGZtSZNvWKKpbZLmh","object":"chat.completion","created":1730332100,"model":"qwen2-72b","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        It looks like you might have sent a blank message. How may I assist you today?
+        If you have a question or need help with something, please feel free to let
+        me know!","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":19,"total_tokens":59,"completion_tokens":40}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3aee2a58f967ee-SJC
+      - 8daf4bae0e94967f-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:52:02 GMT
+      - Wed, 30 Oct 2024 23:48:21 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '527'
+      - '505'
       vary:
       - Accept-Encoding
       x-envoy-upstream-service-time:
-      - '602'
+      - '887'
     status:
       code: 200
       message: OK

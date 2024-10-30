@@ -1,23 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
-      "content": "\"\""}, {"role": "user", "content": "\"\""}], "model": "moonshot-v1-128k",
-      "stream": false}'
+    body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
+      " "}, {"role": "user", "content": "\n"}], "model": "moonshot-v1-128k", "stream":
+      false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '176'
+      - '167'
       content-type:
       - application/json
       host:
       - api.moonshot.cn
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,20 +38,23 @@ interactions:
     uri: https://api.moonshot.cn/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-67102830e240927581843a85\",\"object\":\"chat.completion\",\"created\":1729112112,\"model\":\"moonshot-v1-128k\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"\u55E8\uFF01\u770B\u8D77\u6765\u4F60\u53EF\u80FD\u4E0D\u5C0F\u5FC3\u53D1\u9001\u4E86\u4E00\u4E2A\u7A7A\u6D88\u606F\u3002\u5982\u679C\u4F60\u6709\u4EFB\u4F55\u95EE\u9898\u6216\u9700\u8981\u5E2E\u52A9\uFF0C\u8BF7\u968F\u65F6\u544A\u8BC9\u6211\uFF01\u6211\u5728\u8FD9\u91CC\u7B49\u7740\u5E2E\u4F60\u89E3\u7B54\u7591\u60D1\u6216\u8005\u5B8C\u6210\u4EFB\u52A1\u54E6\u3002\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":21,\"completion_tokens\":31,\"total_tokens\":52}}"
+      string: '{"error":{"message":"Invalid request: the message at position 0 with
+        role ''user'' must not be empty","type":"invalid_request_error"}}'
     headers:
       Connection:
       - keep-alive
+      Content-Length:
+      - '132'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 16 Oct 2024 20:55:13 GMT
+      - Wed, 30 Oct 2024 23:47:55 GMT
       Msh-Cache:
-      - updated
+      - hit
       Msh-Gid:
       - enterprise-tier-2
       Msh-Request-Id:
-      - efe79c32-8c00-11ef-a1e6-feff8b9de9ef
+      - 62a102b2-9719-11ef-a04b-628e649690de
       Msh-Trace-Mode:
       - 'on'
       Msh-Uid:
@@ -60,15 +63,11 @@ interactions:
       - nginx
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
-      Transfer-Encoding:
-      - chunked
       Vary:
-      - Origin, Accept-Encoding
-      content-length:
-      - '461'
+      - Origin
       server-timing:
-      - inner; dur=863
+      - inner; dur=36
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
 version: 1

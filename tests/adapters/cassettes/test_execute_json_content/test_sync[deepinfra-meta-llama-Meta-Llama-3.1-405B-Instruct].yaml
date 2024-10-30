@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "meta-llama/Meta-Llama-3.1-405B-Instruct",
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "meta-llama/Meta-Llama-3.1-405B-Instruct",
       "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '122'
+      - '178'
       content-type:
       - application/json
       host:
       - api.deepinfra.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,23 +38,21 @@ interactions:
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-1a243f0217f1437a9ca82efeb9928808","object":"chat.completion","created":1729112239,"model":"meta-llama/Meta-Llama-3.1-405B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"That''s
-        two \"hi\"s! Hi back to you! Is there something I can help you with or would
-        you like to chat?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"total_tokens":40,"completion_tokens":27,"estimated_cost":7.159999999999999e-05}}'
+      string: '{"detail":"Multimodal is not supported for model: {inp.model}"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '479'
+      - '63'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:57:19 GMT
+      - Wed, 30 Oct 2024 23:49:00 GMT
       server:
       - uvicorn
       x-robots-tag:
       - noindex
     status:
-      code: 200
-      message: OK
+      code: 405
+      message: Method Not Allowed
 version: 1

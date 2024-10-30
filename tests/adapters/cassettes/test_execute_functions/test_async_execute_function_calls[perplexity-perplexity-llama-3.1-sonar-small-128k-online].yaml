@@ -1,0 +1,93 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "llama-3.1-sonar-small-128k-online", "function_call": {"name": "generate"},
+      "functions": [{"description": "Generate random number", "name": "generate"}],
+      "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '249'
+      content-type:
+      - application/json
+      host:
+      - api.perplexity.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.perplexity.ai/chat/completions
+  response:
+    body:
+      string: '{"id": "5f44f714-c330-47b9-9583-7ea0406248de", "model": "llama-3.1-sonar-small-128k-online",
+        "created": 1730332133, "usage": {"prompt_tokens": 3, "completion_tokens":
+        417, "total_tokens": 420}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "To
+        generate a random number, you can use various methods depending on the programming
+        language or tool you are using. Here are some common ways to generate random
+        numbers:\n\n### Using Python\nIn Python, you can use the `random` library
+        to generate random numbers. Here are a few examples:\n\n1. **Generate a Random
+        Integer**:\n   ```python\n   import random\n\n   # Generate a random integer
+        between 1 and 6 (inclusive)\n   random.randint(1, 6)\n   ```\n\n2. **Generate
+        a Random Choice from a List**:\n   ```python\n   import random\n\n   # Generate
+        a random choice from a list of numbers\n   random.choice([1, 2, 3, 4, 5, 6])\n   ```\n\n3.
+        **Generate a Random Floating Point Number**:\n   ```python\n   import random\n\n   #
+        Generate a random floating point number between 0 and 1\n   random.random()\n   ```\n\n###
+        Using JavaScript\nIn JavaScript, you can use the `Math.random()` function
+        to generate a random floating point number between 0 (inclusive) and 1 (exclusive).\n\n```javascript\nMath.random()\n```\n\n###
+        Using .NET\nIn .NET, you can use the `Random` class to generate random numbers.\n\n```csharp\nusing
+        System;\n\nclass Program\n{\n    static void Main()\n    {\n        // Instantiate
+        a new Random object\n        Random rand = new Random();\n\n        // Generate
+        and display 5 random integers\n        for (int i = 0; i < 5; i++)\n        {\n            Console.WriteLine(rand.Next());\n        }\n    }\n}\n```\n\n###
+        Using an Online Calculator\nIf you need to generate random numbers quickly
+        without coding, you can use an online random number generator tool. For example,
+        Calculator Soup provides a random number generator that allows you to specify
+        a range and other parameters to generate random numbers.\n\nEach of these
+        methods can be tailored to your specific needs, whether you need integers,
+        floating point numbers, or specific ranges."}, "delta": {"role": "assistant",
+        "content": ""}}]}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daf4c656bb97afd-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:48:53 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=gRNCKprgl6SMkCEdli3fpDlW5hZPkwld0QaFMzHZh.U-1730332133-1.0.1.1-F.hEGmDNkzObDPu5UKsbl7JBHppz2PecCSJ3SPlymF3dZQXSc2qEyv0zWBPGi6Qeff3_ihegRtUjoIoYpI3YWQ;
+        path=/; expires=Thu, 31-Oct-24 00:18:53 GMT; domain=.perplexity.ai; HttpOnly;
+        Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '2235'
+    status:
+      code: 200
+      message: OK
+version: 1

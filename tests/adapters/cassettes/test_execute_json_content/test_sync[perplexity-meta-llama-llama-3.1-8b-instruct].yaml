@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "llama-3.1-8b-instruct",
-      "stream": false}'
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "llama-3.1-8b-instruct", "stream":
+      false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '104'
+      - '160'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,33 +38,33 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "de520472-7564-4991-8195-7dc12ddbeda3", "model": "llama-3.1-8b-instruct",
-        "created": 1729112350, "usage": {"prompt_tokens": 13, "completion_tokens":
-        25, "total_tokens": 38}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
-        looks like you''re trying to start a conversation. I''m happy to chat with
-        you. What''s on your mind?"}, "delta": {"role": "assistant", "content": ""}}]}'
+      string: '{"id": "850154fa-3a38-4f26-9f7b-69ccdd69053b", "model": "llama-3.1-8b-instruct",
+        "created": 1730332126, "usage": {"prompt_tokens": 12, "completion_tokens":
+        14, "total_tokens": 26}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "HiHi
+        back to you How''s your day going so far?"}, "delta": {"role": "assistant",
+        "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af8a00abc9806-SJC
+      - 8daf4c4bcff5d041-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:59:10 GMT
+      - Wed, 30 Oct 2024 23:48:46 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=M9uEI.vHv3XI7jhuu8apUOe4mdEf.T.wxtzb6xp_6sw-1729112350-1.0.1.1-G3E3O08GEIZF6so2HUDCb55r06ux5iHrudChZRzryoe9yFeQZpySqNsMaqNqIXzi8is8t_JjQgt8jFza6j3ZbA;
-        path=/; expires=Wed, 16-Oct-24 21:29:10 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=KXopvmfFUik4o.29NyeJrzNPVa2G_ojKxc4rSJxqnT8-1730332126-1.0.1.1-1tKy28J15BZkp.8jaGvKmuQKMU5NjT.5D74QuDrYwLwsUAnMflg3irpwMYiuGgXhsxbuF0i2TuwTVMHano2zTg;
+        path=/; expires=Thu, 31-Oct-24 00:18:46 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
       Transfer-Encoding:
       - chunked
       content-length:
-      - '458'
+      - '402'
     status:
       code: 200
       message: OK

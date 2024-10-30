@@ -1,0 +1,75 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "llama3-8b-8192",
+      "n": 2, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '101'
+      content-type:
+      - application/json
+      host:
+      - api.groq.com
+      user-agent:
+      - AsyncOpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.groq.com/openai/v1/chat/completions
+  response:
+    body:
+      string: '{"error":{"message":"''n'' : number must be at most 1","type":"invalid_request_error"}}
+
+        '
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daf4dcdad4d238d-SJC
+      Cache-Control:
+      - private, max-age=0, no-store, no-cache, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '86'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:49:47 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=QDCCoZ4860FYv9aSNueJsI8B2Ko2JGUot2hoeIkinic-1730332187-1.0.1.1-PzXbR83LGrFLR8eKdy2O0NVmhHbTrgVngYqJ9PM1_slHsAbgePxpptUSXrFFTKfsFW3pYJssm4SFKBXAViBzog;
+        path=/; expires=Thu, 31-Oct-24 00:19:47 GMT; domain=.groq.com; HttpOnly; Secure;
+        SameSite=None
+      alt-svc:
+      - h3=":443"; ma=86400
+      vary:
+      - Origin
+      via:
+      - 1.1 google
+      x-request-id:
+      - req_01jbfxbq4yf789720wat6r8xv5
+    status:
+      code: 400
+      message: Bad Request
+version: 1

@@ -1,23 +1,22 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}, {"role": "assistant", "content": "Hi"}, {"role": "user", "content": ""}],
-      "model": "databricks-meta-llama-3-1-70b-instruct", "stream": false}'
+      "Hi"}], "model": "databricks-meta-llama-3-1-70b-instruct", "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '227'
+      - '154'
       content-type:
       - application/json
       host:
       - adb-8736858266948228.8.azuredatabricks.net
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,17 +37,16 @@ interactions:
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_d988e47c-901a-46c6-8859-0ca789ec2708","object":"chat.completion","created":1729112687,"model":"meta-llama-3.1-70b-instruct-082724","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like we''re having a nice chain of \"hi\"s going on here! Would you
-        like to chat about something specific or just have a friendly conversation?
-        I''m all ears!"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":28,"completion_tokens":38,"total_tokens":66}}'
+      string: '{"id":"chatcmpl_b48f42bb-ff4f-4909-8dba-89487e3b5d09","object":"chat.completion","created":1730332240,"model":"meta-llama-3.1-70b-instruct-082724","choices":[{"index":0,"message":{"role":"assistant","content":"It''s
+        nice to meet you. Is there something I can help you with or would you like
+        to chat?"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":17,"completion_tokens":23,"total_tokens":40}}'
     headers:
       content-length:
-      - '489'
+      - '412'
       content-type:
       - application/json;charset=utf-8
       date:
-      - Wed, 16 Oct 2024 21:04:47 GMT
+      - Wed, 30 Oct 2024 23:50:40 GMT
       server:
       - databricks
       strict-transport-security:
@@ -70,11 +68,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 208.184.59.122,10.154.64.216
+      - 208.184.59.122,10.154.64.10
       x-rate-limit-request-remote-addr:
-      - 10.154.64.30:57584
+      - 10.154.64.26:36412
       x-request-id:
-      - 104baf4e-0a80-402d-ac11-f8997cfed2f7
+      - 3e359a38-74d4-48d2-88da-69ec36424558
       x-xss-protection:
       - 1; mode=block
     status:

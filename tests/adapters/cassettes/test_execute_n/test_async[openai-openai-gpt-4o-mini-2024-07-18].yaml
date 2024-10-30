@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,36 +37,34 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5YtGanlg9phLrnCVE0uN6mKaPHl\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729112975,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello! How can I assist you today?\",\n
-        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-        \"stop\"\n    },\n    {\n      \"index\": 1,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello! How can I assist you today?\",\n
-        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-        \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 8,\n    \"completion_tokens\":
-        18,\n    \"total_tokens\": 26,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_e2bde53e6e\"\n}\n"
+      string: !!binary |
+        IbgNACD26PbuWabrzVD4YqmIbo7pC9b64S1w2UO74W/zga3vsfATSSBqOg004AJLPdVTJI5HbKsV
+        L8O9vwpgFlKDQer1QWVKe+/mIB9yI35/FTyefp3N9md3l4/FQXZ3/h3SUgDFz6Ogt4T1LQY2k1qF
+        nFwei0JqjBYTdzIZj9258GolYVRSg4np7anYVVZn9tgdT213YY+WCNFUsiDqqPGkAOC3NgP4Bn5P
+        DddqJTsyBLXiRwBbKSNq0Ou6rOu9uqelUAhhl6TB06gsZQ2n8onAq3EGozf4lgG9hN73jnHh3fqh
+        V1KjHspSxv+9CUpJTCt+p0MzifY2eLtZ60NqsOvFUAFUU/wDo+QU8DKp44FIAk0rlenfeimiuqPG
+        ksOAK6kgh1EpfPxAQbY1nluA8BZ2b9gN2h4DL0ij0HrqKnY1/dbCIIazrE58w0hMoXFGODh4i7M6
+        iVrTZtNwHps31/fccDSexiOqf2UAAw==
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b07dcedcd966f-SJC
+      - 8daf4e411b8fcea0-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:09:35 GMT
+      - Wed, 30 Oct 2024 23:50:06 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=l6lcifjLW7LrYi6kgcMuMyc495lQ7wAvIEQ6PboMDP8-1729112975-1.0.1.1-RbSZVmei11p.K3Bcl_SJy4mjNPD0BqcKxmTJZJCDWZTnz1raHDHVb77teKIG71_0f2bXo58K.9QBjTwfH_liqA;
-        path=/; expires=Wed, 16-Oct-24 21:39:35 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=KUOofgONz8Dad5t03bxu2v3byuYY4PP98UgsYsiqXAY-1730332206-1.0.1.1-Wun6mRyaoDunca8SRSusKJ0uJ7a2R7B6BFEtGkOp97dSiiQFsRHx1hHIfZ7OO4G9ny267v60B_mOJW1Jq2QK5w;
+        path=/; expires=Thu, 31-Oct-24 00:20:06 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=w7ntvBZ0ny6W1NsrCqF8af.RgUKJ2UhqdYD9ZXrJE64-1729112975457-0.0.1.1-604800000;
+      - _cfuvid=0BI30uZLXZugKZxShpqRIY9YoU2ooeNcaz8GYH30u74-1730332206928-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -76,12 +74,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '879'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '480'
+      - '542'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -99,7 +95,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_6c5c870e8bff518728436d00555d0a82
+      - req_e10ea21b5c841fcdb4fdd217a1318c86
     status:
       code: 200
       message: OK

@@ -1,0 +1,78 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "accounts/fireworks/models/llama-v3p2-11b-vision-instruct", "function_call":
+      {"name": "generate"}, "functions": [{"description": "Generate random number",
+      "name": "generate"}], "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '272'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"error":{"object":"error","type":"invalid_request_error","message":"Extra
+        inputs are not permitted, field: ''function_call''"}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8daf4bad0b2b16a2-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:48:20 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=171.0;desc="Total Response Time"
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      fireworks-middleware-version:
+      - v2
+      x-envoy-upstream-service-time:
+      - '1'
+      x-request-id:
+      - fced5b91-3721-46d2-ba66-d0291c1647e9
+    status:
+      code: 400
+      message: Bad Request
+version: 1

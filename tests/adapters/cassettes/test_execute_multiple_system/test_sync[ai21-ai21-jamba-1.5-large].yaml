@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.ai21.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,29 +38,32 @@ interactions:
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-09f1a9ec0c51443b9e44a2ddd1942524","choices":[{"index":0,"message":{"role":"assistant","content":"How
-        can I assist you today?","tool_calls":null},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":15,"completion_tokens":8,"total_tokens":23}}'
+      string: !!binary |
+        ISgEACB+r27TmvfnuqwwzH6tQ8gFM50cOB7s8+aBpgEmmEALEm+Zpif7HvIJQuG4/mLukKGd6GbG
+        fjj4FJBLThR0aU+Jn0RdG0bREHRem8LA6Prkimz1xUX6iswx0BfxheyLC8seGeh6na83UjcYMI0r
+        Myz4KVpSYily1sSb7+LGHb1rGLgxy11LUl6RqbuUfwOSR33hRqQB6zS3W1O1R4brjTX+GwP3GmZ9
+        4ZO+7W587NUVmRvCnLTsbzOrUEgMPBIAFM///w0D
     headers:
-      CF-Cache-Status:
-      - DYNAMIC
       CF-RAY:
-      - 8d3afcae3cf22513-SJC
+      - 8daf4df25dfb2302-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:01:57 GMT
+      - Wed, 30 Oct 2024 23:49:54 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      content-length:
-      - '267'
+      cf-cache-status:
+      - DYNAMIC
       request-id:
-      - 913d58ed-9011-a7a2-d826-d8a046abe49c
+      - 6a1287e6-a3cf-3b01-e78a-682a02308829
       via:
       - 1.1 google
     status:

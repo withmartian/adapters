@@ -1,23 +1,23 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-sonar-large-128k-online",
-      "stream": false}'
+      "content": "Hi "}], "model": "llama-3.1-sonar-large-128k-online", "stream":
+      false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '190'
+      - '153'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,55 +38,27 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "322c1263-b701-4c4b-92ac-1cc5121c3559", "model": "llama-3.1-sonar-large-128k-online",
-        "created": 1729111808, "usage": {"prompt_tokens": 3, "completion_tokens":
-        403, "total_tokens": 406}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "If
-        you are looking for quotes related to the concept of \"empty\" or \"emptiness,\"
-        here are some insightful and varied options:\n\n## On Emotional and Spiritual
-        Emptiness\n- \"In a full heart there is room for everything, and in an empty
-        heart there is room for nothing.\" - Antonio Porchia.\n- \"The empty mind
-        - the pure mind - is not a blank, zero-land, where you''re not feeling or
-        caring about anything. It''s an effulgence of the mind. It''s a brightness
-        that is truly sensitive and accepting.\" - From a discussion on the empty
-        mind.\n\n## On Physical and Environmental Emptiness\n- \"Every little girl
-        knows how dreadful it is to find a room empty where she thought somebody was.\"
-        - George Macdonald.\n- \"The earth was empty and bleak.\" - Jean Craighead
-        George, from \"Julie of the Wolves\".\n\n## On Philosophical and Poetic Perspectives\n-
-        \"Into the void of silence, into the empty space of nothing, the joy of life
-        is unfurled.\u201d - C. S. Lewis.\n- \"By emptying their hearts And filling
-        their bellies, Weakening their intelligence And toughening their sinews Ever
-        striving to make the people knowledgeless and desireless.\u201d - Lao Tzu,
-        from \"Tao Te Ching\".\n\n## On Everyday Life and Observations\n- \"No one
-        has ever sent me a letter. Every day my mailbox is empty. That is why waiting
-        for the mail is a sad time for me.\u201d - Arnold Lobel, from \"Frog and Toad
-        Are Friends\".\n- \"My holes were empty like a cup, In every hole the sea
-        came up Till it could come no more\u201d - Robert Louis Stevenson, from \"A
-        Child''s Garden of Verses\".\n\nThese quotes capture various aspects of emptiness,
-        ranging from emotional and spiritual states to physical environments and philosophical
-        reflections."}, "delta": {"role": "assistant", "content": ""}}]}'
+      string: '{"error":{"message":"Last message must have role `user`.","type":"invalid_message","code":400}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3aeb335be0182a-SJC
+      - 8daf4c3dab45faba-SJC
       Connection:
       - keep-alive
+      Content-Length:
+      - '95'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:50:08 GMT
+      - Wed, 30 Oct 2024 23:48:43 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=Ua3ApQEUo3sbAJxkJ7z6PYpgGxhxMmR8A_Kc8NJgAic-1729111808-1.0.1.1-w_r9I6u6EGrc1m7oOqEWNVhELH.tMrxkkEtz5f_d6mvWbGS8Xnmbb.0u2b08ZRfRPxutzkXLgvLDecMAzIvndg;
-        path=/; expires=Wed, 16-Oct-24 21:20:08 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=0NhmcIKr8o9r0f2f4tCsFoS2DLgDOCb9tS4XQLQG494-1730332123-1.0.1.1-CJFZMSdaqkconABEKZJxClaJfwYKsnOMvRL6Wf6oNDNOLIRI5vG4XudcXZy7F47rffDnrRGSNN1Xq1VMDx4wrA;
+        path=/; expires=Thu, 31-Oct-24 00:18:43 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
-      Transfer-Encoding:
-      - chunked
-      content-length:
-      - '2088'
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
 version: 1

@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,31 +38,34 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"61710e6d-f1fc-4c99-ad39-65b06508bbf0","object":"chat.completion","created":1729111914,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"I''m
-        here to provide a helpful, respectful, and truthful interaction. I''ll do
-        my best to be useful and secure while avoiding any harmful, unethical, prejudiced,
-        or negative content. I''m committed to promoting fairness and positivity in
-        our conversation. If you have any questions or need assistance, feel free
-        to ask!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":61,"total_tokens":135,"completion_tokens":74}}'
+      string: '{"id":"fa1796ae-b446-4e92-888a-bfd3742011dd","object":"chat.completion","created":1730332177,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"I''m
+        here to provide helpful, respectful, and truthful responses. I''ll avoid harmful,
+        unethical, prejudiced, or negative content to the best of my ability. My goal
+        is to promote fairness, positivity, and usefulness in our interaction. If
+        you have any questions or need assistance with a particular topic, feel free
+        to ask!\n\nHere''s a fun fact to start off our interaction: Did you know that
+        the world''s largest snowflake, according to the Guinness World Records, was
+        15 inches wide and 8 inches thick? It fell in Montana, USA, in 1887. Isn''t
+        that amazing? Now, is there anything specific you''d like to know or discuss?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":61,"total_tokens":221,"completion_tokens":160}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d3aedf6cae567f7-SJC
+      - 8daf4d886f48aaaf-SJC
       Cf-Placement:
-      - remote-HKG
+      - local-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:51:54 GMT
+      - Wed, 30 Oct 2024 23:49:37 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=586.0;desc="Total Response Time"
+      - total;dur=1238.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -70,7 +73,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '629'
+      - '932'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -78,11 +81,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.374'
+      - '1.085'
       x-envoy-upstream-service-time:
-      - '375'
+      - '1086'
       x-request-id:
-      - 61710e6d-f1fc-4c99-ad39-65b06508bbf0
+      - fa1796ae-b446-4e92-888a-bfd3742011dd
     status:
       code: 200
       message: OK

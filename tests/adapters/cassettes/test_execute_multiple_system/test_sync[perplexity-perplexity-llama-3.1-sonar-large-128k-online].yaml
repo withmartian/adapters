@@ -1,23 +1,22 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}, {"role": "assistant", "content": "Hi"}, {"role": "user", "content": "\"\""}],
-      "model": "llama-3.1-sonar-large-128k-online", "stream": false}'
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "llama-3.1-sonar-large-128k-online",
+      "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '226'
+      - '112'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,61 +37,44 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "552217f5-0d85-4112-a7f2-3b377af50713", "model": "llama-3.1-sonar-large-128k-online",
-        "created": 1729112627, "usage": {"prompt_tokens": 4, "completion_tokens":
-        524, "total_tokens": 528}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "Here
-        are some diverse and thought-provoking quotes about the concept of \"empty\"
-        from various sources:\n\n## Emotional and Philosophical Perspectives\n\n-
-        **C. S. Lewis**: \"Into the void of silence, into the empty space of nothing,
-        the joy of life is unfurled.\"\n- **Lao Tzu**: \"Empty your mind of all thoughts.
-        Let your heart be at peace. Watch the turmoil of beings, but contemplate their
-        return. Each separate being in the universe returns to the common source.\"\n-
-        **Waylon H. Lewis**: \"Words are full of promise, yet empty of matter.\"\n\n##
-        Literary and Poetic Expressions\n\n- **Neil Gaiman**: \"All alone, in the
-        middle of the night, Coraline began to cry. There was no other sound in the
-        empty flat.\"\n- **Laurie Halse Anderson**: \"This closet is abandoned - it
-        has no purpose, no name. It is the perfect place for me.\"\n- **George Macdonald**:
-        \"Every little girl knows how dreadful it is to find a room empty where she
-        thought somebody was.\"\n\n## Empty Nest Syndrome\n\n- **Erma Bombeck**: \"When
-        mothers talk about the depression of the empty nest, they\u2019re not mourning
-        the passing of all those wet towels on the floor, or the music that numbs
-        your teeth, or even the bottle of capless shampoo dribbling down the shower
-        drain. They\u2019re upset because they\u2019ve gone from supervisor of a child\u2019s
-        life to a spectator.\"\n- **C. JoyBell C.**: \"I think that the best thing
-        we can do for our children is to allow them to do things for themselves, allow
-        them to be strong, allow them to experience life on their own terms, allow
-        them to take the subway...let them be better people, let them believe more
-        in themselves.\"\n- **Dalai Lama**: \"Give the ones you love wings to fly,
-        roots to come back, reasons to stay.\"\n\n## Humor and Practicality\n\n- **Unknown**:
-        \"Hey empty nest parents, if you want your kid to call you, just change your
-        Netflix password.\"\n- **Erma Bombeck**: \"If the nest is truly empty, who
-        owns all this junk?\"\n- **Robin Fox**: \"I don\u2019t like the term empty
-        nesters. I prefer \u2018parents of free range adults\u2019.\"\n\nThese quotes
-        capture a range of emotions, philosophical insights, and practical humor related
-        to the concept of emptiness."}, "delta": {"role": "assistant", "content":
+      string: '{"id": "60959c09-9156-40ff-a5f6-56ccbbd39e24", "model": "llama-3.1-sonar-large-128k-online",
+        "created": 1730332207, "usage": {"prompt_tokens": 1, "completion_tokens":
+        219, "total_tokens": 220}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "The
+        term \"hi\" is primarily used as an informal greeting in English. Here are
+        some key points about its usage and origins:\n\n## Usage\n- \"Hi\" is used
+        as a friendly, casual greeting when meeting someone, especially someone you
+        know. It is less formal than \"hello\" and can be used in most everyday situations.\n\n##
+        Origins\n- The word \"hi\" originated from Middle English, possibly as a variant
+        of \"hey\" or \"hy,\" which were used to attract attention. It has been in
+        use since around the 1470s.\n\n## Examples\n- Common ways to use \"hi\" include:
+        \"Hi, there!\", \"Hi, how are you?\", or simply \"Hi, Ben\".\n\n## Other Uses\n-
+        While \"hi\" is mainly an interjection for greeting, it can also be used to
+        call attention or, in some contexts, express wonder or derision, although
+        these uses are less common.\n\nOverall, \"hi\" is a versatile and widely used
+        informal greeting in English."}, "delta": {"role": "assistant", "content":
         ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3aff28496dcf0e-SJC
+      - 8daf4e2d9d842518-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:03:47 GMT
+      - Wed, 30 Oct 2024 23:50:07 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=gskJMyYzLb8Hop4WQLwyOblhM0HMVPBrjL_cSR9iHPI-1729112627-1.0.1.1-66HYYiHJk2Yio1pnfBN2uiY4LR6pH6ZpSpEXaTsIfX6SwivsC68aWWJvpEEsP0PSPLxaaAwr9MlXP_rQ_DnXUg;
-        path=/; expires=Wed, 16-Oct-24 21:33:47 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=EwdxJ1SW3Zapmu9t0bvupw0_txt9Rtz_G6dlShzhT9M-1730332207-1.0.1.1-0TZo_xbSfJJQa7s.624YHTQVU3j7dvW0Y2C18wR2FqzWYEPq8AYHoHJSVFmUjNiy7JdRysd.oYcMjac_MxNp6g;
+        path=/; expires=Thu, 31-Oct-24 00:20:07 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
       Transfer-Encoding:
       - chunked
       content-length:
-      - '2583'
+      - '1265'
     status:
       code: 200
       message: OK

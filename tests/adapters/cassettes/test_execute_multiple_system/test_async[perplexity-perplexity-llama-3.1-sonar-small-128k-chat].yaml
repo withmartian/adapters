@@ -1,23 +1,22 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}, {"role": "assistant", "content": "Hi"}, {"role": "user", "content": "\"\""}],
-      "model": "llama-3.1-sonar-small-128k-chat", "stream": false}'
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "llama-3.1-sonar-small-128k-chat",
+      "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '224'
+      - '110'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,34 +37,32 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "6d342267-0298-4f63-a904-66f8b72a2967", "model": "llama-3.1-sonar-small-128k-chat",
-        "created": 1729112950, "usage": {"prompt_tokens": 29, "completion_tokens":
-        36, "total_tokens": 65}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
-        looks like you might have accidentally sent a blank message. How can I assist
-        you today? Do you have any questions or need help with something specific?
-        Feel free to ask"}, "delta": {"role": "assistant", "content": ""}}]}'
+      string: '{"id": "5ac786b9-a1dc-4192-98df-c69c9613de97", "model": "llama-3.1-sonar-small-128k-chat",
+        "created": 1730332244, "usage": {"prompt_tokens": 11, "completion_tokens":
+        9, "total_tokens": 20}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "Hello
+        How can I assist you today?"}, "delta": {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b07451eb69698-SJC
+      - 8daf4f2e38ba169c-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:09:10 GMT
+      - Wed, 30 Oct 2024 23:50:44 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=DZJbDyNvm7ev5Fn18960U5_RPuQvMPYhDQck1z3I148-1729112950-1.0.1.1-Sk68nLAzrdWucGW4ws0p1G234vNwNB3WQCeg0EOEo._m2gfamTivfW49.th7o4tPYdQOA97XxcjGGrv9pvueHw;
-        path=/; expires=Wed, 16-Oct-24 21:39:10 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=tI7OKbiedQvfxPDvAqXcFNjHOyOT2tdsSGZM_6LArRQ-1730332244-1.0.1.1-vLT574MvPXf7w2Rwb7DCkt0LV9Odb0EHjrI9_kPrtwKA6hszyfYyN7Wnx8YuHH5rY9ROl2XfV9gjS8D_yl9u.Q;
+        path=/; expires=Thu, 31-Oct-24 00:20:44 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
       Transfer-Encoding:
       - chunked
       content-length:
-      - '539'
+      - '399'
     status:
       code: 200
       message: OK

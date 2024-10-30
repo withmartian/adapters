@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "llama-3.1-sonar-small-128k-online",
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "llama-3.1-sonar-small-128k-online",
       "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '116'
+      - '172'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,45 +38,47 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "70e17cf4-a6e8-4aef-a428-f4088f537a92", "model": "llama-3.1-sonar-small-128k-online",
-        "created": 1729112314, "usage": {"prompt_tokens": 3, "completion_tokens":
-        266, "total_tokens": 269}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
-        seems like your query is incomplete. However, if you are asking about the
-        song \"Hi, Hi, Hi\" by Paul McCartney and Wings, here are the key points:\n\n-
-        **Release**: The song was released as a double A-side single with \"C Moon\"
-        on December 1, 1972, in the UK and December 4, 1972, in the USA.\n- **Recording**:
-        The studio version was recorded at EMI Studios, Abbey Road, London, with sessions
-        starting on September 20, 1972, and mixing completed on November 6, 1972.\n-
-        **Genre**: The song is classified as glam rock.\n- **Chart Performance**:
-        It peaked at number one in Spain, number five in the UK, and number 10 in
-        the US in January 1973.\n- **Live Performances**: The song became a staple
-        of Wings'' live shows in the 1970s and was featured in the 1976 \"Wings Over
-        America\" tour.\n- **BBC Ban**: The song was banned by the BBC in the UK due
-        to its sexually suggestive lyrics, which were misinterpreted as drug references.\n\nFor
-        more detailed information, you can refer to the sources provided."}, "delta":
-        {"role": "assistant", "content": ""}}]}'
+      string: '{"id": "c12187c8-3bc1-4fc8-a912-cab313b7e0a0", "model": "llama-3.1-sonar-small-128k-online",
+        "created": 1730332106, "usage": {"prompt_tokens": 2, "completion_tokens":
+        297, "total_tokens": 299}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "The
+        term \"HiHi\" can refer to different things depending on the context:\n\n1.
+        **Stitchbird (Hihi)**:\n   - In New Zealand, \"Hihi\" is the M\u0101ori name
+        for the stitchbird, a medium-sized songbird with a slender down-curved blackish
+        bill and bold white wing-bars. It is known for its complex breeding system
+        and unique mating behaviors.\n\n2. **HiHi Studios**:\n   - In 2024, Rachell
+        \"Valkyrae\" Hofstetter launched her own media company called HiHi Studios,
+        which will develop and produce IP for graphic novels, TV, and film projects.\n\n3.
+        **Internet Slang**:\n   - In Hong Kong Cantonese, \"hihi\" is an internet
+        slang term used as a euphemism for a particular expression, often used to
+        avoid censorship.\n\n4. **Maori Dictionary**:\n   - In the M\u0101ori dictionary,
+        \"hihi\" can also mean \"to make a hissing noise\" or \"hiss,\" and it is
+        related to the word for radar beam in mathematics.\n\n5. **Tokelauan Language**:\n   -
+        In the Tokelauan language, \"hihi\" means to hoist or hang, and it is derived
+        from Proto-Nuclear Polynesian.\n\nThe specific meaning of \"HiHi\" depends
+        on the context in which it is used."}, "delta": {"role": "assistant", "content":
+        ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af7ad9bb2fa4a-SJC
+      - 8daf4bc258499848-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:58:34 GMT
+      - Wed, 30 Oct 2024 23:48:26 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=nybXP64tk0ftDCC4vpnhFCDShymIbdhH5i8PMYtQ2c8-1729112314-1.0.1.1-6F5c.vqAYESLqswRv.q.fLhYwzU656n_JDhoPOhF2UdaUvyNF9ho_JOjKKXZyckQvCM8.ztcQ6Ik3VzhOgbWUQ;
-        path=/; expires=Wed, 16-Oct-24 21:28:34 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=VXAPHl6fhUZyOrlslwMji8x8OytBNMrF_XqONuDTIiQ-1730332106-1.0.1.1-o_aDwqOrsFwPs393NKaSrWPoK2lOILGgViBS.GJUgl7HzvdK8HUe5oHawQokktjrBncfLx2B70u39lPNnzvhHQ;
+        path=/; expires=Thu, 31-Oct-24 00:18:26 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
       Transfer-Encoding:
       - chunked
       content-length:
-      - '1374'
+      - '1496'
     status:
       code: 200
       message: OK

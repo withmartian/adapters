@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "accounts/fireworks/models/mixtral-8x22b-instruct",
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "accounts/fireworks/models/mixtral-8x22b-instruct",
       "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '131'
+      - '187'
       content-type:
       - application/json
       host:
       - api.fireworks.ai
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,29 +38,29 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"5a458371-f137-4eef-8ad5-1b7412842b53","object":"chat.completion","created":1729112379,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? Is there something specific you would like to know
-        or discuss? I''m here to provide information and answer any questions you
-        might have to the best of my ability."},"finish_reason":"stop"}],"usage":{"prompt_tokens":8,"total_tokens":51,"completion_tokens":43}}'
+      string: '{"id":"48f84746-57f3-4d33-bb86-f193c81824e9","object":"chat.completion","created":1730332172,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I assist you today? Is there something specific you''d like to talk
+        about or ask? I''m here to help answer any questions you have to the best
+        of my ability. Let''s chat!"},"finish_reason":"stop"}],"usage":{"prompt_tokens":7,"total_tokens":54,"completion_tokens":47}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d3af94cdebb7aee-SJC
+      - 8daf4d6a399267cb-SJC
       Cf-Placement:
-      - remote-HKG
+      - local-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:59:39 GMT
+      - Wed, 30 Oct 2024 23:49:32 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=684.0;desc="Total Response Time"
+      - total;dur=637.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -67,7 +68,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '506'
+      - '493'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -75,11 +76,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.476'
+      - '0.503'
       x-envoy-upstream-service-time:
-      - '478'
+      - '504'
       x-request-id:
-      - 5a458371-f137-4eef-8ad5-1b7412842b53
+      - 48f84746-57f3-4d33-bb86-f193c81824e9
     status:
       code: 200
       message: OK

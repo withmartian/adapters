@@ -1,0 +1,85 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "wizardlm-2-8x22b", "stream": false, "tool_choice": {"type": "function", "function":
+      {"name": "generate"}}, "tools": [{"type": "function", "function": {"description":
+      "Generate random number", "name": "generate", "parameters": {"type": "object",
+      "properties": {"prompt": {"type": "string", "description": "Random number like
+      5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '451'
+      content-type:
+      - application/json
+      host:
+      - wizardlm-2-8x22b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.52.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://wizardlm-2-8x22b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-BeDoFCQaQvYpnU58tGtDHM","object":"chat.completion","created":1730324546,"model":"wizardlm-2-8x22b","choices":[{"index":0,"message":{"role":"assistant","content":"{\"prompt\":
+        \"To generate a random number in a programming language like Python, you can
+        use the `random` module. Here''s an example of how to generate a random integer
+        between 1 and 12 (inclusive), similar to rolling a die:\\n\\n```python\\nimport
+        random\\n\\n# Generate a random number between 1 and 12\\nrandom_number =
+        random.randint(1, 12)\\nprint(random_number)\\n```\\n\\nIn this code snippet,
+        `random.randint(1, 12)` will give you a random integer that could be any number
+        from 1 to 12, such as 5, 4, 3, 10, or 11. Each time you run this code, it
+        may produce a different number.\"}","tool_calls":[{"function":{"name":"generate","arguments":"{\"prompt\":
+        \"To generate a random number in a programming language like Python, you can
+        use the `random` module. Here''s an example of how to generate a random integer
+        between 1 and 12 (inclusive), similar to rolling a die:\\n\\n```python\\nimport
+        random\\n\\n# Generate a random number between 1 and 12\\nrandom_number =
+        random.randint(1, 12)\\nprint(random_number)\\n```\\n\\nIn this code snippet,
+        `random.randint(1, 12)` will give you a random integer that could be any number
+        from 1 to 12, such as 5, 4, 3, 10, or 11. Each time you run this code, it
+        may produce a different number.\"}"},"id":"call-rPp56v4ha5rDKqhSNRz98G","type":"function"}]},"logprobs":{"content":null},"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":10,"total_tokens":195,"completion_tokens":185}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8dae93422a88679c-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 21:42:30 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1632'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '3260'
+    status:
+      code: 200
+      message: OK
+version: 1

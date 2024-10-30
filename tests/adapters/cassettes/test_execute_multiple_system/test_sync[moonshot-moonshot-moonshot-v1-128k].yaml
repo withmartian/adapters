@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.moonshot.cn
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,22 +38,27 @@ interactions:
     uri: https://api.moonshot.cn/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-671029f8d9415c645340d0ac","object":"chat.completion","created":1729112568,"model":"moonshot-v1-128k","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today? If you have any questions or need help with something,
-        feel free to ask."},"finish_reason":"stop"}],"usage":{"prompt_tokens":18,"completion_tokens":26,"total_tokens":44}}'
+      string: !!binary |
+        IQAGACC+r7qmVfdnh5QGvrbCMF81jki68mJT2tMDt7IEgjCMwwQDTCj49fuBvpvebYg9hxWEv637
+        d7QVNGxjvB3nISjKJLFFHHGU702+zjexLczaZlCQfcfWJ9BKVWBamaDQqfwlV9BxmUZpmsRloTBK
+        xQM0RpHJNeKDUxzEybqHQgf8wkF/3XHYvkJHCvKKX9B3LDIwNIxzrfNm8lCYPbeiseVhkBfaypms
+        mWhHoRO6ypG8VOb6SbsD4o7UFzNdiYkjR7LQxFxRw8NM59Y3xMiuogPzQIeFmbyQcf0KT4V5beFv
+        N9YeGs7LjOePwrHi8bzIOPs/Lz1PDjpeG1CErpQUCu8LQJSz7Pk0AAM=
     headers:
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 16 Oct 2024 21:02:49 GMT
+      - Wed, 30 Oct 2024 23:49:37 GMT
       Msh-Cache:
-      - updated
+      - hit
       Msh-Gid:
       - enterprise-tier-2
       Msh-Request-Id:
-      - ffb169cf-8c01-11ef-9b3e-72be8e316c2f
+      - 9eeafc5a-9719-11ef-9e31-568a50fe2b9c
       Msh-Trace-Mode:
       - 'on'
       Msh-Uid:
@@ -66,10 +71,8 @@ interactions:
       - chunked
       Vary:
       - Origin, Accept-Encoding
-      content-length:
-      - '385'
       server-timing:
-      - inner; dur=1144
+      - inner; dur=1149
     status:
       code: 200
       message: OK

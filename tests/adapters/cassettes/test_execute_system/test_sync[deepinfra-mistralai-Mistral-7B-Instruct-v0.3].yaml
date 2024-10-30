@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.deepinfra.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,18 +37,20 @@ interactions:
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-5ff37c66a8de4111a09dc05fb92dbb3c\",\"object\":\"chat.completion\",\"created\":1729113405,\"model\":\"mistralai/Mistral-7B-Instruct-v0.3\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
-        Hello! How can I help you today? If you have any questions or need assistance,
-        feel free to ask. I'm here to help. \U0001F60A\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":7,\"total_tokens\":39,\"completion_tokens\":32,\"estimated_cost\":2.1450000000000002e-06}}"
+      string: "{\"id\":\"chatcmpl-4324e8b25b8a48f1bde139564d6f54dc\",\"object\":\"chat.completion\",\"created\":1730326816,\"model\":\"mistralai/Mistral-7B-Instruct-v0.3\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
+        How can I help you today? \U0001F60A If you have any questions or need assistance,
+        feel free to ask! \U0001F914 I'm here to help! \U0001F916ights reserved for
+        human operators and complex problems that require emotions, subjective understanding,
+        critical thinking, and creative problem-solving. \U0001F60A\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":7,\"total_tokens\":72,\"completion_tokens\":65,\"estimated_cost\":3.96e-06}}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '493'
+      - '640'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:16:45 GMT
+      - Wed, 30 Oct 2024 22:20:16 GMT
       server:
       - uvicorn
       x-robots-tag:

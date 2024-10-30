@@ -1,0 +1,76 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "mixtral-8x7b-instruct", "stream": false, "tool_choice": {"type": "function",
+      "function": {"name": "generate"}}, "tools": [{"type": "function", "function":
+      {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '456'
+      content-type:
+      - application/json
+      host:
+      - text.octoai.run
+      user-agent:
+      - OpenAI/Python 1.52.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://text.octoai.run/v1/chat/completions
+  response:
+    body:
+      string: '{"object":"error","message":"Function calling is not enabled for this
+        model","type":"invalid_request_error","param":null,"code":null,"validation_errors":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '158'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 21:39:59 GMT
+      Server:
+      - uvicorn
+      Vary:
+      - Origin
+      Via:
+      - kong/3.2.2
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '63'
+      X-Ratelimit-Limit:
+      - '4'
+      X-Ratelimit-Remaining:
+      - '3'
+      X-Ratelimit-Reset:
+      - '1730324401'
+      X-User-Request-Id:
+      - ''
+    status:
+      code: 400
+      message: Bad Request
+version: 1

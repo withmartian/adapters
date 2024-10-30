@@ -1,0 +1,73 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "meta-llama-3-70b-instruct", "function_call": {"name": "generate"}, "functions":
+      [{"description": "Generate random number", "name": "generate"}], "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '241'
+      content-type:
+      - application/json
+      host:
+      - text.octoai.run
+      user-agent:
+      - AsyncOpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://text.octoai.run/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-f80ae58254df497c881602678c2d6ac3","object":"chat.completion","created":1730332120,"model":"meta-llama-3-70b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"The
+        random number is: **43**\n\nWould you like me to generate another one?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"completion_tokens":17,"total_tokens":30}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '385'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:48:40 GMT
+      Server:
+      - uvicorn
+      Vary:
+      - Origin
+      Via:
+      - kong/3.2.2
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '437'
+      X-Ratelimit-Limit:
+      - '4'
+      X-Ratelimit-Remaining:
+      - '3'
+      X-Ratelimit-Reset:
+      - '1730332121'
+      X-User-Request-Id:
+      - ''
+    status:
+      code: 200
+      message: OK
+version: 1

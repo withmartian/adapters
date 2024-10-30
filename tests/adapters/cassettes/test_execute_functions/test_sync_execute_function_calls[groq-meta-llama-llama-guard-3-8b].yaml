@@ -1,0 +1,76 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "llama-guard-3-8b", "function_call": {"name": "generate"}, "functions": [{"description":
+      "Generate random number", "name": "generate"}], "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '232'
+      content-type:
+      - application/json
+      host:
+      - api.groq.com
+      user-agent:
+      - OpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.groq.com/openai/v1/chat/completions
+  response:
+    body:
+      string: '{"error":{"message":"This model does not support tool calling","type":"invalid_request_error"}}
+
+        '
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daf4be2e8b915a8-SJC
+      Cache-Control:
+      - private, max-age=0, no-store, no-cache, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '96'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:48:29 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=G3flyP87UfM0PULWv_daw9j7WxaYXommwLeOw7x5dos-1730332109-1.0.1.1-fZ5gCoKbdwMsWy9Sb_VKez3CQw6oGAJ36ojtJ6QA0H6nJOCJNqY3vzpmxuZeh4TO8rCz5pD6MYocNd.X5SGj0g;
+        path=/; expires=Thu, 31-Oct-24 00:18:29 GMT; domain=.groq.com; HttpOnly; Secure;
+        SameSite=None
+      alt-svc:
+      - h3=":443"; ma=86400
+      vary:
+      - Origin
+      via:
+      - 1.1 google
+      x-request-id:
+      - req_01jbfx9af9fc5ahgjh00w1b2a9
+    status:
+      code: 400
+      message: Bad Request
+version: 1

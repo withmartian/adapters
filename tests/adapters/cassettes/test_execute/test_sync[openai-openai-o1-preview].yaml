@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,33 +37,34 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ4S9qZ5DudRPdTWyZ524WDJwSPrb\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729108713,\n  \"model\": \"o1-preview-2024-09-12\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello! How can I assist you today?\",\n
-        \       \"refusal\": null\n      },\n      \"finish_reason\": \"stop\"\n    }\n
-        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 9,\n    \"completion_tokens\":
-        346,\n    \"total_tokens\": 355,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        320\n    }\n  },\n  \"system_fingerprint\": \"fp_49f580698f\"\n}\n"
+      string: !!binary |
+        IegJACAWzpWPUXOj2y8f5NkBa06Jtkd0dA5c/o8+sLYBFUgGWIlMIEpfeOADm11zbGvownv2qN49
+        KoBVSg0mpVkl3dDa9+/34WFbfcrD4aVJ16/951uzaLb7/DELJ7QUQInrLFlZsosjBnYlvQpULn/K
+        Ump4k8ANfG829YS7naRZSw2KZ1dH3862tu/6oe3ObM8HeCylSrIlNb4UABxXA4BP4A+o4Vq7cCBD
+        UCv+BHAhbUYNmuWyWq5Mv6KlkOlgZ6TBh6xtZYQH2SIxPR5h9AV7WWMlqdnfGmeerR83LTX6dduC
+        8jMbaOrW+btAa5gaXK5koIZ7VsBPdP01YQMOC+mG1d9KmqxfUmPGVTDJaEbuBKE3Mj8gkJ1zkWtB
+        sr8GdN1lepaYmKTMUp/EpYghij2XwqAYh1VfsKM+FlV4nNX+V/7yqi+yxbCoUn6fD395HIYmnvqR
+        oTorAwM=
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3a9fd37ac46801-SJC
+      - 8dae54a01e8fcfc4-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 19:58:39 GMT
+      - Wed, 30 Oct 2024 20:59:45 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=5V3wJSs1YFd_83IYHSgv7C7Kt7SlkjG7QvdL8jT_IeQ-1729108719-1.0.1.1-ebY5A4e5y5iVHehVH4YDnrhbWSD3x1z8opPEbBZRn0rQ4k85FhwhYokcQveNcV5H_szJ9J.f6QGHlf66oi17Ag;
-        path=/; expires=Wed, 16-Oct-24 20:28:39 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=T.L6mKHBumBciranpd6Ys9pXkelYWxAkmf1jXZ6T5Tw-1730321985-1.0.1.1-f94dF2RNJ4Fy8.WgLT3b6ethjXGs71vNYgpVxmhkrWmJ_hO63fQi_rKhELKx8UHuTK0UGsxCAT8tQT49Ki06NA;
+        path=/; expires=Wed, 30-Oct-24 21:29:45 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=fZBIC4iG.naOjy2tmtZv9ORkjPiorTsacQF5.zXM3Wk-1729108719201-0.0.1.1-604800000;
+      - _cfuvid=yY0ZVEU5Raf80wLsOIyA0RfLF68w2jVOixqf6b9QZSc-1730321985255-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -73,12 +74,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '635'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '5490'
+      - '3664'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -90,13 +89,13 @@ interactions:
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '29999981'
+      - '29999982'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_634f1c02c7549fc84e4da32d158c872e
+      - req_8186f2c5d4e672a14c3cdae2af081688
     status:
       code: 200
       message: OK

@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "meta-llama/Meta-Llama-3.1-70B-Instruct",
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "meta-llama/Meta-Llama-3.1-70B-Instruct",
       "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '121'
+      - '177'
       content-type:
       - application/json
       host:
       - api.deepinfra.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,23 +38,21 @@ interactions:
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-63c3c71621e44dd8a347f1a211dc69a1","object":"chat.completion","created":1729112375,"model":"meta-llama/Meta-Llama-3.1-70B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
-        It seems like you said hello twice! Is everything okay? How can I assist you
-        today?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"total_tokens":34,"completion_tokens":21,"estimated_cost":1.295e-05}}'
+      string: '{"detail":"Multimodal is not supported for model: {inp.model}"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '452'
+      - '63'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:59:35 GMT
+      - Wed, 30 Oct 2024 23:49:00 GMT
       server:
       - uvicorn
       x-robots-tag:
       - noindex
     status:
-      code: 200
-      message: OK
+      code: 405
+      message: Method Not Allowed
 version: 1

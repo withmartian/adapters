@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "mixtral-8x7b-32768",
-      "stream": false}'
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "mixtral-8x7b-32768", "stream":
+      false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '101'
+      - '157'
       content-type:
       - application/json
       host:
       - api.groq.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,42 +38,34 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-5c2512cb-f192-41f2-b1f1-15675c080103","object":"chat.completion","created":1729112250,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"I''m
-        here to help you with any questions or problems you have related to programming.
-        Do you have anything specific in mind that you''d like to ask or discuss?
-        I''m familiar with a wide range of programming languages, tools, and concepts,
-        including but not limited to:\n\n* Python\n* Java\n* C++\n* JavaScript\n*
-        HTML/CSS\n* SQL\n* Data structures and algorithms\n* Object-oriented programming\n*
-        Functional programming\n* Software design and architecture\n* Agile development
-        methodologies\n\nPlease let me know how I can assist you. I''ll do my best
-        to provide clear and helpful explanations and examples."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011578934,"prompt_tokens":11,"prompt_time":0.001965685,"completion_tokens":139,"completion_time":0.223412401,"total_tokens":150,"total_time":0.225378086},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01jabhy6czedh9bb4xrdhg0wkz"}}
+      string: '{"error":{"message":"Service Unavailable","type":"internal_server_error"}}
 
         '
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af62f3f53cff5-SJC
+      - 8daf4d70eb1d1588-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
       - keep-alive
+      Content-Length:
+      - '75'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:57:31 GMT
+      - Wed, 30 Oct 2024 23:49:33 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=p3bfzGXSofCfC.ejgBeB8QjuojHMliGWNB0LKVDsU9Y-1729112251-1.0.1.1-6l.p15tRAc.Lc2bHfcOx.0bDvoFeocbc4Tk0iJ3LGYR0_rOafEO2AW15hgxZ.dvxXZa5WytV9_jvIMC3ce7YbQ;
-        path=/; expires=Wed, 16-Oct-24 21:27:31 GMT; domain=.groq.com; HttpOnly; Secure;
+      - __cf_bm=5FVibG9SFRZlK59ERgg1lm2QOOnGm4u3JBByfX5MMgM-1730332173-1.0.1.1-Dh3L3NedugaCiNTVECHbAx9faXg5ZJ8Hj1P5DOCPfH1KToGV3Py9HmTbi6rxF_3SJH8x_Q4dfIjTfZLVXuelLw;
+        path=/; expires=Thu, 31-Oct-24 00:19:33 GMT; domain=.groq.com; HttpOnly; Secure;
         SameSite=None
-      Transfer-Encoding:
-      - chunked
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '1106'
+      retry-after:
+      - '15'
       vary:
       - Origin
       via:
@@ -82,16 +75,18 @@ interactions:
       x-ratelimit-limit-tokens:
       - '5000'
       x-ratelimit-remaining-requests:
-      - '14399'
+      - '14396'
       x-ratelimit-remaining-tokens:
       - '4993'
       x-ratelimit-reset-requests:
-      - 6s
+      - 23.926999999s
       x-ratelimit-reset-tokens:
       - 84ms
       x-request-id:
-      - req_01jabhy6czedh9bb4xrdhg0wkz
+      - req_01jbfxb8pafx784dm1n9bd3z5w
+      x-should-retry:
+      - 'false'
     status:
-      code: 200
-      message: OK
+      code: 503
+      message: Service Unavailable
 version: 1

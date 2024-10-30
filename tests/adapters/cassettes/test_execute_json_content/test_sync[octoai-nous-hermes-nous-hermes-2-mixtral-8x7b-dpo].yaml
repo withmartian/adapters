@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "nous-hermes-2-mixtral-8x7b-dpo",
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "nous-hermes-2-mixtral-8x7b-dpo",
       "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '113'
+      - '169'
       content-type:
       - application/json
       host:
       - text.octoai.run
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,18 +38,17 @@ interactions:
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-35e32f80d62b4e8499449df6613c26a4","object":"chat.completion","created":1729112262,"model":"nous-hermes-2-mixtral-8x7b-dpo","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today?\n\nIf you have any questions or need help, feel
-        free to ask."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"completion_tokens":25,"total_tokens":38}}'
+      string: '{"object":"error","message":"Internal server error. Need to report
+        an issue or get help? Visit our Docs page: https://octo.ai/docs/getting-started/welcome.","type":"internal_server_error","param":null,"code":null,"validation_errors":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '411'
+      - '238'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:57:42 GMT
+      - Wed, 30 Oct 2024 23:49:44 GMT
       Server:
       - uvicorn
       Vary:
@@ -56,18 +56,18 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '926'
+      - '172'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1729112263'
+      - '1730332186'
       X-User-Request-Id:
       - ''
     status:
-      code: 200
-      message: OK
+      code: 500
+      message: Internal Server Error
 version: 1

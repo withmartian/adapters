@@ -16,7 +16,7 @@ interactions:
       host:
       - api.cerebras.ai
       user-agent:
-      - OpenAI/Python 1.52.2
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.52.2
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,42 +37,43 @@ interactions:
     uri: https://api.cerebras.ai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-c571109b-9ccb-4c59-9809-06b145537712","choices":[{"finish_reason":"stop","index":0,"message":{"content":"It
-        appears you have a list of dictionaries in Python, where each dictionary represents
-        a message with a ''type'' and ''text''. \n\nHere''s how you can work with
-        this data:\n\n```python\n# The list of messages\nmessages = [{''type'': ''text'',
-        ''text'': ''Hi''}, {''type'': ''text'', ''text'': ''Hi''}]\n\n# You can iterate
-        over the messages like this:\nfor message in messages:\n    print(f\"Type:
-        {message[''type'']}, Text: {message[''text'']}\")\n\n# If you want to get
-        a specific message:\nprint(messages[0][''text''])  # prints ''Hi''\n\n# If
-        you want to check if a message is of type ''text'':\nfor message in messages:\n    if
-        message[''type''] == ''text'':\n        print(message[''text''])\n```\n\nHowever,
-        it would be more Pythonic and safer to use classes or dataclasses to represent
-        messages:\n\n```python\nfrom dataclasses import dataclass\n\n@dataclass\nclass
-        Message:\n    type: str\n    text: str\n\nmessages = [Message(''text'', ''Hi''),
-        Message(''text'', ''Hi'')]\n\nfor message in messages:\n    print(f\"Type:
-        {message.type}, Text: {message.text}\")\n```\n\nIf you are using these messages
-        in a web application or any sort of chat bot, be sure to validate and clean
-        the input text to avoid potential security issues.","role":"assistant"}}],"created":1730167159,"model":"llama3.1-70b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":61,"completion_tokens":290,"total_tokens":351},"time_info":{"queue_time":2.827e-05,"prompt_time":0.00338592939100346,"completion_time":0.15917624660899654,"total_time":0.16427278518676758,"created":1730167159}}'
+      string: '{"id":"chatcmpl-057efdff-a5a8-4e95-9431-5f28add5adac","choices":[{"finish_reason":"stop","index":0,"message":{"content":"It
+        seems like you have a list of dictionaries containing chat messages. Each
+        dictionary has two keys: ''type'' and ''text''.\n\nHere''s an explanation
+        of what this data structure might represent:\n\n- `{''type'': ''text'', ''text'':
+        ''Hi''}`: This dictionary represents a chat message with type ''text'' (meaning
+        it''s a plain text message) and the content of the message is ''Hi''.\n\nIf
+        you''re trying to process or analyze this data, here are a few things you
+        could do:\n\n1. **Extract all messages:** You can loop through the list and
+        print each message.\n\n    ```python\nmessages = [{''type'': ''text'', ''text'':
+        ''Hi''}, {''type'': ''text'', ''text'': ''Hi''}]\n\nfor message in messages:\n    print(message[''text''])\n```\n\n2.
+        **Count the number of messages:** You can use the `len()` function to count
+        the number of messages.\n\n    ```python\nmessages = [{''type'': ''text'',
+        ''text'': ''Hi''}, {''type'': ''text'', ''text'': ''Hi''}]\n\nprint(len(messages))\n```\n\n3.
+        **Filter by message type:** You can loop through the list and check each message''s
+        type.\n\n    ```python\nmessages = [{''type'': ''text'', ''text'': ''Hi''},
+        {''type'': ''image'', ''text'': ''Image''}]\n\nfor message in messages:\n    if
+        message[''type''] == ''text'':\n        print(message[''text''])\n```\n\nRemember
+        to replace `messages` with your actual list of dictionaries.","role":"assistant"}}],"created":1730332178,"model":"llama3.1-70b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":61,"completion_tokens":316,"total_tokens":377},"time_info":{"queue_time":2.613e-05,"prompt_time":0.0033499467492063492,"completion_time":0.17013226725079367,"total_time":0.17490363121032715,"created":1730332178}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 29 Oct 2024 01:59:20 GMT
+      - Wed, 30 Oct 2024 23:49:39 GMT
       Transfer-Encoding:
       - chunked
       Via:
-      - 1.1 34d694cee116d42560f77448eb932ac8.cloudfront.net (CloudFront)
+      - 1.1 1f2a2b4522308aae8508a9096d87b334.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - jaoPw-DDEed6V33vy3ZVCSn7ALRF7E0fRD1VlkHgo78Hzd2Qz3Jlbw==
+      - QZ1s3VbMfA-WZglJWA62b-pminbPRoIjlDpbMWwxE9Wd2KzPk4cF2A==
       X-Amz-Cf-Pop:
       - SFO20-C1
       X-Cache:
       - Miss from cloudfront
       content-length:
-      - '1678'
+      - '1779'
       referrer-policy:
       - strict-origin-when-cross-origin
       server:
@@ -88,15 +89,15 @@ interactions:
       x-ratelimit-limit-tokens-minute:
       - '60000'
       x-ratelimit-remaining-requests-day:
-      - '14391'
+      - '14371'
       x-ratelimit-remaining-tokens-minute:
-      - '59536'
+      - '59921'
       x-ratelimit-reset-requests-day:
-      - '79239.84122753143'
+      - '620.9669086933136'
       x-ratelimit-reset-tokens-minute:
-      - '39.841227531433105'
+      - '20.9669086933136'
       x-request-id:
-      - jaoPw-DDEed6V33vy3ZVCSn7ALRF7E0fRD1VlkHgo78Hzd2Qz3Jlbw==
+      - QZ1s3VbMfA-WZglJWA62b-pminbPRoIjlDpbMWwxE9Wd2KzPk4cF2A==
     status:
       code: 200
       message: OK

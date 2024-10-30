@@ -21,7 +21,7 @@ interactions:
       host:
       - api.anthropic.com
       user-agent:
-      - AsyncAnthropic/Python 0.34.2
+      - AsyncAnthropic/Python 0.36.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -31,7 +31,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.34.2
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -40,19 +42,20 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01SVcH7NBhKbWm9A48zop5Zu","type":"message","role":"assistant","model":"claude-3-5-sonnet-20241022","content":[{"type":"text","text":"I''ll
-        help you generate a random number. I''ll use the generate function for this."},{"type":"tool_use","id":"toolu_019o5MvB1pQjmE314hsiiJXt","name":"generate","input":{"prompt":"5"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":388,"output_tokens":70}}'
+      string: '{"id":"msg_0177fSinAwNe64uJ9W1ivecB","type":"message","role":"assistant","model":"claude-3-5-sonnet-20241022","content":[{"type":"text","text":"I''ll
+        help you generate a random number. Let me use the `generate` function to do
+        that."},{"type":"tool_use","id":"toolu_01LaWbds4xY5q8n3KB7cnzDs","name":"generate","input":{"prompt":"5"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":388,"output_tokens":77}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d6bf6b7fa98254e-SJC
+      - 8daeb07b4c33967f-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 22 Oct 2024 19:41:17 GMT
+      - Wed, 30 Oct 2024 22:02:25 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -64,17 +67,17 @@ interactions:
       anthropic-ratelimit-requests-remaining:
       - '3999'
       anthropic-ratelimit-requests-reset:
-      - '2024-10-22T19:42:08Z'
+      - '2024-10-30T22:03:08Z'
       anthropic-ratelimit-tokens-limit:
       - '8000000'
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-22T19:41:16Z'
+      - '2024-10-30T22:02:25Z'
       content-length:
-      - '421'
+      - '427'
       request-id:
-      - req_01RDL5ue2drT1QN7bhDvLeN5
+      - req_014gBtapd2s7DcpzUnYE1DX3
       via:
       - 1.1 google
     status:

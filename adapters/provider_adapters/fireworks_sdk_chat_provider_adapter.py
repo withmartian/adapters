@@ -5,6 +5,9 @@ from adapters.types import Cost, Model, ModelProperties, Provider, Vendor
 class FireworksModel(Model):
     provider_name: str = Provider.fireworks.value
 
+    supports_vision: bool = False
+    supports_tools: bool = False
+
     properties: ModelProperties = ModelProperties(open_source=True)
 
     def _get_api_path(self) -> str:
@@ -54,17 +57,18 @@ MODELS = [
         context_length=131072,
         vendor_name=Vendor.meta_llama.value,
     ),
-    FireworksModel(
-        name="qwen2p5-72b-instruct",
-        cost=Cost(prompt=0.90e-6, completion=0.90e-6),
-        context_length=32768,
-        vendor_name=Vendor.qwen.value,
-    ),
+    # FireworksModel(
+    #     name="qwen2p5-72b-instruct",
+    #     cost=Cost(prompt=0.90e-6, completion=0.90e-6),
+    #     context_length=32768,
+    #     vendor_name=Vendor.qwen.value,
+    # ),
     FireworksModel(
         name="mixtral-8x22b-instruct",
         cost=Cost(prompt=1.20e-6, completion=1.20e-6),
         context_length=65536,
         vendor_name=Vendor.mistralai.value,
+        supports_tools=True,
     ),
     FireworksModel(
         name="mixtral-8x7b-instruct",

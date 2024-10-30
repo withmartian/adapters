@@ -21,7 +21,7 @@ interactions:
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.34.2
+      - Anthropic/Python 0.36.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -31,7 +31,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.34.2
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -40,34 +42,40 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01F3862TqPaY96UEBRSrzJ2s","type":"message","role":"assistant","model":"claude-3-5-sonnet-20241022","content":[{"type":"tool_use","id":"toolu_01Xd56xe3ZgNpjDKBQeyVXYP","name":"generate","input":{"prompt":"5"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":354,"output_tokens":33}}'
+      string: '{"id":"msg_01Er5vBUAqifpRKyFxFxJLhD","type":"message","role":"assistant","model":"claude-3-5-sonnet-20241022","content":[{"type":"tool_use","id":"toolu_01VS7QukTymrioLeTw6TkfoJ","name":"generate","input":{"prompt":"5"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":392,"output_tokens":34}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d6bf6816839fb44-SJC
+      - 8dae8dbda9b97e21-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 22 Oct 2024 19:41:07 GMT
+      - Wed, 30 Oct 2024 21:38:42 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       X-Robots-Tag:
       - none
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3999'
+      anthropic-ratelimit-requests-reset:
+      - '2024-10-30T21:39:08Z'
       anthropic-ratelimit-tokens-limit:
       - '8000000'
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-22T19:41:07Z'
+      - '2024-10-30T21:38:42Z'
       content-length:
       - '315'
       request-id:
-      - req_014Pvx2CwtAGdDKWK8MzrvUW
+      - req_01QWoXp4V4SabwbRvCKz6M36
       via:
       - 1.1 google
     status:

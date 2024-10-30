@@ -1,0 +1,77 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "mistral-7b",
+      "response_format": {"type": "json_object"}, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '143'
+      content-type:
+      - application/json
+      host:
+      - mistral-7b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://mistral-7b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-Q4tRqUSBQeyJCDynGhcPTz","object":"chat.completion","created":1730332532,"model":"mistral-7b","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        I can certainly help you with JSON (JavaScript Object Notation). Here are
+        some basic operations you can perform with JSON:\n\n1. **Parsing JSON**: To
+        parse JSON in JavaScript, you can use the `JSON.parse()` method. This method
+        converts a JSON string into a JavaScript object.\n\n```javascript\nlet jsonString
+        = ''{\"name\":\"John\", \"age\":30, \"city\":\"New York\"}'';\nlet jsonObject
+        = JSON.parse(jsonString);\nconsole.log(jsonObject.name); // Output: John\n```\n\n2.
+        **Stringifying JSON**: To convert a JavaScript object into a JSON string,
+        you can use the `JSON.stringify()` method.\n\n```javascript\nlet jsonObject
+        = {name:\"John\", age:30, city:\"New York\"};\nlet jsonString = JSON.stringify(jsonObject);\nconsole.log(jsonString);
+        // Output: {\"name\":\"John\",\"age\":30,\"city\":\"New York\"}\n```\n\n3.
+        **Accessing JSON properties**: JSON objects can be accessed like JavaScript
+        objects. You can access properties using dot notation or bracket notation.\n\n``","tool_calls":null},"logprobs":null,"finish_reason":"length","audio":null,"asr_results":null}],"usage":{"prompt_tokens":8,"total_tokens":264,"completion_tokens":256}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daf56382c2fcf87-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:55:34 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1314'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '1860'
+    status:
+      code: 200
+      message: OK
+version: 1

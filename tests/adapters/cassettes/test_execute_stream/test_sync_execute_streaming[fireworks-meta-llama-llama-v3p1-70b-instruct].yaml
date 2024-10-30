@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.52.0
+      - OpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.52.0
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,21 +37,25 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: 'data: {"id":"c5f5e66a-f34c-4109-9089-1e1998a490fa","object":"chat.completion.chunk","created":1729454694,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"delta":{"role":"assistant"},"finish_reason":null}],"usage":null}
+      string: 'data: {"id":"58fdbd13-9927-4bf1-853e-29455ec7ad4a","object":"chat.completion.chunk","created":1730331398,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"delta":{"role":"assistant"},"finish_reason":null}],"usage":null}
 
 
-        data: {"id":"c5f5e66a-f34c-4109-9089-1e1998a490fa","object":"chat.completion.chunk","created":1729454694,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"delta":{"content":"How''s"},"finish_reason":null}],"usage":null}
+        data: {"id":"58fdbd13-9927-4bf1-853e-29455ec7ad4a","object":"chat.completion.chunk","created":1730331398,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"delta":{"content":"How''s"},"finish_reason":null}],"usage":null}
 
 
-        data: {"id":"c5f5e66a-f34c-4109-9089-1e1998a490fa","object":"chat.completion.chunk","created":1729454694,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"delta":{"content":"
-        it going? Is there something I can help"},"finish_reason":null}],"usage":null}
+        data: {"id":"58fdbd13-9927-4bf1-853e-29455ec7ad4a","object":"chat.completion.chunk","created":1730331398,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"delta":{"content":"
+        it going"},"finish_reason":null}],"usage":null}
 
 
-        data: {"id":"c5f5e66a-f34c-4109-9089-1e1998a490fa","object":"chat.completion.chunk","created":1729454694,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"delta":{"content":"
-        you with or would you like to chat?"},"finish_reason":null}],"usage":null}
+        data: {"id":"58fdbd13-9927-4bf1-853e-29455ec7ad4a","object":"chat.completion.chunk","created":1730331398,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"delta":{"content":"?
+        Is there something I can help you"},"finish_reason":null}],"usage":null}
 
 
-        data: {"id":"c5f5e66a-f34c-4109-9089-1e1998a490fa","object":"chat.completion.chunk","created":1729454694,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"delta":{},"finish_reason":"stop"}],"usage":{"prompt_tokens":16,"total_tokens":37,"completion_tokens":21}}
+        data: {"id":"58fdbd13-9927-4bf1-853e-29455ec7ad4a","object":"chat.completion.chunk","created":1730331398,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"delta":{"content":"
+        with or would you like to chat?"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"58fdbd13-9927-4bf1-853e-29455ec7ad4a","object":"chat.completion.chunk","created":1730331398,"model":"accounts/fireworks/models/llama-v3p1-70b-instruct","choices":[{"index":0,"delta":{},"finish_reason":"stop"}],"usage":{"prompt_tokens":16,"total_tokens":37,"completion_tokens":21}}
 
 
         data: [DONE]
@@ -64,19 +68,19 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d5b9e9f59d4cf87-SJC
+      - 8daf3a86bc8396c6-SJC
       Cf-Placement:
-      - remote-SEA
+      - local-SJC
       Connection:
       - keep-alive
       Content-Type:
       - text/event-stream; charset=utf-8
       Date:
-      - Sun, 20 Oct 2024 20:04:54 GMT
+      - Wed, 30 Oct 2024 23:36:38 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=187.0;desc="Total Response Time"
+      - total;dur=755.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -90,11 +94,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-time-to-first-token:
-      - '0.125'
+      - '0.470'
       x-envoy-upstream-service-time:
-      - '126'
+      - '472'
       x-request-id:
-      - c5f5e66a-f34c-4109-9089-1e1998a490fa
+      - 58fdbd13-9927-4bf1-853e-29455ec7ad4a
     status:
       code: 200
       message: OK

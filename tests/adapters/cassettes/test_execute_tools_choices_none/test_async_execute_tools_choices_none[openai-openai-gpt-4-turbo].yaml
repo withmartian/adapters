@@ -9,7 +9,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -19,7 +19,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -29,7 +29,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -40,35 +40,34 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5s1BCf6pnBrdV9tdrQR9wenDXqV\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729114161,\n  \"model\": \"gpt-4-turbo-2024-04-09\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"I will generate a random number as
-        requested. Could you please specify the range (e.g., from 1 to 10, from 5
-        to 20, etc.) you'd like for the number?\",\n        \"refusal\": null\n      },\n
-        \     \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n
-        \ \"usage\": {\n    \"prompt_tokens\": 65,\n    \"completion_tokens\": 42,\n
-        \   \"total_tokens\": 107,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_83975a045a\"\n}\n"
+      string: !!binary |
+        IVgLACCW6nD3Mp2+gK4C6K08IofwHWp58KZQgLZDbdgFe/gvhU+kwM/TNNCIs20SNIxRp6aN4de3
+        vwKgKiUFSspoTjrdyv2zg6OfE+Putrzqvzg5XU6b+cZvl+7OOj6iXQEQx3WWzJRkz8VArriHoMjl
+        d1lKCqZvG7bl2YG9+bbjNGtJgQo9S0fOyxiztAzLkYYjjZDDbclVkk2k8CQA4HfWAagHfp0UjN1V
+        5JHBkQL+BNDIbUYKFE1TNc1RP9MuIJLCbkeBztssmjIE5K9+9/sYqfk1Wr+sYYz6lDtnHDO+edlI
+        EbC9xYjC3pC9sfTwTIWtVs2WE2dMw3imvSNEut/3Ry0p9Evb7tF/nXwtF3rkeMLggXLGVd7qc3WT
+        Ak0za6JU/gXwYrv6Yo4npEfu9Pw2c5P1Eyl4rqgK3VgEwFhO5IMFIoRjQbjLkbylt6tOtp+iJErK
+        LBXZNoR6KXJT2QAVO1VfHBxyYoWhKGUSWHjLq77IRj1Wt3md6zc3jW3D9uw8J/EvDAM=
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b24d1c96afa72-SJC
+      - 8daec019dfb4cf2e-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:29:22 GMT
+      - Wed, 30 Oct 2024 22:13:04 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=jL83b_bcT6N2iICpzNz_kDClmgEDO7WpPke4iA50H4M-1729114162-1.0.1.1-ZtpafyNWNJlOtvVW5mJ2w8xU.nUWrrY6_zm3hzafQWUZpl06.YYV_SDCwh3cF9_LsFizJTMxGyZnI7jPZI25bA;
-        path=/; expires=Wed, 16-Oct-24 21:59:22 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=EhaFvor.xg05TgDZdx899feALycVCjxhVJalP4I4WCk-1730326384-1.0.1.1-M0XTLy62KnT6kTd8CrUX9D4FnnYeK1lheRGoHXmzdBFzxM_BEGPIBrW.m36xrYBmD8FnybIca6tywzOWK1ec0Q;
+        path=/; expires=Wed, 30-Oct-24 22:43:04 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=AGBdFA0nXYjNI_w_5aFtf39Xohh2uVYOP3WwxQG1iD8-1729114162485-0.0.1.1-604800000;
+      - _cfuvid=tHeETzBynp94EsN0g0yOBq3sgYrq8HEw78zeHOe0oGw-1730326384906-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -78,12 +77,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '772'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '1447'
+      - '1141'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -101,7 +98,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_22f225457009b901a044af825a66f953
+      - req_fc66385c970c67ee0b4d251de39847b8
     status:
       code: 200
       message: OK

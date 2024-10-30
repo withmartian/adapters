@@ -1,24 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
-      "content": "Hi"}, {"role": "user", "content": "Hi"}, {"role": "assistant", "content":
-      "Hi"}, {"role": "user", "content": "\"\""}], "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
+      "Hi"}, {"role": "system", "content": "Hi"}], "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
       "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '277'
+      - '197'
       content-type:
       - application/json
       host:
       - api.together.xyz
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -28,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -39,26 +38,25 @@ interactions:
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"8d3b075e4f98ce44-SJC\",\n  \"object\": \"chat.completion\",\n
-        \ \"created\": 1729112954,\n  \"model\": \"meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo\",\n
+      string: "{\n  \"id\": \"8daf4f3a4c397ad9-SJC\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1730332246,\n  \"model\": \"meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo\",\n
         \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
-        \     \"seed\": 11029791335169448000,\n      \"logprobs\": null,\n      \"index\":
+        \     \"seed\": 12513405347530328000,\n      \"logprobs\": null,\n      \"index\":
         0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
-        \"It seems like you're not typing anything. Is there something I can help
-        you with or would you like to chat?\",\n        \"tool_calls\": []\n      }\n
-        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 61,\n    \"completion_tokens\":
-        25,\n    \"total_tokens\": 86\n  }\n}"
+        \"How can I assist you today?\",\n        \"tool_calls\": []\n      }\n    }\n
+        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 44,\n    \"completion_tokens\":
+        8,\n    \"total_tokens\": 52\n  }\n}"
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b075e4f98ce44-SJC
+      - 8daf4f3a4c397ad9-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 16 Oct 2024 21:09:15 GMT
+      - Wed, 30 Oct 2024 23:50:46 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -70,15 +68,15 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '611'
+      - '530'
       etag:
-      - W/"263-jqCCv9Y5MYAEH/PXWhS1w/V5a0o"
+      - W/"212-E91xexgEURzUyRxtnilZ4SOINSA"
       x-api-call-end:
-      - '2024-10-16T21:09:15.723Z'
+      - '2024-10-30T23:50:46.522Z'
       x-api-call-start:
-      - '2024-10-16T21:09:14.633Z'
+      - '2024-10-30T23:50:46.151Z'
       x-api-received:
-      - '2024-10-16T21:09:14.627Z'
+      - '2024-10-30T23:50:46.145Z'
       x-inference-version:
       - v2
       x-ratelimit:
@@ -90,9 +88,9 @@ interactions:
       x-ratelimit-remaining:
       - '198'
       x-ratelimit-remaining-tokens:
-      - '100000'
+      - '99948'
       x-ratelimit-reset:
-      - '1'
+      - '2'
     status:
       code: 200
       message: OK

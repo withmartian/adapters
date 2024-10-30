@@ -176,7 +176,15 @@ def get_response_content_from_vcr(vcr, adapter: BaseAdapter):
 
 
 def get_response_choices_from_vcr(vcr, adapter: BaseAdapter):
-    response = json.loads(vcr.responses[-1]["body"]["string"])
+    response = vcr.responses[-1]["body"]["string"]
+
+    try:
+        response = brotli.decompress(response)
+    except Exception as _:  # pylint: disable=W0718
+        print("Failed to decompress response")
+
+    response = json.loads(response)
+
     if isinstance(adapter, OpenAISDKChatAdapter):
         return response["choices"]
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):

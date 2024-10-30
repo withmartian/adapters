@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,35 +37,39 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-c1a59a2f-1199-45da-a7a0-f2d952e20f76","object":"chat.completion","created":1729108934,"model":"llama-3.1-8b-instant","choices":[{"index":0,"message":{"role":"assistant","content":"How
-        are you today?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.005999801000000001,"prompt_tokens":42,"prompt_time":0.008490549,"completion_tokens":6,"completion_time":0.008,"total_tokens":48,"total_time":0.016490549},"system_fingerprint":"fp_f66ccb39ec","x_groq":{"id":"req_01jabes088evkak1ps84j5dsb9"}}
-
-        '
+      string: !!binary |
+        ISgJACBWqmmvpsKs7Aw+Q4ZTaxW1A+ORxAccHgClbLkTeUD+s9cwzMKA44ACDPO2NCqsLYkif6i5
+        hUoAzymz8qJ/X6BnKEzbEKaLPUfTSGNFSxVVSVVExbIkUVPQGKVzMg5Dk09zNUGCxyNNAZZDhUGg
+        2UBCtfw1zVBpnSd5nqVpJXHhmc5QOJ+HyxDlhzRqxkgbHwYTIKGIX/BQf17w0H0PlUiUW4ygXuD4
+        TFAYvNfcEZtAJkDhNz989EIHsbI26y9x54XSO/aqJu7ENBix0dmKJ97Fgw6bYCf6SHVPvAsh9h0W
+        0zaEX3iTOPNqHY8eyuzns8StbVHXIWsfCj6wxds/iX2dy9edduqCvhBUckiSIq+LvMhaoyFhHV9s
+        6AKfyHioInODrDVNXqZpLZFYQIksDTGYZY3ExwhgtKlyL89OeWXfJOT4G92izUrOOp3J6cV2S1VN
+        05i3NEHisVsdX6FOyQVH1y5Jj+Py2G4PlsJTMK15dFRmzRQe8fZ2YwAD
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3aa53b1d7bcf82-SJC
+      - 8daf4c125f865c19-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:02:14 GMT
+      - Wed, 30 Oct 2024 23:48:36 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=PGINSFuz9fBnhqKU1igJkQ0_wxSWYB6Gcl8JZ3tQvWs-1729108934-1.0.1.1-XwXTvv3OlC9UCYRimyw31O5eos24wXuhY7QRSxM8pGIbdMsB4daMLQsauQ5cd0L7c9_Jit1Qk7HRLCnpmMQsPQ;
-        path=/; expires=Wed, 16-Oct-24 20:32:14 GMT; domain=.groq.com; HttpOnly; Secure;
+      - __cf_bm=arq8ihbMr1AO19.9FU9BmJxpTd.RXmG.nyN3Um6sbh0-1730332116-1.0.1.1-skp7faFtSaky9yUNHFWXShOzvWkXGHMo8dzYXldF4bPeVMOYn5DPduLW8guAm5hlyPdRuDDvc4eaquuPaIQz9w;
+        path=/; expires=Thu, 31-Oct-24 00:18:36 GMT; domain=.groq.com; HttpOnly; Secure;
         SameSite=None
       Transfer-Encoding:
       - chunked
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '523'
       vary:
       - Origin
       via:
@@ -83,7 +87,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 30ms
       x-request-id:
-      - req_01jabes088evkak1ps84j5dsb9
+      - req_01jbfx9hwpetytn9nxre528ctx
     status:
       code: 200
       message: OK

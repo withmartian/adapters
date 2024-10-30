@@ -22,6 +22,9 @@ def delete_none_values(dictionary: dict):
     return dictionary
 
 
+httpx_client = httpx.Client()
+
+
 def process_image_url_anthropic(image_url: str):
     if image_url.startswith("data:"):
         # Base64 data is passed as a URL
@@ -36,13 +39,16 @@ def process_image_url_anthropic(image_url: str):
             },
         }
     else:
-        # URL points to an image file
-        image_data = base64.b64encode(httpx.get(image_url).content).decode("utf-8")
+        image_data = base64.b64encode(httpx_client.get(image_url).content).decode(
+            "utf-8"
+        )
+
         _, extension = os.path.splitext(image_url)
         extension = extension.lstrip(".").lower()
         if extension == "jpg":
             extension = "jpeg"
         media_type = f"image/{extension}"
+
         return {
             "type": "image",
             "source": {

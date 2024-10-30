@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "llama-3.1-70b-versatile",
-      "stream": false}'
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "llama-3.1-70b-versatile", "stream":
+      false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '106'
+      - '162'
       content-type:
       - application/json
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,36 +38,39 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-3d29d9a3-e7ca-4e8d-a037-e94fdd4964e1","object":"chat.completion","created":1729112383,"model":"llama-3.1-70b-versatile","choices":[{"index":0,"message":{"role":"assistant","content":"Hi,
-        it''s nice to meet you. Is there something I can help you with or would you
-        like to chat?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.005239061999999999,"prompt_tokens":38,"prompt_time":0.009129457,"completion_tokens":25,"completion_time":0.1,"total_tokens":63,"total_time":0.109129457},"system_fingerprint":"fp_9260b4bb2e","x_groq":{"id":"req_01jabj27qdeyzsxfjyvkktkw81"}}
-
-        '
+      string: !!binary |
+        IYAIACBGU3XPMnE/gw+kTtrqDHNTRW5IiOaedYd+AP9vp29hYGEcxgEFePC2gEqDvEUaYFCnLgtO
+        Gp296tkHDiMkhn0XhnnVrE84z4ahYKLnI8uqLmf9lFVs4kMpxJgnquKgMP1RDQGWTYdBdDALKFTL
+        L6gRUpQpT9NElAnFbEalIaF1N3cs3QhW8p6dlfNdOGgFClF8w0N+P7DrfoDkFB0XryAfcEYrSHTe
+        H3zolgCKcXSmxPawPaygOEKCITcTN2RrLmToFvJFqFVyM5EEM3a3T/xTaLNbnek95BK1phjKljUP
+        YO1Dwgez4v+XIp7hIxtVVE04zAqSb0QmyizLqppidWZeQxPMSS0eMi3NCEDO61rwKikXQwWRuQis
+        8oLiuwM4vcuFlQK1yLP7fwqR/UYzHZadcqs7FGd6Wps+7VSp8jpToLg2O2cs5N1vcMo2XBz76dpX
+        034KeXe7LeduvvNkrhz+/18MAw==
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af96ae83d6801-SJC
+      - 8daf4d6fce56f9e4-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:59:43 GMT
+      - Wed, 30 Oct 2024 23:49:33 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=VwTMttH4J4Mlb6ipCYdVBRxExv7loK_B_t3oHF9HIeI-1729112383-1.0.1.1-hjP5.JZoSRzcffgvscvQDZ6BSpeYX9hfwKGzkDU9UkmT5NrShfqfgu7XL9dXRXruBBxEloSd9oMv63E5pB3Iog;
-        path=/; expires=Wed, 16-Oct-24 21:29:43 GMT; domain=.groq.com; HttpOnly; Secure;
+      - __cf_bm=vu2ZjLPepHzGG164Yeazs1.qE8DSPdiyJ90UKFUjkx4-1730332173-1.0.1.1-2a3F9q3ProvZISw7qi.lTHYtT3l5RFHc70IoQvxrtvmdKAwj_paLqCLgwMto9nUXA9SLxBfYNGHiY6maLb4AWQ;
+        path=/; expires=Thu, 31-Oct-24 00:19:33 GMT; domain=.groq.com; HttpOnly; Secure;
         SameSite=None
       Transfer-Encoding:
       - chunked
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '599'
       vary:
       - Origin
       via:
@@ -74,17 +78,17 @@ interactions:
       x-ratelimit-limit-requests:
       - '14400'
       x-ratelimit-limit-tokens:
-      - '20000'
+      - '6000'
       x-ratelimit-remaining-requests:
-      - '14399'
+      - '14395'
       x-ratelimit-remaining-tokens:
-      - '19994'
+      - '5972'
       x-ratelimit-reset-requests:
-      - 6s
+      - 29.477s
       x-ratelimit-reset-tokens:
-      - 18ms
+      - 271.999999ms
       x-request-id:
-      - req_01jabj27qdeyzsxfjyvkktkw81
+      - req_01jbfxb8fhft5ayynvamz02m8r
     status:
       code: 200
       message: OK

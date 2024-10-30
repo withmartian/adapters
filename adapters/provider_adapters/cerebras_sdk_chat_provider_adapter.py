@@ -5,6 +5,8 @@ from adapters.types import Cost, Model, Provider, Vendor
 class CerebrasModel(Model):
     provider_name: str = Provider.cerebras.value
 
+    supports_vision: bool = False
+
     def _get_api_path(self) -> str:
         return f"{self.name}"
 

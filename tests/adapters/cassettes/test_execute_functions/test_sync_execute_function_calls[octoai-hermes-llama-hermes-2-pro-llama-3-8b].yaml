@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "hermes-2-pro-llama-3-8b", "function_call": {"name": "generate"}, "functions":
+      [{"description": "Generate random number", "name": "generate"}], "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '239'
+      content-type:
+      - application/json
+      host:
+      - text.octoai.run
+      user-agent:
+      - OpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://text.octoai.run/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-80844332f8c040afaadc574e6b605510","object":"chat.completion","created":1730332146,"model":"hermes-2-pro-llama-3-8b","choices":[{"index":0,"message":{"role":"assistant","content":"To
+        generate a random number using Python, you can use the `random` module. \n\nHere''s
+        an example of how to generate a random integer between 1 and 100:\n\n```python\nimport
+        random\n\nrandom_number = random.randint(1, 100)\nprint(''Random number:'',
+        random_number)\n```\n\nIn this example, `random.randint(1, 100)` returns a
+        random integer between 1 and 100 (including both 1 and 100). Then, the script
+        prints the generated random number.\n\nThe `random` module provides several
+        other useful methods for generating random numbers:\n\n- `random_float():`
+        Returns a random floating-point number in the range [0.0, 1.0).\n- `random_int_distributions():`
+        Returns a random integer N, such that `a <= N <= b`, where `a, b` are integers
+        and `a <= b`, and `N` is drawn from the discrete uniform distribution over
+        the integers in the range `a <= N <= b`.\n- `random_choice():` Returns a random
+        element chosen from the non-empty sequence or set used as a parameter.\n-
+        `random_sample():` Returns a random float drawn from a uniform distribution
+        over the semi-closed interval [a, b) for floats, and over the closed interval
+        [a, b] for integers.\n\nFeel free to explore the `random` module to generate
+        any other type of random numbers you may need."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":12,"completion_tokens":292,"total_tokens":304}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1544'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:49:06 GMT
+      Server:
+      - uvicorn
+      Vary:
+      - Origin
+      Via:
+      - kong/3.2.2
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '3572'
+      X-Ratelimit-Limit:
+      - '4'
+      X-Ratelimit-Remaining:
+      - '3'
+      X-Ratelimit-Reset:
+      - '1730332147'
+      X-User-Request-Id:
+      - ''
+    status:
+      code: 200
+      message: OK
+version: 1

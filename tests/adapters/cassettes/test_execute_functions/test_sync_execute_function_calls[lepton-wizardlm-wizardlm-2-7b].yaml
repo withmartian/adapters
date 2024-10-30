@@ -1,0 +1,79 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "wizardlm-2-7b", "function_call": {"name": "generate"}, "functions": [{"description":
+      "Generate random number", "name": "generate"}], "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '229'
+      content-type:
+      - application/json
+      host:
+      - wizardlm-2-7b.lepton.run
+      user-agent:
+      - OpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://wizardlm-2-7b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-BqDdWgVE2GVbsqpqoJf8Ri","object":"chat.completion","created":1730332112,"model":"wizardlm-2-7b","choices":[{"index":0,"message":{"role":"assistant","content":"As
+        an AI language model, I can certainly help you generate a random number! However,
+        the random number generation capabilities I have are limited to the context
+        of our interaction. If you need a truly random number for something like cryptography
+        or scientific simulations, you should use a more robust source of randomness
+        provided by specialized libraries or tools.\n\nFor most casual purposes, I
+        can generate a random number for you within a specified range. For example,
+        if you want a random integer between 1 and 100, you could use the following
+        Python-like pseudocode:\n\n```python\nimport random\nrandom_number = random.randint(1,
+        100)\n```\n\nIf you''re looking for a random number right now, let''s say
+        between 1 and 100, here it is: 42 (a famous random number in the context of
+        popular science and humor). Remember, this is just for illustration; for actual
+        random number generation, use a proper random number generator in your programming
+        language of choice.","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":10,"total_tokens":232,"completion_tokens":222}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daf4bf80a75cf17-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:48:34 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1309'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '1803'
+    status:
+      code: 200
+      message: OK
+version: 1

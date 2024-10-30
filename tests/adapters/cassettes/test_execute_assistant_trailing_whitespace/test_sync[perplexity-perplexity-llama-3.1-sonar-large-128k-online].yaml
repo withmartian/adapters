@@ -1,23 +1,23 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-sonar-large-128k-online",
-      "stream": false}'
+      "content": "Hi "}], "model": "llama-3.1-sonar-large-128k-online", "stream":
+      false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '190'
+      - '153'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,60 +38,27 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "ab56c601-b1f4-4f23-b895-5d7072a79580", "model": "llama-3.1-sonar-large-128k-online",
-        "created": 1729111620, "usage": {"prompt_tokens": 3, "completion_tokens":
-        480, "total_tokens": 483}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "If
-        you are looking for quotes related to the concept of \"empty\" or \"emptiness,\"
-        here are some diverse and meaningful options from various sources:\n\n## Empty
-        Nest Syndrome\nFor those dealing with the emotional aspects of children leaving
-        home, here are some quotes:\n\n- **Humorous Perspective**: \"Hey empty nest
-        parents, if you want your kid to call you, just change your Netflix password.\"
-        - Unknown.\n- **Inspirational**: \"Give the ones you love wings to fly, roots
-        to come back, reasons to stay.\" - Dalai Lama.\n- **Comforting**: \"Our children\u2019s
-        independence is a reminder of how much we had to give and all that we have
-        accomplished. It is a pleasure to remember that it is not a form of abandonment
-        but an expression of a job well done.\" - Unknown.\n\n## General Concepts
-        of Emptiness\nHere are some quotes that explore the broader idea of emptiness:\n\n-
-        **Philosophical**: \"Into the void of silence, into the empty space of nothing,
-        the joy of life is unfurled.\" - C.S. Lewis.\n- **Spiritual**: \"Empty your
-        mind of all thoughts. Let your heart be at peace. Watch the turmoil of beings,
-        but contemplate their return.\" - From the Tao Te Ching.\n- **Literary**:
-        \"Every little girl knows how dreadful it is to find a room empty where she
-        thought somebody was.\" - George Macdonald.\n\n## Emotional and Psychological
-        Aspects\nThese quotes delve into the emotional and psychological aspects of
-        emptiness:\n\n- **Reflective**: \"In a full heart there is room for everything,
-        and in an empty heart there is room for nothing.\" - Antonio Porchia.\n- **Poetic**:
-        \"I am a lover of love and I am a lover of words, and the two together spin
-        visions of airy castles, but also may pierce the heart of hope. And so I remind
-        you that I am a fool, a poet, and what matters is reality, not lovely words.
-        Words are full of promise, yet empty of matter.\" - Waylon H. Lewis.\n\nThese
-        quotes offer a range of perspectives on what it means to be empty, whether
-        it''s the physical absence of something, the emotional state of emptiness,
-        or the philosophical and spiritual interpretations."}, "delta": {"role": "assistant",
-        "content": ""}}]}'
+      string: '{"error":{"message":"Last message must have role `user`.","type":"invalid_message","code":400}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3ae6999c561761-SJC
+      - 8daf4c3e5ddd987c-SJC
       Connection:
       - keep-alive
+      Content-Length:
+      - '95'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:47:00 GMT
+      - Wed, 30 Oct 2024 23:48:43 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=zkTvOlKfnzzodrjiROgug9R54wgUWJLy2nWL56fhKM8-1729111620-1.0.1.1-Lh1oH8Qm9gC4YbNapuMeeL9.rRdfwNt1E3Fglzs4m4RnX1AvVKdwx3w4w2zioDZsQQNWAtRrJYY.MhPxyEzlMQ;
-        path=/; expires=Wed, 16-Oct-24 21:17:00 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=.iTxo4yZRSIuP9wZ2PRBdIuU3tQGiic8rTcwFdMJubU-1730332123-1.0.1.1-Nk_MQ638gPICo8hatwA7H58qw1UWuI0iK0CXgtqJFzY1N7jqYeOJOFcRJaVUrowPEBzyMpZgmXJBIPnBtg2HRA;
+        path=/; expires=Thu, 31-Oct-24 00:18:43 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
-      Transfer-Encoding:
-      - chunked
-      content-length:
-      - '2463'
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
 version: 1

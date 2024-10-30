@@ -1,0 +1,71 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "llama-3.1-sonar-small-128k-chat", "function_call": {"name": "generate"}, "functions":
+      [{"description": "Generate random number", "name": "generate"}], "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '247'
+      content-type:
+      - application/json
+      host:
+      - api.perplexity.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.perplexity.ai/chat/completions
+  response:
+    body:
+      string: '{"id": "59b63012-09fc-4315-80e7-90d54157dd8f", "model": "llama-3.1-sonar-small-128k-chat",
+        "created": 1730332168, "usage": {"prompt_tokens": 13, "completion_tokens":
+        20, "total_tokens": 33}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "Sure
+        Here''s a random number generated for you:\n\n**42**\n\nWould you like another
+        one?"}, "delta": {"role": "assistant", "content": ""}}]}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daf4d51bf61fa8a-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:49:28 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=yDzKRRMd6xgzZUyA65.9lS.I0lL7l1FlxNifv62iUq8-1730332168-1.0.1.1-H3lwHUfCNE.M_FSQY.GDZiLMcY82nZzo28jXP4stoqrlCAaBoT5NBCpXKa.LZS7.zr7LFKq49UWDSpX2ILQxbg;
+        path=/; expires=Thu, 31-Oct-24 00:19:28 GMT; domain=.perplexity.ai; HttpOnly;
+        Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '454'
+    status:
+      code: 200
+      message: OK
+version: 1

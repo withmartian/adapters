@@ -21,7 +21,7 @@ interactions:
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.34.2
+      - Anthropic/Python 0.36.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -31,7 +31,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.34.2
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -40,40 +42,41 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_013viqePq3NRiRaKYnqveXmp","type":"message","role":"assistant","model":"claude-3-5-sonnet-20241022","content":[{"type":"text","text":"I''ll
-        help you generate a random number, but I need to know what kind of number
-        you''d like (e.g., up to 5, up to 10, etc.). Could you please specify what
-        range or type of random number you''re looking for?\n\nFor example, you could
-        say:\n- \"Generate a random number up to 5\"\n- \"Give me a random number
-        like 10\"\n- \"Random number up to 100\"\n\nOnce you specify, I can use the
-        generate function to create a random number for you."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":369,"output_tokens":118}}'
+      string: '{"id":"msg_01LDas7gJcct93pacn439Bnb","type":"message","role":"assistant","model":"claude-3-5-sonnet-20241022","content":[{"type":"text","text":"I''ll
+        help you generate a random number using the `generate` function."},{"type":"tool_use","id":"toolu_015QQh3jP1R4m6dA7YN6cEsw","name":"generate","input":{"prompt":"5"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":388,"output_tokens":69}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d6bf6a20945fb44-SJC
+      - 8daeaf386eb21588-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 22 Oct 2024 19:41:14 GMT
+      - Wed, 30 Oct 2024 22:01:33 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       X-Robots-Tag:
       - none
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3999'
+      anthropic-ratelimit-requests-reset:
+      - '2024-10-30T22:02:08Z'
       anthropic-ratelimit-tokens-limit:
       - '8000000'
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-22T19:41:14Z'
+      - '2024-10-30T22:01:33Z'
       content-length:
-      - '675'
+      - '410'
       request-id:
-      - req_01EZmSdnpfJKm2GunJYJjtbw
+      - req_01APvtEC73o4NB7tzWR1g1ND
       via:
       - 1.1 google
     status:

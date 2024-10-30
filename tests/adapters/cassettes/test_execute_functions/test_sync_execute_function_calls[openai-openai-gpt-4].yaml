@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,34 +38,34 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5MViCE2s6XnOgV7toi7OJ7hA8JC\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729112207,\n  \"model\": \"gpt-4-0613\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": null,\n        \"function_call\": {\n
-        \         \"name\": \"generate\",\n          \"arguments\": \"{}\"\n        },\n
-        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-        \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 43,\n    \"completion_tokens\":
-        1,\n    \"total_tokens\": 44,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
+      string: !!binary |
+        IeAKACBGrqWPUTurnzCurMqKc8TBa3ngnOYD4SqqAIvoR1rZ7TY+SOoveuKbni3CKBG9Xqm5+v63
+        vwJgnVGCaRWHtDfd9OT2rNmcnbrifHm52uTOF5dPj+5rHK/Sp2tOBECdNHkaNOlZiIFS6wEC31z+
+        Ls8osdyvF+v1arndCL/pdZZ3lGBpwnQzXeyWa623la7T3FPiRQDA7+gA4Lv3DUosJrNwFAZPCfwT
+        QKe7nBKMva99iIfACaCStm5SYhi7ToiER1yrNO46UhfAIe5b5cL12bzoAD0cpgR//ymf/bdRees+
+        G3fGIRhSb2OnS+N04hdHM0PcjPoa1wwl6IM2VoB/Abztc3TEJzRO9yaooNt88JTYrClneD4VALUs
+        lb8pUBGd22wmhLTKZTfrfTTFNE6rPNMmFgtZ6d9sKw24w4v1UKpOCTaGaQPuqKIeytwZVx+jJP6F
+        AQM=
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af520cfea9860-SJC
+      - 8daf4cfbee4b1749-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:56:47 GMT
+      - Wed, 30 Oct 2024 23:49:14 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=cXp6IWpA1bG_dPS6bXIhPL8CCA8W8T0I.hNZs5hY8tU-1729112207-1.0.1.1-1HtP6AGNSn8q4jwORIABs41hUefSZQ8ttjpJacUAL8xuS4kTQp9mf7dD.kZ2B0GlYH2bdayw5O6N0SZHA1jwvQ;
-        path=/; expires=Wed, 16-Oct-24 21:26:47 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=kOhJKJT71ofm96MxwvzeldWbFr42GoZ.4YJv3c2pf68-1730332154-1.0.1.1-fPBpUo3wb3d3TsyfFo2Q6bjv0BDkXgT2W_ujwaqkTsc2qBtU0WiHCOUDZoqTmLSm_2ETHM.vOobIX5ScOqepHA;
+        path=/; expires=Thu, 31-Oct-24 00:19:14 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=mdGflOyGlO3qJgVRTS5s_Y5jYQYZXTzLxDN1y_1CNZ0-1729112207969-0.0.1.1-604800000;
+      - _cfuvid=dymBx0VA30E6OPKqzt._4WMMKPP_JXA0hXInyXZiGn4-1730332154623-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -75,12 +75,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '697'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '368'
+      - '292'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -92,13 +90,13 @@ interactions:
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '999976'
+      - '999977'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
       - 1ms
       x-request-id:
-      - req_bf7c602ec802712542548720a176913d
+      - req_c9e06ab22bd8f7f700322822152e2555
     status:
       code: 200
       message: OK

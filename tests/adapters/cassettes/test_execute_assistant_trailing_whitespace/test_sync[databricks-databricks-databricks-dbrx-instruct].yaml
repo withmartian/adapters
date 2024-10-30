@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - adb-8736858266948228.8.azuredatabricks.net
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,15 +38,19 @@ interactions:
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl_6541c6c1-60b7-4fc2-b34c-daad7535359b","object":"chat.completion","created":1729111538,"model":"dbrx-instruct-071224","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today?"},"finish_reason":"stop","logprobs":null}],"usage":{"prompt_tokens":236,"completion_tokens":9,"total_tokens":245}}'
+      string: "{\"id\":\"chatcmpl_eedcb70f-de4c-46ac-baeb-487d50a4904b\",\"object\":\"chat.completion\",\"created\":1730332126,\"model\":\"dbrx-instruct-071224\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hello!
+        How can I assist you today? Please keep in mind that I can help with various
+        tasks, from writing to coding (using markdown for code blocks \u2014 remember
+        to use ``` with code, JSON, and tables). I don't have real-time data access
+        or code execution capabilities, but I'll do my best to provide thorough responses
+        to your questions and help with your tasks.\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":236,\"completion_tokens\":76,\"total_tokens\":312}}"
     headers:
       content-length:
-      - '345'
+      - '672'
       content-type:
       - application/json;charset=utf-8
       date:
-      - Wed, 16 Oct 2024 20:45:38 GMT
+      - Wed, 30 Oct 2024 23:48:46 GMT
       server:
       - databricks
       strict-transport-security:
@@ -68,11 +72,11 @@ interactions:
       x-rate-limit-limit:
       - '0.00'
       x-rate-limit-request-forwarded-for:
-      - 208.184.59.122,10.154.65.106
+      - 208.184.59.122,10.154.64.100
       x-rate-limit-request-remote-addr:
-      - 10.154.64.30:55664
+      - 10.154.64.26:41784
       x-request-id:
-      - 4e0ba412-c8a9-4bd9-bb27-e980eadd1bff
+      - c2d2248f-406d-45e2-82e3-7fc9d06cbe5c
       x-xss-protection:
       - 1; mode=block
     status:

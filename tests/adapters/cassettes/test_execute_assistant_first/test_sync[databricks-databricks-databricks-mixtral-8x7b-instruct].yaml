@@ -1,23 +1,22 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
-      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "databricks-mixtral-8x7b-instruct",
-      "stream": false}'
+    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
+      "content": "Hi"}], "model": "databricks-mixtral-8x7b-instruct", "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '188'
+      - '151'
       content-type:
       - application/json
       host:
       - adb-8736858266948228.8.azuredatabricks.net
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,18 +37,17 @@ interactions:
     uri: https://adb-8736858266948228.8.azuredatabricks.net/serving-endpoints/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl_c9f34e73-c177-415c-bc17-2a2fdef5cca2\",\"object\":\"chat.completion\",\"created\":1729108906,\"model\":\"mixtral-8x7b-instruct-v0.1\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"\xA1Hola!
-        How can I assist you today? I'm here to help you with any questions or concerns
-        you have, to the best of my ability while adhering to ethical guidelines and
-        policies. I'll strive to provide concise and helpful responses. \U0001F60A
-        What can I help you with?\"},\"finish_reason\":\"stop\",\"logprobs\":null}],\"usage\":{\"prompt_tokens\":94,\"completion_tokens\":64,\"total_tokens\":158}}"
+      string: '{"error_code":"BAD_REQUEST","message":"Bad request: Chat message input
+        roles must alternate (user -> assistant -> u -> a -> ...) with an optional
+        system at the start. Tool messages are optional and must follow a preceding
+        assistant message containing tool calls.\n"}'
     headers:
       content-length:
-      - '576'
+      - '266'
       content-type:
-      - application/json;charset=utf-8
+      - application/json
       date:
-      - Wed, 16 Oct 2024 20:01:46 GMT
+      - Wed, 30 Oct 2024 23:48:02 GMT
       server:
       - databricks
       strict-transport-security:
@@ -60,6 +58,7 @@ interactions:
       vary:
       - Accept-Encoding
       x-content-type-options:
+      - nosniff
       - nosniff
       - nosniff
       x-databricks-org-id:
@@ -73,12 +72,12 @@ interactions:
       x-rate-limit-request-forwarded-for:
       - 208.184.59.122,10.154.64.10
       x-rate-limit-request-remote-addr:
-      - 10.154.64.24:57574
+      - 10.154.64.16:57438
       x-request-id:
-      - 8c8fbc09-b73a-96d8-b085-3d1f5e46d622
+      - 120f633d-ed13-4fc8-aa85-0249ca2a55fb
       x-xss-protection:
       - 1; mode=block
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
 version: 1

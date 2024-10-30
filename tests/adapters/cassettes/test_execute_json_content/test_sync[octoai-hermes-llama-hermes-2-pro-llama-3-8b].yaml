@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "hermes-2-pro-llama-3-8b",
-      "stream": false}'
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "hermes-2-pro-llama-3-8b", "stream":
+      false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '106'
+      - '162'
       content-type:
       - application/json
       host:
       - text.octoai.run
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,18 +38,17 @@ interactions:
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-855c9c58b66845a686879efe28559507","object":"chat.completion","created":1729112260,"model":"hermes-2-pro-llama-3-8b","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? If you have any questions or need assistance, feel
-        free to ask."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":12,"completion_tokens":23,"total_tokens":35}}'
+      string: "{\"id\":\"chatcmpl-df7fdeeded8f4287bce4ddfe49617965\",\"object\":\"chat.completion\",\"created\":1730332183,\"model\":\"hermes-2-pro-llama-3-8b\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"['Hello!',
+        'Hello there!']\\n\\n[\u200C]\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":15,\"completion_tokens\":11,\"total_tokens\":26}}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '405'
+      - '344'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:57:40 GMT
+      - Wed, 30 Oct 2024 23:49:43 GMT
       Server:
       - uvicorn
       Vary:
@@ -56,15 +56,15 @@ interactions:
       Via:
       - kong/3.2.2
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '311'
+      - '175'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1729112261'
+      - '1730332184'
       X-User-Request-Id:
       - ''
     status:

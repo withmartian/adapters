@@ -1,23 +1,22 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-sonar-huge-128k-online",
-      "stream": false}'
+      "content": "Hi "}], "model": "llama-3.1-sonar-huge-128k-online", "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '189'
+      - '152'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,70 +37,27 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "fc84ef04-96cc-4774-866d-39c30c7156ea", "model": "llama-3.1-sonar-huge-128k-online",
-        "created": 1729111666, "usage": {"prompt_tokens": 3, "completion_tokens":
-        647, "total_tokens": 650}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "To
-        provide a comprehensive answer, it seems like you''re looking for quotes about
-        the concept of \"empty.\" Here are some key points and quotes from the provided
-        sources:\n\n1. **Philosophical and Spiritual Perspectives**:\n   - **Lao Tzu**
-        emphasizes the importance of emptying one''s heart and mind to achieve a state
-        of serenity and understanding. \"By emptying their hearts And filling their
-        bellies, Weakening their intelligence And toughening their sinews Ever striving
-        to make the people knowledgeless and desireless.\"\n   - **Liu Yiming** discusses
-        the concept of true emptiness and its relation to existence, suggesting that
-        true emptiness allows for responsiveness and serenity. \"True emptiness is
-        like the inner openness of a bell or a drum; ineffable existence is like the
-        sounding of a bell or a drum when struck.\"\n   - **C. JoyBell C.** talks
-        about the need to stay grounded and not get caught up in empty, static energy.
-        \"We have magical moments of connection with people, with nature, with Spirit,
-        but then we rush out of those moments all too fast, in order to go straight
-        back into the busy lanes that are full of things not worthwhile Empty energies!\"\n\n2.
-        **Literary Insights**:\n   - **C.S. Lewis** suggests that emptiness can be
-        a space where joy and life unfold. \"Into the void of silence, into the empty
-        space of nothing, the joy of life is unfurled.\"\n   - **Neil Gaiman** uses
-        emptiness to evoke a sense of isolation and fear. \"All alone, in the middle
-        of the night, Coraline began to cry. There was no other sound in the empty
-        flat.\"\n   - **Jean Craighead George** describes a bleak and empty landscape
-        after a character''s departure. \"The wind blew across the water, shattering
-        the tips of the waves and shooting ice-sparklets north with the storm. \u2018Kapugen!\u2019
-        she called. No one answered. Kapugen was gone. The earth was empty and bleak.\"\n\n3.
-        **Psychological and Emotional Aspects**:\n   - **Yasmin Mogahed** highlights
-        how humans struggle with emptiness and seek to fill it. \"They say you don\u2019t
-        get over someone until you find someone or something better. As humans, we
-        don\u2019t deal well with emptiness. Any empty space must be filled. Immediately.
-        The pain of emptiness is too strong.\"\n   - **Craig D. Lounsbrough** reflects
-        on how emptiness can result from focusing on things other than what truly
-        fulfills us. \"If I scan the expanse of my heart and find it empty of everything
-        except emptiness, it is because I \u2018poured\u2019 the whole of my passion
-        into something other than God. And anything other than God will always be
-        too \u2018poor\u2019 to be able to \u2018pour\u2019 back anything that can
-        fill that kind of emptiness.\"\n\nThese quotes offer a variety of perspectives
-        on the concept of \"empty,\" ranging from philosophical and spiritual insights
-        to literary and psychological explorations."}, "delta": {"role": "assistant",
-        "content": ""}}]}'
+      string: '{"error":{"message":"Last message must have role `user`.","type":"invalid_message","code":400}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3ae6cd6d75fab6-SJC
+      - 8daf4c3f9939f973-SJC
       Connection:
       - keep-alive
+      Content-Length:
+      - '95'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:47:46 GMT
+      - Wed, 30 Oct 2024 23:48:44 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=IJkXxu642BI4tBq.rYT9AK0qj81WXWKWnbOLrpT91PQ-1729111666-1.0.1.1-z0SApCrzJg_hSfDI4owCPbR7IJXyYmxFqQ6CubnFAonVcvYJKSP4671Pqj1JluaBi29aMBASKdhq8oNQ..J5kw;
-        path=/; expires=Wed, 16-Oct-24 21:17:46 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=Cj3bWVY8y4YaOFgXCBjdZUzNl677upsQIhMwdqQacsc-1730332124-1.0.1.1-WYGUsZwWQhY.ms.7dlEmsxOw0ju2uALlDdIueyvC9Eld6bWB_kpL7FEDW6G3Qnx8.4fJdlqoc3nJdKld7QFx2g;
+        path=/; expires=Thu, 31-Oct-24 00:18:44 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
-      Transfer-Encoding:
-      - chunked
-      content-length:
-      - '3240'
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
 version: 1

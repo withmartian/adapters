@@ -9,7 +9,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -19,7 +19,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -29,7 +29,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -40,34 +40,35 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5r1UknFLqcaFMzR9iMKMObGCYK8\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729114099,\n  \"model\": \"gpt-4-turbo-2024-04-09\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Could you please specify a range or
-        any specific criteria for the random number? For example, a number between
-        1 and 100.\",\n        \"refusal\": null\n      },\n      \"logprobs\": null,\n
-        \     \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
-        65,\n    \"completion_tokens\": 27,\n    \"total_tokens\": 92,\n    \"prompt_tokens_details\":
-        {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\":
-        {\n      \"reasoning_tokens\": 0\n    }\n  },\n  \"system_fingerprint\": \"fp_83975a045a\"\n}\n"
+      string: !!binary |
+        ISQNACC+r872LNN/mpOmgD4AnI5dR0XHcqh8UzeFAqQ1sQ20QOY+f+y8887XoC4LNOJsTptMOjfl
+        QETWt99uA4CmCSmQmejSpN5GJ0+n7WZDf8igtXlf9Iyt373dzvuz8ytzxxQGAMlwxqbk5GohBupU
+        HATLXL7HCSk0eq16q9npdbvEt6kkbEmBxr6M2lFZ5UOJmvVmO6q3o/pAwu5EpoYLUvgMAGD7BgA0
+        A79FCvXwKxaRIZAC/gRQLpZJgXRRTItSu5JCQKCE3bwCnUllE6ylQk7+4nrkx0Dbr9eSo1x7hoyQ
+        a5dIGpMDszxzzMkRLiXH1BWldoZDaFCotdViY+jE6Ua9HkJyaLeGT8Y+Vlmdo+ASMmITiqP0+1gi
+        /p4JW4+UkeadZr268kqb8mnrnOEkpdqhA/P2u7UlBVdZawzu3ypusjL2uQwLDE7DqtQVfjuCtZMC
+        FaV4sqX+HwDft1WuLuAO+VxSX/6WMmdXkEK3Y/wC+UgAALX7gV86EKBpjUZrhUVyvxX1+GLHPoCM
+        NhNO2Jm6ik3CjWPFIGcEpm6sBCqJDaTxVLxg4Hc0dWPOfT51oO2R/+0kw1a91W2NRhT8BwM=
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b2351bf8c7e21-SJC
+      - 8daeb108d80e67b8-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:28:20 GMT
+      - Wed, 30 Oct 2024 22:02:48 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=NMpYEZAq5.ydlZ24u.I2l0PC138por_c3SvE4VlzbaU-1729114100-1.0.1.1-G2jaNLLCAxlAOFRuhADEY.2F9hFJ3KsRbipalVdRwroZ.uA56_isxdBf8ejExTbrX_y8G4kUGlFOxsiw_fydXw;
-        path=/; expires=Wed, 16-Oct-24 21:58:20 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=EGJlfEAVfxcaa.vQCkMS6e_8w7brWJQXYsHMBhCVzsM-1730325768-1.0.1.1-o2C8lXIioaHZMiAb01UAfMsZsA_4HyZiRn_KuEmoTq93t9PxLXWRuGTUmSYhlgCcuCKXKqweeiyFqAh6FyG3Dg;
+        path=/; expires=Wed, 30-Oct-24 22:32:48 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=MWhPWy9lwHZdlzo0zmpHUt4Z6RQ9.4f4Gb._cmXFXQw-1729114100606-0.0.1.1-604800000;
+      - _cfuvid=djO7pc.F4Hba3NP_CLMxNbn_T9H9R.zSElv.4PcoPf0-1730325768732-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -77,12 +78,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '744'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '1025'
+      - '2064'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -100,7 +99,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_66f1f5775d941f61d1a69b42d1d4a883
+      - req_e28292b5fac615f4e6b77109acdd835c
     status:
       code: 200
       message: OK

@@ -19,7 +19,7 @@ interactions:
       host:
       - api.anthropic.com
       user-agent:
-      - Anthropic/Python 0.34.2
+      - Anthropic/Python 0.36.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -29,7 +29,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 0.34.2
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -38,35 +40,41 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01GrcGxhATYfx9GmzviotBSU","type":"message","role":"assistant","model":"claude-3-5-sonnet-20241022","content":[{"type":"text","text":"Hello!
-        How can I help you today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":12}}'
+      string: '{"id":"msg_016qvoXcXrstojstwPXNPtss","type":"message","role":"assistant","model":"claude-3-5-sonnet-20241022","content":[{"type":"text","text":"Hello!
+        How can I help you today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":16}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d6bf62fbd29fb44-SJC
+      - 8daf410858f7cf0e-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Tue, 22 Oct 2024 19:40:53 GMT
+      - Wed, 30 Oct 2024 23:41:05 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       X-Robots-Tag:
       - none
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3999'
+      anthropic-ratelimit-requests-reset:
+      - '2024-10-30T23:41:08Z'
       anthropic-ratelimit-tokens-limit:
       - '8000000'
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-22T19:40:53Z'
+      - '2024-10-30T23:41:05Z'
       content-length:
       - '273'
       request-id:
-      - req_01518BvdE4ibpNhWrTTZGXmW
+      - req_01GYM2pWbyziMBknctmEvVzj
       via:
       - 1.1 google
     status:

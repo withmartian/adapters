@@ -1,0 +1,66 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "google/gemma-2-9b-it", "function_call": {"name": "generate"}, "functions":
+      [{"description": "Generate random number", "name": "generate"}], "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '236'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - AsyncOpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/chat/completions
+  response:
+    body:
+      string: "{\"id\":\"chatcmpl-6850fe091e484365ac034063f4697e9c\",\"object\":\"chat.completion\",\"created\":1730332240,\"model\":\"google/gemma-2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"I
+        can't actually \\\"generate\\\" a random number in the true sense. As a text-based
+        AI, I don't have access to random number generators like hardware devices
+        do.\\n\\n**However,** I can give you a seemingly random number by using a
+        deterministic process and a starting point. This won't be perfectly random,
+        but it will be good enough for many purposes.\\n\\nTell me:\\n\\n* **What
+        range do you want the number to be in?** (e.g., 1 to 100, 0 to 1, etc.)\\n\\n\\nLet
+        me know, and I'll give you a \\\"random\\\" number within that range! \U0001F3B2
+        \ \\n\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":12,\"total_tokens\":154,\"completion_tokens\":142,\"estimated_cost\":9.24e-06}}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '876'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:50:40 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1

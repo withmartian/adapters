@@ -1,0 +1,91 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "gemma-7b-it", "function_call": {"name": "generate"}, "functions": [{"description":
+      "Generate random number", "name": "generate"}], "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '227'
+      content-type:
+      - application/json
+      host:
+      - api.groq.com
+      user-agent:
+      - OpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.groq.com/openai/v1/chat/completions
+  response:
+    body:
+      string: '{"error":{"message":"Failed to call a function. Please adjust your
+        prompt. See ''failed_generation'' for more details.","type":"invalid_request_error","code":"tool_use_failed","failed_generation":"\u003ctool-use\u003e\n{\n\t\"tool_call\":
+        {\n\t\t\"id\": \"pending\",\n\t\t\"type\": \"function\",\n\t\t\"function\":
+        {\n\t\t\t\"name\": \"generate\"\n\t\t},\n\t\t\"parameters\": null\n\t}\n}\n\u003c/tool-use\u003e"}}
+
+        '
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daf4bd20a93cef1-SJC
+      Cache-Control:
+      - private, max-age=0, no-store, no-cache, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '413'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:48:28 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=SYqIRi5LKxPf1QOfN2YuI26YLRb_PqpezKVQBrMOg28-1730332108-1.0.1.1-ycRj2wABTCLfvLIDC_ZGkaXmHXDJBpiHLxegDkiTM50b2xJPAG.ZPNZ8zDjpFFbwb7_tdWfXw0ZS6qzvTxu3YA;
+        path=/; expires=Thu, 31-Oct-24 00:18:28 GMT; domain=.groq.com; HttpOnly; Secure;
+        SameSite=None
+      alt-svc:
+      - h3=":443"; ma=86400
+      vary:
+      - Origin
+      via:
+      - 1.1 google
+      x-ratelimit-limit-requests:
+      - '14400'
+      x-ratelimit-limit-tokens:
+      - '15000'
+      x-ratelimit-remaining-requests:
+      - '14398'
+      x-ratelimit-remaining-tokens:
+      - '14890'
+      x-ratelimit-reset-requests:
+      - 10.973999999s
+      x-ratelimit-reset-tokens:
+      - 437ms
+      x-request-id:
+      - req_01jbfx97tve699pm1xym72shjw
+    status:
+      code: 400
+      message: Bad Request
+version: 1

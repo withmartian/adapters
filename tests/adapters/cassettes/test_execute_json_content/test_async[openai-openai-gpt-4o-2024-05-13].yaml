@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,33 +37,34 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5PdJESYRrPHXamkGIWEM6YvijUJ\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729112401,\n  \"model\": \"gpt-4o-2024-05-13\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello! How can I assist you today?\",\n
-        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-        \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 9,\n    \"completion_tokens\":
-        9,\n    \"total_tokens\": 18,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_568f3bfff7\"\n}\n"
+      string: !!binary |
+        ISQKACAW6nTXMl1/tms7YRUYZUBFrxBN3QSXH6vCDbZA5j5fJJ1Hvb4GGnhg2TVvb+viHzWjencp
+        ACpikqAoV6OoZ7V7cHdUlvP6+ORx8XxzdJs8v+v327fb/P16koXkCIA4LJNohNQ3Uwy8go0Kqlwu
+        S2KSCNp1v16vBd2m8EGP40STBGV25DbYrfm1hus33aAOluZcRMmQJL4EACxnK4Cevx+RhO+somQM
+        k6TiTwANWCckQWo4LIYjZUbkKBS61ylJ0HmiNW/gnKeIlMEFQF8w5zFGHKv5HrjwZP200iRhxlqT
+        GmtvUpozO+BwqIO9RI3eBn+Xao2TBA1HbMknfy2An6jH40AUyA64Z0d/I64SMySJbgwD2uUaeeFP
+        BAqio6Dj8Ol/HemMobkzgCIV5UmM5v5YtDZbSwMCXBUm8wEyaYLNoOL/F39pYbJkYAfFKdyn9q/W
+        UfWGqquWIrEWAw==
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af9dd0ed567e5-SJC
+      - 8daf4e00195ff9ea-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:00:01 GMT
+      - Wed, 30 Oct 2024 23:49:56 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=_lJSKDzA2AiHRJo9DnQzMN5ldRYg_RzUr0Z5ozuqNTI-1729112401-1.0.1.1-jqkbl.844Ps1w7XgO7.EN7gh4p4je3Hc6NhLOll3QDI.XT64.FnYL9ArhNFG2Yi4uVvU6xhtee3lfWKd0N2CSw;
-        path=/; expires=Wed, 16-Oct-24 21:30:01 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=0MV6qIxMttZ6XPJ_XTBL711rt9CVBUonKwhCRy4l9oE-1730332196-1.0.1.1-D9UH2hehBzn9ajAmnNB_L0xrm86wRmi5GC36xlqdSO9BhODMsKgeK9bBd_AWayAe.rtDJMSwWGQPzjx23cD_lg;
+        path=/; expires=Thu, 31-Oct-24 00:19:56 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=pcw2QqOO6V5Dp_mdI64uYGyswZGaR8JADDesgzEoT4M-1729112401875-0.0.1.1-604800000;
+      - _cfuvid=ewM4o3GA2sxn8pGIyT6xjzYUkD_BVsmj2rARsXagj8Y-1730332196155-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -73,12 +74,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '650'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '307'
+      - '207'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -90,13 +89,13 @@ interactions:
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '29999982'
+      - '29999981'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_73b44fcd3e31f761be0c1a97c9a602ed
+      - req_b89d77fa6d88b8bfa99c6274e729cc9e
     status:
       code: 200
       message: OK

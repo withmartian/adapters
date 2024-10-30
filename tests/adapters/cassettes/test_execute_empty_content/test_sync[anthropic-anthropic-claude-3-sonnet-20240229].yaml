@@ -1,19 +1,19 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"content": "\"\"", "role": "user"},
-      {"content": "\"\"", "role": "assistant"}, {"content": "\"\"", "role": "user"}],
-      "model": "claude-3-sonnet-20240229", "stream": false}'
+    body: '{"max_tokens": 4096, "messages": [{"content": "", "role": "user"}, {"content":
+      " ", "role": "assistant"}, {"content": "\n", "role": "user"}], "model": "claude-3-sonnet-20240229",
+      "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       anthropic-version:
       - '2023-06-01'
       connection:
       - keep-alive
       content-length:
-      - '204'
+      - '195'
       content-type:
       - application/json
       host:
@@ -40,40 +40,33 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01TwUdip53EP5ar5udK1uby4","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"It
-        seems you haven''t provided any text for me to respond to. Feel free to send
-        me a message, ask me a question, or provide some content, and I''ll do my
-        best to assist you."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":45}}'
+      string: '{"type":"error","error":{"type":"invalid_request_error","message":"messages.0:
+        all messages must have non-empty content except for the optional final assistant
+        message"}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d57f4e34fbc176b-SJC
+      - 8daf4c5a0edafa36-SJC
       Connection:
       - keep-alive
+      Content-Length:
+      - '170'
       Content-Type:
       - application/json
       Date:
-      - Sun, 20 Oct 2024 09:24:45 GMT
+      - Wed, 30 Oct 2024 23:48:48 GMT
       Server:
       - cloudflare
-      Transfer-Encoding:
-      - chunked
       X-Robots-Tag:
       - none
-      anthropic-ratelimit-tokens-limit:
-      - '8000000'
-      anthropic-ratelimit-tokens-remaining:
-      - '8000000'
-      anthropic-ratelimit-tokens-reset:
-      - '2024-10-20T09:24:45Z'
-      content-length:
-      - '410'
       request-id:
-      - req_01CiPkU4B2rk92t765UiCVfG
+      - req_01LtmPxxHb8TgNvxUJGKLg1A
       via:
       - 1.1 google
+      x-should-retry:
+      - 'false'
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
 version: 1

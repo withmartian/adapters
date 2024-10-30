@@ -1,0 +1,99 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "llama-3.1-sonar-small-128k-online", "stream": false, "tool_choice": {"type":
+      "function", "function": {"name": "generate"}}, "tools": [{"type": "function",
+      "function": {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '468'
+      content-type:
+      - application/json
+      host:
+      - api.perplexity.ai
+      user-agent:
+      - OpenAI/Python 1.52.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.perplexity.ai/chat/completions
+  response:
+    body:
+      string: '{"id": "81dd864a-02d3-4d24-a347-3e80cb208f9a", "model": "llama-3.1-sonar-small-128k-online",
+        "created": 1730324446, "usage": {"prompt_tokens": 3, "completion_tokens":
+        478, "total_tokens": 481}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "To
+        generate a random number, you can use various methods depending on the programming
+        language or tool you are using. Here are some examples:\n\n### JavaScript\nIn
+        JavaScript, you can use the `Math.random()` function to generate a floating-point,
+        pseudo-random number between 0 (inclusive) and 1 (exclusive).\n\n```javascript\nfunction
+        getRandom() {\n  return Math.random();\n}\n```\n\nTo generate a random number
+        within a specific range, you can scale and shift the result:\n\n```javascript\nfunction
+        getRandomArbitrary(min, max) {\n  return Math.random() * (max - min) + min;\n}\n```\n\nFor
+        generating a random integer within a range, you can use:\n\n```javascript\nfunction
+        getRandomInt(min, max) {\n  const minCeiled = Math.ceil(min);\n  const maxFloored
+        = Math.floor(max);\n  return Math.floor(Math.random() * (maxFloored - minCeiled)
+        + minCeiled);\n}\n```\n\n### Python\nIn Python, you can use the `random` library
+        to generate random numbers. The `random.randint(a, b)` function generates
+        a random integer `N` such that `a <= N <= b`.\n\n```python\nimport random\n\n#
+        Generate a random integer between 1 and 6\nrandom.randint(1, 6)\n\n# Generate
+        a random integer between 1 and 10\nrandom.randint(1, 10)\n```\n\n### Excel\nIn
+        Excel, you can use the `RAND()` function to generate a random decimal between
+        0 and 1. To generate a random whole number within a specified range, you can
+        use the `RANDbetween` function.\n\n```excel\n= RAND()  // Generates a random
+        decimal between 0 and 1\n= RANDbetween(5, 5000)  // Generates a random whole
+        number between 5 and 5000\n```\n\n### General Notes\n- **Pseudo-Random Numbers**:
+        Most methods generate pseudo-random numbers, which are determined by an algorithm
+        and a seed value. These numbers appear random but are not truly random and
+        can be reproduced if the seed is known.\n- **True Random Numbers**: True random
+        number generators rely on external physical events and are more secure but
+        less common in everyday programming.\n\nChoose the method that best fits your
+        needs based on the specific requirements of your application."}, "delta":
+        {"role": "assistant", "content": ""}}]}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8dae90b49c55642f-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 21:40:46 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=oTKhfnd_MsxFKdV3tHYT0gZhcBjrOuu7I1APP3sJoYU-1730324446-1.0.1.1-KNyVj_PD3RgTqH65GbPDQvJdStFgPw2GFS6how3yzKD0K8aydeR3TRjXrOeoP6Ayo0KQqUPSyG42AFGNxz.gZw;
+        path=/; expires=Wed, 30-Oct-24 22:10:46 GMT; domain=.perplexity.ai; HttpOnly;
+        Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '2443'
+    status:
+      code: 200
+      message: OK
+version: 1

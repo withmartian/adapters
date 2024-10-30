@@ -38,6 +38,7 @@ MODELS = [
         cost=Cost(prompt=1.0e-6, completion=1.0e-6),
         context_length=64000,
         vendor_name=Vendor.wizardlm.value,
+        supports_tool_choice_required=False,
     ),
     LeptonModel(
         name="dolphin-mixtral-8x7b",
@@ -58,7 +59,7 @@ class LeptonSDKChatProviderAdapter(OpenAISDKChatAdapter):
         return "LEPTON_API_KEY"
 
     def get_base_sdk_url(self) -> str:
-        return f"https://{self.get_model().name}.lepton.run/api/v1/"
+        return f"https://{self.get_model().name if self._current_model else ''}.lepton.run/api/v1/"
 
     def _set_current_model(self, model: Model) -> None:
         super()._set_current_model(model)

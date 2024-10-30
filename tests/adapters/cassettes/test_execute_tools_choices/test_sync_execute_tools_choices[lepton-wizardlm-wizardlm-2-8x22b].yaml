@@ -1,0 +1,72 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "wizardlm-2-8x22b", "stream": false, "tool_choice": "none", "tools": [{"type":
+      "function", "function": {"description": "Generate random number", "name": "generate",
+      "parameters": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '403'
+      content-type:
+      - application/json
+      host:
+      - wizardlm-2-8x22b.lepton.run
+      user-agent:
+      - OpenAI/Python 1.52.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://wizardlm-2-8x22b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-ovqi4NEJeWDb2f43DYn8KA","object":"chat.completion","created":1730325706,"model":"wizardlm-2-8x22b","choices":[{"index":0,"message":{"role":"assistant","content":"{\"prompt\":
+        \"To generate a random number between 1 and 12, similar to rolling a die,
+        you can use the following methods in different programming languages:\"}","tool_calls":[{"function":{"name":"generate","arguments":"{\"prompt\":
+        \"To generate a random number between 1 and 12, similar to rolling a die,
+        you can use the following methods in different programming languages:\"}"},"id":"call-9wx3brJMDtF6itmUqK745s","type":"function"}]},"logprobs":{"content":null},"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":10,"total_tokens":46,"completion_tokens":36}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daeaf923d27f963-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 22:01:47 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '770'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '491'
+    status:
+      code: 200
+      message: OK
+version: 1

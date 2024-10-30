@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "mixtral-8x7b-instruct",
-      "stream": false}'
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "mixtral-8x7b-instruct", "stream":
+      false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '104'
+      - '160'
       content-type:
       - application/json
       host:
       - text.octoai.run
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,20 +38,17 @@ interactions:
     uri: https://text.octoai.run/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-f9b0a94ad6f14799bfc7be7edc9ad152","object":"chat.completion","created":1729112396,"model":"mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"
-        I''m here to help you! What can I assist you with today? For inspiration,
-        you can ask me things like:\n\n- Tell me a joke\n- What''s the weather like?\n-
-        Play a game\n- Tell me a fun fact\n- And much more! Let''s start with something.
-        Any preferences?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"completion_tokens":70,"total_tokens":81}}'
+      string: '{"object":"error","message":"Internal server error. Need to report
+        an issue or get help? Visit our Docs page: https://octo.ai/docs/getting-started/welcome.","type":"internal_server_error","param":null,"code":null,"validation_errors":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '556'
+      - '238'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:59:55 GMT
+      - Wed, 30 Oct 2024 23:49:52 GMT
       Server:
       - uvicorn
       Vary:
@@ -60,16 +58,16 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '885'
+      - '115'
       X-Ratelimit-Limit:
       - '4'
       X-Ratelimit-Remaining:
       - '3'
       X-Ratelimit-Reset:
-      - '1729112397'
+      - '1730332193'
       X-User-Request-Id:
       - ''
     status:
-      code: 200
-      message: OK
+      code: 500
+      message: Internal Server Error
 version: 1

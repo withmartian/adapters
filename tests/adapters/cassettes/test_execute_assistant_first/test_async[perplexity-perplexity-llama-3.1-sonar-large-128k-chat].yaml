@@ -1,23 +1,22 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
-      "content": "Hi"}, {"role": "user", "content": "Hi"}], "model": "llama-3.1-sonar-large-128k-chat",
-      "stream": false}'
+    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
+      "content": "Hi"}], "model": "llama-3.1-sonar-large-128k-chat", "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '187'
+      - '150'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,35 +37,28 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "df64e5dd-4589-45c2-a639-85d97420a38c", "model": "llama-3.1-sonar-large-128k-chat",
-        "created": 1729109241, "usage": {"prompt_tokens": 23, "completion_tokens":
-        31, "total_tokens": 54}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "Hello
-        How can I assist you today? If you have any questions, need information, or
-        just want to chat, feel free to let me know."}, "delta": {"role": "assistant",
-        "content": ""}}]}'
+      string: '{"error":{"message":"After the (optional) system message(s), user and
+        assistant roles should be alternating.","type":"invalid_message","code":400}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3aacb1593c173b-SJC
+      - 8daf4b52daeed011-SJC
       Connection:
       - keep-alive
+      Content-Length:
+      - '147'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:07:21 GMT
+      - Wed, 30 Oct 2024 23:48:06 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=NFTgdODm9t5Qfk1QrtrwHx3d_n3dJwSiDvsHlKcVUg8-1729109241-1.0.1.1-sZ2HZuZ8Z0KlgRhS.aHNvq9Hsdj5kZPB1sn5EnGD3M412IpJjIAqHRY8w3MShtT7W4EnXO15yHDHtD14bFLlsA;
-        path=/; expires=Wed, 16-Oct-24 20:37:21 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=H4lRB6auRa_vTy2bnYrJsTekt9YUwhJp8dPNjWncS.k-1730332086-1.0.1.1-.iSL.syIGnG.x3w2g3J1HEFjtLgtxzwxujeqwy4a7GtkBT3kyTm3ISoePLv4zru6Zcsbj70rFCni7_284ajqHA;
+        path=/; expires=Thu, 31-Oct-24 00:18:06 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
-      Transfer-Encoding:
-      - chunked
-      content-length:
-      - '493'
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
 version: 1

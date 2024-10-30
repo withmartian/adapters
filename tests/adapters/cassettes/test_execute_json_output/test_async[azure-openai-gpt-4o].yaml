@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       api-key:
       - b22bea4270b74a7e9eb3b2c74ee66db9
       connection:
@@ -18,7 +18,7 @@ interactions:
       host:
       - martiantest.openai.azure.com
       user-agent:
-      - AsyncAzureOpenAI/Python 1.52.0
+      - AsyncAzureOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -28,7 +28,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.52.0
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -39,44 +39,42 @@ interactions:
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o/chat/completions?api-version=2024-06-01
   response:
     body:
-      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"\n  {\n    \"greeting\":
-        \"Hello! How can I assist you today?\",\n    \"instructions\": {\n      \"step1\":
-        \"Please provide me with more details on what you need assistance with.\",\n      \"step2\":
-        \"I can help you with information, generating content, troubleshooting issues,
-        and much more.\"\n    }\n  }\n","role":"assistant"}}],"created":1729405916,"id":"chatcmpl-AKJlkihTonHmvn8yobzvMbJ276HsE","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_67802d9a6d","usage":{"completion_tokens":69,"prompt_tokens":11,"total_tokens":80}}
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"\n{\n  \"greeting\":
+        \"Hi\",\n  \"instruction\": \"use json\",\n  \"response\": \"Sure! How can
+        I assist you with JSON?\"\n}","role":"assistant"}}],"created":1730332237,"id":"chatcmpl-AOCkPrAXaBbbPtK5VdubdnyNORbwj","model":"gpt-4o-2024-05-13","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_67802d9a6d","usage":{"completion_tokens":34,"prompt_tokens":11,"total_tokens":45}}
 
         '
     headers:
       Content-Length:
-      - '1121'
+      - '935'
       Content-Type:
       - application/json
       Date:
-      - Sun, 20 Oct 2024 06:31:56 GMT
+      - Wed, 30 Oct 2024 23:50:36 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - c6f12e04-57fe-4ddf-b92e-1598af8533f8
+      - f33e7e1d-cd42-4dcd-8604-b569b99934bd
       azureml-model-session:
-      - d081-20240922065846
+      - d078-20240922015551
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '708'
+      - '382'
       x-ms-client-request-id:
-      - c6f12e04-57fe-4ddf-b92e-1598af8533f8
+      - f33e7e1d-cd42-4dcd-8604-b569b99934bd
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
       - East US
       x-ratelimit-remaining-requests:
-      - '146'
+      - '147'
       x-ratelimit-remaining-tokens:
-      - '141000'
+      - '145500'
       x-request-id:
-      - 4ad48a77-45e8-45f0-a7c2-2149c1500927
+      - c3c137f9-e181-44fe-b53c-af203c028eb4
     status:
       code: 200
       message: OK

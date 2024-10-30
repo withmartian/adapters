@@ -10,7 +10,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -20,7 +20,7 @@ interactions:
       host:
       - api.ai21.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -30,7 +30,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -41,29 +41,33 @@ interactions:
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-dfc13a350bda43528bfd0bf811f46f71","choices":[{"index":0,"message":{"role":"assistant","content":null,"tool_calls":[{"id":"b46d2c16-ed94-4687-a184-7f3efadc3914","type":"function","function":{"name":"generate","arguments":"{\"prompt\":
-        \"Random number like 5, 4, 3, 10, 11\"}"}}]},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":134,"completion_tokens":43,"total_tokens":177}}'
+      string: !!binary |
+        IUwGACC+/Vwp23k6JYqRZxfz6ahES08PHGppgG1JFnAYHvCAF7r9eLwmesC7yTAYsu7R8VW/8GvA
+        0D+y+JHUkSormxorWW6ldnFZ6cIoiVUtpgahdf1gBp9euEjfwRGBF/EL/MLUNxYMmeffeZFuAWFo
+        3JK7tWkIS983Ny1N4wlSqHUS5arUvqti7WeZEl8iLX7mKhvnuoqMLUBYHoMFg9TQgOSBX+iktWD0
+        RzcLAgrHYLzOGKa+HZYz2DvjSzrTt0Qb9tYwvc/Jy8hLyYsj8uL4jA8+n8uH0PTfw9SruQoa4JZu
+        y7LOwZiXfsDnQliRwGib29L/224Gx2lGoGHIb9/puiwlPDQgWGtZfj4D
     headers:
-      CF-Cache-Status:
-      - DYNAMIC
       CF-RAY:
-      - 8d3b20fc4bf9cf8b-SJC
+      - 8dae8d60ab5e966a-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:26:45 GMT
+      - Wed, 30 Oct 2024 21:38:27 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      content-length:
-      - '404'
+      cf-cache-status:
+      - DYNAMIC
       request-id:
-      - e29d7d81-4796-acd5-991c-f93621c5f910
+      - 54ef958a-4a39-fe40-c6c5-79900e151818
       via:
       - 1.1 google
     status:

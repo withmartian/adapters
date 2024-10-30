@@ -1,0 +1,78 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "accounts/fireworks/models/llama-v3p1-8b-instruct", "function_call": {"name":
+      "generate"}, "functions": [{"description": "Generate random number", "name":
+      "generate"}], "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '264'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - OpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"error":{"object":"error","type":"invalid_request_error","message":"Extra
+        inputs are not permitted, field: ''function_call''"}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8daf4d3a8d43cf16-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:49:24 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=94.0;desc="Total Response Time"
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      fireworks-middleware-version:
+      - v2
+      x-envoy-upstream-service-time:
+      - '1'
+      x-request-id:
+      - f1222f10-bc23-4d9d-a5e1-d73624dbc8c1
+    status:
+      code: 400
+      message: Bad Request
+version: 1

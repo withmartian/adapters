@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,41 +38,44 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-7c30b1e2-525d-410b-b505-174bd9aeaf5f\",\"object\":\"chat.completion\",\"created\":1729111920,\"model\":\"gemma2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
-        provide me with a question or request so I can assist you! \U0001F60A \\n\\nI
-        can do many things, such as:\\n\\n* **Answer your questions:** I have access
-        to a vast amount of information and can answer questions on a wide range of
-        topics.\\n* **Generate creative content:** I can write stories, poems, articles,
-        and more.\\n* **Translate languages:** I can translate text between many different
-        languages.\\n* **Summarize text:** I can provide concise summaries of articles
-        or other written content.\\n* **Engage in conversation:** I can chat with
-        you about your interests or current events.\\n\\n\\nWhat can I do for you
-        today?\\n\\n\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"queue_time\":0.01412881,\"prompt_tokens\":20,\"prompt_time\":0.000079559,\"completion_tokens\":138,\"completion_time\":0.250909091,\"total_tokens\":158,\"total_time\":0.25098865},\"system_fingerprint\":\"fp_10c08bf97d\",\"x_groq\":{\"id\":\"req_01jabhm3mae2s8tfshdcbr4w33\"}}\n"
+      string: !!binary |
+        MSwQACCXzrL/plqvQxI3gstyyl1KeBjBLaB/pOUkceFD0bioQmrd1i4qz//NwKFlYwwt/NiiMOxF
+        AZblC8d8fpMO/Auezumz/DtAKho4sehvT9CsUGHV6ljZvkum02mql1ImdV3OkslsniWLhc6SxSyl
+        KqsX82xJKJDLQ6qiMTmqMAAMOxR4avm3aIUqnY/leJyl86VAyyvqUGFD1uosWZaJiSjwJPyGgOrT
+        CV5wP0QlBZZZHEF1gp47QoU6BBOidnaz7CK5iAqfd6QDQblIEWz7r5Maes+2j8AedmAAAsMzqLQD
+        uDuw52EE//98/QK5y91j9lA80yJgzwNcx/E7OhyBJYiscpe7a3Dt2jtvIoGGENnv1bVrkKPYb9lH
+        5R3QJQ8RNHguOcK2ZTiZfShAZOh4QzlCxu65sCUP2lcMtt7qCG3QJlgBpoBreOy1q+gOAM65p0WC
+        XS+ZDfG/oUDaE7PZFyLrIzA4sx4IAhwCGlNHMCvSDbmKGpjwUJ813tAHRK831M2b5AcICCLtJkvI
+        my4/pa5jeBkB6TL0wwq+6rUzocWAfDVYq705JghBdOEJdUanC1zHfv8rtgSWN4bgmauoj4ZdjrnL
+        Xe6eXbbwkALoCj7h9rE1rjkH/37+hdzhmcCOm95zGVC5oesEMu/lii5np1FhiNzj2WeBQ8zdXg80
+        UBGNJVRyJNPJeDyT2Xz54wXGF0wR+YhcQJVJMW7ZIaVcpBOBqUGYVKTjTIfZ1bKJwKctSIyWppmY
+        GIiAW2cC+RR6itq4hnzvTUpcrvsilZVclPVyvkKBu6LxvEaV5g/wtC5keljWu5I81bZZ+nEVtm4q
+        10ta4tnZgQED
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3aee1d7a99f953-SJC
+      - 8daf4d97ee41fa9a-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:52:00 GMT
+      - Wed, 30 Oct 2024 23:49:39 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=p3dNMjsV_1oA__WRBrJvUh_G6hhffTehbB_d4eq5Mn0-1729111920-1.0.1.1-1.B69HUU7f3DrB0TMtnOMYmWe1jEXPKe8g2LunsMmzK.8mrQXM4OfFOA8DBop9R9oz0CRfhvfV7_NASOXggZ0A;
-        path=/; expires=Wed, 16-Oct-24 21:22:00 GMT; domain=.groq.com; HttpOnly; Secure;
+      - __cf_bm=T7LXeb4A1qjTiBiGTVkCBue5WTPCmFnEIPkqVnJL_9g-1730332179-1.0.1.1-AfLBV4KlvEk7KFJ5zr0njt0WoV4r80qizBvTZX_6Jl5r2Rf9UHsaJW5t70kuoFzDaaCVZOk8FozI3CSZE3SEBQ;
+        path=/; expires=Thu, 31-Oct-24 00:19:39 GMT; domain=.groq.com; HttpOnly; Secure;
         SameSite=None
       Transfer-Encoding:
       - chunked
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '1117'
       vary:
       - Origin
       via:
@@ -82,15 +85,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '15000'
       x-ratelimit-remaining-requests:
-      - '14399'
+      - '14393'
       x-ratelimit-remaining-tokens:
-      - '14985'
+      - '14968'
       x-ratelimit-reset-requests:
-      - 6s
+      - 41.895s
       x-ratelimit-reset-tokens:
-      - 60ms
+      - 128ms
       x-request-id:
-      - req_01jabhm3mae2s8tfshdcbr4w33
+      - req_01jbfxberefmg9r3cswn50q9e9
     status:
       code: 200
       message: OK

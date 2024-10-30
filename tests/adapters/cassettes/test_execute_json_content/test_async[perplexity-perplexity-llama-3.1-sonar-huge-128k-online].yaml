@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "llama-3.1-sonar-huge-128k-online",
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "llama-3.1-sonar-huge-128k-online",
       "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '115'
+      - '171'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,48 +38,47 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "c7a93aa0-1dad-4de0-9866-95c55a88e559", "model": "llama-3.1-sonar-huge-128k-online",
-        "created": 1729112486, "usage": {"prompt_tokens": 3, "completion_tokens":
-        304, "total_tokens": 307}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "\"Hi,
-        Hi, Hi\" is a song written by Paul and Linda McCartney and performed by Wings.
-        Here are some key points about the song:\n\n1. **Release**: It was released
-        as a double A-side single with \"C Moon\" in December 1972.\n2. **Recording**:
-        The song was recorded at Abbey Road Studios in London in 1972.\n3. **Ban**:
-        The song was banned by the BBC in the UK due to its sexually suggestive lyrical
-        content and the assumption that the title phrase \"We''re gonna get hi, hi,
-        hi\" was a drug reference.\n4. **Lyrics**: Paul McCartney clarified that the
-        lyrics \"get you ready for my polygon\" were misinterpreted as \"get you ready
-        for my body gun\" by the BBC.\n5. **Chart Performance**: The single peaked
-        at number one in Spain, number five in the United Kingdom, and at number 10
-        in the United States in January 1973.\n6. **Live Performances**: The song
-        became a staple of Wings'' live shows in the 1970s and was featured in various
-        live performances and compilations.\n7. **Inclusion in Compilations**: The
-        song was included on several Paul McCartney compilation albums, including
-        \"Wingspan: Hits and History,\" \"Pure McCartney,\" and as a bonus track on
-        reissues of \"Red Rose Speedway\"."}, "delta": {"role": "assistant", "content":
-        ""}}]}'
+      string: '{"id": "352edecc-3c58-4a46-8054-cba88032f8e9", "model": "llama-3.1-sonar-huge-128k-online",
+        "created": 1730332233, "usage": {"prompt_tokens": 2, "completion_tokens":
+        312, "total_tokens": 314}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "The
+        term \"hihi\" can have multiple meanings depending on the context:\n\n1. **English
+        Interjection**: \"Hihi\" is an alternative form of \"hehe,\" used to express
+        laughter or amusement.\n\n2. **Cantonese Slang**: In Hong Kong Cantonese,
+        \"hihi\" is a euphemistic neologism that can be used as a noun, verb, or adjective,
+        synonymous with \"\u4ec6\u8857\" (a derogatory term).\n\n3. **Maori and Tokelauan**:
+        In Maori and Tokelauan languages, \"hihi\" refers to different concepts:\n   -
+        **Maori**: \"Hihi\" means the stitchbird (Notiomystis cincta), a rare endemic
+        forest bird in New Zealand.\n   - **Tokelauan**: \"Hihi\" can mean to hoist
+        or hang something, and it also has other meanings derived from different etymologies,
+        including a term borrowed from Samoan that refers to cheese.\n\n4. **Company
+        Name**: \"Hihi\" is also used as the name of a media company, Hihi Studios,
+        launched by Rachell ''Valkyrae'' Hofstetter to develop and produce IP for
+        graphic novels, TV, and film projects.\n\n5. **Other Uses**: There are other
+        uses of \"hihi\" in various contexts, such as in Japanese romanization and
+        in the name of a website (hellohihi.com)."}, "delta": {"role": "assistant",
+        "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3afb3ae8851701-SJC
+      - 8daf4ea20eb9cf05-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:01:26 GMT
+      - Wed, 30 Oct 2024 23:50:33 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=W82wAtxVIKuAlAru7IMLXsr1mpr6v32RkNS8ciywKTs-1729112486-1.0.1.1-k0yLhWhfOnVL7byszwjkGcpHSKD3Wo1a9LcLH86vNCUdAzDvoBfUW2wxtsgSGc8_tSwNDfr5Q25RC0JfyQuOaw;
-        path=/; expires=Wed, 16-Oct-24 21:31:26 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=cbboZ05hKNw9QzzKr9Yq0joZbQru.kRxchkXGfiFS.I-1730332233-1.0.1.1-vV9jt250NjfFUsSSpNtf0r2Dfk3vZXStWRKjVtQa8Cnb1XkyTvzUh1n5k.g2y2pBAwOPspou0nr2mVO7GSZaKQ;
+        path=/; expires=Thu, 31-Oct-24 00:20:33 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
       Transfer-Encoding:
       - chunked
       content-length:
-      - '1558'
+      - '1513'
     status:
       code: 200
       message: OK

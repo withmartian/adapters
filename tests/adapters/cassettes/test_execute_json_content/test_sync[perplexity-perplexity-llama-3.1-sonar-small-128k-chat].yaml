@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "llama-3.1-sonar-small-128k-chat",
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "llama-3.1-sonar-small-128k-chat",
       "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '114'
+      - '170'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,27 +38,27 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "78093c3a-7103-4b8d-b535-703ae66d130e", "model": "llama-3.1-sonar-small-128k-chat",
-        "created": 1729112350, "usage": {"prompt_tokens": 13, "completion_tokens":
-        9, "total_tokens": 22}, "object": "chat.completion", "choices": [{"index":
+      string: '{"id": "127d1def-4430-4436-89ec-f5d55c37ff86", "model": "llama-3.1-sonar-small-128k-chat",
+        "created": 1730332125, "usage": {"prompt_tokens": 12, "completion_tokens":
+        9, "total_tokens": 21}, "object": "chat.completion", "choices": [{"index":
         0, "finish_reason": "stop", "message": {"role": "assistant", "content": "Hello
         How can I assist you today?"}, "delta": {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af89c391b15ed-SJC
+      - 8daf4c48b94a67c7-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:59:10 GMT
+      - Wed, 30 Oct 2024 23:48:45 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=K.XeNHrQElEpXSx.4NbBjVJ4WOhHVINoKZ3kSNMRoxM-1729112350-1.0.1.1-8l_h.3nUiYmu3FZ__Vx5Q5vEBcsjglZsJyCUyIZAYUvp4EGupUipG4kAkYoAn5fegNGE7414Mg2vSbdzPnvWDg;
-        path=/; expires=Wed, 16-Oct-24 21:29:10 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=GpB7sKKXQaLTPJ3Hma5ClYg8QFlnAIioXzyD9rVOJeM-1730332125-1.0.1.1-pQECHIg1KwqugYiqjYr4IibuMJCnXd02dXHJgTJvGXNPdyXBMymxZByB0mopYQIEqEsWBYIbRHuUnp.1OKrX7Q;
+        path=/; expires=Thu, 31-Oct-24 00:18:45 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
       Transfer-Encoding:
       - chunked

@@ -9,7 +9,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       anthropic-version:
       - '2023-06-01'
       connection:
@@ -42,26 +42,24 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01CDs5cp7e15vejLwtGccz5v","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
-        user has requested to generate a random number. Let''s look at the available
-        tools:\n\ngenerate:\n- Description: Generate random number\n- Parameters:\n  -
-        prompt: Random number like 5, 4, 3, 10, 11 (required, string)\n \nThe generate
-        tool looks relevant for this request. It takes one required parameter:\n-
-        prompt: The user provided \"Generate random number\" which I can pass directly
-        as the prompt value\n\nSince the required prompt parameter is provided by
-        the user, I have all the necessary information to call the generate tool.\n</thinking>"},{"type":"tool_use","id":"toolu_01Wjv2pypGaDMkD69FtDMAmG","name":"generate","input":{"prompt":"Generate
-        random number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":182}}'
+      string: '{"id":"msg_01WgCLxdWzPq5G9tnhizhjAz","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        provided \"generate\" tool seems directly relevant for generating a random
+        number, which is what the user requested. The \"prompt\" parameter is required,
+        but the user did not provide a specific value. However, the description for
+        the \"prompt\" parameter says \"Random number like 5, 4, 3, 10, 11\", which
+        provides example values that can be used. So I will proceed with calling the
+        \"generate\" tool using one of those example prompts.\n</thinking>"},{"type":"tool_use","id":"toolu_019XtEUBKDYSNPQSmRTfMN9m","name":"generate","input":{"prompt":"10"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":156}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d57fa17ccb0cf2e-SJC
+      - 8daeafe05f3a643a-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Sun, 20 Oct 2024 09:28:25 GMT
+      - Wed, 30 Oct 2024 22:02:06 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -73,11 +71,11 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-20T09:28:25Z'
+      - '2024-10-30T22:02:06Z'
       content-length:
-      - '922'
+      - '805'
       request-id:
-      - req_01322KcgNWHx2RP1UZCEPnU5
+      - req_01WYGAPtnqYxee24xj1mqvhs
       via:
       - 1.1 google
     status:

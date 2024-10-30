@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,37 +38,46 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-28dd47d2-6ad7-469c-bf8b-fabcebb54700","object":"chat.completion","created":1729113803,"model":"mixtral-8x7b-32768","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I help you today? If you have any questions or need assistance with
-        something, feel free to ask. I''m here to provide information and support.
-        Is there a specific topic you''d like to discuss or learn more about?"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011455189000000001,"prompt_tokens":20,"prompt_time":0.002675361,"completion_tokens":52,"completion_time":0.082592038,"total_tokens":72,"total_time":0.085267399},"system_fingerprint":"fp_c5f20b5bb1","x_groq":{"id":"req_01jabkdjb2eq8b4kjfj4v3q1x8"}}
-
-        '
+      string: !!binary |
+        MSgUACD7Nq2/7+Wk0W7/Dg9D9y+1sUWAIJ6AzNgmM9kydE1w+Ar91kispB/gBjgavq+Coqxp4Ad4
+        OputuaFrb8AU0JcNEL/7Bu2IBocjxWHdlkOlddtO/XjQVVEcinYqD+040mFop1EPeuC0T1Gh6695
+        iJ35xMMgYJ2gwqjln+URja7zNM/qJtMKVzfyggZXexc9LYfmru4PeVZXDSqMhz8ioPn/DZa576NJ
+        FTpbwELzBr1bGA1SCDZEkogKM9H9kcFveFncFXzjbmEggW/hyMsGF7dDdCNdPoZvJ7i4HQrWN0gu
+        sAHx6dkdgHq3Rxjcuu2RPURSB6J1tTIruOUeQrjvWlmiAudhpEgQ0gLcxAom5gUmzwzRAYVTAt8+
+        XuHInoh7s3TDvNuRZOBaFIE8B7f7gQNEJ3StgPyNcHG7h9nREpJOOlFi12PPsEvYPYOb4JYFHl6e
+        UVpOGUiAwglWVkqPR4Ysd5CtzBDdZodgOulEJ/A394AgaPDVLiOtLJGWYOCbP378QcHnv/9+btha
+        brtgJ1kCv3HuAc2eeajuYGfpJE/ACvIA0DHBwC+XeHSi3rYaEeXgfn6/k0Kq/b/ytPKt86dg4Itr
+        ktkp+GqhcJJljy/vNs8hdFIm8AVFgt/XIQVfhsASrfxIo/+XDTtZBFbRK9c+oAYb9Pr9jzQcrTD8
+        wOTFytxJlcDvHKOVGf7cgKao7jI6rJNOvlp2ZN4FucCq930YnHTkZbvqpJMfOD4OMNozw2lh0wQT
+        hcEKMa7cKAGywI2wq4Oyn2QEIQ8m4LgrfKdwcfPmXR/QyL4sCrMNtl6e7HY2GgzRbfjuucJ9hx18
+        s/POL6NdGU2apHleNm2bNekHSqlw827d4svoTiwBTZaS8Z4AaZ43eV5WCg0C0WmAbnUb9oDkuijK
+        uqpzhfd6UOEiaE0m/p9TN4VOs/adwnQSY15OVmb2m7e24OBpezmUU5b2Zd9rVHj3cvbuBo2Vu4Pn
+        m5epvu6nUE1Dybk/6+utb849zeesx3fv7hkD
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b1c154c041722-SJC
+      - 8daee3356e5d965e-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:23:23 GMT
+      - Wed, 30 Oct 2024 22:37:02 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=RKN57zbY9bzT5LrDgnuk0vk6Yu6DZRKbahHW0.AGWTE-1729113803-1.0.1.1-eruv1d7SX5XUw7foTquZPR2x4DbWoLe8s0KW4bqBx3S6cxC3GrkzEKjlX9Iw869MxeA7Z54nSEEGE7SzX5gEXg;
-        path=/; expires=Wed, 16-Oct-24 21:53:23 GMT; domain=.groq.com; HttpOnly; Secure;
+      - __cf_bm=iy5tTM9T4KmTtTAwyo9hSHksDzcNBpERxSpwgEZAkmI-1730327822-1.0.1.1-hhYG9i9t3LgUo4QrS8AAaLK8z2ICBntgNI_DI.3lXOvdMzDeaIzKBvjADFI1DdnYO8aY0WbcCnNOKONDaM30QA;
+        path=/; expires=Wed, 30-Oct-24 23:07:02 GMT; domain=.groq.com; HttpOnly; Secure;
         SameSite=None
       Transfer-Encoding:
       - chunked
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '735'
       vary:
       - Origin
       via:
@@ -86,7 +95,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 252ms
       x-request-id:
-      - req_01jabkdjb2eq8b4kjfj4v3q1x8
+      - req_01jbfs6fc5e3rv1jpb8vbagv2b
     status:
       code: 200
       message: OK

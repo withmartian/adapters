@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,38 +38,40 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-abbc09d2-f149-4542-ab6a-2c76925b7c87","object":"chat.completion","created":1729112098,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        seems like there might have been a connection or a message intended to be
-        sent, but it didn''t come through clearly. Could you please rephrase or provide
-        more context about what you''re trying to say or ask? I''m here to help with
-        any questions or topics you''d like to discuss!"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011578515000000001,"prompt_tokens":21,"prompt_time":0.002719653,"completion_tokens":61,"completion_time":0.050833333,"total_tokens":82,"total_time":0.053552986},"system_fingerprint":"fp_179b0f92c9","x_groq":{"id":"req_01jabhsheme6krbh9rapaecvr0"}}
-
-        '
+      string: !!binary |
+        IbgJACD+v7rXPcuk3ALJ38AqzRmmln0E76PQkPC6A4e239IswKQtCQpbQAkG3lYYvXkSBX7AO92C
+        oRguuMms59e/TzgZCOijXLWLNtNGV6Y0XUad7LKmJZlJU+vMlHLoxmbf73sFjqDOpFey3mUYBKfg
+        weFa/o4MRNnXRV1X5dBzuGDIQsBa6WSdDSobyrEChxd+Z4H484Qn7juIgiPRQgriCXOwBAG5LKdl
+        lX4FRxW6lcDNyhYit7A+SgkPYWPmZPy7lS3kDZNsL3/HfoTNGpBC2zUwW/aGSebbvpXrKXgWZiaX
+        C3PEZIq/s5t3jh1pZp4fycZrvHDYcIhzUAuE36zlKOpWTA20ziGwrCHi5R/Hdhhy2mijaT05gih2
+        RVn0/diObTFJlhxxDi6u0xou5BeIKgyDUVRjP3RNzaF7RqqMS0BkVE3ZdV3Xc/yeAHJMW0QRnvZl
+        09blC4dl/2Dan/yB5jifNCfv4yTHXu+pbiWB4346zCFB3KQLM6WpKM9qf6/ioyc1D+Otu/h16Obu
+        LuHl5coAAw==
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af275eb1922de-SJC
+      - 8daf4dcc8ce3f99b-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:54:58 GMT
+      - Wed, 30 Oct 2024 23:49:47 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=QbvQy9SUEpWfDRoCza3LsMYyS8GTuzt7vQxqzkF0ntU-1729112098-1.0.1.1-jzpLuqN9jzZ4XKEgdH_EFdIoFMee4IPvcIQ1JNyZpya6iHJkRc7spg2541CmCSYT.VGb2k3WYXYUqsAy6bZZIA;
-        path=/; expires=Wed, 16-Oct-24 21:24:58 GMT; domain=.groq.com; HttpOnly; Secure;
+      - __cf_bm=_HsHX9cgn4oOneqjTosxRx3iOyWkR4GzoTn4VST1ESs-1730332187-1.0.1.1-3spfWbPJ0nht6Gg5MAamtG.ZOZtQ.364aOZIrMl4T8fuLWwcWGi3BaAQImbTDrnRJel1K.CrpvmvxnoJHoJAYA;
+        path=/; expires=Thu, 31-Oct-24 00:19:47 GMT; domain=.groq.com; HttpOnly; Secure;
         SameSite=None
       Transfer-Encoding:
       - chunked
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '783'
       vary:
       - Origin
       via:
@@ -79,15 +81,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '30000'
       x-ratelimit-remaining-requests:
-      - '14399'
+      - '14393'
       x-ratelimit-remaining-tokens:
       - '29985'
       x-ratelimit-reset-requests:
-      - 6s
+      - 41.837999999s
       x-ratelimit-reset-tokens:
       - 30ms
       x-request-id:
-      - req_01jabhsheme6krbh9rapaecvr0
+      - req_01jbfxbpznebr89vmknt86r6wq
     status:
       code: 200
       message: OK

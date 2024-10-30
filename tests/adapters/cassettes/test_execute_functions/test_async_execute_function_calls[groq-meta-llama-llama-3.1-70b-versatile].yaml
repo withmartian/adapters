@@ -1,0 +1,89 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "llama-3.1-70b-versatile", "function_call": {"name": "generate"}, "functions":
+      [{"description": "Generate random number", "name": "generate"}], "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '239'
+      content-type:
+      - application/json
+      host:
+      - api.groq.com
+      user-agent:
+      - AsyncOpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.groq.com/openai/v1/chat/completions
+  response:
+    body:
+      string: '{"error":{"message":"Failed to call a function. Please adjust your
+        prompt. See ''failed_generation'' for more details.","type":"invalid_request_error","code":"tool_use_failed","failed_generation":"{}"}}
+
+        '
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daf4af3bb65169e-SJC
+      Cache-Control:
+      - private, max-age=0, no-store, no-cache, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '201'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:47:51 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=aIkrtWL5CLOAj8xpdkaCaiW_szkUjuB1u_VGS0GxwJk-1730332071-1.0.1.1-asxx7jFRCu8qkyhR4KiaDMuobha1nQ8p1uBxWZa21VHs3lGx9F49kPk5EUCdn2wvnIorowNnxuHgCBquExDI_Q;
+        path=/; expires=Thu, 31-Oct-24 00:17:51 GMT; domain=.groq.com; HttpOnly; Secure;
+        SameSite=None
+      alt-svc:
+      - h3=":443"; ma=86400
+      vary:
+      - Origin
+      via:
+      - 1.1 google
+      x-ratelimit-limit-requests:
+      - '14400'
+      x-ratelimit-limit-tokens:
+      - '6000'
+      x-ratelimit-remaining-requests:
+      - '14399'
+      x-ratelimit-remaining-tokens:
+      - '5990'
+      x-ratelimit-reset-requests:
+      - 6s
+      x-ratelimit-reset-tokens:
+      - 100ms
+      x-request-id:
+      - req_01jbfx853bfc2rnkxz8n08r2zg
+    status:
+      code: 400
+      message: Bad Request
+version: 1

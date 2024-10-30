@@ -9,7 +9,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       api-key:
       - b22bea4270b74a7e9eb3b2c74ee66db9
       connection:
@@ -21,7 +21,7 @@ interactions:
       host:
       - martiantest.openai.azure.com
       user-agent:
-      - AsyncAzureOpenAI/Python 1.52.0
+      - AsyncAzureOpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -31,7 +31,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.52.0
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -42,41 +42,43 @@ interactions:
     uri: https://martiantest.openai.azure.com//openai/deployments/gpt-4o-mini/chat/completions?api-version=2024-06-01
   response:
     body:
-      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"protected_material_code":{"filtered":false,"detected":false},"protected_material_text":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"How
-        many random numbers would you like me to generate?","role":"assistant"}}],"created":1729405972,"id":"chatcmpl-AKJmeBeAq49omTdsEqoExI0xlUKfn","model":"gpt-4o-mini","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"jailbreak":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_878413d04d","usage":{"completion_tokens":11,"prompt_tokens":63,"total_tokens":74}}
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"What
+        range or specific prompt would you like for the random number generation?
+        For example, you could specify a range like \"1 to 100\" or a specific set
+        of numbers.","role":"assistant"}}],"created":1730326368,"id":"chatcmpl-AOBDka4BOx5nPgX6yYpeeNE4qyfEt","model":"gpt-4o-mini","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"jailbreak":{"filtered":false,"detected":false},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_d54531d9eb","usage":{"completion_tokens":36,"prompt_tokens":63,"total_tokens":99}}
 
         '
     headers:
       Content-Length:
-      - '1031'
+      - '1018'
       Content-Type:
       - application/json
       Date:
-      - Sun, 20 Oct 2024 06:32:52 GMT
+      - Wed, 30 Oct 2024 22:12:49 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       apim-request-id:
-      - de8e0a05-8b84-4c59-83e8-bff2f8e57db9
+      - b474b520-eb82-4d87-8eae-695994bffc15
       azureml-model-session:
-      - d004-20240927120146
+      - d021-20241024132350
       x-accel-buffering:
       - 'no'
       x-content-type-options:
       - nosniff
       x-envoy-upstream-service-time:
-      - '329'
+      - '432'
       x-ms-client-request-id:
-      - de8e0a05-8b84-4c59-83e8-bff2f8e57db9
+      - b474b520-eb82-4d87-8eae-695994bffc15
       x-ms-rai-invoked:
       - 'true'
       x-ms-region:
       - East US
       x-ratelimit-remaining-requests:
-      - '19982'
+      - '19998'
       x-ratelimit-remaining-tokens:
-      - '1987128'
+      - '1998708'
       x-request-id:
-      - e841fb8c-0d3e-4a6f-a4e6-dc8c77a7ee79
+      - 2629975f-866f-4615-ad38-cce7e2a7b4f5
     status:
       code: 200
       message: OK

@@ -1,0 +1,91 @@
+interactions:
+- request:
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
+      "role": "user"}], "model": "claude-3-opus-latest", "stream": false, "tools":
+      [{"input_schema": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate",
+      "description": "Generate random number"}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      anthropic-version:
+      - '2023-06-01'
+      connection:
+      - keep-alive
+      content-length:
+      - '348'
+      content-type:
+      - application/json
+      host:
+      - api.anthropic.com
+      user-agent:
+      - Anthropic/Python 0.36.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 0.36.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: '{"id":"msg_01A3RyNfDp41dQjY6UFuqnnW","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        user has requested to generate a random number. Let''s look at the available
+        tools to see if we can fulfill this request.\n\nThe \"generate\" function
+        is available, which takes a \"prompt\" parameter described as \"Random number
+        like 5, 4, 3, 10, 11\". This seems highly relevant to the user''s request.\n\nHowever,
+        the user did not specify what kind of random number they want. The examples
+        in the prompt description are all integers, but it''s unclear if decimals,
+        negative numbers, or larger numbers should be considered.\n\nTo fully satisfy
+        the \"prompt\" parameter, I should ask the user for clarification on the desired
+        range and type of random number.\n</thinking>\n\nTo generate a random number,
+        I''ll need a bit more information. What range of numbers would you like the
+        random number to be selected from? For example, a number between 1 and 10,
+        1 and 100, -50 and 50, etc. Also, should the number be an integer (whole number)
+        or can it include decimals?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":234}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daeaebddf99cf8b-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 22:01:24 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '5000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '5000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-10-30T22:01:24Z'
+      content-length:
+      - '1214'
+      request-id:
+      - req_01KiXigKCHVCGNHxxyh5MBqm
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+version: 1

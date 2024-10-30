@@ -1,0 +1,94 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct",
+      "response_format": {"type": "json_object"}, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '180'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - OpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"3cb82a6c-79b9-413b-9ebb-229b0e7be78a","object":"chat.completion","created":1730332452,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"{\n\"Hello\":
+        \"Hello there! I''m here to help you. How can I assist you today?\",\n\"Mission\":
+        \"My mission is to always provide assistance with care, respect, and truth,
+        ensuring that my responses are useful, safe, unbiased, and positive. I aim
+        to promote fairness and positivity in all my interactions.\",\n\"Json\": \"JSON,
+        or JavaScript Object Notation, is a lightweight data interchange format that
+        is easy for humans to read and write and easy for machines to parse and generate.
+        It is based on a subset of the JavaScript Programming Language, Standard ECMA-262
+        3rd Edition - December 1999. JSON is a text format that is completely language
+        independent but uses conventions that are familiar to programmers of the C-family
+        of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many
+        others. These properties make JSON an ideal data-interchange language.\"\n}"},"finish_reason":"stop"}],"usage":{"prompt_tokens":57,"total_tokens":269,"completion_tokens":212}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8daf54435f2615da-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:54:14 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=2249.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '1196'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '2.153'
+      x-envoy-upstream-service-time:
+      - '2154'
+      x-request-id:
+      - 3cb82a6c-79b9-413b-9ebb-229b0e7be78a
+    status:
+      code: 200
+      message: OK
+version: 1

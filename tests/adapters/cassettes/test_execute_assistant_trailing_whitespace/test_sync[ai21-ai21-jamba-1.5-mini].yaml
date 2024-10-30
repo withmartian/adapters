@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.ai21.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,9 +26,9 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
-      - '1'
+      - '0'
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -37,29 +37,32 @@ interactions:
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-c2b6feb15eeb4adab8d861d38b0abc42","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today?","tool_calls":null},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":16,"completion_tokens":10,"total_tokens":26}}'
+      string: !!binary |
+        IUgEACAWzqlsdroMdhOaC/yBEenkwPFgnzdPOMAEw4CCONCWae5gnVEN4xCuv5haJGjG6qY7sR/0
+        XdNZlut6tetHbdBWVdC2Qe/2VRhDw+j64Ipk+8VF+orE0tAX8YXki4ukDgmq63W63ipxg4bQuEmC
+        dUckV2wtn6ypBNsw6xp7yzu7ybZ6l9Bwk5KOTUV0RSLuRH8NJAd1kTVJDQlq5ritao0E15tU+O81
+        3Evp1UVydTve5NKJKxI7QMIVdbdJCslZGh4KAFac4P83AAM=
     headers:
-      CF-Cache-Status:
-      - DYNAMIC
       CF-RAY:
-      - 8d3aadbb3e2f7ae0-SJC
+      - 8daf4bb4687217de-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:08:03 GMT
+      - Wed, 30 Oct 2024 23:48:22 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      content-length:
-      - '275'
+      cf-cache-status:
+      - DYNAMIC
       request-id:
-      - f8f872f4-ef00-eac1-e1a9-efa15e690b1e
+      - f3c3cd8d-5979-22d8-6040-e5691415b86a
       via:
       - 1.1 google
     status:

@@ -10,7 +10,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -20,7 +20,7 @@ interactions:
       host:
       - api.ai21.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -30,7 +30,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -41,29 +41,33 @@ interactions:
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-e596df8c12df423da7989df06f26cf5f","choices":[{"index":0,"message":{"role":"assistant","content":null,"tool_calls":[{"id":"61c409d4-de31-415e-ab35-29ec294ac114","type":"function","function":{"name":"generate","arguments":"{\"prompt\":
-        \"Random number like 5, 4, 3, 10, 11\"}"}}]},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":134,"completion_tokens":43,"total_tokens":177}}'
+      string: !!binary |
+        IUwGACBmrZWyU62zRDHyLA89LuLTA5eWBtiWZAGHYYABXuj24/F6POgBrzcsx09k/wanD/waMPSP
+        HJ2kSIIstZnVWR7nfqyM9FM/SHTqJ6GKQhCk6xsD+H7gIn0D+wRexC/wgb4pLRhyGH6HUdYjCEPj
+        hlxPZUkYm6Z8a1mWmS4YMJKvVNoikY4OA+PEkQ6d3KSJE8cy95WNtfG/QBi31oJBakgge+ADtaws
+        GProakFAYRmM44G2b6p2fIDFAzdZm6Yi2pBYw3Q/IRGTiEgEPokgeODCdT0vQtl8t32jhi5wgFt4
+        L8vaB2MYmxbXkzAhAdUm77H5t/UADqKYQMPg36b2lTgiPDTARUuWXZcBAw==
     headers:
-      CF-Cache-Status:
-      - DYNAMIC
       CF-RAY:
-      - 8d3b21757d5a16a2-SJC
+      - 8dae922c6d6a251c-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:27:04 GMT
+      - Wed, 30 Oct 2024 21:41:43 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      content-length:
-      - '404'
+      cf-cache-status:
+      - DYNAMIC
       request-id:
-      - f2f60027-1a0a-d911-2aee-f19b25a7468e
+      - 3466ab23-f569-609f-b649-46865deee6a4
       via:
       - 1.1 google
     status:

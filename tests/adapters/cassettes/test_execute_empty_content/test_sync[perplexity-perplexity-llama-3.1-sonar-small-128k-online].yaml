@@ -1,23 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
-      "content": "\"\""}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-sonar-small-128k-online",
+    body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
+      " "}, {"role": "user", "content": "\n"}], "model": "llama-3.1-sonar-small-128k-online",
       "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '193'
+      - '184'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,36 +38,27 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "778538cd-a715-47bd-8585-cf5d767727bb", "model": "llama-3.1-sonar-small-128k-online",
-        "created": 1729112003, "usage": {"prompt_tokens": 23, "completion_tokens":
-        53, "total_tokens": 76}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
-        seems like you might be trying to communicate something specific, but your
-        input is incomplete or unclear. Could you please provide more details or clarify
-        what you''re asking about? Whether it''s a question, a problem, or something
-        else, I''m here to help"}, "delta": {"role": "assistant", "content": ""}}]}'
+      string: '{"error":{"message":"Message content was empty","type":"invalid_message","code":400}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af023c9b9967c-SJC
+      - 8daf4c88ea13985b-SJC
       Connection:
       - keep-alive
+      Content-Length:
+      - '85'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:53:23 GMT
+      - Wed, 30 Oct 2024 23:48:55 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=KhpDV2bXDu5xt0gKL3ekzuvhTcWntD3bw1LjBA7lTsc-1729112003-1.0.1.1-fbNbdYP_S1XqsUnpq5wxnSscjKUAWRba3FGAFsDtuCGjhutVvVRWe4GCCCQAinyIGonwHxy.cz8QrOng2_ULxw;
-        path=/; expires=Wed, 16-Oct-24 21:23:23 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=CcL6xICa9XleDHDVxX6GSd.nbJ8jhsL_aSg2NNvVTnY-1730332135-1.0.1.1-U8dArBy68HewY7CRy5qFtXbh1nYjsipAtDl_jbWBMIT_o5g583Uwy4PxmwgsgRq8iVGQ_GGwXCFUKr_Q968WNw;
+        path=/; expires=Thu, 31-Oct-24 00:18:55 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
-      Transfer-Encoding:
-      - chunked
-      content-length:
-      - '625'
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
 version: 1

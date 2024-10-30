@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.ai21.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,29 +38,32 @@ interactions:
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-3351271e2579441ca0f560d2552846a5","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today?","tool_calls":null},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"completion_tokens":10,"total_tokens":29}}'
+      string: !!binary |
+        IUgEACAWzqlsdroMdhOaC/yBEenkwPFgnzdPOMAEw4CCONCWae5gnVEN4xCuv5haJGjG6qZ3ThB5
+        Vmu5rht7lu/WjWdZQee7ve34cexDw+j64Ipk+8VF+orE0tAX8YXki4ukDgmq63W63ipxg4bQuEmC
+        dUckV2wtn6ypBNsw6xp7yzu7ybZ6l9Bwk5KOTUV0RSLuRH8NJAd1kTVJDQlq5ritao0E15tU+O81
+        3Evp1UVydTve5NKJKxI7RsIVdbdJCslZGh4KAFac+P83AAM=
     headers:
-      CF-Cache-Status:
-      - DYNAMIC
       CF-RAY:
-      - 8d3b07e3cbee17e2-SJC
+      - 8daf40dcedc8aaa9-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:09:36 GMT
+      - Wed, 30 Oct 2024 23:40:58 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      content-length:
-      - '275'
+      cf-cache-status:
+      - DYNAMIC
       request-id:
-      - d63dff79-a8ef-702a-5f00-4a072c81eb8a
+      - 4f1d4e70-0b4c-dc8d-36d1-220b6cc103ca
       via:
       - 1.1 google
     status:

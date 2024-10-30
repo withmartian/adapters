@@ -1,0 +1,80 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "nous-hermes-2-mixtral-8x7b-dpo", "function_call": {"name": "generate"}, "functions":
+      [{"description": "Generate random number", "name": "generate"}], "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '246'
+      content-type:
+      - application/json
+      host:
+      - text.octoai.run
+      user-agent:
+      - OpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://text.octoai.run/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-d28b4a5b95334e39b7454d9fa367c9bf","object":"chat.completion","created":1730332150,"model":"nous-hermes-2-mixtral-8x7b-dpo","choices":[{"index":0,"message":{"role":"assistant","content":"To
+        generate a random number in Python, you can use the `random` module. Here''s
+        an example of how to generate a random number between 1 and 10:\n\n```python\nimport
+        random\n\nrand_num = random.randint(1, 10)\nprint(rand_num)\n```\n\nIn this
+        example, the `random.randint(a, b)` function generates a random integer between
+        `a` and `b`, inclusive. In this case, `a = 1` and `b = 10`. The generated
+        random number is stored in the variable `rand_num`, and then printed using
+        the `print()` function.\n\nWhen you run this code, you will get a random number
+        between 1 and 10 each time you execute it."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"completion_tokens":175,"total_tokens":188}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '909'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:49:10 GMT
+      Server:
+      - uvicorn
+      Vary:
+      - Origin
+      Via:
+      - kong/3.2.2
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '2040'
+      X-Ratelimit-Limit:
+      - '4'
+      X-Ratelimit-Remaining:
+      - '3'
+      X-Ratelimit-Reset:
+      - '1730332151'
+      X-User-Request-Id:
+      - ''
+    status:
+      code: 200
+      message: OK
+version: 1

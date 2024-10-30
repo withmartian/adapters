@@ -1,0 +1,71 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "wizardlm-2-7b", "stream": false, "tool_choice": {"type": "function", "function":
+      {"name": "generate"}}, "tools": [{"type": "function", "function": {"description":
+      "Generate random number", "name": "generate", "parameters": {"type": "object",
+      "properties": {"prompt": {"type": "string", "description": "Random number like
+      5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '448'
+      content-type:
+      - application/json
+      host:
+      - wizardlm-2-7b.lepton.run
+      user-agent:
+      - OpenAI/Python 1.52.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://wizardlm-2-7b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-NK8iRNSfevDprZSaapwpmR","object":"chat.completion","created":1730324388,"model":"wizardlm-2-7b","choices":[{"index":0,"message":{"role":"assistant","content":"{\"prompt\":
+        \"Generate a random number between 1 and 10, for example, 5, 4, 3, 10, 11.\"}","tool_calls":[{"function":{"name":"generate","arguments":"{\"prompt\":
+        \"Generate a random number between 1 and 10, for example, 5, 4, 3, 10, 11.\"}"},"id":"call-nJa4dY3ZWzTqhm7pdMWu97","type":"function"}]},"logprobs":{"content":null},"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":10,"total_tokens":48,"completion_tokens":38}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8dae8f60cdea968e-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 21:39:48 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '629'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '579'
+    status:
+      code: 200
+      message: OK
+version: 1

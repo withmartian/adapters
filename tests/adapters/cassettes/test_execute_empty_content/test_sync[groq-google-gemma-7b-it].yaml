@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,46 +38,43 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-b211d0ec-73ff-4f3c-9479-fdd19b76adc2","object":"chat.completion","created":1729111919,"model":"gemma-7b-it","choices":[{"index":0,"message":{"role":"assistant","content":"**Please
-        provide some context or clarify your query.**\n\nYour prompt lacks sufficient
-        information to provide a meaningful response. Please provide more details
-        or context about the topic you want to discuss.\n\n**Here are some potential
-        areas I can assist you with:**\n\n* **Specific concepts or topics:** If you
-        have a particular concept or topic in mind, I can provide information, explanations,
-        or examples.\n* **Answering questions:** If you have a specific question,
-        I can provide an answer based on available knowledge.\n* **Generating content:**
-        If you need help writing or creating content, I can offer assistance in various
-        formats.\n* **Exploring ideas or concepts:** If you want to explore new ideas
-        or concepts related to a certain topic, I can provide suggestions and resources.\n\n**Please
-        provide more information about your specific inquiry to receive a helpful
-        response.**"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.0021653899999999997,"prompt_tokens":20,"prompt_time":0.012958208,"completion_tokens":172,"completion_time":0.204568973,"total_tokens":192,"total_time":0.217527181},"system_fingerprint":"fp_7d8efeb0b1","x_groq":{"id":"req_01jabhm388fw1a2acxsxqaq44f"}}
-
-        '
+      string: !!binary |
+        MRQRACD3OvX3LNO9G3midFtbxmy/FZcIOOg6LAmXlPm/JjhcF0bhUVlZAJ6dRfown9fzpr2BfhxO
+        py4x0dtjk1EY+AHoZ99xaFBi3StXL+vsJ3Wd7Is69/MoJT9rm72/q/bKj+pds6d8Hye7FgVyNVLt
+        iNkgwiAysEaBWcvfRA3KuEyjNE3icidw4YZmlNjRsii/rPzBocBE+CsW5f93/L59H2UkMMriFJTv
+        aHgmlKisHaxTmg6MtSPtUOJf3uAr9D3NDmJGWg0o/eiDNHZ3wAa8DdVFIoAvMylLVyXo62vABupZ
+        maF9wIM3A5eNzCOAgz7oF6iVhp7mFR68wW1wvTzog/bA89pnRROrtwbdgeKOZrKnVkRnDQ0p6Xnw
+        g+YZFoJbr9xqvyntwDFMmm+gKt5cw64wUxRuDmlS6Qbovs6qVJ1sAySBZ21vZFCgYgNKz4NnO8FC
+        Exz0q9qhBhwDHnS8DjV/W2lQ63PgZZgV5VSIYMGKCMLnFqfsJD0PXlqBoY3L8W0qO0GNZjRcpWyl
+        1dlAK7SuHawABhvFpvDgLTjog97VrB1kRcQ0EHUMHTlIzn8tNQF+Cpy5Ww1XFqXe5llgnb7CuSfa
+        wyjROl7x8yhwM9GrLxttdHbDQiijIIriLMvTPNrf/pIIXA0vqzs7nkhblEk0jJICxMk+zcqsFOhL
+        GFFNnCRzCEOQOMvjZJfkhcBfYpA5tCwZRp8/lu+iIo2i9FNgJYYt53bQHZnVDN50cbuey2ZHLVVR
+        FaPA+7kzfEH5griBocs5iseqvVfU3tpqdU1ibtfysddpcsHPzycDAw==
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3aee1b1fda9846-SJC
+      - 8daf4d963b37cf0e-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:52:00 GMT
+      - Wed, 30 Oct 2024 23:49:39 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=4gzmyeK5LS2bingb29vEcWJ_6DTrroFcjiTDIaSeSbc-1729111920-1.0.1.1-jpxdvEGBAWOiwDqs4niAZn2YhYBpmfJwR0L28MLW2jFBItIXcLwym8cYAApmbvSJN6bHKzc1U.kPuFq7DzpdGQ;
-        path=/; expires=Wed, 16-Oct-24 21:22:00 GMT; domain=.groq.com; HttpOnly; Secure;
+      - __cf_bm=n7NJWE7lLAHdd2zswG8qTszGmLlwxbYrpUPP2NIAxUs-1730332179-1.0.1.1-l1LJo9lKIF3EVkyRM7ggFdOYf8XFfP4zHLgpeuvHzlXq9V9bUcJz3bjsur_1tvLF6Afln2vqI5Q7N7eOFY7W1Q;
+        path=/; expires=Thu, 31-Oct-24 00:19:39 GMT; domain=.groq.com; HttpOnly; Secure;
         SameSite=None
       Transfer-Encoding:
       - chunked
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '1396'
       vary:
       - Origin
       via:
@@ -87,15 +84,15 @@ interactions:
       x-ratelimit-limit-tokens:
       - '15000'
       x-ratelimit-remaining-requests:
-      - '14399'
+      - '14394'
       x-ratelimit-remaining-tokens:
       - '14983'
       x-ratelimit-reset-requests:
-      - 6s
+      - 30.858s
       x-ratelimit-reset-tokens:
       - 68ms
       x-request-id:
-      - req_01jabhm388fw1a2acxsxqaq44f
+      - req_01jbfxbefwfbptd2rwv7y9n32q
     status:
       code: 200
       message: OK

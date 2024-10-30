@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "llama-3.1-sonar-huge-128k-online",
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "llama-3.1-sonar-huge-128k-online",
       "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '115'
+      - '171'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,54 +38,45 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "c791d1c4-cb96-4511-9cdc-c26304272087", "model": "llama-3.1-sonar-huge-128k-online",
-        "created": 1729112349, "usage": {"prompt_tokens": 3, "completion_tokens":
-        412, "total_tokens": 415}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "\"Hi,
-        Hi, Hi\" is a song written by Paul and Linda McCartney and performed by Wings.
-        Here are some key points about the song:\n\n1. **Release Date**: It was released
-        as a double A-side single with \"C Moon\" on December 1, 1972, in the UK and
-        December 4, 1972, in the USA.\n\n2. **Chart Performance**: The single peaked
-        at number one in Spain, number five in the United Kingdom, and number 10 in
-        the United States in January 1973.\n\n3. **Ban**: The song was banned by the
-        BBC in the UK due to its sexually suggestive lyrical content and the assumption
-        that the title phrase \"We''re gonna get hi, hi, hi\" was a drug reference.
-        Paul McCartney clarified that the lyrics were misunderstood, particularly
-        the phrase \"get you ready for my polygon,\" which was interpreted as \"get
-        you ready for my body gun\".\n\n4. **Live Performances**: The song became
-        a staple of Wings'' live shows in the 1970s and was included in various compilation
-        albums and reissues, such as \"Wingspan: Hits and History,\" \"Pure McCartney,\"
-        and \"Red Rose Speedway\".\n\n5. **Music Videos**: There are multiple versions
-        of the music video, including one restored from the \"Red Rose Speedway Archive
-        Collection\" Bonus DVD and another produced by MPL as part of the promotion
-        for the TV special and album \"Wingspan\" in 2001.\n\n6. **Recording Details**:
-        The song was recorded at EMI Studios, Abbey Road, on September 20, 1972, and
-        mixed on November 6, 1972.\n\n7. **Lyrics and Inspiration**: Paul McCartney
-        wrote the song in a sensuous mood while in Spain. He intended the lyrics to
-        be playful and not explicitly about drugs, but the song was still interpreted
-        as such due to the cultural context of the time."}, "delta": {"role": "assistant",
-        "content": ""}}]}'
+      string: '{"id": "8109782c-0a2a-4427-9081-b8419fdfa89f", "model": "llama-3.1-sonar-huge-128k-online",
+        "created": 1730332125, "usage": {"prompt_tokens": 2, "completion_tokens":
+        287, "total_tokens": 289}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "The
+        term \"hihi\" can have multiple meanings depending on the context and language:\n\n1.
+        **English**:\n   - **Interjection**: An alternative form of \"hehe,\" used
+        to express laughter or amusement.\n\n2. **Cantonese**:\n   - **Noun, Verb,
+        Adjective**: Originally internet slang, it is a euphemistic and neologistic
+        synonym for \"\u4ec6\u8857\" (a derogatory term).\n\n3. **Tokelauan**:\n   -
+        **Verb**: To hoist or hang something.\n   - **Noun**: Derived from Proto-Polynesian
+        and Proto-Nuclear Polynesian, with various meanings including the act of hoisting
+        or hanging.\n\n4. **Maori**:\n   - **Noun**: Refers to the stitchbird, a medium-sized
+        songbird native to New Zealand.\n   - **Noun**: In other contexts, it can
+        mean a radar beam or a ray in mathematics.\n   - **Verb**: To make a hissing
+        noise, hiss, or sizzle.\n\n5. **Other Uses**:\n   - **Company Name**: Hihi
+        Studios, an anime media company launched by Rachell ''Valkyrae'' Hofstetter.\n   -
+        **E-commerce**: A brand or product name, as seen in online shopping platforms."},
+        "delta": {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af7eafb79cf31-SJC
+      - 8daf4bf0e8b567fd-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:59:10 GMT
+      - Wed, 30 Oct 2024 23:48:45 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=ZPoe0wVck1meJbL4b49Ob5DN6qRL86sRNQFmD_0L_98-1729112350-1.0.1.1-X5NhGDEBPbHoY0c7NGuUFT6uIiz.dhIAkkUXiljMUsi4WR30ZZgAfK4XBnWsGY0BY55ToQWMuZeWmfOt.pE_Hw;
-        path=/; expires=Wed, 16-Oct-24 21:29:10 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=_7QKjwXkHkskpD07d9FE3I7hNt2iMPk.eA.xf9CQSQ8-1730332125-1.0.1.1-k4s_3jy7PU5xK8OptAp69_GDnEsMtpAMNUY_Xd4yHNnYU27F5jChrlCeszJA4K7pYYFzMOKDmc25UvKcjQkCXA;
+        path=/; expires=Thu, 31-Oct-24 00:18:45 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
       Transfer-Encoding:
       - chunked
       content-length:
-      - '2055'
+      - '1399'
     status:
       code: 200
       message: OK

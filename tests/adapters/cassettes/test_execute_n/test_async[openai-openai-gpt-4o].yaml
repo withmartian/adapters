@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,36 +37,34 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5YqBpwnhlrIAs5WdpolZ7jB88TN\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729112972,\n  \"model\": \"gpt-4o-2024-08-06\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello! How can I assist you today?\",\n
-        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-        \"stop\"\n    },\n    {\n      \"index\": 1,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello! How can I assist you today?\",\n
-        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-        \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 8,\n    \"completion_tokens\":
-        18,\n    \"total_tokens\": 26,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_6b68a8204b\"\n}\n"
+      string: !!binary |
+        IaQNACAW6nTXMl1/thtgFRhFQVmvEE3dBJcfO9yWBzbX+SLpPOr1NdCACyz1bJ0Wk82p/+pYCfcu
+        BUAdSxJk2mpksujTg7uj7vC9OLvqn03PD09647snd3a/qDwVq9mEEgEQ664zI6Ta3GIQdDiooJPL
+        dc6SRKFWypdKxWK+LLyQsXWeJKgVR2mZ02K+WE7z9TRfBWvb3DFuSBJfAgCWvRlAz9+PSCKfjKLN
+        GDZJxY8AGrB3JEFqOOwMRyqMKFHIZK8zkqBz5z1v4JynMCrgAqA3mPMYI7ZqvgfOPFk/rjxJhLH3
+        pNbam5jnVhywHupgL1Git87fpVofkgQNRxxJEBSH+AcKJRTAz6T2x4EYUBxwFkd/I+65MCSJegwd
+        WkQZuSrUzJ8PZGRbxWpCqP4y7llDe3sAGWXazqJ5vk1a2y2lARHOOqHlA2SSgs2i5AYHf81OaLlB
+        HHSm4bwZ/wqVhq2XygVjSKyFAQM=
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b07ce2da89e58-SJC
+      - 8daf4e325f79964b-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:09:32 GMT
+      - Wed, 30 Oct 2024 23:50:04 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=78_knzkGdmbJTnijrmQnm..GO_S6ZPGooVTvnsSdEWU-1729112972-1.0.1.1-6WWp4nPTM0ay4DPz8rpAz7RBa7PIUYi83tspjM73_h9nrEIImCRSoG6NctipG.bQIqLF2H.k5gMD.Os8utT5Fg;
-        path=/; expires=Wed, 16-Oct-24 21:39:32 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=UUbeZb6ilb_hiJwvaMEsCA5jHcugaWQNmFPr1TEVG08-1730332204-1.0.1.1-bx85lM4eFYazI9xzFx9URqg5oKk5UQ31M1oNPVX1nQ5MOwVQ1HQXqRxFcIsYoerRv_YI31fHh_HPoei3Leqpzg;
+        path=/; expires=Thu, 31-Oct-24 00:20:04 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=DcHeWVvNUTamYp8Qt.h07ss6Y2LCqyqExypzyJiRYL4-1729112972931-0.0.1.1-604800000;
+      - _cfuvid=cHNbhWBWlDZafnR4Pi_rAmm.xZBbBz564cyX9qrU5W4-1730332204488-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -76,12 +74,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '874'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '310'
+      - '488'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -93,13 +89,13 @@ interactions:
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '29999965'
+      - '29999966'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_05f069f1aa37544bce33c0e35cb9369a
+      - req_b6d6b4364b1f4f5391d4b6d8e0a806b6
     status:
       code: 200
       message: OK

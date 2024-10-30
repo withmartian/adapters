@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,33 +38,34 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5SUDbvEdm9NeUGEFTEnJCI3KqCz\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729112578,\n  \"model\": \"gpt-4o-2024-08-06\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello! How can I assist you today?\",\n
-        \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-        \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 18,\n    \"completion_tokens\":
-        9,\n    \"total_tokens\": 27,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_a20a4ee344\"\n}\n"
+      string: !!binary |
+        ISgKACAW01VPU81vnTPjXSsTiBjJErvz/7sJLne7gRtsgcz9fJH0POr0a6CBp+1K6S9xmx1vDt9u
+        BECxRxLkRqp2M2tap8/nyfu7Xd1P9fT59aX0onX0siwzfT44q8kRALFOfLdGGu0tBn7MuQk5uVzl
+        eyTRmwy6g0G/Nx10vsjY8w1JUGjr1pBb/W5/2OpOW90xWBlx7PoVSXwJANjUNgA9fz8mia7TSjZj
+        WCQNIQCVbHySIFVVcVWrXDIqRhS9DiRBN74xvIcbXsBVOW4B+oMVN6jZU6tjcOnJ+lllSCJvjCE1
+        d2oyhkNbsq5sqEoS6G30d6nWJElQVbMlTcFOAD9eTxtHIGRLzmz9V3Pq5xVJ9KZOjGiaSwb6LJc+
+        RaDUddafOITGX0g6sxrvCiBXuZHvoWU3rdoN20iDPNzEeagBM+mCzaTT/2/+gjgP/dKW8TI8B/av
+        N5p508Gw57okdsIAAw==
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3afe2b9a0516fb-SJC
+      - 8daf4db44ad2faca-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:02:58 GMT
+      - Wed, 30 Oct 2024 23:49:44 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=OYoVpGeB14HXgQKWfzA6.g1lGOXdC8jhGoGoYMzljpM-1729112578-1.0.1.1-eQS.sEXpaA8_HkZMkl8VZSpdzi5hYT0uwV8UbKxYT9xSyDtPY4iHDgrTXqrbNNSsEYh3naHahY2IXlLY1TPvwg;
-        path=/; expires=Wed, 16-Oct-24 21:32:58 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=KidZu.Y8ZfqweFyzGi9SLd352huEwQ..ZLNZQYA_3pA-1730332184-1.0.1.1-3z4DA8QmvV5aDNXB2rztYgiCujnhnMSQaYDjptzJP4.lcnIRsJKu6AdFlKuY0vrrcvgmhQZHWW04Y5eEr8gCPw;
+        path=/; expires=Thu, 31-Oct-24 00:19:44 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=XjB4OJeMoXVLdoAhWyWJlzKpvEZJy2z_EbnJ6_1sgps-1729112578429-0.0.1.1-604800000;
+      - _cfuvid=Uec1Aup_.IVB2OSxIXM1PX6iJj2SoycireoNpfytOSY-1730332184222-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -74,12 +75,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '651'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '466'
+      - '388'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -97,7 +96,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_10acd521d29c2cde59926d50a9b57009
+      - req_cef5569b983c0b3a96f0153afcf1f531
     status:
       code: 200
       message: OK

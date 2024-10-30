@@ -6,7 +6,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -16,7 +16,7 @@ interactions:
       host:
       - api.ai21.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,29 +37,33 @@ interactions:
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-d6fcaa484167436c9696f830e70213ff","choices":[{"index":0,"message":{"role":"assistant","content":"{\n    \"response\":
-        \"Hello! How can I assist you today?\"\n}","tool_calls":null},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":87,"completion_tokens":19,"total_tokens":106}}'
+      string: !!binary |
+        IVwFACD+o65N6+chFqh4sBWGSc9SOc3lJ2kL/saB42CDXsOgjwsOuNAwybT4uDvRc+BpvyrTv9i0
+        kGjWarjKizBPyzatVNmmWdGWSd5kTVjmcRGrLE0gQF2f9JDvv0ikL5ChwF3EF+QvPOsOEqrvN/2g
+        zAAB0bhK4ndiiIgmwPM7gaQJHjut+YCeTve07nwX1tAk5L/QwLTutL2m57UayPUpffNItOkrTDvD
+        n8Se2k3fjH3/MMHE/ENgYNbzRmndQ5pR638BzSvruW6igAqbmzterSHRD2zxPxUY4fTW894O84F3
+        nekhy6LU3upu2LAZhSQUeEoALHMUFf//Aw==
     headers:
-      CF-Cache-Status:
-      - DYNAMIC
       CF-RAY:
-      - 8d3afc10dd5a7ac4-SJC
+      - 8daf4efefca85c22-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:01:32 GMT
+      - Wed, 30 Oct 2024 23:50:37 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      content-length:
-      - '304'
+      cf-cache-status:
+      - DYNAMIC
       request-id:
-      - 9fa14799-93e4-8011-0dbc-e6c6d1c32aaf
+      - 47f6e8a6-7a4c-1322-15b5-26324e5ad4ca
       via:
       - 1.1 google
     status:

@@ -1,0 +1,72 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "dolphin-mixtral-8x7b", "function_call": {"name": "generate"}, "functions":
+      [{"description": "Generate random number", "name": "generate"}], "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '236'
+      content-type:
+      - application/json
+      host:
+      - dolphin-mixtral-8x7b.lepton.run
+      user-agent:
+      - OpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://dolphin-mixtral-8x7b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-o8XRKGo2M6XxNguTXq3Cvm","object":"chat.completion","created":1730332125,"model":"dolphin-mixtral-8x7b","choices":[{"index":0,"message":{"role":"assistant","content":"To
+        generate a random number in Python, you can use the built-in `random` module.
+        Here''s an example:\n\n```python\nimport random\n\n# Generate a random number
+        between 1 and 10 (inclusive)\nrandom_number = random.randint(1, 10)\n\nprint(\"Random
+        number:\", random_number)\n```\n\nIn this example, the `randint()` function
+        from the `random` module is used to generate a random integer between 1 and
+        10 (inclusive). The generated random number is then printed to the console.","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":12,"total_tokens":143,"completion_tokens":131}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daf4c4a1fed7e27-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:48:47 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '819'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '1556'
+    status:
+      code: 200
+      message: OK
+version: 1

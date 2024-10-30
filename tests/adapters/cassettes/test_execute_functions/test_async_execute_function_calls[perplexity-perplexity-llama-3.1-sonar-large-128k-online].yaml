@@ -1,0 +1,102 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "llama-3.1-sonar-large-128k-online", "function_call": {"name": "generate"},
+      "functions": [{"description": "Generate random number", "name": "generate"}],
+      "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '249'
+      content-type:
+      - application/json
+      host:
+      - api.perplexity.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.perplexity.ai/chat/completions
+  response:
+    body:
+      string: '{"id": "180e2fd4-6761-4df4-bccf-db0bd1b5e70c", "model": "llama-3.1-sonar-large-128k-online",
+        "created": 1730332143, "usage": {"prompt_tokens": 3, "completion_tokens":
+        551, "total_tokens": 554}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "To
+        generate random numbers, you can use various methods depending on the programming
+        language or tool you are working with. Here are some common approaches:\n\n##
+        Using Python\nIn Python, you can use the `random` module to generate random
+        numbers.\n\n### Generating a Random Integer\nTo generate a random integer
+        within a specified range, you can use the `random.randint` function:\n```python\nimport
+        random\nrandom_number = random.randint(1, 10)  # Generates a random integer
+        between 1 and 10\nprint(random_number)\n```\n\n### Generating a Random Floating
+        Point Number\nTo generate a random floating-point number between 0 and 1,
+        you can use the `random.random` function:\n```python\nimport random\nrandom_float
+        = random.random()\nprint(random_float)\n```\n\n### Generating a Random Choice
+        from a List\nTo randomly choose an element from a list, you can use the `random.choice`
+        function:\n```python\nimport random\nrandom_choice = random.choice([1, 2,
+        3, 4, 5])\nprint(random_choice)\n```.\n\n## Using JavaScript\nIn JavaScript,
+        you can use the `Math.random` method to generate a pseudo-random number.\n\n###
+        Generating a Random Floating Point Number\n`Math.random` generates a floating-point
+        number greater than or equal to 0 and less than 1:\n```javascript\nlet randomNumber
+        = Math.random();\nconsole.log(randomNumber);\n```\n\nTo scale this to a different
+        range, you can multiply and adjust the result:\n```javascript\nlet randomNumber
+        = Math.floor(Math.random() * 10) + 1; // Generates a random integer between
+        1 and 10\nconsole.log(randomNumber);\n```.\n\n## Using Online Tools\nIf you
+        need to generate random numbers without writing code, you can use online tools
+        like the one provided by Calculator Soup.\n\n### Generating Random Numbers
+        with Calculator Soup\nYou can specify a range and generate random numbers
+        within that range. For example, to generate a 6-digit PIN without duplicates:\n-
+        Set the minimum number to 0 and the maximum number to 9.\n- Generate 6 numbers.\n-
+        Do not allow repeats.\n- Do not sort the numbers..\n\n## Using Pseudorandom
+        Number Generators (PRNGs) in Other Languages\nMany programming languages,
+        including C#, Java, and others, provide built-in classes or functions for
+        generating pseudo-random numbers. For example, in C#, you can use the `System.Random`
+        class:\n\n```csharp\nvar rand = new Random();\nint randomNumber = rand.Next(1,
+        11); // Generates a random integer between 1 and 10\nConsole.WriteLine(randomNumber);\n```."},
+        "delta": {"role": "assistant", "content": ""}}]}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daf4c7b5d4dcf1e-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:49:03 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=NbMtEsCH4yEoFS37tn8zd7c0140cNT.CIOi9dTVdWGU-1730332143-1.0.1.1-rSWzZ5cr4D9pxQYe3qk3hpW55c_IiedO.OiLXcdDmw8OIe4WKXrone3E02VEJ8nBcBNE8EuYN0Q5hWmjjr7jlQ;
+        path=/; expires=Thu, 31-Oct-24 00:19:03 GMT; domain=.perplexity.ai; HttpOnly;
+        Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '2834'
+    status:
+      code: 200
+      message: OK
+version: 1

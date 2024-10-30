@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.deepinfra.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,23 +38,24 @@ interactions:
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-6ad617b593a14260bf234d9ba455f20c","object":"chat.completion","created":1729111888,"model":"google/gemma-2-27b-it","choices":[{"index":0,"message":{"role":"assistant","content":"It
-        looks like you''re looking for a continuation or response related to a previous
-        conversation. Please provide me with the context of the previous conversation
-        so I can assist you better.\n\nFor example, you could tell me:\n\n* **What
-        was the topic of the conversation?**\n* **Who were you talking to? (yourself,
-        a friend, a fictional character?)**\n* **What was the last thing that was
-        said?**\n\nThe more information you give me, the better I can understand what
-        you''re looking for!","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"total_tokens":128,"completion_tokens":109,"estimated_cost":3.456e-05}}'
+      string: "{\"id\":\"chatcmpl-78000d99c38140978c67a78e317e1865\",\"object\":\"chat.completion\",\"created\":1730332157,\"model\":\"google/gemma-2-27b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
+        provide me with a question or topic you'd like to discuss. I'm ready to help!
+        \U0001F60A  \\n\\nFor example, you could ask me:\\n\\n* **To tell you a story:**
+        \\\"Can you tell me a story about a brave knight?\\\"\\n* **To explain something:**
+        \\\"Can you explain how photosynthesis works?\\\"\\n* **To give you some ideas:**
+        \\\"I need help coming up with ideas for a birthday present.\\\"\\n* **To
+        translate something:** \\\"Can you translate 'Hello, how are you?' into Spanish?\\\"\\n*
+        **Just to chat:** \\\"What's your favorite thing about being a large language
+        model?\\\" \\n\\n\\nI'm excited to see what you come up with! \u2728\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":19,\"total_tokens\":167,\"completion_tokens\":148,\"estimated_cost\":4.508999999999999e-05}}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '834'
+      - '963'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:51:28 GMT
+      - Wed, 30 Oct 2024 23:49:17 GMT
       server:
       - uvicorn
       x-robots-tag:

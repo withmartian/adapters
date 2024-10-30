@@ -1,0 +1,87 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "hermes-2-pro-llama-3-8b", "stream": false, "tool_choice": {"type": "function",
+      "function": {"name": "generate"}}, "tools": [{"type": "function", "function":
+      {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '458'
+      content-type:
+      - application/json
+      host:
+      - text.octoai.run
+      user-agent:
+      - OpenAI/Python 1.52.2
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.52.2
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://text.octoai.run/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-0cd9cd4e10304222a2fe3c532dccfe1d","object":"chat.completion","created":1730324396,"model":"hermes-2-pro-llama-3-8b","choices":[{"index":0,"message":{"role":"assistant","content":"Sure!
+        Here''s a simple Python script that you can use to generate a random integer.\n\n```python\nimport
+        random\n\ndef random_number(min_value, max_value):\n    # This function generates
+        a random integer between two given numbers.\n    # min_value and max_value
+        are the lower and upper bounds for the random number.\n    random_int = random.randint(min_value,
+        max_value)\n    return random_int\n\nuser_min = int(input(\"Please enter the
+        minimum value: \"))\nuser_max = int(input(\"Please enter the maximum value:
+        \"))\n\nresult = random_number(user_min, user_max)\nprint(\"A random number
+        between\", user_min, \"and\", user_max, \"is:\", result)\n```\n\nIn this script,
+        `random.randint(min_value, max_value)` generates a random integer between
+        `min_value` and `max_value` (inclusive). After you run this script, it will
+        ask for the minimum and maximum values you want the random number to be between,
+        and then it will display one random number within that range."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":12,"completion_tokens":207,"total_tokens":219}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1272'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 21:39:56 GMT
+      Server:
+      - uvicorn
+      Vary:
+      - Origin
+      Via:
+      - kong/3.2.2
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '2736'
+      X-Ratelimit-Limit:
+      - '4'
+      X-Ratelimit-Remaining:
+      - '3'
+      X-Ratelimit-Reset:
+      - '1730324397'
+      X-User-Request-Id:
+      - ''
+    status:
+      code: 200
+      message: OK
+version: 1

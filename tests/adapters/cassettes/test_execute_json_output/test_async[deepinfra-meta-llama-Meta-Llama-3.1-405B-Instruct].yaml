@@ -1,0 +1,58 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "meta-llama/Meta-Llama-3.1-405B-Instruct",
+      "response_format": {"type": "json_object"}, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '172'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - AsyncOpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-e074b30747334d5e8f2919f9a70fdcf4","object":"chat.completion","created":1730332254,"model":"meta-llama/Meta-Llama-3.1-405B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"{\n    \"message\":
+        \"Hello! How can I assist you today?\"\n}\r","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":14,"total_tokens":31,"completion_tokens":17,"estimated_cost":5.549e-05}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '429'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:50:54 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1

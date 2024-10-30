@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "google/gemma-2-27b-it",
-      "stream": false}'
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "google/gemma-2-27b-it", "stream":
+      false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '104'
+      - '160'
       content-type:
       - application/json
       host:
       - api.deepinfra.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,22 +38,21 @@ interactions:
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-5596872c5bc348f7bc343def09921f4d\",\"object\":\"chat.completion\",\"created\":1729112242,\"model\":\"google/gemma-2-27b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Hi
-        there! \U0001F44B\\n\\nWhat can I do for you today? \U0001F60A\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":12,\"total_tokens\":26,\"completion_tokens\":14,\"estimated_cost\":7.02e-06}}"
+      string: '{"detail":"Multimodal is not supported for model: {inp.model}"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '398'
+      - '63'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:57:22 GMT
+      - Wed, 30 Oct 2024 23:49:01 GMT
       server:
       - uvicorn
       x-robots-tag:
       - noindex
     status:
-      code: 200
-      message: OK
+      code: 405
+      message: Method Not Allowed
 version: 1

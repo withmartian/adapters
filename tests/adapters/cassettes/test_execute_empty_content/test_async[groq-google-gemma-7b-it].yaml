@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.groq.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,47 +38,46 @@ interactions:
     uri: https://api.groq.com/openai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-ac5cad09-988f-490b-a187-5aac4f04e1c8","object":"chat.completion","created":1729112098,"model":"gemma-7b-it","choices":[{"index":0,"message":{"role":"assistant","content":"**It''s
-        important to have some context to understand your query.** \n\nPlease provide
-        more information about:\n\n* **What you''re specifically interested in:**
-        What are you looking to learn or achieve?\n* **The area of interest:** What
-        is the specific topic or subject you''re inquiring about?\n\nOnce you provide
-        some context, I can provide more relevant and tailored information.\n\n**Here
-        are some examples of possible topics:**\n\n* **Current events:** News, analysis,
-        and opinions on recent happenings.\n* **Technology:** New developments, trends,
-        and reviews of the latest gadgets.\n* **Business and finance:** Market insights,
-        industry analysis, and investment advice.\n* **Culture and society:** Trends,
-        discussions on social issues, and entertainment news.\n* **Science and environment:**
-        Research findings, innovation breakthroughs, and conservation efforts.\n\n\n**Please
-        share your specific query or area of interest, and I''ll be happy to assist
-        you further.**"},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.0009774320000000003,"prompt_tokens":20,"prompt_time":0.013006527,"completion_tokens":198,"completion_time":0.236672019,"total_tokens":218,"total_time":0.249678546},"system_fingerprint":"fp_7d8efeb0b1","x_groq":{"id":"req_01jabhshv3ff988rhms0p6g2xk"}}
-
-        '
+      string: !!binary |
+        MVAXACB+6fTrr6ne7GWPwCHTXu5i94NH4AVkg1ZeyXn893PLldxn1lBt6m9Lg8SRRmmWoLo28UTo
+        n9SwMUfbDz9bqBxwTQj13Tu5LRVUtTZVfeiyaj6dju1ymdXlospm86rM7KTibL6sV5PR2o55vSBD
+        Uu64SsJinmGQ5MSToVPLP8RbKsbL6Wg6nYxHc0O9bLmjghrue5sty8wlMnQQfoNIxdOd3m8/SMXI
+        UJbFLlTcSaVjKsjG6GKyXq4b8Yl9ooI0OxdXOSoOR9YrXIRF6RJOtjlyjv+CnJJhsGi5C/WxA6Zo
+        Br/gmbfoRbmF0pRLgigK8flrVwHIkTme/bP/3bGNPC0mCxE9AbaUY8K5tQlXOX7c4pT3UsHeyxmi
+        l/G181vuAs4utSus+MnKsMqI0jPMeAysso34hcp6SF2zAhp19d0Diotn/+wHGAyCkbK0rRgMhEko
+        ZFuuE4+oRYDUSBJcFemKzOmxG8RSCA42qDb4M/jEPkUDUfgTn29n1m+VsuM+i9KdnG9+XI1MJ2XU
+        tnK+wdrjYjwaxVpZjw1iqdb5mER7OChH10JUrbzomjbFHEgkflG2yZ3MWuXTH5ygvycjJlHH0SAI
+        99FgJ3vWh+q/tRaqaSQQDOZwIE6FqDIZk9A8AH/4zo2BziZ+OMyJBsGqDa3ayIgk/QXchSMrrwat
+        rRKeNClgVVFlQRXHESeXrkguxAJpJSeTUOiBu7lqI4PkegYhQOXLw7R+G/fRMLj3yZK51HlUtNu4
+        E6Pn6ImBKJRHbIiCCh7b2GZhn7oKHVb4z/YK9joup4ehTpqgUkYq/LHrDFVQVG261R1OBcUkgR4v
+        ho7k8T+HIx95k1zPVIzyyWg6XswmY0NBpQ9pk2TPPlIxGQ0T96OMJtP1arIcrQ1RGxSqsLhGroIw
+        my9G69VqYugLJegYJoth8v5Ri/V8PZmvxw9DhTF6bGrnG9agjtwOrsNmuV1xzeWoHJOhy6ZROVDB
+        13dQPmxG411ZX9aLdOD2Vi5Co/1uvl2GWU2PxxsDAw==
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af2787ca796c3-SJC
+      - 8daf4bcb9b9e1754-SJC
       Cache-Control:
       - private, max-age=0, no-store, no-cache, must-revalidate
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:54:58 GMT
+      - Wed, 30 Oct 2024 23:48:26 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=Et9jP2RjUU115g2XLrKjEXfe5mM_HV..w5pM39ubKEI-1729112098-1.0.1.1-XZi3HZZXzwbegO_vyrlWXq9_k4XJ_SuRS0reCE6srCV62h_2k3euT22Elv_estTvQpDCUGrNHRznbn0MIsvGqg;
-        path=/; expires=Wed, 16-Oct-24 21:24:58 GMT; domain=.groq.com; HttpOnly; Secure;
+      - __cf_bm=b6_zAifqi_0eZkS_6cGYmmdJQoQURljAJg8s39W5FnM-1730332106-1.0.1.1-TEFoSvnoekk_D39rNnynp4KUx74I0Ji2pToY8Xs0VWJ1HUl69sRzt6TaAvjoWDgX3NsyEBS2c4Kh_GM182M1aw;
+        path=/; expires=Thu, 31-Oct-24 00:18:26 GMT; domain=.groq.com; HttpOnly; Secure;
         SameSite=None
       Transfer-Encoding:
       - chunked
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '1475'
       vary:
       - Origin
       via:
@@ -96,7 +95,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 68ms
       x-request-id:
-      - req_01jabhshv3ff988rhms0p6g2xk
+      - req_01jbfx96tqehzb6pgrmj5d7p4f
     status:
       code: 200
       message: OK

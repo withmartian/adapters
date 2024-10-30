@@ -9,7 +9,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -19,7 +19,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -29,7 +29,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -40,34 +40,34 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5rYRXoQ0tBZ05Gz98Rl7HluMHXd\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729114132,\n  \"model\": \"gpt-4o-2024-08-06\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Could you please provide a prompt or
-        context, such as a range or any other specific requirement, for generating
-        the random number?\",\n        \"refusal\": null\n      },\n      \"logprobs\":
-        null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
-        63,\n    \"completion_tokens\": 25,\n    \"total_tokens\": 88,\n    \"prompt_tokens_details\":
-        {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\":
-        {\n      \"reasoning_tokens\": 0\n    }\n  },\n  \"system_fingerprint\": \"fp_e5e4913e83\"\n}\n"
+      string: !!binary |
+        IUQLACD+v27+nmW6581QoPV8EVk9mOQFa33gnEIDtCpssMKowAIZTuePBjvoia9zmnicZpQquJ2A
+        7Lc7AVAWkgQFqeqCypT2xdvl9eU8ub7x7u5eny4+V9kq0VfPL/3aBM9kCYDYz6Og06QHIQZSxhoC
+        Zy5/FoUk4c1G7mg4HY1Gwi8qDqOSJCgxnT1me+gOx7Y7t92p8tOUsyBqSeJLAMBuNgGo/X2NJFzr
+        KRyMwZIE/gmghsuIJEi1bdZ2SndkAULV6y5L0BX3ZYgN90hWz0bIyv9hAwXTcGU6cIPXboOYG5Rd
+        G+ukMUhdo3TIVaBO6LseKdwa9oAbdBsTnW0h1Pi+V5UkofuylDEHmzwlJ6Zhv8UgAy4XV/q7mquT
+        JKjt2JCmfBDAj++qvTtIsuPkX8dFpFuSmI6WKtFhhQDA0Av9W4GQbG0+thjpv8p25db3exSoII1C
+        bcLlbHVYN5EGNHGS6WQPEBMl2BgqInDiL850EjWmyU7zcWz+xpMgnozDSEUkDsIAAw==
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b241cff391761-SJC
+      - 8daebede0f29fab2-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:28:52 GMT
+      - Wed, 30 Oct 2024 22:12:13 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=qQysSSdn0BvWvauHJgTwx8Kh2phnPoM8jN00F.93LrM-1729114132-1.0.1.1-4HSV1S_EUsjx9mII85aJMU7FChy2weZX9KXrTpKvcfJt8okeDOsWHTVcB_i2oEv0nrxaB8mIq_rvKcE0uaRFIw;
-        path=/; expires=Wed, 16-Oct-24 21:58:52 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=qhidyh055LW.qiNCroIQZkaTGMU1N0H8wipif106UHc-1730326333-1.0.1.1-NXqPNw0G7ay7qL7xhqoDvrSseDQZEFwfS80rehAjJRJnpijctyjqhaH_2mJgrW0E4PIOcysneP.TlMc19S8_RQ;
+        path=/; expires=Wed, 30-Oct-24 22:42:13 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=ONtFXiPYyDHKxqJS7h_RXFJ3xRXSYwgTCNZQt7_1oZk-1729114132860-0.0.1.1-604800000;
+      - _cfuvid=2MamiaT8FJWMEVLfhxzzZIgjsI0CWCT6Dnyu1GVI2C0-1730326333613-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -77,12 +77,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '748'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '752'
+      - '379'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -100,7 +98,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_3fd5a9396a525d7ab3a5660969507ece
+      - req_ca30c65121a3790e28440e3343266bb5
     status:
       code: 200
       message: OK

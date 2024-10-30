@@ -1,22 +1,22 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi\nHi"}], "model": "o1-mini",
-      "stream": false}'
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "o1-mini", "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '90'
+      - '146'
       content-type:
       - application/json
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,33 +37,34 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5NjEG1dLHlmFBz8BWstqHtUJTg4\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729112283,\n  \"model\": \"o1-mini-2024-09-12\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello! How can I help you today?\",\n
-        \       \"refusal\": null\n      },\n      \"finish_reason\": \"stop\"\n    }\n
-        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 12,\n    \"completion_tokens\":
-        212,\n    \"total_tokens\": 224,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        192\n    }\n  },\n  \"system_fingerprint\": \"fp_692002f015\"\n}\n"
+      string: !!binary |
+        IeQJACAWrak/oyarQ3gFxqPkeR9bFqZC1VUI28GbYLMB0rODH2yAp3csnGACUdPCQAMPLLvm3tjl
+        fdiR3v0UAPmWJMh4qjRxGjVWjtb8tb31YuUoW7vyBlvv+7snnJmT+KJor1FdAMQ6cKbU5M0UA+dz
+        AqGVy0vOkkRn1Gv3et1Ouy18ErN1EUkQdxqxn/iNbrvbb7QnjU5Xu+ixb1xBEncCAD53GUDz71uS
+        4EKnNBtDkgT+BFDOkSMJUkXhF6VKSqoDGu3rrkvQtosiruH/7/cH2/wKoxLsQPML3rlCyVa9LzE0
+        BtdPVUQSSRVFMvFtEm3rtnh6QmtIElSUnBLCfwvgwcV1ZfUNSnOO0/Kp5NAlBUl01oKC2gDAbqfx
+        BwINGei1GflTB7plEaI9Msp4zrJu28KNnnt7abCLmZ/MbCNMTLAJKvZ/8DT1k5nL09wP+vk0feoN
+        TGdi+2OjSHwLAwM=
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af6f9a81c232c-SJC
+      - 8daf4badace26893-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:58:05 GMT
+      - Wed, 30 Oct 2024 23:48:21 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=IywsbAW1sY5BjeOIyShh8280kZzcejo_XjLnzVma2n4-1729112285-1.0.1.1-HbwxlC3uxs7GaCbjJQyr8RBmZA8_sWqu8HH5mDFefdbWjQNzZmWOvBOMBlr3krl2M4z4HKgIBlT2udZfhj3FBQ;
-        path=/; expires=Wed, 16-Oct-24 21:28:05 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=LUA4xAWh.fW8ATcDucqBxrinI7.SFMMpUXH3sjlQSrE-1730332101-1.0.1.1-Rab1U9OJI7nlT4prSNgcUi0qa9ZNImzKbWIaC3QNmRpjBu0E3Npm.P_1h17DZfyEI.mjYUknPQxHed79EhXWIQ;
+        path=/; expires=Thu, 31-Oct-24 00:18:21 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=b3fgoWJK.ah6zLNZoyN.kGr1npIzR7iuuRHZ3EWpfLo-1729112285290-0.0.1.1-604800000;
+      - _cfuvid=GoiyD..PHEInWQpAf7lU5sOnhUqqFoc4AgcQKv6bfC4-1730332101720-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -73,12 +74,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '631'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '2003'
+      - '869'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -90,13 +89,13 @@ interactions:
       x-ratelimit-remaining-requests:
       - '29999'
       x-ratelimit-remaining-tokens:
-      - '149999981'
+      - '149999982'
       x-ratelimit-reset-requests:
       - 2ms
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_fb2b0632e42bdfd3b645c01c855dbcb1
+      - req_6c0fa83e6ee3780f1e0a7fddb5c79798
     status:
       code: 200
       message: OK

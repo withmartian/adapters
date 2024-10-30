@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.fireworks.ai
       user-agent:
-      - OpenAI/Python 1.52.0
+      - OpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.52.0
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,27 +38,27 @@ interactions:
     uri: https://api.fireworks.ai/inference/v1/chat/completions
   response:
     body:
-      string: '{"id":"10e9fe25-47ef-4db5-b263-22cc6ee2d946","object":"chat.completion","created":1729463565,"model":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"How''s
-        your day going so far?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":17,"total_tokens":26,"completion_tokens":9}}'
+      string: '{"id":"a1b30069-a720-4e93-a3e7-326329edf689","object":"chat.completion","created":1730326832,"model":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"How''s
+        it going?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":17,"total_tokens":23,"completion_tokens":6}}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8d5c7733b83b6435-SJC
+      - 8daecb0acdd867f9-SJC
       Cf-Placement:
-      - remote-IAD
+      - local-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Sun, 20 Oct 2024 22:32:45 GMT
+      - Wed, 30 Oct 2024 22:20:32 GMT
       Server:
       - cloudflare
       Server-Timing:
-      - total;dur=132.0;desc="Total Response Time"
+      - total;dur=196.0;desc="Total Response Time"
       Transfer-Encoding:
       - chunked
       Vary:
@@ -66,7 +66,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       content-length:
-      - '348'
+      - '335'
       fireworks-middleware-version:
       - v2
       fireworks-sampling-options:
@@ -74,11 +74,11 @@ interactions:
         0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
         "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
       fireworks-server-processing-time:
-      - '0.100'
+      - '0.066'
       x-envoy-upstream-service-time:
-      - '104'
+      - '68'
       x-request-id:
-      - 10e9fe25-47ef-4db5-b263-22cc6ee2d946
+      - a1b30069-a720-4e93-a3e7-326329edf689
     status:
       code: 200
       message: OK

@@ -9,7 +9,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -19,7 +19,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -29,7 +29,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -40,35 +40,34 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5s3LSlIOnxTxDYJ34Jt713Bobbj\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729114163,\n  \"model\": \"gpt-4o-2024-05-13\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Can you please provide a prompt or
-        context for the random number you'd like to generate? For example, it could
-        be a range or a specific scenario.\",\n        \"refusal\": null\n      },\n
-        \     \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n
-        \ \"usage\": {\n    \"prompt_tokens\": 63,\n    \"completion_tokens\": 30,\n
-        \   \"total_tokens\": 93,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        0\n    }\n  },\n  \"system_fingerprint\": \"fp_568f3bfff7\"\n}\n"
+      string: !!binary |
+        IVQKACAW6nTXMl2vRHbC2goIJnyFaOom2NsD2qKBowJbIHNY2CWU5mNpGmjCYXaurcenreUQvZHe
+        nSmAiU8NerHT9wqT7x7cHZ5U7txh7WJUex2cPjeH07N4/PDo3p49j7ijAIqbBl6fk++FGFiJlBCS
+        ufwq8KlhN6tWtdKothrEB4X4QU4NRqa/W5PdilWp7Vr1XbvKfBlL4gU9anwpAJitegDb3/eoYe3s
+        kmAMSQ38CWBX8oAadHq9pNd3yj53AInqdR80+DToBku4WM9z5FNfCeCg65S+FNE3Uwili4kM9sQk
+        mtcPOzk1ykGe08TiXKFcItMVt4ehg5R8a/w9r9VPDfb6YshpLxTwY397YNIdmq4Upv/Xlywoe9Ro
+        VFU16PAEANpW4n8EEoygmZbI/6rTNXv+G6PneHHgq+xayrwcvblikInDSRlNphwlWAhg5i9Myijo
+        mm5yI+eh+bNDJ/TdetW1qBbKAAM=
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b24e03a10982e-SJC
+      - 8daec027a81bd021-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:29:24 GMT
+      - Wed, 30 Oct 2024 22:13:06 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=4AtbFW.NYMfThFIwPYChthW7BA18Id6DScSWklEkGvY-1729114164-1.0.1.1-BOwBIqKJATZRa33z.tkZDYEf77XnGGZVPN5kxpPrqj_SEwBBh68iSfkpM02_e4U._BaMKaXSqfklc6CSs.wB.A;
-        path=/; expires=Wed, 16-Oct-24 21:59:24 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=rezoNP6Z1QiaUO7KGbe3OP1Q9WmVob_gucxLt36FCGA-1730326386-1.0.1.1-zHRBv5hoX7i07nwPtVh38Lr_5WROB7pn9Rq8ur7AOJ4xc65iyJNazfkAow5a7ywSj0TyAOMShhWWozLv9q9wAQ;
+        path=/; expires=Wed, 30-Oct-24 22:43:06 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=DyRR.0GsndeZvKavYSWwTgKGVJsp40RYKIMQ0k0Frd8-1729114164065-0.0.1.1-604800000;
+      - _cfuvid=0j4y8GJI_aqs7ScS3cW2DVs4zBRz9aJYS9nFWfBYGng-1730326386407-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -78,12 +77,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '763'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '716'
+      - '431'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -95,13 +92,13 @@ interactions:
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '29999976'
+      - '29999977'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_a230dd8b77a948c2bdfa55ac38dd6edc
+      - req_23bb449055b9544236d3d3b4b2d171ef
     status:
       code: 200
       message: OK

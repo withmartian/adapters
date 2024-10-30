@@ -1,19 +1,19 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"content": "\"\"", "role": "user"},
-      {"content": "\"\"", "role": "assistant"}, {"content": "\"\"", "role": "user"}],
-      "model": "claude-3-5-sonnet-20240620", "stream": false}'
+    body: '{"max_tokens": 4096, "messages": [{"content": "", "role": "user"}, {"content":
+      " ", "role": "assistant"}, {"content": "\n", "role": "user"}], "model": "claude-3-5-sonnet-20240620",
+      "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       anthropic-version:
       - '2023-06-01'
       connection:
       - keep-alive
       content-length:
-      - '206'
+      - '197'
       content-type:
       - application/json
       host:
@@ -40,46 +40,33 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01UNKo8VgTyxvWKZRCeXUgWi","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"I
-        apologize, but I haven''t received any content or question from you yet. The
-        quotation marks are empty. If you''d like assistance with something, please
-        provide some information or ask a question, and I''ll do my best to help you."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16,"output_tokens":54}}'
+      string: '{"type":"error","error":{"type":"invalid_request_error","message":"messages.0:
+        all messages must have non-empty content except for the optional final assistant
+        message"}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d57f501fec8176b-SJC
+      - 8daf4c604b36ce34-SJC
       Connection:
       - keep-alive
+      Content-Length:
+      - '170'
       Content-Type:
       - application/json
       Date:
-      - Sun, 20 Oct 2024 09:24:51 GMT
+      - Wed, 30 Oct 2024 23:48:49 GMT
       Server:
       - cloudflare
-      Transfer-Encoding:
-      - chunked
       X-Robots-Tag:
       - none
-      anthropic-ratelimit-requests-limit:
-      - '4000'
-      anthropic-ratelimit-requests-remaining:
-      - '3999'
-      anthropic-ratelimit-requests-reset:
-      - '2024-10-20T09:25:08Z'
-      anthropic-ratelimit-tokens-limit:
-      - '8000000'
-      anthropic-ratelimit-tokens-remaining:
-      - '8000000'
-      anthropic-ratelimit-tokens-reset:
-      - '2024-10-20T09:24:51Z'
-      content-length:
-      - '470'
       request-id:
-      - req_01NpwxYgP4S4RBUd71iBurUV
+      - req_01WSJm6WnnEkFokQZPMh3Gbq
       via:
       - 1.1 google
+      x-should-retry:
+      - 'false'
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
 version: 1

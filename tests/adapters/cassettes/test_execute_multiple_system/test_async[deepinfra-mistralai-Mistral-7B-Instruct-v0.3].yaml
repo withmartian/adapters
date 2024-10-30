@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.deepinfra.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,19 +38,20 @@ interactions:
     uri: https://api.deepinfra.com/v1/openai/chat/completions
   response:
     body:
-      string: "{\"id\":\"chatcmpl-269279540c354ae79e1f6b06810132b2\",\"object\":\"chat.completion\",\"created\":1729112725,\"model\":\"mistralai/Mistral-7B-Instruct-v0.3\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
-        Hello! It seems like we have some repeat greetings. How can I assist you today?
-        If you have questions or need help with something, feel free to ask. I'm here
-        to help! \U0001F60A\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":9,\"total_tokens\":53,\"completion_tokens\":44,\"estimated_cost\":2.915e-06}}"
+      string: '{"id":"chatcmpl-8099d43e7b704ef2b0bde95ddaaac64d","object":"chat.completion","created":1730332175,"model":"mistralai/Mistral-7B-Instruct-v0.3","choices":[{"index":0,"message":{"role":"assistant","content":"
+        Hello there! It''s nice to see you again. How can I help you today? Let''s
+        make our conversation more interesting. Could you tell me about your day so
+        far or what you''re currently working on? I''m here to chat and assist you
+        with any questions or tasks you might have.","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":9,"total_tokens":73,"completion_tokens":64,"estimated_cost":4.015e-06}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '532'
+      - '626'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:05:25 GMT
+      - Wed, 30 Oct 2024 23:49:35 GMT
       server:
       - uvicorn
       x-robots-tag:

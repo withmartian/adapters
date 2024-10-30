@@ -1,0 +1,69 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "mistral-7b", "function_call": {"name": "generate"}, "functions": [{"description":
+      "Generate random number", "name": "generate"}], "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '226'
+      content-type:
+      - application/json
+      host:
+      - mistral-7b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://mistral-7b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-qtxTTuD66WDQMVPS6qyC7X","object":"chat.completion","created":1730332075,"model":"mistral-7b","choices":[{"index":0,"message":{"role":"assistant","content":"Sure!
+        Here''s a random number between 1 and 100: 85.\n\nIf you need a random number
+        within a specific range or with more precision, let me know and I''ll be happy
+        to help!","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":7,"total_tokens":58,"completion_tokens":51}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daf4b0e591d1590-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:47:55 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '504'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '520'
+    status:
+      code: 200
+      message: OK
+version: 1

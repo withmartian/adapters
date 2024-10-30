@@ -6,6 +6,9 @@ class MoonshotModel(Model):
     provider_name: str = Provider.moonshot.value
     vendor_name: str = Vendor.moonshot.value
 
+    supports_vision: bool = False
+    supports_tools: bool = False
+
     properties: ModelProperties = ModelProperties(chinese=True)
 
 

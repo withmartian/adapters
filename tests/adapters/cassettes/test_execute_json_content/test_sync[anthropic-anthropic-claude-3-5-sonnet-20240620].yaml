@@ -1,18 +1,19 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"content": "Hi\nHi", "role": "user"}],
-      "model": "claude-3-5-sonnet-20240620", "stream": false}'
+    body: '{"max_tokens": 4096, "messages": [{"content": [{"text": "Hi", "type": "text"},
+      {"text": "Hi", "type": "text"}], "role": "user"}], "model": "claude-3-5-sonnet-20240620",
+      "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       anthropic-version:
       - '2023-06-01'
       connection:
       - keep-alive
       content-length:
-      - '129'
+      - '185'
       content-type:
       - application/json
       host:
@@ -39,20 +40,19 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01Q1PdgAX2fJ3dS3SUyv41uP","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"Hello!
-        How can I assist you today? Is there anything specific you''d like to talk
-        about or any questions you have?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":28}}'
+      string: '{"id":"msg_01Ya6m7yrDm6sc78vjuBaXj1","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"Hello!
+        How can I assist you today?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":11,"output_tokens":13}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d57f5368f2c176b-SJC
+      - 8daf4d823ddb6444-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Sun, 20 Oct 2024 09:24:59 GMT
+      - Wed, 30 Oct 2024 23:49:36 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -64,17 +64,17 @@ interactions:
       anthropic-ratelimit-requests-remaining:
       - '3999'
       anthropic-ratelimit-requests-reset:
-      - '2024-10-20T09:25:08Z'
+      - '2024-10-30T23:50:08Z'
       anthropic-ratelimit-tokens-limit:
       - '8000000'
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-10-20T09:24:59Z'
+      - '2024-10-30T23:49:36Z'
       content-length:
-      - '354'
+      - '275'
       request-id:
-      - req_015Ti3ADFq47EXvCvztmymWX
+      - req_018f79U3VdyrFs2yUxPNGFVa
       via:
       - 1.1 google
     status:

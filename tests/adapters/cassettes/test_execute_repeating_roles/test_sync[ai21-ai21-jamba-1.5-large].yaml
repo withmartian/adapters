@@ -7,7 +7,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -17,7 +17,7 @@ interactions:
       host:
       - api.ai21.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,29 +38,32 @@ interactions:
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-c64f766511a548aba2f4c52986fbb66a","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
-        How can I assist you today?","tool_calls":null},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"completion_tokens":10,"total_tokens":29}}'
+      string: !!binary |
+        IUgEACAWzqlsdroMthOak8LoAyPSyYHjwT5vnnCACYYBBXGgLdPcwTqjGsYhXH9xGFCg3/ObnUeR
+        ECLI8syforCPRJSmfMpSPxr9LAg8WBhdH1xRLL64SF9ReBb6Ir5QfHHRNKIAv14P1xtXN1gIjZsU
+        6EYiPWOdfrKeKzZn1jX21nd20wN/t7Bw05o2PSe6olB3or8F0jtz0YKkhQQ1s9lWtUaB600b/FcW
+        7qX05qKluW1u+jSqKwo/RyINjbeDVpLzLDwUAKwE+f9vAAM=
     headers:
-      CF-Cache-Status:
-      - DYNAMIC
       CF-RAY:
-      - 8d3b07e9a84af993-SJC
+      - 8daf40e2ac9a2302-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:09:37 GMT
+      - Wed, 30 Oct 2024 23:40:59 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      content-length:
-      - '275'
+      cf-cache-status:
+      - DYNAMIC
       request-id:
-      - 253f4493-4da1-699a-8598-d03924981ff9
+      - 5fd431dc-eb83-ca94-3458-09d20a59cbb4
       via:
       - 1.1 google
     status:

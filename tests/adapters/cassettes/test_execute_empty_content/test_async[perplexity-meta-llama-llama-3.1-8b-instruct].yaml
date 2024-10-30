@@ -1,23 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
-      "content": "\"\""}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-8b-instruct",
+    body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
+      " "}, {"role": "user", "content": "\n"}], "model": "llama-3.1-8b-instruct",
       "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '181'
+      - '172'
       content-type:
       - application/json
       host:
       - api.perplexity.ai
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.53.0
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.53.0
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,36 +38,27 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"id": "ce317820-dbc2-4825-8d74-77de8f6e0342", "model": "llama-3.1-8b-instruct",
-        "created": 1729112198, "usage": {"prompt_tokens": 23, "completion_tokens":
-        41, "total_tokens": 64}, "object": "chat.completion", "choices": [{"index":
-        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
-        seems like we''re having a conversation in a language that I don''t understand.
-        Could you please translate or provide more context about what you''re trying
-        to communicate? I''ll do my best to help."}, "delta": {"role": "assistant",
-        "content": ""}}]}'
+      string: '{"error":{"message":"Message content was empty","type":"invalid_message","code":400}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af4e6f8bf17f4-SJC
+      - 8daf4c494be117ec-SJC
       Connection:
       - keep-alive
+      Content-Length:
+      - '85'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:56:38 GMT
+      - Wed, 30 Oct 2024 23:48:45 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=0_cX2eK_xBwaJPHLgsT.0Kt6BS5rop_AePZt0p7A1bk-1729112198-1.0.1.1-MiRF3LiDi9_6jt3yziGsKjFMNFC3fMMYphlBk9ZLmVcTKPirz6JN7CvmGsjNlJBWnAsosbETW4TVxqeNx5_eFQ;
-        path=/; expires=Wed, 16-Oct-24 21:26:38 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=_oscfM.3MBihR0zCIEer_48x0JpmKH0RMQbW3Bs5jAE-1730332125-1.0.1.1-zP1a26cTo5525RGHu.oDhYsJwHyRD3zAkAmJ4a.PYQ_fs78858S.6J0LHPCaIECqwV8salA2KJo0um8ZUL.hTA;
+        path=/; expires=Thu, 31-Oct-24 00:18:45 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
-      Transfer-Encoding:
-      - chunked
-      content-length:
-      - '554'
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
 version: 1

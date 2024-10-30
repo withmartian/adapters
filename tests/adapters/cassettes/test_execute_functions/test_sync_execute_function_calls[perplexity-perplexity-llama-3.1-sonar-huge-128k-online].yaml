@@ -1,0 +1,101 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
+      "llama-3.1-sonar-huge-128k-online", "function_call": {"name": "generate"}, "functions":
+      [{"description": "Generate random number", "name": "generate"}], "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '248'
+      content-type:
+      - application/json
+      host:
+      - api.perplexity.ai
+      user-agent:
+      - OpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.perplexity.ai/chat/completions
+  response:
+    body:
+      string: '{"id": "83afe97d-e4ee-40e0-900c-416c151e398d", "model": "llama-3.1-sonar-huge-128k-online",
+        "created": 1730332204, "usage": {"prompt_tokens": 3, "completion_tokens":
+        588, "total_tokens": 591}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "Generating
+        random numbers can be done in various programming languages and tools. Here
+        are a few examples based on the provided sources:\n\n### 1. **Using Calculator
+        Soup**\n- **Website**: https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php\n-
+        **Steps**:\n  1. **Set Range**: Enter the minimum and maximum values for your
+        range.\n  2. **Number of Values**: Specify how many random numbers you need.\n  3.
+        **Allow Repeats**: Choose whether to allow duplicate numbers.\n  4. **Sort**:
+        Decide if you want the numbers sorted in ascending or descending order.\n  5.
+        **Generate**: Click the \"Generate\" button to get your random numbers.\n\n###
+        2. **Using Python**\n- **Library**: `random`\n- **Example**:\n  ```python\n  import
+        random\n\n  # Generate a random integer within a specified range\n  random_number
+        = random.randint(1, 10)\n  print(random_number)\n\n  # Generate multiple random
+        integers\n  random_numbers = [random.randint(1, 10) for _ in range(5)]\n  print(random_numbers)\n  ```\n\n###
+        3. **Using JavaScript**\n- **Function**: `Math.random()`\n- **Example**:\n  ```javascript\n  //
+        Generate a random floating-point number between 0 (inclusive) and 1 (exclusive)\n  let
+        randomFloat = Math.random();\n  console.log(randomFloat);\n\n  // Generate
+        a random integer between two values (inclusive)\n  function getRandomIntInclusive(min,
+        max) {\n    min = Math.ceil(min);\n    max = Math.floor(max);\n    return
+        Math.floor(Math.random() * (max - min + 1)) + min;\n  }\n  let randomInt =
+        getRandomIntInclusive(1, 10);\n  console.log(randomInt);\n  ```\n\n### 4.
+        **Using .NET**\n- **Class**: `System.Random`\n- **Example**:\n  ```csharp\n  using
+        System;\n\n  class Program {\n    static void Main() {\n      // Instantiate
+        random number generator\n      Random rand = new Random();\n\n      // Generate
+        and display 5 random integers\n      Console.WriteLine(\"Five random integer
+        values:\");\n      for (int ctr = 0; ctr <= 4; ctr++)\n        Console.Write(\"{0,15:N0}\",
+        rand.Next());\n\n      Console.WriteLine();\n    }\n  }\n  ```\n\n### 5. **General
+        Concept**\n- **True Random Number Generators (TRNGs)**: Use physical events
+        like atmospheric noise or radioactive decay to generate truly unpredictable
+        numbers.\n- **Pseudo-Random Number Generators (PRNGs)**: Use algorithms to
+        generate sequences that appear random but are deterministic and can be reproduced
+        with a known seed value.\n\nChoose the method that best fits your needs based
+        on the programming language or tool you are using."}, "delta": {"role": "assistant",
+        "content": ""}}]}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8daf4d881a3f9e58-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:50:04 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=VxbP8bbKNGbA_OpZXLjxusz0yfbJCyy_Uj1mGJ1tj5s-1730332204-1.0.1.1-9vUO_hWDes.tr7s78JJUR9MPCUJ5ot.9VB7e77fq6dD.BabSUYfNWrSf9mgN2XHgCvmNv7T91VVkVyMitUwMJA;
+        path=/; expires=Thu, 31-Oct-24 00:20:04 GMT; domain=.perplexity.ai; HttpOnly;
+        Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '2892'
+    status:
+      code: 200
+      message: OK
+version: 1

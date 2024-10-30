@@ -1,0 +1,63 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "google/gemma-2-9b-it",
+      "response_format": {"type": "json_object"}, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '153'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - OpenAI/Python 1.53.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.53.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/chat/completions
+  response:
+    body:
+      string: "{\"id\":\"chatcmpl-741964ce72764620823ff135e3638a95\",\"object\":\"chat.completion\",\"created\":1730332195,\"model\":\"google/gemma-2-9b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Please
+        tell me what you'd like to do with JSON! \\n\\nFor example, do you want me
+        to:\\n\\n* **Parse** a JSON string?\\n* **Generate** JSON from data?\\n* **Validate**
+        a JSON string?\\n* **Transform** JSON data?\\n* **Answer questions** about
+        JSON?\\n\\nThe more specific you are, the better I can help!  \\n\\nJust provide
+        the JSON string or the kind of data you have, and tell me what you want to
+        achieve. \U0001F60A\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":13,\"total_tokens\":119,\"completion_tokens\":106,\"estimated_cost\":7.14e-06}}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '748'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Oct 2024 23:49:55 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1

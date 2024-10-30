@@ -9,7 +9,7 @@ interactions:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
@@ -19,7 +19,7 @@ interactions:
       host:
       - api.openai.com
       user-agent:
-      - OpenAI/Python 1.50.1
+      - OpenAI/Python 1.52.2
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -29,7 +29,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.52.2
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -40,34 +40,34 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5rZjpxGahrf2cdE07jxAHrp7F3y\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729114133,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"What range of numbers would you like
-        the random number to be generated from? Please provide any specific limits
-        or just a general range.\",\n        \"refusal\": null\n      },\n      \"logprobs\":
-        null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
-        63,\n    \"completion_tokens\": 26,\n    \"total_tokens\": 89,\n    \"prompt_tokens_details\":
-        {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\":
-        {\n      \"reasoning_tokens\": 0\n    }\n  },\n  \"system_fingerprint\": \"fp_e2bde53e6e\"\n}\n"
+      string: !!binary |
+        ITALACBWOq2nqXauBhOSrQ85yiCwSBLpP0/dFAqQ1rS2jwUyB2aL5M9rYxxowmE6p8dpYrQUi9mp
+        4N79NQCSKTFQsuBDUuvK2jjb3N68uvbKwwM3uHTi/OsoPNcXfbwnvAcyDYDUvBDJYMlNjhhoUjUQ
+        7ObyK5ESgxv7ju9Fvu9PPq1VKipioFwPVqCsWjbS8hwvsJzYcqcMlwslE9ETw5MBAL+9HkBv4PeI
+        wTFHsRMZIjHgTwB1qhLEQLzvZT/wZiATkEhhB2CguwUfUOWroLJvroHaUvVvNaI40w+1wKAw9gKZ
+        6pB8banJwdHxJlW1cXwN55XgvcD9/p3viePEm/fDvCKGZqyqBfH/SkKVynWn5j0GV4hlimu8VeXq
+        JwbqB6VJj/1vAC8Ra49BuEG6U7Ue3gZViqYnhij4sHhsnxIAyJ0lfqtAYm5q6pmM3FtSO753CAIo
+        4clCpNaMs0KUOttvLg0icVw2eWMNNp7yB8y8ZbLJRac7uYfnmX5z5txJXS/IXDL+DQMD
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3b24235c227aa9-SJC
+      - 8daebee18fd115d0-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 21:28:54 GMT
+      - Wed, 30 Oct 2024 22:12:14 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=2TedilUF3ybtysJG82ZbSDK0yr.BpdeDV8Goan0Cnvc-1729114134-1.0.1.1-fX36x6UhRs1veqKqV9aXyv7uWkLTDR3s7jibx_OircjamZsJ2HbMKr1hW3auaZltisDl0ea_H7ZUWTzN86jeKg;
-        path=/; expires=Wed, 16-Oct-24 21:58:54 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=wvjNSDPrTsPzgDVv1EhWauzgYeB4yfTCRDjk9aVZ.hg-1730326334-1.0.1.1-828.wqDgy7ogMGGNzP97nrJVpRHKUmFhMFMu76H1aQ7LedRq8hVFoMCcZkl.4DtsqNdR539XnFmhJruG0ap.mg;
+        path=/; expires=Wed, 30-Oct-24 22:42:14 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=hOxAqOLQa_0otHXR3rIORpJVl_h2szIGZlmLOraiwRw-1729114134165-0.0.1.1-604800000;
+      - _cfuvid=2SN5UCtihOMxQpPmMx1nAO9Y84o.EgxCQGnffpOwNL4-1730326334135-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -77,12 +77,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '759'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '1032'
+      - '342'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -100,7 +98,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_2682ae65554e0798b896eedd250c4296
+      - req_dbe567f7f77f063efe652644e7f492c0
     status:
       code: 200
       message: OK
