@@ -19,35 +19,22 @@ from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.general_utils import get_dynamic_cost
 from adapters.types import (
     AdapterChatCompletion,
-    ContentTurn,
     Conversation,
     ConversationRole,
     Cost,
     Model,
     ModelProperties,
+    Provider,
     Turn,
+    Vendor,
 )
-
-PROVIDER_NAME = "gemini"
-API_KEY_NAME = "GEMINI_API_KEY"
-BASE_PROPERTIES = ModelProperties(gdpr_compliant=True)
 
 
 class GeminiModel(Model):
-    _test_async: bool = False
+    provider_name: str = Provider.gemini.value
+    vendor_name: str = Vendor.gemini.value
 
-    vendor_name: str = PROVIDER_NAME
-    provider_name: str = PROVIDER_NAME
-    properties: ModelProperties = BASE_PROPERTIES
-
-    supports_repeating_roles: bool = True
-    supports_system: bool = True
-    supports_multiple_system: bool = True
-    supports_empty_content: bool = True
-    supports_tool_choice_required: bool = True
-    supports_last_assistant: bool = True
-    supports_first_assistant: bool = True
-    supports_temperature: bool = True
+    properties = ModelProperties(gdpr_compliant=True)
 
 
 MODELS = [
@@ -81,15 +68,11 @@ class GeminiSDKChatProviderAdapter(
         return MODELS
 
     @staticmethod
-    def get_provider_name() -> str:
-        return PROVIDER_NAME
+    def get_api_key_name() -> str:
+        return "GEMINI_API_KEY"
 
     def get_base_sdk_url(self) -> str:
-        return ""
-
-    @staticmethod
-    def get_api_key_name() -> str:
-        return API_KEY_NAME
+        raise NotImplementedError
 
     def __init__(
         self,
@@ -305,14 +288,12 @@ def _map_content_to_str(
     if not content or content in [" ", "\n", "\t"]:
         return "."
 
-    # Join content if it is a list.
     if isinstance(content, list):
         return " ".join(content.get("text", "") for content in content)
 
     if role != "system":
         return content
 
-    # Simulate *system message*.
     return f"*{content}*"
 
 
@@ -324,11 +305,3 @@ def _map_role(role: str | ConversationRole) -> str:
             return "model"
         case _:
             return "user"
-
-
-def _map_turn_content_to_str(turn: ContentTurn | Turn) -> str:
-    match turn:
-        case ContentTurn():
-            return " ".join(content.text for content in turn.content)  # type: ignore[union-attr]
-        case Turn():
-            return turn.content

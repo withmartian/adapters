@@ -17,29 +17,17 @@ from adapters.types import (
     Cost,
     Model,
     ModelProperties,
+    Provider,
     Turn,
+    Vendor,
 )
-
-API_KEY_NAME = "COHERE_API_KEY"
-BASE_URL = "https://api.cohere.com"  # Updated to v2 endpoint
-PROVIDER_NAME = "cohere"
-BASE_PROPERTIES = ModelProperties(open_source=True, gdpr_compliant=True)
 
 
 class CohereModel(Model):
-    vendor_name: str = PROVIDER_NAME
-    provider_name: str = PROVIDER_NAME
-    properties: ModelProperties = BASE_PROPERTIES
+    provider_name: str = Provider.cohere.value
+    vendor_name: str = Vendor.cohere.value
 
-    supports_repeating_roles: bool = True
-    supports_system: bool = True
-    supports_multiple_system: bool = True
-    supports_empty_content: bool = True
-    supports_tool_choice_required: bool = True
-    supports_last_assistant: bool = True
-    supports_first_assistant: bool = True
-    supports_json_content: bool = True
-    supports_temperature: bool = True
+    properties = ModelProperties(open_source=True, gdpr_compliant=True, is_nsfw=True)
 
     supports_streaming: bool = False
 
@@ -52,37 +40,31 @@ MODELS = [
         name="command-r-plus-08-2024",
         cost=Cost(prompt=2.50e-6, completion=10.00e-6),
         context_length=128000,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
     CohereModel(
         name="command-r-plus-04-2024",
         cost=Cost(prompt=2.50e-6, completion=10.00e-6),
         context_length=128000,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
     CohereModel(
         name="command-r-plus",
         cost=Cost(prompt=2.50e-6, completion=10.00e-6),
         context_length=128000,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
     CohereModel(
         name="command-r-08-2024",
         cost=Cost(prompt=0.15e-6, completion=0.60e-6),
         context_length=128000,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
     CohereModel(
         name="command-r-03-2024",
         cost=Cost(prompt=0.15e-6, completion=0.60e-6),
         context_length=128000,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
     CohereModel(
         name="command-r",
         cost=Cost(prompt=0.15e-6, completion=0.60e-6),
         context_length=128000,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
     ),
 ]
 
@@ -106,15 +88,14 @@ FINISH_REASON_MAPPING: Dict[CohereFinishReason, AdapterFinishReason] = {
 class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
     @staticmethod
     def get_api_key_name() -> str:
-        return API_KEY_NAME
-
-    @staticmethod
-    def get_provider_name() -> str:
-        return PROVIDER_NAME
+        return "COHERE_API_KEY"
 
     @staticmethod
     def get_supported_models():
         return MODELS
+
+    def get_base_sdk_url(self) -> str:
+        return "https://api.cohere.com"
 
     def _sync_client_wrapper(self, **kwargs: Any):
         if kwargs.pop("stream", False):
@@ -265,6 +246,3 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
         # )
 
         # return f"data: {chunk}\n\n"
-
-    def get_base_sdk_url(self) -> str:
-        return BASE_URL

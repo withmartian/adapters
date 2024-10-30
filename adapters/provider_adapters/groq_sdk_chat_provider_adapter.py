@@ -1,25 +1,11 @@
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.types import Cost, Model, ModelProperties
-
-PROVIDER_NAME = "groq"
-GROQ_BASE_URL = "https://api.groq.com/openai/v1"
-API_KEY_NAME = "GROQ_API_KEY"
-BASE_PROPERTIES = ModelProperties(open_source=True, gdpr_compliant=True)
+from adapters.types import Cost, Model, ModelProperties, Provider, Vendor
 
 
 class GroqModel(Model):
-    provider_name: str = PROVIDER_NAME
-    properties: ModelProperties = BASE_PROPERTIES
+    provider_name: str = Provider.groq.value
 
-    supports_repeating_roles: bool = True
-    supports_system: bool = True
-    supports_multiple_system: bool = True
-    supports_empty_content: bool = True
-    supports_tool_choice_required: bool = True
-    supports_last_assistant: bool = True
-    supports_first_assistant: bool = True
-    supports_streaming: bool = True
-    supports_temperature: bool = True
+    properties = ModelProperties(open_source=True, gdpr_compliant=True)
 
 
 MODELS = [
@@ -40,7 +26,6 @@ MODELS = [
         cost=Cost(prompt=0.59e-6, completion=0.79e-6),
         context_length=8192,
         vendor_name="meta-llama",
-        properties=BASE_PROPERTIES.model_copy(update={"gdpr_compliant": False}),
     ),
     GroqModel(
         name="llama3-8b-8192",
@@ -48,17 +33,17 @@ MODELS = [
         context_length=8192,
         vendor_name="meta-llama",
     ),
-    # GroqModel(
-    #     name="mixtral-8x7b-32768",
-    #     cost=Cost(prompt=0.24e-6, completion=0.24e-6),
-    #     context_length=32768,
-    #     vendor_name="mistralai",
-    # ),
+    GroqModel(
+        name="mixtral-8x7b-32768",
+        cost=Cost(prompt=0.24e-6, completion=0.24e-6),
+        context_length=32768,
+        vendor_name="mistralai",
+    ),
     GroqModel(
         name="gemma-7b-it",
         cost=Cost(prompt=0.07e-6, completion=0.07e-6),
         context_length=8192,
-        vendor_name="google",
+        vendor_name=Vendor.google.value,
     ),
     GroqModel(
         name="gemma2-9b-it",
@@ -87,12 +72,8 @@ class GroqSDKChatProviderAdapter(OpenAISDKChatAdapter):
         return MODELS
 
     @staticmethod
-    def get_provider_name() -> str:
-        return PROVIDER_NAME
+    def get_api_key_name() -> str:
+        return "GROQ_API_KEY"
 
     def get_base_sdk_url(self) -> str:
-        return GROQ_BASE_URL
-
-    @staticmethod
-    def get_api_key_name() -> str:
-        return API_KEY_NAME
+        return "https://api.groq.com/openai/v1"

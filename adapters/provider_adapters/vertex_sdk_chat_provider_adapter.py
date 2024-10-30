@@ -29,7 +29,6 @@
 
 
 # class GeminiModel(Model):
-#     _test_async: bool = False
 
 #     vendor_name: str = PROVIDER_NAME
 #     provider_name: str = PROVIDER_NAME
@@ -75,10 +74,6 @@
 #     @staticmethod
 #     def get_supported_models():
 #         return MODELS
-
-#     @staticmethod
-#     def get_provider_name() -> str:
-#         return PROVIDER_NAME
 
 #     def get_base_sdk_url(self) -> str:
 #         return ""

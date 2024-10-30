@@ -53,28 +53,15 @@ from adapters.types import (
     ConversationRole,
     Cost,
     Model,
-    ModelProperties,
+    Provider,
     Turn,
+    Vendor,
 )
-
-PROVIDER_NAME = "anthropic"
-BASE_URL = "https://api.anthropic.com"
-API_KEY_NAME = "ANTHROPIC_API_KEY"
-BASE_PROPERTIES = ModelProperties(gdpr_compliant=True)
 
 
 class AnthropicModel(Model):
-    vendor_name: str = PROVIDER_NAME
-    provider_name: str = PROVIDER_NAME
-    properties: ModelProperties = BASE_PROPERTIES
-
-    supports_tool_choice_required: bool = True
-    supports_last_assistant: bool = True
-    supports_streaming: bool = True
-    supports_json_content: bool = False
-    supports_tools: bool = True
-    supports_vision: bool = True
-    supports_temperature: bool = True
+    vendor_name: str = Vendor.anthropic.value
+    provider_name: str = Provider.anthropic.value
 
 
 SUPPORTED_MODELS = [
@@ -152,12 +139,11 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
         return SUPPORTED_MODELS
 
     @staticmethod
-    def get_provider_name() -> str:
-        return PROVIDER_NAME
-
-    @staticmethod
     def get_api_key_name() -> str:
-        return API_KEY_NAME
+        return "ANTHROPIC_API_KEY"
+
+    def get_base_sdk_url(self) -> str:
+        return "https://api.anthropic.com"
 
     def _call_sync(self) -> Callable:
         return self._client_sync.messages.create
@@ -371,6 +357,3 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
             top_k=params.get("top_k"),
             top_p=params.get("top_p"),
         ).model_dump()
-
-    def get_base_sdk_url(self) -> str:
-        return BASE_URL
