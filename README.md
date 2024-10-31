@@ -5,6 +5,7 @@
 The Adapters package facilitates communication between different language model APIs by providing a unified interface for interaction. This ensures ease of use and flexibility in integrating multiple models from various providers.
 
 The package can be installed an used via pip:
+
 ```
 pip install martian-adapters
 ```
@@ -105,3 +106,15 @@ Use the `--record-mode=rewrite` option with pytest to update cassette files.
 Some models may only be accessible from specific locations (e.g., the U.S.). In such cases, running tests might require access to a U.S.-based server.
 
 This documentation provides a streamlined approach to using and contributing to the Adapters package, emphasizing practical steps and clear examples.
+
+## Misclenous
+
+### Base URL overriding
+
+In order to override all base urls to do stress testing or for any other reason you can specify in your `.env`
+
+```env
+_ADAPTERS_OVERRIDE_ALL_BASE_URLS_ = "https://new-base-url.com/api"
+```
+
+This will make sure all LLM API calls are resolved to this new url

@@ -1,0 +1,3 @@
+import os
+
+OVERRIDE_ALL_BASE_URLS = os.getenv("_ADAPTERS_OVERRIDE_ALL_BASE_URLS_")
