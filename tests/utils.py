@@ -4,6 +4,7 @@ import brotli
 
 from adapters.abstract_adapters.base_adapter import BaseAdapter
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
+from adapters.adapter_factory import AdapterFactory
 from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
     AnthropicSDKChatProviderAdapter,
 )
@@ -11,6 +12,7 @@ from adapters.provider_adapters.cohere_sdk_chat_provider_adapter import (
     CohereSDKChatProviderAdapter,
 )
 from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
+    GeminiModel,
     GeminiSDKChatProviderAdapter,
 )
 from adapters.types import (
@@ -21,6 +23,20 @@ from adapters.types import (
     TextContentEntry,
     Turn,
 )
+
+N_PARAM = 2
+
+MAX_TOKENS = 5
+
+ADAPTERS = [
+    adapter
+    for adapter in [
+        AdapterFactory.get_adapter_by_path(model.get_path())
+        for model in AdapterFactory.get_supported_models()
+        if isinstance(model, OpenAISDKChatAdapter)
+    ]
+    if adapter is not None
+]
 
 ASYNC_LIMITER_LEAK_BUCKET_TIME = 2
 
@@ -33,6 +49,15 @@ TEST_TOP_P = 0.5
 SIMPLE_CONVERSATION_USER_ONLY = Conversation(
     [Turn(role=ConversationRole.user, content="Hi")]
 )
+
+SIMPLE_CONVERSATION_ASSISTANT_ONLY = Conversation(
+    [Turn(role=ConversationRole.assistant, content="Hi")]
+)
+
+SIMPLE_CONVERSATION_SYSTEM_ONLY = Conversation(
+    [Turn(role=ConversationRole.system, content="Hi")]
+)
+
 
 SIMPLE_CONVERSATION_SYSTEM_ONLY = Conversation(
     [
