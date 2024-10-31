@@ -7,6 +7,7 @@ from adapters.abstract_adapters.api_key_adapter_mixin import ApiKeyAdapterMixin
 from adapters.abstract_adapters.base_adapter import BaseAdapter
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
 from adapters.client_cache import client_cache
+from adapters.constants import OVERRIDE_ALL_BASE_URLS
 from adapters.general_utils import (
     EMPTY_CONTENT,
     delete_none_values,
@@ -50,17 +51,11 @@ class SDKChatAdapter(
     ) -> Any:
         client = client_cache.get_client(self.get_base_sdk_url(), api_key, client_type)
         if not client:
-            create_client_method = getattr(self, f"_create_client_{client_type}")
-            client = create_client_method(
-                api_key=api_key,
-                base_url=self.get_base_sdk_url(),
+            base_url = OVERRIDE_ALL_BASE_URLS or self.get_base_sdk_url()
+            client = getattr(self, f"_create_client_{client_type}")(
+                api_key=api_key, base_url=base_url
             )
-            client_cache.set_client(
-                self.get_base_sdk_url(),
-                api_key,
-                client_type,
-                client,
-            )
+            client_cache.set_client(base_url, api_key, client_type, client)
         return client
 
     def _setup_clients(self, api_key: str) -> None:
