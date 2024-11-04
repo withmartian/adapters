@@ -109,6 +109,17 @@ This documentation provides a streamlined approach to using and contributing to 
 
 ## Misclenous
 
+### HTTP Client configuration
+
+To achieve maximing throuput and performance of your applications we also offer way to configuare HTTP networking paramters:
+
+```env
+ADAPTERS_MAX_KEEPALIVE_CONNECTIONS_PER_PROCESS = 100
+ADAPTERS_MAX_CONNECTIONS_PER_PROCESS = 1000
+ADAPTERS_HTTP_CONNECT_TIMEOUT = 5
+ADAPTERS_HTTP_TIMEOUT = 600
+```
+
 ### Base URL overriding
 
 In order to override all base urls to do stress testing or for any other reason you can specify in your `.env`
