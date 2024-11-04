@@ -49,9 +49,9 @@ class SDKChatAdapter(
     def _get_or_create_client(
         self, api_key: str, client_type: Literal["sync", "async"]
     ) -> Any:
-        client = client_cache.get_client(self.get_base_sdk_url(), api_key, client_type)
+        base_url = OVERRIDE_ALL_BASE_URLS or self.get_base_sdk_url()
+        client = client_cache.get_client(base_url, api_key, client_type)
         if not client:
-            base_url = OVERRIDE_ALL_BASE_URLS or self.get_base_sdk_url()
             client = getattr(self, f"_create_client_{client_type}")(
                 api_key=api_key, base_url=base_url
             )
