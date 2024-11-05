@@ -11,7 +11,7 @@ def test_conversation_creation_with_array() -> None:
 
 def test_conversation_creation_with_dict() -> None:
     conversation = Conversation(
-        [{"role": "user", "content": "How many toes does a dog have?"}]
+        [{"role": "user", "content": "How many toes does a dog have?"}]  # type: ignore
     )
     assert conversation.turns[0].role == ConversationRole.user
     assert conversation.turns[0].content == "How many toes does a dog have?"
