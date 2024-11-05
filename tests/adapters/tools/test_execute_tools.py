@@ -29,8 +29,8 @@ tools = [
 ]
 
 
-@pytest.mark.parametrize("adapter", TEST_ADAPTERS)
 @pytest.mark.vcr
+@pytest.mark.parametrize("adapter", TEST_ADAPTERS, ids=lambda adapter: str(adapter))
 async def test_async(vcr: VCR, adapter: BaseAdapter) -> None:
     if adapter.get_model().supports_tools is False:
         return

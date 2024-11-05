@@ -43,8 +43,8 @@ conversation = Conversation(
 )
 
 
-@pytest.mark.parametrize("adapter", TEST_ADAPTERS)
 @pytest.mark.vcr
+@pytest.mark.parametrize("adapter", TEST_ADAPTERS, ids=lambda adapter: str(adapter))
 async def test_async(vcr: VCR, adapter: BaseAdapter) -> None:
     if not adapter.get_model().supports_vision:
         return

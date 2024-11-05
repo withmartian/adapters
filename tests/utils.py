@@ -15,6 +15,7 @@ from adapters.provider_adapters.cohere_sdk_chat_provider_adapter import (
 from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
     GeminiSDKChatProviderAdapter,
 )
+from adapters.provider_adapters.openai_sdk_chat_provider_adapter import OpenAIModel
 from adapters.types import (
     ContentTurn,
     ContentType,
@@ -31,7 +32,7 @@ TEST_ADAPTERS = [
     for adapter in [
         AdapterFactory.get_adapter_by_path(model.get_path())
         for model in AdapterFactory.get_supported_models()
-        if isinstance(model, OpenAISDKChatAdapter)
+        if isinstance(model, OpenAIModel)
     ]
     if adapter is not None
 ]

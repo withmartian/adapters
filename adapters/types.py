@@ -7,7 +7,7 @@ from openai.types.chat import (
     ChatCompletionMessageToolCall,
 )
 from openai.types.chat.chat_completion_message import FunctionCall
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class Provider(str, Enum):
@@ -177,6 +177,9 @@ class Model(BaseModel):
     def _get_api_path(self) -> str:
         return self.name
 
+    def __str__(self) -> str:
+        return self.get_path()
+
 
 TurnType = Union[
     Turn,
@@ -255,8 +258,7 @@ class AdapterStreamChatCompletion(BaseModel):
         AsyncGenerator[AdapterChatCompletionChunk, Any],
     ]
 
-    class Config:
-        arbitrary_types_allowed = True
+    model_config = ConfigDict(arbitrary_types_allowed=True)
 
 
 class AdapterStreamSyncChatCompletion(AdapterStreamChatCompletion):

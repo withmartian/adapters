@@ -8,8 +8,8 @@ from tests.utils import (
 from vcr import VCR
 
 
-@pytest.mark.parametrize("adapter", TEST_ADAPTERS)
 @pytest.mark.vcr
+@pytest.mark.parametrize("adapter", TEST_ADAPTERS, ids=lambda adapter: str(adapter))
 def test_sync(vcr: VCR, adapter: BaseAdapter) -> None:
     if not adapter.get_model().supports_streaming:
         return
@@ -31,8 +31,8 @@ def test_sync(vcr: VCR, adapter: BaseAdapter) -> None:
     assert len(response) > 0
 
 
-@pytest.mark.parametrize("adapter", TEST_ADAPTERS)
 @pytest.mark.vcr
+@pytest.mark.parametrize("adapter", TEST_ADAPTERS, ids=lambda adapter: str(adapter))
 async def test_async(vcr: VCR, adapter: BaseAdapter) -> None:
     if not adapter.get_model().supports_streaming:
         return

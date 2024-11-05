@@ -14,6 +14,9 @@ from adapters.types import (
 
 
 class BaseAdapter(ABC):
+    def __str__(self) -> str:
+        return f"adapter-{self.get_model().get_path()}"
+
     def set_api_key(self, api_key: str) -> None:
         pass
 

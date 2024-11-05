@@ -19,8 +19,8 @@ conversation = Conversation(
 )
 
 
-@pytest.mark.parametrize("adapter", TEST_ADAPTERS)
 @pytest.mark.vcr
+@pytest.mark.parametrize("adapter", TEST_ADAPTERS, ids=lambda adapter: str(adapter))
 async def test_async(vcr: VCR, adapter: BaseAdapter) -> None:
     adapter_response = await adapter.execute_async(conversation)
 
