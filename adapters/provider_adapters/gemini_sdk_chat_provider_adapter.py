@@ -74,7 +74,7 @@ class GeminiSDKChatProviderAdapter(
         return "GEMINI_API_KEY"
 
     def get_base_sdk_url(self) -> str:
-        raise NotImplementedError
+        return ""
 
     def __init__(self) -> None:
         self.model: genai.GenerativeModel | None = None

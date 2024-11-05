@@ -10,6 +10,7 @@ from openai.types.chat.chat_completion import Choice
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
     AdapterChatCompletion,
+    AdapterChatCompletionChunk,
     AdapterFinishReason,
     Conversation,
     ConversationRole,
@@ -223,3 +224,8 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
                 request=self.get_model().cost.request,
             ),
         )
+
+    def _extract_stream_response(
+        self, request: Any, response: Any, state: dict[str, Any]
+    ) -> AdapterChatCompletionChunk:
+        raise NotImplementedError
