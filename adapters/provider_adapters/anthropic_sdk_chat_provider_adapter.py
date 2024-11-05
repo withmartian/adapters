@@ -31,6 +31,7 @@ from anthropic.types.message_param import MessageParam
 from anthropic.types.text_delta import TextDelta
 from anthropic.types.text_block_param import TextBlockParam
 from anthropic.types.tool_param import ToolParam
+from httpx import AsyncClient, Client, Limits, Timeout
 from openai.types import CompletionUsage
 from openai.types.chat import ChatCompletionMessage
 from openai.types.chat.chat_completion import Choice
@@ -42,6 +43,12 @@ from openai.types.chat.chat_completion_message_tool_call import (
 from pydantic import BaseModel
 
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
+from adapters.constants import (
+    HTTP_CONNECT_TIMEOUT,
+    HTTP_TIMEOUT,
+    MAX_CONNECTIONS_PER_PROCESS,
+    MAX_KEEPALIVE_CONNECTIONS_PER_PROCESS,
+)
 from adapters.general_utils import process_image_url_anthropic
 from adapters.types import (
     AdapterChatCompletion,
@@ -162,6 +169,13 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
             base_url=base_url,
             api_key=api_key,
             max_retries=0,
+            http_client=Client(
+                limits=Limits(
+                    max_connections=MAX_CONNECTIONS_PER_PROCESS,
+                    max_keepalive_connections=MAX_KEEPALIVE_CONNECTIONS_PER_PROCESS,
+                ),
+                timeout=Timeout(timeout=HTTP_TIMEOUT, connect=HTTP_CONNECT_TIMEOUT),
+            ),
         )
 
     def _create_client_async(self, base_url: str, api_key: str) -> AsyncAnthropic:
@@ -169,6 +183,13 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
             base_url=base_url,
             api_key=api_key,
             max_retries=0,
+            http_client=AsyncClient(
+                limits=Limits(
+                    max_connections=MAX_CONNECTIONS_PER_PROCESS,
+                    max_keepalive_connections=MAX_KEEPALIVE_CONNECTIONS_PER_PROCESS,
+                ),
+                timeout=Timeout(timeout=HTTP_TIMEOUT, connect=HTTP_CONNECT_TIMEOUT),
+            ),
         )
 
     def _adjust_temperature(self, temperature: float) -> float:
