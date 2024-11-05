@@ -1,9 +1,9 @@
 import pytest
 
 from adapters.abstract_adapters.base_adapter import BaseAdapter
+from adapters.types import Conversation, ConversationRole, Turn
 from tests.utils import (
     TEST_ADAPTERS,
-    SIMPLE_CONVERSATION_USER_ONLY,
     get_response_content_from_vcr,
 )
 from vcr import VCR
@@ -12,14 +12,14 @@ from vcr import VCR
 @pytest.mark.parametrize("adapter", TEST_ADAPTERS)
 @pytest.mark.vcr
 async def test_async(vcr: VCR, adapter: BaseAdapter) -> None:
-    if not adapter.get_model().supports_n:
-        return
+    conversation = Conversation(
+        [
+            Turn(role=ConversationRole.system, content="Hi"),
+        ]
+    )
 
-    n = 2
-
-    adapter_response = await adapter.execute_async(SIMPLE_CONVERSATION_USER_ONLY, n=n)
+    adapter_response = await adapter.execute_async(conversation)
 
     cassette_response = get_response_content_from_vcr(vcr, adapter)
 
     assert adapter_response.choices[0].message.content == cassette_response
-    assert len(adapter_response.choices) == n

@@ -1,10 +1,12 @@
-import json
-
 import pytest
 
-from adapters.adapter_factory import AdapterFactory
-from tests.adapters.utils.constants import MODEL_PATHS
-from tests.utils import SIMPLE_FUNCTION_CALL_USER_ONLY, get_response_choices_from_vcr
+from adapters.abstract_adapters.base_adapter import BaseAdapter
+from tests.utils import (
+    TEST_ADAPTERS,
+    SIMPLE_FUNCTION_CALL_USER_ONLY,
+    get_response_choices_from_vcr,
+)
+from vcr import VCR
 
 tools = [
     {
@@ -27,54 +29,9 @@ tools = [
 ]
 
 
-def extract_data(choice):
-    if isinstance(choice, dict):
-        fn = choice["message"]["tool_calls"][0]["function"]["name"]
-        fa = choice["message"]["tool_calls"][0]["function"]["arguments"]
-    else:
-        fn = choice.message.tool_calls[0].function.name
-        fa = choice.message.tool_calls[0].function.arguments
-
-    return fn, fa
-
-
-@pytest.mark.parametrize("model_name", MODEL_PATHS)
+@pytest.mark.parametrize("adapter", TEST_ADAPTERS)
 @pytest.mark.vcr
-def test_sync_execute_tools(vcr, model_name):
-    adapter = AdapterFactory.get_adapter_by_path(model_name)
-
-    assert adapter is not None
-
-    if adapter.get_model().supports_tools is False:
-        return
-
-    adapter_response = adapter.execute_sync(
-        SIMPLE_FUNCTION_CALL_USER_ONLY,
-        tool_choice={"type": "function", "function": {"name": "generate"}},
-        tools=tools,
-    )
-
-    choices = get_response_choices_from_vcr(vcr, adapter)
-
-    function_name, function_arguments = extract_data(adapter_response.choices[0])
-
-    if model_name.startswith("anthropic"):
-        function_arguments = json.loads(function_arguments)
-
-    assert function_name == choices[0]["message"]["tool_calls"][0]["function"]["name"]
-    assert (
-        function_arguments
-        == choices[0]["message"]["tool_calls"][0]["function"]["arguments"]
-    )
-
-
-@pytest.mark.parametrize("model_name", MODEL_PATHS)
-@pytest.mark.vcr
-async def test_async_execute_tools(vcr, model_name):
-    adapter = AdapterFactory.get_adapter_by_path(model_name)
-
-    assert adapter is not None
-
+async def test_async(vcr: VCR, adapter: BaseAdapter) -> None:
     if adapter.get_model().supports_tools is False:
         return
 
@@ -85,13 +42,12 @@ async def test_async_execute_tools(vcr, model_name):
     )
     choices = get_response_choices_from_vcr(vcr, adapter)
 
-    function_name, function_arguments = extract_data(adapter_response.choices[0])
-
-    if model_name.startswith("anthropic"):
-        function_arguments = json.loads(function_arguments)
-
-    assert function_name == choices[0]["message"]["tool_calls"][0]["function"]["name"]
+    assert adapter_response.choices[0].message.tool_calls
     assert (
-        function_arguments
+        adapter_response.choices[0].message.tool_calls[0].function.name
+        == choices[0]["message"]["tool_calls"][0]["function"]["name"]
+    )
+    assert (
+        adapter_response.choices[0].message.tool_calls[0].function.arguments
         == choices[0]["message"]["tool_calls"][0]["function"]["arguments"]
     )

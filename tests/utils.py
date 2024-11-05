@@ -1,4 +1,5 @@
 import json
+from typing import Any
 
 import brotli
 
@@ -12,7 +13,6 @@ from adapters.provider_adapters.cohere_sdk_chat_provider_adapter import (
     CohereSDKChatProviderAdapter,
 )
 from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
-    GeminiModel,
     GeminiSDKChatProviderAdapter,
 )
 from adapters.types import (
@@ -23,12 +23,10 @@ from adapters.types import (
     TextContentEntry,
     Turn,
 )
+from vcr import VCR
 
-N_PARAM = 2
 
-MAX_TOKENS = 5
-
-ADAPTERS = [
+TEST_ADAPTERS = [
     adapter
     for adapter in [
         AdapterFactory.get_adapter_by_path(model.get_path())
@@ -38,84 +36,13 @@ ADAPTERS = [
     if adapter is not None
 ]
 
-ASYNC_LIMITER_LEAK_BUCKET_TIME = 2
-
-
-TEST_TEMPERATURE = 0.5
-TEST_MAX_TOKENS = 200
-TEST_TOP_P = 0.5
-
 
 SIMPLE_CONVERSATION_USER_ONLY = Conversation(
     [Turn(role=ConversationRole.user, content="Hi")]
 )
 
-SIMPLE_CONVERSATION_ASSISTANT_ONLY = Conversation(
-    [Turn(role=ConversationRole.assistant, content="Hi")]
-)
 
-SIMPLE_CONVERSATION_SYSTEM_ONLY = Conversation(
-    [Turn(role=ConversationRole.system, content="Hi")]
-)
-
-
-SIMPLE_CONVERSATION_SYSTEM_ONLY = Conversation(
-    [
-        Turn(role=ConversationRole.system, content="Hi"),
-        Turn(role=ConversationRole.user, content="Hi"),
-    ]
-)
-
-SIMPLE_CONVERSATION_EMPTY_CONTENT = Conversation(
-    [
-        Turn(role=ConversationRole.user, content=""),
-        Turn(role=ConversationRole.assistant, content=" "),
-        Turn(role=ConversationRole.user, content="\n"),
-    ]
-)
-
-SIMPLE_CONVERSATION_TRAILING_WHITESPACE = Conversation(
-    [
-        Turn(role=ConversationRole.user, content="Hi"),
-        Turn(role=ConversationRole.assistant, content="Hi "),
-    ]
-)
-
-SIMPLE_CONVERSATION_ASSISTANT_SYSTEM = Conversation(
-    [
-        Turn(role=ConversationRole.user, content="Hi"),
-        Turn(role=ConversationRole.assistant, content="Hi"),
-        Turn(role=ConversationRole.system, content="Hi"),
-        Turn(role=ConversationRole.user, content="Hi"),
-    ]
-)
-
-SIMPLE_CONVERSATION_ASSISTANT_FIRST = Conversation(
-    [
-        Turn(role=ConversationRole.assistant, content="Hi"),
-        Turn(role=ConversationRole.user, content="Hi"),
-    ]
-)
-
-SIMPLE_CONVERSATION_MULTIPLE_SYSTEM = Conversation(
-    [
-        Turn(role=ConversationRole.system, content="Hi"),
-        Turn(role=ConversationRole.user, content="Hi"),
-        Turn(role=ConversationRole.system, content="Hi"),
-    ]
-)
-
-SIMPLE_CONVERSATION_REPEATING = Conversation(
-    [
-        Turn(role=ConversationRole.user, content="Hi"),
-        Turn(role=ConversationRole.assistant, content="Hi"),
-        Turn(role=ConversationRole.assistant, content="Hi"),
-        Turn(role=ConversationRole.user, content="Hi"),
-        Turn(role=ConversationRole.user, content="Hi"),
-    ]
-)
-
-SIMPLE_CONVERSATION_JSON = Conversation(
+SIMPLE_CONVERSATION_JSON_OUTPUT = Conversation(
     [Turn(role=ConversationRole.user, content="Hi, use json")]
 )
 
@@ -136,9 +63,6 @@ SIMPLE_FUNCTION_CALL_USER_ONLY = Conversation(
     [Turn(role=ConversationRole.user, content="Generate random number")]
 )
 
-SIMPLE_CONVERSATION_YOU_RAG_QUESTION = Conversation(
-    [Turn(role=ConversationRole.user, content="What is in an egg?")]
-)
 
 SIMPLE_CONVERSATION_VISION = Conversation(
     [
@@ -174,7 +98,7 @@ SIMPLE_CONVERSATION_VISION = Conversation(
 )
 
 
-def get_response_content_from_vcr(vcr, adapter: BaseAdapter):
+def get_response_content_from_vcr(vcr: VCR, adapter: BaseAdapter) -> Any:
     response = vcr.responses[-1]["body"]["string"]
 
     try:
@@ -200,7 +124,7 @@ def get_response_content_from_vcr(vcr, adapter: BaseAdapter):
         raise ValueError("Unknown adapter")
 
 
-def get_response_choices_from_vcr(vcr, adapter: BaseAdapter):
+def get_response_choices_from_vcr(vcr: VCR, adapter: BaseAdapter) -> Any:
     response = vcr.responses[-1]["body"]["string"]
 
     try:

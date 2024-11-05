@@ -4,12 +4,11 @@ import os
 
 from adapters import AdapterFactory
 from adapters.abstract_adapters.provider_adapter_mixin import ProviderAdapterMixin
-from tests.utils import *
 
 
-def test_get_supported_models_ok():
+def test_get_supported_models_ok() -> None:
     models = AdapterFactory.get_supported_models()
-    found_models = []
+    found_MODELS: list[Model] = []
 
     providers_file_path = os.path.join(
         os.path.dirname(__file__), "../adapters/provider_adapters"

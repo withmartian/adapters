@@ -9,19 +9,20 @@ from tests.utils import (
 from vcr import VCR
 
 
-conversation = Conversation(
-    [
-        Turn(role=ConversationRole.system, content=""),
-        Turn(role=ConversationRole.user, content=""),
-        Turn(role=ConversationRole.assistant, content=" "),
-        Turn(role=ConversationRole.user, content="\n"),
-    ]
-)
-
-
 @pytest.mark.parametrize("adapter", TEST_ADAPTERS)
 @pytest.mark.vcr
 async def test_async(vcr: VCR, adapter: BaseAdapter) -> None:
+    conversation = Conversation(
+        [
+            Turn(role=ConversationRole.system, content="Hi"),
+            Turn(role=ConversationRole.system, content="Hi"),
+            Turn(role=ConversationRole.user, content="Hi"),
+            Turn(role=ConversationRole.system, content="Hi"),
+            Turn(role=ConversationRole.system, content="Hi"),
+            Turn(role=ConversationRole.user, content="Hi"),
+        ]
+    )
+
     adapter_response = await adapter.execute_async(conversation)
 
     cassette_response = get_response_content_from_vcr(vcr, adapter)
