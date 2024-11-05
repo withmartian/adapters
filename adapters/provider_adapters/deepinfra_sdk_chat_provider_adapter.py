@@ -14,7 +14,7 @@ class DeepInfraModel(Model):
         return f"{self.vendor_name}/{self.name}"
 
 
-MODELS = [
+MODELS: list[Model] = [
     DeepInfraModel(
         name="Llama-3.2-11B-Vision-Instruct",
         cost=Cost(prompt=0.055e-6, completion=0.055e-6),
@@ -79,7 +79,7 @@ MODELS = [
 
 class DeepInfraSDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
     @staticmethod

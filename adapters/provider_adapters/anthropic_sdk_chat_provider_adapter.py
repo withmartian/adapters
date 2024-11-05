@@ -28,9 +28,7 @@ from anthropic.types.message_create_params import (
     ToolChoiceToolChoiceTool,
 )
 from anthropic.types.message_param import MessageParam
-from anthropic.types.raw_content_block_delta_event import (
-    TextDelta,
-)
+from anthropic.types.text_delta import TextDelta
 from anthropic.types.text_block_param import TextBlockParam
 from anthropic.types.tool_param import ToolParam
 from openai.types import CompletionUsage
@@ -66,7 +64,7 @@ class AnthropicModel(Model):
     supports_vision: bool = False
 
 
-SUPPORTED_MODELS = [
+MODELS: list[Model] = [
     AnthropicModel(
         name="claude-3-sonnet-20240229",
         cost=Cost(prompt=3.0e-6, completion=15.0e-6),
@@ -143,8 +141,8 @@ class AnthropicCreate(BaseModel):
 
 class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic]):
     @staticmethod
-    def get_supported_models():
-        return SUPPORTED_MODELS
+    def get_supported_models() -> list[Model]:
+        return MODELS
 
     @staticmethod
     def get_api_key_name() -> str:
@@ -153,20 +151,20 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
     def get_base_sdk_url(self) -> str:
         return "https://api.anthropic.com"
 
-    def _call_sync(self) -> Callable:
+    def _call_sync(self) -> Callable[..., Any]:
         return self._client_sync.messages.create
 
-    def _call_async(self) -> Callable:
+    def _call_async(self) -> Callable[..., Any]:
         return self._client_async.messages.create
 
-    def _create_client_sync(self, base_url: str, api_key: str):
+    def _create_client_sync(self, base_url: str, api_key: str) -> Anthropic:
         return Anthropic(
             base_url=base_url,
             api_key=api_key,
             max_retries=0,
         )
 
-    def _create_client_async(self, base_url: str, api_key: str):
+    def _create_client_async(self, base_url: str, api_key: str) -> AsyncAnthropic:
         return AsyncAnthropic(
             base_url=base_url,
             api_key=api_key,
@@ -251,7 +249,7 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
 
     # TODO: add streaming tools support
     def _extract_stream_response(
-        self, request, response: RawMessageStreamEvent, state: dict
+        self, request: Any, response: RawMessageStreamEvent, state: dict[str, Any]
     ) -> AdapterChatCompletionChunk:
         choice_chunk = ChoiceChunk(
             index=0,
@@ -279,7 +277,7 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
             object="chat.completion.chunk",
         )
 
-    def _get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
+    def _get_params(self, llm_input: Conversation, **kwargs: Any) -> Dict[str, Any]:
         params = super()._get_params(llm_input, **kwargs)
 
         # messages = cast(List[Choice], params["messages"])

@@ -11,7 +11,7 @@ class OctoaiModel(Model):
     properties: ModelProperties = ModelProperties(open_source=True)
 
 
-MODELS = [
+MODELS: list[Model] = [
     OctoaiModel(
         name="hermes-2-pro-llama-3-8b",
         cost=Cost(prompt=0.15e-6, completion=0.15e-6),
@@ -41,7 +41,7 @@ MODELS = [
 
 class OctoaiSDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
     @staticmethod

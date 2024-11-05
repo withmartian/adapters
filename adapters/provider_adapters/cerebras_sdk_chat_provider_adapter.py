@@ -11,7 +11,7 @@ class CerebrasModel(Model):
         return f"{self.name}"
 
 
-MODELS: list[CerebrasModel] = [
+MODELS: list[Model] = [
     CerebrasModel(
         name="llama3.1-8b",
         vendor_name=Vendor.meta_llama.value,
@@ -31,7 +31,7 @@ MODELS: list[CerebrasModel] = [
 
 class CerebrasSDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
     @staticmethod

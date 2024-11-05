@@ -24,7 +24,7 @@ class TogetherModel(Model):
         return f"{self.vendor_name}/{self.name}"
 
 
-MODELS = [
+MODELS: list[Model] = [
     TogetherModel(
         name="Meta-Llama-3.1-8B-Instruct-Turbo",
         cost=Cost(prompt=0.18e-6, completion=0.18e-6),
@@ -49,7 +49,7 @@ MODELS = [
 
 class TogetherSDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
     @staticmethod
@@ -62,7 +62,7 @@ class TogetherSDKChatProviderAdapter(OpenAISDKChatAdapter):
     def _adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
 
-    def _get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
+    def _get_params(self, llm_input: Conversation, **kwargs: Any) -> Dict[str, Any]:
         params = super()._get_params(llm_input, **kwargs)
         messages = params["messages"]
 

@@ -178,36 +178,25 @@ class Model(BaseModel):
         return self.name
 
 
+TurnType = Union[
+    Turn,
+    FunctionOutputTurn,
+    ToolOutputTurn,
+    ToolsCallTurn,
+    ContentTurn,
+    FunctionCallTurn,
+]
+
+
 class Conversation(BaseModel):
-    turns: List[
-        Union[Turn, FunctionOutputTurn, ToolOutputTurn, ToolsCallTurn, ContentTurn]
-    ]
+    turns: List[TurnType]
 
     def __init__(
         self,
         turns: Union[
-            List[
-                Union[
-                    Turn,
-                    FunctionOutputTurn,
-                    ToolOutputTurn,
-                    ToolsCallTurn,
-                    ContentTurn,
-                ]
-            ],
             "Conversation",
-            Dict[
-                str,
-                List[
-                    Union[
-                        Turn,
-                        FunctionOutputTurn,
-                        ToolOutputTurn,
-                        ToolsCallTurn,
-                        ContentTurn,
-                    ]
-                ],
-            ],
+            List[TurnType],
+            Dict[str, List[TurnType]],
         ],
     ):
         if isinstance(turns, Conversation):
@@ -216,18 +205,18 @@ class Conversation(BaseModel):
             turns = turns["turns"]
         super().__init__(turns=turns)
 
-    def __getitem__(self, index):
+    def __getitem__(self, index: int) -> TurnType:
         return self.turns[index]
 
-    def __setitem__(self, index, value):
+    def __setitem__(self, index: int, value: TurnType) -> None:
         if not isinstance(value, Turn):
             raise ValueError("Value must be an instance of Turn")
         self.turns[index] = value
 
-    def __len__(self):
+    def __len__(self) -> int:
         return len(self.turns)
 
-    def __iter__(self):
+    def __iter__(self) -> Any:
         return iter(self.turns)
 
     def is_last_turn_vision_query(self) -> bool:
@@ -297,3 +286,26 @@ AdapterResponse = AdapterChatCompletion
 
 # Deprecated, Use AdapterStreamChatCompletion
 AdapterStreamResponse = AdapterStreamChatCompletion
+
+__all__ = [
+    "Conversation",
+    "Turn",
+    "TurnType",
+    "ContentTurn",
+    "FunctionOutputTurn",
+    "ToolOutputTurn",
+    "ToolsCallTurn",
+    "FunctionCallTurn",
+    "Cost",
+    "Model",
+    "AdapterChatCompletion",
+    "AdapterStreamChatCompletion",
+    "AdapterStreamSyncChatCompletion",
+    "AdapterStreamAsyncChatCompletion",
+    "AdapterChatCompletionChunk",
+    "AdapterException",
+    "AdapterRateLimitException",
+    "Prompt",
+    "AdapterResponse",
+    "AdapterStreamResponse",
+]

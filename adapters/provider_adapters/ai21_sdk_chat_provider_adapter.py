@@ -15,7 +15,7 @@ class AI21Model(Model):
         return f"{self.name}"
 
 
-MODELS: list[AI21Model] = [
+MODELS: list[Model] = [
     AI21Model(
         name="jamba-1.5-mini",
         cost=Cost(prompt=0.2e-6, completion=0.4e-6),
@@ -31,7 +31,7 @@ MODELS: list[AI21Model] = [
 
 class AI21SDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
     @staticmethod

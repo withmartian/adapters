@@ -9,7 +9,7 @@ from adapters.types import Cost
 EMPTY_CONTENT = '""'
 
 
-def delete_none_values(dictionary: dict):
+def delete_none_values(dictionary: dict[str, Any]) -> dict[str, Any]:
     if isinstance(dictionary, list):
         return [delete_none_values(e) for e in dictionary]
 
@@ -25,7 +25,7 @@ def delete_none_values(dictionary: dict):
 httpx_client = httpx.Client()
 
 
-def process_image_url_anthropic(image_url: str):
+def process_image_url_anthropic(image_url: str) -> dict[str, Any]:
     if image_url.startswith("data:"):
         # Base64 data is passed as a URL
         media_type, _, base64_data = image_url.partition(";base64,")
@@ -79,12 +79,12 @@ def get_dynamic_cost(model_name: str, token_count: int) -> Cost:
 class stream_generator_auto_close:
     _agen: Any
 
-    def __init__(self, agen):
+    def __init__(self, agen: Any) -> None:
         self._agen = agen
 
-    async def __aenter__(self):
+    async def __aenter__(self) -> Any:
         return self._agen
 
-    async def __aexit__(self, *args):
+    async def __aexit__(self, *args: Any) -> None:
         if getattr(self._agen, "close", False):
             await self._agen.close()

@@ -11,12 +11,12 @@ class OpenRouterModel(Model):
         return f"{self.vendor_name}/{self.name}"
 
 
-MODELS: list[OpenRouterModel] = []
+MODELS: list[Model] = []
 
 
 class OpenRouterSDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
     @staticmethod

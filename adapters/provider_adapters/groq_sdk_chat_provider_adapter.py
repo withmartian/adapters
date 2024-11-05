@@ -11,7 +11,7 @@ class GroqModel(Model):
     properties: ModelProperties = ModelProperties(open_source=True, gdpr_compliant=True)
 
 
-MODELS = [
+MODELS: list[Model] = [
     GroqModel(
         name="llama-3.1-70b-versatile",
         cost=Cost(prompt=0.59e-6, completion=0.79e-6),
@@ -71,7 +71,7 @@ MODELS = [
 
 class GroqSDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
     @staticmethod

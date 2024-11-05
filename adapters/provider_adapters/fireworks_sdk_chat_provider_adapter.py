@@ -14,7 +14,7 @@ class FireworksModel(Model):
         return f"accounts/fireworks/models/{self.name}"
 
 
-MODELS = [
+MODELS: list[Model] = [
     FireworksModel(
         name="llama-v3p1-405b-instruct",
         cost=Cost(prompt=3.00e-6, completion=3.00e-6),
@@ -81,12 +81,12 @@ MODELS = [
 
 class FireworksSDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
-    def get_api_key_name() -> str:
-        return "FIREWORKS_API_KEY"
+    def get_supported_models() -> list[Model]:
+        return MODELS
 
     @staticmethod
-    def get_supported_models():
-        return MODELS
+    def get_api_key_name() -> str:
+        return "FIREWORKS_API_KEY"
 
     def get_base_sdk_url(self) -> str:
         return "https://api.fireworks.ai/inference/v1"

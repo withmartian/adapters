@@ -9,7 +9,7 @@ class PerplexityModel(Model):
     supports_system: bool = False
 
 
-MODELS = [
+MODELS: list[Model] = [
     PerplexityModel(
         name="llama-3.1-sonar-small-128k-online",
         cost=Cost(prompt=0.2e-6, completion=0.2e-6, request=0.005),
@@ -59,7 +59,7 @@ MODELS = [
 
 class PerplexitySDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
     @staticmethod

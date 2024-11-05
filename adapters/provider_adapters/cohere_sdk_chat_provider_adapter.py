@@ -10,7 +10,6 @@ from openai.types.chat.chat_completion import Choice
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
     AdapterChatCompletion,
-    AdapterChatCompletionChunk,
     AdapterFinishReason,
     Conversation,
     ConversationRole,
@@ -38,7 +37,7 @@ class CohereModel(Model):
         return self.name
 
 
-MODELS = [
+MODELS: list[Model] = [
     CohereModel(
         name="command-r-plus-08-2024",
         cost=Cost(prompt=2.50e-6, completion=10.00e-6),
@@ -90,37 +89,37 @@ FINISH_REASON_MAPPING: Dict[CohereFinishReason, AdapterFinishReason] = {
 
 class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
     @staticmethod
-    def get_api_key_name() -> str:
-        return "COHERE_API_KEY"
+    def get_supported_models() -> list[Model]:
+        return MODELS
 
     @staticmethod
-    def get_supported_models():
-        return MODELS
+    def get_api_key_name() -> str:
+        return "COHERE_API_KEY"
 
     def get_base_sdk_url(self) -> str:
         return "https://api.cohere.com"
 
-    def _sync_client_wrapper(self, **kwargs: Any):
+    def _sync_client_wrapper(self, **kwargs: Any) -> Any:
         if kwargs.pop("stream", False):
             return self._client_sync.chat_stream(**kwargs)
         return self._client_sync.chat(**kwargs)
 
-    async def _async_client_wrapper(self, **kwargs: Any):
+    async def _async_client_wrapper(self, **kwargs: Any) -> Any:
         if kwargs.pop("stream", False):
             return self._client_async.chat_stream(**kwargs)
         return await self._client_async.chat(**kwargs)
 
-    def _call_async(self):
+    def _call_async(self) -> Any:
         return self._async_client_wrapper
 
-    def _call_sync(self):
+    def _call_sync(self) -> Any:
         return self._sync_client_wrapper
 
     def _create_client_sync(self, base_url: str, api_key: str) -> ClientV2:
-        return ClientV2(base_url=base_url, api_key=api_key)
+        return ClientV2(base_url=base_url, api_key=api_key)  # type: ignore
 
     def _create_client_async(self, base_url: str, api_key: str) -> AsyncClientV2:
-        return AsyncClientV2(base_url=base_url, api_key=api_key)
+        return AsyncClientV2(base_url=base_url, api_key=api_key)  # type: ignore
 
     def _get_params(self, llm_input: Conversation, **kwargs: Any) -> dict[str, Any]:
         params = super()._get_params(llm_input, **kwargs)
@@ -224,28 +223,3 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
                 request=self.get_model().cost.request,
             ),
         )
-
-    def _extract_stream_response(
-        self, request: Any, response: Any, state
-    ) -> AdapterChatCompletionChunk:
-        raise NotImplementedError
-        # content = None
-        # if response.type == "content-delta":
-        #     content = response.delta.message.content.text
-        # elif response.type == "stream-end":
-        #     content = None
-
-        # chunk = json.dumps(
-        #     {
-        #         "choices": [
-        #             {
-        #                 "delta": {
-        #                     "role": ConversationRole.assistant,
-        #                     "content": content,
-        #                 },
-        #             }
-        #         ]
-        #     }
-        # )
-
-        # return f"data: {chunk}\n\n"

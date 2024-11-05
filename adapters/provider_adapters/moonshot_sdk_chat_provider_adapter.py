@@ -13,7 +13,7 @@ class MoonshotModel(Model):
 
 
 # Cost measured in CNY, converted to USD on Apr 27 2024
-MODELS = [
+MODELS: list[Model] = [
     MoonshotModel(
         name="moonshot-v1-8k",
         cost=Cost(prompt=1.66e-6, completion=1.66e-6),
@@ -34,7 +34,7 @@ MODELS = [
 
 class MoonshotSDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
     @staticmethod

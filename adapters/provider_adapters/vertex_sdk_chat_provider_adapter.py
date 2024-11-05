@@ -43,7 +43,7 @@
 #     supports_first_assistant: bool = True
 
 
-# MODELS = [
+# MODELS: list[Model] = [
 #     GeminiModel(
 #         name="gemini-1.0-pro",
 #         cost=Cost(prompt=0.5e-6, completion=1.5e-6),
@@ -72,7 +72,7 @@
 #     SDKChatAdapter,
 # ):
 #     @staticmethod
-#     def get_supported_models():
+#     def get_supported_models() -> list[Model]:
 #         return MODELS
 
 #     def get_base_sdk_url(self) -> str:
@@ -203,7 +203,7 @@
 #     def get_params(
 #         self,
 #         llm_input: Conversation,
-#         **kwargs,
+#         **kwargs: Any,
 #     ) -> Dict[str, Any]:
 #         params = super().get_params(llm_input, **kwargs)
 
@@ -234,7 +234,7 @@
 #         self,
 #         llm_input: Conversation,
 #         stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
-#         **kwargs,
+#         **kwargs: Any,
 #     ):
 #         params = self.get_params(llm_input, **kwargs)
 
@@ -254,7 +254,7 @@
 #         self,
 #         llm_input: Conversation,
 #         stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
-#         **kwargs,
+#         **kwargs: Any,
 #     ):
 #         params = self.get_params(llm_input, **kwargs)
 

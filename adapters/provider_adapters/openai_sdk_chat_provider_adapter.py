@@ -9,7 +9,7 @@ class OpenAIModel(Model):
     properties: ModelProperties = ModelProperties(gdpr_compliant=True)
 
 
-MODELS = [
+MODELS: list[Model] = [
     OpenAIModel(
         name="gpt-3.5-turbo",
         cost=Cost(prompt=3.0e-6, completion=6.0e-6),
@@ -110,7 +110,7 @@ MODELS = [
 
 class OpenAISDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
     @staticmethod

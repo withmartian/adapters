@@ -22,7 +22,7 @@ class DatabricksModel(Model):
 
 DBU_USD_RATE = 0.07
 
-MODELS = [
+MODELS: list[Model] = [
     DatabricksModel(
         name="databricks-meta-llama-3-1-70b-instruct",
         cost=Cost(prompt=14.286 * DBU_USD_RATE, completion=42.857 * DBU_USD_RATE),
@@ -54,7 +54,7 @@ MODELS = [
 
 class DatabricksSDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
     @staticmethod
@@ -67,7 +67,7 @@ class DatabricksSDKChatProviderAdapter(OpenAISDKChatAdapter):
     def _get_params(
         self,
         llm_input: Conversation,
-        **kwargs,
+        **kwargs: Any,
     ) -> Dict[str, Any]:
         params = super()._get_params(llm_input, **kwargs)
 

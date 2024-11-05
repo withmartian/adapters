@@ -8,7 +8,7 @@ class LeptonModel(Model):
     properties: ModelProperties = ModelProperties(open_source=True, gdpr_compliant=True)
 
 
-MODELS = [
+MODELS: list[Model] = [
     LeptonModel(
         name="mistral-7b",
         cost=Cost(prompt=0.07e-6, completion=0.07e-6),
@@ -51,7 +51,7 @@ MODELS = [
 
 class LeptonSDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
     @staticmethod
