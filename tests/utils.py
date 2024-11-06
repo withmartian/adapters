@@ -7,6 +7,7 @@ from adapters.abstract_adapters.base_adapter import BaseAdapter
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.adapter_factory import AdapterFactory
 from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
+    AnthropicModel,
     AnthropicSDKChatProviderAdapter,
 )
 from adapters.provider_adapters.cohere_sdk_chat_provider_adapter import (
@@ -46,7 +47,7 @@ class AdapterTestFactory:
 ADAPTER_TEST_FACTORIES = [
     AdapterTestFactory(model.get_path())
     for model in AdapterFactory.get_supported_models()
-    if isinstance(model, OpenAIModel)
+    if isinstance(model, (OpenAIModel, AnthropicModel))
 ]
 
 
@@ -160,7 +161,7 @@ def get_response_choices_from_vcr(vcr: VCR, adapter: BaseAdapter) -> Any:
                             {
                                 "function": {
                                     "name": function_name,
-                                    "arguments": arguments,
+                                    "arguments": json.dumps(arguments),
                                 },
                             }
                         ]

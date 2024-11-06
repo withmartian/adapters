@@ -156,7 +156,6 @@ class Model(BaseModel):
     supports_repeating_roles: bool = True
     supports_streaming: bool = True
     supports_vision: bool = True
-    supports_functions: bool = True
     supports_tools: bool = True
     supports_n: bool = True
     supports_system: bool = True
@@ -168,6 +167,9 @@ class Model(BaseModel):
     supports_last_assistant: bool = True
     supports_first_assistant: bool = True
     supports_temperature: bool = True
+
+    # Deprecated, move to tools
+    supports_functions: bool = False
 
     properties: ModelProperties = Field(default_factory=ModelProperties)
 

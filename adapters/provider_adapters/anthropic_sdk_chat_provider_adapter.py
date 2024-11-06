@@ -49,7 +49,7 @@ from adapters.constants import (
     MAX_CONNECTIONS_PER_PROCESS,
     MAX_KEEPALIVE_CONNECTIONS_PER_PROCESS,
 )
-from adapters.general_utils import process_image_url_anthropic
+from adapters.general_utils import EMPTY_CONTENT, process_image_url_anthropic
 from adapters.types import (
     AdapterChatCompletion,
     AdapterChatCompletionChunk,
@@ -69,15 +69,35 @@ class AnthropicModel(Model):
     provider_name: str = Provider.anthropic.value
 
     supports_vision: bool = False
+    supports_empty_content: bool = False
+    supports_n: bool = False
 
 
 MODELS: list[Model] = [
+    AnthropicModel(
+        name="claude-3-haiku-20240307",
+        cost=Cost(prompt=0.25e-6, completion=1.25e-6),
+        context_length=200000,
+        completion_length=4096,
+    ),
+    # AnthropicModel(
+    #     name="claude-3-haiku-latest",
+    #     cost=Cost(prompt=0.25e-6, completion=1.25e-6),
+    #     context_length=200000,
+    #     completion_length=4096,
+    # ),
     AnthropicModel(
         name="claude-3-sonnet-20240229",
         cost=Cost(prompt=3.0e-6, completion=15.0e-6),
         context_length=200000,
         completion_length=4096,
     ),
+    # AnthropicModel(
+    #     name="claude-3-sonnet-latest",
+    #     cost=Cost(prompt=3.0e-6, completion=15.0e-6),
+    #     context_length=200000,
+    #     completion_length=4096,
+    # ),
     AnthropicModel(
         name="claude-3-opus-20240229",
         cost=Cost(prompt=15.0e-6, completion=75.0e-6),
@@ -91,10 +111,10 @@ MODELS: list[Model] = [
         completion_length=4096,
     ),
     AnthropicModel(
-        name="claude-3-haiku-20240307",
-        cost=Cost(prompt=0.25e-6, completion=1.25e-6),
+        name="claude-3-5-haiku-20241022",
+        cost=Cost(prompt=1.0e-6, completion=5.0e-6),
         context_length=200000,
-        completion_length=4096,
+        completion_length=8192,
     ),
     AnthropicModel(
         name="claude-3-5-sonnet-20240620",
@@ -107,6 +127,12 @@ MODELS: list[Model] = [
         cost=Cost(prompt=3.0e-6, completion=15.0e-6),
         context_length=200000,
         completion_length=4096,
+    ),
+    AnthropicModel(
+        name="claude-3-5-haiku-latest",
+        cost=Cost(prompt=1.0e-6, completion=5.0e-6),
+        context_length=200000,
+        completion_length=8192,
     ),
     AnthropicModel(
         name="claude-3-5-sonnet-latest",
@@ -310,9 +336,14 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
             system_prompt = messages[0]["content"]
             messages = messages[1:]
 
+        # Convert remaining system messages to user
         for message in messages:
             if message["role"] == ConversationRole.system.value:
                 message["role"] = ConversationRole.user.value
+
+        # Add empty user message if only system message is present
+        if len(messages) == 0:
+            messages = [{"role": ConversationRole.user.value, "content": EMPTY_CONTENT}]
 
         # Remove trailing whitespace from the last assistant message
         if (
@@ -344,19 +375,6 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
         openai_tools_choice = params.get("tool_choice")
 
         anthropic_tools: Optional[list[ToolParam]] = None
-        anthropic_tool_choice: Optional[ToolChoice] = None
-
-        if openai_tools_choice == "required":
-            anthropic_tool_choice = ToolChoiceToolChoiceAny(type="any")
-        elif openai_tools_choice == "auto":
-            anthropic_tool_choice = ToolChoiceToolChoiceAuto(type="auto")
-        elif openai_tools_choice == "none":
-            anthropic_tools = None
-        elif isinstance(openai_tools_choice, dict):
-            anthropic_tool_choice = ToolChoiceToolChoiceTool(
-                name=openai_tools_choice["function"]["name"],
-                type="tool",
-            )
 
         if openai_tools:
             anthropic_tools = []
@@ -374,6 +392,20 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
                 )
 
                 anthropic_tools.append(anthropic_tool)
+
+        anthropic_tool_choice: Optional[ToolChoice] = None
+
+        if openai_tools_choice == "required":
+            anthropic_tool_choice = ToolChoiceToolChoiceAny(type="any")
+        elif openai_tools_choice == "auto":
+            anthropic_tool_choice = ToolChoiceToolChoiceAuto(type="auto")
+        elif openai_tools_choice == "none":
+            anthropic_tools = None
+        elif isinstance(openai_tools_choice, dict):
+            anthropic_tool_choice = ToolChoiceToolChoiceTool(
+                name=openai_tools_choice["function"]["name"],
+                type="tool",
+            )
 
         return AnthropicCreate(
             max_tokens=params.get("max_tokens", self.get_model().completion_length),

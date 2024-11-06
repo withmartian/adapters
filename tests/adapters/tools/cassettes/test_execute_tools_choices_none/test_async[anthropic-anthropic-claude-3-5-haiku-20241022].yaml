@@ -1,0 +1,92 @@
+interactions:
+- request:
+    body: '{"max_tokens": 8192, "messages": [{"content": "Generate random number",
+      "role": "user"}], "model": "claude-3-5-haiku-20241022", "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      anthropic-version:
+      - '2023-06-01'
+      connection:
+      - keep-alive
+      content-length:
+      - '144'
+      content-type:
+      - application/json
+      host:
+      - api.anthropic.com
+      user-agent:
+      - AsyncAnthropic/Python 0.39.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 0.39.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: '{"id":"msg_01Q8bi3YguvjpawzA23uhPRB","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"I''ll
+        provide multiple ways to generate random numbers in different programming
+        languages:\n\n1. Python:\n```python\nimport random\n\n# Random integer between
+        0 and 100\nrandom_int = random.randint(0, 100)\n\n# Random float between 0
+        and 1\nrandom_float = random.random()\n\n# Random float within a specific
+        range\nrandom_range = random.uniform(1.0, 10.0)\n```\n\n2. JavaScript:\n```javascript\n//
+        Random number between 0 and 1\nlet randomDecimal = Math.random();\n\n// Random
+        integer between 0 and 100\nlet randomInt = Math.floor(Math.random() * 101);\n\n//
+        Random number within a specific range\nfunction getRandomNumber(min, max)
+        {\n    return Math.random() * (max - min) + min;\n}\n```\n\n3. Java:\n```java\nimport
+        java.util.Random;\n\nRandom rand = new Random();\n\n// Random integer\nint
+        randomInt = rand.nextInt();\n\n// Random integer within a specific range\nint
+        randomInRange = rand.nextInt(101); // 0-100\n```\n\n4. C++:\n```cpp\n#include
+        <cstdlib>\n#include <ctime>\n\n// Seed the random number generator\nsrand(time(0));\n\n//
+        Random integer\nint randomNum = rand();\n\n// Random number within a range\nint
+        randomInRange = rand() % 100; // 0-99\n```\n\n5. Ruby:\n```ruby\n# Random
+        integer\nrandom_int = rand(100)\n\n# Random float\nrandom_float = rand()\n```\n\nChoose
+        the method that fits your programming language and specific requirements."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":389}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8de8eb896f0c176b-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 06 Nov 2024 23:39:02 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '5000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '5000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-11-06T23:39:02Z'
+      content-length:
+      - '1595'
+      request-id:
+      - req_01K3zL6opQUt2WnibJa7NuaG
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+version: 1

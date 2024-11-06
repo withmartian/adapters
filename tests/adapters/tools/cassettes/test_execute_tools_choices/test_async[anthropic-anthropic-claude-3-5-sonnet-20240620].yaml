@@ -1,0 +1,94 @@
+interactions:
+- request:
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
+      "role": "user"}], "model": "claude-3-5-sonnet-20240620", "stream": false, "tools":
+      [{"input_schema": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate",
+      "description": "Generate random number"}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      anthropic-version:
+      - '2023-06-01'
+      connection:
+      - keep-alive
+      content-length:
+      - '354'
+      content-type:
+      - application/json
+      host:
+      - api.anthropic.com
+      user-agent:
+      - AsyncAnthropic/Python 0.39.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 0.39.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: '{"id":"msg_01456pMdLjUqNBQ1ia4VYq2e","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"Certainly!
+        I''d be happy to generate a random number for you. However, to use the random
+        number generation tool, we need to specify a prompt that indicates the type
+        of random number you''re looking for. The tool description suggests that we
+        should provide a prompt like \"5, 4, 3, 10, 11\" to indicate the range or
+        type of numbers we want.\n\nCould you please provide more information about
+        what kind of random number you''d like? For example:\n1. Do you want a single
+        digit number (0-9)?\n2. Do you want a number within a specific range (e.g.,
+        1-100)?\n3. Do you have a preference for the number of digits?\n\nOnce you
+        give me this information, I can use the tool to generate a random number that
+        meets your requirements."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":369,"output_tokens":183}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8de7f3ae9f7dcfe5-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 06 Nov 2024 20:49:47 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3999'
+      anthropic-ratelimit-requests-reset:
+      - '2024-11-06T20:50:08Z'
+      anthropic-ratelimit-tokens-limit:
+      - '8000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '8000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-11-06T20:49:47Z'
+      content-length:
+      - '962'
+      request-id:
+      - req_013fVMkhFTv9XpWchraEhU34
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+version: 1
