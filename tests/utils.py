@@ -77,6 +77,26 @@ SIMPLE_FUNCTION_CALL_USER_ONLY = Conversation(
     [Turn(role=ConversationRole.user, content="Generate random number")]
 )
 
+SIMPLE_GENERATE_TOOLS = [
+    {
+        "type": "function",
+        "function": {
+            "description": "Generate random number",
+            "name": "generate",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "prompt": {
+                        "type": "string",
+                        "description": "Random number like 5, 4, 3, 10, 11",
+                    },
+                },
+                "required": ["prompt"],
+            },
+        },
+    }
+]
+
 
 SIMPLE_CONVERSATION_VISION = Conversation(
     [

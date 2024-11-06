@@ -3,31 +3,11 @@ import pytest
 from tests.utils import (
     ADAPTER_TEST_FACTORIES,
     SIMPLE_FUNCTION_CALL_USER_ONLY,
+    SIMPLE_GENERATE_TOOLS,
     AdapterTestFactory,
     get_response_choices_from_vcr,
 )
 from vcr import VCR
-
-
-tools = [
-    {
-        "type": "function",
-        "function": {
-            "description": "Generate random number",
-            "name": "generate",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "prompt": {
-                        "type": "string",
-                        "description": "Random number like 5, 4, 3, 10, 11",
-                    },
-                },
-                "required": ["prompt"],
-            },
-        },
-    }
-]
 
 
 @pytest.mark.vcr
@@ -39,7 +19,7 @@ async def test_async(vcr: VCR, create_adapter: AdapterTestFactory) -> None:
         return
 
     adapter_response = await adapter.execute_async(
-        SIMPLE_FUNCTION_CALL_USER_ONLY, tool_choice="none", tools=tools
+        SIMPLE_FUNCTION_CALL_USER_ONLY, tools=SIMPLE_GENERATE_TOOLS, tool_choice="none"
     )
 
     choices = get_response_choices_from_vcr(vcr, adapter)
