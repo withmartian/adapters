@@ -1,9 +1,9 @@
 import pytest
 
-from adapters.abstract_adapters.base_adapter import BaseAdapter
 from tests.utils import (
-    TEST_ADAPTERS,
+    ADAPTER_TEST_FACTORIES,
     SIMPLE_FUNCTION_CALL_USER_ONLY,
+    AdapterTestFactory,
     get_response_choices_from_vcr,
 )
 from vcr import VCR
@@ -31,8 +31,10 @@ tools = [
 
 
 @pytest.mark.vcr
-@pytest.mark.parametrize("adapter", TEST_ADAPTERS, ids=lambda adapter: str(adapter))
-async def test_async(vcr: VCR, adapter: BaseAdapter) -> None:
+@pytest.mark.parametrize("create_adapter", ADAPTER_TEST_FACTORIES, ids=str)
+async def test_async(vcr: VCR, create_adapter: AdapterTestFactory) -> None:
+    adapter = create_adapter()
+
     if (
         adapter.get_model().supports_tools is False
         or adapter.get_model().supports_tool_choice_required is False

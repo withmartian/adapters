@@ -1,17 +1,19 @@
 import pytest
 
-from adapters.abstract_adapters.base_adapter import BaseAdapter
 from tests.utils import (
-    TEST_ADAPTERS,
+    ADAPTER_TEST_FACTORIES,
     SIMPLE_CONVERSATION_JSON_OUTPUT,
+    AdapterTestFactory,
     get_response_content_from_vcr,
 )
 from vcr import VCR
 
 
-@pytest.mark.parametrize("adapter", TEST_ADAPTERS)
 @pytest.mark.vcr
-async def test_async(vcr: VCR, adapter: BaseAdapter) -> None:
+@pytest.mark.parametrize("create_adapter", ADAPTER_TEST_FACTORIES, ids=str)
+async def test_async(vcr: VCR, create_adapter: AdapterTestFactory) -> None:
+    adapter = create_adapter()
+
     if adapter.get_model().supports_json_output is False:
         return
 

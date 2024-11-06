@@ -1,25 +1,28 @@
 import pytest
 
-from adapters.abstract_adapters.base_adapter import BaseAdapter
 from adapters.types import Conversation, ConversationRole, Turn
 from tests.utils import (
-    TEST_ADAPTERS,
+    ADAPTER_TEST_FACTORIES,
+    AdapterTestFactory,
     get_response_content_from_vcr,
 )
 from vcr import VCR
 
 
+conversation = Conversation(
+    [
+        Turn(role=ConversationRole.user, content="Hi"),
+        Turn(
+            role=ConversationRole.assistant, content="Hi "
+        ),  # Empty space intentionally added, to test trailing whitespace for anthropic
+    ]
+)
+
+
 @pytest.mark.vcr
-@pytest.mark.parametrize("adapter", TEST_ADAPTERS, ids=lambda adapter: str(adapter))
-async def test_async(vcr: VCR, adapter: BaseAdapter) -> None:
-    conversation = Conversation(
-        [
-            Turn(role=ConversationRole.user, content="Hi"),
-            Turn(
-                role=ConversationRole.assistant, content="Hi "
-            ),  # Empty space intentionally added, to test trailing whitespace for anthropic
-        ]
-    )
+@pytest.mark.parametrize("create_adapter", ADAPTER_TEST_FACTORIES, ids=str)
+async def test_async(vcr: VCR, create_adapter: AdapterTestFactory) -> None:
+    adapter = create_adapter()
 
     adapter_response = await adapter.execute_async(conversation)
 

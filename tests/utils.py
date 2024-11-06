@@ -27,14 +27,26 @@ from adapters.types import (
 from vcr import VCR
 
 
-TEST_ADAPTERS = [
-    adapter
-    for adapter in [
-        AdapterFactory.get_adapter_by_path(model.get_path())
-        for model in AdapterFactory.get_supported_models()
-        if isinstance(model, OpenAIModel)
-    ]
-    if adapter is not None
+class AdapterTestFactory:
+    model_path: str
+
+    def __init__(self, model_path: str):
+        self.model_path = model_path
+
+    def __call__(self) -> BaseAdapter:
+        adapter = AdapterFactory.get_adapter_by_path(self.model_path)
+        if adapter is None:
+            raise ValueError(f"No adapter found for path: {self.model_path}")
+        return adapter
+
+    def __str__(self) -> str:
+        return self.model_path
+
+
+ADAPTER_TEST_FACTORIES = [
+    AdapterTestFactory(model.get_path())
+    for model in AdapterFactory.get_supported_models()
+    if isinstance(model, OpenAIModel)
 ]
 
 
