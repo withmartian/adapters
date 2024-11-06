@@ -71,6 +71,9 @@ MODELS: list[Model] = [
         supports_streaming=False,
         supports_system=False,
         supports_n=False,
+        supports_functions=False,
+        supports_vision=False,
+        supports_json_output=False,
     ),
     OpenAIModel(
         name="o1-preview-2024-09-12",
@@ -82,6 +85,9 @@ MODELS: list[Model] = [
         supports_system=False,
         supports_streaming=False,
         supports_n=False,
+        supports_functions=False,
+        supports_vision=False,
+        supports_json_output=False,
     ),
     OpenAIModel(
         name="o1-mini",
@@ -93,6 +99,9 @@ MODELS: list[Model] = [
         supports_system=False,
         supports_streaming=False,
         supports_n=False,
+        supports_functions=False,
+        supports_vision=False,
+        supports_json_output=False,
     ),
     OpenAIModel(
         name="o1-mini-2024-09-12",
@@ -104,6 +113,9 @@ MODELS: list[Model] = [
         supports_system=False,
         supports_streaming=False,
         supports_n=False,
+        supports_functions=False,
+        supports_vision=False,
+        supports_json_output=False,
     ),
 ]
 
