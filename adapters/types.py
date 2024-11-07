@@ -168,6 +168,12 @@ class Model(BaseModel):
     supports_first_assistant: bool = True
     supports_temperature: bool = True
 
+    # New
+    supports_only_system: bool = True
+    supports_only_assistant: bool = True
+
+    # supports_tools_streaming: bool = True
+
     # Deprecated, move to tools
     supports_functions: bool = False
 

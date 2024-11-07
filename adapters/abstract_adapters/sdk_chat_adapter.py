@@ -174,6 +174,24 @@ class SDKChatAdapter(
 
         # ====
 
+        if (
+            not self.get_model().supports_only_assistant
+            and len(messages)
+            and messages[0]["role"] == ConversationRole.assistant.value
+        ):
+            messages.append(
+                {"role": ConversationRole.user.value, "content": EMPTY_CONTENT}
+            )
+
+        if (
+            not self.get_model().supports_only_system
+            and len(messages)
+            and messages[0]["role"] == ConversationRole.system.value
+        ):
+            messages.append(
+                {"role": ConversationRole.user.value, "content": EMPTY_CONTENT}
+            )
+
         # Convert json content to string if not supported
         if not self.get_model().supports_json_content:
             for message in messages:

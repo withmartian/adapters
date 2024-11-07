@@ -3,30 +3,11 @@ import pytest
 from tests.utils import (
     ADAPTER_TEST_FACTORIES,
     SIMPLE_FUNCTION_CALL_USER_ONLY,
+    SIMPLE_GENERATE_TOOLS,
     AdapterTestFactory,
     get_response_choices_from_vcr,
 )
 from vcr import VCR
-
-tools = [
-    {
-        "type": "function",
-        "function": {
-            "description": "Generate random number",
-            "name": "generate",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "prompt": {
-                        "type": "string",
-                        "description": "Random number like 5, 4, 3, 10, 11",
-                    },
-                },
-                "required": ["prompt"],
-            },
-        },
-    }
-]
 
 
 @pytest.mark.vcr
@@ -39,17 +20,16 @@ async def test_async(vcr: VCR, create_adapter: AdapterTestFactory) -> None:
 
     adapter_response = await adapter.execute_async(
         SIMPLE_FUNCTION_CALL_USER_ONLY,
-        tool_choice={"type": "function", "function": {"name": "generate"}},
-        tools=tools,
+        tools=SIMPLE_GENERATE_TOOLS,
     )
     choices = get_response_choices_from_vcr(vcr, adapter)
 
-    assert adapter_response.choices[0].message.tool_calls
+    assert adapter_response.choices[-1].message.tool_calls
     assert (
-        adapter_response.choices[0].message.tool_calls[0].function.name
-        == choices[0]["message"]["tool_calls"][0]["function"]["name"]
+        adapter_response.choices[-1].message.tool_calls[0].function.name
+        == choices[-1]["message"]["tool_calls"][0]["function"]["name"]
     )
     assert (
-        adapter_response.choices[0].message.tool_calls[0].function.arguments
-        == choices[0]["message"]["tool_calls"][0]["function"]["arguments"]
+        adapter_response.choices[-1].message.tool_calls[0].function.arguments
+        == choices[-1]["message"]["tool_calls"][0]["function"]["arguments"]
     )

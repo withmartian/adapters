@@ -9,12 +9,11 @@ from tests.utils import (
 from vcr import VCR
 
 
+# Empty space intentionally added, to test trailing whitespace as some providers don't like it
 conversation = Conversation(
     [
         Turn(role=ConversationRole.user, content="Hi"),
-        Turn(
-            role=ConversationRole.assistant, content="Hi "
-        ),  # Empty space intentionally added, to test trailing whitespace for anthropic
+        Turn(role=ConversationRole.assistant, content="Hi "),
     ]
 )
 

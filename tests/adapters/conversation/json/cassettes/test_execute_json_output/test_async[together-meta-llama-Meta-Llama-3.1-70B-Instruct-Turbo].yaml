@@ -1,0 +1,136 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+      "response_format": {"type": "json_object"}, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '177'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.together.xyz/chat/completions
+  response:
+    body:
+      string: "{\n  \"id\": \"8de9e67ceb8c2350-SJC\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1730946615,\n  \"model\": \"meta-llama/Meta-Llama-3.1-70B-Instruct\",\n
+        \ \"prompt_logprobs\": null,\n  \"prompt\": [],\n  \"choices\": [\n    {\n
+        \     \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n
+        \       \"content\": \"JSON (JavaScript Object Notation) is a lightweight
+        data interchange format that is widely used for exchanging data between web
+        servers, web applications, and mobile apps. Here's an example of how to use
+        JSON:\\n\\n**What is JSON?**\\n\\nJSON is a text-based format that represents
+        data as key-value pairs, arrays, and objects. It's easy to read and write,
+        and it's language-independent, making it a popular choice for data exchange.\\n\\n**Basic
+        JSON Syntax**\\n\\nHere's an example of a simple JSON object:\\n```json\\n{\\n
+        \ \\\"name\\\": \\\"John Doe\\\",\\n  \\\"age\\\": 30,\\n  \\\" occupation\\\":
+        \\\"Developer\\\"\\n}\\n```\\nIn this example, we have a JSON object with
+        three key-value pairs:\\n\\n* `name`: a string value\\n* `age`: a number value\\n*
+        `occupation`: a string value\\n\\n**JSON Data Types**\\n\\nJSON supports the
+        following data types:\\n\\n* **String**: a sequence of characters, e.g. \\\"hello\\\"\\n*
+        **Number**: a numeric value, e.g. 42\\n* **Boolean**: a true or false value\\n*
+        **Array**: an ordered collection of values, e.g. [1, 2, 3]\\n* **Object**:
+        an unordered collection of key-value pairs, e.g. { \\\"name\\\": \\\"John\\\"
+        }\\n* **Null**: a null value\\n\\n**JSON Array**\\n\\nHere's an example of
+        a JSON array:\\n```json\\n[\\n  {\\n    \\\"name\\\": \\\"John Doe\\\",\\n
+        \   \\\"age\\\": 30\\n  },\\n  {\\n    \\\"name\\\": \\\"Jane Doe\\\",\\n
+        \   \\\"age\\\": 25\\n  }\\n]\\n```\\nIn this example, we have a JSON array
+        with two objects, each with two key-value pairs.\\n\\n**JSON Object with Nested
+        Objects**\\n\\nHere's an example of a JSON object with nested objects:\\n```json\\n{\\n
+        \ \\\"name\\\": \\\"John Doe\\\",\\n  \\\"address\\\": {\\n    \\\"street\\\":
+        \\\"123 Main St\\\",\\n    \\\"city\\\": \\\"Anytown\\\",\\n    \\\"state\\\":
+        \\\"CA\\\",\\n    \\\"zip\\\": \\\"12345\\\"\\n  }\\n}\\n```\\nIn this example,
+        we have a JSON object with a nested object called `address`.\\n\\n**Parsing
+        JSON**\\n\\nTo parse JSON data, you can use a JSON parser library or a built-in
+        language feature. For example, in JavaScript, you can use the `JSON.parse()`
+        function to parse a JSON string:\\n```javascript\\nconst jsonString = '{\\\"name\\\":\\\"John
+        Doe\\\",\\\"age\\\":30}';\\nconst jsonData = JSON.parse(jsonString);\\nconsole.log(jsonData.name);
+        // Output: John Doe\\n```\\nSimilarly, in Python, you can use the `json.loads()`
+        function to parse a JSON string:\\n```python\\nimport json\\njson_string =
+        '{\\\"name\\\":\\\"John Doe\\\",\\\"age\\\":30}'\\njson_data = json.loads(json_string)\\nprint(json_data['name'])
+        \ # Output: John Doe\\n```\\n**Generating JSON**\\n\\nTo generate JSON data,
+        you can use a JSON generator library or a built-in language feature. For example,
+        in JavaScript, you can use the `JSON.stringify()` function to generate a JSON
+        string:\\n```javascript\\nconst jsonData = { name: 'John Doe', age: 30 };\\nconst
+        jsonString = JSON.stringify(jsonData);\\nconsole.log(jsonString); // Output:
+        '{\\\"name\\\":\\\"John Doe\\\",\\\"age\\\":30}'\\n```\\nSimilarly, in Python,
+        you can use the `json.dumps()` function to generate a JSON string:\\n```python\\nimport
+        json\\njson_data = {'name': 'John Doe', 'age': 30}\\njson_string = json.dumps(json_data)\\nprint(json_string)
+        \ # Output: '{\\\"name\\\": \\\"John Doe\\\", \\\"age\\\": 30}'\\n```\",\n
+        \       \"tool_calls\": []\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
+        \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 39,\n    \"total_tokens\":
+        790,\n    \"completion_tokens\": 751\n  }\n}"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8de9e67ceb8c2350-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 07 Nov 2024 02:30:37 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '3549'
+      etag:
+      - W/"ddd-oNGKe+s7nanZeNOlSBz5rKCCcnc"
+      x-api-call-end:
+      - '2024-11-07T02:30:37.198Z'
+      x-api-call-start:
+      - '2024-11-07T02:30:15.864Z'
+      x-api-received:
+      - '2024-11-07T02:30:15.858Z'
+      x-inference-version:
+      - v2
+      x-ratelimit:
+      - 'false'
+      x-ratelimit-limit:
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
+      x-ratelimit-remaining:
+      - '197'
+      x-ratelimit-remaining-tokens:
+      - '99664'
+      x-ratelimit-reset:
+      - '2'
+    status:
+      code: 200
+      message: OK
+version: 1

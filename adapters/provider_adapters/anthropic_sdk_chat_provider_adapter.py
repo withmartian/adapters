@@ -332,7 +332,7 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
         system_prompt: Optional[str] = None
 
         # Extract system prompt if it's the first message
-        if len(messages) > 0 and messages[0]["role"] == ConversationRole.system.value:
+        if len(messages) and messages[0]["role"] == ConversationRole.system.value:
             system_prompt = messages[0]["content"]
             messages = messages[1:]
 
@@ -346,10 +346,7 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
             messages = [{"role": ConversationRole.user.value, "content": EMPTY_CONTENT}]
 
         # Remove trailing whitespace from the last assistant message
-        if (
-            len(messages) > 0
-            and messages[-1]["role"] == ConversationRole.assistant.value
-        ):
+        if len(messages) and messages[-1]["role"] == ConversationRole.assistant.value:
             messages[-1]["content"] = messages[-1]["content"].rstrip()
 
         # Include base64-encoded images in the request

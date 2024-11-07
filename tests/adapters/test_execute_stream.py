@@ -27,10 +27,10 @@ def test_sync(vcr: VCR, create_adapter: AdapterTestFactory) -> None:
         [
             chunk.choices[0].delta.content
             for chunk in chunks
-            if chunk.choices[0].delta.content
+            if len(chunk.choices) and chunk.choices[0].delta.content
         ]
     )
-    assert len(response) > 0
+    assert len(response)
 
 
 @pytest.mark.vcr
@@ -52,7 +52,7 @@ async def test_async(vcr: VCR, create_adapter: AdapterTestFactory) -> None:
         [
             chunk.choices[0].delta.content
             for chunk in chunks
-            if chunk.choices[0].delta.content
+            if len(chunk.choices) and chunk.choices[0].delta.content
         ]
     )
-    assert len(response) > 0
+    assert len(response)

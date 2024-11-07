@@ -3,7 +3,6 @@ from typing import Any, Dict
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.types import (
     Conversation,
-    ConversationRole,
     Cost,
     Model,
     ModelProperties,
@@ -15,9 +14,6 @@ from adapters.types import (
 class TogetherModel(Model):
     provider_name: str = Provider.together.value
 
-    supports_vision: bool = False
-    supports_n: bool = False  # Suports with temperature
-
     properties: ModelProperties = ModelProperties(open_source=True)
 
     def _get_api_path(self) -> str:
@@ -26,25 +22,145 @@ class TogetherModel(Model):
 
 MODELS: list[Model] = [
     TogetherModel(
-        name="Meta-Llama-3.1-8B-Instruct-Turbo",
-        cost=Cost(prompt=0.18e-6, completion=0.18e-6),
+        name="Llama-3-8b-chat-hf",
+        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
         context_length=8192,
         vendor_name=Vendor.meta_llama.value,
+        supports_json_content=False,
+        supports_json_output=False,
+        supports_vision=False,
+    ),
+    TogetherModel(
+        name="Llama-3-70b-chat-hf",
+        cost=Cost(prompt=0.90e-6, completion=0.90e-6),
+        context_length=8192,
+        vendor_name=Vendor.meta_llama.value,
+        supports_json_content=False,
+        supports_json_output=False,
+        supports_vision=False,
+    ),
+    TogetherModel(
+        name="Meta-Llama-3.1-8B-Instruct-Turbo",
+        cost=Cost(prompt=0.18e-6, completion=0.18e-6),
+        context_length=131072,
+        vendor_name=Vendor.meta_llama.value,
+        supports_json_content=False,
+        supports_vision=False,
     ),
     TogetherModel(
         name="Meta-Llama-3.1-70B-Instruct-Turbo",
         cost=Cost(prompt=0.88e-6, completion=0.88e-6),
-        context_length=8192,
+        context_length=131072,
         vendor_name=Vendor.meta_llama.value,
+        supports_json_content=False,
+        supports_vision=False,
     ),
     TogetherModel(
         name="Meta-Llama-3.1-405B-Instruct-Turbo",
-        cost=Cost(prompt=5.0e-6, completion=5.0e-6),
-        context_length=8192,
+        cost=Cost(prompt=3.5e-6, completion=3.5e-6),
+        context_length=130815,
+        vendor_name=Vendor.meta_llama.value,
+        supports_json_content=False,
+        supports_json_output=False,
+        supports_vision=False,
+    ),
+    TogetherModel(
+        name="Llama-3.2-3B-Instruct-Turbo",
+        cost=Cost(prompt=0.06e-6, completion=0.06e-6),
+        context_length=131072,
+        vendor_name=Vendor.meta_llama.value,
+        supports_json_content=False,
+        supports_json_output=False,
+        supports_vision=False,
+    ),
+    TogetherModel(
+        name="Llama-3.2-11B-Vision-Instruct-Turbo",
+        cost=Cost(prompt=0.18e-6, completion=0.18e-6),
+        context_length=131072,
         vendor_name=Vendor.meta_llama.value,
         supports_json_output=False,
     ),
+    TogetherModel(
+        name="Llama-3.2-90B-Vision-Instruct-Turbo",
+        cost=Cost(prompt=1.20e-6, completion=1.20e-6),
+        context_length=131072,
+        vendor_name=Vendor.meta_llama.value,
+        supports_json_output=False,
+    ),
+    TogetherModel(
+        name="Qwen2-72B-Instruct",
+        cost=Cost(prompt=0.90e-6, completion=0.90e-6),
+        context_length=32768,
+        vendor_name=Vendor.qwen.value,
+        supports_json_output=False,
+        supports_vision=False,
+    ),
+    TogetherModel(
+        name="Qwen2.5-7B-Instruct-Turbo",
+        cost=Cost(prompt=0.30e-6, completion=5.0e-6),
+        context_length=32768,
+        vendor_name=Vendor.qwen.value,
+        supports_json_output=False,
+        supports_vision=False,
+    ),
+    TogetherModel(
+        name="Qwen2.5-72B-Instruct-Turbo",
+        cost=Cost(prompt=1.20e-6, completion=1.20e-6),
+        context_length=32768,
+        vendor_name=Vendor.qwen.value,
+        supports_json_output=False,
+        supports_vision=False,
+    ),
+    TogetherModel(
+        name="Mistral-7B-Instruct-v0.3",
+        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
+        context_length=32768,
+        vendor_name=Vendor.mistralai.value,
+        supports_json_output=False,
+        supports_only_system=False,
+        supports_only_assistant=False,
+        supports_vision=False,
+    ),
+    TogetherModel(
+        name="Mixtral-8x7B-Instruct-v0.1",
+        cost=Cost(prompt=0.60e-6, completion=0.60e-6),
+        context_length=32768,
+        vendor_name=Vendor.mistralai.value,
+        supports_only_system=False,
+        supports_only_assistant=False,
+        supports_vision=False,
+    ),
+    TogetherModel(
+        name="Mixtral-8x22B-Instruct-v0.1",
+        cost=Cost(prompt=1.20e-6, completion=1.20e-6),
+        context_length=65536,
+        vendor_name=Vendor.mistralai.value,
+        supports_json_output=False,
+        supports_only_system=False,
+        supports_only_assistant=False,
+        supports_vision=False,
+    ),
+    TogetherModel(
+        name="gemma-2-9b-it",
+        cost=Cost(prompt=0.30e-6, completion=0.30e-6),
+        context_length=8192,
+        vendor_name=Vendor.google.value,
+        supports_json_content=False,
+        supports_json_output=False,
+        supports_vision=False,
+    ),
+    TogetherModel(
+        name="gemma-2-27b-it",
+        cost=Cost(prompt=0.80e-6, completion=0.80e-6),
+        context_length=8192,
+        vendor_name=Vendor.google.value,
+        supports_json_content=False,
+        supports_json_output=False,
+        supports_vision=False,
+    ),
 ]
+
+DEFAULT_TEMPERATURE = 0.7
 
 
 class TogetherSDKChatProviderAdapter(OpenAISDKChatAdapter):
@@ -66,9 +182,18 @@ class TogetherSDKChatProviderAdapter(OpenAISDKChatAdapter):
         params = super()._get_params(llm_input, **kwargs)
         messages = params["messages"]
 
-        # Remove trailing whitespace from the last assistant message
-        if len(messages) > 0 and messages[-1]["role"] == ConversationRole.assistant:
-            messages[-1]["content"] = messages[-1]["content"].rstrip()
+        # If the user has requested n messages, but not specified a temperature, we need to provide default temperature
+        if params.get("n") and params.get("temperature") is None:
+            params["temperature"] = DEFAULT_TEMPERATURE
+
+        # Scale temperature to OpenAI scale
+        if params.get("temperature"):
+            params["temperature"] = self._adjust_temperature(params["temperature"])
+
+        # Keep only last image_url for vision
+        # params["messages"] =
+        #     if message.get("image_url"):
+        #         message["image_url"] = message["image_url
 
         return {
             **params,

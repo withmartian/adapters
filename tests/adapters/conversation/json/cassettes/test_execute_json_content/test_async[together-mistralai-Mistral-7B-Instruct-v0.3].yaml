@@ -1,0 +1,109 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "mistralai/Mistral-7B-Instruct-v0.3",
+      "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '173'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.together.xyz/chat/completions
+  response:
+    body:
+      string: "{\n  \"id\": \"8dea0a905ff6cebd-SJC\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1730948093,\n  \"model\": \"mistralai/Mistral-7B-Instruct-v0.3\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
+        \     \"seed\": 6715748815312997000,\n      \"logprobs\": null,\n      \"index\":
+        0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
+        \" It seems like you're dealing with JavaScript objects, but they're not being
+        displayed in a readable format. To view the properties and values of these
+        objects, you can use console.log() or JSON.stringify(). Here's an example:\\n\\n```javascript\\nlet
+        obj1 = { name: 'Object1', age: 10 };\\nlet obj2 = { name: 'Object2', age:
+        20 };\\n\\nconsole.log(obj1); // Outputs: { name: 'Object1', age: 10 }\\nconsole.log(obj2);
+        // Outputs: { name: 'Object2', age: 20 }\\n\\nconsole.log(JSON.stringify(obj1));
+        // Outputs: {\\\"name\\\":\\\"Object1\\\",\\\"age\\\":10}\\nconsole.log(JSON.stringify(obj2));
+        // Outputs: {\\\"name\\\":\\\"Object2\\\",\\\"age\\\":20}\\n```\\n\\nIf you
+        have the objects as [object Object], you can use the following code to access
+        their properties:\\n\\n```javascript\\nlet obj1 = [object Object];\\nlet obj2
+        = [object Object];\\n\\n// Assuming both objects have a property 'name'\\nconsole.log(obj1.name);
+        // Access the 'name' property of obj1\\nconsole.log(obj2.name); // Access
+        the 'name' property of obj2\\n```\",\n        \"tool_calls\": []\n      }\n
+        \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 14,\n    \"completion_tokens\":
+        305,\n    \"total_tokens\": 319\n  }\n}"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8dea0a905ff6cebd-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 07 Nov 2024 02:54:55 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '1480'
+      etag:
+      - W/"5c8-oWiQ9vgADYhViLmFJFvRLjs4axg"
+      x-api-call-end:
+      - '2024-11-07T02:54:55.880Z'
+      x-api-call-start:
+      - '2024-11-07T02:54:53.532Z'
+      x-api-received:
+      - '2024-11-07T02:54:53.526Z'
+      x-inference-version:
+      - v2
+      x-ratelimit:
+      - 'false'
+      x-ratelimit-limit:
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-remaining-tokens:
+      - '99900'
+      x-ratelimit-reset:
+      - '2'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -17,6 +17,7 @@ from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
     GeminiSDKChatProviderAdapter,
 )
 from adapters.provider_adapters.openai_sdk_chat_provider_adapter import OpenAIModel
+from adapters.provider_adapters.together_sdk_chat_provider_adapter import TogetherModel
 from adapters.types import (
     ContentTurn,
     ContentType,
@@ -47,7 +48,7 @@ class AdapterTestFactory:
 ADAPTER_TEST_FACTORIES = [
     AdapterTestFactory(model.get_path())
     for model in AdapterFactory.get_supported_models()
-    if isinstance(model, (OpenAIModel, AnthropicModel))
+    if isinstance(model, (OpenAIModel, AnthropicModel, TogetherModel))
 ]
 
 
@@ -74,7 +75,12 @@ SIMPLE_CONVERSATION_JSON_CONTENT = Conversation(
 
 
 SIMPLE_FUNCTION_CALL_USER_ONLY = Conversation(
-    [Turn(role=ConversationRole.user, content="Generate random number")]
+    [
+        Turn(
+            role=ConversationRole.user,
+            content="Generate random number via tools, range 1-10",
+        )
+    ]
 )
 
 SIMPLE_GENERATE_TOOLS = [
@@ -171,30 +177,40 @@ def get_response_choices_from_vcr(vcr: VCR, adapter: BaseAdapter) -> Any:
     if isinstance(adapter, OpenAISDKChatAdapter):
         return response["choices"]
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
-        if response["content"] and response["content"][0]["type"] == "tool_use":
-            function_name = response["content"][0].get("name", "")
-            arguments = response["content"][0].get("input", "")
-            return [
-                {
-                    "message": {
-                        "tool_calls": [
-                            {
-                                "function": {
-                                    "name": function_name,
-                                    "arguments": json.dumps(arguments),
-                                },
-                            }
-                        ]
+        choices: list[Any] = []
+
+        for content in response["content"]:
+            if content["type"] == "tool_use":
+                choices.append(
+                    {
+                        "message": {
+                            "role": response["role"],
+                            "tool_calls": [
+                                {
+                                    "function": {
+                                        "name": content["name"],
+                                        "arguments": json.dumps(content["input"]),
+                                    },
+                                }
+                            ],
+                        }
                     }
-                }
-            ]
-        else:
-            text = response["content"][0].get("text", "") if response["content"] else ""
-            role = response.get("role", "")
-            return [{"message": {"role": role, "content": text}}]
-    elif isinstance(adapter, CohereSDKChatProviderAdapter):
-        return response["text"]
-    elif isinstance(adapter, GeminiSDKChatProviderAdapter):
-        return response["candidates"][0]["content"]["parts"][0]["text"]
+                )
+            elif content["type"] == "text":
+                choices.append(
+                    {
+                        "message": {
+                            "role": response["role"],
+                            "content": content["text"],
+                        }
+                    }
+                )
+            else:
+                raise ValueError(f"Unknown content type: {content['type']}")
+        return choices
+    # elif isinstance(adapter, CohereSDKChatProviderAdapter):
+    # return response["text"]
+    # elif isinstance(adapter, GeminiSDKChatProviderAdapter):
+    # return response["candidates"][0]["content"]["parts"][0]["text"]
     else:
         raise ValueError("Unknown adapter")

@@ -3,7 +3,7 @@ from adapters import AdapterFactory
 
 def test_supported_models_length_nonzero() -> None:
     models = AdapterFactory.get_supported_models()
-    assert len(models) > 0
+    assert len(models)
 
 
 def test_supported_models_work() -> None:
