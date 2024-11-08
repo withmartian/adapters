@@ -16,6 +16,9 @@ from adapters.provider_adapters.cohere_sdk_chat_provider_adapter import (
     CohereModel,
     CohereSDKChatProviderAdapter,
 )
+from adapters.provider_adapters.fireworks_sdk_chat_provider_adapter import (
+    FireworksModel,
+)
 from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
     GeminiSDKChatProviderAdapter,
 )
@@ -60,6 +63,7 @@ ADAPTER_TEST_FACTORIES = [
             AI21Model,
             CerebrasModel,
             CohereModel,
+            FireworksModel,
         ),
     )
 ]

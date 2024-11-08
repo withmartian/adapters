@@ -1,8 +1,8 @@
 interactions:
 - request:
     body: '{"model": "command-r", "messages": [{"role": "user", "content": "Hi"},
-      {"role": "assistant", "content": "Hi"}, {"role": "user", "content": "Hi"}],
-      "stream": false}'
+      {"role": "assistant", "content": "Hi"}, {"role": "assistant", "content": "Hi"},
+      {"role": "user", "content": "Hi"}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '163'
+      - '203'
       content-type:
       - application/json
       host:
@@ -28,15 +28,13 @@ interactions:
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: '{"id":"4865692f-701b-4be4-8f6e-1cdf173a04be","message":{"role":"assistant","content":[{"type":"text","text":"Hello!
-        How''s it going? Is there anything you''d like to talk about or ask me? I
-        can assist you with a variety of topics and tasks, from general knowledge
-        queries to creative writing and language translation."}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":3,"output_tokens":43},"tokens":{"input_tokens":75,"output_tokens":43}}}'
+      string: '{"id":"30817fd7-7aeb-4650-b024-d67e6577771b","message":{"role":"assistant","content":[{"type":"text","text":"Hello!
+        How''s it going? Do you have any questions or topics you''d like to discuss?"}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":4,"output_tokens":20},"tokens":{"input_tokens":79,"output_tokens":20}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '458'
+      - '333'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -46,13 +44,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Fri, 08 Nov 2024 07:47:57 GMT
+      - Fri, 08 Nov 2024 20:47:59 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
       num_chars:
-      - '543'
+      - '606'
       num_tokens:
-      - '46'
+      - '24'
       pragma:
       - no-cache
       server:
@@ -62,9 +60,9 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - 722e1fc7f5aceaa32794a5aef9530027
+      - 78a500dfe3026430833f1b9579a82204
       x-envoy-upstream-service-time:
-      - '363'
+      - '192'
     status:
       code: 200
       message: OK

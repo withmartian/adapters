@@ -193,75 +193,8 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
     def _create_client_async(self, base_url: str, api_key: str) -> AsyncClientV2:
         return AsyncClientV2(base_url=base_url, api_key=api_key)  # type: ignore
 
-    # openai
-    #     {
-    #     "id": "chatcmpl-6802b281-fe33-4715-aed7-b1b747ab5206",
-    #     "choices": [
-    #         {
-    #             "finish_reason": "tool_calls",
-    #             "index": 0,
-    #             "message": {
-    #                 "tool_calls": [
-    #                     {
-    #                         "id": "5f2d0745e",
-    #                         "type": "function",
-    #                         "function": {
-    #                             "name": "generate",
-    #                             "arguments": "{\"prompt\": \"random number between 1 and 10\"}"
-    #                         }
-    #                     }
-    #                 ],
-    #                 "role": "assistant"
-    #             }
-    #         }
-    #     ],
-    #     "created": 1731046923,
-    #     "model": "llama3.1-70b",
-    #     "system_fingerprint": "fp_55ebaf7e1e",
-    #     "object": "chat.completion",
-    #     "usage": {
-    #         "prompt_tokens": 255,
-    #         "completion_tokens": 17,
-    #         "total_tokens": 272
-    #     },
-    #     "time_info": {
-    #         "queue_time": 2.692e-05,
-    #         "prompt_time": 0.0098427506875,
-    #         "completion_time": 0.024018234312499998,
-    #         "total_time": 0.035489559173583984,
-    #         "created": 1731046923
-    #     }
-    # }
-
-    # Cohere
-    # {
-    #     "id": "07ecaee3-e053-4a03-9ddb-daf36cbe6da4",
-    #     "message": {
-    #         "role": "assistant",
-    #         "tool_plan": "I will use the generate tool to generate a random number between 1 and 10.",
-    #         "tool_calls": [
-    #             {
-    #                 "id": "generate_jckaf87fpqvd",
-    #                 "type": "function",
-    #                 "function": {
-    #                     "name": "generate",
-    #                     "arguments": "{\"prompt\":\"Generate a random number between 1 and 10\"}"
-    #                 }
-    #             }
-    #         ]
-    #     },
-    #     "finish_reason": "TOOL_CALL",
-    #     "usage": {
-    #         "billed_units": {
-    #             "input_tokens": 37,
-    #             "output_tokens": 35
-    #         },
-    #         "tokens": {
-    #             "input_tokens": 913,
-    #             "output_tokens": 69
-    #         }
-    #     }
-    # }
+    def _adjust_temperature(self, temperature: float) -> float:
+        return temperature / 2
 
     def _extract_response(
         self, request: Any, response: ChatResponse

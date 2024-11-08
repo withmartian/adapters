@@ -1,8 +1,9 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4", "stream": false, "tool_choice": "none", "tools": [{"type": "function",
-      "function": {"description": "Generate random number", "name": "generate", "parameters":
+    body: '{"messages": [{"role": "user", "content": "Generate random number via tools,
+      range 1-10"}], "model": "gpt-4", "stream": false, "tool_choice": {"type": "function",
+      "function": {"name": "generate"}}, "tools": [{"type": "function", "function":
+      {"description": "Generate random number", "name": "generate", "parameters":
       {"type": "object", "properties": {"prompt": {"type": "string", "description":
       "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
@@ -13,7 +14,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '392'
+      - '462'
       content-type:
       - application/json
       host:
@@ -41,18 +42,19 @@ interactions:
   response:
     body:
       string: !!binary |
-        IbALACBGrqWPUTurnzDu2wpDcI9JDkNHLf//5/74QDHtjaLAojTvosDaI8E3G090xP+bWxOxXxBE
-        dxvbfNtl3/4KgIWmBFV+7pSLdri7zb5nOr95quZ9nD1d0unrWfv7m0eb/QQOBMBwKY3qLNFoiYFS
-        BE+h3lz+ZDQlpuv5ZDtbTpYb8I0L2lhKMIvdcDGcrKZzq8c8FMq0lHgXAPB7VwO4732DEpPBU2oV
-        Bk9J/BHAJlhDCZ7btmi7s+84IADZuv9J8DfxCWMTXOwSSiRMmPh/A7A/ff/ZUsL31mLMfwQ+G7LY
-        hEvLoTul6lY6fkGrmxJsuxB5qv8C2Gda7YMnY7k9dqEyvqXEatlKrCkkkAP8AQEAsevpEXWIjvpz
-        5bZQZ1RnlRvtFFR1fO51EUDcikw7IZ5E/0TqgwufXQAMKWViZ/RRwTCaM5j0dY0pjaIiUWbsn5Ya
-        uDimhc9ME5ti6p2+t1b8CwMD
+        IawPACD+N5v1NNWfV8eU7kQ8RljWgq3Fz4pLhR6QqtUu8Nr2a27eYt1LxUy4NI5oiIOJv+Z+c60r
+        efBfleyzB0aEJAAnyFiU0nhdP3l9Oe/dWPGrxL477DjvVNYvfy7M3U/+hBojglumSpacUmOJQZA4
+        CxF2Ln+lAnBqD7vt1ng0HraI7xgXKA1OiHxZ79Vbg3aX62XsEqkKcPpjRESHpxEinHvfBycZ7Kyw
+        CsMGB36JCLnTCpwgiiIpSmFL1ADQtu4gJ1tpTTxWOqfnUmitnLvTwzsE6adC63nuHy+GSezToV1/
+        VcF+cxsZ0/a3Ojnx+s4bJa7AqMSItD6uMEEEK4xDsNV7n+KPiZDf/4MTDhNLNIHPnfHlBJwmaNfb
+        rQkm9h+D/s/AoNOowOn8TaHDxdOkf9Bp0C7yuVsW4ZTQ047Mvx82BU4oSuf1m/9MyzCq1PE2n52X
+        bqVsAU7DoSqCigIA027DDyAAxmmjUU2iNG+/R4sAH4IUMlaBSiiqRVEFiSNS5neNQbXyOd/nTmx0
+        AbEgpfKlCuYNHMtOQ81vlqtUSajEcssmSkanhRvzMLGRyn2eVL7H/pkBAw==
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8de7d82cffab679d-SJC
+      - 8df86e178c44ce9c-SJC
       Connection:
       - keep-alive
       Content-Encoding:
@@ -60,14 +62,14 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 06 Nov 2024 20:30:58 GMT
+      - Fri, 08 Nov 2024 20:49:31 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=hcWmA8K1aDqYuGGeAXsW6FMJoSQmTGv6o1kA3iZm1YU-1730925058-1.0.1.1-FbmB1C5H8tU1RKvfKvJNLYUPbAQ5inGjDLNcqSo437kNH2gTBCUBl.q71Js3glAIHuzMbjn4xKELbxEpNcxmIg;
-        path=/; expires=Wed, 06-Nov-24 21:00:58 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=g8VyWUQ49zEp5bm3vpgsAoxO9OKlHH6eWp5VE5N3ot8-1731098971-1.0.1.1-zBIBljfmotCATEWAivtd7GBNJgS4cdjw_WXLQ7V77nRQPLgW8L.6wZpMGnxTNf7invg9VSQRfLzT5QztGerneA;
+        path=/; expires=Fri, 08-Nov-24 21:19:31 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=KnZyJWZyVNkAJ9OjS_WJCSYVYeMz6ff1uLZRzcYTu4k-1730925058789-0.0.1.1-604800000;
+      - _cfuvid=bb5YGJDQPbZ9N06ZmKVoyHWAW87Sttnt4f1Lsxr4Be8-1731098971603-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -80,7 +82,7 @@ interactions:
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '606'
+      - '692'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -92,13 +94,13 @@ interactions:
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '999976'
+      - '999972'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
       - 1ms
       x-request-id:
-      - req_e69d6c71f63b0c1a5ec11cf04cacc28e
+      - req_773e21a0c883883e06fb76aa9c689281
     status:
       code: 200
       message: OK

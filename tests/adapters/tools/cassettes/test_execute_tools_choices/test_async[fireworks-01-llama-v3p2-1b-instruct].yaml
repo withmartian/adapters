@@ -1,0 +1,89 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number via tools,
+      range 1-10"}], "model": "accounts/fireworks/models/llama-v3p2-1b-instruct",
+      "stream": false, "tool_choice": {"type": "function", "function": {"name": "generate"}},
+      "tools": [{"type": "function", "function": {"description": "Generate random
+      number", "name": "generate", "parameters": {"type": "object", "properties":
+      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
+      11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '505'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"fe52ee4e-0de2-4677-a7f4-c93e86efde65","object":"chat.completion","created":1731098970,"model":"accounts/fireworks/models/llama-v3p2-1b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Here
+        is a random number between 1 and 10:\n\n**6**"},"finish_reason":"stop"}],"usage":{"prompt_tokens":21,"total_tokens":37,"completion_tokens":16}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8df86e132ab2fa4e-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Nov 2024 20:49:30 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=150.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '363'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.035'
+      x-envoy-upstream-service-time:
+      - '36'
+      x-request-id:
+      - fe52ee4e-0de2-4677-a7f4-c93e86efde65
+    status:
+      code: 200
+      message: OK
+version: 1

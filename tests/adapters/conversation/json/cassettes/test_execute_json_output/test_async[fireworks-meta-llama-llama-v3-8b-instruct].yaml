@@ -1,0 +1,84 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "accounts/fireworks/models/llama-v3-8b-instruct",
+      "response_format": {"type": "json_object"}, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '179'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"c58f6fc2-6bc5-48f4-9569-a5852b86cdce","object":"chat.completion","created":1731098842,"model":"accounts/fireworks/models/llama-v3-8b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"{
+        \"response\": \"Hello, I''m ready to assist you using JSON\" }"},"finish_reason":"stop"}],"usage":{"prompt_tokens":14,"total_tokens":32,"completion_tokens":18}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8df86af1ecb924de-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Nov 2024 20:47:22 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=296.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '374'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.181'
+      x-envoy-upstream-service-time:
+      - '182'
+      x-request-id:
+      - c58f6fc2-6bc5-48f4-9569-a5852b86cdce
+    status:
+      code: 200
+      message: OK
+version: 1

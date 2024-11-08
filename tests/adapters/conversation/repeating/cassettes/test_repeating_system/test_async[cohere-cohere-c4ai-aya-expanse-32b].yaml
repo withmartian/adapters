@@ -1,8 +1,10 @@
 interactions:
 - request:
     body: '{"model": "c4ai-aya-expanse-32b", "messages": [{"role": "system", "content":
-      "Hi"}, {"role": "user", "content": "Hi"}, {"role": "system", "content": "Hi"},
-      {"role": "user", "content": "Hi"}], "stream": false}'
+      "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content": "Hi"},
+      {"role": "user", "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role":
+      "system", "content": "Hi"}, {"role": "user", "content": "Hi"}, {"role": "user",
+      "content": "\"\""}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -11,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '208'
+      - '354'
       content-type:
       - application/json
       host:
@@ -28,14 +30,15 @@ interactions:
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: '{"id":"e996d7f9-1bec-482e-96b3-3cfbfce90328","message":{"role":"assistant","content":[{"type":"text","text":"Hello!
-        How can I assist you today? If you have any questions or need help with a
-        specific topic, feel free to ask."}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":4,"output_tokens":27},"tokens":{"input_tokens":19,"output_tokens":27}}}'
+      string: '{"id":"ffec0fc8-3060-4c80-afd9-55ed5d5d1c34","message":{"role":"assistant","content":[{"type":"text","text":"It
+        seems like your message got cut off. How can I assist you today? If you have
+        a question or need information on a particular topic, feel free to let me
+        know!"}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":8,"output_tokens":36},"tokens":{"input_tokens":35,"output_tokens":36}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '366'
+      - '411'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -45,13 +48,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Fri, 08 Nov 2024 07:48:10 GMT
+      - Fri, 08 Nov 2024 20:47:59 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
       num_chars:
-      - '295'
+      - '539'
       num_tokens:
-      - '31'
+      - '44'
       pragma:
       - no-cache
       server:
@@ -61,9 +64,9 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - de1d9d769d81f5ab6ced769307bdb712
+      - 0685578f84f4e518ffbb9ffa514b9ecd
       x-envoy-upstream-service-time:
-      - '311'
+      - '416'
     status:
       code: 200
       message: OK

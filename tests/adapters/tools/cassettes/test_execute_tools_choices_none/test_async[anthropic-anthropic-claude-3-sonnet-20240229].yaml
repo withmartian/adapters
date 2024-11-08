@@ -1,7 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
-      "role": "user"}], "model": "claude-3-sonnet-20240229", "stream": false}'
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number via
+      tools, range 1-10", "role": "user"}], "model": "claude-3-sonnet-20240229", "stream":
+      false}'
     headers:
       accept:
       - application/json
@@ -12,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '143'
+      - '165'
       content-type:
       - application/json
       host:
@@ -39,20 +40,24 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01DF5V3bSSoJVUAGtTEHuGwj","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Here
-        is a random number: \n\n0.8175470566048252\n\nThis is a random floating-point
-        number between 0 and 1 generated using Python''s `random.random()` function."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":49}}'
+      string: '{"id":"msg_01CnxAz7uNsZSuK1wTVYYw4x","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Here''s
+        a random number between 1 and 10 generated using Python''s random module:\n\n```python\nimport
+        random\n\nrandom_number = random.randint(1, 10)\nprint(random_number)\n```\n\nOutput:\n```\n5\n```\n\nThis
+        code imports the `random` module from the Python standard library, and then
+        uses the `randint()` function to generate a random integer between 1 and 10
+        (inclusive).\n\nNote that each time you run this code, it will generate a
+        new random number within the specified range."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":18,"output_tokens":126}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8de8eb599861229f-SJC
+      - 8df86e464e43270a-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 06 Nov 2024 23:38:50 GMT
+      - Fri, 08 Nov 2024 20:49:40 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -64,11 +69,11 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '8000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-11-06T23:38:50Z'
+      - '2024-11-08T20:49:40Z'
       content-length:
-      - '397'
+      - '719'
       request-id:
-      - req_01WJrMXQMDtnaJ62SkTu7qa9
+      - req_01RimUPMW1A6SiPZgCgshFsj
       via:
       - 1.1 google
     status:

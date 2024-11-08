@@ -13,6 +13,7 @@ conversation = Conversation(
         Turn(role=ConversationRole.system, content="Hi"),
         Turn(role=ConversationRole.system, content="Hi"),
         Turn(role=ConversationRole.user, content="Hi"),
+        Turn(role=ConversationRole.user, content="Hi"),
         Turn(role=ConversationRole.system, content="Hi"),
         Turn(role=ConversationRole.system, content="Hi"),
         Turn(role=ConversationRole.user, content="Hi"),

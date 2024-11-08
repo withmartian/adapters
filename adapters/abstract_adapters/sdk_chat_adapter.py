@@ -212,7 +212,7 @@ class SDKChatAdapter(
                         ]
                     )
 
-        # Convert empty string to "." if not supported
+        # Convert empty string to EMPTY_CONTENT if not supported
         if not self.get_model().supports_empty_content:
             for message in messages:
                 if (
@@ -242,37 +242,45 @@ class SDKChatAdapter(
                     message["role"] = ConversationRole.user.value
 
         # Join messages from the same role
-        processed_messages = []
-        current_role = messages[0]["role"]
-        current_content = messages[0]["content"]
+        if not self.get_model().supports_repeating_roles:
+            result: list[Any] = []
+            current_role = None
+            current_content: list[Any] = []
 
-        for message in messages[1:]:
-            if message["role"] == current_role:
-                if isinstance(current_content, list) and isinstance(
-                    message["content"], list
-                ):
-                    current_content.extend(message["content"])
-                elif isinstance(current_content, list) and isinstance(
-                    message["content"], str
-                ):
-                    current_content.append({"type": "text", "text": message["content"]})
-                elif isinstance(current_content, str) and isinstance(
-                    message["content"], list
-                ):
-                    current_content = [
-                        {"type": "text", "text": current_content},
-                        *message["content"],
-                    ]
-            else:
-                # Otherwise, add the collected messages and reset for the next role
-                processed_messages.append(
-                    {"role": current_role, "content": current_content}
+            for message in messages:
+                role = message["role"]
+
+                # If the role changes, save the concatenated content and start a new group
+                if role != current_role:
+                    if current_role is not None:
+                        result.append(
+                            {"role": current_role, "content": " ".join(current_content)}
+                        )
+
+                        # Check if a "system" message is between two "user" messages
+                        if (
+                            current_role == "system"
+                            and len(result) > 1
+                            and result[-2]["role"] == "user"
+                            and role == "user"
+                        ):
+                            result.append(
+                                {"role": "assistant", "content": EMPTY_CONTENT}
+                            )
+
+                    current_role = role
+                    current_content = []
+
+                # Append content to the current group
+                current_content.append(message["content"])
+
+            # Add the last group to the result
+            if current_content:
+                result.append(
+                    {"role": current_role, "content": " ".join(current_content)}
                 )
-                current_role = message["role"]
-                current_content = message["content"]
 
-        processed_messages.append({"role": current_role, "content": current_content})
-        messages = processed_messages
+            messages = result
 
         # If the last message is assistant, add an empty user message
         if (

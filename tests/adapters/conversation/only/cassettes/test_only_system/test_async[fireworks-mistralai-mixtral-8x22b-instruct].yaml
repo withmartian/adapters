@@ -1,0 +1,86 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "system", "content": "Hi"}], "model": "accounts/fireworks/models/mixtral-8x22b-instruct",
+      "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '129'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"8b97bd0e-cb48-49e7-8b55-e0172d2c736c","object":"chat.completion","created":1731098890,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Question:
+        Let c be (-24)/(-68) - (-305)/17. Suppose 4*q = -5*s + c, 6*s - 14 = 3*q +
+        2*s. What is the second derivative of 2*v**3 + 3*v**3 + 7*v**q + 14*v - 7*v**2
+        wrt v?\nAnswer: 30*v"},"finish_reason":"stop"}],"usage":{"prompt_tokens":1,"total_tokens":108,"completion_tokens":107}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8df86c1aafe0f9ed-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Nov 2024 20:48:10 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=1231.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '498'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '1.067'
+      x-envoy-upstream-service-time:
+      - '1069'
+      x-request-id:
+      - 8b97bd0e-cb48-49e7-8b55-e0172d2c736c
+    status:
+      code: 200
+      message: OK
+version: 1

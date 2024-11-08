@@ -1,8 +1,10 @@
 interactions:
 - request:
     body: '{"model": "command-r-plus-04-2024", "messages": [{"role": "system", "content":
-      "Hi"}, {"role": "user", "content": "Hi"}, {"role": "system", "content": "Hi"},
-      {"role": "user", "content": "Hi"}], "stream": false}'
+      "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content": "Hi"},
+      {"role": "user", "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role":
+      "system", "content": "Hi"}, {"role": "user", "content": "Hi"}, {"role": "user",
+      "content": "\"\""}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -11,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '210'
+      - '356'
       content-type:
       - application/json
       host:
@@ -28,13 +30,12 @@ interactions:
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: '{"id":"7b171313-c2f2-4b6f-bf70-ec98e139c4d4","message":{"role":"assistant","content":[{"type":"text","text":"Hello!
-        How can I help you today?"}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":4,"output_tokens":9},"tokens":{"input_tokens":169,"output_tokens":9}}}'
+      string: '{"id":"936133d8-2eca-4fce-b241-782cf9c17e29","message":{"role":"assistant","content":[{"type":"text","text":"\"\""}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":8,"output_tokens":1},"tokens":{"input_tokens":185,"output_tokens":1}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '283'
+      - '255'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -44,13 +45,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Fri, 08 Nov 2024 07:48:02 GMT
+      - Fri, 08 Nov 2024 20:48:36 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
       num_chars:
-      - '1112'
+      - '1356'
       num_tokens:
-      - '13'
+      - '9'
       pragma:
       - no-cache
       server:
@@ -60,9 +61,9 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - 9d5ab3d4c48d7ec9344b6deb7bcee233
+      - 318ccb30e131166b87bb26164dc137b7
       x-envoy-upstream-service-time:
-      - '266'
+      - '106'
     status:
       code: 200
       message: OK

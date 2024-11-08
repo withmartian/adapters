@@ -1,8 +1,10 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content": "Hi"}],
-      "model": "mistralai/Mistral-7B-Instruct-v0.3", "stream": false}'
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "system", "content":
+      "Hi"}, {"role": "user", "content": "Hi"}, {"role": "user", "content": "Hi"},
+      {"role": "system", "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role":
+      "user", "content": "Hi"}, {"role": "user", "content": "\"\""}], "model": "mistralai/Mistral-7B-Instruct-v0.3",
+      "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '222'
+      - '368'
       content-type:
       - application/json
       host:
@@ -38,62 +40,34 @@ interactions:
     uri: https://api.together.xyz/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"8de9e6dd19971746-SJC\",\n  \"object\": \"chat.completion\",\n
-        \ \"created\": 1730946631,\n  \"model\": \"mistralai/Mistral-7B-Instruct-v0.3\",\n
-        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
-        \     \"seed\": 2667711108886433300,\n      \"logprobs\": null,\n      \"index\":
-        0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
-        \" Hello! How can I help you today? Is there something specific you would
-        like to know or discuss? I'm here to answer questions and provide information
-        on a wide range of topics.\",\n        \"tool_calls\": []\n      }\n    }\n
-        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 37,\n    \"completion_tokens\":
-        39,\n    \"total_tokens\": 76\n  }\n}"
+      string: '{ "error": {"message": "Service unavailable", "type": "service_unavailable"}
+        }'
     headers:
-      CF-Cache-Status:
-      - DYNAMIC
       CF-RAY:
-      - 8de9e6dd19971746-SJC
+      - 8df86bee6b902566-SJC
+      Cache-Control:
+      - private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0
       Connection:
       - keep-alive
+      Content-Length:
+      - '78'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json
       Date:
-      - Thu, 07 Nov 2024 02:30:32 GMT
+      - Fri, 08 Nov 2024 20:49:42 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:01 GMT
+      Referrer-Policy:
+      - same-origin
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=2592000; includeSubDomains
-      Transfer-Encoding:
-      - chunked
-      access-control-allow-origin:
-      - '*'
+      X-Frame-Options:
+      - SAMEORIGIN
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '669'
-      etag:
-      - W/"29d-JYYUsSiFyAIIy4NbNi/Ej5qKSLw"
-      x-api-call-end:
-      - '2024-11-07T02:30:32.289Z'
-      x-api-call-start:
-      - '2024-11-07T02:30:31.255Z'
-      x-api-received:
-      - '2024-11-07T02:30:31.236Z'
-      x-inference-version:
-      - v2
-      x-ratelimit:
-      - 'false'
-      x-ratelimit-limit:
-      - '100'
-      x-ratelimit-limit-tokens:
-      - '100000'
-      x-ratelimit-remaining:
-      - '183'
-      x-ratelimit-remaining-tokens:
-      - '99424'
-      x-ratelimit-reset:
-      - '1'
     status:
-      code: 200
-      message: OK
+      code: 503
+      message: Service Temporarily Unavailable
 version: 1

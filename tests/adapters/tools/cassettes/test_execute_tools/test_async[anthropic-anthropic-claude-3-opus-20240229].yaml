@@ -1,10 +1,10 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
-      "role": "user"}], "model": "claude-3-opus-20240229", "stream": false, "tool_choice":
-      {"name": "generate", "type": "tool"}, "tools": [{"input_schema": {"type": "object",
-      "properties": {"prompt": {"type": "string", "description": "Random number like
-      5, 4, 3, 10, 11"}}}, "name": "generate", "description": "Generate random number"}]}'
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number via
+      tools, range 1-10", "role": "user"}], "model": "claude-3-opus-20240229", "stream":
+      false, "tools": [{"input_schema": {"type": "object", "properties": {"prompt":
+      {"type": "string", "description": "Random number like 5, 4, 3, 10, 11"}}}, "name":
+      "generate", "description": "Generate random number"}]}'
     headers:
       accept:
       - application/json
@@ -15,7 +15,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '403'
+      - '372'
       content-type:
       - application/json
       host:
@@ -42,19 +42,27 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_014LcR8pCRfMmfxoCvA33hxv","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"tool_use","id":"toolu_018q2s4Z4ymuvhy1xVygzhr6","name":"generate","input":{"prompt":"5,
-        4, 3, 10, 11"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":374,"output_tokens":49}}'
+      string: '{"id":"msg_014pdXv6HR9ceVRc5dtSiZLa","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        user has requested to generate a random number between 1 and 10.\n\nTo address
+        this request, the \"generate\" tool seems directly relevant. It takes a \"prompt\"
+        parameter describing the type of random number to generate.\n\nThe user has
+        provided the range of 1-10 for the random number, which matches the expected
+        format for the \"prompt\" parameter based on the example \"5, 4, 3, 10, 11\".
+        \n\nNo other tools appear necessary to fulfill this request. The \"generate\"
+        tool can be called directly with the user-provided range as the \"prompt\"
+        parameter value.\n</thinking>"},{"type":"tool_use","id":"toolu_01Hrw7GpGzE4iPhdoLAmabqQ","name":"generate","input":{"prompt":"1,
+        2, 3, 4, 5, 6, 7, 8, 9, 10"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":616,"output_tokens":216}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8de7f3ba083767b9-SJC
+      - 8df86db00d44f963-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 06 Nov 2024 20:49:50 GMT
+      - Fri, 08 Nov 2024 20:49:24 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -66,11 +74,11 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-11-06T20:49:50Z'
+      - '2024-11-08T20:49:24Z'
       content-length:
-      - '325'
+      - '957'
       request-id:
-      - req_01Bdt3LLdyjymUceeTAcEB6G
+      - req_01ApD2XGC6rZLpKemQNKEkrJ
       via:
       - 1.1 google
     status:

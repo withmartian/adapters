@@ -1,10 +1,10 @@
 interactions:
 - request:
-    body: '{"max_tokens": 8192, "messages": [{"content": "Generate random number",
-      "role": "user"}], "model": "claude-3-5-haiku-latest", "stream": false, "tool_choice":
-      {"name": "generate", "type": "tool"}, "tools": [{"input_schema": {"type": "object",
-      "properties": {"prompt": {"type": "string", "description": "Random number like
-      5, 4, 3, 10, 11"}}}, "name": "generate", "description": "Generate random number"}]}'
+    body: '{"max_tokens": 8192, "messages": [{"content": "Generate random number via
+      tools, range 1-10", "role": "user"}], "model": "claude-3-5-haiku-latest", "stream":
+      false, "tools": [{"input_schema": {"type": "object", "properties": {"prompt":
+      {"type": "string", "description": "Random number like 5, 4, 3, 10, 11"}}}, "name":
+      "generate", "description": "Generate random number"}]}'
     headers:
       accept:
       - application/json
@@ -15,7 +15,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '404'
+      - '373'
       content-type:
       - application/json
       host:
@@ -42,18 +42,19 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01E4btUihU8u5EWz7kuhRYnN","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"tool_use","id":"toolu_01WfR7qyHFA2oX2VV436wFsh","name":"generate","input":{"prompt":"5"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":433,"output_tokens":34}}'
+      string: '{"id":"msg_011UeSNeh3VMZhNTVzLBnRc6","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"I''ll
+        help you generate a random number between 1 and 10 using the available tool."},{"type":"tool_use","id":"toolu_01SZswbpimx6Hw4n5EYsYcxW","name":"generate","input":{"prompt":"10"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":347,"output_tokens":74}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8de7f3b9b9b767e5-SJC
+      - 8df86e53ab5a22f6-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 06 Nov 2024 20:49:48 GMT
+      - Fri, 08 Nov 2024 20:49:42 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -65,11 +66,11 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-11-06T20:49:48Z'
+      - '2024-11-08T20:49:42Z'
       content-length:
-      - '314'
+      - '422'
       request-id:
-      - req_01GAeWPmVs71mZfwXYWWY1tk
+      - req_01C433Afz1H9vq1swyuWbm9Q
       via:
       - 1.1 google
     status:

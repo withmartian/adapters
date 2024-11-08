@@ -1,7 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 8192, "messages": [{"content": "Generate random number",
-      "role": "user"}], "model": "claude-3-5-haiku-20241022", "stream": false, "tools":
+    body: '{"max_tokens": 8192, "messages": [{"content": "Generate random number via
+      tools, range 1-10", "role": "user"}], "model": "claude-3-5-haiku-20241022",
+      "stream": false, "tool_choice": {"name": "generate", "type": "tool"}, "tools":
       [{"input_schema": {"type": "object", "properties": {"prompt": {"type": "string",
       "description": "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate",
       "description": "Generate random number"}]}'
@@ -15,7 +16,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '353'
+      - '428'
       content-type:
       - application/json
       host:
@@ -42,21 +43,18 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01M7SojAQugBhFCvj7sEPZEJ","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"I''ll
-        help you generate a random number. Since the generate function requires a
-        prompt specifying the type of random number, I''ll choose a range that provides
-        an interesting result. Let me demonstrate:"},{"type":"tool_use","id":"toolu_018JuNnL58q3wA4KFitYQKAB","name":"generate","input":{"prompt":"10"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":339,"output_tokens":92}}'
+      string: '{"id":"msg_01KshQrTcf1bbWJfm71jnYyM","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"tool_use","id":"toolu_01E3Jkx8h4fCH7z4XkvsTxqd","name":"generate","input":{"prompt":"10"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":441,"output_tokens":34}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8de7f412ea695c21-SJC
+      - 8df86e0748b5cf9f-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 06 Nov 2024 20:50:03 GMT
+      - Fri, 08 Nov 2024 20:49:29 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -68,11 +66,11 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-11-06T20:50:03Z'
+      - '2024-11-08T20:49:29Z'
       content-length:
-      - '541'
+      - '315'
       request-id:
-      - req_01KWinjRFSxBZGMmFj2Squi9
+      - req_01ME9EZp9SBcEEsHr9rLQBy8
       via:
       - 1.1 google
     status:

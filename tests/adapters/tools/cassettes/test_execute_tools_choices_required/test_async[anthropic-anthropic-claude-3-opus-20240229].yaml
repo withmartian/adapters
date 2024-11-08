@@ -1,10 +1,10 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
-      "role": "user"}], "model": "claude-3-opus-20240229", "stream": false, "tool_choice":
-      {"type": "any"}, "tools": [{"input_schema": {"type": "object", "properties":
-      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
-      11"}}}, "name": "generate", "description": "Generate random number"}]}'
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number via
+      tools, range 1-10", "role": "user"}], "model": "claude-3-opus-20240229", "stream":
+      false, "tool_choice": {"type": "any"}, "tools": [{"input_schema": {"type": "object",
+      "properties": {"prompt": {"type": "string", "description": "Random number like
+      5, 4, 3, 10, 11"}}}, "name": "generate", "description": "Generate random number"}]}'
     headers:
       accept:
       - application/json
@@ -15,7 +15,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '382'
+      - '404'
       content-type:
       - application/json
       host:
@@ -42,19 +42,18 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_011CUFkwicza7i3EuxspvBj5","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"tool_use","id":"toolu_01JWWaYUvrfvi3s99HV8AXjm","name":"generate","input":{"prompt":"5,
-        10, 23, 8, 42, 11"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":371,"output_tokens":51}}'
+      string: '{"id":"msg_01YXHfQn8gK848wQHnuhtmSG","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"tool_use","id":"toolu_01XacaznKiiCHFQysXJ953oS","name":"generate","input":{"prompt":"5"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":379,"output_tokens":37}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8de7f3eb5ab867af-SJC
+      - 8df86e7ede979663-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 06 Nov 2024 20:49:57 GMT
+      - Fri, 08 Nov 2024 20:49:51 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -66,11 +65,11 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-11-06T20:49:57Z'
+      - '2024-11-08T20:49:51Z'
       content-length:
-      - '330'
+      - '311'
       request-id:
-      - req_01BiENpTDXG98hushw1yWqXg
+      - req_01J9d6Kex3YsCNa2hqNLYATJ
       via:
       - 1.1 google
     status:

@@ -1,8 +1,8 @@
 interactions:
 - request:
     body: '{"model": "command", "messages": [{"role": "user", "content": "Hi"}, {"role":
-      "assistant", "content": "Hi"}, {"role": "user", "content": "Hi"}], "stream":
-      false}'
+      "assistant", "content": "Hi"}, {"role": "assistant", "content": "Hi"}, {"role":
+      "user", "content": "Hi"}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '161'
+      - '201'
       content-type:
       - application/json
       host:
@@ -28,15 +28,19 @@ interactions:
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: '{"id":"910def50-3488-4de3-9fe3-f9d427e9e179","message":{"role":"assistant","content":[{"type":"text","text":"Hello!
-        How can I help you today?\nFeel free to ask me any questions or let me know
-        if there''s something specific you would like assistance with and I''ll do
-        my best to help you out."}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":3,"output_tokens":42},"tokens":{"input_tokens":72,"output_tokens":43}}}'
+      string: '{"id":"876440f4-121f-4fa1-86a6-cb70de4315e1","message":{"role":"assistant","content":[{"type":"text","text":"Hello!
+        How can I help you today? Feel free to ask me any questions or engage me in
+        a conversation on a specific topic or theme. I''ll do my best to provide you
+        with useful and informative responses, or to entertain you if that''s what
+        you''re looking for. \n\nI''m here to assist you and provide a conversational
+        experience that is helpful, enjoyable, and tailored to your preferences. Let
+        me know how I can make your experience better, and I''m excited to talk with
+        you!"}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":4,"output_tokens":101},"tokens":{"input_tokens":77,"output_tokens":102}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '432'
+      - '720'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -46,13 +50,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Fri, 08 Nov 2024 07:47:58 GMT
+      - Fri, 08 Nov 2024 20:48:02 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
       num_chars:
-      - '318'
+      - '330'
       num_tokens:
-      - '45'
+      - '105'
       pragma:
       - no-cache
       server:
@@ -62,9 +66,9 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - 908d21e3449701033ce336a40a4886d9
+      - 4b330d2c92fda09e5992712d91d49ad3
       x-envoy-upstream-service-time:
-      - '1299'
+      - '3248'
     status:
       code: 200
       message: OK

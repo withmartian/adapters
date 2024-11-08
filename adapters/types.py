@@ -50,6 +50,10 @@ class Vendor(str, Enum):
     wizardlm = "wizardlm"
     google = "google"
     ai21 = "ai21"
+    O1 = "01"
+    starcoder = "starcoder"
+    gryphe = "gryphe"
+    microsoft = "microsoft"
 
 
 class ConversationRole(str, Enum):

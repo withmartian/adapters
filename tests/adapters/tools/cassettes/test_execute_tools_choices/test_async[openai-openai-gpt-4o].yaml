@@ -1,8 +1,9 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4o", "stream": false, "tool_choice": "none", "tools": [{"type": "function",
-      "function": {"description": "Generate random number", "name": "generate", "parameters":
+    body: '{"messages": [{"role": "user", "content": "Generate random number via tools,
+      range 1-10"}], "model": "gpt-4o", "stream": false, "tool_choice": {"type": "function",
+      "function": {"name": "generate"}}, "tools": [{"type": "function", "function":
+      {"description": "Generate random number", "name": "generate", "parameters":
       {"type": "object", "properties": {"prompt": {"type": "string", "description":
       "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
@@ -13,7 +14,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '393'
+      - '463'
       content-type:
       - application/json
       host:
@@ -41,19 +42,20 @@ interactions:
   response:
     body:
       string: !!binary |
-        IdwNACCXbfbn89rZM0MrOXHBEmiKbLD6+f9/6vEMC4hFcNkPjgWyNO2+v/O1NLcVKzCWVgta4vqb
-        7WF0DILI5za1Y/767VQDQMmRAYY9vw4zlW4cPsZjU3al/jBsOx/cdJr0ejK4eHuLXlWD6xoAUtAX
-        Yc3JNl0MAkk5xIhc/k5wZGC0Lb1rOrrTIX6RERcpMsBY1Rs2bZi6aW/onQ29xfy2RzIUFTL41gAA
-        pncLANj+foYM9PWnhjOGjQz4JwAsKRXIAP2qklXt5zWuAyB73W0GeExNymFMDQSrtwVE5afjph+h
-        8NclKqHdwhpf5jVEVB4Rp8xBJw9japY4BHEfIIjMPkbsf37bz2fkal+lRleKR4au728U2uOv9lNk
-        kDdpSrP+Ja9KKVYlBRXGHEZSOeIW8FqODLCqSeEZ/2sAvxrubZT2CaqSMlW7NSUir5BBy1qKoEkB
-        oFg6/IEBYJS7/IzMzX9HKwudw9APe4IvCeY89RsuiUg1uZtsqOn8muxbyzy+gFgXhkLVgrsZFHmh
-        AaquFH0RMk3Pwr+Z6uCCG8k8FqUq5Tv3OlKu7YSRY3PhC9T+NQMD
+        MSQQACD+p1v1NNWfV8MhtpvuxJTJhqzGsHN8nrM9H09lxBM77bzBtg69/jquw8NlvbRslgca8bDX
+        XIt7Xcbz2Qhov/3ziLCqwQhiyXuhnQq2b673inw7kVe7j8tdXbj70++rmTu/jRffLXyPCHa2lqKn
+        FLdSDPyVNSh85fI8WYNRXKZxNJ1MywT4hba1VGCEheuDzAZJlGRBNAmigjh3aVdCdmD06hER/T0d
+        EOH4+zEYRf5bPhnDAkMsiAitVRKMwLtu1fXc9PARoHtdJiMzKAV81FurKsGVEs7eBv/m4Ku/cqWq
+        nyveXT2u5eZ5+7Y/qofmYbL/uChuZbLstR+nlJCI0RJHgI1iAquIYLimh4rvVDIiQpgLACP8vcG1
+        Vrv+DewN1exTG20djI/AeDeO3jCC09rRmw++uw4O7E9yxZGIo2+fg7IL19pZN0S0uRuothRbA0bo
+        euvkG6MnZRlDGDkb3la93UjTgVE5CeEAFhkgkHEM/4QAYOcmU5+jWHXkG+ycnQXBxVLW1LDAbvlQ
+        ryyQ0WSiUaG2/Fnbr16ZxQXAJiGk62Vd9XRMGw2o9Fq5lkL0/EyMQvOFF9V8ZRayde3qK/gAc1fF
+        +bSepFksBLzRMwAD
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8de7d831ca38234f-SJC
+      - 8df86e20dd016446-SJC
       Connection:
       - keep-alive
       Content-Encoding:
@@ -61,14 +63,14 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 06 Nov 2024 20:30:59 GMT
+      - Fri, 08 Nov 2024 20:49:32 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=_Gy36hr3OEE_nUXjXkjOOxkrwYjSYRkQ_sAeUS3XiuQ-1730925059-1.0.1.1-4NXOGR8kPar4wpk1OAlLoGf9anPZNcolzmgD3s.jcptrWej7oQbUYMDa56VaARWf8o3lqSE6tzr_1z5dJ.5aAQ;
-        path=/; expires=Wed, 06-Nov-24 21:00:59 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=sXJXo04URAxPmZzGl33BWxZyXjhlP_P4IvV0lU4_gyE-1731098972-1.0.1.1-7TP3sw2HUNJ4UtrOM5CSxdGo5iqL.oC.9a9OzZHYZ1jZK442DK4ZIwgJeHWCGs99AEYNA8OCqS21itBpqZQ_XA;
+        path=/; expires=Fri, 08-Nov-24 21:19:32 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=yyULn9.C3ERodFg_ylvE57BchH6dxmHYbUFACHsCu6A-1730925059702-0.0.1.1-604800000;
+      - _cfuvid=kiG0y5b4TX7NGS3uKgUuFmytGJVetCY6MbJhh6Ncwo8-1731098972676-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -81,7 +83,7 @@ interactions:
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '750'
+      - '275'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -93,13 +95,13 @@ interactions:
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '29999976'
+      - '29999972'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_65c35fa760df3709975b8858019d17bd
+      - req_622ab2ebeb55212fe1f04c059157c0b8
     status:
       code: 200
       message: OK

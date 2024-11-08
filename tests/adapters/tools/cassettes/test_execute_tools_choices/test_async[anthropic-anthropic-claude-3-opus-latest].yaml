@@ -1,10 +1,11 @@
 interactions:
 - request:
-    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number",
-      "role": "user"}], "model": "claude-3-opus-latest", "stream": false, "tools":
-      [{"input_schema": {"type": "object", "properties": {"prompt": {"type": "string",
-      "description": "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate",
-      "description": "Generate random number"}]}'
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number via
+      tools, range 1-10", "role": "user"}], "model": "claude-3-opus-latest", "stream":
+      false, "tool_choice": {"name": "generate", "type": "tool"}, "tools": [{"input_schema":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}}, "name": "generate", "description":
+      "Generate random number"}]}'
     headers:
       accept:
       - application/json
@@ -15,7 +16,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '348'
+      - '423'
       content-type:
       - application/json
       host:
@@ -42,26 +43,19 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01HU3JoE9mSx38ghUrVz3KVi","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
-        user has requested to generate a random number. Let''s analyze the available
-        tools to see if we can fulfill this request.\n\nRelevant tool: \ngenerate
-        - generates a random number\n- Parameter \"prompt\": The user provided the
-        request \"Generate random number\", which we can use directly as the prompt
-        parameter.\n\nSince the generate tool has all the required parameters (just
-        \"prompt\"), we can proceed with calling it to generate a random number for
-        the user.\n</thinking>"},{"type":"tool_use","id":"toolu_01M7hof5mVCq6WDpC5dFZuAQ","name":"generate","input":{"prompt":"Generate
-        random number"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":608,"output_tokens":153}}'
+      string: '{"id":"msg_01EWoeLwQNZ96RZoFeD8JQaN","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"tool_use","id":"toolu_01KfXh1rDS8SxX9N5WCS5JtS","name":"generate","input":{"prompt":"random
+        number between 1 and 10"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":382,"output_tokens":42}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8de7f3df0f06f98b-SJC
+      - 8df86df0aec79685-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 06 Nov 2024 20:50:00 GMT
+      - Fri, 08 Nov 2024 20:49:28 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -73,11 +67,11 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-11-06T20:50:00Z'
+      - '2024-11-08T20:49:28Z'
       content-length:
-      - '850'
+      - '340'
       request-id:
-      - req_01VppbnLCRj4iXY4r7XDhdvD
+      - req_01UH98fuGgJ5KwEVRfXWW1sr
       via:
       - 1.1 google
     status:

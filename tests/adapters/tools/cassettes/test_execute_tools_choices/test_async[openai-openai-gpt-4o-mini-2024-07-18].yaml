@@ -1,10 +1,11 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Generate random number"}], "model":
-      "gpt-4o-mini-2024-07-18", "stream": false, "tool_choice": "none", "tools": [{"type":
-      "function", "function": {"description": "Generate random number", "name": "generate",
-      "parameters": {"type": "object", "properties": {"prompt": {"type": "string",
-      "description": "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    body: '{"messages": [{"role": "user", "content": "Generate random number via tools,
+      range 1-10"}], "model": "gpt-4o-mini-2024-07-18", "stream": false, "tool_choice":
+      {"type": "function", "function": {"name": "generate"}}, "tools": [{"type": "function",
+      "function": {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
     headers:
       accept:
       - application/json
@@ -13,7 +14,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '409'
+      - '479'
       content-type:
       - application/json
       host:
@@ -41,19 +42,20 @@ interactions:
   response:
     body:
       string: !!binary |
-        IagNACB+qcvv3VRvtkr4ABVg8OikNdDKFPjwP9d8fnwgdmKVdu1RdpT/ove8fTi8eRTwQAc8wOnU
-        HaeJkcIK05MBfvevB1BsSYFMpBuTu2x55yb87Z8/VN2T3p+H9o92N85d7NpJ83LcHtKSB5DMEjaN
-        prSSYmDFUkCok8vfsSWF7rjfmfaGneFU+GkuljNSoNA1ywNZzuMiXu51eoPlzni5O7HwNpLYcE0K
-        bx4A/L1bA2gG/ogUOktPqYwMlRTwTwBVkjEpkK7ruG500dASAJSwW1Cgp0g36PJVkeCbG6C3VPtX
-        WjRneiJnNIJD188x5nglXFlC/6rD7mSJN7ud+S1cZ6xrRvLK79BwleSuQSDVKJGxShdW8qVGK7TA
-        RPxZnZFC0WYZXfm/n5lMQlfJrMbQ/lN15AZ+z65JUqC6EUfe+v894COe4zZEAvG66DeSclGTwqgf
-        ngHtIgCg/Q746QJAJk0VyxYlv+SdXC+4BJDRJmKrDTbvWLc2FiHOZKX/hGrtE74fHBfhBYQFY9g1
-        bP2iiWWnARRbxQkbyYsz8p+ubnDBD+Ii5MpV8Rv2OnB+Z6Y7ttsbBF3y/nsD
+        MYQQACD+v27+zjK9c2coUs/2XbYKJ9aSIgn6lYlrnj+/yqumZYO19qLCo2033extgQMd8XC25hb3
+        uowHBGxEtO/+eUQwCowgM97J0hXB2fvb5fLlJysW7uZttRbDq4qK13heDqvkGb5HBCtOWnacxCTF
+        QDO2gmArl2dpBUbxchpH69V6OSV+WlqlCzDC0XXBzAalqUyQRMksiJZBvJKQmVkjdQtGG4+I6O9p
+        gghn4LfAKPLfYhkZIhjwR0RobKHBCLxtTdvxqoMPSJSwO8mo6ouCeKmztkglLwrlyK3yr59w2F95
+        UaTPP6ecz81KfZZXr48vWda9vdm3p5VORDz74waFZ2PkxOC0WkyhjwgVL/kTy75DaZMIsX4HjPC3
+        hWts6bot2BY3jFHi1PBK2TKzqIr231oZn4zxfBxNthhha9/R61fuvJk4yD/ICxRGjO6+DoU9usaK
+        thEof1eRbjU2AEZoO+v086OnpRt9ZFGz7qadzXXVgtFyFdUKTL4EAIzniX9FkKDNW099iURaqa+y
+        nUanILnMtOJOzLlV3itjiXBraBxQXvmI7Uub6ngliDEpteu0Sms9po1OyNit0SctoYTnZ2DEizLc
+        SA+mOurGNebDeAAHl0aCRypOZocY3ugZAw==
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8de7d8347eeecf27-SJC
+      - 8df86e26e90fcfa4-SJC
       Connection:
       - keep-alive
       Content-Encoding:
@@ -61,14 +63,14 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 06 Nov 2024 20:31:00 GMT
+      - Fri, 08 Nov 2024 20:49:33 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=HlvQxEB40txlmXmY92Xq5pezzD.imV5KYVMTvdaA_Fs-1730925060-1.0.1.1-ivR1aWqZN8CKACfe3nENscj2_KbajIcpcqFONNYB.ZhfuFGKD.9bJKF2FLYoUd9L93jfLZAcNmr4Wpd7.gFzTg;
-        path=/; expires=Wed, 06-Nov-24 21:01:00 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=w.THxUk6Kvd7KDtttzeiEMWnZL.9yQLzrzGt95NXZ64-1731098973-1.0.1.1-N5.K48fg5dCb7i.BUc6r9IzKKr2RVTzfeEYavTKY.STcen.Y5EB9v7ZPCULwBnD1Tjngz3lj2oNHNFoJ2cGN_Q;
+        path=/; expires=Fri, 08-Nov-24 21:19:33 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=4azGoyBRyhGkbrMjcTjl7KD1y8D.7ih4lkd1Ozt40mw-1730925060011-0.0.1.1-604800000;
+      - _cfuvid=N6Gg_QWaVCRiboy01_EwCb0kHdiak69mFWIMFI766vE-1731098973812-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -81,7 +83,7 @@ interactions:
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '623'
+      - '447'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -93,13 +95,13 @@ interactions:
       x-ratelimit-remaining-requests:
       - '29999'
       x-ratelimit-remaining-tokens:
-      - '149999976'
+      - '149999971'
       x-ratelimit-reset-requests:
       - 2ms
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_60fa427a1c0d368c105158f1b1903b4d
+      - req_05b2edb1db52ba39c79dad1dc2cc91ef
     status:
       code: 200
       message: OK

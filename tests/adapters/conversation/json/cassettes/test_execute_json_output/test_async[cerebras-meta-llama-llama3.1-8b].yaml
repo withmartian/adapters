@@ -37,25 +37,26 @@ interactions:
     uri: https://api.cerebras.ai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-88d36803-3e4d-4334-9d6c-0d0a430bf964","choices":[{"finish_reason":"stop","index":0,"message":{"content":"{\"message\":\"Hello,
-        I''m here to help\"}","role":"assistant"}}],"created":1731046906,"model":"llama3.1-8b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":47,"completion_tokens":12,"total_tokens":59},"time_info":{"queue_time":2.45e-05,"prompt_time":0.0027478904545454545,"completion_time":0.005440578545454545,"total_time":0.02306365966796875,"created":1731046906}}'
+      string: '{"message":"Failed to generate JSON. Please adjust your prompt. See
+        ''failed_generation'' for more details.","type":"invalid_request_error","code":"json_validate_failed","failed_generation":"\"{\"message\":\"Hello,
+        how can I assist you today?\"}\""}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '528'
+      - '247'
       Content-Type:
       - application/json
       Date:
-      - Fri, 08 Nov 2024 06:21:46 GMT
+      - Fri, 08 Nov 2024 20:48:28 GMT
       Via:
-      - 1.1 c1caaceb6655a57ae014aef7bc8ec388.cloudfront.net (CloudFront)
+      - 1.1 5941357b26a453b21aa60fbf2f923836.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - GlqC8CqcLSFEDBUXucpMJ-eHsTR7HAnfSioahkjKTTVzhidfDJjiKQ==
+      - fqLrd1RHeA8yaezVIOjKHLSY1b_or55wHx15xgVyeHE5p6Dgl8XFQg==
       X-Amz-Cf-Pop:
       - SFO20-C1
       X-Cache:
-      - Miss from cloudfront
+      - Error from cloudfront
       referrer-policy:
       - strict-origin-when-cross-origin
       server:
@@ -64,21 +65,7 @@ interactions:
       - max-age=3600; includeSubDomains
       x-content-type-options:
       - nosniff
-      x-ratelimit-limit-requests-day:
-      - '14400'
-      x-ratelimit-limit-tokens-minute:
-      - '60000'
-      x-ratelimit-remaining-requests-day:
-      - '14397'
-      x-ratelimit-remaining-tokens-minute:
-      - '59575'
-      x-ratelimit-reset-requests-day:
-      - '63493.586102724075'
-      x-ratelimit-reset-tokens-minute:
-      - '13.586102724075317'
-      x-request-id:
-      - GlqC8CqcLSFEDBUXucpMJ-eHsTR7HAnfSioahkjKTTVzhidfDJjiKQ==
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
 version: 1

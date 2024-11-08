@@ -1,7 +1,8 @@
 interactions:
 - request:
-    body: '{"max_tokens": 8192, "messages": [{"content": "Generate random number",
-      "role": "user"}], "model": "claude-3-5-haiku-latest", "stream": false}'
+    body: '{"max_tokens": 8192, "messages": [{"content": "Generate random number via
+      tools, range 1-10", "role": "user"}], "model": "claude-3-5-haiku-latest", "stream":
+      false}'
     headers:
       accept:
       - application/json
@@ -12,7 +13,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '142'
+      - '164'
       content-type:
       - application/json
       host:
@@ -39,35 +40,21 @@ interactions:
     uri: https://api.anthropic.com/v1/messages
   response:
     body:
-      string: '{"id":"msg_01LSvizeJReqJ4SbZHt8rz8o","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"Here
-        are several ways to generate random numbers in different programming languages:\n\n1.
-        Python:\n```python\nimport random\n\n# Random integer\nrandom_int = random.randint(1,
-        100)  # Between 1 and 100\nprint(random_int)\n\n# Random float\nrandom_float
-        = random.random()  # Between 0 and 1\nprint(random_float)\n```\n\n2. JavaScript:\n```javascript\n//
-        Random integer between min and max (inclusive)\nfunction getRandomInt(min,
-        max) {\n    return Math.floor(Math.random() * (max - min + 1)) + min;\n}\n\n//
-        Random number between 0 and 1\nconst randomFloat = Math.random();\n```\n\n3.
-        Java:\n```java\nimport java.util.Random;\n\n// Using Random class\nRandom
-        random = new Random();\n\n// Random integer\nint randomInt = random.nextInt(100);  //
-        0 to 99\n\n// Random double\ndouble randomDouble = random.nextDouble();\n```\n\n4.
-        C++:\n```cpp\n#include <random>\n#include <cstdlib>\n#include <ctime>\n\n//
-        Using rand()\nsrand(time(0));  // Seed\nint randomNum = rand() % 100;  //
-        0 to 99\n\n// Modern C++ random generation\nstd::random_device rd;\nstd::mt19937
-        gen(rd());\nstd::uniform_int_distribution<> dis(1, 100);\nint randomNumber
-        = dis(gen);\n```\n\n5. Ruby:\n```ruby\n# Random integer\nrandom_int = rand(100)  #
-        0 to 99\n\n# Random float\nrandom_float = rand()\n```\n\nChoose the method
-        appropriate for your programming language and specific requirements."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":10,"output_tokens":416}}'
+      string: '{"id":"msg_017TawFg9rpJTZAEKaA1XQSD","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"Here''s
+        a randomly generated number between 1 and 10:\n\n7\n\n(Note: This was generated
+        using a random number generation tool/method.)\n\nWould you like me to generate
+        another random number in the same range?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":18,"output_tokens":51}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8de8ebbe3dac169c-SJC
+      - 8df86e3e59779687-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Wed, 06 Nov 2024 23:39:11 GMT
+      - Fri, 08 Nov 2024 20:49:38 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -79,11 +66,11 @@ interactions:
       anthropic-ratelimit-tokens-remaining:
       - '5000000'
       anthropic-ratelimit-tokens-reset:
-      - '2024-11-06T23:39:11Z'
+      - '2024-11-08T20:49:38Z'
       content-length:
-      - '1601'
+      - '447'
       request-id:
-      - req_01FSSsjPhrPmdzJt3yQTHPn6
+      - req_01TNPUxQzE9yAHsbqx2cf7u8
       via:
       - 1.1 google
     status:

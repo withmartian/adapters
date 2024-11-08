@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"model": "command-r", "messages": [{"role": "user", "content": "Hi"}],
-      "stream": false}'
+    body: '{"model": "command-r", "messages": [{"role": "user", "content": "Hi"},
+      {"role": "user", "content": "Hi"}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '88'
+      - '123'
       content-type:
       - application/json
       host:
@@ -27,13 +27,14 @@ interactions:
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: "{\"id\":\"35247c59-74e0-493a-88b8-3af9d1f19de3\",\"message\":{\"role\":\"assistant\",\"content\":[{\"type\":\"text\",\"text\":\"Hi!
-        How's it going? I hope you're having a fantastic day today! \U0001F60A\"}]},\"finish_reason\":\"COMPLETE\",\"usage\":{\"billed_units\":{\"input_tokens\":1,\"output_tokens\":19},\"tokens\":{\"input_tokens\":67,\"output_tokens\":19}}}"
+      string: '{"id":"a26c80de-3d56-4b3f-aab6-9d62b36229a8","message":{"role":"assistant","content":[{"type":"text","text":"Hello
+        there! How''s it going? I hope you''re having a fantastic day so far! Is there
+        anything you''d like to talk about or any questions you have in mind?"}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":2,"output_tokens":36},"tokens":{"input_tokens":71,"output_tokens":36}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '320'
+      - '403'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -43,13 +44,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Fri, 08 Nov 2024 07:48:13 GMT
+      - Fri, 08 Nov 2024 20:59:58 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
       num_chars:
-      - '420'
+      - '480'
       num_tokens:
-      - '20'
+      - '38'
       pragma:
       - no-cache
       server:
@@ -59,9 +60,9 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - 4dc4962c0e11f370197136f35399e631
+      - bdefe856a1bf56e498618847f33a16e4
       x-envoy-upstream-service-time:
-      - '194'
+      - '320'
     status:
       code: 200
       message: OK

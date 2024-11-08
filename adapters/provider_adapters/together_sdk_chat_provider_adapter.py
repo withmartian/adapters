@@ -197,10 +197,6 @@ class TogetherSDKChatProviderAdapter(OpenAISDKChatAdapter):
         if params.get("n") and params.get("temperature") is None:
             params["temperature"] = DEFAULT_TEMPERATURE
 
-        # Scale temperature to OpenAI scale
-        if params.get("temperature"):
-            params["temperature"] = self._adjust_temperature(params["temperature"])
-
         # Keep only last image_url for vision
         skiped_image = False
         for message in reversed(params["messages"]):

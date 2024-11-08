@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"model": "command", "messages": [{"role": "system", "content": "Hi"},
-      {"role": "user", "content": "Hi"}], "stream": false}'
+      {"role": "user", "content": "Hi"}, {"role": "user", "content": "\"\""}], "stream":
+      false}'
     headers:
       accept:
       - '*/*'
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '123'
+      - '160'
       content-type:
       - application/json
       host:
@@ -27,15 +28,14 @@ interactions:
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: '{"id":"02346b70-f8f5-4f7d-9435-133d39dc37fa","message":{"role":"assistant","content":[{"type":"text","text":"Hello!
-        I am Coral, a brilliant, sophisticated, AI-assistant chatbot trained to assist
-        human users by providing thorough responses. Is there anything I can help
-        you with?"}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":2,"output_tokens":34},"tokens":{"input_tokens":13,"output_tokens":35}}}'
+      string: '{"id":"82d6eed9-9d2b-4fcb-96da-f54fb4e03279","message":{"role":"assistant","content":[{"type":"text","text":"I''m
+        sorry, I don''t understand your message nor do I have the context to respond.
+        Could you please clarify?"}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":3,"output_tokens":24},"tokens":{"input_tokens":17,"output_tokens":25}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '421'
+      - '358'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -45,13 +45,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Fri, 08 Nov 2024 07:46:46 GMT
+      - Fri, 08 Nov 2024 20:47:21 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
       num_chars:
-      - '50'
+      - '59'
       num_tokens:
-      - '36'
+      - '27'
       pragma:
       - no-cache
       server:
@@ -61,9 +61,9 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - e9cc07dddddd5551c39fb8937863be5a
+      - b2df5868244a820496bcf00af7445416
       x-envoy-upstream-service-time:
-      - '1082'
+      - '1519'
     status:
       code: 200
       message: OK
