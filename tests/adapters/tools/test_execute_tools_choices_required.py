@@ -17,6 +17,7 @@ async def test_async(vcr: VCR, create_adapter: AdapterTestFactory) -> None:
 
     if (
         adapter.get_model().supports_tools is False
+        or adapter.get_model().supports_tool_choice is False
         or adapter.get_model().supports_tool_choice_required is False
     ):
         return

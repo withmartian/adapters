@@ -15,7 +15,10 @@ from vcr import VCR
 async def test_async(vcr: VCR, create_adapter: AdapterTestFactory) -> None:
     adapter = create_adapter()
 
-    if adapter.get_model().supports_tools is False:
+    if (
+        adapter.get_model().supports_tools is False
+        or adapter.get_model().supports_tool_choice is False
+    ):
         return
 
     adapter_response = await adapter.execute_async(

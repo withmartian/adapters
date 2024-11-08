@@ -51,6 +51,7 @@ class CohereModel(Model):
     supports_vision: bool = False
     supports_empty_content: bool = False
     supports_only_system: bool = False
+    supports_tool_choice: bool = False
 
     def _get_api_path(self) -> str:
         return self.name
@@ -379,6 +380,7 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
             delta=ChoiceDelta(role=ConversationRole.assistant.value, content=""),
         )
 
+        # TODO: Add citation support
         if isinstance(response, MessageStartStreamedChatResponseV2):
             state["id"] = response.id
             state["created"] = int(time.time())
@@ -402,8 +404,9 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
                     CohereFinishReason(response.delta.finish_reason),
                     AdapterFinishReason.stop,
                 ).value
-        else:
-            raise ValueError("Unsupported response")
+        # else:
+            # raise ValueError("Unsupported response")
+
 
         return AdapterChatCompletionChunk(
             id=state["id"],
