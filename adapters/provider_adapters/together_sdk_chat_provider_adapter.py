@@ -180,7 +180,6 @@ class TogetherSDKChatProviderAdapter(OpenAISDKChatAdapter):
 
     def _get_params(self, llm_input: Conversation, **kwargs: Any) -> Dict[str, Any]:
         params = super()._get_params(llm_input, **kwargs)
-        messages = params["messages"]
 
         # If the user has requested n messages, but not specified a temperature, we need to provide default temperature
         if params.get("n") and params.get("temperature") is None:
@@ -191,11 +190,16 @@ class TogetherSDKChatProviderAdapter(OpenAISDKChatAdapter):
             params["temperature"] = self._adjust_temperature(params["temperature"])
 
         # Keep only last image_url for vision
-        # params["messages"] =
-        #     if message.get("image_url"):
-        #         message["image_url"] = message["image_url
+        skiped_image = False
+        for message in reversed(params["messages"]):
+            if isinstance(message["content"], list):
+                for content in reversed(message["content"]):
+                    if content["type"] == "image_url":
+                        if skiped_image:
+                            content["type"] = "text"
+                            content["text"] = content["image_url"]["url"]
+                            del content["image_url"]
+                        else:
+                            skiped_image = True
 
-        return {
-            **params,
-            "messages": messages,
-        }
+        return params
