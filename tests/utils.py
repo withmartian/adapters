@@ -6,6 +6,7 @@ import brotli
 from adapters.abstract_adapters.base_adapter import BaseAdapter
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.adapter_factory import AdapterFactory
+from adapters.provider_adapters.ai21_sdk_chat_provider_adapter import AI21Model
 from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
     AnthropicModel,
     AnthropicSDKChatProviderAdapter,
@@ -48,7 +49,7 @@ class AdapterTestFactory:
 ADAPTER_TEST_FACTORIES = [
     AdapterTestFactory(model.get_path())
     for model in AdapterFactory.get_supported_models()
-    if isinstance(model, (OpenAIModel, AnthropicModel, TogetherModel))
+    if isinstance(model, (OpenAIModel, AnthropicModel, TogetherModel, AI21Model))
 ]
 
 

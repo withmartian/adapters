@@ -1,0 +1,76 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number via tools,
+      range 1-10"}], "model": "jamba-1.5-mini", "stream": false, "tool_choice": {"type":
+      "function", "function": {"name": "generate"}}, "tools": [{"type": "function",
+      "function": {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '471'
+      content-type:
+      - application/json
+      host:
+      - api.ai21.com
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.ai21.com/studio/v1/chat/completions
+  response:
+    body:
+      string: !!binary |
+        IdQFACD+61ope3m6TQbwK7tYPCoM0T49cGmJtiVZwGEYYIAJZV3wx4Me8HrDcvy08G9w+sSvBkH9
+        iInnupJt1bRK26IwshFWmrxUqUiySivVgkG6vhhBtxMX6SsoYeBF/AKdGKIzIIhx/B0nESYwDI0b
+        KczOMUwxupcSziFd0CCkRZnKtEm4rjLDi7oouLC65W2p0kLI1oiiBMO0dwYEUkMAswc6EYQ3IOij
+        iwFDF7aBcN7RDdF30x30dUfK0+SODz6fx4fBxe9uiHLME0e0udc6rD0I4xQ7fB4Mc62At3hN8d+E
+        EZQWOQPRgn5j8KWsYXhZgInmOv18DAM=
+    headers:
+      CF-RAY:
+      - 8df3700bcd4a1592-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - br
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Nov 2024 06:17:03 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      cf-cache-status:
+      - DYNAMIC
+      request-id:
+      - 4c0187ea-7255-36cc-9999-000db90f51f5
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,76 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number via tools,
+      range 1-10"}], "model": "jamba-1.5-large", "stream": false, "tool_choice": "required",
+      "tools": [{"type": "function", "function": {"description": "Generate random
+      number", "name": "generate", "parameters": {"type": "object", "properties":
+      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
+      11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '428'
+      content-type:
+      - application/json
+      host:
+      - api.ai21.com
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.ai21.com/studio/v1/chat/completions
+  response:
+    body:
+      string: !!binary |
+        IQOYDABA/Jqur1rm1RuzbcprnQt8BWJ6Tw9cWhpgW5IFHIYBBnih24/H6/GgB7zesBw/kf0bnD7w
+        q8Cof+TolV/vuMxyleo4TvNalVEWh7XMszSrKq1DEKTrGwP4euAifQOHBF7EL/CBvjEaDDkMv8Mo
+        3QjC0Lghu8kYwtg05llLYzJdUGBIrVWcl7FXKx15aVjFXpmp0KsKGVZlnoelzkAYt1aDQWpIIHvg
+        A05aDYY+umoQUFgG47ih7RvbjjewuOEinWos0YbEGqb7GYmUREIiCklE0Q0ffD73D8E0323fvIcu
+        cIBbeC7L2gdjGJsWnzthQgKqTZ5j86/dAI7ShEDD4N/G+UqaEB4a4KKlzD8fAwM=
+    headers:
+      CF-RAY:
+      - 8df3703acb49ce68-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - br
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Nov 2024 06:17:11 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      cf-cache-status:
+      - DYNAMIC
+      request-id:
+      - 7e60dd68-a2ff-6b34-9601-f275bc86e051
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+version: 1

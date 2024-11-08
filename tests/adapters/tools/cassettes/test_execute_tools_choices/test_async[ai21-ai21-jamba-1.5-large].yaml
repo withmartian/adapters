@@ -1,0 +1,76 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number via tools,
+      range 1-10"}], "model": "jamba-1.5-large", "stream": false, "tool_choice": {"type":
+      "function", "function": {"name": "generate"}}, "tools": [{"type": "function",
+      "function": {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '472'
+      content-type:
+      - application/json
+      host:
+      - api.ai21.com
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.ai21.com/studio/v1/chat/completions
+  response:
+    body:
+      string: !!binary |
+        IUwGACBWulW1ma2PGQJ+TfmtB7Ng9k8PXFoaYFuSBRyGAQZ4oduPx+vxoAe83rAcP5H9G5y+UCZg
+        xIWajcT2pDJDUzl+4IRprDLLs5XjJ9KNXC8MQZCub0zg54WL9A1sEngRv8AXRt2kYKhpKqdZdTMI
+        Q+OG3C1NQ5i1br6xappMFxIw3NAJfT9RhuMk0nBcyzECL/ONUMWJGUk3NmUCwnz0KRikhgSyB77Q
+        qTYFQx9dUxBQWAbjeqEfddvPL7B44aG6RLdEGxJrmO67JBwSNglpkpDyhT/+//ef0Oi8H3U0dYED
+        3MJ3WdY+GNOse/zfhAUJqDb5zrpOuwksHZtAw+BSd77i2ISHBrhoCbz/3wAD
+    headers:
+      CF-RAY:
+      - 8df37012f89b15ff-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - br
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Nov 2024 06:17:04 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      cf-cache-status:
+      - DYNAMIC
+      request-id:
+      - 16af3ad4-3835-e200-bb7b-2374c38cd185
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+version: 1
