@@ -190,11 +190,11 @@ def get_response_choices_from_vcr(vcr: VCR, adapter: BaseAdapter) -> Any:
     if isinstance(adapter, OpenAISDKChatAdapter):
         return response["choices"]
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
-        choices: list[Any] = []
+        anthropic_choices: list[Any] = []
 
         for content in response["content"]:
             if content["type"] == "tool_use":
-                choices.append(
+                anthropic_choices.append(
                     {
                         "message": {
                             "role": response["role"],
@@ -210,7 +210,7 @@ def get_response_choices_from_vcr(vcr: VCR, adapter: BaseAdapter) -> Any:
                     }
                 )
             elif content["type"] == "text":
-                choices.append(
+                anthropic_choices.append(
                     {
                         "message": {
                             "role": response["role"],
@@ -220,9 +220,47 @@ def get_response_choices_from_vcr(vcr: VCR, adapter: BaseAdapter) -> Any:
                 )
             else:
                 raise ValueError(f"Unknown content type: {content['type']}")
-        return choices
-    # elif isinstance(adapter, CohereSDKChatProviderAdapter):
-    # return response["text"]
+        return anthropic_choices
+    elif isinstance(adapter, CohereSDKChatProviderAdapter):
+        # Parse the Cohere SDK response
+        cohere_choices: list[Any] = []
+
+        # Assuming the structure of the Cohere response can vary
+        message = response.get("message")
+        role = message.get("role", "assistant")
+        tool_calls = message.get("tool_calls")
+        content_list = message.get("content")
+
+        # Check if there are tool calls and handle them
+        if tool_calls:
+            for tool_call in tool_calls:
+                cohere_choices.append(
+                    {
+                        "message": {
+                            "role": role,
+                            "tool_calls": [
+                                {
+                                    "id": tool_call["id"],
+                                    "type": tool_call["type"],
+                                    "function": {
+                                        "name": tool_call["function"]["name"],
+                                        "arguments": tool_call["function"]["arguments"],
+                                    },
+                                }
+                            ],
+                        }
+                    }
+                )
+        # If no tool calls, check for and handle content as a list of text items
+        elif content_list:
+            for content in content_list:
+                if content.get("type") == "text":
+                    cohere_choices.append(
+                        {"message": {"role": role, "content": content["text"]}}
+                    )
+
+        return cohere_choices
+
     # elif isinstance(adapter, GeminiSDKChatProviderAdapter):
     # return response["candidates"][0]["content"]["parts"][0]["text"]
     else:

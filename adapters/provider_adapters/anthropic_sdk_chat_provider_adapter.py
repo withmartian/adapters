@@ -356,6 +356,8 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
                         ),
                     )
                 )
+            else:
+                raise ValueError("Unsupported response")
 
         usage = CompletionUsage(
             prompt_tokens=response.usage.input_tokens,
@@ -389,7 +391,6 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
             ),
         )
 
-    # TODO: add streaming tools support
     def _extract_stream_response(
         self, request: Any, response: RawMessageStreamEvent, state: dict[str, Any]
     ) -> AdapterChatCompletionChunk:
