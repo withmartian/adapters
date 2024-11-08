@@ -4,7 +4,7 @@ on:
       - feat/v7
 
 jobs:
-  test:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +31,7 @@ jobs:
         run: poetry run pre-commit run --all-files
 
       - name: Run tests
-        run: poetry run pytest -n=auto --record-mode=none
+        run: poetry run pytest -x -n=auto --record-mode=none
 
       - name: Run publish
         run: poetry publish --build
