@@ -222,6 +222,100 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
     def _adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
 
+    def _get_params(self, llm_input: Conversation, **kwargs: Any) -> Dict[str, Any]:
+        params = super()._get_params(llm_input, **kwargs)
+
+        # messages = cast(List[Choice], params["messages"])
+        messages = params["messages"]
+        system_prompt: Optional[str] = None
+
+        # Extract system prompt if it's the first message
+        if len(messages) and messages[0]["role"] == ConversationRole.system.value:
+            system_prompt = messages[0]["content"]
+            messages = messages[1:]
+
+        # Convert remaining system messages to user
+        for message in messages:
+            if message["role"] == ConversationRole.system.value:
+                message["role"] = ConversationRole.user.value
+
+        # Add empty user message if only system message is present
+        if len(messages) == 0:
+            messages = [{"role": ConversationRole.user.value, "content": EMPTY_CONTENT}]
+
+        # Remove trailing whitespace from the last assistant message
+        if len(messages) and messages[-1]["role"] == ConversationRole.assistant.value:
+            messages[-1]["content"] = messages[-1]["content"].rstrip()
+
+        # Include base64-encoded images in the request
+        for message in messages:
+            if (
+                isinstance(message["content"], list)
+                and message["role"] == ConversationRole.user.value
+            ):
+                anthropic_content = []
+
+                for content in message["content"]:
+                    if content["type"] == "text":
+                        anthropic_content.append(content)
+                    elif content["type"] == "image_url":
+                        anthropic_content.append(
+                            process_image_url_anthropic(content["image_url"]["url"])
+                        )
+
+                message["content"] = anthropic_content
+
+        # Convert tools to anthropic format
+        openai_tools = params.get("tools")
+        openai_tools_choice = params.get("tool_choice")
+
+        anthropic_tools: Optional[list[ToolParam]] = None
+
+        if openai_tools:
+            anthropic_tools = []
+            for openai_tool in openai_tools:
+                anthropic_tool = ToolParam(
+                    name=openai_tool["function"]["name"],
+                    description=openai_tool["function"]["description"],
+                    input_schema={
+                        "type": openai_tool["function"]["parameters"]["type"],
+                        "properties": openai_tool["function"]["parameters"][
+                            "properties"
+                        ],
+                        "required": openai_tool["function"]["parameters"]["required"],
+                    },
+                )
+
+                anthropic_tools.append(anthropic_tool)
+
+        anthropic_tool_choice: Optional[ToolChoice] = None
+
+        if openai_tools_choice == "required":
+            anthropic_tool_choice = ToolChoiceToolChoiceAny(type="any")
+        elif openai_tools_choice == "auto":
+            anthropic_tool_choice = ToolChoiceToolChoiceAuto(type="auto")
+        elif openai_tools_choice == "none":
+            anthropic_tools = None
+        elif isinstance(openai_tools_choice, dict):
+            anthropic_tool_choice = ToolChoiceToolChoiceTool(
+                name=openai_tools_choice["function"]["name"],
+                type="tool",
+            )
+
+        return AnthropicCreate(
+            max_tokens=params.get("max_tokens", self.get_model().completion_length),
+            messages=messages,
+            metadata=params.get("metadata"),
+            stop_sequences=params.get("stop_sequences"),
+            stream=params.get("stream"),
+            system=system_prompt,
+            temperature=params.get("temperature"),
+            tool_choice=anthropic_tool_choice,
+            tools=anthropic_tools,
+            top_k=params.get("top_k"),
+            top_p=params.get("top_p"),
+        ).model_dump()
+
     def _extract_response(
         self, request: Conversation, response: Message
     ) -> AdapterChatCompletion:
@@ -324,97 +418,3 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
             model=self.get_model().name,
             object="chat.completion.chunk",
         )
-
-    def _get_params(self, llm_input: Conversation, **kwargs: Any) -> Dict[str, Any]:
-        params = super()._get_params(llm_input, **kwargs)
-
-        # messages = cast(List[Choice], params["messages"])
-        messages = params["messages"]
-        system_prompt: Optional[str] = None
-
-        # Extract system prompt if it's the first message
-        if len(messages) and messages[0]["role"] == ConversationRole.system.value:
-            system_prompt = messages[0]["content"]
-            messages = messages[1:]
-
-        # Convert remaining system messages to user
-        for message in messages:
-            if message["role"] == ConversationRole.system.value:
-                message["role"] = ConversationRole.user.value
-
-        # Add empty user message if only system message is present
-        if len(messages) == 0:
-            messages = [{"role": ConversationRole.user.value, "content": EMPTY_CONTENT}]
-
-        # Remove trailing whitespace from the last assistant message
-        if len(messages) and messages[-1]["role"] == ConversationRole.assistant.value:
-            messages[-1]["content"] = messages[-1]["content"].rstrip()
-
-        # Include base64-encoded images in the request
-        for message in messages:
-            if (
-                isinstance(message["content"], list)
-                and message["role"] == ConversationRole.user.value
-            ):
-                anthropic_content = []
-
-                for content in message["content"]:
-                    if content["type"] == "text":
-                        anthropic_content.append(content)
-                    elif content["type"] == "image_url":
-                        anthropic_content.append(
-                            process_image_url_anthropic(content["image_url"]["url"])
-                        )
-
-                message["content"] = anthropic_content
-
-        # Convert tools to anthropic format
-        openai_tools = params.get("tools")
-        openai_tools_choice = params.get("tool_choice")
-
-        anthropic_tools: Optional[list[ToolParam]] = None
-
-        if openai_tools:
-            anthropic_tools = []
-            for openai_tool in openai_tools:
-                anthropic_tool = ToolParam(
-                    name=openai_tool["function"]["name"],
-                    description=openai_tool["function"]["description"],
-                    input_schema={
-                        "type": openai_tool["function"]["parameters"]["type"],
-                        "properties": openai_tool["function"]["parameters"][
-                            "properties"
-                        ],
-                        "required": openai_tool["function"]["parameters"]["required"],
-                    },
-                )
-
-                anthropic_tools.append(anthropic_tool)
-
-        anthropic_tool_choice: Optional[ToolChoice] = None
-
-        if openai_tools_choice == "required":
-            anthropic_tool_choice = ToolChoiceToolChoiceAny(type="any")
-        elif openai_tools_choice == "auto":
-            anthropic_tool_choice = ToolChoiceToolChoiceAuto(type="auto")
-        elif openai_tools_choice == "none":
-            anthropic_tools = None
-        elif isinstance(openai_tools_choice, dict):
-            anthropic_tool_choice = ToolChoiceToolChoiceTool(
-                name=openai_tools_choice["function"]["name"],
-                type="tool",
-            )
-
-        return AnthropicCreate(
-            max_tokens=params.get("max_tokens", self.get_model().completion_length),
-            messages=messages,
-            metadata=params.get("metadata"),
-            stop_sequences=params.get("stop_sequences"),
-            stream=params.get("stream"),
-            system=system_prompt,
-            temperature=params.get("temperature"),
-            tool_choice=anthropic_tool_choice,
-            tools=anthropic_tools,
-            top_k=params.get("top_k"),
-            top_p=params.get("top_p"),
-        ).model_dump()

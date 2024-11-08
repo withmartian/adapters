@@ -10,7 +10,6 @@ from openai.types.chat.chat_completion import Choice
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
     AdapterChatCompletion,
-    AdapterChatCompletionChunk,
     AdapterFinishReason,
     Conversation,
     ConversationRole,
@@ -31,8 +30,9 @@ class CohereModel(Model):
         open_source=True, gdpr_compliant=True, is_nsfw=True
     )
 
-    supports_streaming: bool = False
-    supports_tools: bool = False
+    supports_streaming: bool = True
+    supports_n: bool = False
+    # supports_tools: bool = False
 
     def _get_api_path(self) -> str:
         return self.name
@@ -40,34 +40,76 @@ class CohereModel(Model):
 
 MODELS: list[Model] = [
     CohereModel(
+        name="command-r-plus-04-2024",
+        cost=Cost(prompt=3.00e-6, completion=15.00e-6),
+        context_length=128000,
+        completion_length=4000,
+    ),
+    CohereModel(
         name="command-r-plus-08-2024",
         cost=Cost(prompt=2.50e-6, completion=10.00e-6),
         context_length=128000,
-    ),
-    CohereModel(
-        name="command-r-plus-04-2024",
-        cost=Cost(prompt=2.50e-6, completion=10.00e-6),
-        context_length=128000,
+        completion_length=4000,
     ),
     CohereModel(
         name="command-r-plus",
         cost=Cost(prompt=2.50e-6, completion=10.00e-6),
         context_length=128000,
+        completion_length=4000,
+    ),
+    CohereModel(
+        name="command-r-03-2024",
+        cost=Cost(prompt=0.50e-6, completion=1.50e-6),
+        context_length=128000,
+        completion_length=4000,
     ),
     CohereModel(
         name="command-r-08-2024",
         cost=Cost(prompt=0.15e-6, completion=0.60e-6),
         context_length=128000,
-    ),
-    CohereModel(
-        name="command-r-03-2024",
-        cost=Cost(prompt=0.15e-6, completion=0.60e-6),
-        context_length=128000,
+        completion_length=4000,
     ),
     CohereModel(
         name="command-r",
         cost=Cost(prompt=0.15e-6, completion=0.60e-6),
         context_length=128000,
+        completion_length=4000,
+    ),
+    CohereModel(
+        name="command",
+        cost=Cost(prompt=1.00e-6, completion=2.00e-6),
+        context_length=4000,
+        completion_length=4000,
+    ),
+    CohereModel(
+        name="command-nightly",
+        cost=Cost(prompt=1.00e-6, completion=2.00e-6),
+        context_length=128000,
+        completion_length=128000,
+    ),
+    CohereModel(
+        name="command-light",
+        cost=Cost(prompt=0.30e-6, completion=0.60e-6),
+        context_length=4000,
+        completion_length=4000,
+    ),
+    CohereModel(
+        name="command-light-nightly",
+        cost=Cost(prompt=0.30e-6, completion=0.60e-6),
+        context_length=4000,
+        completion_length=4000,
+    ),
+    CohereModel(
+        name="c4ai-aya-expanse-8b",
+        cost=Cost(prompt=0.50e-6, completion=1.50e-6),
+        context_length=8000,
+        completion_length=4000,
+    ),
+    CohereModel(
+        name="c4ai-aya-expanse-32b",
+        cost=Cost(prompt=0.50e-6, completion=1.50e-6),
+        context_length=128000,
+        completion_length=4000,
     ),
 ]
 
@@ -225,7 +267,7 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
             ),
         )
 
-    def _extract_stream_response(
-        self, request: Any, response: Any, state: dict[str, Any]
-    ) -> AdapterChatCompletionChunk:
-        raise NotImplementedError
+    # def _extract_stream_response(
+    #     self, request: Any, response: StreamedChatResponseV2, state: dict[str, Any]
+    # ) -> AdapterChatCompletionChunk:
+    #     raise NotImplementedError

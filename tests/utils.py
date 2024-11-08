@@ -13,6 +13,7 @@ from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
 )
 from adapters.provider_adapters.cerebras_sdk_chat_provider_adapter import CerebrasModel
 from adapters.provider_adapters.cohere_sdk_chat_provider_adapter import (
+    CohereModel,
     CohereSDKChatProviderAdapter,
 )
 from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
@@ -51,7 +52,15 @@ ADAPTER_TEST_FACTORIES = [
     AdapterTestFactory(model.get_path())
     for model in AdapterFactory.get_supported_models()
     if isinstance(
-        model, (OpenAIModel, AnthropicModel, TogetherModel, AI21Model, CerebrasModel)
+        model,
+        (
+            OpenAIModel,
+            AnthropicModel,
+            TogetherModel,
+            AI21Model,
+            CerebrasModel,
+            CohereModel,
+        ),
     )
 ]
 
