@@ -11,7 +11,7 @@ table = """# Supported Models
 
 This table provides an overview of the supported models, including their vendor, provider, cost details, and capabilities.
 
-| Model | Vendor | Provider | Prompt Cost | Completion Cost | Request Cost | Context Length | Completion Length | User | Repeating Roles | Streaming | Vision | Tools | Supports N | System | Multiple Systems | Empty Content | Tool Choice | Tool Choice Required | JSON Output | JSON Content | Last Assistant | First Assistant | Temperature | Only System | Only Assistant |
+|     Model     | Vendor | Provider | Prompt $ | Completion $ | Request $ | Context | Completion | User | Repeating Roles | Streaming | Vision | Tools | Supports N | System | Multiple Systems | Empty Content | Tool Choice | Tool Choice Required | JSON Output | JSON Content | Last Assistant | First Assistant | Temperature | Only System | Only Assistant |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 """
 
@@ -27,5 +27,5 @@ for model in supported_models:
     )
 
 # Save the markdown table to file
-with open("docs/index.html", "w") as f:
+with open("docs/index.md", "w") as f:
     f.write(table)
