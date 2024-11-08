@@ -29,6 +29,7 @@ MODELS: list[Model] = [
         supports_json_content=False,
         supports_json_output=False,
         supports_vision=False,
+        supports_tools=False,
     ),
     TogetherModel(
         name="Llama-3-70b-chat-hf",
@@ -38,6 +39,7 @@ MODELS: list[Model] = [
         supports_json_content=False,
         supports_json_output=False,
         supports_vision=False,
+        supports_tools=False,
     ),
     TogetherModel(
         name="Meta-Llama-3.1-8B-Instruct-Turbo",
@@ -72,6 +74,7 @@ MODELS: list[Model] = [
         supports_json_content=False,
         supports_json_output=False,
         supports_vision=False,
+        supports_tools=False,
     ),
     TogetherModel(
         name="Llama-3.2-11B-Vision-Instruct-Turbo",
@@ -79,6 +82,7 @@ MODELS: list[Model] = [
         context_length=131072,
         vendor_name=Vendor.meta_llama.value,
         supports_json_output=False,
+        supports_tools=False,
     ),
     TogetherModel(
         name="Llama-3.2-90B-Vision-Instruct-Turbo",
@@ -86,6 +90,7 @@ MODELS: list[Model] = [
         context_length=131072,
         vendor_name=Vendor.meta_llama.value,
         supports_json_output=False,
+        supports_tools=False,
     ),
     TogetherModel(
         name="Qwen2-72B-Instruct",
@@ -94,6 +99,7 @@ MODELS: list[Model] = [
         vendor_name=Vendor.qwen.value,
         supports_json_output=False,
         supports_vision=False,
+        supports_tools=False,
     ),
     TogetherModel(
         name="Qwen2.5-7B-Instruct-Turbo",
@@ -102,6 +108,7 @@ MODELS: list[Model] = [
         vendor_name=Vendor.qwen.value,
         supports_json_output=False,
         supports_vision=False,
+        supports_tools=False,
     ),
     TogetherModel(
         name="Qwen2.5-72B-Instruct-Turbo",
@@ -110,6 +117,7 @@ MODELS: list[Model] = [
         vendor_name=Vendor.qwen.value,
         supports_json_output=False,
         supports_vision=False,
+        supports_tools=False,
     ),
     TogetherModel(
         name="Mistral-7B-Instruct-v0.3",
@@ -120,6 +128,7 @@ MODELS: list[Model] = [
         supports_only_system=False,
         supports_only_assistant=False,
         supports_vision=False,
+        supports_tools=False,
     ),
     TogetherModel(
         name="Mixtral-8x7B-Instruct-v0.1",
@@ -139,6 +148,7 @@ MODELS: list[Model] = [
         supports_only_system=False,
         supports_only_assistant=False,
         supports_vision=False,
+        supports_tools=False,
     ),
     TogetherModel(
         name="gemma-2-9b-it",
@@ -148,6 +158,7 @@ MODELS: list[Model] = [
         supports_json_content=False,
         supports_json_output=False,
         supports_vision=False,
+        supports_tools=False,
     ),
     TogetherModel(
         name="gemma-2-27b-it",
@@ -157,6 +168,7 @@ MODELS: list[Model] = [
         supports_json_content=False,
         supports_json_output=False,
         supports_vision=False,
+        supports_tools=False,
     ),
 ]
 

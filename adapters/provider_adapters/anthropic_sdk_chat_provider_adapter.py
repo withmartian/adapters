@@ -115,6 +115,7 @@ MODELS: list[Model] = [
         cost=Cost(prompt=1.0e-6, completion=5.0e-6),
         context_length=200000,
         completion_length=8192,
+        supports_vision=False,
     ),
     AnthropicModel(
         name="claude-3-5-sonnet-20240620",

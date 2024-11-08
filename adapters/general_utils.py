@@ -22,12 +22,10 @@ def delete_none_values(dictionary: dict[str, Any]) -> dict[str, Any]:
     return dictionary
 
 
-httpx_client = httpx.Client()
-
-
 def process_image_url_anthropic(image_url: str) -> dict[str, Any]:
+    httpx_client = httpx.Client()
+
     if image_url.startswith("data:"):
-        # Base64 data is passed as a URL
         media_type, _, base64_data = image_url.partition(";base64,")
         media_type = media_type.split(":")[1]
         return {
