@@ -405,8 +405,7 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
                     AdapterFinishReason.stop,
                 ).value
         # else:
-            # raise ValueError("Unsupported response")
-
+        # raise ValueError("Unsupported response")
 
         return AdapterChatCompletionChunk(
             id=state["id"],

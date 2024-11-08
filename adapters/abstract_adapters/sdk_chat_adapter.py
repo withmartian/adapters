@@ -112,6 +112,14 @@ class SDKChatAdapter(
             kwargs["stream"] = False
 
         if (
+            kwargs.get("tool_choices") is not None
+            and self.get_model().supports_tool_choice is False
+        ):
+            raise AdapterException(
+                f"Tool choice is not supported on {self.get_model().name}"
+            )
+
+        if (
             kwargs.get("temperature") is not None
             and self.get_model().supports_temperature is False
         ):
@@ -356,8 +364,8 @@ class SDKChatAdapter(
                 finally:
                     if hasattr(response, "close"):
                         await response.close()
-                    elif hasattr(response, "aclose"):  # For Cohere SDK
-                        await response.aclose()
+                    # elif hasattr(response, "aclose"):  # For Cohere SDK
+                    # await response.aclose()
 
         return AdapterStreamAsyncChatCompletion(response=stream_response())
 

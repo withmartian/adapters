@@ -49,7 +49,7 @@ from adapters.constants import (
     MAX_CONNECTIONS_PER_PROCESS,
     MAX_KEEPALIVE_CONNECTIONS_PER_PROCESS,
 )
-from adapters.general_utils import EMPTY_CONTENT, process_image_url_anthropic
+from adapters.general_utils import process_image_url_anthropic
 from adapters.types import (
     AdapterChatCompletion,
     AdapterChatCompletionChunk,
@@ -71,6 +71,7 @@ class AnthropicModel(Model):
     supports_vision: bool = False
     supports_empty_content: bool = False
     supports_n: bool = False
+    supports_only_system: bool = False
 
 
 MODELS: list[Model] = [
@@ -238,10 +239,6 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
         for message in messages:
             if message["role"] == ConversationRole.system.value:
                 message["role"] = ConversationRole.user.value
-
-        # Add empty user message if only system message is present
-        if len(messages) == 0:
-            messages = [{"role": ConversationRole.user.value, "content": EMPTY_CONTENT}]
 
         # Remove trailing whitespace from the last assistant message
         if len(messages) and messages[-1]["role"] == ConversationRole.assistant.value:
