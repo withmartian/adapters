@@ -1,0 +1,86 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
+      "Hi"}, {"role": "system", "content": "Hi"}, {"role": "user", "content": "Hi"}],
+      "model": "llama3.1-70b", "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '200'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-d9e6ce1c-d395-4ac9-83c4-a7017b52f01b","choices":[{"finish_reason":"stop","index":0,"message":{"content":"Hi,
+        it seems like we''re stuck in a loop of greetings. Would you like to talk
+        about something specific or ask a question? I''m here to help.","role":"assistant"}}],"created":1731046913,"model":"llama3.1-70b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":49,"completion_tokens":34,"total_tokens":83},"time_info":{"queue_time":2.757e-05,"prompt_time":0.002498520272727272,"completion_time":0.03203135672727273,"total_time":0.03610801696777344,"created":1731046913}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '625'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Nov 2024 06:21:53 GMT
+      Via:
+      - 1.1 88734c1b1a8053ae83daf0f85731c788.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 0JxHRf1Ip8JN76OE721RVujPVSyJvCcqltxyuu42fwvdhJhH7uWb-A==
+      X-Amz-Cf-Pop:
+      - SFO20-C1
+      X-Cache:
+      - Miss from cloudfront
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14390'
+      x-ratelimit-remaining-tokens-minute:
+      - '59232'
+      x-ratelimit-reset-requests-day:
+      - '63486.44325256348'
+      x-ratelimit-reset-tokens-minute:
+      - '6.4432525634765625'
+      x-request-id:
+      - 0JxHRf1Ip8JN76OE721RVujPVSyJvCcqltxyuu42fwvdhJhH7uWb-A==
+    status:
+      code: 200
+      message: OK
+version: 1

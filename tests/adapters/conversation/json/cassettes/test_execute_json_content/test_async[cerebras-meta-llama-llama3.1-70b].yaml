@@ -1,0 +1,100 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "llama3.1-70b", "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '151'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-84f8a6ee-6838-4184-8e31-b65d4b66da45","choices":[{"finish_reason":"stop","index":0,"message":{"content":"It
+        appears you have a list of dictionaries containing chatbot messages. Each
+        dictionary has two keys:\n\n- ''type'': indicating the type of message, which
+        in this case is ''text''.\n- ''text'': containing the actual text of the message.\n\nHere
+        is a Python code snippet to process this data:\n\n```python\nmessages = [{''type'':
+        ''text'', ''text'': ''Hi''}, {''type'': ''text'', ''text'': ''Hi''}]\n\ndef
+        process_messages(messages):\n    \"\"\"Process a list of chatbot messages\"\"\"\n    for
+        message in messages:\n        if message[''type''] == ''text'':\n            print(\"Received
+        text message:\", message[''text''])\n        else:\n            print(\"Received
+        unknown message type:\", message[''type''])\n\n# Example usage:\nprocess_messages(messages)\n```\n\nIn
+        this example, the `process_messages` function iterates over each message in
+        the list, checks the ''type'' of the message, and prints out the text of the
+        message if it''s a ''text'' type. You can modify this function to handle different
+        types of messages or perform other actions based on your requirements.","role":"assistant"}}],"created":1731046905,"model":"llama3.1-70b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":61,"completion_tokens":223,"total_tokens":284},"time_info":{"queue_time":2.553e-05,"prompt_time":0.0032578873513513513,"completion_time":0.14204267064864864,"total_time":0.14664506912231445,"created":1731046905}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Nov 2024 06:21:45 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 01afb90e0628e0251f333cf8af249756.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - cTyDuDJ1_a24wyqWhCzu6_yuPAtu84Q_M9EngMUD_0BM0O7WZBWh4A==
+      X-Amz-Cf-Pop:
+      - SFO20-C1
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '1533'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      vary:
+      - accept-encoding
+      x-content-type-options:
+      - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14398'
+      x-ratelimit-remaining-tokens-minute:
+      - '59892'
+      x-ratelimit-reset-requests-day:
+      - '63494.38109707832'
+      x-ratelimit-reset-tokens-minute:
+      - '14.381097078323364'
+      x-request-id:
+      - cTyDuDJ1_a24wyqWhCzu6_yuPAtu84Q_M9EngMUD_0BM0O7WZBWh4A==
+    status:
+      code: 200
+      message: OK
+version: 1

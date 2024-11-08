@@ -1,0 +1,87 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number via tools,
+      range 1-10"}], "model": "llama3.1-70b", "stream": false, "tool_choice": "none",
+      "tools": [{"type": "function", "function": {"description": "Generate random
+      number", "name": "generate", "parameters": {"type": "object", "properties":
+      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
+      11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '421'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-ccd89bc8-ce35-4933-abfe-992f788dbbf2","choices":[{"finish_reason":"stop","index":0,"message":{"content":"9","role":"assistant"}}],"created":1731046925,"model":"llama3.1-70b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":46,"completion_tokens":2,"total_tokens":48},"time_info":{"queue_time":2.609e-05,"prompt_time":0.0017121930000000003,"completion_time":0.003216668,"total_time":0.0065195560455322266,"created":1731046925}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '482'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Nov 2024 06:22:05 GMT
+      Via:
+      - 1.1 36cc13280ef76bb2fee6ae5eed6fec2e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - zGeP-id57-s-K5FQwhOggmRysU4ba7NbKYDtDwdmbPAg2Ig_w_xqew==
+      X-Amz-Cf-Pop:
+      - SFO20-C1
+      X-Cache:
+      - Miss from cloudfront
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14382'
+      x-ratelimit-remaining-tokens-minute:
+      - '59455'
+      x-ratelimit-reset-requests-day:
+      - '63474.66193342209'
+      x-ratelimit-reset-tokens-minute:
+      - '54.66193342208862'
+      x-request-id:
+      - zGeP-id57-s-K5FQwhOggmRysU4ba7NbKYDtDwdmbPAg2Ig_w_xqew==
+    status:
+      code: 200
+      message: OK
+version: 1
