@@ -24,11 +24,14 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
+      - name: Set PyPI token for Poetry
+        run: poetry config pypi-token.pypi ${{ secrets.PYPI_API_TOKEN }}
+
       - name: Run lint
         run: poetry run pre-commit run --all-files
 
       - name: Run tests
-        run: poetry run pytest -n=auto --record-mode=rewrite
+        run: poetry run pytest -n=auto --record-mode=none
 
       - name: Run publish
         run: poetry publish --build
