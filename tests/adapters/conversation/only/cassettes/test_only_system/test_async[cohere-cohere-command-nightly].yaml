@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"model": "command-nightly", "messages": [{"role": "system", "content":
-      "Hi"}], "stream": false}'
+      "Hi"}, {"role": "user", "content": "\"\""}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '96'
+      - '133'
       content-type:
       - application/json
       host:
@@ -27,13 +27,15 @@ interactions:
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: '{"message":"invalid request: message must be at least 1 token long
-        or tool results must be specified."}'
+      string: '{"id":"91499ecb-ff60-481d-9510-475a4008a62f","message":{"role":"assistant","content":[{"type":"text","text":"I''m
+        sorry, it looks like your message may be empty or incomplete. If you have
+        a question or need assistance with something, please provide more context
+        or details, and I''ll do my best to help you!"}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":2,"output_tokens":43},"tokens":{"input_tokens":161,"output_tokens":43}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '103'
+      - '449'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -43,9 +45,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Fri, 08 Nov 2024 06:43:37 GMT
+      - Fri, 08 Nov 2024 07:47:40 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
+      num_chars:
+      - '990'
+      num_tokens:
+      - '45'
       pragma:
       - no-cache
       server:
@@ -55,10 +61,10 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - 8009d82b56c7f26e76aabb51b47c7cd7
+      - 5143893ea1b1b456c47611f94e441ad5
       x-envoy-upstream-service-time:
-      - '9'
+      - '770'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

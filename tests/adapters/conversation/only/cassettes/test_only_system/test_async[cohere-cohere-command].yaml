@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"model": "command", "messages": [{"role": "system", "content": "Hi"}],
-      "stream": false}'
+    body: '{"model": "command", "messages": [{"role": "system", "content": "Hi"},
+      {"role": "user", "content": "\"\""}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '88'
+      - '125'
       content-type:
       - application/json
       host:
@@ -27,13 +27,18 @@ interactions:
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: '{"message":"invalid request: message must be at least 1 token long
-        or tool results must be specified."}'
+      string: '{"id":"9b07a4a6-69e1-494b-b2d1-5ac38221d3c8","message":{"role":"assistant","content":[{"type":"text","text":"I''m
+        sorry, but I''m unable to respond to that request. Could you please provide
+        more context or details about the kind of information you are looking for?
+        I''m here to help in any way I can, assist you in completing tasks, providing
+        answers to your questions, and engaging in conversations on a variety of topics.
+        Please let me know if you have any specific questions, or if there''s anything
+        else I can assist you with."}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":2,"output_tokens":88},"tokens":{"input_tokens":13,"output_tokens":89}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '103'
+      - '669'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -43,9 +48,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Fri, 08 Nov 2024 06:43:37 GMT
+      - Fri, 08 Nov 2024 07:47:39 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
+      num_chars:
+      - '50'
+      num_tokens:
+      - '90'
       pragma:
       - no-cache
       server:
@@ -55,10 +64,10 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - ce226bef0ed312199880b6f41e418692
+      - e057ff2399ed95ab0891fda7ff0bee79
       x-envoy-upstream-service-time:
-      - '8'
+      - '2604'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

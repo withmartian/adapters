@@ -354,7 +354,10 @@ class SDKChatAdapter(
                 except Exception as e:
                     raise AdapterException(f"Error in streaming response: {e}") from e
                 finally:
-                    await response.close()
+                    if hasattr(response, "close"):
+                        await response.close()
+                    elif hasattr(response, "aclose"):  # For Cohere SDK
+                        await response.aclose()
 
         return AdapterStreamAsyncChatCompletion(response=stream_response())
 

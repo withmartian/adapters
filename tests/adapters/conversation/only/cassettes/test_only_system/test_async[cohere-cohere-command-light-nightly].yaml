@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"model": "command-light-nightly", "messages": [{"role": "system", "content":
-      "Hi"}], "stream": false}'
+      "Hi"}, {"role": "user", "content": "\"\""}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '102'
+      - '139'
       content-type:
       - application/json
       host:
@@ -27,13 +27,15 @@ interactions:
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: '{"message":"invalid request: message must be at least 1 token long
-        or tool results must be specified."}'
+      string: '{"id":"7b0ebe9e-5879-477a-a7ea-3c01be2b734e","message":{"role":"assistant","content":[{"type":"text","text":"Hello!
+        I hope you are well. I am ready to assist you with with any questions or tasks
+        you have. I can assist you with various topics, from general knowledge to
+        specific research and creative tasks."}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":2,"output_tokens":41},"tokens":{"input_tokens":13,"output_tokens":42}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '103'
+      - '449'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -43,9 +45,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Fri, 08 Nov 2024 06:43:37 GMT
+      - Fri, 08 Nov 2024 07:47:41 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
+      num_chars:
+      - '50'
+      num_tokens:
+      - '43'
       pragma:
       - no-cache
       server:
@@ -55,10 +61,10 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - d1933a6bb01456afba5c2cd01af88640
+      - c78806d3017ed1b8ed2a12a27b095ba2
       x-envoy-upstream-service-time:
-      - '17'
+      - '433'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

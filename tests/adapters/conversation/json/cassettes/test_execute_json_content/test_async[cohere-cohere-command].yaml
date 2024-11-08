@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"model": "command", "messages": [{"role": "user", "content": "Hi Hi"}],
-      "stream": false}'
+    body: '{"model": "command", "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Hi"}, {"type": "text", "text": "Hi"}]}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '89'
+      - '146'
       content-type:
       - application/json
       host:
@@ -27,14 +27,16 @@ interactions:
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: '{"id":"558cb199-3086-4e8d-a6a3-75e837320ab1","message":{"role":"assistant","content":[{"type":"text","text":"Hello!
-        How can I help you today?\n\nPlease request any information or give me any
-        topic and I''ll do my best to assist you with it."}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":2,"output_tokens":32},"tokens":{"input_tokens":64,"output_tokens":33}}}'
+      string: '{"id":"8f100beb-c112-4dce-b2de-caca59dcff1a","message":{"role":"assistant","content":[{"type":"text","text":"Hello!
+        I''m Coral, an AI-assistant chatbot trained to assist human users by providing
+        thorough responses. Do you have any requests or questions for me? I''ll be
+        happy to help you with whatever you need. \n\nJust ask, and I''ll try my best
+        to assist you in any way I can."}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":3,"output_tokens":63},"tokens":{"input_tokens":65,"output_tokens":64}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '382'
+      - '519'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -44,13 +46,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Fri, 08 Nov 2024 06:42:54 GMT
+      - Fri, 08 Nov 2024 07:46:55 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
       num_chars:
       - '300'
       num_tokens:
-      - '34'
+      - '66'
       pragma:
       - no-cache
       server:
@@ -60,9 +62,9 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - 5ddec2bdcf12aa164a3d9925bb58f8d3
+      - 2fab027f1bb5b87eee2f61706cb2578c
       x-envoy-upstream-service-time:
-      - '1010'
+      - '1908'
     status:
       code: 200
       message: OK

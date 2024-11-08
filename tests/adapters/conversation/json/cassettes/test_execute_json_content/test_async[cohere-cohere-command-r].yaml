@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"model": "command-r", "messages": [{"role": "user", "content": "Hi Hi"}],
-      "stream": false}'
+    body: '{"model": "command-r", "messages": [{"role": "user", "content": [{"type":
+      "text", "text": "Hi"}, {"type": "text", "text": "Hi"}]}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '91'
+      - '148'
       content-type:
       - application/json
       host:
@@ -27,13 +27,13 @@ interactions:
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: "{\"id\":\"2214f7ff-6c98-4b4b-b190-cd3fadd72cb9\",\"message\":{\"role\":\"assistant\",\"content\":[{\"type\":\"text\",\"text\":\"Hello!
-        How's it going? I hope you're having a fantastic day! \U0001F60A\"}]},\"finish_reason\":\"COMPLETE\",\"usage\":{\"billed_units\":{\"input_tokens\":2,\"output_tokens\":18},\"tokens\":{\"input_tokens\":68,\"output_tokens\":18}}}"
+      string: '{"id":"2878be2a-e7ca-4237-9599-d14254cc082b","message":{"role":"assistant","content":[{"type":"text","text":"Hello
+        there! How''s it going? I hope you''re having a fantastic day so far!"}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":3,"output_tokens":19},"tokens":{"input_tokens":69,"output_tokens":19}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '317'
+      - '325'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -43,13 +43,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Fri, 08 Nov 2024 06:42:53 GMT
+      - Fri, 08 Nov 2024 07:46:53 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
       num_chars:
       - '423'
       num_tokens:
-      - '20'
+      - '22'
       pragma:
       - no-cache
       server:
@@ -59,9 +59,9 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - 7cc70d001a82dd9a0b48b7723846c4b9
+      - 62715e9fd08d8dc6ad053ac48008ab25
       x-envoy-upstream-service-time:
-      - '224'
+      - '191'
     status:
       code: 200
       message: OK

@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"model": "command-light", "messages": [{"role": "system", "content": "Hi"}],
-      "stream": false}'
+    body: '{"model": "command-light", "messages": [{"role": "system", "content": "Hi"},
+      {"role": "user", "content": "\"\""}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '94'
+      - '131'
       content-type:
       - application/json
       host:
@@ -27,13 +27,14 @@ interactions:
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: '{"message":"invalid request: message must be at least 1 token long
-        or tool results must be specified."}'
+      string: '{"id":"3710754a-1595-4c2d-99f4-42eae5321dfc","message":{"role":"assistant","content":[{"type":"text","text":"Hello!
+        I hope you are well. What would you like assistance with? Bah? Bah? Bah  life?
+        Bah"}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":2,"output_tokens":24},"tokens":{"input_tokens":13,"output_tokens":25}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '103'
+      - '341'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -43,9 +44,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Fri, 08 Nov 2024 06:43:37 GMT
+      - Fri, 08 Nov 2024 07:47:40 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
+      num_chars:
+      - '50'
+      num_tokens:
+      - '26'
       pragma:
       - no-cache
       server:
@@ -55,10 +60,10 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - 516e65d1abe2cb247dbde05e06dd3d9b
+      - 83c311d5341ffdc01f89e880cbdf2aaf
       x-envoy-upstream-service-time:
-      - '27'
+      - '279'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

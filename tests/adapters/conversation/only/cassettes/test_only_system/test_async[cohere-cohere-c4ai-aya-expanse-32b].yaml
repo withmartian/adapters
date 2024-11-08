@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"model": "c4ai-aya-expanse-32b", "messages": [{"role": "system", "content":
-      "Hi"}], "stream": false}'
+      "Hi"}, {"role": "user", "content": "\"\""}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '101'
+      - '138'
       content-type:
       - application/json
       host:
@@ -27,13 +27,14 @@ interactions:
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: '{"message":"invalid request: message must be at least 1 token long
-        or tool results must be specified."}'
+      string: '{"id":"917fa740-a25b-476a-b713-1947919f1ef8","message":{"role":"assistant","content":[{"type":"text","text":"Hello!
+        How can I assist you today? If you have any questions or need help with a
+        specific topic, feel free to ask. I''m here to provide information and support."}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":2,"output_tokens":36},"tokens":{"input_tokens":11,"output_tokens":36}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '103'
+      - '411'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -43,9 +44,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Fri, 08 Nov 2024 06:43:38 GMT
+      - Fri, 08 Nov 2024 07:47:42 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
+      num_chars:
+      - '173'
+      num_tokens:
+      - '38'
       pragma:
       - no-cache
       server:
@@ -55,10 +60,10 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - 9b7811191fd9d07774520ab596bc79bd
+      - 40fa72aa7dfb50ba5ca2bb2768193f28
       x-envoy-upstream-service-time:
-      - '8'
+      - '397'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

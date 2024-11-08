@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"model": "c4ai-aya-expanse-8b", "messages": [{"role": "system", "content":
-      "Hi"}], "stream": false}'
+      "Hi"}, {"role": "user", "content": "\"\""}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '100'
+      - '137'
       content-type:
       - application/json
       host:
@@ -27,13 +27,16 @@ interactions:
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: '{"message":"invalid request: message must be at least 1 token long
-        or tool results must be specified."}'
+      string: '{"id":"924b1a1b-c01e-48ba-8702-91d5b31762a0","message":{"role":"assistant","content":[{"type":"text","text":"Hello!
+        It seems like your message is incomplete or empty. How can I assist you today?
+        I can help with a wide range of tasks, such as answering questions, generating
+        text, offering explanations, or simply engaging in a conversation. Feel free
+        to let me know what you need!"}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":2,"output_tokens":57},"tokens":{"input_tokens":11,"output_tokens":57}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '103'
+      - '523'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -43,9 +46,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Fri, 08 Nov 2024 06:43:38 GMT
+      - Fri, 08 Nov 2024 07:47:42 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
+      num_chars:
+      - '173'
+      num_tokens:
+      - '59'
       pragma:
       - no-cache
       server:
@@ -55,10 +62,10 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - e564e722a3d274c6a500edfcc531249c
+      - e6fffcea535fae44a51b03e83e395bf8
       x-envoy-upstream-service-time:
-      - '22'
+      - '561'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

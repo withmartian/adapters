@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"model": "command-r-plus-08-2024", "messages": [{"role": "system", "content":
-      "Hi"}], "stream": false}'
+      "Hi"}, {"role": "user", "content": "\"\""}], "stream": false}'
     headers:
       accept:
       - '*/*'
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '103'
+      - '140'
       content-type:
       - application/json
       host:
@@ -27,13 +27,15 @@ interactions:
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: '{"message":"invalid request: message must be at least 1 token long
-        or tool results must be specified."}'
+      string: '{"id":"38d941fb-4c3e-4862-ab1c-c938558e07b0","message":{"role":"assistant","content":[{"type":"text","text":"I''m
+        sorry, I didn''t quite catch that. Could you please rephrase your question
+        or provide more context? I''m here to assist you with any queries or tasks
+        you may have."}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":2,"output_tokens":38},"tokens":{"input_tokens":161,"output_tokens":38}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '103'
+      - '418'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -43,9 +45,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Fri, 08 Nov 2024 06:43:35 GMT
+      - Fri, 08 Nov 2024 07:47:34 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
+      num_chars:
+      - '990'
+      num_tokens:
+      - '40'
       pragma:
       - no-cache
       server:
@@ -55,10 +61,10 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - 1650866be936c945303fac27d05d63bc
+      - c466643a0153adb40810519a56b763c1
       x-envoy-upstream-service-time:
-      - '10'
+      - '756'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

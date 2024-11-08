@@ -1,7 +1,8 @@
 interactions:
 - request:
     body: '{"model": "c4ai-aya-expanse-8b", "messages": [{"role": "user", "content":
-      "Hi Hi"}], "stream": false}'
+      [{"type": "text", "text": "Hi"}, {"type": "text", "text": "Hi"}]}], "stream":
+      false}'
     headers:
       accept:
       - '*/*'
@@ -10,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '101'
+      - '158'
       content-type:
       - application/json
       host:
@@ -27,15 +28,16 @@ interactions:
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: '{"id":"8af4606e-72d6-4263-ae56-2148f4c8b52b","message":{"role":"assistant","content":[{"type":"text","text":"Hello!
-        How can I assist you today? It seems like you''ve greeted me twice. Is there
-        something specific you''d like to talk about or ask? I''m here to help with
-        any questions or tasks you might have."}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":2,"output_tokens":45},"tokens":{"input_tokens":81,"output_tokens":45}}}'
+      string: '{"id":"5a6df47a-8257-461d-9965-b1eeb773aa28","message":{"role":"assistant","content":[{"type":"text","text":"Hello!
+        It''s nice to meet you. How can I assist you today?\n\nIt seems like you''ve
+        repeated \"Hi\" in your message. Is there something specific you''d like to
+        know or talk about? I''m here to help with any questions or tasks you have
+        in mind."}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":3,"output_tokens":59},"tokens":{"input_tokens":82,"output_tokens":59}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '447'
+      - '491'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -45,13 +47,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Fri, 08 Nov 2024 06:42:57 GMT
+      - Fri, 08 Nov 2024 07:46:58 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
       num_chars:
       - '485'
       num_tokens:
-      - '47'
+      - '62'
       pragma:
       - no-cache
       server:
@@ -61,9 +63,9 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - 9baae12287911d7fe18ffb8742b045a8
+      - 53f8219e2df741de0153be730600eb7a
       x-envoy-upstream-service-time:
-      - '523'
+      - '584'
     status:
       code: 200
       message: OK

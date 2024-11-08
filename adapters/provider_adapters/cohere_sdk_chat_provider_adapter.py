@@ -2,16 +2,29 @@ from enum import Enum
 import time
 from typing import Any, Dict
 
-from cohere import AsyncClientV2, ChatResponse, ClientV2
+from cohere import (
+    AsyncClientV2,
+    ChatContentDeltaEventDelta,
+    ChatContentDeltaEventDeltaMessage,
+    ChatContentDeltaEventDeltaMessageContent,
+    ChatMessageEndEventDelta,
+    ChatResponse,
+    ClientV2,
+    ContentDeltaStreamedChatResponseV2,
+    MessageEndStreamedChatResponseV2,
+    MessageStartStreamedChatResponseV2,
+    StreamedChatResponseV2,
+)
 from openai.types import CompletionUsage
 from openai.types.chat import ChatCompletionMessage
 from openai.types.chat.chat_completion import Choice
+from openai.types.chat.chat_completion_chunk import Choice as ChoiceChunk, ChoiceDelta
 
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
     AdapterChatCompletion,
+    AdapterChatCompletionChunk,
     AdapterFinishReason,
-    Conversation,
     ConversationRole,
     Cost,
     Model,
@@ -30,9 +43,10 @@ class CohereModel(Model):
         open_source=True, gdpr_compliant=True, is_nsfw=True
     )
 
-    supports_streaming: bool = True
     supports_n: bool = False
-    # supports_tools: bool = False
+    supports_vision: bool = False
+    supports_empty_content: bool = False
+    supports_only_system: bool = False
 
     def _get_api_path(self) -> str:
         return self.name
@@ -80,6 +94,7 @@ MODELS: list[Model] = [
         cost=Cost(prompt=1.00e-6, completion=2.00e-6),
         context_length=4000,
         completion_length=4000,
+        supports_json_output=False,
     ),
     CohereModel(
         name="command-nightly",
@@ -92,24 +107,28 @@ MODELS: list[Model] = [
         cost=Cost(prompt=0.30e-6, completion=0.60e-6),
         context_length=4000,
         completion_length=4000,
+        supports_json_output=False,
     ),
     CohereModel(
         name="command-light-nightly",
         cost=Cost(prompt=0.30e-6, completion=0.60e-6),
         context_length=4000,
         completion_length=4000,
+        supports_json_output=False,
     ),
     CohereModel(
         name="c4ai-aya-expanse-8b",
         cost=Cost(prompt=0.50e-6, completion=1.50e-6),
         context_length=8000,
         completion_length=4000,
+        supports_json_output=False,
     ),
     CohereModel(
         name="c4ai-aya-expanse-32b",
         cost=Cost(prompt=0.50e-6, completion=1.50e-6),
         context_length=128000,
         completion_length=4000,
+        supports_json_output=False,
     ),
 ]
 
@@ -164,28 +183,28 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
     def _create_client_async(self, base_url: str, api_key: str) -> AsyncClientV2:
         return AsyncClientV2(base_url=base_url, api_key=api_key)  # type: ignore
 
-    def _get_params(self, llm_input: Conversation, **kwargs: Any) -> dict[str, Any]:
-        params = super()._get_params(llm_input, **kwargs)
+    # def _get_params(self, llm_input: Conversation, **kwargs: Any) -> dict[str, Any]:
+    #     params = super()._get_params(llm_input, **kwargs)
 
-        messages = []
-        for message in params["messages"]:
-            new_message = {
-                "role": message["role"],
-                "content": message["content"],
-            }
+    #     messages = []
+    #     for message in params["messages"]:
+    #         new_message = {
+    #             "role": message["role"],
+    #             "content": message["content"],
+    #         }
 
-            if isinstance(new_message["content"], list):
-                new_message["content"] = " ".join(
-                    content.get("text", "") for content in new_message["content"]
-                )
+    #         if isinstance(new_message["content"], list):
+    #             new_message["content"] = " ".join(
+    #                 content.get("text", "") for content in new_message["content"]
+    #             )
 
-            if new_message["content"] == "":
-                new_message["content"] = " "
+    #         if new_message["content"] == "":
+    #             new_message["content"] = " "
 
-            messages.append(new_message)
+    #         messages.append(new_message)
 
-        params["messages"] = messages
-        return params
+    #     params["messages"] = messages
+    #     return params
 
     def _extract_response(
         self, request: Any, response: ChatResponse
@@ -267,7 +286,42 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
             ),
         )
 
-    # def _extract_stream_response(
-    #     self, request: Any, response: StreamedChatResponseV2, state: dict[str, Any]
-    # ) -> AdapterChatCompletionChunk:
-    #     raise NotImplementedError
+    def _extract_stream_response(
+        self, request: Any, response: StreamedChatResponseV2, state: dict[str, Any]
+    ) -> AdapterChatCompletionChunk:
+        choice_chunk = ChoiceChunk(
+            index=0,
+            delta=ChoiceDelta(role=ConversationRole.assistant.value, content=""),
+        )
+
+        if isinstance(response, MessageStartStreamedChatResponseV2):
+            state["id"] = response.id
+            state["created"] = int(time.time())
+        elif (
+            isinstance(response, ContentDeltaStreamedChatResponseV2)
+            and isinstance(response.delta, ChatContentDeltaEventDelta)
+            and isinstance(response.delta.message, ChatContentDeltaEventDeltaMessage)
+            and isinstance(
+                response.delta.message.content, ChatContentDeltaEventDeltaMessageContent
+            )
+            and isinstance(response.delta.message.content.text, str)
+        ):
+            choice_chunk.delta.content = response.delta.message.content.text
+        elif isinstance(response, MessageEndStreamedChatResponseV2):
+            choice_chunk.finish_reason = AdapterFinishReason.stop.value
+
+            if isinstance(response.delta, ChatMessageEndEventDelta) and isinstance(
+                response.delta.finish_reason, ChatMessageEndEventDelta
+            ):
+                choice_chunk.finish_reason = FINISH_REASON_MAPPING.get(
+                    CohereFinishReason(response.delta.finish_reason),
+                    AdapterFinishReason.stop,
+                ).value
+
+        return AdapterChatCompletionChunk(
+            id=state["id"],
+            choices=[choice_chunk],
+            created=state["created"],
+            model=self.get_model().name,
+            object="chat.completion.chunk",
+        )
