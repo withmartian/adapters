@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "llama3.1-8b",
-      "response_format": {"type": "json_object"}, "stream": false}'
+    body: '{"messages": [{"role": "user", "content": "Hi, output simple json"}], "model":
+      "llama3.1-8b", "response_format": {"type": "json_object"}, "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '144'
+      - '154'
       content-type:
       - application/json
       host:
@@ -37,26 +37,25 @@ interactions:
     uri: https://api.cerebras.ai/v1/chat/completions
   response:
     body:
-      string: '{"message":"Failed to generate JSON. Please adjust your prompt. See
-        ''failed_generation'' for more details.","type":"invalid_request_error","code":"json_validate_failed","failed_generation":"\"{\"message\":\"Hello,
-        how can I assist you today?\"}\""}'
+      string: '{"id":"chatcmpl-74e608fd-803a-4946-a347-a1a29d0088d7","choices":[{"finish_reason":"stop","index":0,"message":{"content":"{\"result\":\"Hello
+        World\"}","role":"assistant"}}],"created":1731109555,"model":"llama3.1-8b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":48,"completion_tokens":7,"total_tokens":55},"time_info":{"queue_time":2.3561e-05,"prompt_time":0.0028096978333333332,"completion_time":0.0031813681666666665,"total_time":0.021068096160888672,"created":1731109555}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '247'
+      - '518'
       Content-Type:
       - application/json
       Date:
-      - Fri, 08 Nov 2024 20:48:28 GMT
+      - Fri, 08 Nov 2024 23:45:55 GMT
       Via:
-      - 1.1 5941357b26a453b21aa60fbf2f923836.cloudfront.net (CloudFront)
+      - 1.1 c0309604e5168dca084e5bc1df88239c.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - fqLrd1RHeA8yaezVIOjKHLSY1b_or55wHx15xgVyeHE5p6Dgl8XFQg==
+      - iBjr7Dgho9DhgfeWmwTDw0JeuROswdc3d32QTGCaPdd_EUq8wvV5JQ==
       X-Amz-Cf-Pop:
       - SFO20-C1
       X-Cache:
-      - Error from cloudfront
+      - Miss from cloudfront
       referrer-policy:
       - strict-origin-when-cross-origin
       server:
@@ -65,7 +64,21 @@ interactions:
       - max-age=3600; includeSubDomains
       x-content-type-options:
       - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14365'
+      x-ratelimit-remaining-tokens-minute:
+      - '59861'
+      x-ratelimit-reset-requests-day:
+      - '844.1685769557953'
+      x-ratelimit-reset-tokens-minute:
+      - '4.168576955795288'
+      x-request-id:
+      - iBjr7Dgho9DhgfeWmwTDw0JeuROswdc3d32QTGCaPdd_EUq8wvV5JQ==
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

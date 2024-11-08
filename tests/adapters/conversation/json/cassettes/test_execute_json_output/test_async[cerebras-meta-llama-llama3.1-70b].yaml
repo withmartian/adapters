@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "Hi, use json"}], "model": "llama3.1-70b",
-      "response_format": {"type": "json_object"}, "stream": false}'
+    body: '{"messages": [{"role": "user", "content": "Hi, output simple json"}], "model":
+      "llama3.1-70b", "response_format": {"type": "json_object"}, "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '145'
+      - '155'
       content-type:
       - application/json
       host:
@@ -37,20 +37,21 @@ interactions:
     uri: https://api.cerebras.ai/v1/chat/completions
   response:
     body:
-      string: '{"id":"chatcmpl-d7aa063a-3e43-4243-9bf7-b5368692a247","choices":[{"finish_reason":"stop","index":0,"message":{"content":"{\"message\":\"hello\"}","role":"assistant"}}],"created":1731098908,"model":"llama3.1-70b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":47,"completion_tokens":6,"total_tokens":53},"time_info":{"queue_time":2.514e-05,"prompt_time":0.0020830995999999995,"completion_time":0.0077243184,"total_time":0.011581182479858398,"created":1731098908}}'
+      string: '{"id":"chatcmpl-c79ba7fe-8778-447e-86cd-43ae5d338776","choices":[{"finish_reason":"stop","index":0,"message":{"content":"{\"greeting\":\"Hello\",\"message\":\"Welcome
+        to JSON output\"}","role":"assistant"}}],"created":1731109558,"model":"llama3.1-70b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":48,"completion_tokens":14,"total_tokens":62},"time_info":{"queue_time":2.637e-05,"prompt_time":0.001969063230769231,"completion_time":0.01993682276923077,"total_time":0.03697037696838379,"created":1731109558}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '504'
+      - '550'
       Content-Type:
       - application/json
       Date:
-      - Fri, 08 Nov 2024 20:48:28 GMT
+      - Fri, 08 Nov 2024 23:45:58 GMT
       Via:
-      - 1.1 7581b66819bfc73b585e8930fb9ac792.cloudfront.net (CloudFront)
+      - 1.1 8cc47fe33c12d1102a71bf6258f71b9c.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - CK_YGF_KW8LEM_BElcdWWN77cTGraYsJp1FbjEIGynIIKYuPPiIJVg==
+      - xzcckxp0oMxvTgWYUR01ImpBmtiekjPyAUXLCLqYtl4g068ahp1Zjg==
       X-Amz-Cf-Pop:
       - SFO20-C1
       X-Cache:
@@ -68,15 +69,15 @@ interactions:
       x-ratelimit-limit-tokens-minute:
       - '60000'
       x-ratelimit-remaining-requests-day:
-      - '14378'
+      - '14366'
       x-ratelimit-remaining-tokens-minute:
-      - '59866'
+      - '60000'
       x-ratelimit-reset-requests-day:
-      - '11491.656228780746'
+      - '841.2715902328491'
       x-ratelimit-reset-tokens-minute:
-      - '31.65622878074646'
+      - '1.271590232849121'
       x-request-id:
-      - CK_YGF_KW8LEM_BElcdWWN77cTGraYsJp1FbjEIGynIIKYuPPiIJVg==
+      - xzcckxp0oMxvTgWYUR01ImpBmtiekjPyAUXLCLqYtl4g068ahp1Zjg==
     status:
       code: 200
       message: OK

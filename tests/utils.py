@@ -75,7 +75,7 @@ SIMPLE_CONVERSATION_USER_ONLY = Conversation(
 
 
 SIMPLE_CONVERSATION_JSON_OUTPUT = Conversation(
-    [Turn(role=ConversationRole.user, content="Hi, use json")]
+    [Turn(role=ConversationRole.user, content="Hi, output simple json")]
 )
 
 SIMPLE_CONVERSATION_JSON_CONTENT = Conversation(
