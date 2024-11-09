@@ -1,10 +1,9 @@
-on:
-  push:
-    branches:
-      - main
+name: Pull Request Checks
+
+on: [pull_request]
 
 jobs:
-  publish:
+  pr-checks:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,9 +22,6 @@ jobs:
 
       - name: Install dependencies
         run: poetry install
-
-      - name: Set PyPI token for Poetry
-        run: poetry config pypi-token.pypi ${{ secrets.PYPI_API_TOKEN }}
 
       - name: Run lint
         run: poetry run pre-commit run --all-files
@@ -53,18 +49,3 @@ jobs:
           PERPLEXITY_API_KEY: "..."
           REPLICATE_API_KEY: "..."
           TOGETHER_API_KEY: "..."
-
-      - name: Run docs generation script
-        run: poetry run python ./docs/generate.py
-
-      - name: Commit generated files
-        run: |
-          git config --local user.name "team-martian"
-          git config --local user.email "team@withmartian.com"
-          git commit -am "docs: generate models file" --allow-empty
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.TEAM_MARTIAN_GITHUB_TOKEN }}
-
-      - name: Run publish
-        run: poetry publish --build
