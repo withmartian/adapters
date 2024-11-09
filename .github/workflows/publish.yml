@@ -35,8 +35,8 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
-      - name: Run file generation script
-        run: poetry run python generate.py
+      - name: Run docs generation script
+        run: poetry run python ./docs/generate.py
 
       - name: Commit generated files
         run: |
