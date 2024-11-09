@@ -1,0 +1,76 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number via tools,
+      range 1-10"}], "model": "jamba-1.5-large", "stream": false, "tool_choice": "none",
+      "tools": [{"type": "function", "function": {"description": "Generate random
+      number", "name": "generate", "parameters": {"type": "object", "properties":
+      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
+      11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '424'
+      content-type:
+      - application/json
+      host:
+      - api.ai21.com
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.ai21.com/studio/v1/chat/completions
+  response:
+    body:
+      string: !!binary |
+        ITwGACBWrpWyV62zRGPk28PgU7IITw9cWqJtSRZwWBZggBe6/Rjo8aAHvN6wHD+R/RucPvCrQJA/
+        fPSKSleGm0rzKE6rrCzTWBZFkRqRJXlVCDBI1w8G0P3ARfoKChl4Eb9AB/rGahD4MPwOI69HMAyN
+        W1I9WcswNo19S25tpgsKhKLSURUq7mVGGS8tk9ArVRp7ZVlJoTTXsY7AMG6tBoHUkMDsgQ7U3GkQ
+        9NFFgwGFNgjHA23fuHZ8gG4PfPFaNY5oE27rqProUMRWFD5w4bqeF4Ntvtu+EUMHOLzNvRdlnYMw
+        jE2L68kwoQCVNu+x+df1AIrShIGCQb9N7StJwvDMABPNRX5dAw==
+    headers:
+      CF-RAY:
+      - 8df86e2f68a26434-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - br
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Nov 2024 20:49:35 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      cf-cache-status:
+      - DYNAMIC
+      request-id:
+      - 59da4806-7686-97ab-aa46-971933b5e48b
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+version: 1

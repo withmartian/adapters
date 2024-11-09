@@ -1,0 +1,95 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "llama3.1-8b", "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '150'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-cfda39c7-0e72-4f3c-9729-c32f3261aaa6","choices":[{"finish_reason":"stop","index":0,"message":{"content":"This
+        represents a list of two text elements in a format that might be used in natural
+        language processing (NLP) or a messaging application. The ''type'' key specifies
+        the type of the element, and the ''text'' key holds the actual text.\n\nIn
+        this case, both elements are of type ''text'' and contain the same text, ''Hi''.
+        \n\nHere''s an example of how this list might be generated in Python:\n\n```python\nmessages
+        = [{''type'': ''text'', ''text'': ''Hi''}, {''type'': ''text'', ''text'':
+        ''Hi''}]\nprint(messages)\n```\n\nThis would output:\n\n```python\n[{''type'':
+        ''text'', ''text'': ''Hi''}, {''type'': ''text'', ''text'': ''Hi''}]\n```","role":"assistant"}}],"created":1731098869,"model":"llama3.1-8b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":61,"completion_tokens":157,"total_tokens":218},"time_info":{"queue_time":2.472e-05,"prompt_time":0.0034900140897435893,"completion_time":0.07134298391025641,"total_time":0.0907888412475586,"created":1731098869}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Nov 2024 20:47:49 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 d643c18c094f3cd17f1bf4efe422c294.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - ytSxmNkPBaRU2KcZ6A_Ht7EEy4UtmNl6acXVvywHMmK9hTJ7iHruaA==
+      X-Amz-Cf-Pop:
+      - SFO20-C1
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '1089'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      vary:
+      - accept-encoding
+      x-content-type-options:
+      - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14383'
+      x-ratelimit-remaining-tokens-minute:
+      - '59796'
+      x-ratelimit-reset-requests-day:
+      - '11530.458385944366'
+      x-ratelimit-reset-tokens-minute:
+      - '10.458385944366455'
+      x-request-id:
+      - ytSxmNkPBaRU2KcZ6A_Ht7EEy4UtmNl6acXVvywHMmK9hTJ7iHruaA==
+    status:
+      code: 200
+      message: OK
+version: 1

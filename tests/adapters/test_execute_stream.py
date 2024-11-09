@@ -1,20 +1,19 @@
 import pytest
 
-from adapters.adapter_factory import AdapterFactory
-from tests.adapters.utils.constants import MODEL_PATHS
 from tests.utils import (
+    ADAPTER_TEST_FACTORIES,
     SIMPLE_CONVERSATION_USER_ONLY,
+    AdapterTestFactory,
 )
+from vcr import VCR
 
 
-@pytest.mark.parametrize("model_name", MODEL_PATHS)
 @pytest.mark.vcr
-def test_sync_execute_streaming(model_name):
-    adapter = AdapterFactory.get_adapter_by_path(model_name)
+@pytest.mark.parametrize("create_adapter", ADAPTER_TEST_FACTORIES, ids=str)
+def test_sync(vcr: VCR, create_adapter: AdapterTestFactory) -> None:
+    adapter = create_adapter()
 
-    assert adapter is not None
-
-    if adapter.get_model().supports_streaming is False:
+    if not adapter.get_model().supports_streaming:
         return
 
     adapter_response = adapter.execute_sync(
@@ -28,20 +27,18 @@ def test_sync_execute_streaming(model_name):
         [
             chunk.choices[0].delta.content
             for chunk in chunks
-            if chunk.choices[0].delta.content
+            if len(chunk.choices) and chunk.choices[0].delta.content
         ]
     )
-    assert len(response) > 0
+    assert len(response)
 
 
-@pytest.mark.parametrize("model_name", MODEL_PATHS)
 @pytest.mark.vcr
-async def test_async_execute_streaming(model_name):
-    adapter = AdapterFactory.get_adapter_by_path(model_name)
+@pytest.mark.parametrize("create_adapter", ADAPTER_TEST_FACTORIES, ids=str)
+async def test_async(vcr: VCR, create_adapter: AdapterTestFactory) -> None:
+    adapter = create_adapter()
 
-    assert adapter is not None
-
-    if adapter.get_model().supports_streaming is False:
+    if not adapter.get_model().supports_streaming:
         return
 
     adapter_response = await adapter.execute_async(
@@ -55,7 +52,7 @@ async def test_async_execute_streaming(model_name):
         [
             chunk.choices[0].delta.content
             for chunk in chunks
-            if chunk.choices[0].delta.content
+            if len(chunk.choices) and chunk.choices[0].delta.content
         ]
     )
-    assert len(response) > 0
+    assert len(response)

@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Literal, Optional, overload
+from typing import Any, Literal, Optional, overload
 
 from openai import NOT_GIVEN, NotGiven
 
@@ -14,6 +14,9 @@ from adapters.types import (
 
 
 class BaseAdapter(ABC):
+    def __str__(self) -> str:
+        return f"adapter-{self.get_model().get_path()}"
+
     def set_api_key(self, api_key: str) -> None:
         pass
 
@@ -26,25 +29,23 @@ class BaseAdapter(ABC):
         self,
         llm_input: Conversation,
         stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
-        **kwargs,
-    ) -> AdapterChatCompletion:
-        pass
+        **kwargs: Any,
+    ) -> AdapterChatCompletion: ...
 
     @overload
     def execute_sync(
         self,
         llm_input: Conversation,
         stream: Literal[True],
-        **kwargs,
-    ) -> AdapterStreamSyncChatCompletion:
-        pass
+        **kwargs: Any,
+    ) -> AdapterStreamSyncChatCompletion: ...
 
     @abstractmethod
     def execute_sync(
         self,
         llm_input: Conversation,
         stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
-        **kwargs,
+        **kwargs: Any,
     ) -> AdapterChatCompletion | AdapterStreamSyncChatCompletion:
         pass
 
@@ -53,25 +54,23 @@ class BaseAdapter(ABC):
         self,
         llm_input: Conversation,
         stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
-        **kwargs,
-    ) -> AdapterChatCompletion:
-        pass
+        **kwargs: Any,
+    ) -> AdapterChatCompletion: ...
 
     @overload
     async def execute_async(
         self,
         llm_input: Conversation,
         stream: Literal[True],
-        **kwargs,
-    ) -> AdapterStreamAsyncChatCompletion:
-        pass
+        **kwargs: Any,
+    ) -> AdapterStreamAsyncChatCompletion: ...
 
     @abstractmethod
     async def execute_async(
         self,
         llm_input: Conversation,
         stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
-        **kwargs,
+        **kwargs: Any,
     ) -> AdapterChatCompletion | AdapterStreamAsyncChatCompletion:
         pass
 

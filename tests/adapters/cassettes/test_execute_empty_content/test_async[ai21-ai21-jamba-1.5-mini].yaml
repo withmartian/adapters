@@ -1,23 +1,24 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
-      "content": "\"\""}, {"role": "user", "content": "\"\""}], "model": "jamba-1.5-mini",
-      "stream": false}'
+    body: '{"messages": [{"role": "system", "content": "\"\""}, {"role": "user", "content":
+      "\"\""}, {"role": "assistant", "content": "\"\""}, {"role": "user", "content":
+      "\"\""}, {"role": "user", "content": "\"\""}], "model": "jamba-1.5-mini", "stream":
+      false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '174'
+      - '250'
       content-type:
       - application/json
       host:
       - api.ai21.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.54.1
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -27,7 +28,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.54.1
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -38,28 +39,32 @@ interactions:
     uri: https://api.ai21.com/studio/v1/chat/completions
   response:
     body:
-      string: '{"id":"chat-84a92037cc514d7fb5ccc78bd0f94f35","choices":[{"index":0,"message":{"role":"assistant","content":"\"\"","tool_calls":null},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"completion_tokens":2,"total_tokens":21}}'
+      string: !!binary |
+        IcwDACBWbUt9M6aXKmovRmLQyYnY4QIHDsMIw4CCxFumuY2JY+torLK6/nCtICzn5Pyoyoo4jeNo
+        jeKsmLe6zvMpjuK82Od9zhN4GF2fWFDz4SJ9gSIPfRFfoA9Gsg2EydrLukk4eAiN2yC0aAEPTko2
+        LBNjFiRexn4PTB7KyFmEh4w0N+yj2oNgnVT4Ow9vsVkZyZUbnHw2YUFJioIrtrlLCit4+BiAIfP/
+        NwAD
     headers:
-      CF-Cache-Status:
-      - DYNAMIC
       CF-RAY:
-      - 8d3af099083fd009-SJC
+      - 8df86cf5bc0817ec-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:53:42 GMT
+      - Fri, 08 Nov 2024 20:48:45 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
       - chunked
-      content-length:
-      - '244'
+      cf-cache-status:
+      - DYNAMIC
       request-id:
-      - 9453e804-fbf1-64db-a26b-903f6b07db75
+      - 22bac79a-a860-87da-bbff-d8686b17537f
       via:
       - 1.1 google
     status:

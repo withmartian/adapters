@@ -1,17 +1,18 @@
 interactions:
 - request:
-    body: '{"model": "command-r-plus", "messages": [{"role": "user", "content": "
-      "}, {"role": "assistant", "content": " "}, {"role": "user", "content": "\n"}],
+    body: '{"model": "command-r-plus", "messages": [{"role": "system", "content":
+      "\"\""}, {"role": "user", "content": "\"\""}, {"role": "assistant", "content":
+      "\"\""}, {"role": "user", "content": "\"\""}, {"role": "user", "content": "\"\""}],
       "stream": false}'
     headers:
       accept:
       - '*/*'
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '166'
+      - '250'
       content-type:
       - application/json
       host:
@@ -23,17 +24,19 @@ interactions:
       x-fern-sdk-name:
       - cohere
       x-fern-sdk-version:
-      - 5.11.1
+      - 5.11.3
     method: POST
     uri: https://api.cohere.com/v2/chat
   response:
     body:
-      string: '{"id":"5b4eddea-95e6-474e-ae4a-660520478173","message":{"role":"assistant"},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":1,"output_tokens":0},"tokens":{"input_tokens":207,"output_tokens":0}}}'
+      string: '{"id":"13f4c183-fdf3-49b4-9055-04d3e60c8567","message":{"role":"assistant","content":[{"type":"text","text":"I''m
+        sorry, I don''t understand your request. Is there something I can help you
+        with?"}]},"finish_reason":"COMPLETE","usage":{"billed_units":{"input_tokens":5,"output_tokens":20},"tokens":{"input_tokens":173,"output_tokens":20}}}'
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Length:
-      - '213'
+      - '336'
       Via:
       - 1.1 google
       access-control-expose-headers:
@@ -43,13 +46,13 @@ interactions:
       content-type:
       - application/json
       date:
-      - Sun, 20 Oct 2024 09:34:28 GMT
+      - Fri, 08 Nov 2024 20:48:25 GMT
       expires:
       - Thu, 01 Jan 1970 00:00:00 UTC
       num_chars:
-      - '1308'
+      - '1173'
       num_tokens:
-      - '1'
+      - '25'
       pragma:
       - no-cache
       server:
@@ -59,9 +62,9 @@ interactions:
       x-accel-expires:
       - '0'
       x-debug-trace-id:
-      - 97c5b42a1ce00032d7972641ee86f32f
+      - e3023196f586db44842ce666fb7a5c2e
       x-envoy-upstream-service-time:
-      - '137'
+      - '447'
     status:
       code: 200
       message: OK

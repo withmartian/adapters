@@ -1,0 +1,104 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number via tools,
+      range 1-10"}], "model": "accounts/yi-01-ai/models/yi-large", "stream": false,
+      "tool_choice": "none", "tools": [{"type": "function", "function": {"description":
+      "Generate random number", "name": "generate", "parameters": {"type": "object",
+      "properties": {"prompt": {"type": "string", "description": "Random number like
+      5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '442'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"b359df88-0396-4094-b025-0f020a8235d2","object":"chat.completion","created":1731098977,"model":"accounts/yi-01-ai/models/yi-large","choices":[{"index":0,"message":{"role":"assistant","content":"I''m
+        unable to directly run code or use external tools to generate random numbers.
+        However, I can guide you on how to do it using a programming language or a
+        simple method. If you have access to Python, you could use the following code
+        snippet to generate a random number between 1 and 10:\n\n```python\nimport
+        random\nrandom_number = random.randint(1, 10)\nprint(random_number)\n```\n\nIf
+        you''re looking for a quick and simple way to do it without writing any code,
+        you could use an online random number generator or simply roll a ten-sided
+        die if you have one.\n\nFor a fun and manual method, you can follow these
+        steps without any tools:\n\n1. Ask a friend to pick a number between 1 and
+        10 without telling you.\n2. Guess the number. If you guess correctly, that''s
+        your random number. If you guess incorrectly, your friend tells you if the
+        number is higher or lower.\n3. Repeat steps 1 and 2 with another friend or
+        the same friend if they pick a different number.\n4. The first number you
+        guess correctly is your random number.\n\nRemember, the effectiveness of these
+        methods depends on your definition of \"randomness\". For statistical and
+        scientific purposes, using a standardized method or a reliable programming
+        library like Python''s `random` is recommended."},"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"total_tokens":326,"completion_tokens":303}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8df86e3d3af2174a-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Nov 2024 20:49:40 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=3260.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '1565'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '3.103'
+      x-envoy-upstream-service-time:
+      - '3104'
+      x-request-id:
+      - b359df88-0396-4094-b025-0f020a8235d2
+    status:
+      code: 200
+      message: OK
+version: 1

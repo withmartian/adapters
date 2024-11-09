@@ -15,69 +15,51 @@ from adapters.types import (
     Cost,
     Model,
     ModelProperties,
+    Provider,
+    Vendor,
 )
-
-VENDOR_NAME = "openai"
-PROVIDER_NAME = "azure"
-BASE_URL = "https://martiantest.openai.azure.com/"
-API_KEY_NAME = "AZURE_API_KEY"
-BASE_PROPERTIES = ModelProperties(gdpr_compliant=True)
 
 
 class AzureModel(Model):
-    vendor_name: str = VENDOR_NAME
-    provider_name: str = PROVIDER_NAME
+    provider_name: str = Provider.azure.value
 
-    supports_repeating_roles: bool = True
-    supports_system: bool = True
-    supports_multiple_system: bool = True
-    supports_empty_content: bool = True
-    supports_last_assistant: bool = True
-    supports_first_assistant: bool = True
-    supports_functions: bool = True
-    supports_tools: bool = True
-    supports_n: bool = True
-    supports_json_output: bool = True
-    supports_json_content: bool = True
-    supports_streaming: bool = True
-    supports_temperature: bool = True
-
-    properties: ModelProperties = BASE_PROPERTIES
+    properties: ModelProperties = ModelProperties(gdpr_compliant=True)
 
 
-MODELS = [
+MODELS: list[Model] = [
     AzureModel(
         name="gpt-4o",
         cost=Cost(prompt=5.0e-6, completion=15.0e-6),
         context_length=128000,
         completion_length=4096,
+        vendor_name=Vendor.openai.value,
     ),
     AzureModel(
         name="gpt-4o-mini",
         cost=Cost(prompt=0.15e-6, completion=0.6e-6),
         context_length=128000,
         completion_length=16385,
+        vendor_name=Vendor.openai.value,
     ),
 ]
 
 
 class AzureSDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
     @staticmethod
-    def get_provider_name() -> str:
-        return PROVIDER_NAME
-
-    @staticmethod
     def get_api_key_name() -> str:
-        return API_KEY_NAME
+        return "AZURE_API_KEY"
 
-    def _call_sync(self) -> Callable:
+    def get_base_sdk_url(self) -> str:
+        return "https://martiantest.openai.azure.com/"
+
+    def _call_sync(self) -> Callable[..., Any]:
         return self._client_sync.chat.completions.create
 
-    def _call_async(self) -> Callable:
+    def _call_async(self) -> Callable[..., Any]:
         return self._client_async.chat.completions.create
 
     def _create_client_sync(self, base_url: str, api_key: str) -> OpenAI:
@@ -94,10 +76,7 @@ class AzureSDKChatProviderAdapter(OpenAISDKChatAdapter):
             api_version="2024-06-01",
         )
 
-    def get_base_sdk_url(self) -> str:
-        return BASE_URL
-
-    def _get_params(self, llm_input: Conversation, **kwargs) -> Dict[str, Any]:
+    def _get_params(self, llm_input: Conversation, **kwargs: Any) -> Dict[str, Any]:
         params = super()._get_params(llm_input, **kwargs)
 
         azure_tool_choice = kwargs.get("tool_choice")
@@ -111,7 +90,7 @@ class AzureSDKChatProviderAdapter(OpenAISDKChatAdapter):
         }
 
     def _extract_stream_response(
-        self, request, response: ChatCompletionChunk, state: dict
+        self, request: Any, response: ChatCompletionChunk, state: dict[str, Any]
     ) -> AdapterChatCompletionChunk:
         adapter_response = AdapterChatCompletionChunk.model_construct(
             **response.model_dump(),

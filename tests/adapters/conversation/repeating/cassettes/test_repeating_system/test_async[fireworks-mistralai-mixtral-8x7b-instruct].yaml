@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "system", "content": "Hi Hi"}, {"role": "user",
+      "content": "Hi Hi"}, {"role": "system", "content": "Hi Hi"}, {"role": "assistant",
+      "content": "\"\""}, {"role": "user", "content": "Hi"}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct",
+      "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '286'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"e2ec6117-94eb-45a5-a4e6-a7a5ae3ef444","object":"chat.completion","created":1731102365,"model":"accounts/fireworks/models/mixtral-8x7b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I help you today? Is there something you would like to talk about
+        or ask me? I''m here to assist with any questions you have to the best of
+        my ability."},"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"total_tokens":64,"completion_tokens":41}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8df8c0f5fa8267b9-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Nov 2024 21:46:05 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=687.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '477'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.479'
+      x-envoy-upstream-service-time:
+      - '480'
+      x-request-id:
+      - e2ec6117-94eb-45a5-a4e6-a7a5ae3ef444
+    status:
+      code: 200
+      message: OK
+version: 1

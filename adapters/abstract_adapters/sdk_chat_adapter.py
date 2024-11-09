@@ -1,5 +1,16 @@
 from abc import abstractmethod
-from typing import Any, Callable, Dict, Generic, Literal, Optional, TypeVar
+from typing import (
+    Any,
+    AsyncGenerator,
+    Callable,
+    Dict,
+    Generator,
+    Generic,
+    Literal,
+    Optional,
+    TypeVar,
+    overload,
+)
 
 from openai import NOT_GIVEN, NotGiven
 
@@ -42,7 +53,7 @@ class SDKChatAdapter(
 
     def __init__(
         self,
-    ):
+    ) -> None:
         super().__init__()
         self._setup_clients(self.get_api_key())
 
@@ -63,11 +74,11 @@ class SDKChatAdapter(
         self._client_async = self._get_or_create_client(api_key, "async")
 
     @abstractmethod
-    def _call_sync(self) -> Callable:
+    def _call_sync(self) -> Callable[..., Any]:
         pass
 
     @abstractmethod
-    def _call_async(self) -> Callable:
+    def _call_async(self) -> Callable[..., Any]:
         pass
 
     @abstractmethod
@@ -83,12 +94,12 @@ class SDKChatAdapter(
         pass
 
     @abstractmethod
-    def _extract_response(self, request, response) -> AdapterChatCompletion:
+    def _extract_response(self, request: Any, response: Any) -> AdapterChatCompletion:
         pass
 
     @abstractmethod
     def _extract_stream_response(
-        self, request, response, state
+        self, request: Any, response: Any, state: dict[str, Any]
     ) -> AdapterChatCompletionChunk:
         pass
 
@@ -96,13 +107,17 @@ class SDKChatAdapter(
         return temperature
 
     # pylint: disable=too-many-statements
-    def _get_params(
-        self,
-        llm_input: Conversation,
-        **kwargs,  # TODO: type kwargs
-    ) -> Dict[str, Any]:
+    def _get_params(self, llm_input: Conversation, **kwargs: Any) -> Dict[str, Any]:
         if kwargs.get("stream") == NOT_GIVEN:
             kwargs["stream"] = False
+
+        if (
+            kwargs.get("tool_choices") is not None
+            and self.get_model().supports_tool_choice is False
+        ):
+            raise AdapterException(
+                f"Tool choice is not supported on {self.get_model().name}"
+            )
 
         if (
             kwargs.get("temperature") is not None
@@ -167,6 +182,24 @@ class SDKChatAdapter(
 
         # ====
 
+        if (
+            not self.get_model().supports_only_assistant
+            and len(messages)
+            and messages[0]["role"] == ConversationRole.assistant.value
+        ):
+            messages.append(
+                {"role": ConversationRole.user.value, "content": EMPTY_CONTENT}
+            )
+
+        if (
+            not self.get_model().supports_only_system
+            and len(messages)
+            and messages[0]["role"] == ConversationRole.system.value
+        ):
+            messages.append(
+                {"role": ConversationRole.user.value, "content": EMPTY_CONTENT}
+            )
+
         # Convert json content to string if not supported
         if not self.get_model().supports_json_content:
             for message in messages:
@@ -179,7 +212,7 @@ class SDKChatAdapter(
                         ]
                     )
 
-        # Convert empty string to "." if not supported
+        # Convert empty string to EMPTY_CONTENT if not supported
         if not self.get_model().supports_empty_content:
             for message in messages:
                 if (
@@ -202,44 +235,52 @@ class SDKChatAdapter(
                 if message["role"] == ConversationRole.system.value:
                     message["role"] = ConversationRole.assistant.value
 
-        # Change system prompt roles to assistant
+        # Change system prompt roles to user
         if not self.get_model().supports_system:
             for message in messages:
                 if message["role"] == ConversationRole.system.value:
-                    message["role"] = ConversationRole.assistant.value
+                    message["role"] = ConversationRole.user.value
 
         # Join messages from the same role
-        processed_messages = []
-        current_role = messages[0]["role"]
-        current_content = messages[0]["content"]
+        if not self.get_model().supports_repeating_roles:
+            result: list[Any] = []
+            current_role = None
+            current_content: list[Any] = []
 
-        for message in messages[1:]:
-            if message["role"] == current_role:
-                if isinstance(current_content, list) and isinstance(
-                    message["content"], list
-                ):
-                    current_content.extend(message["content"])
-                elif isinstance(current_content, list) and isinstance(
-                    message["content"], str
-                ):
-                    current_content.append({"type": "text", "text": message["content"]})
-                elif isinstance(current_content, str) and isinstance(
-                    message["content"], list
-                ):
-                    current_content = [
-                        {"type": "text", "text": current_content},
-                        *message["content"],
-                    ]
-            else:
-                # Otherwise, add the collected messages and reset for the next role
-                processed_messages.append(
-                    {"role": current_role, "content": current_content}
+            for message in messages:
+                role = message["role"]
+
+                # If the role changes, save the concatenated content and start a new group
+                if role != current_role:
+                    if current_role is not None:
+                        result.append(
+                            {"role": current_role, "content": " ".join(current_content)}
+                        )
+
+                        # Check if a "system" message is between two "user" messages
+                        if (
+                            current_role == "system"
+                            and len(result) > 1
+                            and result[-2]["role"] == "user"
+                            and role == "user"
+                        ):
+                            result.append(
+                                {"role": "assistant", "content": EMPTY_CONTENT}
+                            )
+
+                    current_role = role
+                    current_content = []
+
+                # Append content to the current group
+                current_content.append(message["content"])
+
+            # Add the last group to the result
+            if current_content:
+                result.append(
+                    {"role": current_role, "content": " ".join(current_content)}
                 )
-                current_role = message["role"]
-                current_content = message["content"]
 
-        processed_messages.append({"role": current_role, "content": current_content})
-        messages = processed_messages
+            messages = result
 
         # If the last message is assistant, add an empty user message
         if (
@@ -286,12 +327,28 @@ class SDKChatAdapter(
         super().set_api_key(api_key)
         self._setup_clients(api_key)
 
+    @overload
     async def execute_async(
         self,
         llm_input: Conversation,
-        stream: Optional[bool] | NotGiven = NOT_GIVEN,
-        **kwargs,
-    ):
+        stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
+        **kwargs: Any,
+    ) -> AdapterChatCompletion: ...
+
+    @overload
+    async def execute_async(
+        self,
+        llm_input: Conversation,
+        stream: Literal[True],
+        **kwargs: Any,
+    ) -> AdapterStreamAsyncChatCompletion: ...
+
+    async def execute_async(
+        self,
+        llm_input: Conversation,
+        stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
+        **kwargs: Any,
+    ) -> AdapterChatCompletion | AdapterStreamAsyncChatCompletion:
         params = self._get_params(llm_input, stream=stream, **kwargs)
 
         response = await self._call_async()(
@@ -302,8 +359,8 @@ class SDKChatAdapter(
         if not stream:
             return self._extract_response(request=llm_input, response=response)
 
-        async def stream_response():
-            state = {}
+        async def stream_response() -> AsyncGenerator[AdapterChatCompletionChunk, None]:
+            state: dict[str, Any] = {}
             async with stream_generator_auto_close(response):
                 try:
                     async for chunk in response:
@@ -313,16 +370,35 @@ class SDKChatAdapter(
                 except Exception as e:
                     raise AdapterException(f"Error in streaming response: {e}") from e
                 finally:
-                    await response.close()
+                    if hasattr(response, "close"):
+                        await response.close()
+                    # elif hasattr(response, "aclose"):  # For Cohere SDK
+                    # await response.aclose()
 
         return AdapterStreamAsyncChatCompletion(response=stream_response())
+
+    @overload
+    def execute_sync(
+        self,
+        llm_input: Conversation,
+        stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
+        **kwargs: Any,
+    ) -> AdapterChatCompletion: ...
+
+    @overload
+    def execute_sync(
+        self,
+        llm_input: Conversation,
+        stream: Literal[True],
+        **kwargs: Any,
+    ) -> AdapterStreamSyncChatCompletion: ...
 
     def execute_sync(
         self,
         llm_input: Conversation,
-        stream: Optional[bool] | NotGiven = NOT_GIVEN,
-        **kwargs,
-    ):
+        stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
+        **kwargs: Any,
+    ) -> AdapterChatCompletion | AdapterStreamSyncChatCompletion:
         params = self._get_params(llm_input, stream=stream, **kwargs)
 
         response = self._call_sync()(
@@ -333,8 +409,8 @@ class SDKChatAdapter(
         if not stream:
             return self._extract_response(request=llm_input, response=response)
 
-        def stream_response():
-            state = {}
+        def stream_response() -> Generator[AdapterChatCompletionChunk, Any, None]:
+            state: dict[str, Any] = {}
             try:
                 for chunk in response:
                     yield self._extract_stream_response(

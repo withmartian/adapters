@@ -1,37 +1,15 @@
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.types import Cost, Model, ModelProperties
-
-PROVIDER_NAME = "openai"
-BASE_URL = "https://api.openai.com/v1"
-API_KEY_NAME = "OPENAI_API_KEY"
-BASE_PROPERTIES = ModelProperties(gdpr_compliant=True)
+from adapters.types import Cost, Model, ModelProperties, Provider, Vendor
 
 
 class OpenAIModel(Model):
-    vendor_name: str = PROVIDER_NAME
-    provider_name: str = PROVIDER_NAME
+    provider_name: str = Provider.openai.value
+    vendor_name: str = Vendor.openai.value
 
-    supports_user: bool = True
-    supports_repeating_roles: bool = True
-    supports_streaming: bool = True
-    supports_vision: bool = True
-    supports_functions: bool = True
-    supports_tools: bool = True
-    supports_n: bool = True
-    supports_system: bool = True
-    supports_multiple_system: bool = True
-    supports_empty_content: bool = True
-    supports_tool_choice_required: bool = True
-    supports_json_output: bool = True
-    supports_json_content: bool = True
-    supports_last_assistant: bool = True
-    supports_first_assistant: bool = True
-    supports_temperature: bool = True
-
-    properties: ModelProperties = BASE_PROPERTIES
+    properties: ModelProperties = ModelProperties(gdpr_compliant=True)
 
 
-MODELS = [
+MODELS: list[Model] = [
     OpenAIModel(
         name="gpt-3.5-turbo",
         cost=Cost(prompt=3.0e-6, completion=6.0e-6),
@@ -88,76 +66,64 @@ MODELS = [
         cost=Cost(prompt=15.0e-6, completion=60.0e-6),
         context_length=128000,
         completion_length=32768,
-        supports_json_content=False,
-        supports_functions=False,
         supports_tools=False,
-        supports_system=False,
-        supports_json_output=False,
-        supports_n=False,
-        supports_streaming=False,
-        supports_vision=False,
         supports_temperature=False,
+        supports_streaming=False,
+        supports_system=False,
+        supports_n=False,
+        supports_vision=False,
+        supports_json_output=False,
     ),
     OpenAIModel(
         name="o1-preview-2024-09-12",
         cost=Cost(prompt=15.0e-6, completion=60.0e-6),
         context_length=128000,
         completion_length=32768,
-        supports_json_content=False,
-        supports_functions=False,
         supports_tools=False,
-        supports_system=False,
-        supports_json_output=False,
-        supports_n=False,
-        supports_streaming=False,
-        supports_vision=False,
         supports_temperature=False,
+        supports_system=False,
+        supports_streaming=False,
+        supports_n=False,
+        supports_vision=False,
+        supports_json_output=False,
     ),
     OpenAIModel(
         name="o1-mini",
         cost=Cost(prompt=3.0e-6, completion=12.0e-6),
         context_length=128000,
         completion_length=65536,
-        supports_json_content=False,
-        supports_functions=False,
         supports_tools=False,
-        supports_system=False,
-        supports_json_output=False,
-        supports_n=False,
-        supports_streaming=False,
-        supports_vision=False,
         supports_temperature=False,
+        supports_system=False,
+        supports_streaming=False,
+        supports_n=False,
+        supports_vision=False,
+        supports_json_output=False,
     ),
     OpenAIModel(
         name="o1-mini-2024-09-12",
         cost=Cost(prompt=3.0e-6, completion=12.0e-6),
         context_length=128000,
         completion_length=65536,
-        supports_json_content=False,
-        supports_functions=False,
         supports_tools=False,
-        supports_system=False,
-        supports_json_output=False,
-        supports_n=False,
-        supports_streaming=False,
-        supports_vision=False,
         supports_temperature=False,
+        supports_system=False,
+        supports_streaming=False,
+        supports_n=False,
+        supports_vision=False,
+        supports_json_output=False,
     ),
 ]
 
 
 class OpenAISDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
     @staticmethod
-    def get_provider_name() -> str:
-        return PROVIDER_NAME
+    def get_api_key_name() -> str:
+        return "OPENAI_API_KEY"
 
     def get_base_sdk_url(self) -> str:
-        return BASE_URL
-
-    @staticmethod
-    def get_api_key_name() -> str:
-        return API_KEY_NAME
+        return "https://api.openai.com/v1"

@@ -3,7 +3,7 @@ from typing import Any, Dict, Literal
 
 # TODO: Add time based expiration if leaks connections or memory
 class ClientCache:
-    def __init__(self):
+    def __init__(self) -> None:
         self._client_cache: Dict[str, Any] = {}
 
     def get_client(

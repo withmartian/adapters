@@ -1,0 +1,99 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "llama3.1-70b", "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '151'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-14967984-9c57-4520-a339-891e7849e175","choices":[{"finish_reason":"stop","index":0,"message":{"content":"It
+        seems like you have a list of dictionaries, where each dictionary represents
+        a message with a ''type'' and ''text''. \n\nIn this case, you have a list
+        of two messages, both of which are text messages with the text ''Hi''.\n\nHere''s
+        a Python representation of this data structure:\n\n```python\nmessages = [\n    {''type'':
+        ''text'', ''text'': ''Hi''},\n    {''type'': ''text'', ''text'': ''Hi''}\n]\n```\n\nIf
+        you want to process these messages, you could use a loop to iterate over each
+        message in the list. For example:\n\n```python\nfor message in messages:\n    if
+        message[''type''] == ''text'':\n        print(message[''text''])\n```\n\nThis
+        code would print ''Hi'' twice, once for each message in the list. \n\nAlternatively,
+        you could use a list comprehension to extract the text from all messages:\n\n```python\ntexts
+        = [message[''text''] for message in messages if message[''type''] == ''text'']\nprint(texts)  #
+        prints [''Hi'', ''Hi'']\n```","role":"assistant"}}],"created":1731098869,"model":"llama3.1-70b","system_fingerprint":"fp_55ebaf7e1e","object":"chat.completion","usage":{"prompt_tokens":61,"completion_tokens":218,"total_tokens":279},"time_info":{"queue_time":2.768e-05,"prompt_time":0.003291156304147466,"completion_time":0.13129392169585252,"total_time":0.13622713088989258,"created":1731098869}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Nov 2024 20:47:49 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 7b2d3bc4b6f9e52c671b0f2fb9d0fc74.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 0JflTwQhwJlzxZhKnJLENCPpq0KbN-vPzGPvee_xSjCG-mR7xesr8A==
+      X-Amz-Cf-Pop:
+      - SFO20-C1
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '1402'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      vary:
+      - accept-encoding
+      x-content-type-options:
+      - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14383'
+      x-ratelimit-remaining-tokens-minute:
+      - '59761'
+      x-ratelimit-reset-requests-day:
+      - '11530.254075288773'
+      x-ratelimit-reset-tokens-minute:
+      - '10.254075288772583'
+      x-request-id:
+      - 0JflTwQhwJlzxZhKnJLENCPpq0KbN-vPzGPvee_xSjCG-mR7xesr8A==
+    status:
+      code: 200
+      message: OK
+version: 1

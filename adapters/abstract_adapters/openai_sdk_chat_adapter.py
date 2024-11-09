@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Any, Callable
 
 from httpx import AsyncClient, Client, Limits, Timeout
 from openai import AsyncOpenAI, OpenAI
@@ -17,16 +17,15 @@ from adapters.types import (
     AdapterChatCompletionChunk,
     ConversationRole,
     Cost,
-    RequestBody,
     Turn,
 )
 
 
 class OpenAISDKChatAdapter(SDKChatAdapter[OpenAI, AsyncOpenAI]):
-    def _call_sync(self) -> Callable:
+    def _call_sync(self) -> Callable[..., Any]:
         return self._client_sync.chat.completions.create
 
-    def _call_async(self) -> Callable:
+    def _call_async(self) -> Callable[..., Any]:
         return self._client_async.chat.completions.create
 
     def _create_client_sync(self, base_url: str, api_key: str) -> OpenAI:
@@ -59,7 +58,7 @@ class OpenAISDKChatAdapter(SDKChatAdapter[OpenAI, AsyncOpenAI]):
 
     def _extract_response(
         self,
-        request: RequestBody,
+        request: dict[str, Any],
         response: ChatCompletion,
     ) -> AdapterChatCompletion:
         prompt_tokens = response.usage.prompt_tokens if response.usage else 0
@@ -95,7 +94,7 @@ class OpenAISDKChatAdapter(SDKChatAdapter[OpenAI, AsyncOpenAI]):
         )
 
     def _extract_stream_response(
-        self, request, response: ChatCompletionChunk, state: dict
+        self, request: Any, response: ChatCompletionChunk, state: dict[str, Any]
     ) -> AdapterChatCompletionChunk:
         return AdapterChatCompletionChunk.model_construct(
             **response.model_dump(),

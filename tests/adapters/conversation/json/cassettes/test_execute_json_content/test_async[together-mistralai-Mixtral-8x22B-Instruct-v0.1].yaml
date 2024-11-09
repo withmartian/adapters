@@ -1,0 +1,105 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "mistralai/Mixtral-8x22B-Instruct-v0.1",
+      "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.together.xyz/chat/completions
+  response:
+    body:
+      string: "{\n  \"id\": \"8df86b3ebfacd041-SJC\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1731098854,\n  \"model\": \"mistralai/Mixtral-8x22B-Instruct-v0.1\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
+        \     \"seed\": 11399571361822534000,\n      \"logprobs\": null,\n      \"index\":
+        0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
+        \" It seems like you're trying to display an object, but it's showing up as
+        \\\"[object Object]\\\". This is because JavaScript is trying to convert the
+        object to a string, which doesn't work as expected.\\n\\nTo view the contents
+        of the object, you can use `console.log()` or `JSON.stringify()`. Here's an
+        example:\\n\\n```javascript\\nlet obj1 = {name: \\\"John\\\", age: 30};\\nlet
+        obj2 = {city: \\\"New York\\\", country: \\\"USA\\\"};\\n\\nconsole.log(obj1,
+        obj2);\\n\\n// Or if you want to display it as a string:\\nlet str = JSON.stringify(obj1)
+        + \\\", \\\" + JSON.stringify(obj2);\\nconsole.log(str);\\n```\\n\\nThis will
+        display the contents of the objects in the console or as a string.\",\n        \"tool_calls\":
+        []\n      }\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 11,\n    \"completion_tokens\":
+        195,\n    \"total_tokens\": 206\n  }\n}"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8df86b3ebfacd041-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 08 Nov 2024 20:47:36 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '1159'
+      etag:
+      - W/"487-Nx7bX0NKHWRIeVumRKIieU1T8Es"
+      x-api-call-end:
+      - '2024-11-08T20:47:36.573Z'
+      x-api-call-start:
+      - '2024-11-08T20:47:34.225Z'
+      x-api-received:
+      - '2024-11-08T20:47:34.217Z'
+      x-inference-version:
+      - v2
+      x-ratelimit:
+      - 'false'
+      x-ratelimit-limit:
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
+      x-ratelimit-remaining:
+      - '195'
+      x-ratelimit-remaining-tokens:
+      - '99376'
+      x-ratelimit-reset:
+      - '1'
+    status:
+      code: 200
+      message: OK
+version: 1

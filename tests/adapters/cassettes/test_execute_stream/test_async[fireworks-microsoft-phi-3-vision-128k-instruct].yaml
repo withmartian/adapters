@@ -1,0 +1,98 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "accounts/fireworks/models/phi-3-vision-128k-instruct",
+      "stream": true}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '130'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: 'data: {"id":"52d2c9dd-5d86-459f-9c0e-8925cbaa722e","object":"chat.completion.chunk","created":1731098931,"model":"accounts/fireworks/models/phi-3-vision-128k-instruct","choices":[{"index":0,"delta":{"role":"assistant"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"52d2c9dd-5d86-459f-9c0e-8925cbaa722e","object":"chat.completion.chunk","created":1731098931,"model":"accounts/fireworks/models/phi-3-vision-128k-instruct","choices":[{"index":0,"delta":{"content":"
+        Hello!"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"52d2c9dd-5d86-459f-9c0e-8925cbaa722e","object":"chat.completion.chunk","created":1731098931,"model":"accounts/fireworks/models/phi-3-vision-128k-instruct","choices":[{"index":0,"delta":{"content":"
+        How can I help you today?"},"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"52d2c9dd-5d86-459f-9c0e-8925cbaa722e","object":"chat.completion.chunk","created":1731098931,"model":"accounts/fireworks/models/phi-3-vision-128k-instruct","choices":[{"index":0,"delta":{},"finish_reason":"stop"}],"usage":{"prompt_tokens":9,"total_tokens":19,"completion_tokens":10}}
+
+
+        data: [DONE]
+
+
+        '
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8df86d211e66cf5d-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Date:
+      - Fri, 08 Nov 2024 20:48:51 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=117.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-time-to-first-token:
+      - '0.011'
+      x-envoy-upstream-service-time:
+      - '15'
+      x-request-id:
+      - 52d2c9dd-5d86-459f-9c0e-8925cbaa722e
+    status:
+      code: 200
+      message: OK
+version: 1

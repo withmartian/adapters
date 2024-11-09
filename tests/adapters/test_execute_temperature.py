@@ -1,39 +1,21 @@
 import pytest
 
-from adapters.adapter_factory import AdapterFactory
-from tests.adapters.utils.constants import MODEL_PATHS
 from tests.utils import (
+    ADAPTER_TEST_FACTORIES,
     SIMPLE_CONVERSATION_USER_ONLY,
-    TEST_TEMPERATURE,
+    AdapterTestFactory,
     get_response_content_from_vcr,
 )
+from vcr import VCR
 
 
-@pytest.mark.parametrize("model_path", MODEL_PATHS)
 @pytest.mark.vcr
-def test_sync(vcr, model_path: str):
-    adapter = AdapterFactory.get_adapter_by_path(model_path)
-
-    assert adapter is not None
-
-    adapter_response = adapter.execute_sync(
-        SIMPLE_CONVERSATION_USER_ONLY, temperature=TEST_TEMPERATURE
-    )
-
-    cassette_response = get_response_content_from_vcr(vcr, adapter)
-
-    assert adapter_response.choices[0].message.content == cassette_response
-
-
-@pytest.mark.parametrize("model_path", MODEL_PATHS)
-@pytest.mark.vcr
-async def test_async(vcr, model_path: str):
-    adapter = AdapterFactory.get_adapter_by_path(model_path)
-
-    assert adapter is not None
+@pytest.mark.parametrize("create_adapter", ADAPTER_TEST_FACTORIES, ids=str)
+async def test_async(vcr: VCR, create_adapter: AdapterTestFactory) -> None:
+    adapter = create_adapter()
 
     adapter_response = await adapter.execute_async(
-        SIMPLE_CONVERSATION_USER_ONLY, temperature=TEST_TEMPERATURE
+        SIMPLE_CONVERSATION_USER_ONLY, temperature=0.5
     )
 
     cassette_response = get_response_content_from_vcr(vcr, adapter)

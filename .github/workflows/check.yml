@@ -1,0 +1,51 @@
+name: Pull Request Checks
+
+on: [pull_request]
+
+jobs:
+  pr-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "${HOME}/.local/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Run lint
+        run: poetry run pre-commit run --all-files
+
+      - name: Run tests
+        run: poetry run pytest -x -n=auto --record-mode=none
+        env:
+          AI21_API_KEY: "..."
+          ANYSCALE_API_KEY: "..."
+          ANTHROPIC_API_KEY: "..."
+          AZURE_API_KEY: "..."
+          CEREBRAS_API_KEY: "..."
+          COHERE_API_KEY: "..."
+          DATABRICKS_API_KEY: "..."
+          DEEPINFRA_API_KEY: "..."
+          FIREWORKS_API_KEY: "..."
+          GEMINI_API_KEY: "..."
+          GROQ_API_KEY: "..."
+          HUGGINGFACE_API_KEY: "..."
+          LEPTON_API_KEY: "..."
+          MOONSHOT_API_KEY: "..."
+          OCTOAI_API_KEY: "..."
+          OPENAI_API_KEY: "..."
+          OPENROUTER_API_KEY: "..."
+          PERPLEXITY_API_KEY: "..."
+          REPLICATE_API_KEY: "..."
+          TOGETHER_API_KEY: "..."

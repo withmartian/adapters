@@ -9,7 +9,7 @@ from adapters.types import Cost
 EMPTY_CONTENT = '""'
 
 
-def delete_none_values(dictionary: dict):
+def delete_none_values(dictionary: dict[str, Any]) -> dict[str, Any]:
     if isinstance(dictionary, list):
         return [delete_none_values(e) for e in dictionary]
 
@@ -22,9 +22,10 @@ def delete_none_values(dictionary: dict):
     return dictionary
 
 
-def process_image_url_anthropic(image_url: str):
+def process_image_url_anthropic(image_url: str) -> dict[str, Any]:
+    httpx_client = httpx.Client()
+
     if image_url.startswith("data:"):
-        # Base64 data is passed as a URL
         media_type, _, base64_data = image_url.partition(";base64,")
         media_type = media_type.split(":")[1]
         return {
@@ -36,13 +37,16 @@ def process_image_url_anthropic(image_url: str):
             },
         }
     else:
-        # URL points to an image file
-        image_data = base64.b64encode(httpx.get(image_url).content).decode("utf-8")
+        image_data = base64.b64encode(httpx_client.get(image_url).content).decode(
+            "utf-8"
+        )
+
         _, extension = os.path.splitext(image_url)
         extension = extension.lstrip(".").lower()
         if extension == "jpg":
             extension = "jpeg"
         media_type = f"image/{extension}"
+
         return {
             "type": "image",
             "source": {
@@ -73,12 +77,12 @@ def get_dynamic_cost(model_name: str, token_count: int) -> Cost:
 class stream_generator_auto_close:
     _agen: Any
 
-    def __init__(self, agen):
+    def __init__(self, agen: Any) -> None:
         self._agen = agen
 
-    async def __aenter__(self):
+    async def __aenter__(self) -> Any:
         return self._agen
 
-    async def __aexit__(self, *args):
+    async def __aexit__(self, *args: Any) -> None:
         if getattr(self._agen, "close", False):
             await self._agen.close()

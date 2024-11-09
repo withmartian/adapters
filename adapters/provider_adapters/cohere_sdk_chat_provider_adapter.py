@@ -2,87 +2,143 @@ from enum import Enum
 import time
 from typing import Any, Dict
 
-from cohere import AsyncClientV2, ChatResponse, ClientV2
+from cohere import (
+    AsyncClientV2,
+    ChatContentDeltaEventDelta,
+    ChatContentDeltaEventDeltaMessage,
+    ChatContentDeltaEventDeltaMessageContent,
+    ChatMessageEndEventDelta,
+    ChatResponse,
+    ClientV2,
+    ContentDeltaStreamedChatResponseV2,
+    MessageEndStreamedChatResponseV2,
+    MessageStartStreamedChatResponseV2,
+    StreamedChatResponseV2,
+)
 from openai.types import CompletionUsage
 from openai.types.chat import ChatCompletionMessage
 from openai.types.chat.chat_completion import Choice
+from openai.types.chat.chat_completion_chunk import Choice as ChoiceChunk, ChoiceDelta
 
 from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.types import (
     AdapterChatCompletion,
     AdapterChatCompletionChunk,
     AdapterFinishReason,
-    Conversation,
     ConversationRole,
     Cost,
     Model,
     ModelProperties,
+    Provider,
     Turn,
+    Vendor,
 )
-
-API_KEY_NAME = "COHERE_API_KEY"
-BASE_URL = "https://api.cohere.com"  # Updated to v2 endpoint
-PROVIDER_NAME = "cohere"
-BASE_PROPERTIES = ModelProperties(open_source=True, gdpr_compliant=True)
+from openai.types.chat.chat_completion_message_tool_call import (
+    ChatCompletionMessageToolCall,
+    Function,
+)
 
 
 class CohereModel(Model):
-    vendor_name: str = PROVIDER_NAME
-    provider_name: str = PROVIDER_NAME
-    properties: ModelProperties = BASE_PROPERTIES
+    provider_name: str = Provider.cohere.value
+    vendor_name: str = Vendor.cohere.value
 
-    supports_repeating_roles: bool = True
-    supports_system: bool = True
-    supports_multiple_system: bool = True
-    supports_empty_content: bool = True
-    supports_tool_choice_required: bool = True
-    supports_last_assistant: bool = True
-    supports_first_assistant: bool = True
-    supports_json_content: bool = True
-    supports_temperature: bool = True
+    properties: ModelProperties = ModelProperties(
+        open_source=True, gdpr_compliant=True, is_nsfw=True
+    )
 
-    supports_streaming: bool = False
+    supports_n: bool = False
+    supports_vision: bool = False
+    supports_empty_content: bool = False
+    supports_only_system: bool = False
+    supports_tool_choice: bool = False
 
     def _get_api_path(self) -> str:
         return self.name
 
 
-MODELS = [
+MODELS: list[Model] = [
+    CohereModel(
+        name="command-r-plus-04-2024",
+        cost=Cost(prompt=3.00e-6, completion=15.00e-6),
+        context_length=128000,
+        completion_length=4000,
+    ),
     CohereModel(
         name="command-r-plus-08-2024",
         cost=Cost(prompt=2.50e-6, completion=10.00e-6),
         context_length=128000,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
-    ),
-    CohereModel(
-        name="command-r-plus-04-2024",
-        cost=Cost(prompt=2.50e-6, completion=10.00e-6),
-        context_length=128000,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
+        completion_length=4000,
     ),
     CohereModel(
         name="command-r-plus",
         cost=Cost(prompt=2.50e-6, completion=10.00e-6),
         context_length=128000,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
+        completion_length=4000,
+    ),
+    CohereModel(
+        name="command-r-03-2024",
+        cost=Cost(prompt=0.50e-6, completion=1.50e-6),
+        context_length=128000,
+        completion_length=4000,
     ),
     CohereModel(
         name="command-r-08-2024",
         cost=Cost(prompt=0.15e-6, completion=0.60e-6),
         context_length=128000,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
-    ),
-    CohereModel(
-        name="command-r-03-2024",
-        cost=Cost(prompt=0.15e-6, completion=0.60e-6),
-        context_length=128000,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
+        completion_length=4000,
     ),
     CohereModel(
         name="command-r",
         cost=Cost(prompt=0.15e-6, completion=0.60e-6),
         context_length=128000,
-        properties=BASE_PROPERTIES.model_copy(update={"is_nsfw": True}),
+        completion_length=4000,
+    ),
+    CohereModel(
+        name="command",
+        cost=Cost(prompt=1.00e-6, completion=2.00e-6),
+        context_length=4000,
+        completion_length=4000,
+        supports_json_output=False,
+        supports_tools=False,
+    ),
+    CohereModel(
+        name="command-nightly",
+        cost=Cost(prompt=1.00e-6, completion=2.00e-6),
+        context_length=128000,
+        completion_length=128000,
+    ),
+    CohereModel(
+        name="command-light",
+        cost=Cost(prompt=0.30e-6, completion=0.60e-6),
+        context_length=4000,
+        completion_length=4000,
+        supports_json_output=False,
+        supports_tools=False,
+    ),
+    CohereModel(
+        name="command-light-nightly",
+        cost=Cost(prompt=0.30e-6, completion=0.60e-6),
+        context_length=4000,
+        completion_length=4000,
+        supports_json_output=False,
+        supports_tools=False,
+    ),
+    CohereModel(
+        name="c4ai-aya-expanse-8b",
+        cost=Cost(prompt=0.50e-6, completion=1.50e-6),
+        context_length=8000,
+        completion_length=4000,
+        supports_json_output=False,
+        supports_tools=False,
+    ),
+    CohereModel(
+        name="c4ai-aya-expanse-32b",
+        cost=Cost(prompt=0.50e-6, completion=1.50e-6),
+        context_length=128000,
+        completion_length=4000,
+        supports_json_output=False,
+        supports_tools=False,
     ),
 ]
 
@@ -105,61 +161,40 @@ FINISH_REASON_MAPPING: Dict[CohereFinishReason, AdapterFinishReason] = {
 
 class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
     @staticmethod
-    def get_api_key_name() -> str:
-        return API_KEY_NAME
-
-    @staticmethod
-    def get_provider_name() -> str:
-        return PROVIDER_NAME
-
-    @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
-    def _sync_client_wrapper(self, **kwargs: Any):
+    @staticmethod
+    def get_api_key_name() -> str:
+        return "COHERE_API_KEY"
+
+    def get_base_sdk_url(self) -> str:
+        return "https://api.cohere.com"
+
+    def _sync_client_wrapper(self, **kwargs: Any) -> Any:
         if kwargs.pop("stream", False):
             return self._client_sync.chat_stream(**kwargs)
         return self._client_sync.chat(**kwargs)
 
-    async def _async_client_wrapper(self, **kwargs: Any):
+    async def _async_client_wrapper(self, **kwargs: Any) -> Any:
         if kwargs.pop("stream", False):
             return self._client_async.chat_stream(**kwargs)
         return await self._client_async.chat(**kwargs)
 
-    def _call_async(self):
+    def _call_async(self) -> Any:
         return self._async_client_wrapper
 
-    def _call_sync(self):
+    def _call_sync(self) -> Any:
         return self._sync_client_wrapper
 
     def _create_client_sync(self, base_url: str, api_key: str) -> ClientV2:
-        return ClientV2(base_url=base_url, api_key=api_key)
+        return ClientV2(base_url=base_url, api_key=api_key)  # type: ignore
 
     def _create_client_async(self, base_url: str, api_key: str) -> AsyncClientV2:
-        return AsyncClientV2(base_url=base_url, api_key=api_key)
+        return AsyncClientV2(base_url=base_url, api_key=api_key)  # type: ignore
 
-    def _get_params(self, llm_input: Conversation, **kwargs: Any) -> dict[str, Any]:
-        params = super()._get_params(llm_input, **kwargs)
-
-        messages = []
-        for message in params["messages"]:
-            new_message = {
-                "role": message["role"],
-                "content": message["content"],
-            }
-
-            if isinstance(new_message["content"], list):
-                new_message["content"] = " ".join(
-                    content.get("text", "") for content in new_message["content"]
-                )
-
-            if new_message["content"] == "":
-                new_message["content"] = " "
-
-            messages.append(new_message)
-
-        params["messages"] = messages
-        return params
+    def _adjust_temperature(self, temperature: float) -> float:
+        return temperature / 2
 
     def _extract_response(
         self, request: Any, response: ChatResponse
@@ -192,28 +227,57 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
         choices: list[Choice] = []
         if response.message and response.message.content:
             for content in response.message.content:
-                if content.type == "text":
-                    choices.append(
-                        Choice(
-                            index=len(choices),
-                            finish_reason=finish_reason.value,
-                            message=ChatCompletionMessage(
-                                role=ConversationRole.assistant.value,
-                                content=content.text,
-                            ),
-                        )
+                choices.append(
+                    Choice(
+                        index=len(choices),
+                        finish_reason=finish_reason.value,
+                        message=ChatCompletionMessage(
+                            role=ConversationRole.assistant.value,
+                            content=content.text,
+                        ),
                     )
-        else:
-            choices.append(
-                Choice(
-                    index=len(choices),
-                    finish_reason=finish_reason.value,
-                    message=ChatCompletionMessage(
-                        role=ConversationRole.assistant.value,
-                        content="",
-                    ),
                 )
-            )
+        elif response.message and response.message.tool_calls:
+            if response.message.tool_plan:
+                choices.append(
+                    Choice(
+                        index=len(choices),
+                        finish_reason=finish_reason.value,
+                        message=ChatCompletionMessage(
+                            role=ConversationRole.assistant.value,
+                            content=response.message.tool_plan,
+                        ),
+                    )
+                )
+
+            for tool_call in response.message.tool_calls:
+                if (
+                    not tool_call.id
+                    or not tool_call.function
+                    or not tool_call.function.name
+                    or not tool_call.function.arguments
+                ):
+                    raise ValueError("Unsupported response")
+
+                choices.append(
+                    Choice(
+                        index=len(choices),
+                        finish_reason=finish_reason.value,
+                        message=ChatCompletionMessage(
+                            role=ConversationRole.assistant.value,
+                            tool_calls=[
+                                ChatCompletionMessageToolCall(
+                                    id=tool_call.id,
+                                    type="function",
+                                    function=Function(
+                                        name=tool_call.function.name,
+                                        arguments=tool_call.function.arguments,
+                                    ),
+                                )
+                            ],
+                        ),
+                    )
+                )
 
         usage = CompletionUsage(
             prompt_tokens=prompt_tokens,
@@ -242,29 +306,44 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
         )
 
     def _extract_stream_response(
-        self, request: Any, response: Any, state
+        self, request: Any, response: StreamedChatResponseV2, state: dict[str, Any]
     ) -> AdapterChatCompletionChunk:
-        raise NotImplementedError
-        # content = None
-        # if response.type == "content-delta":
-        #     content = response.delta.message.content.text
-        # elif response.type == "stream-end":
-        #     content = None
+        choice_chunk = ChoiceChunk(
+            index=0,
+            delta=ChoiceDelta(role=ConversationRole.assistant.value, content=""),
+        )
 
-        # chunk = json.dumps(
-        #     {
-        #         "choices": [
-        #             {
-        #                 "delta": {
-        #                     "role": ConversationRole.assistant,
-        #                     "content": content,
-        #                 },
-        #             }
-        #         ]
-        #     }
-        # )
+        # TODO: Add citation support
+        if isinstance(response, MessageStartStreamedChatResponseV2):
+            state["id"] = response.id
+            state["created"] = int(time.time())
+        elif (
+            isinstance(response, ContentDeltaStreamedChatResponseV2)
+            and isinstance(response.delta, ChatContentDeltaEventDelta)
+            and isinstance(response.delta.message, ChatContentDeltaEventDeltaMessage)
+            and isinstance(
+                response.delta.message.content, ChatContentDeltaEventDeltaMessageContent
+            )
+            and isinstance(response.delta.message.content.text, str)
+        ):
+            choice_chunk.delta.content = response.delta.message.content.text
+        elif isinstance(response, MessageEndStreamedChatResponseV2):
+            choice_chunk.finish_reason = AdapterFinishReason.stop.value
 
-        # return f"data: {chunk}\n\n"
+            if isinstance(response.delta, ChatMessageEndEventDelta) and isinstance(
+                response.delta.finish_reason, ChatMessageEndEventDelta
+            ):
+                choice_chunk.finish_reason = FINISH_REASON_MAPPING.get(
+                    CohereFinishReason(response.delta.finish_reason),
+                    AdapterFinishReason.stop,
+                ).value
+        # else:
+        # raise ValueError("Unsupported response")
 
-    def get_base_sdk_url(self) -> str:
-        return BASE_URL
+        return AdapterChatCompletionChunk(
+            id=state["id"],
+            choices=[choice_chunk],
+            created=state["created"],
+            model=self.get_model().name,
+            object="chat.completion.chunk",
+        )

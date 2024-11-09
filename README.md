@@ -26,12 +26,6 @@ poetry run pre-commit install
 
 ### Setting Up Pre-commit
 
-Pre-commit hooks help maintain code quality and standards. Install them with the following command:
-
-```bash
-poetry run pre-commit install
-```
-
 To run pre-commit manually:
 
 ```bash
@@ -50,8 +44,6 @@ The package requires certain environment variables to be set by the users:
 
 ### Running Tests
 
-Ensure Python 3.11 is used:
-
 ```bash
 poetry run pytest
 ```
@@ -59,7 +51,7 @@ poetry run pytest
 ## Quickstart
 
 ```python
-from adapters import AdapterFactory, Prompt
+from adapters import AdapterFactory
 from adapters.types import Conversation, ConversationRole, Turn
 
 adapter = AdapterFactory.get_adapter_by_path("openai/openai/gpt-4o-mini")
@@ -78,10 +70,10 @@ Adapter paths follows the format `provider/vendor/model_name`. Use `AdapterFacto
 ### Adding New Models
 
 1. **Existing Providers:**
-   Add new models to the `SUPPORTED_MODELS` array if the provider is already supported.
+   Add new models to the `MODELS` array if the provider is already supported.
 
 2. **New Providers:**
-   - If the provider follows the OpenAI format, model integration is straightforward. See the "_Together_" provider class as an example.
+   - If the provider follows the OpenAI format, model integration is straightforward. See the "_Fireworks_" provider class as an example.
    - For providers with different schemas, see the "_Anthropic_" provider class for guidance.
 
 ### Development Steps
@@ -99,7 +91,7 @@ Adapter paths follows the format `provider/vendor/model_name`. Use `AdapterFacto
 
 ### Re-creating Cassette Files
 
-Use the `--record-mode=rewrite` option with pytest to update cassette files.
+Use the `poetry run pytest --record-mode=rewrite` option with pytest to update cassette files.
 
 ## Additional Notes
 
@@ -111,7 +103,7 @@ This documentation provides a streamlined approach to using and contributing to 
 
 ### HTTP Client configuration
 
-To achieve maximing throuput and performance of your applications we also offer way to configuare HTTP networking paramters:
+To optimize throughput and performance, we provide options to configure HTTP networking parameters:
 
 ```env
 ADAPTERS_MAX_KEEPALIVE_CONNECTIONS_PER_PROCESS = 100
@@ -122,10 +114,10 @@ ADAPTERS_HTTP_TIMEOUT = 600
 
 ### Base URL overriding
 
-In order to override all base urls to do stress testing or for any other reason you can specify in your `.env`
+For stress testing or other purposes, you can override all base URLs by setting the following in your .env file:
 
 ```env
 _ADAPTERS_OVERRIDE_ALL_BASE_URLS_ = "https://new-base-url.com/api"
 ```
 
-This will make sure all LLM API calls are resolved to this new url
+This setting ensures that all LLM API calls will route to the specified new base URL.

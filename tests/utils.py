@@ -1,18 +1,29 @@
 import json
+from typing import Any
 
 import brotli
 
 from adapters.abstract_adapters.base_adapter import BaseAdapter
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
+from adapters.adapter_factory import AdapterFactory
+from adapters.provider_adapters.ai21_sdk_chat_provider_adapter import AI21Model
 from adapters.provider_adapters.anthropic_sdk_chat_provider_adapter import (
+    AnthropicModel,
     AnthropicSDKChatProviderAdapter,
 )
+from adapters.provider_adapters.cerebras_sdk_chat_provider_adapter import CerebrasModel
 from adapters.provider_adapters.cohere_sdk_chat_provider_adapter import (
+    CohereModel,
     CohereSDKChatProviderAdapter,
+)
+from adapters.provider_adapters.fireworks_sdk_chat_provider_adapter import (
+    FireworksModel,
 )
 from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
     GeminiSDKChatProviderAdapter,
 )
+from adapters.provider_adapters.openai_sdk_chat_provider_adapter import OpenAIModel
+from adapters.provider_adapters.together_sdk_chat_provider_adapter import TogetherModel
 from adapters.types import (
     ContentTurn,
     ContentType,
@@ -21,77 +32,50 @@ from adapters.types import (
     TextContentEntry,
     Turn,
 )
+from vcr import VCR
 
-ASYNC_LIMITER_LEAK_BUCKET_TIME = 2
+
+class AdapterTestFactory:
+    model_path: str
+
+    def __init__(self, model_path: str):
+        self.model_path = model_path
+
+    def __call__(self) -> BaseAdapter:
+        adapter = AdapterFactory.get_adapter_by_path(self.model_path)
+        if adapter is None:
+            raise ValueError(f"No adapter found for path: {self.model_path}")
+        return adapter
+
+    def __str__(self) -> str:
+        return self.model_path
 
 
-TEST_TEMPERATURE = 0.5
-TEST_MAX_TOKENS = 200
-TEST_TOP_P = 0.5
+ADAPTER_TEST_FACTORIES = [
+    AdapterTestFactory(model.get_path())
+    for model in AdapterFactory.get_supported_models()
+    if isinstance(
+        model,
+        (
+            OpenAIModel,
+            AnthropicModel,
+            TogetherModel,
+            AI21Model,
+            CerebrasModel,
+            CohereModel,
+            FireworksModel,
+        ),
+    )
+]
 
 
 SIMPLE_CONVERSATION_USER_ONLY = Conversation(
     [Turn(role=ConversationRole.user, content="Hi")]
 )
 
-SIMPLE_CONVERSATION_SYSTEM_ONLY = Conversation(
-    [
-        Turn(role=ConversationRole.system, content="Hi"),
-        Turn(role=ConversationRole.user, content="Hi"),
-    ]
-)
 
-SIMPLE_CONVERSATION_EMPTY_CONTENT = Conversation(
-    [
-        Turn(role=ConversationRole.user, content=""),
-        Turn(role=ConversationRole.assistant, content=" "),
-        Turn(role=ConversationRole.user, content="\n"),
-    ]
-)
-
-SIMPLE_CONVERSATION_TRAILING_WHITESPACE = Conversation(
-    [
-        Turn(role=ConversationRole.user, content="Hi"),
-        Turn(role=ConversationRole.assistant, content="Hi "),
-    ]
-)
-
-SIMPLE_CONVERSATION_ASSISTANT_SYSTEM = Conversation(
-    [
-        Turn(role=ConversationRole.user, content="Hi"),
-        Turn(role=ConversationRole.assistant, content="Hi"),
-        Turn(role=ConversationRole.system, content="Hi"),
-        Turn(role=ConversationRole.user, content="Hi"),
-    ]
-)
-
-SIMPLE_CONVERSATION_ASSISTANT_FIRST = Conversation(
-    [
-        Turn(role=ConversationRole.assistant, content="Hi"),
-        Turn(role=ConversationRole.user, content="Hi"),
-    ]
-)
-
-SIMPLE_CONVERSATION_MULTIPLE_SYSTEM = Conversation(
-    [
-        Turn(role=ConversationRole.system, content="Hi"),
-        Turn(role=ConversationRole.user, content="Hi"),
-        Turn(role=ConversationRole.system, content="Hi"),
-    ]
-)
-
-SIMPLE_CONVERSATION_REPEATING = Conversation(
-    [
-        Turn(role=ConversationRole.user, content="Hi"),
-        Turn(role=ConversationRole.assistant, content="Hi"),
-        Turn(role=ConversationRole.assistant, content="Hi"),
-        Turn(role=ConversationRole.user, content="Hi"),
-        Turn(role=ConversationRole.user, content="Hi"),
-    ]
-)
-
-SIMPLE_CONVERSATION_JSON = Conversation(
-    [Turn(role=ConversationRole.user, content="Hi, use json")]
+SIMPLE_CONVERSATION_JSON_OUTPUT = Conversation(
+    [Turn(role=ConversationRole.user, content="Hi, output simple json")]
 )
 
 SIMPLE_CONVERSATION_JSON_CONTENT = Conversation(
@@ -108,12 +92,34 @@ SIMPLE_CONVERSATION_JSON_CONTENT = Conversation(
 
 
 SIMPLE_FUNCTION_CALL_USER_ONLY = Conversation(
-    [Turn(role=ConversationRole.user, content="Generate random number")]
+    [
+        Turn(
+            role=ConversationRole.user,
+            content="Generate random number via tools, range 1-10",
+        )
+    ]
 )
 
-SIMPLE_CONVERSATION_YOU_RAG_QUESTION = Conversation(
-    [Turn(role=ConversationRole.user, content="What is in an egg?")]
-)
+SIMPLE_GENERATE_TOOLS = [
+    {
+        "type": "function",
+        "function": {
+            "description": "Generate random number",
+            "name": "generate",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "prompt": {
+                        "type": "string",
+                        "description": "Random number like 5, 4, 3, 10, 11",
+                    },
+                },
+                "required": ["prompt"],
+            },
+        },
+    }
+]
+
 
 SIMPLE_CONVERSATION_VISION = Conversation(
     [
@@ -149,7 +155,7 @@ SIMPLE_CONVERSATION_VISION = Conversation(
 )
 
 
-def get_response_content_from_vcr(vcr, adapter: BaseAdapter):
+def get_response_content_from_vcr(vcr: VCR, adapter: BaseAdapter) -> Any:
     response = vcr.responses[-1]["body"]["string"]
 
     try:
@@ -175,35 +181,91 @@ def get_response_content_from_vcr(vcr, adapter: BaseAdapter):
         raise ValueError("Unknown adapter")
 
 
-def get_response_choices_from_vcr(vcr, adapter: BaseAdapter):
-    response = json.loads(vcr.responses[-1]["body"]["string"])
+def get_response_choices_from_vcr(vcr: VCR, adapter: BaseAdapter) -> Any:
+    response = vcr.responses[-1]["body"]["string"]
+
+    try:
+        response = brotli.decompress(response)
+    except Exception as _:  # pylint: disable=W0718
+        print("Failed to decompress response")
+
+    response = json.loads(response)
+
     if isinstance(adapter, OpenAISDKChatAdapter):
         return response["choices"]
     elif isinstance(adapter, AnthropicSDKChatProviderAdapter):
-        if response["content"] and response["content"][0]["type"] == "tool_use":
-            function_name = response["content"][0].get("name", "")
-            arguments = response["content"][0].get("input", "")
-            return [
-                {
-                    "message": {
-                        "tool_calls": [
-                            {
-                                "function": {
-                                    "name": function_name,
-                                    "arguments": arguments,
-                                },
-                            }
-                        ]
+        anthropic_choices: list[Any] = []
+
+        for content in response["content"]:
+            if content["type"] == "tool_use":
+                anthropic_choices.append(
+                    {
+                        "message": {
+                            "role": response["role"],
+                            "tool_calls": [
+                                {
+                                    "function": {
+                                        "name": content["name"],
+                                        "arguments": json.dumps(content["input"]),
+                                    },
+                                }
+                            ],
+                        }
                     }
-                }
-            ]
-        else:
-            text = response["content"][0].get("text", "") if response["content"] else ""
-            role = response.get("role", "")
-            return [{"message": {"role": role, "content": text}}]
+                )
+            elif content["type"] == "text":
+                anthropic_choices.append(
+                    {
+                        "message": {
+                            "role": response["role"],
+                            "content": content["text"],
+                        }
+                    }
+                )
+            else:
+                raise ValueError(f"Unknown content type: {content['type']}")
+        return anthropic_choices
     elif isinstance(adapter, CohereSDKChatProviderAdapter):
-        return response["text"]
-    elif isinstance(adapter, GeminiSDKChatProviderAdapter):
-        return response["candidates"][0]["content"]["parts"][0]["text"]
+        # Parse the Cohere SDK response
+        cohere_choices: list[Any] = []
+
+        # Assuming the structure of the Cohere response can vary
+        message = response.get("message")
+        role = message.get("role", "assistant")
+        tool_calls = message.get("tool_calls")
+        content_list = message.get("content")
+
+        # Check if there are tool calls and handle them
+        if tool_calls:
+            for tool_call in tool_calls:
+                cohere_choices.append(
+                    {
+                        "message": {
+                            "role": role,
+                            "tool_calls": [
+                                {
+                                    "id": tool_call["id"],
+                                    "type": tool_call["type"],
+                                    "function": {
+                                        "name": tool_call["function"]["name"],
+                                        "arguments": tool_call["function"]["arguments"],
+                                    },
+                                }
+                            ],
+                        }
+                    }
+                )
+        # If no tool calls, check for and handle content as a list of text items
+        elif content_list:
+            for content in content_list:
+                if content.get("type") == "text":
+                    cohere_choices.append(
+                        {"message": {"role": role, "content": content["text"]}}
+                    )
+
+        return cohere_choices
+
+    # elif isinstance(adapter, GeminiSDKChatProviderAdapter):
+    # return response["candidates"][0]["content"]["parts"][0]["text"]
     else:
         raise ValueError("Unknown adapter")

@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "gpt-4", "stream": false}'
+    body: '{"messages": [{"role": "system", "content": ""}, {"role": "user", "content":
+      ""}, {"role": "assistant", "content": " "}, {"role": "user", "content": "\n"}],
+      "model": "gpt-4", "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '156'
+      - '191'
       content-type:
       - application/json
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.54.1
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.54.1
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,34 +38,34 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5L4WegzPaOJPAcwEtd1wQStd6e9\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729112118,\n  \"model\": \"gpt-4-0613\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"It seems like you left a blank message.
-        Is there something specific that you'd want to ask or discuss? I'm here to
-        help.\",\n        \"refusal\": null\n      },\n      \"logprobs\": null,\n
-        \     \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\":
-        17,\n    \"completion_tokens\": 28,\n    \"total_tokens\": 45,\n    \"prompt_tokens_details\":
-        {\n      \"cached_tokens\": 0\n    },\n    \"completion_tokens_details\":
-        {\n      \"reasoning_tokens\": 0\n    }\n  },\n  \"system_fingerprint\": null\n}\n"
+      string: !!binary |
+        IfALACD+N5v1NNWbX8eUnEqlRoBVdOXO//7U83BALGLTfnCD7fkyFtj2YMBTS7WiBS9Y1emOUxCb
+        lCb4zmx+95cBlCviIJmJRtpguruXF/sn18PTMB8v072D9vz4+t7p8eXN4dfIUocB5NeFlg0T9ZYY
+        KLl3EObL5U9aEcdwPh4OlovlaFj8xHqlDXFQGprupDuYDcesx8znUtfE8cQA4PduBtC59w3iGHSe
+        MqsweOLAPwFUeaOJg0Rd53UjXEMdAIitC3HQSY5doL7sIPOfkMLhFLxf8O1bNF6J720+OK5+Xhji
+        cK0xc3D/A+WMT0Pl1zWGHZQJeRu9bag1TRxUNz5QC/WfAS/Cp62W9xQqb0Pz1vhSu5o4fCM1MBYD
+        AD4cgD8iAGpoTKx2RG95dOPauCuSQmZadQUun0Wrcl8cM90NAzX2p7Qfzl16gWJJSh0ard4SDaui
+        AZRYpQstEfMZ+2ejB27ektylugpV/io4XWsM+2cD
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af2f4895ef9f9-SJC
+      - 8df86ce0489a270a-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:55:19 GMT
+      - Fri, 08 Nov 2024 20:48:41 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=vxuK07RfajYiAaIQKg1K6AnXQYz_8MrytMiHYvsuAKU-1729112119-1.0.1.1-0hPxS2YvAm2g89GEX70xi1bkridFQrMUjqoHAscXIQsKrJ.DRVQFTO.9NzWr6aH_iKzvYAN4RB_DQtH89NSJew;
-        path=/; expires=Wed, 16-Oct-24 21:25:19 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=aw0JdBRDB0XzLegmrbLKgUfm0HgWoNUsmL.zkP8uVic-1731098921-1.0.1.1-qa1pMQiAoZImF0r1X4C1DD5ajeWAXOGX41oRK8I5b6OD.F2mq1i3dG0GJcNcQJ_HG6GyVoocqD7NVDCSGPbg5g;
+        path=/; expires=Fri, 08-Nov-24 21:18:41 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=4171dSwNF_y4WYAcwgGlSoJMxym.xto_SqAc6NftgAQ-1729112119900-0.0.1.1-604800000;
+      - _cfuvid=aqQZo6Wxb753OCUZrMxuzRhsr6LAsjd3VdncCbbhTPY-1731098921643-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -74,12 +75,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '720'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '1308'
+      - '526'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -91,13 +90,13 @@ interactions:
       x-ratelimit-remaining-requests:
       - '9999'
       x-ratelimit-remaining-tokens:
-      - '999980'
+      - '999978'
       x-ratelimit-reset-requests:
       - 6ms
       x-ratelimit-reset-tokens:
       - 1ms
       x-request-id:
-      - req_8a3abdfeb33320545793a5147e073366
+      - req_8e944c9ed6401b967ddb4a23feba2dae
     status:
       code: 200
       message: OK

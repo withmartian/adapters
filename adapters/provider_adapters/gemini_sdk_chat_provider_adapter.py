@@ -1,5 +1,5 @@
 import time
-from typing import Any, Dict, Literal, Optional
+from typing import Any, Dict, Literal, Optional, overload
 import uuid
 
 from google.ai.generativelanguage import (
@@ -19,38 +19,27 @@ from adapters.abstract_adapters.sdk_chat_adapter import SDKChatAdapter
 from adapters.general_utils import get_dynamic_cost
 from adapters.types import (
     AdapterChatCompletion,
-    ContentTurn,
+    AdapterStreamAsyncChatCompletion,
+    AdapterStreamSyncChatCompletion,
     Conversation,
     ConversationRole,
     Cost,
     Model,
     ModelProperties,
+    Provider,
     Turn,
+    Vendor,
 )
-
-PROVIDER_NAME = "gemini"
-API_KEY_NAME = "GEMINI_API_KEY"
-BASE_PROPERTIES = ModelProperties(gdpr_compliant=True)
 
 
 class GeminiModel(Model):
-    _test_async: bool = False
+    provider_name: str = Provider.gemini.value
+    vendor_name: str = Vendor.gemini.value
 
-    vendor_name: str = PROVIDER_NAME
-    provider_name: str = PROVIDER_NAME
-    properties: ModelProperties = BASE_PROPERTIES
-
-    supports_repeating_roles: bool = True
-    supports_system: bool = True
-    supports_multiple_system: bool = True
-    supports_empty_content: bool = True
-    supports_tool_choice_required: bool = True
-    supports_last_assistant: bool = True
-    supports_first_assistant: bool = True
-    supports_temperature: bool = True
+    properties: ModelProperties = ModelProperties(gdpr_compliant=True)
 
 
-MODELS = [
+MODELS: list[Model] = [
     GeminiModel(
         name="gemini-1.0-pro",
         cost=Cost(prompt=0.5e-6, completion=1.5e-6),
@@ -77,43 +66,41 @@ class GeminiSDKChatProviderAdapter(
     SDKChatAdapter[GenerativeServiceClient, GenerativeServiceAsyncClient]
 ):
     @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
     @staticmethod
-    def get_provider_name() -> str:
-        return PROVIDER_NAME
+    def get_api_key_name() -> str:
+        return "GEMINI_API_KEY"
 
     def get_base_sdk_url(self) -> str:
         return ""
 
-    @staticmethod
-    def get_api_key_name() -> str:
-        return API_KEY_NAME
-
-    def __init__(
-        self,
-    ) -> None:
-        super().__init__()
+    def __init__(self) -> None:
         self.model: genai.GenerativeModel | None = None
+        super().__init__()
 
     def get_model_name(self) -> str:
         if self._current_model is None:
             raise ValueError("Model not set")
         return self._current_model.name
 
-    def _call_sync(self):
+    def _call_sync(self) -> Any:
         return self._client_sync
 
-    def _call_async(self):
+    def _call_async(self) -> Any:
         return self._client_async
 
-    def _create_client_sync(self, base_url: str, api_key: str):
+    def _create_client_sync(
+        self, base_url: str, api_key: str
+    ) -> GenerativeServiceClient:
         return GenerativeServiceClient(
             client_options=ClientOptions(api_key=api_key), transport="rest"
         )
 
-    def _create_client_async(self, base_url: str, api_key: str):
+    def _create_client_async(
+        self, base_url: str, api_key: str
+    ) -> GenerativeServiceAsyncClient:
         return GenerativeServiceAsyncClient(
             client_options=ClientOptions(api_key=api_key), transport="rest"
         )
@@ -227,13 +214,15 @@ class GeminiSDKChatProviderAdapter(
             ),
         )
 
-    def _extract_stream_response(self, request, response, state):
+    def _extract_stream_response(
+        self, request: Any, response: Any, state: dict[str, Any]
+    ) -> Any:
         return response
 
     def _get_params(
         self,
         llm_input: Conversation,
-        **kwargs,
+        **kwargs: Any,
     ) -> Dict[str, Any]:
         params = super()._get_params(llm_input, **kwargs)
 
@@ -260,12 +249,28 @@ class GeminiSDKChatProviderAdapter(
             "prompt": _map_content_to_str(last_content, last_message["role"]),
         }
 
+    @overload
+    async def execute_async(
+        self,
+        llm_input: Conversation,
+        stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
+        **kwargs: Any,
+    ) -> AdapterChatCompletion: ...
+
+    @overload
+    async def execute_async(
+        self,
+        llm_input: Conversation,
+        stream: Literal[True],
+        **kwargs: Any,
+    ) -> AdapterStreamAsyncChatCompletion: ...
+
     async def execute_async(
         self,
         llm_input: Conversation,
         stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
-        **kwargs,
-    ):
+        **kwargs: Any,
+    ) -> AdapterChatCompletion | AdapterStreamAsyncChatCompletion:
         params = self._get_params(llm_input, **kwargs)
 
         model = genai.GenerativeModel(
@@ -280,12 +285,28 @@ class GeminiSDKChatProviderAdapter(
 
         return await self._extract_response_async(request=llm_input, response=result)
 
+    @overload
+    def execute_sync(
+        self,
+        llm_input: Conversation,
+        stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
+        **kwargs: Any,
+    ) -> AdapterChatCompletion: ...
+
+    @overload
+    def execute_sync(
+        self,
+        llm_input: Conversation,
+        stream: Literal[True],
+        **kwargs: Any,
+    ) -> AdapterStreamSyncChatCompletion: ...
+
     def execute_sync(
         self,
         llm_input: Conversation,
         stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
-        **kwargs,
-    ):
+        **kwargs: Any,
+    ) -> AdapterChatCompletion | AdapterStreamSyncChatCompletion:
         params = self._get_params(llm_input, **kwargs)
 
         self.model = genai.GenerativeModel(
@@ -305,14 +326,12 @@ def _map_content_to_str(
     if not content or content in [" ", "\n", "\t"]:
         return "."
 
-    # Join content if it is a list.
     if isinstance(content, list):
         return " ".join(content.get("text", "") for content in content)
 
     if role != "system":
         return content
 
-    # Simulate *system message*.
     return f"*{content}*"
 
 
@@ -324,11 +343,3 @@ def _map_role(role: str | ConversationRole) -> str:
             return "model"
         case _:
             return "user"
-
-
-def _map_turn_content_to_str(turn: ContentTurn | Turn) -> str:
-    match turn:
-        case ContentTurn():
-            return " ".join(content.text for content in turn.content)  # type: ignore[union-attr]
-        case Turn():
-            return turn.content

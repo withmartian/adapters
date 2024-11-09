@@ -7,19 +7,53 @@ from openai.types.chat import (
     ChatCompletionMessageToolCall,
 )
 from openai.types.chat.chat_completion_message import FunctionCall
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
-class ResponseBody(Dict[str, Any]):
-    pass
+class Provider(str, Enum):
+    ai21 = "ai21"
+    anthropic = "anthropic"
+    azure = "azure"
+    cerebras = "cerebras"
+    cohere = "cohere"
+    databricks = "databricks"
+    deepinfra = "deepinfra"
+    fireworks = "fireworks"
+    gemini = "gemini"
+    groq = "groq"
+    lepton = "lepton"
+    moonshot = "moonshot"
+    octoai = "octoai"
+    openai = "openai"
+    openrouter = "openrouter"
+    perplexity = "perplexity"
+    together = "together"
+    vertex = "vertex"
 
 
-class RequestBody(Dict[str, Any]):
-    pass
-
-
-class RequestQueryParams(Dict[str, str]):
-    pass
+class Vendor(str, Enum):
+    meta_llama = "meta-llama"
+    perplexity = "perplexity"
+    databricks = "databricks"
+    mistralai = "mistralai"
+    mixtral = "mixtral"
+    pygmalionai = "pygmalionai"
+    qwen = "qwen"
+    openai = "openai"
+    anthropic = "anthropic"
+    cohere = "cohere"
+    gemini = "gemini"
+    together = "together"
+    nous_hermes = "nous-hermes"
+    hermes_llama = "hermes-llama"
+    moonshot = "moonshot"
+    wizardlm = "wizardlm"
+    google = "google"
+    ai21 = "ai21"
+    O1 = "01"
+    starcoder = "starcoder"
+    gryphe = "gryphe"
+    microsoft = "microsoft"
 
 
 class ConversationRole(str, Enum):
@@ -122,22 +156,31 @@ class Model(BaseModel):
     context_length: int
     completion_length: Optional[int] = None
 
-    supports_user: bool = False
-    supports_repeating_roles: bool = False
-    supports_streaming: bool = False
-    supports_vision: bool = False
+    supports_user: bool = True
+    supports_repeating_roles: bool = True
+    supports_streaming: bool = True
+    supports_vision: bool = True
+    supports_tools: bool = True
+    supports_n: bool = True
+    supports_system: bool = True
+    supports_multiple_system: bool = True
+    supports_empty_content: bool = True
+    supports_tool_choice: bool = True
+    supports_tool_choice_required: bool = True
+    supports_json_output: bool = True
+    supports_json_content: bool = True
+    supports_last_assistant: bool = True
+    supports_first_assistant: bool = True
+    supports_temperature: bool = True
+
+    # New
+    supports_only_system: bool = True
+    supports_only_assistant: bool = True
+
+    # supports_tools_streaming: bool = True
+
+    # Deprecated, move to tools
     supports_functions: bool = False
-    supports_tools: bool = False
-    supports_n: bool = False
-    supports_system: bool = False
-    supports_multiple_system: bool = False
-    supports_empty_content: bool = False
-    supports_tool_choice_required: bool = False
-    supports_json_output: bool = False
-    supports_json_content: bool = False
-    supports_last_assistant: bool = False
-    supports_first_assistant: bool = False
-    supports_temperature: bool = False
 
     properties: ModelProperties = Field(default_factory=ModelProperties)
 
@@ -147,37 +190,29 @@ class Model(BaseModel):
     def _get_api_path(self) -> str:
         return self.name
 
+    def __str__(self) -> str:
+        return self.get_path()
+
+
+TurnType = Union[
+    Turn,
+    FunctionOutputTurn,
+    ToolOutputTurn,
+    ToolsCallTurn,
+    ContentTurn,
+    FunctionCallTurn,
+]
+
 
 class Conversation(BaseModel):
-    turns: List[
-        Union[Turn, FunctionOutputTurn, ToolOutputTurn, ToolsCallTurn, ContentTurn]
-    ]
+    turns: List[TurnType]
 
     def __init__(
         self,
         turns: Union[
-            List[
-                Union[
-                    Turn,
-                    FunctionOutputTurn,
-                    ToolOutputTurn,
-                    ToolsCallTurn,
-                    ContentTurn,
-                ]
-            ],
             "Conversation",
-            Dict[
-                str,
-                List[
-                    Union[
-                        Turn,
-                        FunctionOutputTurn,
-                        ToolOutputTurn,
-                        ToolsCallTurn,
-                        ContentTurn,
-                    ]
-                ],
-            ],
+            List[TurnType],
+            Dict[str, List[TurnType]],
         ],
     ):
         if isinstance(turns, Conversation):
@@ -186,18 +221,18 @@ class Conversation(BaseModel):
             turns = turns["turns"]
         super().__init__(turns=turns)
 
-    def __getitem__(self, index):
+    def __getitem__(self, index: int) -> TurnType:
         return self.turns[index]
 
-    def __setitem__(self, index, value):
+    def __setitem__(self, index: int, value: TurnType) -> None:
         if not isinstance(value, Turn):
             raise ValueError("Value must be an instance of Turn")
         self.turns[index] = value
 
-    def __len__(self):
+    def __len__(self) -> int:
         return len(self.turns)
 
-    def __iter__(self):
+    def __iter__(self) -> Any:
         return iter(self.turns)
 
     def is_last_turn_vision_query(self) -> bool:
@@ -236,8 +271,7 @@ class AdapterStreamChatCompletion(BaseModel):
         AsyncGenerator[AdapterChatCompletionChunk, Any],
     ]
 
-    class Config:
-        arbitrary_types_allowed = True
+    model_config = ConfigDict(arbitrary_types_allowed=True)
 
 
 class AdapterStreamSyncChatCompletion(AdapterStreamChatCompletion):
@@ -267,3 +301,26 @@ AdapterResponse = AdapterChatCompletion
 
 # Deprecated, Use AdapterStreamChatCompletion
 AdapterStreamResponse = AdapterStreamChatCompletion
+
+__all__ = [
+    "Conversation",
+    "Turn",
+    "TurnType",
+    "ContentTurn",
+    "FunctionOutputTurn",
+    "ToolOutputTurn",
+    "ToolsCallTurn",
+    "FunctionCallTurn",
+    "Cost",
+    "Model",
+    "AdapterChatCompletion",
+    "AdapterStreamChatCompletion",
+    "AdapterStreamSyncChatCompletion",
+    "AdapterStreamAsyncChatCompletion",
+    "AdapterChatCompletionChunk",
+    "AdapterException",
+    "AdapterRateLimitException",
+    "Prompt",
+    "AdapterResponse",
+    "AdapterStreamResponse",
+]

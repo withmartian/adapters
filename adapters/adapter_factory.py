@@ -145,3 +145,6 @@ class AdapterFactory:
             and (not supports_temperature or model.supports_temperature)
             and model.name not in disabled_models
         ]
+
+
+__all__ = ["AdapterFactory"]

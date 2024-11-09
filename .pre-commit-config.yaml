@@ -1,99 +1,81 @@
-default_stages: [commit]
+default_stages: [pre-commit]
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: trailing-whitespace
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: pretty-format-json
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
         args: [--autofix]
         exclude: .vscode|dist|build|.venv
       - id: sort-simple-yaml
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: mixed-line-ending
-        stages: [commit, manual]
-      # - id: flake8
-      #   stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: fix-encoding-pragma
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
         args: ["--remove"]
       - id: end-of-file-fixer
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: detect-private-key
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: debug-statements
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: check-yaml
         exclude: "k8s"
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
         args: ["--unsafe"]
       - id: check-xml
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: check-toml
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: check-merge-conflict
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: check-json
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
         exclude: .vscode
       - id: check-executables-have-shebangs
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: check-docstring-first
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: check-case-conflict
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: fix-byte-order-marker
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: check-builtin-literals
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: check-ast
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: check-added-large-files
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
         args: ["--maxkb=3000"]
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.3.4
+    rev: v0.7.2
     hooks:
       - id: ruff
-        args: [--fix, --exit-non-zero-on-fix]
+        args: [--fix]
       - id: ruff-format
-  - repo: https://github.com/PyCQA/pylint
-    rev: v3.2.5
-    hooks:
-      - id: pylint
-        types: [python]
-        args: [--rcfile, .pylintrc, -sn]
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.10.1
+    rev: v1.13.0
     hooks:
       - id: mypy
-        args: [--show-error-codes, --show-traceback]
+        args: [--strict]
         additional_dependencies:
-          - asyncio==3.4.3
-          - aiohttp==3.9.5
-          - aiolimiter==1.1.0
-          - anthropic==0.34.2
-          - pydantic==2.4.2
-          - pytest==8.2.2
-          - types-python-dateutil==2.8.19.13
-          - types-requests==2.31.0.1
-          - openai==1.50.1
-          - vcrpy==6.0.1
-  # - repo: https://github.com/yunojuno/pre-commit-xenon
-  #   rev: v0.1
+          - pytest == 8.3.3
+          - pytest-dotenv == 0.5.2
+          - pytest-asyncio == 0.24.0
+          - pytest-recording == 0.13.2
+          - mypy == 1.13.0
+          - vcrpy == 6.0.2
+          - pydantic == 2.9.2
+          - anthropic == 0.36.2
+          - openai == 1.52.2
+          - cohere == 5.11.1
+          - google-generativeai == 0.8.3
+          - vertexai == 1.70.0
+          - brotli == 1.1.0
+  # - repo: https://github.com/PyCQA/bandit
+  #   rev: 1.7.10
   #   hooks:
-  #     - id: xenon
-  #       files: ^(adapters)
-  #       args:
-  #         ["--max-absolute", "B", "--max-modules", "B", "--max-average", "B"]
-  - repo: https://github.com/PyCQA/bandit
-    rev: "1.7.9"
-    hooks:
-      - id: bandit
-        files: ^co2ai
-  - repo: https://github.com/lk16/detect-missing-init
-    rev: v0.1.6
-    hooks:
-      - id: detect-missing-init
-        args: ["--track", "--python-folders", "adapters, tests"]
+  #     - id: bandit

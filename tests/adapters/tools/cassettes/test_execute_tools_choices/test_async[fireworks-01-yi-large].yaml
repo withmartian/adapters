@@ -1,0 +1,105 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number via tools,
+      range 1-10"}], "model": "accounts/yi-01-ai/models/yi-large", "stream": false,
+      "tool_choice": {"type": "function", "function": {"name": "generate"}}, "tools":
+      [{"type": "function", "function": {"description": "Generate random number",
+      "name": "generate", "parameters": {"type": "object", "properties": {"prompt":
+      {"type": "string", "description": "Random number like 5, 4, 3, 10, 11"}}, "required":
+      ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '490'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"ffbbc73a-d9a0-4de7-9404-e2a86e041f00","object":"chat.completion","created":1731098969,"model":"accounts/yi-01-ai/models/yi-large","choices":[{"index":0,"message":{"role":"assistant","content":"I
+        can''t generate random numbers directly through this interface, but I can
+        guide you on how to generate a random number between 1 and 10 using various
+        tools and programming languages:\n\n### Python\nYou can use Python''s `random`
+        module to generate a random number:\n```python\nimport random\nprint(random.randint(1,
+        10))\n```\n\n### JavaScript\nIn JavaScript, you can use the following code
+        in a browser console or a Node.js environment:\n```javascript\nconsole.log(Math.floor(Math.random()
+        * 10) + 1);\n```\n\n### Microsoft Excel\nTo generate a random number between
+        1 and 10 in Excel, use the `RANDBETWEEN` function:\n```\n=RANDBETWEEN(1, 10)\n```\n\n###
+        Google Sheets\nGoogle Sheets also uses the `RANDBETWEEN` function similar
+        to Excel:\n```\n=RANDBETWEEN(1, 10)\n```\n\n### Online Random Number Generators\nThere
+        are many websites that offer random number generation services. Simply search
+        for \"random number generator\" and you''ll find various tools where you can
+        specify the range and it will generate a random number for you.\n\n### Command
+        Line (Linux/macOS)\nUsing the `shuf` command:\n```sh\nshuf -i 1-10 -n 1\n```\n\n###
+        Command Line (Windows)\nUsing PowerShell:\n```powershell\n(Get-Random -Minimum
+        1 -Maximum 11)\n```\n\nRemember, these are just examples, and you should use
+        the method that best fits your needs or the environment you''re working in."},"finish_reason":"stop"}],"usage":{"prompt_tokens":23,"total_tokens":410,"completion_tokens":387}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8df86e0de970faae-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 Nov 2024 20:49:33 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=3806.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '1665'
+      fireworks-middleware-version:
+      - v2
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '3.664'
+      x-envoy-upstream-service-time:
+      - '3666'
+      x-request-id:
+      - ffbbc73a-d9a0-4de7-9404-e2a86e041f00
+    status:
+      code: 200
+      message: OK
+version: 1

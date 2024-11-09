@@ -1,32 +1,30 @@
 import pytest
 
-from adapters.adapter_factory import AdapterFactory
-from tests.adapters.utils.constants import MODEL_PATHS
-from tests.utils import SIMPLE_CONVERSATION_EMPTY_CONTENT, get_response_content_from_vcr
+from adapters.types import Conversation, ConversationRole, Turn
+from tests.utils import (
+    ADAPTER_TEST_FACTORIES,
+    AdapterTestFactory,
+    get_response_content_from_vcr,
+)
+from vcr import VCR
 
 
-@pytest.mark.parametrize("model_path", MODEL_PATHS)
+conversation = Conversation(
+    [
+        Turn(role=ConversationRole.system, content=""),
+        Turn(role=ConversationRole.user, content=""),
+        Turn(role=ConversationRole.assistant, content=" "),
+        Turn(role=ConversationRole.user, content="\n"),
+    ]
+)
+
+
 @pytest.mark.vcr
-def test_sync(vcr, model_path: str):
-    adapter = AdapterFactory.get_adapter_by_path(model_path)
+@pytest.mark.parametrize("create_adapter", ADAPTER_TEST_FACTORIES, ids=str)
+async def test_async(vcr: VCR, create_adapter: AdapterTestFactory) -> None:
+    adapter = create_adapter()
 
-    assert adapter is not None
-
-    adapter_response = adapter.execute_sync(SIMPLE_CONVERSATION_EMPTY_CONTENT)
-
-    cassette_response = get_response_content_from_vcr(vcr, adapter)
-
-    assert adapter_response.choices[0].message.content == cassette_response
-
-
-@pytest.mark.parametrize("model_path", MODEL_PATHS)
-@pytest.mark.vcr
-async def test_async(vcr, model_path: str):
-    adapter = AdapterFactory.get_adapter_by_path(model_path)
-
-    assert adapter is not None
-
-    adapter_response = await adapter.execute_async(SIMPLE_CONVERSATION_EMPTY_CONTENT)
+    adapter_response = await adapter.execute_async(conversation)
 
     cassette_response = get_response_content_from_vcr(vcr, adapter)
 

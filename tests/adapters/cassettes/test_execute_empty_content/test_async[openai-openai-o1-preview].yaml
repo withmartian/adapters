@@ -1,22 +1,23 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "user", "content": ""}, {"role": "assistant", "content":
-      " "}, {"role": "user", "content": "\n"}], "model": "o1-preview", "stream": false}'
+    body: '{"messages": [{"role": "user", "content": ""}, {"role": "user", "content":
+      ""}, {"role": "assistant", "content": " "}, {"role": "user", "content": "\n"}],
+      "model": "o1-preview", "stream": false}'
     headers:
       accept:
       - application/json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       content-length:
-      - '161'
+      - '194'
       content-type:
       - application/json
       host:
       - api.openai.com
       user-agent:
-      - AsyncOpenAI/Python 1.50.1
+      - AsyncOpenAI/Python 1.54.1
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,7 +27,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.50.1
+      - 1.54.1
       x-stainless-retry-count:
       - '0'
       x-stainless-runtime:
@@ -37,33 +38,35 @@ interactions:
     uri: https://api.openai.com/v1/chat/completions
   response:
     body:
-      string: "{\n  \"id\": \"chatcmpl-AJ5LByoAX6sEqmVfkueUUHQJvbwuw\",\n  \"object\":
-        \"chat.completion\",\n  \"created\": 1729112125,\n  \"model\": \"o1-preview-2024-09-12\",\n
-        \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-        \"assistant\",\n        \"content\": \"Hello! How can I assist you today?\",\n
-        \       \"refusal\": null\n      },\n      \"finish_reason\": \"stop\"\n    }\n
-        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 28,\n    \"completion_tokens\":
-        474,\n    \"total_tokens\": 502,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\":
-        0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-        448\n    }\n  },\n  \"system_fingerprint\": \"fp_49f580698f\"\n}\n"
+      string: !!binary |
+        IYwMACB+5Vafk0SvOoaDFZsTF4qdacQaPf3fgGuCw4cFRQIVRt9HgRVILgSidDjgEU+n7tnib2zH
+        CvEFnL/9swBKDCmQjoNOF1XubN9c706axOy83OmfeHZ5tKxf7ovnZzNrzkdkWwDJMmXdrWRXUgy0
+        REoKXbn8HRtSGMxGA28xX3gL8GYhhnNSIBk41dGv85cz9IZjx1s4g6GBt7EkmltSeLUA4O+uB9AR
+        +G1S8OyndEKGSIr4J4AayZkUKGjbpO2CsiObAB3sbivQrvS5wY/0KFgvMPJOHCikYTRw+6aFNMi5
+        Q8HISvlCLF84hg5KbLHAj/SbFxxvPx7kpFD2eY5x/1XTzd9a/oe2hkmB2k4qMmH8t4D3KHR7xz6h
+        qpGi6vxOMi5bUhjNTbYo9EDQp4PphF8lgODUZGzbZHxnMY7nSAc6ZrMcgj4PepMISAzKwwJJhfZJ
+        73tJGanjJzPZRZsAmNKaq46N3+0w6ziI3NdwyppKSmYs2Ry1Jbjgh0kZcVM1ybvxOqx8bx6OlsFk
+        MtNk/bcMAw==
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8d3af31e39771698-SJC
+      - 8df86c98eaad6447-SJC
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Oct 2024 20:55:33 GMT
+      - Fri, 08 Nov 2024 20:48:35 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=3KFlcE6arGXM_fgoID2hw7NfMurCMiTIQh2eFmOWOjY-1729112133-1.0.1.1-r_Z5fVQGVaNwLDxEZdWlAhLfTfqXKdLrnPEoWF3BAIXRudrulTza_UQIWDbX2LFKE9RDLFIeco5NSU1oKOtFeg;
-        path=/; expires=Wed, 16-Oct-24 21:25:33 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=HUi6kAwbIoB7EzDY3A4_J2XtZ17QwC9myeWA5QXMPUo-1731098915-1.0.1.1-7u5QoLUR5iBOjAUO30q6ZEVkU7nRk8JKfkkfv8CCPc4tJogZFIZI159NB.oUQwg2i1YK1f1Y231pQVDvjXe7_Q;
+        path=/; expires=Fri, 08-Nov-24 21:18:35 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=0LBC4LBjQ7oTrcayknYnz89b8yI4sktZU3j889OlmXE-1729112133743-0.0.1.1-604800000;
+      - _cfuvid=RcbdhUgJV3SQOPhig29IKphbbPFSt.7BJ6L7F78XkbM-1731098915243-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Transfer-Encoding:
       - chunked
@@ -73,12 +76,10 @@ interactions:
       - X-Request-ID
       alt-svc:
       - h3=":443"; ma=86400
-      content-length:
-      - '636'
       openai-organization:
       - martian-4
       openai-processing-ms:
-      - '8487'
+      - '5536'
       openai-version:
       - '2020-10-01'
       strict-transport-security:
@@ -96,7 +97,7 @@ interactions:
       x-ratelimit-reset-tokens:
       - 0s
       x-request-id:
-      - req_97aa8f0ef376b487dae577275a8625ae
+      - req_e33cf5c2ceceae475fb185cf94850555
     status:
       code: 200
       message: OK

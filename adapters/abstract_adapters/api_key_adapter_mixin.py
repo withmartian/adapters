@@ -8,12 +8,13 @@ class ApiKeyAdapterMixin:
     _api_keys: List[str] = []
     _next_api_key = 0
 
-    def __init__(self):
+    def __init__(self) -> None:
         api_keys = os.environ.get(f"{self.get_api_key_name()}_LIST", None)
         if api_keys:
             ApiKeyAdapterMixin._api_keys = api_keys.split(",")
         else:
-            self._api_keys = [os.environ.get(self.get_api_key_name())]
+            api_key = os.environ.get(self.get_api_key_name())
+            self._api_keys = [api_key] if api_key else []
 
     @staticmethod
     @abstractmethod
@@ -24,8 +25,8 @@ class ApiKeyAdapterMixin:
             str: api key name for the adapter (e.g. "OPENAI_API_KEY")
         """
 
-    def _api_key_was_set_by_user(self):
-        return self._api_key
+    def _api_key_was_set_by_user(self) -> bool:
+        return bool(self._api_key)
 
     def set_api_key(self, api_key: str) -> None:
         """sets an api key for the adapter

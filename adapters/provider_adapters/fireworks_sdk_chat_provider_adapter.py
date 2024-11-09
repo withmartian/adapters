@@ -1,116 +1,204 @@
+from typing import Any
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.types import Cost, Model, ModelProperties
-
-PROVIDER_NAME = "fireworks"
-BASE_URL = "https://api.fireworks.ai/inference/v1"
-API_KEY_NAME = "FIREWORKS_API_KEY"
-BASE_PROPERTIES = ModelProperties(
-    open_source=True,
-)
+from adapters.types import Conversation, Cost, Model, ModelProperties, Provider, Vendor
 
 
 class FireworksModel(Model):
-    provider_name: str = PROVIDER_NAME
-    properties: ModelProperties = BASE_PROPERTIES
+    provider_name: str = Provider.fireworks.value
 
-    supports_repeating_roles: bool = True
-    supports_system: bool = True
-    supports_multiple_system: bool = True
-    supports_empty_content: bool = True
-    supports_tool_choice_required: bool = True
-    supports_last_assistant: bool = True
-    supports_first_assistant: bool = True
-    supports_streaming: bool = True
-    supports_temperature: bool = True
+    properties: ModelProperties = ModelProperties(open_source=True)
 
     def _get_api_path(self) -> str:
+        if self.name == "yi-large":
+            return f"accounts/yi-01-ai/models/{self.name}"
+
         return f"accounts/fireworks/models/{self.name}"
 
 
-MODELS = [
+MODELS: list[Model] = [
     FireworksModel(
         name="llama-v3p1-405b-instruct",
         cost=Cost(prompt=3.00e-6, completion=3.00e-6),
         context_length=131072,
-        vendor_name="meta-llama",
+        vendor_name=Vendor.meta_llama.value,
+        supports_vision=False,
+        supports_tools=False,
     ),
     FireworksModel(
         name="llama-v3p1-70b-instruct",
         cost=Cost(prompt=0.90e-6, completion=0.90e-6),
         context_length=131072,
-        vendor_name="meta-llama",
+        vendor_name=Vendor.meta_llama.value,
+        supports_vision=False,
+        supports_tools=False,
     ),
     FireworksModel(
         name="llama-v3p1-8b-instruct",
         cost=Cost(prompt=0.20e-6, completion=0.20e-6),
         context_length=131072,
-        vendor_name="meta-llama",
+        vendor_name=Vendor.meta_llama.value,
+        supports_vision=False,
+        supports_tools=False,
     ),
     FireworksModel(
         name="llama-v3p2-3b-instruct",
-        cost=Cost(prompt=0.10e-6, completion=0.10e-6),
+        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
         context_length=131072,
-        vendor_name="meta-llama",
+        vendor_name=Vendor.meta_llama.value,
+        supports_vision=False,
+        supports_tools=False,
+    ),
+    FireworksModel(
+        name="mixtral-8x22b-instruct",
+        cost=Cost(prompt=0.90e-6, completion=0.90e-6),
+        context_length=65536,
+        vendor_name=Vendor.mistralai.value,
+        supports_vision=False,
+        supports_tools=False,
     ),
     FireworksModel(
         name="llama-v3p2-11b-vision-instruct",
         cost=Cost(prompt=0.20e-6, completion=0.20e-6),
         context_length=131072,
-        vendor_name="meta-llama",
-    ),
-    FireworksModel(
-        name="llama-v3p2-1b-instruct",
-        cost=Cost(prompt=0.10e-6, completion=0.10e-6),
-        context_length=131072,
-        vendor_name="meta-llama",
+        vendor_name=Vendor.meta_llama.value,
+        supports_tools=False,
     ),
     FireworksModel(
         name="llama-v3p2-90b-vision-instruct",
         cost=Cost(prompt=0.90e-6, completion=0.90e-6),
         context_length=131072,
-        vendor_name="meta-llama",
+        vendor_name=Vendor.meta_llama.value,
+        supports_tools=False,
     ),
     FireworksModel(
-        name="qwen2p5-72b-instruct",
-        cost=Cost(prompt=0.90e-6, completion=0.90e-6),
+        name="mixtral-8x7b-instruct-hf",
+        cost=Cost(prompt=0.50e-6, completion=0.50e-6),
         context_length=32768,
-        vendor_name="qwen",
+        vendor_name=Vendor.mistralai.value,
+        supports_first_assistant=False,
+        supports_json_content=False,
+        supports_repeating_roles=False,
+        supports_vision=False,
+        supports_tools=False,
     ),
     FireworksModel(
-        name="mixtral-8x22b-instruct",
-        cost=Cost(prompt=1.20e-6, completion=1.20e-6),
-        context_length=65536,
-        vendor_name="mistralai",
+        name="yi-large",
+        cost=Cost(prompt=3.00e-6, completion=3.00e-6),
+        context_length=32768,
+        vendor_name=Vendor.O1.value,
+        supports_vision=False,
+        supports_tools=False,
+    ),
+    FireworksModel(
+        name="llama-v3-70b-instruct-hf",
+        cost=Cost(prompt=0.90e-6, completion=0.90e-6),
+        context_length=8192,
+        vendor_name=Vendor.meta_llama.value,
+        supports_vision=False,
+        supports_tools=False,
+    ),
+    FireworksModel(
+        name="llama-v3-70b-instruct",
+        cost=Cost(prompt=0.90e-6, completion=0.90e-6),
+        context_length=8192,
+        vendor_name=Vendor.meta_llama.value,
+        supports_vision=False,
+        supports_tools=False,
+    ),
+    FireworksModel(
+        name="llama-v3-8b-instruct-hf",
+        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
+        context_length=8192,
+        vendor_name=Vendor.meta_llama.value,
+        supports_vision=False,
+        supports_tools=False,
+    ),
+    FireworksModel(
+        name="llama-v3-8b-instruct",
+        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
+        context_length=8192,
+        vendor_name=Vendor.meta_llama.value,
+        supports_vision=False,
+        supports_tools=False,
+    ),
+    FireworksModel(
+        name="phi-3-vision-128k-instruct",
+        cost=Cost(prompt=0.90e-6, completion=0.90e-6),
+        context_length=32064,
+        vendor_name=Vendor.microsoft.value,
+        supports_tools=False,
     ),
     FireworksModel(
         name="mixtral-8x7b-instruct",
         cost=Cost(prompt=0.50e-6, completion=0.50e-6),
         context_length=32768,
-        vendor_name="mistralai",
+        vendor_name=Vendor.mistralai.value,
+        supports_first_assistant=False,
+        supports_json_content=False,
+        supports_repeating_roles=False,
+        supports_vision=False,
+        supports_tools=False,
+    ),
+    FireworksModel(
+        name="mythomax-l2-13b",
+        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
+        context_length=4096,
+        vendor_name=Vendor.gryphe.value,
+        supports_vision=False,
+        supports_tools=False,
+    ),
+    FireworksModel(
+        name="qwen2p5-72b-instruct",
+        cost=Cost(prompt=0.90e-6, completion=0.90e-6),
+        context_length=32768,
+        vendor_name=Vendor.qwen.value,
+        supports_vision=False,
+        supports_tools=False,
+    ),
+    FireworksModel(
+        name="llama-v3p2-1b-instruct",
+        cost=Cost(prompt=0.20e-6, completion=0.20e-6),
+        context_length=131072,
+        vendor_name=Vendor.O1.value,
+        supports_vision=False,
+        supports_tools=False,
     ),
 ]
 
 
 class FireworksSDKChatProviderAdapter(OpenAISDKChatAdapter):
     @staticmethod
-    def get_supported_models():
+    def get_supported_models() -> list[Model]:
         return MODELS
 
     @staticmethod
-    def get_provider_name() -> str:
-        return PROVIDER_NAME
+    def get_api_key_name() -> str:
+        return "FIREWORKS_API_KEY"
 
     def get_base_sdk_url(self) -> str:
-        return BASE_URL
+        return "https://api.fireworks.ai/inference/v1"
 
-    @staticmethod
-    def get_api_key_name() -> str:
-        return API_KEY_NAME
+    def _get_params(self, llm_input: Conversation, **kwargs: Any) -> dict[str, Any]:
+        params = super()._get_params(llm_input, **kwargs)
 
-    # def extract_stream_response(self, request, response: ChatCompletionChunk) -> str:
-    #     if response.choices and response.choices[0].delta.content is None:
-    #         # It must be the first response.
-    #         # Most models start with an empty string.
-    #         response.choices[0].delta.content = ""
+        # Keep only last image_url for vision
+        skiped_image = False
+        for message in reversed(params["messages"]):
+            if isinstance(message["content"], list):
+                for content in reversed(message["content"]):
+                    if content["type"] == "image_url":
+                        if skiped_image:
+                            content["type"] = "text"
+                            content["text"] = content["image_url"]["url"]
+                            del content["image_url"]
+                        else:
+                            skiped_image = True
 
-    #     return f"data: {response.model_dump_json()}\n\n"
+        # Remove image details
+        for message in params["messages"]:
+            if isinstance(message["content"], list):
+                for content in message["content"]:
+                    if content["type"] == "image_url":
+                        del content["image_url"]["details"]
+
+        return params
