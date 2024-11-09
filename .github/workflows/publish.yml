@@ -25,7 +25,7 @@ jobs:
         run: poetry install
 
       - name: Set PyPI token for Poetry
-        run: poetry config pypi-token.pypi ${{ env.PYPI_API_TOKEN }}
+        run: poetry config pypi-token.pypi ${{ secrets.PYPI_API_TOKEN }}
 
       - name: Run lint
         run: poetry run pre-commit run --all-files
@@ -33,7 +33,7 @@ jobs:
       - name: Run tests
         run: poetry run pytest -x -n=auto --record-mode=none
         env:
-          ANTHROPIC_API_KEY: ${{ env.ANTHROPIC_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
       - name: Run file generation script
         run: poetry run python generate.py
@@ -46,7 +46,7 @@ jobs:
           git commit -m "docs: generate models file"
           git push
         env:
-          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run publish
         run: poetry publish --build
