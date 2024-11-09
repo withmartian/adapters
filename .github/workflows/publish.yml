@@ -6,6 +6,8 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      VARS_CONTEXT: ${{ toJson(vars) }}
 
     steps:
       - name: Setup env
