@@ -8,6 +8,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Setup env
+        run: |
+          echo "$VARS_CONTEXT" |
+          jq -r 'to_entries |
+          .[] |
+          "\(.key)=\(.value)"' >> $GITHUB_ENV
+
       - name: Checkout code
         uses: actions/checkout@v3
 
