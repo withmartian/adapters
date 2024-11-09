@@ -33,5 +33,18 @@ jobs:
       - name: Run tests
         run: poetry run pytest -x -n=auto --record-mode=none
 
+      - name: Run file generation script
+        run: poetry run python generate.py
+
+      - name: Commit generated files
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git commit -m "docs: generate models file"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Run publish
         run: poetry publish --build
