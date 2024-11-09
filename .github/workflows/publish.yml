@@ -6,17 +6,8 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    env:
-      VARS_CONTEXT: ${{ toJson(vars) }}
 
     steps:
-      - name: Setup env
-        run: |
-          echo "$VARS_CONTEXT" |
-          jq -r 'to_entries |
-          .[] |
-          "\(.key)=\(.value)"' >> $GITHUB_ENV
-
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -41,6 +32,8 @@ jobs:
 
       - name: Run tests
         run: poetry run pytest -x -n=auto --record-mode=none
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
       - name: Run file generation script
         run: poetry run python generate.py
