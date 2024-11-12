@@ -37,14 +37,14 @@ jobs:
       - name: Generate documentation
         run: poetry run python ./docs/generate.py
 
-      - name: Commit generated files
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -am "docs: generate models file" --allow-empty --no-verify
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Commit generated files
+      #   run: |
+      #     git config --global user.name "github-actions[bot]"
+      #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      #     git commit -am "docs: generate models file" --allow-empty --no-verify
+      #     git push
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish package
         run: |
