@@ -29,6 +29,7 @@ class Provider(str, Enum):
     perplexity = "perplexity"
     together = "together"
     vertex = "vertex"
+    bigmodel = "bigmodel"
 
 
 class Vendor(str, Enum):
@@ -54,6 +55,7 @@ class Vendor(str, Enum):
     starcoder = "starcoder"
     gryphe = "gryphe"
     microsoft = "microsoft"
+    bigmodel = "bigmodel"
 
 
 class ConversationRole(str, Enum):
