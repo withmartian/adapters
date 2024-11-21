@@ -1,0 +1,66 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number via tools,
+      range 1-10"}], "model": "glm-4-long", "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '131'
+      content-type:
+      - application/json
+      host:
+      - open.bigmodel.cn
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - other:amd64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Windows
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.12.2
+    method: POST
+    uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
+  response:
+    body:
+      string: "{\"error\":{\"code\":\"1305\",\"message\":\"\u5F53\u524DAPI\u8BF7\u6C42\u8FC7\u591A\uFF0C\u8BF7\u7A0D\u540E\u91CD\u8BD5\u3002\"}}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 21 Nov 2024 02:05:56 GMT
+      Set-Cookie:
+      - acw_tc=0a47308517321547559518432e00363a72178f4de10ff50b729b026f71b0be;path=/;HttpOnly;Max-Age=1800
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      X-LOG-ID:
+      - 20241121100556eb83332a25ab46a1
+    status:
+      code: 429
+      message: Too Many Requests
+version: 1

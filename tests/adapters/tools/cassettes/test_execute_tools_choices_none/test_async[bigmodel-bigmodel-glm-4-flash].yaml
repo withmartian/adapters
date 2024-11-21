@@ -1,0 +1,71 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number via tools,
+      range 1-10"}], "model": "glm-4-flash", "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '132'
+      content-type:
+      - application/json
+      host:
+      - open.bigmodel.cn
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - other:amd64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Windows
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.12.2
+    method: POST
+    uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
+  response:
+    body:
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"Sure,
+        I can generate a random number for you within the range of 1 to 10. Here it
+        is:\n\n7","role":"assistant"}}],"created":1732154777,"id":"202411211006164f163333aab14939","model":"glm-4-flash","request_id":"202411211006164f163333aab14939","usage":{"completion_tokens":27,"prompt_tokens":16,"total_tokens":43}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 21 Nov 2024 02:06:17 GMT
+      Set-Cookie:
+      - acw_tc=0a47329d17321547764416466e003ba5578504abde701d6b0dad8b0c865cef;path=/;HttpOnly;Max-Age=1800
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      X-LOG-ID:
+      - 202411211006164f163333aab14939
+      content-length:
+      - '379'
+    status:
+      code: 200
+      message: OK
+version: 1

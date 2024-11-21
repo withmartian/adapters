@@ -1,0 +1,70 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, output simple json"}], "model":
+      "glm-4v", "response_format": {"type": "json_object"}, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '149'
+      content-type:
+      - application/json
+      host:
+      - open.bigmodel.cn
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - other:amd64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Windows
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.12.2
+    method: POST
+    uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
+  response:
+    body:
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"```json\n{\n  \"message\":
+        \"Hello! How can I assist you today?\"\n}\n```","role":"assistant"}}],"created":1732153620,"id":"2024112109465775b6549624b24469","model":"glm-4v","request_id":"2024112109465775b6549624b24469","usage":{"completion_tokens":25,"prompt_tokens":1673,"total_tokens":1698}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 21 Nov 2024 01:47:00 GMT
+      Set-Cookie:
+      - acw_tc=0a47314617321536178828684e003cebc44b27f69ce38aaef713f18c0858e9;path=/;HttpOnly;Max-Age=1800
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      X-LOG-ID:
+      - 2024112109465775b6549624b24469
+      content-length:
+      - '361'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,95 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
+      "Hi"}], "model": "glm-4v-plus", "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '127'
+      content-type:
+      - application/json
+      host:
+      - open.bigmodel.cn
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - other:amd64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Windows
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.12.2
+    method: POST
+    uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
+  response:
+    body:
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":":\n\nStep
+        1: Understanding the problem and given information\n\nWe are given a triangle
+        with vertices A(2, -3), B(-4, 5) and C(0, 6). We need to find the area of
+        this triangle.\n\nStep 2: Finding the lengths of the sides of the triangle\n\nTo
+        calculate the area of a triangle, we first need to find the lengths of its
+        sides. Let''s denote the side opposite vertex A as BC, the side opposite vertex
+        B as CA, and the side opposite vertex C as AB.\n\nUsing the distance formula,
+        we can find the length of each side:\n- The length of side BC is calculated
+        using the coordinates of points B and C.\n   BC = sqrt((x2 - x1)^2 + (y2 -
+        y1)^2)\n      = sqrt((-4 - 0)^2 + (5 - 6)^2)\n      = sqrt(16 + 1)\n      =
+        sqrt(17)\n\n- Similarly, the length of side CA is calculated using the coordinates
+        of points C and A.\n   CA = sqrt((x2 - x1)^2 + (y2 - y1)^2)\n      = sqrt((0
+        - 2)^2 + (6 - (-3))^2)\n      = sqrt(4 + 81)\n      = sqrt(85)\n\n- Finally,
+        the length of side AB is calculated using the coordinates of points A and
+        B.\n   AB = sqrt((x2 - x1)^2 + (y2 - y1)^2)\n      = sqrt((-4 - 2)^2 + (5
+        - (-3))^2)\n      = sqrt(36 + 64)\n      = sqrt(100)\n      = 10\n\nSo, the
+        lengths of the sides of the triangle are BC = sqrt(17), CA = sqrt(85), and
+        AB = 10.\n\nStep 3: Calculating the semi-perimeter of the triangle\n\nThe
+        semi-perimeter of a triangle is half the sum of its side lengths. In this
+        case, it would be:\ns = (BC + CA + AB)/2\n  = (sqrt(17) + sqrt(85) + 10)/2\n\nStep
+        4: Using Heron''s formula to find the area of the triangle\n\nHeron''s formula
+        states that the area of a triangle with side lengths a, b, and c is given
+        by:\nArea = sqrt(s * (s - a) * (s - b) * (s - c))\n\nSubstituting the values
+        we have found into the formula:\nArea = sqrt(((sqrt(17) + sqrt(85) + 10)/2)
+        * (((sqrt(17) + sqrt(85) + 10)/2) - sqrt(17)) * (((sqrt(17) + sqrt(85) + 10)/2)
+        - sqrt(85)) * (((sqrt(17) + sqrt(85) + 10)/2) - 10))\n\nSimplifying the expression
+        gives us the final answer for the area of the triangle.","role":"assistant"}}],"created":1732153545,"id":"20241121094526a1b9c242aed04abe","model":"glm-4v-plus","request_id":"20241121094526a1b9c242aed04abe","usage":{"completion_tokens":628,"prompt_tokens":11,"total_tokens":639}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 21 Nov 2024 01:45:45 GMT
+      Set-Cookie:
+      - acw_tc=0a47329d17321535259813450e00479ebf9726b6d98d5de5b2c3cd9970371e;path=/;HttpOnly;Max-Age=1800
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      X-LOG-ID:
+      - 20241121094526a1b9c242aed04abe
+      content-length:
+      - '2282'
+    status:
+      code: 200
+      message: OK
+version: 1

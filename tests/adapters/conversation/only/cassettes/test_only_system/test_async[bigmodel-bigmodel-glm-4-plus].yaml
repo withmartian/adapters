@@ -1,0 +1,133 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "system", "content": "Hi"}], "model": "glm-4-plus",
+      "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '91'
+      content-type:
+      - application/json
+      host:
+      - open.bigmodel.cn
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - other:amd64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Windows
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.12.2
+    method: POST
+    uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
+  response:
+    body:
+      string: "{\"error\":{\"code\":\"1214\",\"message\":\"messages \u53C2\u6570\u975E\u6CD5\u3002\u8BF7\u68C0\u67E5\u6587\u6863\u3002\"}}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 21 Nov 2024 01:48:48 GMT
+      Set-Cookie:
+      - acw_tc=0aef82e517321537288615551e00f9a4715151b3686973cb48198854c71ec4;path=/;HttpOnly;Max-Age=1800
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      X-LOG-ID:
+      - 20241121094848a62f167295f2403f
+    status:
+      code: 400
+      message: Bad Request
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hello"}], "model": "glm-4-plus",
+      "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '92'
+      content-type:
+      - application/json
+      host:
+      - open.bigmodel.cn
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - other:amd64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Windows
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.12.2
+    method: POST
+    uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
+  response:
+    body:
+      string: "{\"choices\":[{\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"content\":\"Hello
+        \U0001F44B! I'm ChatGLM\uFF08\u667A\u8C31\u6E05\u8A00\uFF09, the artificial
+        intelligence assistant, nice to meet you. Feel free to ask me any questions.\",\"role\":\"assistant\"}}],\"created\":1732153730,\"id\":\"20241121094849705aa01236a24669\",\"model\":\"glm-4-plus\",\"request_id\":\"20241121094849705aa01236a24669\",\"usage\":{\"completion_tokens\":36,\"prompt_tokens\":6,\"total_tokens\":42}}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 21 Nov 2024 01:48:50 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      X-LOG-ID:
+      - 20241121094849705aa01236a24669
+      content-length:
+      - '421'
+    status:
+      code: 200
+      message: OK
+version: 1

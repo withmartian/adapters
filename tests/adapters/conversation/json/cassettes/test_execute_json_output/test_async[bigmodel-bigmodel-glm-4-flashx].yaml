@@ -1,0 +1,72 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, output simple json"}], "model":
+      "glm-4-flashx", "response_format": {"type": "json_object"}, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '155'
+      content-type:
+      - application/json
+      host:
+      - open.bigmodel.cn
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - other:amd64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Windows
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.12.2
+    method: POST
+    uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
+  response:
+    body:
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"Certainly!
+        Below is a simple JSON object with some key-value pairs:\n\n```json\n{\n  \"name\":
+        \"John Doe\",\n  \"age\": 30,\n  \"city\": \"New York\",\n  \"isEmployed\":
+        true\n}\n```","role":"assistant"}}],"created":1732153612,"id":"20241121094651721629cf853e4736","model":"glm-4-flashx","request_id":"20241121094651721629cf853e4736","usage":{"completion_tokens":53,"prompt_tokens":10,"total_tokens":63}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 21 Nov 2024 01:46:52 GMT
+      Set-Cookie:
+      - acw_tc=1a0c39d217321536111522911e011c479c5dcf7e14517dc06e943a6d723402;path=/;HttpOnly;Max-Age=1800
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      X-LOG-ID:
+      - 20241121094651721629cf853e4736
+      content-length:
+      - '473'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,86 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number via tools,
+      range 1-10"}], "model": "glm-4-flash", "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '132'
+      content-type:
+      - application/json
+      host:
+      - open.bigmodel.cn
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - other:amd64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - Windows
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.12.2
+    method: POST
+    uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
+  response:
+    body:
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"I
+        can''t generate a random number for you directly as I''m text-based and don''t
+        have access to real-time tools or external systems. However, you can easily
+        generate a random number between 1 and 10 using various methods:\n\n1. **Using
+        a Random Number Generator Online**: There are many online random number generators
+        that can give you a random number within a specific range. You can simply
+        search for \"random number generator 1-10\" in your web browser and use one
+        of the many free services available.\n\n2. **Excel or Google Sheets**: If
+        you''re using a spreadsheet, you can use the RAND() function to generate a
+        random number between 0 and 1, then multiply it by 10 and round it to the
+        nearest whole number to get a random number between 1 and 10.\n\n   For Excel:\n   ```\n   =ROUND(RAND()
+        * 10, 0)\n   ```\n\n   For Google Sheets:\n   ```\n   =ROUND(RAND() * 10,
+        0)\n   ```\n\n3. **Using Python**: If you''re comfortable with Python, you
+        can use the `random` module to generate a random number.\n\n   ```python\n   import
+        random\n   print(random.randint(1, 10))\n   ```\n\n4. **Using a Dice**: If
+        you have a six-sided die, you can roll it, subtract 1 (to account for the
+        0), and you''ll have a random number from 1 to 10.\n\nRemember, the method
+        you choose will depend on the tools you have available and your personal preference.","role":"assistant"}}],"created":1732154286,"id":"20241121095758cce8845f1f1d435c","model":"glm-4-flash","request_id":"20241121095758cce8845f1f1d435c","usage":{"completion_tokens":323,"prompt_tokens":16,"total_tokens":339}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 21 Nov 2024 01:58:06 GMT
+      Set-Cookie:
+      - acw_tc=1a0c380d17321542781465975e0031f8cf8555650a7324bd4810463ad2c3de;path=/;HttpOnly;Max-Age=1800
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      X-LOG-ID:
+      - 20241121095758cce8845f1f1d435c
+      content-length:
+      - '1623'
+    status:
+      code: 200
+      message: OK
+version: 1
