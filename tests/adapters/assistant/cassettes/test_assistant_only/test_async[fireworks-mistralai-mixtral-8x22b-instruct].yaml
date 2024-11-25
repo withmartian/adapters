@@ -1,0 +1,76 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "assistant", "content": "Hi"}], "model": "accounts/fireworks/models/mixtral-8x22b-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '115'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"error":{"object":"error","type":"invalid_request_error","message":"jinja
+        template rendering failed. After the optional system message, conversation
+        roles must alternate user/assistant/user/assistant/..."}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8e6d2a43eef0d039-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '207'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 23 Nov 2024 00:50:26 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=119.0;desc="Total Response Time"
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      fireworks-middleware-version:
+      - v2
+      x-envoy-upstream-service-time:
+      - '2'
+      x-request-id:
+      - e21e2e07-0141-4926-8b94-7c88c1c67ea4
+    status:
+      code: 400
+      message: Bad Request
+version: 1

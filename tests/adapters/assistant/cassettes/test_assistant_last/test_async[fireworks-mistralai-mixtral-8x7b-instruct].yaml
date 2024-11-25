@@ -1,0 +1,91 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi "}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '150'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: "{\"id\":\"688ccd77-002b-4f19-bd9a-bd3844c0e541\",\"object\":\"chat.completion\",\"created\":1732323021,\"model\":\"accounts/fireworks/models/mixtral-8x7b-instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"ai!
+        How can I help you today? If you have any questions or need assistance with
+        something related to data science, programming, or technology, feel free to
+        ask! I'll do my best to provide insightful and engaging answers that will
+        help you learn and grow. If there's something specific you'd like to learn
+        about, feel free to suggest it, and I'll incorporate it into one of my responses.
+        \U0001F60A\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":13,\"total_tokens\":103,\"completion_tokens\":90}}"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8e6d2a1f58d967b8-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 23 Nov 2024 00:50:21 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=773.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '704'
+      fireworks-middleware-version:
+      - v2
+      fireworks-prompt-tokens:
+      - '13'
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.634'
+      x-envoy-upstream-service-time:
+      - '636'
+      x-request-id:
+      - 688ccd77-002b-4f19-bd9a-bd3844c0e541
+    status:
+      code: 200
+      message: OK
+version: 1

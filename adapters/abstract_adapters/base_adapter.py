@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
-from typing import Any, Literal, Optional, overload
+from typing import Any, Iterable, Literal, Optional, overload
 
 from openai import NOT_GIVEN, NotGiven
+from openai.types.chat import ChatCompletionMessageParam
 
 from adapters.types import (
     AdapterChatCompletion,
@@ -27,7 +28,7 @@ class BaseAdapter(ABC):
     @overload
     def execute_sync(
         self,
-        llm_input: Conversation,
+        llm_input: Iterable[ChatCompletionMessageParam] | Conversation,
         stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
         **kwargs: Any,
     ) -> AdapterChatCompletion: ...
@@ -35,7 +36,7 @@ class BaseAdapter(ABC):
     @overload
     def execute_sync(
         self,
-        llm_input: Conversation,
+        llm_input: Iterable[ChatCompletionMessageParam] | Conversation,
         stream: Literal[True],
         **kwargs: Any,
     ) -> AdapterStreamSyncChatCompletion: ...
@@ -43,7 +44,7 @@ class BaseAdapter(ABC):
     @abstractmethod
     def execute_sync(
         self,
-        llm_input: Conversation,
+        llm_input: Iterable[ChatCompletionMessageParam] | Conversation,
         stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
         **kwargs: Any,
     ) -> AdapterChatCompletion | AdapterStreamSyncChatCompletion:
@@ -52,7 +53,7 @@ class BaseAdapter(ABC):
     @overload
     async def execute_async(
         self,
-        llm_input: Conversation,
+        llm_input: Iterable[ChatCompletionMessageParam] | Conversation,
         stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
         **kwargs: Any,
     ) -> AdapterChatCompletion: ...
@@ -60,7 +61,7 @@ class BaseAdapter(ABC):
     @overload
     async def execute_async(
         self,
-        llm_input: Conversation,
+        llm_input: Iterable[ChatCompletionMessageParam] | Conversation,
         stream: Literal[True],
         **kwargs: Any,
     ) -> AdapterStreamAsyncChatCompletion: ...
@@ -68,7 +69,7 @@ class BaseAdapter(ABC):
     @abstractmethod
     async def execute_async(
         self,
-        llm_input: Conversation,
+        llm_input: Iterable[ChatCompletionMessageParam] | Conversation,
         stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
         **kwargs: Any,
     ) -> AdapterChatCompletion | AdapterStreamAsyncChatCompletion:

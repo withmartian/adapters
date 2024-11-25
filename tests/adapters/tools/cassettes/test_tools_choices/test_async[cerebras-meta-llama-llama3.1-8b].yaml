@@ -1,0 +1,90 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number with
+      tools specified, range 1-10"}], "model": "llama3.1-8b", "tool_choice": {"type":
+      "function", "function": {"name": "generate"}}, "tools": [{"type": "function",
+      "function": {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '462'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-72e3438d-6c2e-43a8-ad2e-f13ced75cbb4","choices":[{"finish_reason":"tool_calls","index":0,"message":{"tool_calls":[{"id":"e8dd156b3","type":"function","function":{"name":"generate","arguments":"{\"prompt\":
+        \"(1 - 10)\\n\"}"}}],"role":"assistant"}}],"created":1732322681,"model":"llama3.1-8b","system_fingerprint":"fp_fe26f95222","object":"chat.completion","usage":{"prompt_tokens":218,"completion_tokens":12,"total_tokens":230},"time_info":{"queue_time":3.267e-05,"prompt_time":0.011821513,"completion_time":0.005651439,"total_time":0.03276181221008301,"created":1732322681}}'
+    headers:
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '591'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 23 Nov 2024 00:44:41 GMT
+      Via:
+      - 1.1 18d8a69a30308aa071168e8aed30be36.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - oB0akfTQ5lgbYZp9vWX-idcNvgQc8u1dr8ARySloR4g2LfEAj4OEiQ==
+      X-Amz-Cf-Pop:
+      - SFO20-C1
+      X-Cache:
+      - Miss from cloudfront
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14378'
+      x-ratelimit-remaining-tokens-minute:
+      - '60000'
+      x-ratelimit-reset-requests-day:
+      - '83718.31832313538'
+      x-ratelimit-reset-tokens-minute:
+      - '18.318323135375977'
+      x-request-id:
+      - oB0akfTQ5lgbYZp9vWX-idcNvgQc8u1dr8ARySloR4g2LfEAj4OEiQ==
+    status:
+      code: 200
+      message: OK
+version: 1

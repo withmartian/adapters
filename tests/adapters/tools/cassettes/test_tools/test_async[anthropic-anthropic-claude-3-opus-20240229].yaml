@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number with
+      tools specified, range 1-10", "role": "user"}], "model": "claude-3-opus-20240229",
+      "stream": false, "tools": [{"input_schema": {"type": "object", "properties":
+      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
+      11"}}}, "name": "generate", "description": "Generate random number"}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      anthropic-version:
+      - '2023-06-01'
+      connection:
+      - keep-alive
+      content-length:
+      - '383'
+      content-type:
+      - application/json
+      host:
+      - api.anthropic.com
+      user-agent:
+      - AsyncAnthropic/Python 0.39.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 0.39.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: '{"id":"msg_01KUKpTvkfkoVUFrZET8oAY3","type":"message","role":"assistant","model":"claude-3-opus-20240229","content":[{"type":"text","text":"<thinking>\nThe
+        user has requested to generate a random number between 1 and 10. Looking at
+        the available tools, the \"generate\" function seems directly relevant for
+        this task. It takes a \"prompt\" parameter which expects a string description
+        of the type of random number to generate, including the range.\n\nThe user
+        specified the range as 1-10 in their request. This maps directly to the expected
+        \"prompt\" parameter format. No other tools are needed to obtain this information.\n\nSince
+        all required parameters for the \"generate\" tool are provided by the user,
+        I can proceed with making the tool call without asking for any additional
+        information.\n</thinking>"},{"type":"tool_use","id":"toolu_016Nu38sBDVaDFDxnC6Voffi","name":"generate","input":{"prompt":"Random
+        number between 1 and 10"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":617,"output_tokens":195}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8e6c4294efa2ed3e-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 22 Nov 2024 22:12:26 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '5000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '5000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-11-22T22:12:26Z'
+      content-length:
+      - '1035'
+      request-id:
+      - req_018RFw97crh7qHKo2bsc55MJ
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+version: 1

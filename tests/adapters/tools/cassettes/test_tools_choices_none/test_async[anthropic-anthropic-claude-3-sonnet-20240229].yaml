@@ -1,0 +1,94 @@
+interactions:
+- request:
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number with
+      tools specified, range 1-10", "role": "user"}], "model": "claude-3-sonnet-20240229",
+      "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      anthropic-version:
+      - '2023-06-01'
+      connection:
+      - keep-alive
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      host:
+      - api.anthropic.com
+      user-agent:
+      - AsyncAnthropic/Python 0.39.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 0.39.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: '{"id":"msg_01UFQkAk5wAubfefF42LCVUD","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Sure,
+        here are some ways to generate a random number between 1 and 10 using different
+        tools:\n\n1. **Python**:\n\n```python\nimport random\n\nrandom_number = random.randint(1,
+        10)\nprint(random_number)\n```\n\n2. **JavaScript**:\n\n```javascript\nconst
+        randomNumber = Math.floor(Math.random() * 10) + 1;\nconsole.log(randomNumber);\n```\n\n3.
+        **Java**:\n\n```java\nimport java.util.Random;\n\npublic class RandomNumberGenerator
+        {\n    public static void main(String[] args) {\n        Random rand = new
+        Random();\n        int randomNumber = rand.nextInt(10) + 1; // Generates a
+        random number between 1 and 10 (inclusive)\n        System.out.println(randomNumber);\n    }\n}\n```\n\n4.
+        **C++**:\n\n```cpp\n#include <iostream>\n#include <cstdlib>\n#include <ctime>\n\nint
+        main() {\n    std::srand(std::time(nullptr)); // Seed the random number generator\n    int
+        randomNumber = std::rand() % 10 + 1; // Generate a random number between 1
+        and 10\n    std::cout << randomNumber << std::endl;\n    return 0;\n}\n```\n\n5.
+        **Ruby**:\n\n```ruby\nrandom_number = rand(1..10)\nputs random_number\n```\n\n6.
+        **PHP**:\n\n```php\n$random_number = rand(1, 10);\necho $random_number;\n```\n\n7.
+        **Bash**:\n\n```bash\nrandom_number=$((1 + RANDOM % 10))\necho $random_number\n```\n\nThese
+        examples cover various programming languages and tools for generating a random
+        number within the specified range of 1 to 10. The specific implementation
+        details may vary based on the language or tool you are using."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":19,"output_tokens":448}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8e6c43cf7db76434-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 22 Nov 2024 22:13:13 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '8000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '8000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-11-22T22:13:13Z'
+      content-length:
+      - '1727'
+      request-id:
+      - req_012Pw2r2e17z1ZKSxG3K4zXS
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+version: 1

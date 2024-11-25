@@ -1,0 +1,86 @@
+interactions:
+- request:
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number with
+      tools specified, range 1-10", "role": "user"}], "model": "claude-3-haiku-20240307",
+      "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      anthropic-version:
+      - '2023-06-01'
+      connection:
+      - keep-alive
+      content-length:
+      - '175'
+      content-type:
+      - application/json
+      host:
+      - api.anthropic.com
+      user-agent:
+      - AsyncAnthropic/Python 0.39.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 0.39.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: '{"id":"msg_01Lfwa69v7gN155cTLpgorNz","type":"message","role":"assistant","model":"claude-3-haiku-20240307","content":[{"type":"text","text":"Here
+        are a few ways to generate a random number between 1 and 10 using different
+        tools:\n\n1. **JavaScript**:\n\n```javascript\nMath.floor(Math.random() *
+        10) + 1;\n```\n\n2. **Python**:\n\n```python\nimport random\nrandom.randint(1,
+        10)\n```\n\n3. **Bash (Linux/macOS)**:\n\n```bash\necho $((RANDOM % 10 + 1))\n```\n\n4.
+        **PowerShell (Windows)**:\n\n```powershell\n[System.Random]::new().Next(1,
+        11)\n```\n\n5. **Excel/Google Sheets**:\n\n```\n=RANDBETWEEN(1,10)\n```\n\n6.
+        **SQL (MySQL, PostgreSQL, etc.)**:\n\n```sql\nSELECT FLOOR(1 + RAND() * 10);\n```\n\nAll
+        of these methods will generate a random integer between 1 and 10 (inclusive)
+        when executed. You can choose the one that best fits your use case and the
+        tools you have available."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":19,"output_tokens":250}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8e6c43c32a209670-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 22 Nov 2024 22:13:07 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '8000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '8000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-11-22T22:13:06Z'
+      content-length:
+      - '980'
+      request-id:
+      - req_01WWEKQPzt9wZuccXjSn6G6U
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+version: 1

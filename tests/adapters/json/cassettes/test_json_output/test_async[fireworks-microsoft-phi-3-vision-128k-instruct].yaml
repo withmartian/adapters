@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, output simple json"}], "model":
+      "accounts/fireworks/models/phi-3-vision-128k-instruct", "response_format": {"type":
+      "json_object"}}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '178'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"5962d8d4-a070-455f-90ce-cb04d59a8e0f","object":"chat.completion","created":1732323078,"model":"accounts/fireworks/models/phi-3-vision-128k-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"
+        {\n\"student_name\": \"John Smith\",\n\"grade\": \"A\",\n\"course_name\":
+        \"Math 101\"\n}\n"},"finish_reason":"stop"}],"usage":{"prompt_tokens":13,"total_tokens":48,"completion_tokens":35}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8e6d2b86ca1ecfa4-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 23 Nov 2024 00:51:18 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=330.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '409'
+      fireworks-middleware-version:
+      - v2
+      fireworks-prompt-tokens:
+      - '13'
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.215'
+      x-envoy-upstream-service-time:
+      - '219'
+      x-request-id:
+      - 5962d8d4-a070-455f-90ce-cb04d59a8e0f
+    status:
+      code: 200
+      message: OK
+version: 1

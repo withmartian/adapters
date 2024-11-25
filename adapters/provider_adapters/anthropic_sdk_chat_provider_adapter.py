@@ -62,6 +62,7 @@ from adapters.types import (
     Turn,
     Vendor,
 )
+from openai.types.chat import ChatCompletionMessageParam
 
 
 class AnthropicModel(Model):
@@ -69,9 +70,10 @@ class AnthropicModel(Model):
     provider_name: str = Provider.anthropic.value
 
     supports_vision: bool = False
-    supports_empty_content: bool = False
     supports_n: bool = False
-    supports_only_system: bool = False
+
+    can_system: bool = False
+    can_empty_content: bool = False
 
 
 MODELS: list[Model] = [
@@ -223,29 +225,26 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
     def _adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
 
-    def _get_params(self, llm_input: Conversation, **kwargs: Any) -> Dict[str, Any]:
-        params = super()._get_params(llm_input, **kwargs)
-
-        # messages = cast(List[Choice], params["messages"])
-        messages = params["messages"]
-        system_prompt: Optional[str] = None
+    def _get_params(
+        self, messages: list[ChatCompletionMessageParam], **kwargs: Any
+    ) -> Dict[str, Any]:
+        system_prompt: Optional[Union[str, Iterable[TextBlockParam]]] = None
 
         # Extract system prompt if it's the first message
         if len(messages) and messages[0]["role"] == ConversationRole.system.value:
             system_prompt = messages[0]["content"]
             messages = messages[1:]
 
-        # Convert remaining system messages to user
-        for message in messages:
-            if message["role"] == ConversationRole.system.value:
-                message["role"] = ConversationRole.user.value
+        params = super()._get_params(messages, **kwargs)
+
+        anthropic_messages = params["messages"]
 
         # Remove trailing whitespace from the last assistant message
         if len(messages) and messages[-1]["role"] == ConversationRole.assistant.value:
             messages[-1]["content"] = messages[-1]["content"].rstrip()
 
         # Include base64-encoded images in the request
-        for message in messages:
+        for message in anthropic_messages:
             if (
                 isinstance(message["content"], list)
                 and message["role"] == ConversationRole.user.value
@@ -301,10 +300,10 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
 
         return AnthropicCreate(
             max_tokens=params.get("max_tokens", self.get_model().completion_length),
-            messages=messages,
+            messages=anthropic_messages,
             metadata=params.get("metadata"),
             stop_sequences=params.get("stop_sequences"),
-            stream=params.get("stream"),
+            stream=bool(params.get("stream")),
             system=system_prompt,
             temperature=params.get("temperature"),
             tool_choice=anthropic_tool_choice,

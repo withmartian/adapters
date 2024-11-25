@@ -1,5 +1,15 @@
 from enum import Enum
-from typing import Any, AsyncGenerator, Dict, Generator, List, Literal, Optional, Union
+from typing import (
+    Any,
+    AsyncGenerator,
+    Dict,
+    Generator,
+    Iterable,
+    List,
+    Literal,
+    Optional,
+    Union,
+)
 
 from openai.types.chat import (
     ChatCompletion,
@@ -8,6 +18,7 @@ from openai.types.chat import (
 )
 from openai.types.chat.chat_completion_message import FunctionCall
 from pydantic import BaseModel, ConfigDict, Field
+from openai.types.chat import ChatCompletionMessageParam
 
 
 class Provider(str, Enum):
@@ -145,7 +156,6 @@ class ModelProperties(BaseModel):
     is_nsfw: bool = False
 
 
-# Add test cases for all of them
 class Model(BaseModel):
     test_async: bool = True
 
@@ -156,31 +166,33 @@ class Model(BaseModel):
     context_length: int
     completion_length: Optional[int] = None
 
-    supports_user: bool = True
-    supports_repeating_roles: bool = True
     supports_streaming: bool = True
     supports_vision: bool = True
-    supports_tools: bool = True
     supports_n: bool = True
-    supports_system: bool = True
-    supports_multiple_system: bool = True
-    supports_empty_content: bool = True
-    supports_tool_choice: bool = True
-    supports_tool_choice_required: bool = True
+    supports_tools: bool = True
+    supports_tools_streaming: bool = False
+    supports_tools_choice: bool = True
+    supports_tools_choice_required: bool = True
     supports_json_output: bool = True
     supports_json_content: bool = True
-    supports_last_assistant: bool = True
-    supports_first_assistant: bool = True
-    supports_temperature: bool = True
-
-    # New
-    supports_only_system: bool = True
-    supports_only_assistant: bool = True
-
-    # supports_tools_streaming: bool = True
 
     # Deprecated, move to tools
     supports_functions: bool = False
+
+    can_user: bool = True
+    can_vision_multiple: bool = True
+    can_repeating_roles: bool = True
+    can_empty_content: bool = True
+    can_temperature: bool = True
+
+    can_system: bool = True
+    can_system_only: bool = True
+    can_system_multiple: bool = True
+    can_system_last: bool = True
+
+    can_assistant_only: bool = True
+    can_assistant_first: bool = True
+    can_assistant_last: bool = True
 
     properties: ModelProperties = Field(default_factory=ModelProperties)
 
@@ -250,6 +262,9 @@ class Conversation(BaseModel):
 
     def convert_to_prompt(self) -> "Prompt":
         return Prompt("".join([f"{turn.role}: {turn.content}" for turn in self.turns]))
+
+    def convert_to_openai_format(self) -> Iterable[ChatCompletionMessageParam]:
+        return self.model_dump() # type: ignore
 
 
 class AdapterChatCompletion(ChatCompletion):
