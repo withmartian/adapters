@@ -1,0 +1,80 @@
+interactions:
+- request:
+    body: '{"max_tokens": 4096, "messages": [{"content": "Generate random number with
+      tools specified, range 1-10", "role": "user"}], "model": "claude-3-sonnet-20240229",
+      "stream": false, "tools": [{"input_schema": {"type": "object", "properties":
+      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
+      11"}}}, "name": "generate", "description": "Generate random number"}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      anthropic-version:
+      - '2023-06-01'
+      connection:
+      - keep-alive
+      content-length:
+      - '385'
+      content-type:
+      - application/json
+      host:
+      - api.anthropic.com
+      user-agent:
+      - AsyncAnthropic/Python 0.39.0
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 0.39.0
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: '{"id":"msg_01LvQJ16cn7Rqs37ThdJ1YQz","type":"message","role":"assistant","model":"claude-3-sonnet-20240229","content":[{"type":"text","text":"Here
+        is how we can generate a random number between 1 and 10 using the specified
+        tool:"},{"type":"tool_use","id":"toolu_015Jc5i2UPXYHEk8ydGWvrxc","name":"generate","input":{"prompt":"1-10"}}],"stop_reason":"tool_use","stop_sequence":null,"usage":{"input_tokens":243,"output_tokens":76}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8e6c428c7e30ce68-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 22 Nov 2024 22:12:16 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-ratelimit-tokens-limit:
+      - '8000000'
+      anthropic-ratelimit-tokens-remaining:
+      - '8000000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-11-22T22:12:16Z'
+      content-length:
+      - '428'
+      request-id:
+      - req_01A9dgMq4tNgBwNSiCFWxKBx
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+version: 1

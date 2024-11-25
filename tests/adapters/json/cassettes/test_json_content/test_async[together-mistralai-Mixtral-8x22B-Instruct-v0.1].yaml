@@ -1,0 +1,109 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "mistralai/Mixtral-8x22B-Instruct-v0.1"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '159'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.together.xyz/chat/completions
+  response:
+    body:
+      string: "{\n  \"id\": \"8e6cde7c3a7a69a2-SJC\",\n  \"object\": \"chat.completion\",\n
+        \ \"created\": 1732319922,\n  \"model\": \"mistralai/Mixtral-8x22B-Instruct-v0.1\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"finish_reason\": \"eos\",\n
+        \     \"seed\": 1826375106573534000,\n      \"logprobs\": null,\n      \"index\":
+        0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\":
+        \" It seems like you're trying to display an object, but it's showing up as
+        \\\"[object Object]\\\". This is because JavaScript is trying to convert the
+        object to a string, which doesn't work as expected.\\n\\nIf you want to see
+        the content of the object, you can use `console.log()` or `JSON.stringify()`.
+        Here's an example:\\n\\n```javascript\\nlet obj1 = {name: \\\"John\\\", age:
+        30};\\nlet obj2 = {city: \\\"New York\\\", country: \\\"USA\\\"};\\n\\nconsole.log(obj1,
+        obj2); // This will print the objects in the console.\\n\\nlet stringifiedObj1
+        = JSON.stringify(obj1);\\nlet stringifiedObj2 = JSON.stringify(obj2);\\n\\nconsole.log(stringifiedObj1,
+        stringifiedObj2); // This will print the objects as strings.\\n```\\n\\nIf
+        you're trying to display these objects in an HTML document, you'll need to
+        convert them to strings first, like in the example above. Then you can insert
+        the strings into your HTML.\",\n        \"tool_calls\": []\n      }\n    }\n
+        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 11,\n    \"completion_tokens\":
+        244,\n    \"total_tokens\": 255\n  }\n}"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8e6cde7c3a7a69a2-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 22 Nov 2024 23:58:46 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '1375'
+      etag:
+      - W/"55f-cqpExgFDsf/gAVqb6Y/J54IMgJE"
+      retry-after:
+      - '2'
+      x-api-call-end:
+      - '2024-11-22T23:58:46.465Z'
+      x-api-call-start:
+      - '2024-11-22T23:58:42.631Z'
+      x-api-received:
+      - '2024-11-22T23:58:42.614Z'
+      x-inference-version:
+      - v2
+      x-ratelimit:
+      - 'false'
+      x-ratelimit-limit:
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-remaining-tokens:
+      - '100000'
+      x-ratelimit-reset:
+      - '2'
+    status:
+      code: 200
+      message: OK
+version: 1

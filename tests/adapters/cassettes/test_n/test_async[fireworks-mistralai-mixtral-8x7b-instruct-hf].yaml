@@ -1,0 +1,94 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "accounts/fireworks/models/mixtral-8x7b-instruct-hf",
+      "n": 2}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '120'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"f20f1059-e1a9-444b-a679-ab6e6c0c05a1","object":"chat.completion","created":1732323172,"model":"accounts/fireworks/models/mixtral-8x7b-instruct-hf","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        I''m here to help you with any questions or concerns you may have. I will
+        always strive to provide accurate and useful information while ensuring a
+        safe and positive interaction. I''m glad to have the opportunity to assist
+        you today. How can I help you?"},"finish_reason":"stop"},{"index":1,"message":{"role":"assistant","content":"Hello!
+        I''m here to help answer your questions and engage in positive and respectful
+        conversation. I will do my best to provide useful and honest responses while
+        ensuring the security and ethical integrity of our interaction. Let''s have
+        a great conversation! Is there something specific you would like to know or
+        discuss?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":54,"total_tokens":174,"completion_tokens":120}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8e6d2dd2e8f215b8-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 23 Nov 2024 00:52:52 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=477.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '974'
+      fireworks-middleware-version:
+      - v2
+      fireworks-prompt-tokens:
+      - '54'
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.381'
+      x-envoy-upstream-service-time:
+      - '383'
+      x-request-id:
+      - f20f1059-e1a9-444b-a679-ab6e6c0c05a1
+    status:
+      code: 200
+      message: OK
+version: 1

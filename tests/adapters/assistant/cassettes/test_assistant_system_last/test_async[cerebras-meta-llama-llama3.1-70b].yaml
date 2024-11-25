@@ -1,0 +1,86 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi"}, {"role": "system", "content": "Hi"}], "model": "llama3.1-70b"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '151'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-e66e63f8-c90c-4cc9-b2b0-b2a85c794385","choices":[{"finish_reason":"stop","index":0,"message":{"content":"It
+        seems like we have two greetings there. How can I assist you today?","role":"assistant"}}],"created":1732322547,"model":"llama3.1-70b","system_fingerprint":"fp_fe26f95222","object":"chat.completion","usage":{"prompt_tokens":48,"completion_tokens":17,"total_tokens":65},"time_info":{"queue_time":3.32e-05,"prompt_time":0.002575032,"completion_time":0.01607858,"total_time":0.020776748657226562,"created":1732322547}}'
+    headers:
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '539'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 23 Nov 2024 00:42:27 GMT
+      Via:
+      - 1.1 268a25fb9acb613438763d3e904edfa0.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - wCO-AjYRM6qNc1pdZD4E9QD8mcymEDklUz5fxjBhEoRrlGee17gRpA==
+      X-Amz-Cf-Pop:
+      - SFO20-C1
+      X-Cache:
+      - Miss from cloudfront
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14396'
+      x-ratelimit-remaining-tokens-minute:
+      - '59781'
+      x-ratelimit-reset-requests-day:
+      - '83852.65898656845'
+      x-ratelimit-reset-tokens-minute:
+      - '32.65898656845093'
+      x-request-id:
+      - wCO-AjYRM6qNc1pdZD4E9QD8mcymEDklUz5fxjBhEoRrlGee17gRpA==
+    status:
+      code: 200
+      message: OK
+version: 1

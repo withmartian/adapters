@@ -38,7 +38,7 @@ MODELS: list[Model] = [
         cost=Cost(prompt=1.0e-6, completion=1.0e-6),
         context_length=64000,
         vendor_name=Vendor.wizardlm.value,
-        supports_tool_choice_required=False,
+        supports_tools_choice_required=False,
     ),
     LeptonModel(
         name="dolphin-mixtral-8x7b",

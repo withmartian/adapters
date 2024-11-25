@@ -1,0 +1,85 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, output simple json"}], "model":
+      "llama3.1-8b", "response_format": {"type": "json_object"}}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '137'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-734fc5bb-d39f-4821-9838-d6f04f8a05be","choices":[{"finish_reason":"stop","index":0,"message":{"content":"{\"key\":\"value\"}","role":"assistant"}}],"created":1732322549,"model":"llama3.1-8b","system_fingerprint":"fp_fe26f95222","object":"chat.completion","usage":{"prompt_tokens":48,"completion_tokens":6,"total_tokens":54},"time_info":{"queue_time":2.946e-05,"prompt_time":0.002565906,"completion_time":0.002825571,"total_time":0.0211946964263916,"created":1732322549}}'
+    headers:
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '486'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 23 Nov 2024 00:42:29 GMT
+      Via:
+      - 1.1 837cef1564d25613f261adcf22ed5632.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - jTvrQhgVtgwzSK7eFC12Npp0sYC7ZRjmf8u7Xh4CgEWTISLXHMDxCQ==
+      X-Amz-Cf-Pop:
+      - SFO20-C1
+      X-Cache:
+      - Miss from cloudfront
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14394'
+      x-ratelimit-remaining-tokens-minute:
+      - '59604'
+      x-ratelimit-reset-requests-day:
+      - '83850.2433309555'
+      x-ratelimit-reset-tokens-minute:
+      - '30.24333095550537'
+      x-request-id:
+      - jTvrQhgVtgwzSK7eFC12Npp0sYC7ZRjmf8u7Xh4CgEWTISLXHMDxCQ==
+    status:
+      code: 200
+      message: OK
+version: 1

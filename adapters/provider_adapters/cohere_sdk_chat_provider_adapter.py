@@ -49,9 +49,10 @@ class CohereModel(Model):
 
     supports_n: bool = False
     supports_vision: bool = False
-    supports_empty_content: bool = False
-    supports_only_system: bool = False
-    supports_tool_choice: bool = False
+    supports_tools_choice: bool = False
+
+    can_empty_content: bool = False
+    can_system_only: bool = False
 
     def _get_api_path(self) -> str:
         return self.name
