@@ -18,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.54.1
       x-stainless-arch:
-      - other:amd64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Windows
+      - MacOS
       x-stainless-package-version:
       - 1.54.1
       x-stainless-retry-count:
@@ -32,47 +32,30 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.12.2
+      - 3.11.10
     method: POST
     uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
   response:
     body:
       string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":":\n\nStep
-        1: Understanding the problem and given information\n\nWe are given a triangle
-        with vertices A(2, -3), B(-4, 5) and C(0, 6). We need to find the area of
-        this triangle.\n\nStep 2: Finding the lengths of the sides of the triangle\n\nTo
-        calculate the area of a triangle, we first need to find the lengths of its
-        sides. Let''s denote the side opposite vertex A as BC, the side opposite vertex
-        B as CA, and the side opposite vertex C as AB.\n\nUsing the distance formula,
-        we can find the length of each side:\n- The length of side BC is calculated
-        using the coordinates of points B and C.\n   BC = sqrt((x2 - x1)^2 + (y2 -
-        y1)^2)\n      = sqrt((-4 - 0)^2 + (5 - 6)^2)\n      = sqrt(16 + 1)\n      =
-        sqrt(17)\n\n- Similarly, the length of side CA is calculated using the coordinates
-        of points C and A.\n   CA = sqrt((x2 - x1)^2 + (y2 - y1)^2)\n      = sqrt((0
-        - 2)^2 + (6 - (-3))^2)\n      = sqrt(4 + 81)\n      = sqrt(85)\n\n- Finally,
-        the length of side AB is calculated using the coordinates of points A and
-        B.\n   AB = sqrt((x2 - x1)^2 + (y2 - y1)^2)\n      = sqrt((-4 - 2)^2 + (5
-        - (-3))^2)\n      = sqrt(36 + 64)\n      = sqrt(100)\n      = 10\n\nSo, the
-        lengths of the sides of the triangle are BC = sqrt(17), CA = sqrt(85), and
-        AB = 10.\n\nStep 3: Calculating the semi-perimeter of the triangle\n\nThe
-        semi-perimeter of a triangle is half the sum of its side lengths. In this
-        case, it would be:\ns = (BC + CA + AB)/2\n  = (sqrt(17) + sqrt(85) + 10)/2\n\nStep
-        4: Using Heron''s formula to find the area of the triangle\n\nHeron''s formula
-        states that the area of a triangle with side lengths a, b, and c is given
-        by:\nArea = sqrt(s * (s - a) * (s - b) * (s - c))\n\nSubstituting the values
-        we have found into the formula:\nArea = sqrt(((sqrt(17) + sqrt(85) + 10)/2)
-        * (((sqrt(17) + sqrt(85) + 10)/2) - sqrt(17)) * (((sqrt(17) + sqrt(85) + 10)/2)
-        - sqrt(85)) * (((sqrt(17) + sqrt(85) + 10)/2) - 10))\n\nSimplifying the expression
-        gives us the final answer for the area of the triangle.","role":"assistant"}}],"created":1732153545,"id":"20241121094526a1b9c242aed04abe","model":"glm-4v-plus","request_id":"20241121094526a1b9c242aed04abe","usage":{"completion_tokens":628,"prompt_tokens":11,"total_tokens":639}}'
+        1: Understanding the problem statement\nThe problem states that there are
+        two types of people in a population, A and B. The probability of person A
+        being infected is given as P(A) = 0.2, and the probability of person B being
+        infected is given as P(B) = 0.3.\n\nStep 2: Finding the probability of both
+        A and B being infected\nTo find the probability of both A and B being infected,
+        we need to multiply their individual probabilities together. So, P(A and B)
+        = P(A) * P(B).\n\nGiven:\nP(A) = 0.2\nP(B) = 0.3\n\nTherefore,\nP(A and B)
+        = 0.2 * 0.3 = 0.06\n\nSo, the correct answer is option (c), which represents
+        6%.","role":"assistant"}}],"created":1732605820,"id":"202411261523353869fa0846634ae7","model":"glm-4v-plus","request_id":"202411261523353869fa0846634ae7","usage":{"completion_tokens":178,"prompt_tokens":11,"total_tokens":189}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 21 Nov 2024 01:45:45 GMT
+      - Tue, 26 Nov 2024 07:23:41 GMT
       Set-Cookie:
-      - acw_tc=0a47329d17321535259813450e00479ebf9726b6d98d5de5b2c3cd9970371e;path=/;HttpOnly;Max-Age=1800
+      - acw_tc=0aef812817326058153118276e007bb4a3587e164109f83b6b259ac2cd0511;path=/;HttpOnly;Max-Age=1800
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Transfer-Encoding:
@@ -86,9 +69,9 @@ interactions:
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
       X-LOG-ID:
-      - 20241121094526a1b9c242aed04abe
+      - 202411261523353869fa0846634ae7
       content-length:
-      - '2282'
+      - '913'
     status:
       code: 200
       message: OK

@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "system", "content": "Hi"}], "model": "glm-4v-plus",
-      "stream": false}'
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
+      "\"\""}], "model": "glm-4v-plus", "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '92'
+      - '129'
       content-type:
       - application/json
       host:
@@ -18,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.54.1
       x-stainless-arch:
-      - other:amd64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Windows
+      - MacOS
       x-stainless-package-version:
       - 1.54.1
       x-stainless-retry-count:
@@ -32,84 +32,22 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.12.2
+      - 3.11.10
     method: POST
     uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
   response:
     body:
-      string: "{\"error\":{\"code\":\"1214\",\"message\":\"messages \u53C2\u6570\u975E\u6CD5\u3002\u8BF7\u68C0\u67E5\u6587\u6863\u3002\"}}"
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"!
+        How can I assist you today?","role":"assistant"}}],"created":1732606349,"id":"2024112615322888d020f8260d474a","model":"glm-4v-plus","request_id":"2024112615322888d020f8260d474a","usage":{"completion_tokens":10,"prompt_tokens":11,"total_tokens":21}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 21 Nov 2024 01:49:25 GMT
+      - Tue, 26 Nov 2024 07:32:29 GMT
       Set-Cookie:
-      - acw_tc=1a0c380717321537651302356e0031867618ff0adc8b27836a9e9f1e7a2fa8;path=/;HttpOnly;Max-Age=1800
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Origin
-      - Access-Control-Request-Method
-      - Access-Control-Request-Headers
-      - Origin
-      - Access-Control-Request-Method
-      - Access-Control-Request-Headers
-      X-LOG-ID:
-      - 202411210949250bdd3f8dd963401f
-    status:
-      code: 400
-      message: Bad Request
-- request:
-    body: '{"messages": [{"role": "user", "content": "Hello"}], "model": "glm-4v-plus",
-      "stream": false}'
-    headers:
-      accept:
-      - application/json
-      accept-encoding:
-      - gzip, deflate, br
-      connection:
-      - keep-alive
-      content-length:
-      - '93'
-      content-type:
-      - application/json
-      host:
-      - open.bigmodel.cn
-      user-agent:
-      - AsyncOpenAI/Python 1.54.1
-      x-stainless-arch:
-      - other:amd64
-      x-stainless-async:
-      - async:asyncio
-      x-stainless-lang:
-      - python
-      x-stainless-os:
-      - Windows
-      x-stainless-package-version:
-      - 1.54.1
-      x-stainless-retry-count:
-      - '0'
-      x-stainless-runtime:
-      - CPython
-      x-stainless-runtime-version:
-      - 3.12.2
-    method: POST
-    uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
-  response:
-    body:
-      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"Hello!
-        How can I assist you today?","role":"assistant"}}],"created":1732153766,"id":"20241121094925db7cb2d75b274709","model":"glm-4v-plus","request_id":"20241121094925db7cb2d75b274709","usage":{"completion_tokens":10,"prompt_tokens":60,"total_tokens":70}}'
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Thu, 21 Nov 2024 01:49:26 GMT
+      - acw_tc=0a472f8e17326063485692531e00ed1b9e135fe09229435ce053acd7736e91;path=/;HttpOnly;Max-Age=1800
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Transfer-Encoding:
@@ -123,9 +61,9 @@ interactions:
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
       X-LOG-ID:
-      - 20241121094925db7cb2d75b274709
+      - 2024112615322888d020f8260d474a
       content-length:
-      - '323'
+      - '318'
     status:
       code: 200
       message: OK

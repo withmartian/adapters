@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "system", "content": "Hi"}], "model": "glm-4-flash",
-      "stream": false}'
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
+      "\"\""}], "model": "glm-4-flash", "stream": false}'
     headers:
       accept:
       - application/json
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '92'
+      - '129'
       content-type:
       - application/json
       host:
@@ -18,13 +18,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.54.1
       x-stainless-arch:
-      - other:amd64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Windows
+      - MacOS
       x-stainless-package-version:
       - 1.54.1
       x-stainless-retry-count:
@@ -32,84 +32,23 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.12.2
+      - 3.11.10
     method: POST
     uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
   response:
     body:
-      string: "{\"error\":{\"code\":\"1214\",\"message\":\"messages \u53C2\u6570\u975E\u6CD5\u3002\u8BF7\u68C0\u67E5\u6587\u6863\u3002\"}}"
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"Hello!
+        How can I assist you today? If you have any questions or need information,
+        feel free to let me know.","role":"assistant"}}],"created":1732606343,"id":"2024112615322270f72b7d28554396","model":"glm-4-flash","request_id":"2024112615322270f72b7d28554396","usage":{"completion_tokens":27,"prompt_tokens":9,"total_tokens":36}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 21 Nov 2024 01:49:15 GMT
+      - Tue, 26 Nov 2024 07:32:23 GMT
       Set-Cookie:
-      - acw_tc=0a472f8917321537555995853e00498183ec7a7efc4b7c39e096cbca2dac93;path=/;HttpOnly;Max-Age=1800
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Origin
-      - Access-Control-Request-Method
-      - Access-Control-Request-Headers
-      - Origin
-      - Access-Control-Request-Method
-      - Access-Control-Request-Headers
-      X-LOG-ID:
-      - 20241121094915365d78d4bd364528
-    status:
-      code: 400
-      message: Bad Request
-- request:
-    body: '{"messages": [{"role": "user", "content": "Hello"}], "model": "glm-4-flash",
-      "stream": false}'
-    headers:
-      accept:
-      - application/json
-      accept-encoding:
-      - gzip, deflate, br
-      connection:
-      - keep-alive
-      content-length:
-      - '93'
-      content-type:
-      - application/json
-      host:
-      - open.bigmodel.cn
-      user-agent:
-      - AsyncOpenAI/Python 1.54.1
-      x-stainless-arch:
-      - other:amd64
-      x-stainless-async:
-      - async:asyncio
-      x-stainless-lang:
-      - python
-      x-stainless-os:
-      - Windows
-      x-stainless-package-version:
-      - 1.54.1
-      x-stainless-retry-count:
-      - '0'
-      x-stainless-runtime:
-      - CPython
-      x-stainless-runtime-version:
-      - 3.12.2
-    method: POST
-    uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
-  response:
-    body:
-      string: "{\"choices\":[{\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"content\":\"Hello
-        \U0001F44B! How can I assist you today?\",\"role\":\"assistant\"}}],\"created\":1732153756,\"id\":\"2024112109491638316570f00d47ba\",\"model\":\"glm-4-flash\",\"request_id\":\"2024112109491638316570f00d47ba\",\"usage\":{\"completion_tokens\":13,\"prompt_tokens\":6,\"total_tokens\":19}}"
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Thu, 21 Nov 2024 01:49:16 GMT
+      - acw_tc=0aef82d717326063420785353e003823ef542ab110fd3b0a99f12b80de821d;path=/;HttpOnly;Max-Age=1800
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Transfer-Encoding:
@@ -123,9 +62,9 @@ interactions:
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
       X-LOG-ID:
-      - 2024112109491638316570f00d47ba
+      - 2024112615322270f72b7d28554396
       content-length:
-      - '327'
+      - '395'
     status:
       code: 200
       message: OK

@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "system", "content": ""}, {"role": "user", "content":
-      ""}, {"role": "assistant", "content": " "}, {"role": "user", "content": "\n"}],
-      "model": "glm-4-0520", "stream": false}'
+    body: '{"messages": [{"role": "system", "content": "\"\""}, {"role": "user", "content":
+      "\"\""}, {"role": "assistant", "content": "\"\""}, {"role": "user", "content":
+      "\"\""}], "model": "glm-4-0520", "stream": false}'
     headers:
       accept:
       - application/json
@@ -11,7 +11,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '196'
+      - '209'
       content-type:
       - application/json
       host:
@@ -19,13 +19,13 @@ interactions:
       user-agent:
       - AsyncOpenAI/Python 1.54.1
       x-stainless-arch:
-      - other:amd64
+      - arm64
       x-stainless-async:
       - async:asyncio
       x-stainless-lang:
       - python
       x-stainless-os:
-      - Windows
+      - MacOS
       x-stainless-package-version:
       - 1.54.1
       x-stainless-retry-count:
@@ -33,85 +33,24 @@ interactions:
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
-      - 3.12.2
+      - 3.11.10
     method: POST
     uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
   response:
     body:
-      string: "{\"error\":{\"code\":\"1213\",\"message\":\"\u672A\u6B63\u5E38\u63A5\u6536\u5230prompt\u53C2\u6570\u3002\"}}"
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"It
+        seems like you''ve sent empty messages. If you have any questions, need assistance,
+        or want to chat about a specific topic, feel free to let me know, and I''ll
+        be happy to help!","role":"assistant"}}],"created":1732606211,"id":"20241126153004869a5990698c4c49","model":"glm-4-0520","request_id":"20241126153004869a5990698c4c49","usage":{"completion_tokens":44,"prompt_tokens":15,"total_tokens":59}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 21 Nov 2024 01:51:58 GMT
+      - Tue, 26 Nov 2024 07:30:11 GMT
       Set-Cookie:
-      - acw_tc=0a47308217321539184288947e00d6e449a6e95aad1a5673b966f89f3fcf9f;path=/;HttpOnly;Max-Age=1800
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Origin
-      - Access-Control-Request-Method
-      - Access-Control-Request-Headers
-      - Origin
-      - Access-Control-Request-Method
-      - Access-Control-Request-Headers
-      X-LOG-ID:
-      - 20241121095158d64a1c3465914d03
-    status:
-      code: 400
-      message: Bad Request
-- request:
-    body: '{"messages": [{"role": "user", "content": "Hello"}], "model": "glm-4-0520",
-      "stream": false}'
-    headers:
-      accept:
-      - application/json
-      accept-encoding:
-      - gzip, deflate, br
-      connection:
-      - keep-alive
-      content-length:
-      - '92'
-      content-type:
-      - application/json
-      host:
-      - open.bigmodel.cn
-      user-agent:
-      - AsyncOpenAI/Python 1.54.1
-      x-stainless-arch:
-      - other:amd64
-      x-stainless-async:
-      - async:asyncio
-      x-stainless-lang:
-      - python
-      x-stainless-os:
-      - Windows
-      x-stainless-package-version:
-      - 1.54.1
-      x-stainless-retry-count:
-      - '0'
-      x-stainless-runtime:
-      - CPython
-      x-stainless-runtime-version:
-      - 3.12.2
-    method: POST
-    uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
-  response:
-    body:
-      string: "{\"choices\":[{\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"content\":\"Hello
-        \U0001F44B! I'm ChatGLM\uFF08\u667A\u8C31\u6E05\u8A00\uFF09, the artificial
-        intelligence assistant, nice to meet you. Feel free to ask me any questions.\",\"role\":\"assistant\"}}],\"created\":1732153921,\"id\":\"202411210951598ab451ee266d4b15\",\"model\":\"glm-4-0520\",\"request_id\":\"202411210951598ab451ee266d4b15\",\"usage\":{\"completion_tokens\":36,\"prompt_tokens\":6,\"total_tokens\":42}}"
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Thu, 21 Nov 2024 01:52:01 GMT
+      - acw_tc=1a0c380d17326062039432217e0051bcb58932c2fe4603ade78c1ee75d74bb;path=/;HttpOnly;Max-Age=1800
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Transfer-Encoding:
@@ -125,9 +64,9 @@ interactions:
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
       X-LOG-ID:
-      - 202411210951598ab451ee266d4b15
+      - 20241126153004869a5990698c4c49
       content-length:
-      - '421'
+      - '466'
     status:
       code: 200
       message: OK
