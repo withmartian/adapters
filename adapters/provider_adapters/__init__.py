@@ -15,6 +15,7 @@ from .openai_sdk_chat_provider_adapter import OpenAISDKChatProviderAdapter
 from .openrouter_sdk_chat_provider_adapter import OpenRouterSDKChatProviderAdapter
 from .perplexity_sdk_chat_provider_adapter import PerplexitySDKChatProviderAdapter
 from .together_sdk_chat_provider_adapter import TogetherSDKChatProviderAdapter
+from .bigmodel_provider_adapter import BigModelSDKChatProviderAdapter
 
 __all__ = [
     "AI21SDKChatProviderAdapter",
@@ -34,4 +35,5 @@ __all__ = [
     "OpenRouterSDKChatProviderAdapter",
     "PerplexitySDKChatProviderAdapter",
     "TogetherSDKChatProviderAdapter",
+    "BigModelSDKChatProviderAdapter",
 ]

@@ -24,6 +24,7 @@ from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
 )
 from adapters.provider_adapters.openai_sdk_chat_provider_adapter import OpenAIModel
 from adapters.provider_adapters.together_sdk_chat_provider_adapter import TogetherModel
+from adapters.provider_adapters.bigmodel_provider_adapter import BigModelModel
 from adapters.types import (
     ContentTurn,
     ContentType,
@@ -64,6 +65,7 @@ ADAPTER_TEST_FACTORIES = [
             CerebrasModel,
             CohereModel,
             FireworksModel,
+            BigModelModel,
         ),
     )
 ]

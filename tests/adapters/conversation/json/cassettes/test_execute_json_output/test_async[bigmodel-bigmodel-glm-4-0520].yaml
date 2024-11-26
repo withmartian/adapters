@@ -1,0 +1,78 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, output simple json"}], "model":
+      "glm-4-0520", "response_format": {"type": "json_object"}, "stream": false}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '153'
+      content-type:
+      - application/json
+      host:
+      - open.bigmodel.cn
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
+  response:
+    body:
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"Certainly!
+        Below is a simple JSON (JavaScript Object Notation) example:\n\n```json\n{\n  \"name\":
+        \"John Doe\",\n  \"age\": 30,\n  \"is_student\": false,\n  \"address\": {\n    \"street\":
+        \"123 Main St\",\n    \"city\": \"Anytown\",\n    \"country\": \"Anycountry\"\n  },\n  \"phone_numbers\":
+        [\n    {\n      \"type\": \"home\",\n      \"number\": \"555-1234\"\n    },\n    {\n      \"type\":
+        \"mobile\",\n      \"number\": \"555-5678\"\n    }\n  ]\n}\n```\n\nThis JSON
+        object represents a person''s basic information, including their name, age,
+        student status, address, and phone numbers. The address is nested inside the
+        main object, and the phone numbers are represented as an array of objects,
+        each containing a type and a number.","role":"assistant"}}],"created":1732605858,"id":"20241126152411bab5b5815f6b4b1e","model":"glm-4-0520","request_id":"20241126152411bab5b5815f6b4b1e","usage":{"completion_tokens":186,"prompt_tokens":10,"total_tokens":196}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 26 Nov 2024 07:24:18 GMT
+      Set-Cookie:
+      - acw_tc=0a47329d17326058513238654e00cca9b469e8dc80561c8dd8de26751a4c08;path=/;HttpOnly;Max-Age=1800
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      X-LOG-ID:
+      - 20241126152411bab5b5815f6b4b1e
+      content-length:
+      - '1026'
+    status:
+      code: 200
+      message: OK
+version: 1
