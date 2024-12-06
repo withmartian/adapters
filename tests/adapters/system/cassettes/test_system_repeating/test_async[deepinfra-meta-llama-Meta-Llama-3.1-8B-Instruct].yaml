@@ -1,0 +1,58 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "system", "content":
+      "Hi"}, {"role": "user", "content": "Hi"}, {"role": "user", "content": "Hi"},
+      {"role": "system", "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role":
+      "user", "content": "Hi"}], "model": "meta-llama/Meta-Llama-3.1-8B-Instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '317'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-e331b3ef5f8c4835a54cbd55eb0b6a04","object":"chat.completion","created":1733368773,"model":"meta-llama/Meta-Llama-3.1-8B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi
+        back to you!","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":27,"total_tokens":32,"completion_tokens":5,"estimated_cost":1.06e-06}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '377'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Dec 2024 03:19:33 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -6,8 +6,12 @@ class MoonshotModel(Model):
     provider_name: str = Provider.moonshot.value
     vendor_name: str = Vendor.moonshot.value
 
+    supports_completion: bool = False
     supports_vision: bool = False
     supports_tools: bool = False
+    supports_n: bool = False
+
+    can_empty_content: bool = False
 
     properties: ModelProperties = ModelProperties(chinese=True)
 

@@ -1,5 +1,5 @@
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.types import Cost, Model, ModelProperties, Provider, Vendor
+from adapters.types import Cost, Model, Provider, Vendor
 
 
 class OctoaiModel(Model):
@@ -7,8 +7,6 @@ class OctoaiModel(Model):
 
     supports_vision: bool = False
     supports_tools: bool = False
-
-    properties: ModelProperties = ModelProperties(open_source=True)
 
 
 MODELS: list[Model] = [

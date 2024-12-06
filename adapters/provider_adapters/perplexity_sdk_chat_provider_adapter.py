@@ -5,12 +5,21 @@ from adapters.types import Cost, Model, ModelProperties, Provider, Vendor
 class PerplexityModel(Model):
     provider_name: str = Provider.perplexity.value
 
-    supports_first_assistant: bool = False
-    supports_last_assistant: bool = False
+    supports_completion: bool = False
     supports_last_system: bool = False
     supports_json_output: bool = False
     supports_tools: bool = False
-    # supports_system: bool = False
+    supports_n: bool = False
+
+    can_assistant_first: bool = False
+    can_assistant_last: bool = False
+    can_assistant_only: bool = False
+
+    can_system_last: bool = False
+
+    can_empty_content: bool = False
+    can_repeating_roles: bool = False
+    can_system_multiple: bool = False
 
 
 MODELS: list[Model] = [

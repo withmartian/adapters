@@ -4,18 +4,14 @@ from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdap
 from adapters.types import (
     Cost,
     Model,
-    ModelProperties,
     Provider,
     Vendor,
 )
 from openai.types.chat import ChatCompletionMessageParam
 
 
-
 class TogetherModel(Model):
     provider_name: str = Provider.together.value
-
-    properties: ModelProperties = ModelProperties(open_source=True)
 
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"
@@ -191,7 +187,9 @@ class TogetherSDKChatProviderAdapter(OpenAISDKChatAdapter):
     def _adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
 
-    def _get_params(self, messages: list[ChatCompletionMessageParam], **kwargs: Any) -> Dict[str, Any]:
+    def _get_params(
+        self, messages: list[ChatCompletionMessageParam], **kwargs: Any
+    ) -> Dict[str, Any]:
         params = super()._get_params(messages, **kwargs)
 
         # If the user has requested n messages, but not specified a temperature, we need to provide default temperature

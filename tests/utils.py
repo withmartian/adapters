@@ -16,15 +16,24 @@ from adapters.provider_adapters.cohere_sdk_chat_provider_adapter import (
     CohereModel,
     CohereSDKChatProviderAdapter,
 )
-from adapters.provider_adapters.fireworks_sdk_chat_provider_adapter import FireworksModel
+from adapters.provider_adapters.deepinfra_sdk_chat_provider_adapter import (
+    DeepInfraModel,
+)
+from adapters.provider_adapters.fireworks_sdk_chat_provider_adapter import (
+    FireworksModel,
+)
 from adapters.provider_adapters.gemini_sdk_chat_provider_adapter import (
-    GeminiModel,
     GeminiSDKChatProviderAdapter,
 )
+from adapters.provider_adapters.moescape_sdk_chat_provider_adapter import MoescapeModel
+from adapters.provider_adapters.moonshot_sdk_chat_provider_adapter import MoonshotModel
 from adapters.provider_adapters.openai_sdk_chat_provider_adapter import OpenAIModel
 from vcr import VCR
 from openai.types.chat import ChatCompletionMessageParam
 
+from adapters.provider_adapters.openrouter_sdk_chat_provider_adapter import (
+    OpenRouterModel,
+)
 from adapters.provider_adapters.together_sdk_chat_provider_adapter import TogetherModel
 
 
@@ -44,23 +53,33 @@ class AdapterTestFactory:
         return self.model_path
 
 
-ADAPTER_TEST_FACTORIES = [
+TEST_MODELS = (
+    OpenAIModel,
+    AnthropicModel,
+    TogetherModel,
+    AI21Model,
+    CerebrasModel,
+    CohereModel,
+    FireworksModel,
+    MoescapeModel,
+    # GeminiModel,
+    # PerplexityModel,
+    OpenRouterModel,
+    MoonshotModel,
+    # LeptonModel,
+    DeepInfraModel,
+)
+
+ADAPTER_CHAT_TEST_FACTORIES = [
     AdapterTestFactory(model.get_path())
     for model in AdapterFactory.get_supported_models()
-    if isinstance(
-        model,
-        (
-            OpenAIModel,
-            AnthropicModel,
-            TogetherModel,
-            AI21Model,
-            CerebrasModel,
-            CohereModel,
-            GeminiModel
-            # FireworksModel,
-            # PerplexityModel,
-        ),
-    )
+    if isinstance(model, TEST_MODELS) and model.supports_chat
+]
+
+ADAPTER_COMPLETION_TEST_FACTORIES = [
+    AdapterTestFactory(model.get_path())
+    for model in AdapterFactory.get_supported_models()
+    if isinstance(model, TEST_MODELS) and model.supports_completion
 ]
 
 

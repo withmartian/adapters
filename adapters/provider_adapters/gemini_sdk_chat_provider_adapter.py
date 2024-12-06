@@ -12,28 +12,12 @@ class GeminiModel(Model):
     provider_name: str = Provider.gemini.value
     vendor_name: str = Vendor.gemini.value
 
+    can_empty_content: bool = False
+
     properties: ModelProperties = ModelProperties(gdpr_compliant=True)
 
 
 MODELS: list[Model] = [
-    GeminiModel(
-        name="gemini-1.5-pro-001",
-        cost=Cost(prompt=1.25e-6, completion=5.00e-6),
-        context_length=2097152,
-        completion_length=8192,
-    ),
-    GeminiModel(
-        name="gemini-1.5-pro-002",
-        cost=Cost(prompt=1.25e-6, completion=5.00e-6),
-        context_length=2097152,
-        completion_length=8192,
-    ),
-    GeminiModel(
-        name="gemini-1.5-pro-exp-0827",
-        cost=Cost(prompt=1.25e-6, completion=5.00e-6),
-        context_length=2097152,
-        completion_length=8192,
-    ),
     GeminiModel(
         name="gemini-1.5-pro-latest",
         cost=Cost(prompt=1.25e-6, completion=5.00e-6),
@@ -47,36 +31,6 @@ MODELS: list[Model] = [
         completion_length=8192,
     ),
     GeminiModel(
-        name="gemini-1.5-flash-001",
-        cost=Cost(prompt=0.075e-6, completion=0.30e-6),
-        context_length=1048576,
-        completion_length=8192,
-    ),
-    GeminiModel(
-        name="gemini-1.5-flash-002",
-        cost=Cost(prompt=0.075e-6, completion=0.30e-6),
-        context_length=1048576,
-        completion_length=8192,
-    ),
-    GeminiModel(
-        name="gemini-1.5-flash-8b-exp-0924",
-        cost=Cost(prompt=0.075e-6, completion=0.30e-6),
-        context_length=1048576,
-        completion_length=8192,
-    ),
-    GeminiModel(
-        name="gemini-1.5-flash-8b-exp-0827",
-        cost=Cost(prompt=0.075e-6, completion=0.30e-6),
-        context_length=1048576,
-        completion_length=8192,
-    ),
-    GeminiModel(
-        name="gemini-1.5-flash-exp-0827",
-        cost=Cost(prompt=0.075e-6, completion=0.30e-6),
-        context_length=1048576,
-        completion_length=8192,
-    ),
-    GeminiModel(
         name="gemini-1.5-flash-latest",
         cost=Cost(prompt=0.075e-6, completion=0.30e-6),
         context_length=1048576,
@@ -85,12 +39,6 @@ MODELS: list[Model] = [
     GeminiModel(
         name="gemini-1.5-flash",
         cost=Cost(prompt=0.075e-6, completion=0.30e-6),
-        context_length=1048576,
-        completion_length=8192,
-    ),
-    GeminiModel(
-        name="gemini-1.5-flash-8b-001",
-        cost=Cost(prompt=0.0375e-6, completion=0.15e-6),
         context_length=1048576,
         completion_length=8192,
     ),

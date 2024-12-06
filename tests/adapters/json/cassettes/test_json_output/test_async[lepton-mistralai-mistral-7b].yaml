@@ -1,0 +1,72 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, output simple json"}], "model":
+      "mistral-7b", "response_format": {"type": "json_object"}}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '136'
+      content-type:
+      - application/json
+      host:
+      - mistral-7b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://mistral-7b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-779LqZDhjYkx8EpgpW3efF","object":"chat.completion","created":1733368634,"model":"mistral-7b","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        Here is a simple JSON example:\n\n```json\n{\n  \"name\": \"John Doe\",\n  \"age\":
+        30,\n  \"isMarried\": false,\n  \"hobbies\": [\"reading\", \"swimming\", \"coding\"],\n  \"address\":
+        {\n    \"street\": \"123 Main St\",\n    \"city\": \"Anytown\",\n    \"country\":
+        \"USA\"\n  }\n}\n```\n\nJSON (JavaScript Object Notation) is a lightweight
+        data interchange format that is easy for humans to read and write, and easy
+        for machines to parse and generate. In this example, we have an object with
+        different keys (name, age, isMarried, etc.) and values, as well as nested
+        objects like the address. Each value can be a string, number, boolean, null,
+        array, or even another object.","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":8,"total_tokens":208,"completion_tokens":200}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8ed0e1cb4fd3173e-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Dec 2024 03:17:16 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1020'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '2097'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,69 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number with
+      tools specified, range 1-10"}], "model": "dolphin-mixtral-8x7b", "tool_choice":
+      {"type": "function", "function": {"name": "generate"}}, "tools": [{"type": "function",
+      "function": {"description": "Generate random number", "name": "generate", "parameters":
+      {"type": "object", "properties": {"prompt": {"type": "string", "description":
+      "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '471'
+      content-type:
+      - application/json
+      host:
+      - dolphin-mixtral-8x7b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://dolphin-mixtral-8x7b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-NSEEbZ9AyiUTqsyiZVgiJN","object":"chat.completion","created":1733369222,"model":"dolphin-mixtral-8x7b","choices":[{"index":0,"message":{"role":"assistant","content":"{\"prompt\":
+        \"Generate a random number between 1 and 10\"}","tool_calls":[{"function":{"name":"generate","arguments":"{\"prompt\":
+        \"Generate a random number between 1 and 10\"}"},"id":"call-Bt7YXm7xHJWjaKisVctYYY","type":"function"}]},"logprobs":{"content":null},"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":22,"total_tokens":39,"completion_tokens":17}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8ed0f028bf022344-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Dec 2024 03:27:02 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '574'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '307'
+    status:
+      code: 200
+      message: OK
+version: 1

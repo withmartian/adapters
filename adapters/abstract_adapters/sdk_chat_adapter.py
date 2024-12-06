@@ -10,6 +10,7 @@ from typing import (
     Literal,
     Optional,
     TypeVar,
+    Union,
     overload,
 )
 
@@ -29,9 +30,13 @@ from adapters.general_utils import (
 from adapters.types import (
     AdapterChatCompletion,
     AdapterChatCompletionChunk,
+    AdapterCompletion,
+    AdapterCompletionChunk,
     AdapterException,
     AdapterStreamAsyncChatCompletion,
+    AdapterStreamAsyncCompletion,
     AdapterStreamSyncChatCompletion,
+    AdapterStreamSyncCompletion,
     ContentType,
     Conversation,
     ConversationRole,
@@ -83,6 +88,14 @@ class SDKChatAdapter(
         pass
 
     @abstractmethod
+    def _call_completion_sync(self) -> Callable[..., Any]:
+        pass
+
+    @abstractmethod
+    def _call_completion_async(self) -> Callable[..., Any]:
+        pass
+
+    @abstractmethod
     def _create_client_sync(self, base_url: str, api_key: str) -> CLIENT_SYNC:
         pass
 
@@ -99,9 +112,21 @@ class SDKChatAdapter(
         pass
 
     @abstractmethod
+    def _extract_completion_response(
+        self, request: Any, response: Any
+    ) -> AdapterCompletion:
+        pass
+
+    @abstractmethod
     def _extract_stream_response(
         self, request: Any, response: Any, state: dict[str, Any]
     ) -> AdapterChatCompletionChunk:
+        pass
+
+    @abstractmethod
+    def _extract_completion_stream_response(
+        self, request: Any, response: Any, state: dict[str, Any]
+    ) -> AdapterCompletionChunk:
         pass
 
     def _adjust_temperature(self, temperature: float) -> float:
@@ -156,7 +181,7 @@ class SDKChatAdapter(
 
         if not self.get_model().supports_vision:
             for message in messages:
-                if not isinstance(message["content"], str):
+                if not isinstance(message["content"], str) and message["content"]:
                     for content in message["content"]:
                         if (
                             not isinstance(content, str)
@@ -293,23 +318,57 @@ class SDKChatAdapter(
             )
 
         # Join messages from the same role
-        # if not self.get_model().can_repeating_roles:
-        #     result: list[ChatCompletionMessageParam] = []
-        #     grouped_message: Optional[ChatCompletionMessageParam] = None
+        if not self.get_model().can_repeating_roles:
+            result: list[ChatCompletionMessageParam] = []
+            grouped_message: Optional[ChatCompletionMessageParam] = None
 
-        #     for message in messages:
-        #         if grouped_message and message["role"] == grouped_message["role"]:
-        #             a = grouped_message["content"]
-        #             grouped_message["content"] += "\n" + message["content"]
-        #         else:
-        #             if grouped_message:
-        #                 result.append(grouped_message)
-        #             grouped_message = message
+            for message in messages:
+                if grouped_message and message["role"] == grouped_message["role"]:
+                    if isinstance(grouped_message["content"], str) and isinstance(
+                        message["content"], str
+                    ):
+                        grouped_message["content"] = (
+                            f"{grouped_message['content']}\n{message['content']}"
+                        )
+                    elif isinstance(grouped_message["content"], list) and isinstance(
+                        message["content"], list
+                    ):
+                        grouped_message["content"].extend(message["content"])
+                    elif isinstance(grouped_message["content"], list) and isinstance(
+                        message["content"], str
+                    ):
+                        grouped_message["content"].append(
+                            {"type": ContentType.text.value, "text": message["content"]}
+                        )
+                    elif isinstance(grouped_message["content"], str) and isinstance(
+                        message["content"], list
+                    ):
+                        grouped_message["content"] = [
+                            {
+                                "type": ContentType.text.value,
+                                "text": grouped_message["content"],
+                            }
+                        ]  # type: ignore
+                        grouped_message["content"].extend(message["content"])  # type: ignore
+                else:
+                    if grouped_message:
+                        result.append(grouped_message)
+                    grouped_message = message
 
-        #     if grouped_message:
-        #         result.append(grouped_message)
+            if grouped_message:
+                result.append(grouped_message)
 
-        #     messages = result
+            messages = result
+
+        return {
+            "messages": messages,
+            **(
+                {"temperature": self._adjust_temperature(kwargs.get("temperature", 1))}
+                if kwargs.get("temperature") is not None
+                else {}
+            ),
+            **kwargs,
+        }
 
         # ====
 
@@ -445,3 +504,93 @@ class SDKChatAdapter(
                 response.close()
 
         return AdapterStreamSyncChatCompletion(response=stream_response())
+
+    @overload
+    def execute_completion_sync(
+        self,
+        prompt: Union[str, list[str], Iterable[int], Iterable[Iterable[int]], None],
+        stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
+        **kwargs: Any,
+    ) -> AdapterCompletion: ...
+
+    @overload
+    def execute_completion_sync(
+        self,
+        prompt: Union[str, list[str], Iterable[int], Iterable[Iterable[int]], None],
+        stream: Literal[True],
+        **kwargs: Any,
+    ) -> AdapterStreamSyncCompletion: ...
+
+    def execute_completion_sync(
+        self,
+        prompt: Union[str, list[str], Iterable[int], Iterable[Iterable[int]], None],
+        stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
+        **kwargs: Any,
+    ) -> AdapterCompletion | AdapterStreamSyncCompletion:
+        response = self._call_completion_sync()(
+            model=self.get_model()._get_api_path(),
+            prompt=prompt,
+            **delete_none_values(kwargs),
+        )
+
+        if not stream:
+            return self._extract_completion_response(request=prompt, response=response)
+
+        def stream_response() -> Generator[AdapterCompletionChunk, Any, None]:
+            state: dict[str, Any] = {}
+            try:
+                for chunk in response:
+                    yield self._extract_completion_stream_response(
+                        request=prompt, response=chunk, state=state
+                    )
+            except Exception as e:
+                raise AdapterException(f"Error in streaming response: {e}") from e
+            finally:
+                response.close()
+
+        return AdapterStreamSyncCompletion(response=stream_response())
+
+    @overload
+    async def execute_completion_async(
+        self,
+        prompt: Union[str, list[str], Iterable[int], Iterable[Iterable[int]], None],
+        stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
+        **kwargs: Any,
+    ) -> AdapterCompletion: ...
+
+    @overload
+    async def execute_completion_async(
+        self,
+        prompt: Union[str, list[str], Iterable[int], Iterable[Iterable[int]], None],
+        stream: Literal[True],
+        **kwargs: Any,
+    ) -> AdapterStreamAsyncCompletion: ...
+
+    async def execute_completion_async(
+        self,
+        prompt: Union[str, list[str], Iterable[int], Iterable[Iterable[int]], None],
+        stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
+        **kwargs: Any,
+    ) -> AdapterCompletion | AdapterStreamAsyncCompletion:
+        response = await self._call_completion_async()(
+            model=self.get_model()._get_api_path(),
+            prompt=prompt,
+            **delete_none_values(kwargs),
+        )
+
+        if not stream:
+            return self._extract_completion_response(request=prompt, response=response)
+
+        async def stream_response() -> AsyncGenerator[AdapterCompletionChunk, None]:
+            state: dict[str, Any] = {}
+            try:
+                async for chunk in response:
+                    yield self._extract_completion_stream_response(
+                        request=prompt, response=chunk, state=state
+                    )
+            except Exception as e:
+                raise AdapterException(f"Error in streaming response: {e}") from e
+            finally:
+                response.close()
+
+        return AdapterStreamAsyncCompletion(response=stream_response())

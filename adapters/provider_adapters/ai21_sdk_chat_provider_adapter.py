@@ -1,12 +1,12 @@
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.types import Cost, Model, ModelProperties, Provider, Vendor
+from adapters.types import Cost, Model, Provider, Vendor
 
 
 class AI21Model(Model):
     provider_name: str = Provider.ai21.value
     vendor_name: str = Vendor.ai21.value
 
-    properties: ModelProperties = ModelProperties(open_source=True, gdpr_compliant=True)
+    supports_completion: bool = False
 
     def _get_api_path(self) -> str:
         return f"{self.name}"

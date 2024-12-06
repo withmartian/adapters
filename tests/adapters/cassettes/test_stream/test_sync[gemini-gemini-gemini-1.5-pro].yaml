@@ -16,7 +16,7 @@ interactions:
       host:
       - generativelanguage.googleapis.com
       user-agent:
-      - OpenAI/Python 1.54.1
+      - OpenAI/Python 1.47.1
       x-stainless-arch:
       - arm64
       x-stainless-async:
@@ -26,9 +26,7 @@ interactions:
       x-stainless-os:
       - MacOS
       x-stainless-package-version:
-      - 1.54.1
-      x-stainless-retry-count:
-      - '0'
+      - 1.47.1
       x-stainless-runtime:
       - CPython
       x-stainless-runtime-version:
@@ -37,20 +35,28 @@ interactions:
     uri: https://generativelanguage.googleapis.com/v1beta/openai/chat/completions
   response:
     body:
-      string: "[{\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"Resource
-        has been exhausted (e.g. check quota).\",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n
-        \ }\n}\n]"
+      string: 'data: {"object":"chat.completion.chunk","created":1733370686,"model":"gemini-1.5-pro","choices":[{"index":0,"delta":{"content":"Hi","role":"assistant","tool_calls":[]},"finish_reason":""}]}
+
+
+        data: {"object":"chat.completion.chunk","created":1733370686,"model":"gemini-1.5-pro","choices":[{"index":0,"delta":{"content":"
+        there! How can I help you today?\n","role":"assistant","tool_calls":[]},"finish_reason":"stop"}]}
+
+
+        data: [DONE]
+
+
+        '
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Content-Type:
-      - application/json; charset=UTF-8
+      - text/event-stream
       Date:
-      - Sat, 23 Nov 2024 01:18:00 GMT
+      - Thu, 05 Dec 2024 03:51:26 GMT
       Server:
       - scaffolding on HTTPServer2
       Server-Timing:
-      - gfet4t7; dur=30
+      - gfet4t7; dur=438
       Transfer-Encoding:
       - chunked
       Vary:
@@ -64,8 +70,8 @@ interactions:
       X-XSS-Protection:
       - '0'
       content-length:
-      - '141'
+      - '433'
     status:
-      code: 429
-      message: Too Many Requests
+      code: 200
+      message: OK
 version: 1

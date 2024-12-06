@@ -1,11 +1,9 @@
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.types import Model, ModelProperties, Provider
+from adapters.types import Model, Provider
 
 
 class OpenRouterModel(Model):
     provider_name: str = Provider.openrouter.value
-
-    properties: ModelProperties = ModelProperties(open_source=True)
 
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"

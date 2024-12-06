@@ -1,12 +1,13 @@
 from typing import Any
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.types import Conversation, Cost, Model, ModelProperties, Provider, Vendor
+from adapters.types import Cost, Model, Provider, Vendor
+from openai.types.chat import ChatCompletionMessageParam
 
 
 class FireworksModel(Model):
     provider_name: str = Provider.fireworks.value
 
-    properties: ModelProperties = ModelProperties(open_source=True)
+    supports_vision: bool = False
 
     def _get_api_path(self) -> str:
         if self.name == "yi-large":
@@ -48,14 +49,14 @@ MODELS: list[Model] = [
         supports_vision=False,
         supports_tools=False,
     ),
-    FireworksModel(
-        name="mixtral-8x22b-instruct",
-        cost=Cost(prompt=0.90e-6, completion=0.90e-6),
-        context_length=65536,
-        vendor_name=Vendor.mistralai.value,
-        supports_vision=False,
-        supports_tools=False,
-    ),
+    # FireworksModel(
+    #     name="mixtral-8x22b-instruct",
+    #     cost=Cost(prompt=0.90e-6, completion=0.90e-6),
+    #     context_length=65536,
+    #     vendor_name=Vendor.mistralai.value,
+    #     supports_vision=False,
+    #     supports_tools=False,
+    # ),
     FireworksModel(
         name="llama-v3p2-11b-vision-instruct",
         cost=Cost(prompt=0.20e-6, completion=0.20e-6),
@@ -70,17 +71,17 @@ MODELS: list[Model] = [
         vendor_name=Vendor.meta_llama.value,
         supports_tools=False,
     ),
-    FireworksModel(
-        name="mixtral-8x7b-instruct-hf",
-        cost=Cost(prompt=0.50e-6, completion=0.50e-6),
-        context_length=32768,
-        vendor_name=Vendor.mistralai.value,
-        supports_json_content=False,
-        supports_vision=False,
-        supports_tools=False,
-        can_assistant_first=False,
-        can_repeating_roles=False,
-    ),
+    # FireworksModel(
+    #     name="mixtral-8x7b-instruct-hf",
+    #     cost=Cost(prompt=0.50e-6, completion=0.50e-6),
+    #     context_length=32768,
+    #     vendor_name=Vendor.mistralai.value,
+    #     supports_json_content=False,
+    #     supports_vision=False,
+    #     supports_tools=False,
+    #     can_assistant_first=False,
+    #     can_repeating_roles=False,
+    # ),
     FireworksModel(
         name="yi-large",
         cost=Cost(prompt=3.00e-6, completion=3.00e-6),
@@ -127,18 +128,19 @@ MODELS: list[Model] = [
         context_length=32064,
         vendor_name=Vendor.microsoft.value,
         supports_tools=False,
+        supports_completion=False,
     ),
-    FireworksModel(
-        name="mixtral-8x7b-instruct",
-        cost=Cost(prompt=0.50e-6, completion=0.50e-6),
-        context_length=32768,
-        vendor_name=Vendor.mistralai.value,
-        supports_json_content=False,
-        supports_vision=False,
-        supports_tools=False,
-        can_repeating_roles=False,
-        can_assistant_first=False,
-    ),
+    # FireworksModel(
+    #     name="mixtral-8x7b-instruct",
+    #     cost=Cost(prompt=0.50e-6, completion=0.50e-6),
+    #     context_length=32768,
+    #     vendor_name=Vendor.mistralai.value,
+    #     supports_json_content=False,
+    #     supports_vision=False,
+    #     supports_tools=False,
+    #     can_repeating_roles=False,
+    #     can_assistant_first=False,
+    # ),
     FireworksModel(
         name="mythomax-l2-13b",
         cost=Cost(prompt=0.20e-6, completion=0.20e-6),
@@ -178,27 +180,29 @@ class FireworksSDKChatProviderAdapter(OpenAISDKChatAdapter):
     def get_base_sdk_url(self) -> str:
         return "https://api.fireworks.ai/inference/v1"
 
-    def _get_params(self, llm_input: Conversation, **kwargs: Any) -> dict[str, Any]:
-        params = super()._get_params(llm_input, **kwargs)
+    def _get_params(
+        self, messages: list[ChatCompletionMessageParam], **kwargs: Any
+    ) -> dict[str, Any]:
+        params = super()._get_params(messages, **kwargs)
 
         # Keep only last image_url for vision
-        skiped_image = False
-        for message in reversed(params["messages"]):
-            if isinstance(message["content"], list):
-                for content in reversed(message["content"]):
-                    if content["type"] == "image_url":
-                        if skiped_image:
-                            content["type"] = "text"
-                            content["text"] = content["image_url"]["url"]
-                            del content["image_url"]
-                        else:
-                            skiped_image = True
+        # skiped_image = False
+        # for message in reversed(params["messages"]):
+        #     if isinstance(message["content"], list):
+        #         for content in reversed(message["content"]):
+        #             if content["type"] == "image_url":
+        #                 if skiped_image:
+        #                     content["type"] = "text"
+        #                     content["text"] = content["image_url"]["url"]
+        #                     del content["image_url"]
+        #                 else:
+        #                     skiped_image = True
 
-        # Remove image details
-        for message in params["messages"]:
-            if isinstance(message["content"], list):
-                for content in message["content"]:
-                    if content["type"] == "image_url":
-                        del content["image_url"]["details"]
+        # # Remove image details
+        # for message in params["messages"]:
+        #     if isinstance(message["content"], list):
+        #         for content in message["content"]:
+        #             if content["type"] == "image_url":
+        #                 del content["image_url"]["details"]
 
         return params

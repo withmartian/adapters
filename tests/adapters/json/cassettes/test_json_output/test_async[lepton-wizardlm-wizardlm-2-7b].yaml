@@ -1,0 +1,76 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, output simple json"}], "model":
+      "wizardlm-2-7b", "response_format": {"type": "json_object"}}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '139'
+      content-type:
+      - application/json
+      host:
+      - wizardlm-2-7b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://wizardlm-2-7b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-PTuh7DVnECgwUJQEtArJ4P","object":"chat.completion","created":1733368639,"model":"wizardlm-2-7b","choices":[{"index":0,"message":{"role":"assistant","content":"Sure,
+        I can help you with that. If you''re looking to output a simple JSON object
+        in a programming language like Python, here''s an example using Python''s
+        built-in `json` module:\n\n```python\nimport json\n\n# Create a Python dictionary\ndata
+        = {\n    ''name'': ''John Doe'',\n    ''age'': 30,\n    ''is_employee'': True,\n    ''skills'':
+        [''Python'', ''Data Analysis'', ''Machine Learning''],\n    ''salary'': None\n}\n\n#
+        Convert the Python dictionary to a JSON object\njson_output = json.dumps(data,
+        indent=4)\n\n# Print the JSON object\nprint(json_output)\n```\n\nThe `json.dumps()`
+        function will convert the Python dictionary into a JSON-formatted string,
+        and the `indent=4` parameter is used to format the output with an indentation
+        of 4 spaces for better readability.\n\nIf you''re looking for a JSON example
+        in a different programming language or context, please specify, and I can
+        provide an appropriate example. For instance, if you''re generating JSON from
+        a server","tool_calls":null},"logprobs":null,"finish_reason":"length","audio":null,"asr_results":null}],"usage":{"prompt_tokens":12,"total_tokens":268,"completion_tokens":256}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8ed0e1edbb72966a-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Dec 2024 03:17:22 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1297'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '2738'
+    status:
+      code: 200
+      message: OK
+version: 1

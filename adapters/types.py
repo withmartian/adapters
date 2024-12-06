@@ -11,6 +11,7 @@ from typing import (
     Union,
 )
 
+from openai.types.completion import Completion
 from openai.types.chat import (
     ChatCompletion,
     ChatCompletionChunk,
@@ -65,6 +66,7 @@ class Vendor(str, Enum):
     starcoder = "starcoder"
     gryphe = "gryphe"
     microsoft = "microsoft"
+    moescape = "moescape"
 
 
 class ConversationRole(str, Enum):
@@ -160,11 +162,16 @@ class Model(BaseModel):
     test_async: bool = True
 
     name: str
+    api_name: Optional[str] = None
     vendor_name: str
     provider_name: str
     cost: Cost
     context_length: int
     completion_length: Optional[int] = None
+
+    supports_chat: bool = True
+    supports_completion: bool = True  # Deprecated, move to chat
+    supports_functions: bool = False  # Deprecated, move to tools
 
     supports_streaming: bool = True
     supports_vision: bool = True
@@ -175,9 +182,6 @@ class Model(BaseModel):
     supports_tools_choice_required: bool = True
     supports_json_output: bool = True
     supports_json_content: bool = True
-
-    # Deprecated, move to tools
-    supports_functions: bool = False
 
     can_user: bool = True
     can_vision_multiple: bool = True
@@ -264,7 +268,10 @@ class Conversation(BaseModel):
         return Prompt("".join([f"{turn.role}: {turn.content}" for turn in self.turns]))
 
     def convert_to_openai_format(self) -> Iterable[ChatCompletionMessageParam]:
-        return self.model_dump() # type: ignore
+        return self.model_dump()["turns"]  # type: ignore
+
+
+# Chat
 
 
 class AdapterChatCompletion(ChatCompletion):
@@ -295,6 +302,37 @@ class AdapterStreamSyncChatCompletion(AdapterStreamChatCompletion):
 
 class AdapterStreamAsyncChatCompletion(AdapterStreamChatCompletion):
     response: AsyncGenerator[AdapterChatCompletionChunk, Any]
+
+
+# Completion
+
+
+class AdapterCompletion(Completion):
+    cost: float
+
+
+class AdapterCompletionChunk(Completion):
+    pass
+
+
+class AdapterStreamCompletion(BaseModel):
+    response: Union[
+        Generator[AdapterCompletionChunk, Any, None],
+        AsyncGenerator[AdapterCompletionChunk, Any],
+    ]
+
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+
+
+class AdapterStreamSyncCompletion(AdapterStreamCompletion):
+    response: Generator[AdapterCompletionChunk, Any, None]
+
+
+class AdapterStreamAsyncCompletion(AdapterStreamCompletion):
+    response: AsyncGenerator[AdapterCompletionChunk, Any]
+
+
+# Other
 
 
 class AdapterException(Exception):
@@ -338,4 +376,18 @@ __all__ = [
     "Prompt",
     "AdapterResponse",
     "AdapterStreamResponse",
+    "AdapterCompletion",
+    "AdapterCompletionChunk",
+    "AdapterStreamCompletion",
+    "AdapterStreamSyncCompletion",
+    "AdapterStreamAsyncCompletion",
+    "Provider",
+    "Vendor",
+    "ConversationRole",
+    "AdapterFinishReason",
+    "VisionImageDetails",
+    "TextContentEntry",
+    "ImageContentEntry",
+    "ContentType",
+    "ModelProperties",
 ]

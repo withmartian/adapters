@@ -69,6 +69,7 @@ class AnthropicModel(Model):
     vendor_name: str = Vendor.anthropic.value
     provider_name: str = Provider.anthropic.value
 
+    supports_completion: bool = False
     supports_vision: bool = False
     supports_n: bool = False
 
@@ -188,6 +189,12 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
     def get_base_sdk_url(self) -> str:
         return "https://api.anthropic.com"
 
+    def _call_completion_sync(self) -> Callable[..., Any]:
+        raise NotImplementedError
+
+    def _call_completion_async(self) -> Callable[..., Any]:
+        raise NotImplementedError
+
     def _call_sync(self) -> Callable[..., Any]:
         return self._client_sync.messages.create
 
@@ -227,7 +234,7 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
 
     def _get_params(
         self, messages: list[ChatCompletionMessageParam], **kwargs: Any
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         system_prompt: Optional[Union[str, Iterable[TextBlockParam]]] = None
 
         # Extract system prompt if it's the first message
@@ -241,7 +248,15 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
 
         # Remove trailing whitespace from the last assistant message
         if len(messages) and messages[-1]["role"] == ConversationRole.assistant.value:
-            messages[-1]["content"] = messages[-1]["content"].rstrip()
+            if isinstance(messages[-1]["content"], str):
+                messages[-1]["content"] = messages[-1]["content"].rstrip()
+            elif messages[-1]["content"]:
+                messages_content_list = list(messages[-1]["content"])
+                if messages_content_list[-1]["type"] == "text":
+                    messages_content_list[-1]["text"] = messages_content_list[-1][
+                        "text"
+                    ].rstrip()
+                messages[-1]["content"] = messages_content_list
 
         # Include base64-encoded images in the request
         for message in anthropic_messages:
@@ -415,3 +430,15 @@ class AnthropicSDKChatProviderAdapter(SDKChatAdapter[Anthropic, AsyncAnthropic])
             model=self.get_model().name,
             object="chat.completion.chunk",
         )
+
+    def _extract_completion_response(
+        self,
+        request: Any,
+        response: Any,
+    ) -> Any:
+        raise NotImplementedError
+
+    def _extract_completion_stream_response(
+        self, request: Any, response: Any, state: dict[str, Any]
+    ) -> Any:
+        raise NotImplementedError

@@ -1,11 +1,15 @@
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.types import Cost, Model, ModelProperties, Provider, Vendor
+from adapters.types import Cost, Model, Provider, Vendor
 
 
 class LeptonModel(Model):
     provider_name: str = Provider.lepton.value
 
-    properties: ModelProperties = ModelProperties(open_source=True, gdpr_compliant=True)
+    supports_vision: bool = False
+    supports_json_content: bool = False
+
+    can_system_multiple: bool = False
+    can_repeating_roles: bool = False
 
 
 MODELS: list[Model] = [
