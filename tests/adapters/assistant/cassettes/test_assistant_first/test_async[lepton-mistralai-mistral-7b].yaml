@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
-      "content": "Hi"}], "model": "mistral-7b"}'
+    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
+      "content": "Hi"}, {"role": "user", "content": "Hi\n\"\""}], "model": "mistral-7b"}'
     headers:
       accept:
       - application/json
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '112'
+      - '155'
       content-type:
       - application/json
       host:
@@ -35,30 +35,31 @@ interactions:
     uri: https://mistral-7b.lepton.run/api/v1/chat/completions
   response:
     body:
-      string: '{"object":"error","message":"After the optional system message, conversation
-        roles must alternate user/assistant/user/assistant/...","code":50001}'
+      string: '{"id":"chatcmpl-BsvU8UV2unTiMPdGhXmTSB","object":"chat.completion","created":1733446028,"model":"mistral-7b","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I help you today? If you have any questions or need assistance with
+        something, feel free to ask. I''m here to help.","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":11,"total_tokens":44,"completion_tokens":33}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8ed0dd05ffddeb32-SJC
+      - 8ed8434a8ecd67c1-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Dec 2024 03:13:58 GMT
+      - Fri, 06 Dec 2024 00:47:08 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '146'
+      - '465'
       vary:
       - Accept-Encoding
       x-envoy-upstream-service-time:
-      - '193'
+      - '511'
     status:
-      code: 500
-      message: Internal Server Error
+      code: 200
+      message: OK
 version: 1

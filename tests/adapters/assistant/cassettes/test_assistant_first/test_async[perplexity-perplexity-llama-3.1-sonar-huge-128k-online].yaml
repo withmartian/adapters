@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
-      "content": "Hi"}], "model": "llama-3.1-sonar-huge-128k-online"}'
+    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
+      "content": "Hi"}, {"role": "user", "content": "Hi\n\"\""}], "model": "llama-3.1-sonar-huge-128k-online"}'
     headers:
       accept:
       - application/json
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '134'
+      - '177'
       content-type:
       - application/json
       host:
@@ -35,28 +35,47 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"error":{"message":"After the (optional) system message(s), user and
-        assistant roles should be alternating.","type":"invalid_message","code":400}}'
+      string: '{"id": "586a8918-6606-4b1f-a34b-b63ebeac09b2", "model": "llama-3.1-sonar-huge-128k-online",
+        "created": 1733446131, "usage": {"prompt_tokens": 5, "completion_tokens":
+        224, "total_tokens": 229}, "citations": ["https://www.yourdictionary.com/hi",
+        "https://paperpal.com/blog/academic-writing-guides/language-grammar/single-vs-double-quotation-marks",
+        "https://www.collinsdictionary.com/us/dictionary/english/hi", "https://www.quickanddirtytips.com/articles/single-quotation-marks-versus-double-quotation-marks/",
+        "https://dictionary.cambridge.org/us/dictionary/english/hi"], "object": "chat.completion",
+        "choices": [{"index": 0, "finish_reason": "stop", "message": {"role": "assistant",
+        "content": "The term \"hi\" is primarily used as an informal greeting, similar
+        to \"hello.\" Here are some key points about its usage and meaning:\n\n1.
+        **Greeting**: \"Hi\" is used as an exclamation to greet someone, often in
+        informal settings[1][3][5].\n2. **Origin**: It originated from Middle English
+        \"hy\" or \"hey,\" which were also used to attract attention[1][3].\n3. **Other
+        Meanings**: \"Hi\" can also be an abbreviation for \"Hawaii\" or used as an
+        informal spelling of \"high\" (e.g., \"hi fidelity\")[1][3].\n4. **Usage Examples**:\n   -
+        **Greeting**: \"Hi, how are you?\"[3][5]\n   - **Informal Spelling of High**:
+        \"Set the burner to hi.\"[1]\n   - **Abbreviation**: \"HI\" for Hawaii[1][3].\n\nIn
+        summary, \"hi\" is a versatile term that can be used as a greeting, an informal
+        spelling of \"high,\" or an abbreviation for \"Hawaii.\""}, "delta": {"role":
+        "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8ed0dd4c6eaf16a2-SJC
+      - 8ed84581cfcc679c-SJC
       Connection:
       - keep-alive
-      Content-Length:
-      - '147'
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Dec 2024 03:14:10 GMT
+      - Fri, 06 Dec 2024 00:48:52 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=_E_2cVt3AFDHSE3nTRTxYBWEOcyQh5dDxqTE1j8ETiU-1733368450-1.0.1.1-Jv.pJbT.PUHOa7UgZ0pauVRUbKVbuoZhNHOajnJifPv3o6hiSXFwOnQwY26TgXRQWwinepAk8hTRaUFpl3KZTA;
-        path=/; expires=Thu, 05-Dec-24 03:44:10 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=QXN_Ig7mUtzEHUG36Usr2lN0E9ArBc2afvvUlb62d.U-1733446132-1.0.1.1-bLhPlCI3KoQe.8OkZuSFvb2TpbnjtOc3DpHnCUfeL5JIjGMVpVQmOveI5FcdFR3MNqMiCHA3SH48FbBKSA_5Dw;
+        path=/; expires=Fri, 06-Dec-24 01:18:52 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1585'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

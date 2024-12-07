@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
-      "content": "Hi"}], "model": "llama-3.1-70b-instruct"}'
+    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
+      "content": "Hi"}, {"role": "user", "content": "Hi\n\"\""}], "model": "llama-3.1-70b-instruct"}'
     headers:
       accept:
       - application/json
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '124'
+      - '167'
       content-type:
       - application/json
       host:
@@ -35,28 +35,34 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"error":{"message":"After the (optional) system message(s), user and
-        assistant roles should be alternating.","type":"invalid_message","code":400}}'
+      string: '{"id": "aa63f58f-e9f5-4e82-8d8e-baa692fc1a5b", "model": "llama-3.1-70b-instruct",
+        "created": 1733446134, "usage": {"prompt_tokens": 25, "completion_tokens":
+        15, "total_tokens": 40}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
+        looks like you''re sending me a blank message. Is everything okay?"}, "delta":
+        {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8ed0dd526c7715e1-SJC
+      - 8ed845de2bc8cf69-SJC
       Connection:
       - keep-alive
-      Content-Length:
-      - '147'
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Dec 2024 03:14:11 GMT
+      - Fri, 06 Dec 2024 00:48:54 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=665Qcumj9p4vx8hAEIfwofQbpVzuo_g4cVsg5F0fBX4-1733368451-1.0.1.1-fs0cui7VZ_hQ_EImCipeQSslnPMB0usTWns1SS0sIk31_OHI4WgIEyY6Yo2eVPOmQyQDPL_JhozbrwzlL4qCBA;
-        path=/; expires=Thu, 05-Dec-24 03:44:11 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=qbgUNUbEjJwrcKvFaBKyr8I0tIPVTIFUh48Dgfq.MgA-1733446134-1.0.1.1-0JNId6ppxUuvp6C6oxGpx_ZIlV.xfhJ50vGqHwvoQj9BL5ZnxZPuTJlz2ShfM7nYtsB1g4eWi85mJxZ_zRWHKQ;
+        path=/; expires=Fri, 06-Dec-24 01:18:54 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '426'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

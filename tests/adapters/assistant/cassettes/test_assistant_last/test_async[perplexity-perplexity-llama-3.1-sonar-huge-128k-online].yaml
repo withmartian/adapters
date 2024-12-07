@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}], "model": "llama-3.1-sonar-huge-128k-online"}'
+      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-sonar-huge-128k-online"}'
     headers:
       accept:
       - application/json
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '135'
+      - '172'
       content-type:
       - application/json
       host:
@@ -35,27 +35,61 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"error":{"message":"Last message must have role `user`.","type":"invalid_message","code":400}}'
+      string: '{"id": "7f64e36d-817a-495e-adcc-f503a4670c5f", "model": "llama-3.1-sonar-huge-128k-online",
+        "created": 1733446188, "usage": {"prompt_tokens": 3, "completion_tokens":
+        482, "total_tokens": 485}, "citations": ["https://byjus.com/english/quotation-marks/",
+        "https://en.wikipedia.org/wiki/Quotation_marks_in_English", "https://www.grammarly.com/blog/punctuation-capitalization/quotation-marks/",
+        "https://www.scribbr.com/language-rules/quotation-marks/", "https://writer.com/blog/quotation-marks/"],
+        "object": "chat.completion", "choices": [{"index": 0, "finish_reason": "stop",
+        "message": {"role": "assistant", "content": "Quotation marks are punctuation
+        marks used to indicate direct speech, quotations, and titles of works. Here
+        are some key points about their usage:\n\n1. **Types of Quotation Marks**:\n   -
+        **Single Quotation Marks**: Used to quote names, book titles, movie titles,
+        and specific terms. For example, ''The Importance of Being Earnest'', ''Don'',
+        and ''WFH''[1].\n   - **Double Quotation Marks**: Used to quote direct speech
+        and written or spoken words by another person. For example, \"I had a dream\",
+        said Martin Luther King[1].\n\n2. **Usage in Different English Styles**:\n   -
+        **American English**: Double quotation marks are used for direct quotes, and
+        single quotation marks are used for quotes within quotes[3][5].\n   - **British
+        English**: Single quotation marks are used for direct quotes, and double quotation
+        marks are used for quotes within quotes[3][4].\n\n3. **Punctuation Placement**:\n   -
+        **American English**: Punctuation marks are placed inside the quotation marks
+        unless they are part of the original quotation[3].\n   - **British English**:
+        Punctuation marks are placed outside the quotation marks unless they are part
+        of the original quotation[2][3].\n\n4. **Special Uses**:\n   - **Irony and
+        Unusual Usage**: Quotation marks can be used to indicate irony, dubious words,
+        or non-standard usage. For example, \"food\" in ''The lunch lady plopped a
+        glob of \"food\" onto my tray''[2].\n   - **Titles and Specific Terms**: Quotation
+        marks are used for titles of short works like poems and songs, while italics
+        are used for longer works like books and films[3][4].\n\n5. **Academic Writing**:\n   -
+        Quotation marks are essential in academic writing to indicate direct quotes
+        from sources, including published works and primary data like interviews[4].\n\n###
+        References:\n- [1] https://byjus.com/english/quotation-marks/\n- [2] https://en.wikipedia.org/wiki/Quotation_marks_in_English\n-
+        [3] https://www.grammarly.com/blog/punctuation-capitalization/quotation-marks/\n-
+        [4] https://www.scribbr.com/language-rules/quotation-marks/\n- [5] https://writer.com/blog/quotation-marks/"},
+        "delta": {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8ed0de08cbca67fd-SJC
+      - 8ed84666888aebef-SJC
       Connection:
       - keep-alive
-      Content-Length:
-      - '95'
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Dec 2024 03:14:40 GMT
+      - Fri, 06 Dec 2024 00:49:48 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=iaf4El5eRROucGW51A_btdw.U5mJyVCTCmfbGelq8LE-1733368480-1.0.1.1-afOWD4milNBKlPn59KzTZ7pwwGWyB_YvZRzuUHTm88RGn_k5HS0dvU2Bb97kktsW7hk5gMM5dYD6AOP74ZJfhQ;
-        path=/; expires=Thu, 05-Dec-24 03:44:40 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=vPKRngAI0v5QxQgPY1HJ.ME8LI8vhTgANKMz0gU4TJ8-1733446188-1.0.1.1-vCSJrfU9gi_L1EaVC9w6SHZA_RECVBH3_vgNjtwMkHVNEW3o06z7exswV0tFoh5..ul3CSv3mQ8aYTBF.XuUSA;
+        path=/; expires=Fri, 06-Dec-24 01:19:48 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '2758'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

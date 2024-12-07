@@ -1,8 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi"}, {"role": "assistant", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}], "model": "llama-3.1-sonar-small-128k-online"}'
+      "content": "Hi\nHi"}, {"role": "user", "content": "Hi"}], "model": "llama-3.1-sonar-small-128k-online"}'
     headers:
       accept:
       - application/json
@@ -11,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '210'
+      - '174'
       content-type:
       - application/json
       host:
@@ -36,28 +35,52 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"error":{"message":"After the (optional) system message(s), user and
-        assistant roles should be alternating.","type":"invalid_message","code":400}}'
+      string: '{"id": "b21cfcf8-dbfc-405f-b74d-c5012a7682e2", "model": "llama-3.1-sonar-small-128k-online",
+        "created": 1733465374, "usage": {"prompt_tokens": 5, "completion_tokens":
+        340, "total_tokens": 345}, "citations": ["https://www.yourdictionary.com/hi",
+        "https://tw.forumosa.com/t/hi-comma/53026", "https://www.collinsdictionary.com/us/dictionary/english/hi",
+        "https://www.vocabulary.com/dictionary/hi", "https://www.oed.com/dictionary/hi_int?tl=true"],
+        "object": "chat.completion", "choices": [{"index": 0, "finish_reason": "stop",
+        "message": {"role": "assistant", "content": "The word \"hi\" is a common,
+        informal greeting used in English to acknowledge someone''s presence. Here
+        are the key points about \"hi\" based on the sources:\n\n1. **Definition and
+        Usage**:\n   - \"Hi\" is an interjection used to express a friendly, casual
+        greeting[1][3][4].\n   - It is more informal than \"hello\" and is appropriate
+        in most social contexts, except for very formal situations[4].\n\n2. **Origin**:\n   -
+        The earliest known use of \"hi\" dates back to the Middle English period,
+        around 1475, in the phrase \"Hunting of Hare\"[5].\n   - It is believed to
+        be a variant or alteration of other lexical items like \"hey\" or \"hei\"[1][3].\n\n3.
+        **Pronunciation**:\n   - In British English, \"hi\" is pronounced as /h\u028c\u026a/
+        (high)[5].\n   - In U.S. English, it is pronounced as /ha\u026a/ (high)[5].\n\n4.
+        **Usage in Different Contexts**:\n   - In addition to being a greeting, \"hi\"
+        can also be used as an adjective, such as in \"hi-fidelity\" (high-fidelity)[3].\n   -
+        It can also be an abbreviation for \"Hawaii\" or \"Hawaiian Islands\"[3][5].\n\n5.
+        **Punctuation**:\n   - When using \"hi\" followed by a name, a comma is often
+        used for clarity: \"Hi, Jim\"[2].\n\nIn summary, \"hi\" is a versatile and
+        widely used term in English for casual greetings and other informal expressions."},
+        "delta": {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8ed0df968e6d968c-SJC
+      - 8eda1b8a082167d7-SJC
       Connection:
       - keep-alive
-      Content-Length:
-      - '147'
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Dec 2024 03:15:43 GMT
+      - Fri, 06 Dec 2024 06:09:34 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=M1husn2XX7QrhOJ37Jzqu.UXKhcDv9R8MsAggv7d.fo-1733368543-1.0.1.1-.P9XzGcoTDXYdqfcl6QqfalwM.y.l7qkK80QIL0pfguK.2Z4ZdIVTsZCeE5bbB4rj.MlU9PMt5D7zKrpF.F5gQ;
-        path=/; expires=Thu, 05-Dec-24 03:45:43 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=BaRgsqK3EpnhU.14MGuuCocyA6MRFLkPMLc0_YRKTHU-1733465374-1.0.1.1-.uPQQVs8AH8isQr0Lwa.15mjW90erxyhDcJTVyxbGeduVHVQgbgP0I8cpI.gBSXSfP.LEfXbgrwzh7FHAMzGjw;
+        path=/; expires=Fri, 06-Dec-24 06:39:34 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1928'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

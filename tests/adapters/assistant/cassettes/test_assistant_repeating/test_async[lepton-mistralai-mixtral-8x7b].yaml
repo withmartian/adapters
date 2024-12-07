@@ -1,8 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi"}, {"role": "assistant", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}], "model": "mixtral-8x7b"}'
+      "content": "Hi\nHi"}, {"role": "user", "content": "Hi"}], "model": "mixtral-8x7b"}'
     headers:
       accept:
       - application/json
@@ -11,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '189'
+      - '153'
       content-type:
       - application/json
       host:
@@ -36,30 +35,35 @@ interactions:
     uri: https://mixtral-8x7b.lepton.run/api/v1/chat/completions
   response:
     body:
-      string: '{"object":"error","message":"After the optional system message, conversation
-        roles must alternate user/assistant/user/assistant/...","code":50001}'
+      string: '{"id":"chatcmpl-hx9mbWhbDAmSMVHTj6xsyR","object":"chat.completion","created":1733465348,"model":"mixtral-8x7b","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I help you today? Is there something you would like to know or talk
+        about? I''m here to assist with any questions you have to the best of my ability.
+        I can provide information on a wide variety of topics, so don''t hesitate
+        to ask me anything. I''m here to help. Is there something on your mind that
+        you would like to talk about or ask me about? I''m here and ready to assist
+        you with any questions you have.","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":21,"total_tokens":123,"completion_tokens":102}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8ed0df611850cf1a-SJC
+      - 8eda1afac8d0eb32-SJC
       Connection:
       - keep-alive
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Dec 2024 03:15:35 GMT
+      - Fri, 06 Dec 2024 06:09:09 GMT
       Server:
       - cloudflare
       Transfer-Encoding:
       - chunked
       content-length:
-      - '146'
+      - '759'
       vary:
       - Accept-Encoding
       x-envoy-upstream-service-time:
-      - '72'
+      - '798'
     status:
-      code: 500
-      message: Internal Server Error
+      code: 200
+      message: OK
 version: 1

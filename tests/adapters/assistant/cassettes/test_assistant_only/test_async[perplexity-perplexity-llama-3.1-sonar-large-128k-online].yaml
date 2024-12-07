@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "assistant", "content": "Hi"}], "model": "llama-3.1-sonar-large-128k-online"}'
+    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
+      "content": "Hi"}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-sonar-large-128k-online"}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '100'
+      - '174'
       content-type:
       - application/json
       host:
@@ -34,28 +35,69 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"error":{"message":"After the (optional) system message(s), user and
-        assistant roles should be alternating.","type":"invalid_message","code":400}}'
+      string: '{"id": "0abe068a-4df2-4845-ad63-955696b85865", "model": "llama-3.1-sonar-large-128k-online",
+        "created": 1733446209, "usage": {"prompt_tokens": 3, "completion_tokens":
+        532, "total_tokens": 535}, "citations": ["https://www.grammarly.com/blog/commonly-confused-words/single-vs-double-quotes/",
+        "https://paperpal.com/blog/academic-writing-guides/language-grammar/single-vs-double-quotation-marks",
+        "https://ndworks.nd.edu/news/editors-note-single-or-double-quotes/", "https://www.quickanddirtytips.com/articles/single-quotation-marks-versus-double-quotation-marks/",
+        "https://wmich.edu/writing/punctuation/quotationmarks"], "object": "chat.completion",
+        "choices": [{"index": 0, "finish_reason": "stop", "message": {"role": "assistant",
+        "content": "To determine when to use single quotation marks versus double
+        quotation marks, here are the key guidelines, particularly focusing on American
+        English:\n\n## Double Quotation Marks\n- **Direct Quotes**: Use double quotation
+        marks to indicate direct quotes from another source or to show dialogue[1][2][5].\n  -
+        Example: \u201cThe teacher said, \u2018The exam will be difficult.\u2019\u201d\n-
+        **Titles of Short Works**: Double quotation marks are used for the titles
+        of short works such as poems, songs, and episodes of TV shows[1][4][5].\n  -
+        Example: \u201cThe Road Not Taken\u201d by Robert Frost.\n- **Irony, Sarcasm,
+        or Skepticism**: Use double quotation marks to set apart words that are used
+        ironically, sarcastically, or skeptically, known as \u201cscare quotes\u201d[1][4][5].\n  -
+        Example: \u201cMy daughter made me a \u2018coffee mug\u2019 in art class.\u201d\n-
+        **Nicknames**: Double quotation marks can be used to differentiate nicknames
+        from given names[1].\n  - Example: Dwayne \u201cThe Rock\u201d Johnson.\n-
+        **Words as Examples**: Use double quotation marks when discussing a word as
+        a word, rather than its meaning[4].\n\n## Single Quotation Marks\n- **Quotes
+        Within Quotes**: Single quotation marks are used when there is a quotation
+        within a quotation[1][2][5].\n  - Example: \u201cThe professor said, \u2018As
+        John Stuart Mill famously wrote, \u201cThe only purpose for which power can
+        be rightfully exercised over any member of a civilized community, against
+        his will, is to prevent harm to others.\u201d\u2018\u201d\n- **Headlines**:
+        In headlines, single quotation marks may be used if a word or phrase is being
+        quoted[3][5].\n  - Example: Fighting Irish \u2018come home\u2019 to Dublin.\n\n##
+        Differences Between American and British English\n- In American English, double
+        quotation marks are the standard, while in British English, single quotation
+        marks are generally preferred. However, when a quotation appears within another
+        quotation, the opposite type of quotation mark is used in both styles[1][2][3].\n\n##
+        Additional Rules\n- **Placement with Other Punctuation**: In American English,
+        periods and commas go inside the closing quotation marks, while dashes, semicolons,
+        question marks, and exclamation points go inside if they apply to the quotation
+        itself and outside if they apply to the whole sentence[5].\n- **Running Quotations**:
+        For continuous quoted material spanning multiple paragraphs, use opening quotation
+        marks at the start of each paragraph and closing quotation marks only at the
+        very end of the quoted material[5]."}, "delta": {"role": "assistant", "content":
+        ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8ed0df16bfa01583-SJC
+      - 8ed8477bab7b9434-SJC
       Connection:
       - keep-alive
-      Content-Length:
-      - '147'
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Dec 2024 03:15:23 GMT
+      - Fri, 06 Dec 2024 00:50:09 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=LujOkmXDYvoQNKqgxwDQMfXy6bvuzf2iOdi5IyXgM9k-1733368523-1.0.1.1-1DrQoCWcq81lTgsbrcobbzBX1S2_1S9yqFVuFeHC4BFlCb0a.oCRntQs_UL1MJbDZ2IutBgFiytZ4mof9tRayQ;
-        path=/; expires=Thu, 05-Dec-24 03:45:23 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=Kou3LnXTAE8OqMUkfMCPjqHJgmgG7OmanPpJ6BN2NjQ-1733446209-1.0.1.1-WW7lXhPMr7OhLMeDmEIg_IZSLcpeyAc_RysgQU_4UEEh2XDdSUi6p1N.4XLi.X5RzLEPGZcI0rSY6gQBUsTYsQ;
+        path=/; expires=Fri, 06-Dec-24 01:20:09 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '3360'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

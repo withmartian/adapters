@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
-      "content": "Hi"}], "model": "llama-3.1-8b-instruct"}'
+    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
+      "content": "Hi"}, {"role": "user", "content": "Hi\n\"\""}], "model": "llama-3.1-8b-instruct"}'
     headers:
       accept:
       - application/json
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '123'
+      - '166'
       content-type:
       - application/json
       host:
@@ -35,28 +35,33 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"error":{"message":"After the (optional) system message(s), user and
-        assistant roles should be alternating.","type":"invalid_message","code":400}}'
+      string: '{"id": "d91b50f0-08c7-4a87-9b24-d275633f0621", "model": "llama-3.1-8b-instruct",
+        "created": 1733446133, "usage": {"prompt_tokens": 25, "completion_tokens":
+        5, "total_tokens": 30}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "How''s
+        it going?"}, "delta": {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8ed0dd4f8cf4cea8-SJC
+      - 8ed845dcd82dcf5d-SJC
       Connection:
       - keep-alive
-      Content-Length:
-      - '147'
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Dec 2024 03:14:10 GMT
+      - Fri, 06 Dec 2024 00:48:53 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=7.Dqejfp.QEi9kCKCe5Ohx2XFk.jQU6msKrytEcffyA-1733368450-1.0.1.1-TJiWWhDW87LmHe2UGrXt3vpc93uqw14nWA59TCctYRAx6D.vu32zqX.sq.RH2czUdSG73_LWhSlDv5yhAxQ9CQ;
-        path=/; expires=Thu, 05-Dec-24 03:44:10 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=AXifOB6eVGxS2muomklRCjLk2Mqe9Gj2wMoZdNLzBaM-1733446133-1.0.1.1-lN9SztMfrK3TiYA46fIySalQusB2pj9HDfG3WXPZ1GgTP0jraMQ1zYD4sBo7IHWCMAGdmcsVTo8UqsSr1j4Vxw;
+        path=/; expires=Fri, 06-Dec-24 01:18:53 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '371'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

@@ -1,8 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi"}, {"role": "assistant", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}], "model": "llama-3.1-70b-instruct"}'
+      "content": "Hi\nHi"}, {"role": "user", "content": "Hi"}], "model": "llama-3.1-70b-instruct"}'
     headers:
       accept:
       - application/json
@@ -11,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '199'
+      - '163'
       content-type:
       - application/json
       host:
@@ -36,28 +35,34 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"error":{"message":"After the (optional) system message(s), user and
-        assistant roles should be alternating.","type":"invalid_message","code":400}}'
+      string: '{"id": "0083245b-4b96-4485-9fe7-ba97dbd69eb6", "model": "llama-3.1-70b-instruct",
+        "created": 1733465404, "usage": {"prompt_tokens": 25, "completion_tokens":
+        11, "total_tokens": 36}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "Hi
+        again How''s your day going so far?"}, "delta": {"role": "assistant", "content":
+        ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8ed0df9d4cf72522-SJC
+      - 8eda1c56696067dc-SJC
       Connection:
       - keep-alive
-      Content-Length:
-      - '147'
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Dec 2024 03:15:44 GMT
+      - Fri, 06 Dec 2024 06:10:04 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=J.G4EgbNnb4lJt5i_Ik5iTu5gRt12pn0Ks3qhINs7Hw-1733368544-1.0.1.1-reWqiy.AS7ZifIEQrT0v4kGXRzqQui590mqG6KtpMfTDWvBGralgMg6Zx9.3aQb7N9jk6KTBc5bq5eRjaDyFlg;
-        path=/; expires=Thu, 05-Dec-24 03:45:44 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=pjJLXFh4KJxqRU6P4m6_KJzDMls3zKtl_zX3AljzvMU-1733465404-1.0.1.1-1ypNcAT.iRSN7biwpnTRZoCu4ASfuekJ8M1vs9PHJgYvimnIpyckdaG.d6YrYsoS2yPcY7Rc_5soF0kcge8fQw;
+        path=/; expires=Fri, 06-Dec-24 06:40:04 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '395'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

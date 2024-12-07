@@ -8,6 +8,10 @@ class LeptonModel(Model):
     supports_vision: bool = False
     supports_json_content: bool = False
 
+    can_assistant_first: bool = False
+    can_assistant_last: bool = False
+    can_assistant_only: bool = False
+
     can_system_multiple: bool = False
     can_repeating_roles: bool = False
 

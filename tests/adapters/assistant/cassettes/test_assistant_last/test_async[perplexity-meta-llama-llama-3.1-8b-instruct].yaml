@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi "}], "model": "llama-3.1-8b-instruct"}'
+      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-8b-instruct"}'
     headers:
       accept:
       - application/json
@@ -10,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '124'
+      - '161'
       content-type:
       - application/json
       host:
@@ -35,27 +35,35 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"error":{"message":"Last message must have role `user`.","type":"invalid_message","code":400}}'
+      string: '{"id": "a00e39b6-6214-4730-bd5c-60c7f4e8f9fc", "model": "llama-3.1-8b-instruct",
+        "created": 1733446190, "usage": {"prompt_tokens": 24, "completion_tokens":
+        29, "total_tokens": 53}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
+        looks like you might have accidentally sent a blank message. Is there something
+        I can help you with or would you like to start a conversation?"}, "delta":
+        {"role": "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8ed0de0c4f2b17f4-SJC
+      - 8ed84740ed7f642f-SJC
       Connection:
       - keep-alive
-      Content-Length:
-      - '95'
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Dec 2024 03:14:40 GMT
+      - Fri, 06 Dec 2024 00:49:50 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=9XhlvzZYr3aJJD2Z1c9Qd4CcCU9zIVCg72WnF12vHWc-1733368480-1.0.1.1-S.kO.yzPzs5RBvKPVSkGiQj5HDaPg51qHMsf71BB0x6dvWoCRZB885bdIr4Ft8vglW8TKIVknKAlzLmDUZalgg;
-        path=/; expires=Thu, 05-Dec-24 03:44:40 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=XHGCyvuOi3klxugsHCzpFAZLwrso762DLkLsGZGvgyw-1733446190-1.0.1.1-pcnr3FkmguHZ3cWyMJozNRuT2GJsTQKoy65waA9vidW2ODEyDVqbZDe_ky4_yozEhBZquxwLUmADuZbLPbvQjQ;
+        path=/; expires=Fri, 06-Dec-24 01:19:50 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '502'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

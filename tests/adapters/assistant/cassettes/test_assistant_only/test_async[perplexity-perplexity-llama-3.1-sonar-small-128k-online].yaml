@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "assistant", "content": "Hi"}], "model": "llama-3.1-sonar-small-128k-online"}'
+    body: '{"messages": [{"role": "user", "content": "\"\""}, {"role": "assistant",
+      "content": "Hi"}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-sonar-small-128k-online"}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '100'
+      - '174'
       content-type:
       - application/json
       host:
@@ -34,28 +35,71 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"error":{"message":"After the (optional) system message(s), user and
-        assistant roles should be alternating.","type":"invalid_message","code":400}}'
+      string: '{"id": "c9416b06-f536-495c-9c8c-04b78663db3a", "model": "llama-3.1-sonar-small-128k-online",
+        "created": 1733446199, "usage": {"prompt_tokens": 3, "completion_tokens":
+        557, "total_tokens": 560}, "citations": ["https://www.grammarly.com/blog/commonly-confused-words/single-vs-double-quotes/",
+        "https://paperpal.com/blog/academic-writing-guides/language-grammar/single-vs-double-quotation-marks",
+        "https://ndworks.nd.edu/news/editors-note-single-or-double-quotes/", "https://www.quickanddirtytips.com/articles/single-quotation-marks-versus-double-quotation-marks/",
+        "https://wmich.edu/writing/punctuation/quotationmarks"], "object": "chat.completion",
+        "choices": [{"index": 0, "finish_reason": "stop", "message": {"role": "assistant",
+        "content": "It seems like your query is incomplete, but based on the context
+        of the provided sources, here are some key points about using single and double
+        quotation marks:\n\n### When to Use Double Quotation Marks\n\n1. **Direct
+        Quotes**: Double quotation marks are used to indicate direct quotes from another
+        source[1][2][5].\n   - Example: \u201cAccording to the article, \u2018The
+        weather this weekend will be sunny and warm.\u2019\u201d\n\n2. **Dialogue**:
+        Double quotation marks are used to show dialogue in fiction writing and transcribe
+        speech in nonfiction articles[1][2].\n   - Example: \u201cWould you like a
+        receipt?\u201d the cashier asked robotically.\n\n3. **Titles of Short Works**:
+        Double quotation marks are used for the titles of short works like poems,
+        songs, and episodes of TV shows[1][4].\n   - Example: \u201cThe \u2018Darmok\u2019
+        episode of \u2018Star Trek: The Next Generation\u2019 is one of my favorites.\u201d\n\n4.
+        **Emphasis and Irony**: Double quotation marks can be used to set apart words
+        for emphasis, irony, or sarcasm (scare quotes)[1][4].\n   - Example: Women
+        achieved \u201cequality\u201d when they were granted the right to vote in
+        1920.\n\n5. **Nicknames**: Double quotation marks can differentiate nicknames
+        from given names[1].\n   - Example: Dwayne \u201cThe Rock\u201d Johnson.\n\n###
+        When to Use Single Quotation Marks\n\n1. **Quoting within a Quote**: Single
+        quotation marks are used when you have a quotation within a quotation to avoid
+        confusion[1][2][4].\n   - Example: \u201cThe professor said, \u2018As John
+        Stuart Mill famously wrote, \u201cThe only purpose for which power can be
+        rightfully exercised over any member of a civilized community, against his
+        will, is to prevent harm to others.\u201d\u2018\u201d\n\n2. **Headlines**:
+        Single quotation marks are often used in headlines that contain a quote or
+        composition title[3][5].\n   - Example: Fighting Irish \u2018come home\u2019
+        to Dublin.\n\n3. **Nested Quotations**: Single quotation marks are used to
+        enclose the inner quote when there are nested quotations[4].\n   - Example:
+        \u201cTo quote your favorite movie, \u2018I just want to tell you both good
+        luck. We\u2019re all counting on you.\u2019\u201d\n\n### Summary\n\n- **American
+        English**: Double quotation marks are the standard for most uses, including
+        direct quotes, dialogue, and titles of short works[1][2].\n- **British English**:
+        Single quotation marks are generally preferred, with double quotation marks
+        used to replace single quotation marks within quotes[2].\n\nFor more specific
+        guidance, it''s always a good idea to consult a style guide such as the Chicago
+        Manual of Style or the MLA Handbook."}, "delta": {"role": "assistant", "content":
+        ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8ed0df151af515a4-SJC
+      - 8ed847575f4267f7-SJC
       Connection:
       - keep-alive
-      Content-Length:
-      - '147'
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Dec 2024 03:15:23 GMT
+      - Fri, 06 Dec 2024 00:49:59 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=xd65tKtru5I050WzwRPnex_eUQrTRBS1J8KWDNi5JUE-1733368523-1.0.1.1-iywBRK3kU0p9XfteZJrwBMphcbMK8VdM.U25A3zCv7fKFyIoRrVYvSwbh6Oxyltl2PwfZDcuUKT17W9_d_4yHQ;
-        path=/; expires=Thu, 05-Dec-24 03:45:23 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=f812tvieQa0yV2zIfvMc0czteUp0VSyWpRBrKsS6HEo-1733446199-1.0.1.1-udcVske1rRkV922pTovp7RD6FVgoF8phLoSr5Tsio65EhIKW8BjRz3XFuYbbtJcStJ7bXC7D_qIfz4GGAG6IvA;
+        path=/; expires=Fri, 06-Dec-24 01:19:59 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '3457'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

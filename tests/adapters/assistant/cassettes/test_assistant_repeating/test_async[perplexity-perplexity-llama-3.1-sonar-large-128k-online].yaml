@@ -1,8 +1,7 @@
 interactions:
 - request:
     body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
-      "content": "Hi"}, {"role": "assistant", "content": "Hi"}, {"role": "user", "content":
-      "Hi"}], "model": "llama-3.1-sonar-large-128k-online"}'
+      "content": "Hi\nHi"}, {"role": "user", "content": "Hi"}], "model": "llama-3.1-sonar-large-128k-online"}'
     headers:
       accept:
       - application/json
@@ -11,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '210'
+      - '174'
       content-type:
       - application/json
       host:
@@ -36,28 +35,50 @@ interactions:
     uri: https://api.perplexity.ai/chat/completions
   response:
     body:
-      string: '{"error":{"message":"After the (optional) system message(s), user and
-        assistant roles should be alternating.","type":"invalid_message","code":400}}'
+      string: '{"id": "92e051e9-6717-4574-9f45-63d3d7115f9d", "model": "llama-3.1-sonar-large-128k-online",
+        "created": 1733465385, "usage": {"prompt_tokens": 5, "completion_tokens":
+        278, "total_tokens": 283}, "citations": ["https://www.yourdictionary.com/hi",
+        "https://tw.forumosa.com/t/hi-comma/53026", "https://www.collinsdictionary.com/us/dictionary/english/hi",
+        "https://www.vocabulary.com/dictionary/hi", "https://www.oed.com/dictionary/hi_int?tl=true"],
+        "object": "chat.completion", "choices": [{"index": 0, "finish_reason": "stop",
+        "message": {"role": "assistant", "content": "The term \"hi\" has several meanings
+        and uses, primarily centered around its function as a greeting.\n\n## As a
+        Greeting\n\"Hi\" is an informal, casual interjection used to greet someone.
+        It is more casual than \"hello\" and is appropriate in most non-formal situations[1][3][4].\n\n##
+        Origin and Etymology\nThe word \"hi\" has its roots in Middle English, with
+        the earliest known use dating back to around 1475. It is believed to be a
+        variant or alteration of the words \"hy\" or \"hey,\" which were also used
+        to attract attention[1][5].\n\n## Punctuation in Usage\nWhen using \"hi\"
+        followed by a person''s name, it is common to include a comma after \"hi,\"
+        such as \"Hi, Jim.\"[2].\n\n## Other Meanings\n- \"Hi\" can also be an abbreviation
+        for Hawaii or the Hawaiian Islands[1][3].\n- In some contexts, \"hi\" is used
+        as an informal spelling of \"high,\" as in \"hi-quality\" or \"hi-fidelity\"[1][3].\n\n##
+        Pronunciation\nThe pronunciation of \"hi\" is /ha\u026a/ in U.S. English and
+        /h\u028c\u026a/ in British English[5].\n\nOverall, \"hi\" is a versatile and
+        widely used term for greeting others in informal settings."}, "delta": {"role":
+        "assistant", "content": ""}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 8ed0df9788f915ae-SJC
+      - 8eda1bbf28e1d021-SJC
       Connection:
       - keep-alive
-      Content-Length:
-      - '147'
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Dec 2024 03:15:44 GMT
+      - Fri, 06 Dec 2024 06:09:45 GMT
       Server:
       - cloudflare
       Set-Cookie:
-      - __cf_bm=T0Y99yBfeJDNwqt8iawRv.Yfc5u5kArr6iC5T1JNOGY-1733368544-1.0.1.1-mtfDG386sih4AtdkJZXULi9JHBmaYZ68PyO80.sUiKC.hRAL7KGeUs.MtMcyFfyPKVETApd9pLOFCI9VNVgcaQ;
-        path=/; expires=Thu, 05-Dec-24 03:45:44 GMT; domain=.perplexity.ai; HttpOnly;
+      - __cf_bm=vCS8.pXsDyNMQrrdvDbNpFNUKTASDC6O87WlTi_fD5o-1733465385-1.0.1.1-Gbyd96VvK5QVX6ObGAGK7Fxe.CgiC43SArwBKfpMv76zJpmuqOjYnAIRN_PUxmfpf_spM.azHmo9KrhkbeOqyQ;
+        path=/; expires=Fri, 06-Dec-24 06:39:45 GMT; domain=.perplexity.ai; HttpOnly;
         Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1745'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1
