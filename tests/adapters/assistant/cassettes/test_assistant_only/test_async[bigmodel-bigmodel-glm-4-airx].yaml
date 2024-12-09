@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "assistant", "content": "Hi"}], "model": "glm-4-airx"}'
+    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
+      "content": "\"\""}], "model": "glm-4-airx"}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '77'
+      - '114'
       content-type:
       - application/json
       host:
@@ -34,21 +35,25 @@ interactions:
     uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
   response:
     body:
-      string: "{\"error\":{\"code\":\"1214\",\"message\":\"messages \u53C2\u6570\u975E\u6CD5\u3002\u8BF7\u68C0\u67E5\u6587\u6863\u3002\"}}"
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"Hello!
+        It looks like you''ve sent an empty message. How can I assist you today? If
+        you have any questions or need information on a specific topic, feel free
+        to ask.","role":"assistant"}}],"created":1733770726,"id":"20241210025845dae430db1e1748a2","model":"glm-4-airx","request_id":"20241210025845dae430db1e1748a2","usage":{"completion_tokens":39,"prompt_tokens":9,"total_tokens":48}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Sat, 07 Dec 2024 19:16:12 GMT
+      - Mon, 09 Dec 2024 18:58:46 GMT
       Set-Cookie:
-      - acw_tc=784e2c9a17335989724226505e43b3e3653f5b500a39989f5f4a898edd15b9;path=/;HttpOnly;Max-Age=1800
+      - acw_tc=784e2c8b17337707252048721e6aa3d98dcd609600a3694a335c75666dfc9c;path=/;HttpOnly;Max-Age=1800
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Transfer-Encoding:
       - chunked
       Vary:
+      - Accept-Encoding
       - Origin
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
@@ -56,8 +61,10 @@ interactions:
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
       X-LOG-ID:
-      - 202412080316128f2c77cc3d4d46ad
+      - 20241210025845dae430db1e1748a2
+      content-length:
+      - '450'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

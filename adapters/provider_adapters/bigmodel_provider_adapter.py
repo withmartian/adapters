@@ -21,8 +21,8 @@ class BigModelModel(Model):
     supports_n: bool = False
 
     can_empty_content: bool = False
-    can_only_system: bool = False
-    can_only_assistant: bool = False
+    can_system_only: bool = False
+    can_assistant_only: bool = False
 
     properties: ModelProperties = ModelProperties(
         gdpr_compliant=False,

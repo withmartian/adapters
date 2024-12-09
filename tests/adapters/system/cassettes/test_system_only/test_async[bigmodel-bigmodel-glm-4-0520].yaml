@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "system", "content": "Hi"}], "model": "glm-4-0520"}'
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
+      "\"\""}], "model": "glm-4-0520"}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '74'
+      - '111'
       content-type:
       - application/json
       host:
@@ -34,21 +35,24 @@ interactions:
     uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
   response:
     body:
-      string: "{\"error\":{\"code\":\"1214\",\"message\":\"messages \u53C2\u6570\u975E\u6CD5\u3002\u8BF7\u68C0\u67E5\u6587\u6863\u3002\"}}"
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"Hello!
+        How can I assist you today? If you have any questions or need help with something,
+        feel free to ask.","role":"assistant"}}],"created":1733770661,"id":"202412100257404c11d643561b4fd0","model":"glm-4-0520","request_id":"202412100257404c11d643561b4fd0","usage":{"completion_tokens":27,"prompt_tokens":9,"total_tokens":36}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Sat, 07 Dec 2024 19:15:01 GMT
+      - Mon, 09 Dec 2024 18:57:41 GMT
       Set-Cookie:
-      - acw_tc=784e2c9217335989009067451e5ca3a1313e85840f342ca6c63c8a8dd8ca94;path=/;HttpOnly;Max-Age=1800
+      - acw_tc=784e2cad17337706603648329e225f0ad589f2b5105c0e7ef6adbf724c6615;path=/;HttpOnly;Max-Age=1800
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Transfer-Encoding:
       - chunked
       Vary:
+      - Accept-Encoding
       - Origin
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
@@ -56,8 +60,10 @@ interactions:
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
       X-LOG-ID:
-      - 202412080315008dffb31a56bd4b9e
+      - 202412100257404c11d643561b4fd0
+      content-length:
+      - '394'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

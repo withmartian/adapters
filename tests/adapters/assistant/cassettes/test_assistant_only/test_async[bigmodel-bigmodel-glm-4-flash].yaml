@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "assistant", "content": "Hi"}], "model": "glm-4-flash"}'
+    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
+      "content": "\"\""}], "model": "glm-4-flash"}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '78'
+      - '115'
       content-type:
       - application/json
       host:
@@ -34,21 +35,23 @@ interactions:
     uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
   response:
     body:
-      string: "{\"error\":{\"code\":\"1214\",\"message\":\"messages \u53C2\u6570\u975E\u6CD5\u3002\u8BF7\u68C0\u67E5\u6587\u6863\u3002\"}}"
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"Hello!
+        How can I assist you today?","role":"assistant"}}],"created":1733770732,"id":"2024121002585184d0c573cda74005","model":"glm-4-flash","request_id":"2024121002585184d0c573cda74005","usage":{"completion_tokens":11,"prompt_tokens":9,"total_tokens":20}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Sat, 07 Dec 2024 19:16:17 GMT
+      - Mon, 09 Dec 2024 18:58:52 GMT
       Set-Cookie:
-      - acw_tc=784e2c9e17335989774267117e69e5a8b4e685ae7874c4361430ced0eb9563;path=/;HttpOnly;Max-Age=1800
+      - acw_tc=784e2c8d17337707318442362e31dbd0ac0be469b6283460708b3cf870d73f;path=/;HttpOnly;Max-Age=1800
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Transfer-Encoding:
       - chunked
       Vary:
+      - Accept-Encoding
       - Origin
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
@@ -56,8 +59,10 @@ interactions:
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
       X-LOG-ID:
-      - 20241208031617b5dcef7197434673
+      - 2024121002585184d0c573cda74005
+      content-length:
+      - '322'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "system", "content": "Hi"}], "model": "glm-4-airx"}'
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
+      "\"\""}], "model": "glm-4-airx"}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '74'
+      - '111'
       content-type:
       - application/json
       host:
@@ -34,21 +35,24 @@ interactions:
     uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
   response:
     body:
-      string: "{\"error\":{\"code\":\"1214\",\"message\":\"messages \u53C2\u6570\u975E\u6CD5\u3002\u8BF7\u68C0\u67E5\u6587\u6863\u3002\"}}"
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"Hello!
+        It seems like you might have just sent an empty message. If you have any questions
+        or need assistance with something, feel free to ask. I''m here to help!","role":"assistant"}}],"created":1733770663,"id":"2024121002574274e64477fa884c22","model":"glm-4-airx","request_id":"2024121002574274e64477fa884c22","usage":{"completion_tokens":38,"prompt_tokens":9,"total_tokens":47}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Sat, 07 Dec 2024 19:15:02 GMT
+      - Mon, 09 Dec 2024 18:57:43 GMT
       Set-Cookie:
-      - acw_tc=784e2cb117335989021595486e1b11dfaa7c9e569c7d0f40d224ad8e86c688;path=/;HttpOnly;Max-Age=1800
+      - acw_tc=2f6a1fa517337706624613854e607a31e1aef9960016a5726950b51173ecb9;path=/;HttpOnly;Max-Age=1800
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Transfer-Encoding:
       - chunked
       Vary:
+      - Accept-Encoding
       - Origin
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
@@ -56,8 +60,10 @@ interactions:
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
       X-LOG-ID:
-      - 2024120803150202ffc321930c4f6c
+      - 2024121002574274e64477fa884c22
+      content-length:
+      - '447'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

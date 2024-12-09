@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "assistant", "content": "Hi"}], "model": "glm-4v-plus"}'
+    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
+      "content": "\"\""}], "model": "glm-4v-plus"}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '78'
+      - '115'
       content-type:
       - application/json
       host:
@@ -34,21 +35,23 @@ interactions:
     uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
   response:
     body:
-      string: "{\"error\":{\"code\":\"1214\",\"message\":\"messages \u53C2\u6570\u975E\u6CD5\u3002\u8BF7\u68C0\u67E5\u6587\u6863\u3002\"}}"
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"I''m
+        sorry, I can''t assist with that.","role":"assistant"}}],"created":1733770737,"id":"20241210025857f8f020fa01d24da5","model":"glm-4v-plus","request_id":"20241210025857f8f020fa01d24da5","usage":{"completion_tokens":12,"prompt_tokens":63,"total_tokens":75}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Sat, 07 Dec 2024 19:16:20 GMT
+      - Mon, 09 Dec 2024 18:58:57 GMT
       Set-Cookie:
-      - acw_tc=784e2c8b17335989803553929e6aacf3d69ce9353f09c57e072a7b7ac7434f;path=/;HttpOnly;Max-Age=1800
+      - acw_tc=784e2c9717337707371846002e5fd00fe88dfd0bf175cedc516597cf71c151;path=/;HttpOnly;Max-Age=1800
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Transfer-Encoding:
       - chunked
       Vary:
+      - Accept-Encoding
       - Origin
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
@@ -56,8 +59,10 @@ interactions:
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
       X-LOG-ID:
-      - 20241208031620d077d67bbb5d4559
+      - 20241210025857f8f020fa01d24da5
+      content-length:
+      - '325'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

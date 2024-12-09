@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "assistant", "content": "Hi"}], "model": "glm-4-air"}'
+    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
+      "content": "\"\""}], "model": "glm-4-air"}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '76'
+      - '113'
       content-type:
       - application/json
       host:
@@ -34,21 +35,25 @@ interactions:
     uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
   response:
     body:
-      string: "{\"error\":{\"code\":\"1214\",\"message\":\"messages \u53C2\u6570\u975E\u6CD5\u3002\u8BF7\u68C0\u67E5\u6587\u6863\u3002\"}}"
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"Hello!
+        It seems like you might have just sent an empty message. How can I assist
+        you today? If you have any questions or need assistance with something, feel
+        free to ask!","role":"assistant"}}],"created":1733770728,"id":"202412100258463941ea0daa644943","model":"glm-4-air","request_id":"202412100258463941ea0daa644943","usage":{"completion_tokens":39,"prompt_tokens":9,"total_tokens":48}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Sat, 07 Dec 2024 19:16:13 GMT
+      - Mon, 09 Dec 2024 18:58:48 GMT
       Set-Cookie:
-      - acw_tc=784e2c9b17335989737894743e2aa6ae6e8ed7c6a5fd7aee8e78525dc19d9a;path=/;HttpOnly;Max-Age=1800
+      - acw_tc=784e2c8f17337707269327943e5212b47f4bf60c9f76815259174e0565e198;path=/;HttpOnly;Max-Age=1800
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Transfer-Encoding:
       - chunked
       Vary:
+      - Accept-Encoding
       - Origin
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
@@ -56,8 +61,10 @@ interactions:
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
       X-LOG-ID:
-      - 202412080316139cd69e8d7c964be4
+      - 202412100258463941ea0daa644943
+      content-length:
+      - '456'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

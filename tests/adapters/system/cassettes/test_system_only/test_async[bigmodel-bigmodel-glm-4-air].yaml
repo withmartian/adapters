@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "system", "content": "Hi"}], "model": "glm-4-air"}'
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "user", "content":
+      "\"\""}], "model": "glm-4-air"}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '73'
+      - '110'
       content-type:
       - application/json
       host:
@@ -34,21 +35,24 @@ interactions:
     uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
   response:
     body:
-      string: "{\"error\":{\"code\":\"1214\",\"message\":\"messages \u53C2\u6570\u975E\u6CD5\u3002\u8BF7\u68C0\u67E5\u6587\u6863\u3002\"}}"
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"Hello!
+        It looks like you''ve sent an empty message. How can I assist you today? If
+        you have any questions or need information on a topic, feel free to ask!","role":"assistant"}}],"created":1733770665,"id":"20241210025743ee95205e387b42be","model":"glm-4-air","request_id":"20241210025743ee95205e387b42be","usage":{"completion_tokens":38,"prompt_tokens":9,"total_tokens":47}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Sat, 07 Dec 2024 19:15:03 GMT
+      - Mon, 09 Dec 2024 18:57:45 GMT
       Set-Cookie:
-      - acw_tc=784e2c9417335989033207108e157653941d4f8f3515cf2b2c64fcd92ab0ac;path=/;HttpOnly;Max-Age=1800
+      - acw_tc=2f6a1fa317337706639606263e70bb88fc794bd3be8f60a05b048ac46859e7;path=/;HttpOnly;Max-Age=1800
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Transfer-Encoding:
       - chunked
       Vary:
+      - Accept-Encoding
       - Origin
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
@@ -56,8 +60,10 @@ interactions:
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
       X-LOG-ID:
-      - 20241208031503ea469ff2f7fc4fea
+      - 20241210025743ee95205e387b42be
+      content-length:
+      - '440'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1

@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"messages": [{"role": "assistant", "content": "Hi"}], "model": "glm-4v"}'
+    body: '{"messages": [{"role": "assistant", "content": "Hi"}, {"role": "user",
+      "content": "\"\""}], "model": "glm-4v"}'
     headers:
       accept:
       - application/json
@@ -9,7 +10,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '73'
+      - '110'
       content-type:
       - application/json
       host:
@@ -34,21 +35,26 @@ interactions:
     uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
   response:
     body:
-      string: "{\"error\":{\"code\":\"1214\",\"message\":\"messages \u53C2\u6570\u975E\u6CD5\u3002\u8BF7\u68C0\u67E5\u6587\u6863\u3002\"}}"
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"It
+        seems like there might have been an issue with the image you''re referring
+        to, as I''m unable to view it here. If you could provide a description of
+        the image or any specific details related to it, I would be more than happy
+        to help answer your question or provide information based on that description.","role":"assistant"}}],"created":1733770736,"id":"202412100258530af4eb3bc0424acd","model":"glm-4v","request_id":"202412100258530af4eb3bc0424acd","usage":{"completion_tokens":65,"prompt_tokens":1673,"total_tokens":1738}}'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Sat, 07 Dec 2024 19:16:18 GMT
+      - Mon, 09 Dec 2024 18:58:56 GMT
       Set-Cookie:
-      - acw_tc=784e2c9017335989785874402e5231b74c156a515613ba65e1283f12f2c7c6;path=/;HttpOnly;Max-Age=1800
+      - acw_tc=784e2cb217337707329363416e747433fa6b7cfbfb711cbdc5c6db36d2c166;path=/;HttpOnly;Max-Age=1800
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Transfer-Encoding:
       - chunked
       Vary:
+      - Accept-Encoding
       - Origin
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
@@ -56,8 +62,10 @@ interactions:
       - Access-Control-Request-Method
       - Access-Control-Request-Headers
       X-LOG-ID:
-      - 202412080316182aa9e04a4f4143a8
+      - 202412100258530af4eb3bc0424acd
+      content-length:
+      - '592'
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
 version: 1
