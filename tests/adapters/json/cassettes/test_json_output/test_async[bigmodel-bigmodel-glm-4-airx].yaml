@@ -1,0 +1,67 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, output simple json"}], "model":
+      "glm-4-airx", "response_format": {"type": "json_object"}}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '136'
+      content-type:
+      - application/json
+      host:
+      - open.bigmodel.cn
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
+  response:
+    body:
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"{\"message\":\"Hi\"}","role":"assistant"}}],"created":1733598859,"id":"20241208031418b4576d9affd8457d","model":"glm-4-airx","request_id":"20241208031418b4576d9affd8457d","usage":{"completion_tokens":12,"prompt_tokens":64,"total_tokens":76}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sat, 07 Dec 2024 19:14:19 GMT
+      Set-Cookie:
+      - acw_tc=784e2ca617335988583964899e0e934b238d3194f17bdf8cc1f76ec521b4d2;path=/;HttpOnly;Max-Age=1800
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      X-LOG-ID:
+      - 20241208031418b4576d9affd8457d
+      content-length:
+      - '308'
+    status:
+      code: 200
+      message: OK
+version: 1

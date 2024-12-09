@@ -1,0 +1,68 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, output simple json"}], "model":
+      "glm-4-flashx", "response_format": {"type": "json_object"}}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '138'
+      content-type:
+      - application/json
+      host:
+      - open.bigmodel.cn
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
+  response:
+    body:
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"{\"answer\":\"simple
+        JSON\"}","role":"assistant"}}],"created":1733598864,"id":"20241208031424f9a6418086504971","model":"glm-4-flashx","request_id":"20241208031424f9a6418086504971","usage":{"completion_tokens":13,"prompt_tokens":64,"total_tokens":77}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sat, 07 Dec 2024 19:14:24 GMT
+      Set-Cookie:
+      - acw_tc=784e2cad17335988639755621e225ce5d0d982348708730e046f8c2ff641ab;path=/;HttpOnly;Max-Age=1800
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      X-LOG-ID:
+      - 20241208031424f9a6418086504971
+      content-length:
+      - '318'
+    status:
+      code: 200
+      message: OK
+version: 1

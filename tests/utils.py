@@ -29,6 +29,8 @@ from adapters.provider_adapters.lepton_sdk_chat_provider_adapter import LeptonMo
 from adapters.provider_adapters.moescape_sdk_chat_provider_adapter import MoescapeModel
 from adapters.provider_adapters.moonshot_sdk_chat_provider_adapter import MoonshotModel
 from adapters.provider_adapters.openai_sdk_chat_provider_adapter import OpenAIModel
+from adapters.provider_adapters.together_sdk_chat_provider_adapter import TogetherModel
+from adapters.provider_adapters.bigmodel_provider_adapter import BigModelModel
 from vcr import VCR
 from openai.types.chat import ChatCompletionMessageParam
 
@@ -38,7 +40,6 @@ from adapters.provider_adapters.openrouter_sdk_chat_provider_adapter import (
 from adapters.provider_adapters.perplexity_sdk_chat_provider_adapter import (
     PerplexityModel,
 )
-from adapters.provider_adapters.together_sdk_chat_provider_adapter import TogetherModel
 
 
 class AdapterTestFactory:
@@ -72,6 +73,7 @@ TEST_MODELS = (
     MoonshotModel,
     LeptonModel,
     DeepInfraModel,
+    BigModelModel,
 )
 
 ADAPTER_CHAT_TEST_FACTORIES = [

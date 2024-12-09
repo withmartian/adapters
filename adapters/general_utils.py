@@ -6,6 +6,8 @@ import httpx
 
 from adapters.types import Cost
 
+YUAN_TO_USD = 0.14
+
 EMPTY_CONTENT = '""'
 
 
