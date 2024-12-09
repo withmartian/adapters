@@ -2,19 +2,16 @@ from typing import Any, Dict
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.types import (
-    Conversation,
     Cost,
     Model,
-    ModelProperties,
     Provider,
     Vendor,
 )
+from openai.types.chat import ChatCompletionMessageParam
 
 
 class TogetherModel(Model):
     provider_name: str = Provider.together.value
-
-    properties: ModelProperties = ModelProperties(open_source=True)
 
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"
@@ -125,19 +122,19 @@ MODELS: list[Model] = [
         context_length=32768,
         vendor_name=Vendor.mistralai.value,
         supports_json_output=False,
-        supports_only_system=False,
-        supports_only_assistant=False,
         supports_vision=False,
         supports_tools=False,
+        can_system_only=False,
+        can_assistant_only=False,
     ),
     TogetherModel(
         name="Mixtral-8x7B-Instruct-v0.1",
         cost=Cost(prompt=0.60e-6, completion=0.60e-6),
         context_length=32768,
         vendor_name=Vendor.mistralai.value,
-        supports_only_system=False,
-        supports_only_assistant=False,
         supports_vision=False,
+        can_system_only=False,
+        can_assistant_only=False,
     ),
     TogetherModel(
         name="Mixtral-8x22B-Instruct-v0.1",
@@ -145,10 +142,10 @@ MODELS: list[Model] = [
         context_length=65536,
         vendor_name=Vendor.mistralai.value,
         supports_json_output=False,
-        supports_only_system=False,
-        supports_only_assistant=False,
         supports_vision=False,
         supports_tools=False,
+        can_system_only=False,
+        can_assistant_only=False,
     ),
     TogetherModel(
         name="gemma-2-9b-it",
@@ -190,8 +187,10 @@ class TogetherSDKChatProviderAdapter(OpenAISDKChatAdapter):
     def _adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
 
-    def _get_params(self, llm_input: Conversation, **kwargs: Any) -> Dict[str, Any]:
-        params = super()._get_params(llm_input, **kwargs)
+    def _get_params(
+        self, messages: list[ChatCompletionMessageParam], **kwargs: Any
+    ) -> Dict[str, Any]:
+        params = super()._get_params(messages, **kwargs)
 
         # If the user has requested n messages, but not specified a temperature, we need to provide default temperature
         if params.get("n") and params.get("temperature") is None:

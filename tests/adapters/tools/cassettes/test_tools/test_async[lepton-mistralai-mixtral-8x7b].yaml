@@ -1,0 +1,86 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number with
+      tools specified, range 1-10"}], "model": "mixtral-8x7b", "tools": [{"type":
+      "function", "function": {"description": "Generate random number", "name": "generate",
+      "parameters": {"type": "object", "properties": {"prompt": {"type": "string",
+      "description": "Random number like 5, 4, 3, 10, 11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '392'
+      content-type:
+      - application/json
+      host:
+      - mixtral-8x7b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://mixtral-8x7b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-C7CjApgDgzuQdX7VCEZ2YJ","object":"chat.completion","created":1733369203,"model":"mixtral-8x7b","choices":[{"index":0,"message":{"role":"assistant","content":"{\"prompt\":
+        \"Generate random number with specified tools in range 1-10: \\\\n\\\\nTool
+        1: Google Sheets \\\\n\\\\nProcedure: \\\\n1. Open Google Sheets\\\\n2. Click
+        on ''F5'' or ''Formulas'' > ''Random'' > ''Random number''\\\\n3. Set the
+        range to ''1'' and ''10''\\\\n4. Press Enter\\\\n\\\\nTool 2: Excel \\\\n\\\\nProcedure:
+        \\\\n1. Open Excel\\\\n2. Click on ''Formulas'' > ''Random'' > ''RANDBETWEEN''\\\\n3.
+        Set the range to ''1'' and ''10''\\\\n4. Press Enter\\\\n\\\\nTool 3: Python
+        \\\\n\\\\nProcedure: \\\\n1. Open Python\\\\n2. Import random library\\\\n3.
+        Use random.randint(1, 10)\\\\n\\\\nTool 4: Online Random Number Generator
+        \\\\n\\\\nProcedure: \\\\n1. Open your browser\\\\n2. Go to https://www.random.org/integers/\\\\n3.
+        Set the range to ''","tool_calls":[{"function":{"name":"generate","arguments":"{\"prompt\":
+        \"Generate random number with specified tools in range 1-10: \\\\n\\\\nTool
+        1: Google Sheets \\\\n\\\\nProcedure: \\\\n1. Open Google Sheets\\\\n2. Click
+        on ''F5'' or ''Formulas'' > ''Random'' > ''Random number''\\\\n3. Set the
+        range to ''1'' and ''10''\\\\n4. Press Enter\\\\n\\\\nTool 2: Excel \\\\n\\\\nProcedure:
+        \\\\n1. Open Excel\\\\n2. Click on ''Formulas'' > ''Random'' > ''RANDBETWEEN''\\\\n3.
+        Set the range to ''1'' and ''10''\\\\n4. Press Enter\\\\n\\\\nTool 3: Python
+        \\\\n\\\\nProcedure: \\\\n1. Open Python\\\\n2. Import random library\\\\n3.
+        Use random.randint(1, 10)\\\\n\\\\nTool 4: Online Random Number Generator
+        \\\\n\\\\nProcedure: \\\\n1. Open your browser\\\\n2. Go to https://www.random.org/integers/\\\\n3.
+        Set the range to ''"},"id":"call-FWN4gFoDY5K4yorYi96kQm","type":"function"}]},"logprobs":{"content":null},"finish_reason":"length","audio":null,"asr_results":null}],"usage":{"prompt_tokens":21,"total_tokens":277,"completion_tokens":256}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8ed0efb109ee944c-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Dec 2024 03:26:45 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1932'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '1722'
+    status:
+      code: 200
+      message: OK
+version: 1

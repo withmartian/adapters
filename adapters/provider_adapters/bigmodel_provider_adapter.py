@@ -13,14 +13,16 @@ class BigModelModel(Model):
     provider_name: str = Provider.bigmodel.value
     vendor_name: str = Vendor.bigmodel.value
 
+    supports_completion: bool = False
     supports_vision: bool = False
     supports_tools: bool = False
     supports_tool_choice: bool = False
     supports_tool_choice_required: bool = False
     supports_n: bool = False
-    supports_empty_content: bool = False
-    supports_only_system: bool = False
-    supports_only_assistant: bool = False
+
+    can_empty_content: bool = False
+    can_system_only: bool = False
+    can_assistant_only: bool = False
 
     properties: ModelProperties = ModelProperties(
         gdpr_compliant=False,

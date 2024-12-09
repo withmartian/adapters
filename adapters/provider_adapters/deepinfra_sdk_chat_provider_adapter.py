@@ -1,5 +1,5 @@
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.types import Cost, Model, ModelProperties, Provider
+from adapters.types import Cost, Model, Provider
 
 
 class DeepInfraModel(Model):
@@ -7,8 +7,9 @@ class DeepInfraModel(Model):
 
     supports_vision: bool = False
     supports_tools: bool = False
+    supports_json_content: bool = False
 
-    properties: ModelProperties = ModelProperties(open_source=True)
+    can_system_only: bool = False
 
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"

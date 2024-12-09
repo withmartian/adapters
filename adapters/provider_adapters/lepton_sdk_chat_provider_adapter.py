@@ -1,11 +1,19 @@
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
-from adapters.types import Cost, Model, ModelProperties, Provider, Vendor
+from adapters.types import Cost, Model, Provider, Vendor
 
 
 class LeptonModel(Model):
     provider_name: str = Provider.lepton.value
 
-    properties: ModelProperties = ModelProperties(open_source=True, gdpr_compliant=True)
+    supports_vision: bool = False
+    supports_json_content: bool = False
+
+    can_assistant_first: bool = False
+    can_assistant_last: bool = False
+    can_assistant_only: bool = False
+
+    can_system_multiple: bool = False
+    can_repeating_roles: bool = False
 
 
 MODELS: list[Model] = [
@@ -38,7 +46,7 @@ MODELS: list[Model] = [
         cost=Cost(prompt=1.0e-6, completion=1.0e-6),
         context_length=64000,
         vendor_name=Vendor.wizardlm.value,
-        supports_tool_choice_required=False,
+        supports_tools_choice_required=False,
     ),
     LeptonModel(
         name="dolphin-mixtral-8x7b",

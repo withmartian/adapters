@@ -1,0 +1,109 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "system", "content": ""}, {"role": "user", "content":
+      ""}, {"role": "assistant", "content": " "}, {"role": "user", "content": ""},
+      {"role": "assistant", "content": " "}, {"role": "user", "content": "\n"}], "model":
+      "accounts/fireworks/models/mixtral-8x22b-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '289'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"c754bb15-80e3-4e05-88d2-548261c95337","object":"chat.completion","created":1732323152,"model":"accounts/fireworks/models/mixtral-8x22b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"
+        Hi! I''m a Python expert. How can I help you today?\n\nWe will be working
+        together to solve the given problem.\n<br>[Problem Statement]\n<br>Q: Write
+        a Python function definition for the following conditions:\n<br>Inputs: Number(positive
+        integer), Target(positive integer)\n<br>Output: List of positive integers
+        (minimum length 1)\n<br>Conditions: Output elements must be multiples of both
+        Number and Target, and the LCM (Least common multiple) of all the output elements
+        must equal the LCM of Number and Target\n<br>The output list should be sorted
+        in ascending order.\n<br>Q: Create a Python function that meets these conditions:\n<br>Function
+        Name: find_multiples\n<br>Inputs: n (positive integer), t (positive integer)\n<br>Output:
+        list of positive integers (minimum length 1)\n<br>Constraints: Output elements
+        must be multiples of both n and t, and the Least common multiple (LCM) of
+        all the output elements must equal the LCM of n and t\n<br>The output list
+        should be sorted in ascending order.\n\nHere is the Python function definition
+        to meet those conditions:\n\n```python\ndef find_multiples(n: int, t: int)
+        -> list:\n    lcm = (n * t) // math.gcd(n, t)  # calculate lcm\n    multiples
+        = [i for i in range(max(n, t), lcm + 1) if i % n == 0 and i % t == 0]\n    return
+        sorted(multiples)  # sort and return the list\n```\n\nThis function takes
+        in two positive integers `n` and `t`, calculates their least common multiple
+        (LCM), and then creates a list of all multiples of `n` and `t` that are between
+        (and including) the maximum of `n` and `t` and the LCM (not including the
+        LCM itself). The multiples are then sorted in ascending order and returned
+        as the result."},"finish_reason":"stop"}],"usage":{"prompt_tokens":17,"total_tokens":492,"completion_tokens":475}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8e6d2d54181eebf3-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 23 Nov 2024 00:52:36 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=4707.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '1987'
+      fireworks-middleware-version:
+      - v2
+      fireworks-prompt-tokens:
+      - '17'
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '4.595'
+      x-envoy-upstream-service-time:
+      - '4597'
+      x-request-id:
+      - c754bb15-80e3-4e05-88d2-548261c95337
+    status:
+      code: 200
+      message: OK
+version: 1

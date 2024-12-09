@@ -1,0 +1,69 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number with
+      tools specified, range 1-10"}], "model": "nephara", "tool_choice": "required",
+      "tools": [{"type": "function", "function": {"description": "Generate random
+      number", "name": "generate", "parameters": {"type": "object", "properties":
+      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
+      11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '414'
+      content-type:
+      - application/json
+      host:
+      - jtwtcue2-llama3-8b-instruct.tin.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://jtwtcue2-llama3-8b-instruct.tin.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-kbuWfbsPKNJfyPWtJ2wE5T","object":"chat.completion","created":1733351323,"model":"nephara","choices":[{"index":0,"message":{"role":"assistant","content":"{\"prompt\":
+        \"Random number between 1 and 10\"}","tool_calls":[{"function":{"name":"generate","arguments":"{\"prompt\":
+        \"Random number between 1 and 10\"}"},"id":"call-iXpZJDcW63gesePzsGqFZK","type":"function"}]},"logprobs":{"content":null},"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":22,"total_tokens":35,"completion_tokens":13}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8ecf3b28ba21155d-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 04 Dec 2024 22:28:43 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '539'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '322'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,11 +1,14 @@
 from .ai21_sdk_chat_provider_adapter import AI21SDKChatProviderAdapter
 from .anthropic_sdk_chat_provider_adapter import AnthropicSDKChatProviderAdapter
-from .azure_sdk_chat_provider_adapter import AzureSDKChatProviderAdapter
+
+# from .azure_sdk_chat_provider_adapter import AzureSDKChatProviderAdapter
 from .cerebras_sdk_chat_provider_adapter import CerebrasSDKChatProviderAdapter
 from .cohere_sdk_chat_provider_adapter import CohereSDKChatProviderAdapter
-from .databricks_sdk_chat_provider_adapter import DatabricksSDKChatProviderAdapter
+
+# from .databricks_sdk_chat_provider_adapter import DatabricksSDKChatProviderAdapter
 from .deepinfra_sdk_chat_provider_adapter import DeepInfraSDKChatProviderAdapter
 from .fireworks_sdk_chat_provider_adapter import FireworksSDKChatProviderAdapter
+from .moescape_sdk_chat_provider_adapter import MoescapeSDKChatProviderAdapter
 from .gemini_sdk_chat_provider_adapter import GeminiSDKChatProviderAdapter
 from .groq_sdk_chat_provider_adapter import GroqSDKChatProviderAdapter
 from .lepton_sdk_chat_provider_adapter import LeptonSDKChatProviderAdapter
@@ -20,12 +23,13 @@ from .bigmodel_provider_adapter import BigModelSDKChatProviderAdapter
 __all__ = [
     "AI21SDKChatProviderAdapter",
     "AnthropicSDKChatProviderAdapter",
-    "AzureSDKChatProviderAdapter",
+    # "AzureSDKChatProviderAdapter",
     "CerebrasSDKChatProviderAdapter",
     "CohereSDKChatProviderAdapter",
-    "DatabricksSDKChatProviderAdapter",
+    # "DatabricksSDKChatProviderAdapter",
     "DeepInfraSDKChatProviderAdapter",
     "FireworksSDKChatProviderAdapter",
+    "MoescapeSDKChatProviderAdapter",
     "GeminiSDKChatProviderAdapter",
     "GroqSDKChatProviderAdapter",
     "LeptonSDKChatProviderAdapter",

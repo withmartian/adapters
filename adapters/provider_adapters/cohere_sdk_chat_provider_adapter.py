@@ -28,7 +28,6 @@ from adapters.types import (
     ConversationRole,
     Cost,
     Model,
-    ModelProperties,
     Provider,
     Turn,
     Vendor,
@@ -43,15 +42,13 @@ class CohereModel(Model):
     provider_name: str = Provider.cohere.value
     vendor_name: str = Vendor.cohere.value
 
-    properties: ModelProperties = ModelProperties(
-        open_source=True, gdpr_compliant=True, is_nsfw=True
-    )
-
+    supports_completion: bool = False
     supports_n: bool = False
     supports_vision: bool = False
-    supports_empty_content: bool = False
-    supports_only_system: bool = False
-    supports_tool_choice: bool = False
+    supports_tools_choice: bool = False
+
+    can_empty_content: bool = False
+    can_system_only: bool = False
 
     def _get_api_path(self) -> str:
         return self.name
@@ -186,6 +183,12 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
 
     def _call_sync(self) -> Any:
         return self._sync_client_wrapper
+
+    def _call_completion_sync(self) -> Any:
+        raise NotImplementedError
+
+    def _call_completion_async(self) -> Any:
+        raise NotImplementedError
 
     def _create_client_sync(self, base_url: str, api_key: str) -> ClientV2:
         return ClientV2(base_url=base_url, api_key=api_key)  # type: ignore
@@ -347,3 +350,15 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
             model=self.get_model().name,
             object="chat.completion.chunk",
         )
+
+    def _extract_completion_response(
+        self,
+        request: Any,
+        response: Any,
+    ) -> Any:
+        raise NotImplementedError
+
+    def _extract_completion_stream_response(
+        self, request: Any, response: Any, state: dict[str, Any]
+    ) -> Any:
+        raise NotImplementedError

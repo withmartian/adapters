@@ -1,0 +1,70 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "moonshot-v1-8k",
+      "n": 2}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '84'
+      content-type:
+      - application/json
+      host:
+      - api.moonshot.cn
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.moonshot.cn/v1/chat/completions
+  response:
+    body:
+      string: '{"error":{"message":"Invalid request: n should not be greater than
+        1 when temperature is less than or equal to 1e-5","type":"invalid_request_error"}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '149'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 05 Dec 2024 03:20:46 GMT
+      Msh-Cache:
+      - updated
+      Msh-Gid:
+      - enterprise-tier-2
+      Msh-Request-Id:
+      - eae0e11f-b2b7-11ef-9cc5-7e80d17a2b1c
+      Msh-Trace-Mode:
+      - 'on'
+      Msh-Uid:
+      - clnpvohp2k12ua98cgo0
+      Server:
+      - nginx
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Vary:
+      - Origin
+      server-timing:
+      - inner; dur=15
+    status:
+      code: 400
+      message: Bad Request
+version: 1

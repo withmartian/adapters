@@ -1,0 +1,83 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "system", "content": "Hi"}], "model": "accounts/fireworks/models/llama-v3p1-405b-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '114'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"eb8b4c92-6558-4c94-8b71-2aa551c85abd","object":"chat.completion","created":1733351518,"model":"accounts/fireworks/models/llama-v3p1-405b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        How can I help you today?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":21,"completion_tokens":10}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8ecf3fe8fae39432-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 04 Dec 2024 22:31:58 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=731.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '347'
+      fireworks-middleware-version:
+      - v2
+      fireworks-prompt-tokens:
+      - '11'
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 0.7, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.400'
+      x-envoy-upstream-service-time:
+      - '401'
+      x-request-id:
+      - eb8b4c92-6558-4c94-8b71-2aa551c85abd
+    status:
+      code: 200
+      message: OK
+version: 1

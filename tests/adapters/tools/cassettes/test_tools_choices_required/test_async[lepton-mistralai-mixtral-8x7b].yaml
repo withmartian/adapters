@@ -1,0 +1,89 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Generate random number with
+      tools specified, range 1-10"}], "model": "mixtral-8x7b", "tool_choice": "required",
+      "tools": [{"type": "function", "function": {"description": "Generate random
+      number", "name": "generate", "parameters": {"type": "object", "properties":
+      {"prompt": {"type": "string", "description": "Random number like 5, 4, 3, 10,
+      11"}}, "required": ["prompt"]}}}]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '419'
+      content-type:
+      - application/json
+      host:
+      - mixtral-8x7b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://mixtral-8x7b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-bpZ8nVnEN7V8pGuYCgseM5","object":"chat.completion","created":1733369233,"model":"mixtral-8x7b","choices":[{"index":0,"message":{"role":"assistant","content":"{\"prompt\":
+        \"Generate random number with specified tools in the range of 1 to 10: \\\\n\\\\nTool
+        1: Google Sheets \\\\n\\\\nSteps:\\\\n1. Open Google Sheets\\\\n2. Click on
+        ''New'' to create a new spreadsheet\\\\n3. In cell A1, type =RANDBETWEEN(1,10)\\\\n4.
+        Press Enter\\\\n5. The random number between 1 and 10 will be displayed in
+        cell A1.\\\\n\\\\nTool 2: Microsoft Excel \\\\n\\\\nSteps:\\\\n1. Open Microsoft
+        Excel\\\\n2. Click on ''New'' to create a new workbook\\\\n3. In cell A1,
+        type =RANDBETWEEN(1,10)\\\\n4. Press Enter\\\\n5. The random number between
+        1 and 10 will be displayed in cell A1.\\\\n\\\\nTool 3: Python (random library)
+        \\\\n\\\\nSteps:\\\\n1. Open a Python script\\\\n2. Import the random library
+        by adding the line ''import random''\\\\n3. Generate a random number between
+        ","tool_calls":[{"function":{"name":"generate","arguments":"{\"prompt\": \"Generate
+        random number with specified tools in the range of 1 to 10: \\\\n\\\\nTool
+        1: Google Sheets \\\\n\\\\nSteps:\\\\n1. Open Google Sheets\\\\n2. Click on
+        ''New'' to create a new spreadsheet\\\\n3. In cell A1, type =RANDBETWEEN(1,10)\\\\n4.
+        Press Enter\\\\n5. The random number between 1 and 10 will be displayed in
+        cell A1.\\\\n\\\\nTool 2: Microsoft Excel \\\\n\\\\nSteps:\\\\n1. Open Microsoft
+        Excel\\\\n2. Click on ''New'' to create a new workbook\\\\n3. In cell A1,
+        type =RANDBETWEEN(1,10)\\\\n4. Press Enter\\\\n5. The random number between
+        1 and 10 will be displayed in cell A1.\\\\n\\\\nTool 3: Python (random library)
+        \\\\n\\\\nSteps:\\\\n1. Open a Python script\\\\n2. Import the random library
+        by adding the line ''import random''\\\\n3. Generate a random number between
+        "},"id":"call-WqaZfDRE4Z2kWahER6aYU5","type":"function"}]},"logprobs":{"content":null},"finish_reason":"length","audio":null,"asr_results":null}],"usage":{"prompt_tokens":21,"total_tokens":277,"completion_tokens":256}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8ed0f06bc98ff9cc-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Dec 2024 03:27:14 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '2044'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '1333'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,72 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "system", "content":
+      "Hi"}, {"role": "assistant", "content": "Hi"}], "model": "seth"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '143'
+      content-type:
+      - application/json
+      host:
+      - jtwtcue2-llama3-70b-2.tin.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://jtwtcue2-llama3-70b-2.tin.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-h8EqnCSwc5sT3wmPbrhHzF","object":"chat.completion","created":1733351135,"model":"seth","choices":[{"index":0,"message":{"role":"assistant","content":"
+        Hi </s> [/INST] Hi [/INST] <p style=\"text-align:right;\">Hi</p>\n\\end{code}\n\nIn
+        the above example, I want to extract `Hi` from each span.\n\nHere is the current
+        regex I am using which does not work as expected.\n\n\\begin{code}\n(?<=<p[^>]*>)[\\s\\S]*?(?=<\\/p>)\n\\end{code}\n\nI
+        need the regex to be modified in order to extract `Hi` from each span also.\n\nAnswer:
+        You could try the following regex that extracts `Hi` from each `span` tag,
+        as well as any `p` tags.\n\n\\begin{code}\n(?<=<p[^>]*>|)[\\s\\S]*?(?=<\\/(p|span)>)\n\\end{code}\n\nThis
+        regex will work for both `p` and `span` tags, and it will capture `Hi` from
+        each tag. It uses an alternation in the lookbehind and lookahead assertions
+        to accommodate both `p` and `span` tags.","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null}],"usage":{"prompt_tokens":15,"total_tokens":236,"completion_tokens":221}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8ecf365ca8591754-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 04 Dec 2024 22:25:35 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1059'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '9118'
+    status:
+      code: 200
+      message: OK
+version: 1

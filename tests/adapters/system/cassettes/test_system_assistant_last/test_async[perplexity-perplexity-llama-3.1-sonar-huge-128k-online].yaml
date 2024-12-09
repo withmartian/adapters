@@ -1,0 +1,62 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "system", "content":
+      "Hi"}, {"role": "assistant", "content": "Hi"}], "model": "llama-3.1-sonar-huge-128k-online"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '171'
+      content-type:
+      - application/json
+      host:
+      - api.perplexity.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.perplexity.ai/chat/completions
+  response:
+    body:
+      string: '{"error":{"message":"After the (optional) system message(s), user and
+        assistant roles should be alternating.","type":"invalid_message","code":400}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8ed0e3869924ebf3-SJC
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '147'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Dec 2024 03:18:25 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=Nns84I0L2kP7lEC4ON5tZWToQfBQ6pMDhW0RQ0Y7JHI-1733368705-1.0.1.1-WdOokWNxVZHHbbaGBy4GQCOm4DriI9a.P7mVxP3e5RUGYRiFjHbStsRRC9.D.sXxiUKf6xxUvDdLi4s8mZ7ZpQ;
+        path=/; expires=Thu, 05-Dec-24 03:48:25 GMT; domain=.perplexity.ai; HttpOnly;
+        Secure; SameSite=None
+    status:
+      code: 400
+      message: Bad Request
+version: 1

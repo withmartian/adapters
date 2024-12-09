@@ -18,12 +18,27 @@ This table provides an overview of the supported models, including their vendor,
 # Add model rows with formatted values
 for model in supported_models:
     table += (
-        f"| {model.name} | {model.vendor_name} | {model.provider_name} | ${model.cost.prompt} | ${model.cost.completion} | ${model.cost.request} | {model.context_length} | {model.completion_length or 'N/A'} | "
-        f"{tick if model.supports_user else cross} | {tick if model.supports_repeating_roles else cross} | {tick if model.supports_streaming else cross} | {tick if model.supports_vision else cross} | "
-        f"{tick if model.supports_tools else cross} | {tick if model.supports_n else cross} | {tick if model.supports_system else cross} | {tick if model.supports_multiple_system else cross} | "
-        f"{tick if model.supports_empty_content else cross} | {tick if model.supports_tool_choice else cross} | {tick if model.supports_tool_choice_required else cross} | "
-        f"{tick if model.supports_json_output else cross} | {tick if model.supports_json_content else cross} | {tick if model.supports_last_assistant else cross} | "
-        f"{tick if model.supports_first_assistant else cross} | {tick if model.supports_temperature else cross} | {tick if model.supports_only_system else cross} | {tick if model.supports_only_assistant else cross} |\n"
+        f"| {model.name} | {model.vendor_name} | {model.provider_name} | "
+        f"${model.cost.prompt} | ${model.cost.completion} | ${model.cost.request} | "
+        f"{model.context_length} | {model.completion_length or 'N/A'} | "
+        f"{tick if model.can_user else cross} | "
+        f"{tick if model.can_repeating_roles else cross} | "
+        f"{tick if model.supports_streaming else cross} | "
+        f"{tick if model.supports_vision else cross} | "
+        f"{tick if model.supports_tools else cross} | "
+        f"{tick if model.supports_n else cross} | "
+        f"{tick if model.can_system else cross} | "
+        f"{tick if model.can_system_multiple else cross} | "
+        f"{tick if model.can_empty_content else cross} | "
+        f"{tick if model.supports_tools_choice else cross} | "
+        f"{tick if model.supports_tools_choice_required else cross} | "
+        f"{tick if model.supports_json_output else cross} | "
+        f"{tick if model.supports_json_content else cross} | "
+        f"{tick if model.can_assistant_last else cross} | "
+        f"{tick if model.can_assistant_first else cross} | "
+        f"{tick if model.can_temperature else cross} | "
+        f"{tick if model.can_system_only else cross} | "
+        f"{tick if model.can_assistant_only else cross} |\n"
     )
 
 # Save the markdown table to file

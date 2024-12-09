@@ -1,0 +1,89 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "accounts/fireworks/models/llama-v3-8b-instruct",
+      "n": 2}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '116'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"feb28a07-4865-41f6-be0e-dc1738f200f4","object":"chat.completion","created":1732323175,"model":"accounts/fireworks/models/llama-v3-8b-instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hi!
+        It''s nice to meet you. Is there something I can help you with or would you
+        like to chat?"},"finish_reason":"stop"},{"index":1,"message":{"role":"assistant","content":"Hi!
+        It''s nice to meet you. Is there something I can help you with or would you
+        like to chat?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":11,"total_tokens":61,"completion_tokens":50}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8e6d2de5bebacf0a-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 23 Nov 2024 00:52:55 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=213.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '574'
+      fireworks-middleware-version:
+      - v2
+      fireworks-prompt-tokens:
+      - '11'
+      fireworks-sampling-options:
+      - '{"max_tokens": 2048, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.087'
+      x-envoy-upstream-service-time:
+      - '89'
+      x-request-id:
+      - feb28a07-4865-41f6-be0e-dc1738f200f4
+    status:
+      code: 200
+      message: OK
+version: 1

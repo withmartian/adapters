@@ -1,0 +1,56 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "system", "content":
+      "Hi"}, {"role": "assistant", "content": "Hi"}], "model": "meta-llama/Meta-Llama-3.1-70B-Instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '177'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-1a6b6fca3320403d906ece7bebc20f18","object":"chat.completion","created":1733368688,"model":"meta-llama/Meta-Llama-3.1-70B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"
+        again! How''s your day going so far?","name":null,"tool_calls":null},"finish_reason":"stop"}],"usage":{"prompt_tokens":18,"total_tokens":28,"completion_tokens":10,"estimated_cost":8.14e-06}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '400'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Dec 2024 03:18:08 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1

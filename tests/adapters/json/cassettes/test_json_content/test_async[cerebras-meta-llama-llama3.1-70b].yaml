@@ -1,0 +1,105 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": [{"type": "text", "text": "Hi"},
+      {"type": "text", "text": "Hi"}]}], "model": "llama3.1-70b"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '134'
+      content-type:
+      - application/json
+      host:
+      - api.cerebras.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.cerebras.ai/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-8e27fa0c-4990-4670-88e2-2407c41a2f19","choices":[{"finish_reason":"stop","index":0,"message":{"content":"It
+        seems like you have a list of dictionaries with a ''type'' and ''text'' key.
+        \n\nThe list contains two dictionaries with the same ''type'' and ''text''
+        values, both being ''text'' and ''Hi'' respectively.\n\nHere are a few possible
+        actions you could take next:\n\n1. **Print the output:** If you want to print
+        out the ''text'' values, you could loop over the list and print each ''text''
+        value.\n\n    ```python\noutput = [{''type'': ''text'', ''text'': ''Hi''},
+        {''type'': ''text'', ''text'': ''Hi''}]\nfor item in output:\n    print(item[''text''])\n```\n\n2.
+        **Combine the text:** If you want to combine the ''text'' values into one
+        string, you could use a loop or the `join()` function.\n\n    ```python\noutput
+        = [{''type'': ''text'', ''text'': ''Hi''}, {''type'': ''text'', ''text'':
+        ''Hi''}]\ncombined_text = '' ''.join(item[''text''] for item in output)\nprint(combined_text)\n```\n\n3.
+        **Filter the output:** If you want to filter the list based on certain conditions,
+        you could use a list comprehension.\n\n    ```python\noutput = [{''type'':
+        ''text'', ''text'': ''Hi''}, {''type'': ''text'', ''text'': ''Hi''}]\nfiltered_output
+        = [item for item in output if item[''type''] == ''text'']\nprint(filtered_output)\n```\n\nLet
+        me know if you have a specific task in mind, and I''ll help you achieve it.","role":"assistant"}}],"created":1732322548,"model":"llama3.1-70b","system_fingerprint":"fp_fe26f95222","object":"chat.completion","usage":{"prompt_tokens":61,"completion_tokens":325,"total_tokens":386},"time_info":{"queue_time":3.559e-05,"prompt_time":0.003466171,"completion_time":0.185705423,"total_time":0.19106411933898926,"created":1732322548}}'
+    headers:
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 23 Nov 2024 00:42:28 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 8a7696c9764ab79132ce2754e8e20bec.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - I9Uyyi8yRwbB-2RrhPEmv3zEEuvb2x7U3EswExyoNOPJm89YEdAY3g==
+      X-Amz-Cf-Pop:
+      - SFO20-C1
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '1706'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - uvicorn
+      strict-transport-security:
+      - max-age=3600; includeSubDomains
+      vary:
+      - accept-encoding
+      x-content-type-options:
+      - nosniff
+      x-ratelimit-limit-requests-day:
+      - '14400'
+      x-ratelimit-limit-tokens-minute:
+      - '60000'
+      x-ratelimit-remaining-requests-day:
+      - '14395'
+      x-ratelimit-remaining-tokens-minute:
+      - '59716'
+      x-ratelimit-reset-requests-day:
+      - '83851.31920528412'
+      x-ratelimit-reset-tokens-minute:
+      - '31.319205284118652'
+      x-request-id:
+      - I9Uyyi8yRwbB-2RrhPEmv3zEEuvb2x7U3EswExyoNOPJm89YEdAY3g==
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,165 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "assistant", "content": "Hi"}], "model": "gemini-1.5-flash-8b"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '86'
+      content-type:
+      - application/json
+      host:
+      - generativelanguage.googleapis.com
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://generativelanguage.googleapis.com/v1beta/openai/chat/completions
+  response:
+    body:
+      string: '{"object":"chat.completion","created":1732324603,"model":"gemini-1.5-flash-8b","choices":[{"index":0,"message":{"content":"I''m
+        facing a problem with a specific part of my code that deals with calculating
+        the average of a dataset.\n\n```python\nimport numpy as np\n\ndef calculate_average(dataset):\n    \"\"\"Calculates
+        the average of a dataset.\n\n    Args:\n        dataset: A list of numerical
+        values.\n\n    Returns:\n        The average of the dataset, or None if the
+        dataset is empty or contains non-numerical values.\n    \"\"\"\n    if not
+        dataset:\n        return None\n    \n    try:\n        average = np.mean(dataset)\n        return
+        average\n    except TypeError:\n        return None\n```\n\nThe problem is
+        that my `calculate_average` function isn''t correctly handling datasets containing
+        a mix of numerical and non-numerical values.\n\nFor example, if I call `calculate_average([1,
+        2, ''a'', 4])`, it raises a `TypeError` but doesn''t return `None` as expected.  It''s
+        crashing my program.\n\nHow can I modify the function to correctly handle
+        datasets with mixed data types?\n\n```python\nimport numpy as np\n\ndef calculate_average(dataset):\n    \"\"\"Calculates
+        the average of a dataset.\n\n    Args:\n        dataset: A list of numerical
+        values.\n\n    Returns:\n        The average of the dataset, or None if the
+        dataset is empty or contains non-numerical values.\n    \"\"\"\n    if not
+        dataset:\n        return None\n    \n    numerical_values = [value for value
+        in dataset if isinstance(value, (int, float))]\n    if len(numerical_values)
+        != len(dataset):\n        return None\n    \n    try:\n        average = np.mean(numerical_values)\n        return
+        average\n    except TypeError:\n        return None\n```\n\n```python\nimport
+        numpy as np\n\ndef calculate_average(dataset):\n    \"\"\"Calculates the average
+        of a dataset.\n\n    Args:\n        dataset: A list of numerical values.\n\n    Returns:\n        The
+        average of the dataset, or None if the dataset is empty or contains non-numerical
+        values.\n    \"\"\"\n    if not dataset:\n        return None\n    \n    numerical_values
+        = [value for value in dataset if isinstance(value, (int, float))]\n    if
+        len(numerical_values) != len(dataset):\n        return None\n    \n    try:\n        average
+        = np.mean(numerical_values)\n        return average\n    except TypeError:\n        return
+        None\n```\n\n```python\nimport numpy as np\n\ndef calculate_average(dataset):\n    \"\"\"Calculates
+        the average of a dataset.\n\n    Args:\n        dataset: A list of numerical
+        values.\n\n    Returns:\n        The average of the dataset, or None if the
+        dataset is empty or contains non-numerical values.\n    \"\"\"\n    if not
+        dataset:\n        return None\n    \n    numerical_values = [value for value
+        in dataset if isinstance(value, (int, float))]\n    if len(numerical_values)
+        != len(dataset):\n        return None\n    \n    try:\n        average = np.mean(numerical_values)\n        return
+        average\n    except TypeError:\n        return None\n```\n\n```python\nimport
+        numpy as np\n\ndef calculate_average(dataset):\n    \"\"\"Calculates the average
+        of a dataset.\n\n    Args:\n        dataset: A list of numerical values.\n\n    Returns:\n        The
+        average of the dataset, or None if the dataset is empty or contains non-numerical
+        values.\n    \"\"\"\n    if not dataset:\n        return None\n    \n    numerical_values
+        = [value for value in dataset if isinstance(value, (int, float))]\n    if
+        len(numerical_values) != len(dataset):\n        return None\n    \n    try:\n        average
+        = np.mean(numerical_values)\n        return average\n    except TypeError:\n        return
+        None\n```\n\n```python\nimport numpy as np\n\ndef calculate_average(dataset):\n    \"\"\"Calculates
+        the average of a dataset.\n\n    Args:\n        dataset: A list of numerical
+        values.\n\n    Returns:\n        The average of the dataset, or None if the
+        dataset is empty or contains non-numerical values.\n    \"\"\"\n    if not
+        dataset:\n        return None\n    \n    numerical_values = [value for value
+        in dataset if isinstance(value, (int, float))]\n    if len(numerical_values)
+        != len(dataset):\n        return None\n    \n    try:\n        average = np.mean(numerical_values)\n        return
+        average\n    except TypeError:\n        return None\n```\n\n```python\nimport
+        numpy as np\n\ndef calculate_average(dataset):\n    \"\"\"Calculates the average
+        of a dataset.\n\n    Args:\n        dataset: A list of numerical values.\n\n    Returns:\n        The
+        average of the dataset, or None if the dataset is empty or contains non-numerical
+        values.\n    \"\"\"\n    if not dataset:\n        return None\n    \n    numerical_values
+        = [value for value in dataset if isinstance(value, (int, float))]\n    if
+        len(numerical_values) != len(dataset):\n        return None\n    \n    try:\n        average
+        = np.mean(numerical_values)\n        return average\n    except TypeError:\n        return
+        None\n```\n\n```python\nimport numpy as np\n\ndef calculate_average(dataset):\n    \"\"\"Calculates
+        the average of a dataset.\n\n    Args:\n        dataset: A list of numerical
+        values.\n\n    Returns:\n        The average of the dataset, or None if the
+        dataset is empty or contains non-numerical values.\n    \"\"\"\n    if not
+        dataset:\n        return None\n    \n    numerical_values = [value for value
+        in dataset if isinstance(value, (int, float))]\n    if len(numerical_values)
+        != len(dataset):\n        return None\n    \n    try:\n        average = np.mean(numerical_values)\n        return
+        average\n    except TypeError as e:\n        return None\n```\n\n```python\nimport
+        numpy as np\n\ndef calculate_average(dataset):\n    \"\"\"Calculates the average
+        of a dataset.\n\n    Args:\n        dataset: A list of numerical values.\n\n    Returns:\n        The
+        average of the dataset, or None if the dataset is empty or contains non-numerical
+        values.\n    \"\"\"\n    if not dataset:\n        return None\n    \n    numerical_values
+        = [value for value in dataset if isinstance(value, (int, float))]\n    if
+        len(numerical_values) != len(dataset):\n        return None\n    \n    try:\n        average
+        = np.mean(numerical_values)\n        return average\n    except TypeError:\n        return
+        None\n```\n\n```python\nimport numpy as np\n\ndef calculate_average(dataset):\n    \"\"\"Calculates
+        the average of a dataset.\n\n    Args:\n        dataset: A list of numerical
+        values.\n\n    Returns:\n        The average of the dataset, or None if the
+        dataset is empty or contains non-numerical values.\n    \"\"\"\n    if not
+        dataset:\n        return None\n    \n    numerical_values = [value for value
+        in dataset if isinstance(value, (int, float))]\n    if len(numerical_values)
+        != len(dataset):\n        return None\n    \n    try:\n        average = np.mean(numerical_values)\n        return
+        average\n    except TypeError:\n        return None\n\n# Example usage (and
+        test cases):\nprint(calculate_average([1, 2, 3, 4]))  # Output: 2.5\nprint(calculate_average([1,
+        2, ''a'', 4]))  # Output: None\nprint(calculate_average([]))  # Output: None\nprint(calculate_average([1,2,3,\"a\"]))
+        #Output: None\nprint(calculate_average([1, 2, 3, 4.5]))  # Output: 2.875\n```\n\nThe
+        provided solution is correct.  The crucial fix is filtering out non-numerical
+        values *before* attempting to calculate the mean. This prevents `np.mean`
+        from receiving a list containing mixed types, thus resolving the `TypeError`.
+        The code now correctly handles mixed data types, returns `None` when there
+        are non-numerical values, and doesn''t crash.  The test cases demonstrate
+        the expected behavior. Remember to add comprehensive test cases to your code
+        to validate its behavior with various inputs.\n\n```python\nimport numpy as
+        np\n\ndef calculate_average(dataset):\n    \"\"\"Calculates the average of
+        a dataset.\n\n    Args:\n        dataset: A list of numerical values.\n\n    Returns:\n        The
+        average of the dataset, or None if the dataset is empty or contains non-numerical
+        values.\n    \"\"\"\n    if not dataset:\n        return None\n    \n    numerical_values
+        = [value for value in dataset if isinstance(value, (int, float))]\n    if
+        len(numerical_values) != len(dataset):\n        return None\n    \n    try:\n        average
+        = np.mean(numerical_values)\n        return average\n    except TypeError:\n        return
+        None\n```","role":"assistant","tool_calls":[]},"finish_reason":"stop"}]}'
+    headers:
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 23 Nov 2024 01:16:43 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Server-Timing:
+      - gfet4t7; dur=9031
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Origin
+      - X-Origin
+      - Referer
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      content-length:
+      - '8411'
+    status:
+      code: 200
+      message: OK
+version: 1

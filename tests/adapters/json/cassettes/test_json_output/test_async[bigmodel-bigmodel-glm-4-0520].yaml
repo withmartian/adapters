@@ -1,0 +1,68 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, output simple json"}], "model":
+      "glm-4-0520", "response_format": {"type": "json_object"}}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '136'
+      content-type:
+      - application/json
+      host:
+      - open.bigmodel.cn
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
+  response:
+    body:
+      string: '{"choices":[{"finish_reason":"stop","index":0,"message":{"content":"{\"answer\":\"Simple
+        JSON response.\"}","role":"assistant"}}],"created":1733771124,"id":"202412100305239d19a94f8558484a","model":"glm-4-0520","request_id":"202412100305239d19a94f8558484a","usage":{"completion_tokens":15,"prompt_tokens":64,"total_tokens":79}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 09 Dec 2024 19:05:24 GMT
+      Set-Cookie:
+      - acw_tc=784e2c9a17337711231992387e43b89858f3ac1089567ace653c4d50668a8c;path=/;HttpOnly;Max-Age=1800
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      X-LOG-ID:
+      - 202412100305239d19a94f8558484a
+      content-length:
+      - '326'
+    status:
+      code: 200
+      message: OK
+version: 1

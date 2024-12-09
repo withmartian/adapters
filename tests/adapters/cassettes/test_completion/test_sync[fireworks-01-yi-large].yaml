@@ -1,0 +1,84 @@
+interactions:
+- request:
+    body: '{"model": "accounts/yi-01-ai/models/yi-large", "prompt": "Hi", "max_tokens":
+      10}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '80'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - OpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/completions
+  response:
+    body:
+      string: '{"id":"358aa4e3-36a2-440e-bf67-411246b2a37e","object":"text_completion","created":1733365236,"model":"accounts/yi-01-ai/models/yi-large","choices":[{"index":0,"text":"Bid.
+        You can receive your physical copy of","logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":2,"total_tokens":12,"completion_tokens":10}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8ed08ed65cc0cf15-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Dec 2024 02:20:36 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - inference-server;dur=260.0,total;dur=311.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '323'
+      fireworks-middleware-version:
+      - v2
+      fireworks-prompt-tokens:
+      - '2'
+      fireworks-sampling-options:
+      - '{"max_tokens": 10, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.177'
+      x-envoy-upstream-service-time:
+      - '179'
+      x-request-id:
+      - 358aa4e3-36a2-440e-bf67-411246b2a37e
+    status:
+      code: 200
+      message: OK
+version: 1

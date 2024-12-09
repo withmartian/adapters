@@ -1,0 +1,69 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi "}, {"role": "user", "content": "\"\""}], "model": "llama-3.1-8b-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '161'
+      content-type:
+      - application/json
+      host:
+      - api.perplexity.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.perplexity.ai/chat/completions
+  response:
+    body:
+      string: '{"id": "a00e39b6-6214-4730-bd5c-60c7f4e8f9fc", "model": "llama-3.1-8b-instruct",
+        "created": 1733446190, "usage": {"prompt_tokens": 24, "completion_tokens":
+        29, "total_tokens": 53}, "object": "chat.completion", "choices": [{"index":
+        0, "finish_reason": "stop", "message": {"role": "assistant", "content": "It
+        looks like you might have accidentally sent a blank message. Is there something
+        I can help you with or would you like to start a conversation?"}, "delta":
+        {"role": "assistant", "content": ""}}]}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8ed84740ed7f642f-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 06 Dec 2024 00:49:50 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=XHGCyvuOi3klxugsHCzpFAZLwrso762DLkLsGZGvgyw-1733446190-1.0.1.1-pcnr3FkmguHZ3cWyMJozNRuT2GJsTQKoy65waA9vidW2ODEyDVqbZDe_ky4_yozEhBZquxwLUmADuZbLPbvQjQ;
+        path=/; expires=Fri, 06-Dec-24 01:19:50 GMT; domain=.perplexity.ai; HttpOnly;
+        Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '502'
+    status:
+      code: 200
+      message: OK
+version: 1

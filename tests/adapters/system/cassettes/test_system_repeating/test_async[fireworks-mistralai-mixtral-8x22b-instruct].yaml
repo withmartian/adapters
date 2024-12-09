@@ -1,0 +1,79 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "system", "content":
+      "Hi"}, {"role": "user", "content": "Hi"}, {"role": "user", "content": "Hi"},
+      {"role": "system", "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role":
+      "user", "content": "Hi"}], "model": "accounts/fireworks/models/mixtral-8x22b-instruct"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '328'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.54.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.54.1
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/chat/completions
+  response:
+    body:
+      string: '{"error":{"object":"error","type":"invalid_request_error","message":"jinja
+        template rendering failed. After the optional system message, conversation
+        roles must alternate user/assistant/user/assistant/..."}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8e6d2d0a7c30ce34-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '207'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 23 Nov 2024 00:52:20 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - total;dur=120.0;desc="Total Response Time"
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      fireworks-middleware-version:
+      - v2
+      x-envoy-upstream-service-time:
+      - '2'
+      x-request-id:
+      - cd2cd70a-ef4c-4926-a43e-e68dc235472b
+    status:
+      code: 400
+      message: Bad Request
+version: 1

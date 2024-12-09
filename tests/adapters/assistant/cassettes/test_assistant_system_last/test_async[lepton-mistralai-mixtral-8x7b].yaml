@@ -1,0 +1,64 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}, {"role": "assistant",
+      "content": "Hi"}, {"role": "system", "content": "Hi"}], "model": "mixtral-8x7b"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '151'
+      content-type:
+      - application/json
+      host:
+      - mixtral-8x7b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://mixtral-8x7b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"object":"error","message":"After the optional system message, conversation
+        roles must alternate user/assistant/user/assistant/...","code":50001}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8ed0dfdc68a4cfac-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Dec 2024 03:15:55 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '146'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '72'
+    status:
+      code: 500
+      message: Internal Server Error
+version: 1

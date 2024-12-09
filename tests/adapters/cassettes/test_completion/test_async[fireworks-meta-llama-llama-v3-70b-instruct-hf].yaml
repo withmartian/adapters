@@ -1,0 +1,84 @@
+interactions:
+- request:
+    body: '{"model": "accounts/fireworks/models/llama-v3-70b-instruct-hf", "prompt":
+      "Hi", "max_tokens": 10}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '97'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/completions
+  response:
+    body:
+      string: '{"id":"25a9301c-5e87-4f1e-af96-edd22c8c1d4e","object":"text_completion","created":1733365209,"model":"accounts/fireworks/models/llama-v3-70b-instruct-hf","choices":[{"index":0,"text":"The
+        Sceptical Environmentalist\nIn the autumn","logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":1,"total_tokens":11,"completion_tokens":10}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8ed08e2a1e7915ae-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Dec 2024 02:20:09 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - inference-server;dur=229.0,total;dur=379.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '343'
+      fireworks-middleware-version:
+      - v2
+      fireworks-prompt-tokens:
+      - '1'
+      fireworks-sampling-options:
+      - '{"max_tokens": 10, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.167'
+      x-envoy-upstream-service-time:
+      - '168'
+      x-request-id:
+      - 25a9301c-5e87-4f1e-af96-edd22c8c1d4e
+    status:
+      code: 200
+      message: OK
+version: 1

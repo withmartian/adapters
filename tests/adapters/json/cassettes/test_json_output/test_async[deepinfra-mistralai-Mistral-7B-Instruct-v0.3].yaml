@@ -1,0 +1,63 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, output simple json"}], "model":
+      "mistralai/Mistral-7B-Instruct-v0.3", "response_format": {"type": "json_object"}}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '160'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/chat/completions
+  response:
+    body:
+      string: "{\"id\":\"chatcmpl-04c8dacc0e104369a711ab514e9d8ea8\",\"object\":\"chat.completion\",\"created\":1733368632,\"model\":\"mistralai/Mistral-7B-Instruct-v0.3\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"
+        {\\nLa respuesta al texto proporcionado es un JSON simple sin un amplio contexto.
+        El JSON que se muestra a continuaci\xF3n representa un usuario con nombre,
+        apellido y una lista de favoritos. Si desea algo espec\xEDfico, por favor
+        proporciona una descripci\xF3n m\xE1s detallada del contenido que expectas.\\n\\n```\\n{\\n
+        \ \\\"name\\\": \\\"John Doe\\\",\\n  \\\"surname\\\": \\\"Smith\\\",\\n  \\\"favorites\\\":
+        [\\\"Movie1\\\", \\\"Movie2\\\", \\\"Movie3\\\"]\\n}\\n```\\n\\nPara obtener
+        un JSON m\xE1s complejo o detallado, por favor hazlo saber proporcionando
+        m\xE1s informaci\xF3n sobre lo que est\xE1s buscando. \xA1Hasta pronto! \U0001F60A\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":9,\"total_tokens\":194,\"completion_tokens\":185,\"estimated_cost\":1.0444999999999999e-05}}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '957'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Dec 2024 03:17:12 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1

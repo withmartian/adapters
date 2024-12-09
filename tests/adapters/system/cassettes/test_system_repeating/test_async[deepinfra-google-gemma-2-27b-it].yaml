@@ -1,0 +1,60 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "system", "content": "Hi"}, {"role": "system", "content":
+      "Hi"}, {"role": "user", "content": "Hi"}, {"role": "user", "content": "Hi"},
+      {"role": "system", "content": "Hi"}, {"role": "system", "content": "Hi"}, {"role":
+      "user", "content": "Hi"}], "model": "google/gemma-2-27b-it"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '301'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/chat/completions
+  response:
+    body:
+      string: "{\"id\":\"chatcmpl-c2a83781d4874dbfa98eb6497255febe\",\"object\":\"chat.completion\",\"created\":1733368775,\"model\":\"google/gemma-2-27b-it\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"It
+        looks like you're trying to test how the system responds to repeated greetings.
+        \\n\\nIs there anything else I can help you with? Maybe you'd like to try
+        asking me a question or giving me a task? \U0001F60A \\n\",\"name\":null,\"tool_calls\":null},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":31,\"total_tokens\":80,\"completion_tokens\":49,\"estimated_cost\":2.16e-05}}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '551'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Dec 2024 03:19:35 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1

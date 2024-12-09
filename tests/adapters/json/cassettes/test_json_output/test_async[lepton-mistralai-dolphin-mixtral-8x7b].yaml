@@ -1,0 +1,70 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi, output simple json"}], "model":
+      "dolphin-mixtral-8x7b", "response_format": {"type": "json_object"}}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '146'
+      content-type:
+      - application/json
+      host:
+      - dolphin-mixtral-8x7b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://dolphin-mixtral-8x7b.lepton.run/api/v1/chat/completions
+  response:
+    body:
+      string: '{"id":"chatcmpl-PYRJPqcnpHPL3jbctPwzaR","object":"chat.completion","created":1733368650,"model":"dolphin-mixtral-8x7b","choices":[{"index":0,"message":{"role":"assistant","content":"You
+        can use `json.dumps()` method from the json module in Python to achieve this.
+        Here is how you can do it:\n\n```python\nimport json\n\n# your data\ndata
+        = {\n    ''name'': ''John Smith'',\n    ''age'': 27,\n    ''country'': ''USA''\n}\n\n#
+        convert data into json format\njson_data = json.dumps(data)\n\n# print json
+        data\nprint(json_data)\n```\n\nWhen you run this code, it will print the following
+        JSON output:\n\n```\n{\"name\": \"John Smith\", \"age\": 27, \"country\":
+        \"USA\"}\n```","tool_calls":null},"logprobs":null,"finish_reason":"stop","audio":null,"asr_results":null}],"usage":{"prompt_tokens":14,"total_tokens":169,"completion_tokens":155}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8ed0e22f2bb69456-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Dec 2024 03:17:31 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '827'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '1728'
+    status:
+      code: 200
+      message: OK
+version: 1

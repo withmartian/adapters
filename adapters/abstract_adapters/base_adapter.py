@@ -1,12 +1,16 @@
 from abc import ABC, abstractmethod
-from typing import Any, Literal, Optional, overload
+from typing import Any, Iterable, Literal, Optional, Union, overload
 
 from openai import NOT_GIVEN, NotGiven
+from openai.types.chat import ChatCompletionMessageParam
 
 from adapters.types import (
     AdapterChatCompletion,
+    AdapterCompletion,
     AdapterStreamAsyncChatCompletion,
+    AdapterStreamAsyncCompletion,
     AdapterStreamSyncChatCompletion,
+    AdapterStreamSyncCompletion,
     Conversation,
     Model,
     Prompt,
@@ -27,7 +31,7 @@ class BaseAdapter(ABC):
     @overload
     def execute_sync(
         self,
-        llm_input: Conversation,
+        llm_input: Iterable[ChatCompletionMessageParam] | Conversation,
         stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
         **kwargs: Any,
     ) -> AdapterChatCompletion: ...
@@ -35,7 +39,7 @@ class BaseAdapter(ABC):
     @overload
     def execute_sync(
         self,
-        llm_input: Conversation,
+        llm_input: Iterable[ChatCompletionMessageParam] | Conversation,
         stream: Literal[True],
         **kwargs: Any,
     ) -> AdapterStreamSyncChatCompletion: ...
@@ -43,16 +47,15 @@ class BaseAdapter(ABC):
     @abstractmethod
     def execute_sync(
         self,
-        llm_input: Conversation,
+        llm_input: Iterable[ChatCompletionMessageParam] | Conversation,
         stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
         **kwargs: Any,
-    ) -> AdapterChatCompletion | AdapterStreamSyncChatCompletion:
-        pass
+    ) -> AdapterChatCompletion | AdapterStreamSyncChatCompletion: ...
 
     @overload
     async def execute_async(
         self,
-        llm_input: Conversation,
+        llm_input: Iterable[ChatCompletionMessageParam] | Conversation,
         stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
         **kwargs: Any,
     ) -> AdapterChatCompletion: ...
@@ -60,7 +63,7 @@ class BaseAdapter(ABC):
     @overload
     async def execute_async(
         self,
-        llm_input: Conversation,
+        llm_input: Iterable[ChatCompletionMessageParam] | Conversation,
         stream: Literal[True],
         **kwargs: Any,
     ) -> AdapterStreamAsyncChatCompletion: ...
@@ -68,11 +71,59 @@ class BaseAdapter(ABC):
     @abstractmethod
     async def execute_async(
         self,
-        llm_input: Conversation,
+        llm_input: Iterable[ChatCompletionMessageParam] | Conversation,
         stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
         **kwargs: Any,
-    ) -> AdapterChatCompletion | AdapterStreamAsyncChatCompletion:
-        pass
+    ) -> AdapterChatCompletion | AdapterStreamAsyncChatCompletion: ...
+
+    # Completion
+    @overload
+    def execute_completion_sync(
+        self,
+        prompt: Union[str, list[str], Iterable[int], Iterable[Iterable[int]], None],
+        stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
+        **kwargs: Any,
+    ) -> AdapterCompletion: ...
+
+    @overload
+    def execute_completion_sync(
+        self,
+        prompt: Union[str, list[str], Iterable[int], Iterable[Iterable[int]], None],
+        stream: Literal[True],
+        **kwargs: Any,
+    ) -> AdapterStreamSyncCompletion: ...
+
+    @abstractmethod
+    def execute_completion_sync(
+        self,
+        prompt: Union[str, list[str], Iterable[int], Iterable[Iterable[int]], None],
+        stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
+        **kwargs: Any,
+    ) -> AdapterCompletion | AdapterStreamSyncCompletion: ...
+
+    @overload
+    async def execute_completion_async(
+        self,
+        prompt: Union[str, list[str], Iterable[int], Iterable[Iterable[int]], None],
+        stream: Optional[Literal[False]] | NotGiven = NOT_GIVEN,
+        **kwargs: Any,
+    ) -> AdapterCompletion: ...
+
+    @overload
+    async def execute_completion_async(
+        self,
+        prompt: Union[str, list[str], Iterable[int], Iterable[Iterable[int]], None],
+        stream: Literal[True],
+        **kwargs: Any,
+    ) -> AdapterStreamAsyncCompletion: ...
+
+    @abstractmethod
+    async def execute_completion_async(
+        self,
+        prompt: Union[str, list[str], Iterable[int], Iterable[Iterable[int]], None],
+        stream: Optional[Literal[False]] | Literal[True] | NotGiven = NOT_GIVEN,
+        **kwargs: Any,
+    ) -> AdapterCompletion | AdapterStreamAsyncCompletion: ...
 
     # Deprecated
     @staticmethod

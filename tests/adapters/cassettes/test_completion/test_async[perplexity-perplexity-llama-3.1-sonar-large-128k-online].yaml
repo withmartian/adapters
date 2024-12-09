@@ -1,0 +1,62 @@
+interactions:
+- request:
+    body: '{"model": "llama-3.1-sonar-large-128k-online", "prompt": "Hi", "max_tokens":
+      10}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '80'
+      content-type:
+      - application/json
+      host:
+      - api.perplexity.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.perplexity.ai/completions
+  response:
+    body:
+      string: '{"error":{"message":"The model should only be queried with the /chat/completions
+        endpoint.","type":"invalid_model","code":400}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8ed14d203cbbfa32-SJC
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '127'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Dec 2024 04:30:30 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=IuyVzWWZGLCaPH9vLYhz2bhYCVGvInn.0Uzvr6g7teU-1733373030-1.0.1.1-EigKZR4wE6J2tuIvaMciylE_yy.e3umBBK8Tx0bViG9.Z4IV.jjwRGZbQZ7v3IC0JEYJBKXQuMR9hrtVYyeHaw;
+        path=/; expires=Thu, 05-Dec-24 05:00:30 GMT; domain=.perplexity.ai; HttpOnly;
+        Secure; SameSite=None
+    status:
+      code: 400
+      message: Bad Request
+version: 1
