@@ -21,13 +21,6 @@ MODELS: list[Model] = [
         context_length=12288,
         can_system_only=False,
     ),
-    MoescapeModel(
-        name="seth",
-        api_name="llama3-70b-2",
-        cost=Cost(prompt=0, completion=0),
-        context_length=32768,
-        can_system_only=False,
-    ),
 ]
 
 

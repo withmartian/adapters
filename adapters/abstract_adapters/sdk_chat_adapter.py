@@ -530,6 +530,7 @@ class SDKChatAdapter(
         response = self._call_completion_sync()(
             model=self.get_model()._get_api_path(),
             prompt=prompt,
+            stream=stream,
             **delete_none_values(kwargs),
         )
 
@@ -575,6 +576,7 @@ class SDKChatAdapter(
         response = await self._call_completion_async()(
             model=self.get_model()._get_api_path(),
             prompt=prompt,
+            stream=stream,
             **delete_none_values(kwargs),
         )
 
