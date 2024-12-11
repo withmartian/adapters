@@ -1,0 +1,109 @@
+interactions:
+- request:
+    body: '{"model": "accounts/fireworks/models/llama-v3p2-3b-instruct", "prompt":
+      "Hi", "max_tokens": 10, "stream": true}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '111'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - OpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/completions
+  response:
+    body:
+      string: 'data: {"id":"35a7118c-95e3-4729-b136-56db3e294032","object":"text_completion","created":1733910366,"model":"accounts/fireworks/models/llama-v3p2-3b-instruct","choices":[{"index":0,"text":"
+        everyone","logprobs":null,"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"35a7118c-95e3-4729-b136-56db3e294032","object":"text_completion","created":1733910366,"model":"accounts/fireworks/models/llama-v3p2-3b-instruct","choices":[{"index":0,"text":",
+        I''m Nix - a designer &","logprobs":null,"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"35a7118c-95e3-4729-b136-56db3e294032","object":"text_completion","created":1733910366,"model":"accounts/fireworks/models/llama-v3p2-3b-instruct","choices":[{"index":0,"text":"","logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":2,"total_tokens":12,"completion_tokens":10}}
+
+
+        data: [DONE]
+
+
+        '
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8f048bad1988ebe7-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Date:
+      - Wed, 11 Dec 2024 09:46:06 GMT
+      Fireworks-Prompt-Tokens:
+      - '2'
+      Fireworks-Sampling-Options:
+      - '{"max_tokens": 10, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      Fireworks-Server-Time-To-First-Token:
+      - '0.012'
+      Server:
+      - cloudflare
+      Server-Timing:
+      - inference-server;dur=69.0,total;dur=96.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '13'
+      X-Ratelimit-Limit-Requests:
+      - '60'
+      X-Ratelimit-Limit-Tokens-Generated:
+      - '3000'
+      X-Ratelimit-Limit-Tokens-Prompt:
+      - '30000'
+      X-Ratelimit-Over-Limit:
+      - 'no'
+      X-Ratelimit-Remaining-Requests:
+      - '59'
+      X-Ratelimit-Remaining-Tokens-Generated:
+      - '3000'
+      X-Ratelimit-Remaining-Tokens-Prompt:
+      - '29998'
+      X-Request-Id:
+      - 35a7118c-95e3-4729-b136-56db3e294032
+      alt-svc:
+      - h3=":443"; ma=86400
+      fireworks-middleware-version:
+      - v2
+    status:
+      code: 200
+      message: OK
+version: 1

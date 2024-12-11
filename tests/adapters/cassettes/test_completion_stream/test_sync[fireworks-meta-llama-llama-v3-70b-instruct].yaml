@@ -1,0 +1,112 @@
+interactions:
+- request:
+    body: '{"model": "accounts/fireworks/models/llama-v3-70b-instruct", "prompt":
+      "Hi", "max_tokens": 10, "stream": true}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '110'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - OpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - 'false'
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/completions
+  response:
+    body:
+      string: 'data: {"id":"bb5cf15d-e618-4662-aadd-911678195f39","object":"text_completion","created":1733910369,"model":"accounts/fireworks/models/llama-v3-70b-instruct","choices":[{"index":0,"text":",","logprobs":null,"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"bb5cf15d-e618-4662-aadd-911678195f39","object":"text_completion","created":1733910369,"model":"accounts/fireworks/models/llama-v3-70b-instruct","choices":[{"index":0,"text":"
+        I''m Jess. I","logprobs":null,"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"bb5cf15d-e618-4662-aadd-911678195f39","object":"text_completion","created":1733910369,"model":"accounts/fireworks/models/llama-v3-70b-instruct","choices":[{"index":0,"text":"
+        live in Austin,","logprobs":null,"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"bb5cf15d-e618-4662-aadd-911678195f39","object":"text_completion","created":1733910369,"model":"accounts/fireworks/models/llama-v3-70b-instruct","choices":[{"index":0,"text":"","logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":2,"total_tokens":12,"completion_tokens":10}}
+
+
+        data: [DONE]
+
+
+        '
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8f048bbd6bb61597-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Date:
+      - Wed, 11 Dec 2024 09:46:09 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - inference-server;dur=126.0,total;dur=148.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      fireworks-middleware-version:
+      - v2
+      fireworks-prompt-tokens:
+      - '2'
+      fireworks-sampling-options:
+      - '{"max_tokens": 10, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-time-to-first-token:
+      - '0.061'
+      x-envoy-upstream-service-time:
+      - '63'
+      x-ratelimit-limit-requests:
+      - '60'
+      x-ratelimit-limit-tokens-generated:
+      - '3000'
+      x-ratelimit-limit-tokens-prompt:
+      - '30000'
+      x-ratelimit-over-limit:
+      - 'no'
+      x-ratelimit-remaining-requests:
+      - '59'
+      x-ratelimit-remaining-tokens-generated:
+      - '3000'
+      x-ratelimit-remaining-tokens-prompt:
+      - '29998'
+      x-request-id:
+      - bb5cf15d-e618-4662-aadd-911678195f39
+    status:
+      code: 200
+      message: OK
+version: 1

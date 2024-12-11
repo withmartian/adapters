@@ -9,6 +9,7 @@ from .cohere_sdk_chat_provider_adapter import CohereSDKChatProviderAdapter
 from .deepinfra_sdk_chat_provider_adapter import DeepInfraSDKChatProviderAdapter
 from .fireworks_sdk_chat_provider_adapter import FireworksSDKChatProviderAdapter
 from .moescape_sdk_chat_provider_adapter import MoescapeSDKChatProviderAdapter
+from .tensoropera_sdk_chat_provider_adapter import TensorOperaSDKChatProviderAdapter
 from .gemini_sdk_chat_provider_adapter import GeminiSDKChatProviderAdapter
 from .groq_sdk_chat_provider_adapter import GroqSDKChatProviderAdapter
 from .lepton_sdk_chat_provider_adapter import LeptonSDKChatProviderAdapter
@@ -30,6 +31,7 @@ __all__ = [
     "DeepInfraSDKChatProviderAdapter",
     "FireworksSDKChatProviderAdapter",
     "MoescapeSDKChatProviderAdapter",
+    "TensorOperaSDKChatProviderAdapter",
     "GeminiSDKChatProviderAdapter",
     "GroqSDKChatProviderAdapter",
     "LeptonSDKChatProviderAdapter",

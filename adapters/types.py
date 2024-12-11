@@ -42,6 +42,7 @@ class Provider(str, Enum):
     together = "together"
     vertex = "vertex"
     bigmodel = "bigmodel"
+    tensoropera = "tensoropera"
 
 
 class Vendor(str, Enum):
@@ -206,7 +207,7 @@ class Model(BaseModel):
         return f"{self.provider_name}/{self.vendor_name}/{self.name}"
 
     def _get_api_path(self) -> str:
-        return self.name
+        return self.api_name if self.api_name else self.name
 
     def __str__(self) -> str:
         return self.get_path()

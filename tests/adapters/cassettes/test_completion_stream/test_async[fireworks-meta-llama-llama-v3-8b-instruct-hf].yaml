@@ -1,0 +1,100 @@
+interactions:
+- request:
+    body: '{"model": "accounts/fireworks/models/llama-v3-8b-instruct-hf", "prompt":
+      "Hi", "max_tokens": 10, "stream": true}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '112'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/completions
+  response:
+    body:
+      string: 'data: {"id":"f1369472-0eb4-4949-ac4f-0081c89c250e","object":"text_completion","created":1733910331,"model":"accounts/fireworks/models/llama-v3-8b-instruct-hf","choices":[{"index":0,"text":"!","logprobs":null,"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"f1369472-0eb4-4949-ac4f-0081c89c250e","object":"text_completion","created":1733910331,"model":"accounts/fireworks/models/llama-v3-8b-instruct-hf","choices":[{"index":0,"text":"
+        I''m a mom of","logprobs":null,"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"f1369472-0eb4-4949-ac4f-0081c89c250e","object":"text_completion","created":1733910331,"model":"accounts/fireworks/models/llama-v3-8b-instruct-hf","choices":[{"index":0,"text":"
+        3, wife","logprobs":null,"finish_reason":null}],"usage":null}
+
+
+        data: {"id":"f1369472-0eb4-4949-ac4f-0081c89c250e","object":"text_completion","created":1733910331,"model":"accounts/fireworks/models/llama-v3-8b-instruct-hf","choices":[{"index":0,"text":"","logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":2,"total_tokens":12,"completion_tokens":10}}
+
+
+        data: [DONE]
+
+
+        '
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8f048acddb2a1597-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Date:
+      - Wed, 11 Dec 2024 09:45:31 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - inference-server;dur=364.0,total;dur=473.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      fireworks-middleware-version:
+      - v2
+      fireworks-prompt-tokens:
+      - '2'
+      fireworks-sampling-options:
+      - '{"max_tokens": 10, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-time-to-first-token:
+      - '0.069'
+      x-envoy-upstream-service-time:
+      - '75'
+      x-ratelimit-over-limit:
+      - 'no'
+      x-request-id:
+      - f1369472-0eb4-4949-ac4f-0081c89c250e
+    status:
+      code: 200
+      message: OK
+version: 1

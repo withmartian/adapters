@@ -29,6 +29,9 @@ from adapters.provider_adapters.lepton_sdk_chat_provider_adapter import LeptonMo
 from adapters.provider_adapters.moescape_sdk_chat_provider_adapter import MoescapeModel
 from adapters.provider_adapters.moonshot_sdk_chat_provider_adapter import MoonshotModel
 from adapters.provider_adapters.openai_sdk_chat_provider_adapter import OpenAIModel
+from adapters.provider_adapters.tensoropera_sdk_chat_provider_adapter import (
+    TensorOperaModel,
+)
 from adapters.provider_adapters.together_sdk_chat_provider_adapter import TogetherModel
 from adapters.provider_adapters.bigmodel_provider_adapter import BigModelModel
 from vcr import VCR
@@ -74,6 +77,7 @@ TEST_MODELS = (
     LeptonModel,
     DeepInfraModel,
     BigModelModel,
+    TensorOperaModel,
 )
 
 ADAPTER_CHAT_TEST_FACTORIES = [
