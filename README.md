@@ -1,5 +1,7 @@
 # Adapters Package Documentation
 
+List of currently [supported models](https://withmartian.github.io/llm-adapters/)
+
 ## Overview
 
 The Adapters package facilitates communication between different language model APIs by providing a unified interface for interaction. This ensures ease of use and flexibility in integrating multiple models from various providers.
