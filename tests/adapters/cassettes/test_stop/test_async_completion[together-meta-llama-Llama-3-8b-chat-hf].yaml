@@ -1,0 +1,116 @@
+interactions:
+- request:
+    body: '{"model": "meta-llama/Llama-3-8b-chat-hf", "prompt": "Hi", "stop": "stop"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '74'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.together.xyz/completions
+  response:
+    body:
+      string: "{\n  \"id\": \"8f1927b078a87ac1-SJC\",\n  \"object\": \"text.completion\",\n
+        \ \"created\": 1734126471,\n  \"model\": \"meta-llama/Llama-3-8b-chat-hf\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"text\": \" more information
+        about the project, please visit our website at [website URL]. Thank you for
+        your interest in our project!''')\\n\\n    # Send the message\\n    send_message(message)\\n\\n
+        \   # Wait for a response\\n    response = receive_message()\\n\\n    # Check
+        if the response is positive\\n    if response == 'yes':\\n        # Send a
+        confirmation message\\n        message = ('Thank you for your interest in
+        our project! We will be in touch soon to discuss further details.')\\n        send_message(message)\\n
+        \   else:\\n        # Send a rejection message\\n        message = ('Thank
+        you for your interest in our project. Unfortunately, we are unable to move
+        forward with your proposal at this time.')\\n        send_message(message)\\n\\n
+        \   # Close the conversation\\n    message = ('Thank you for your time. We
+        appreciate your interest in our project.')\\n    send_message(message)\\n
+        \   receive_message()\\n    close_conversation()\\n```\\n\\nThis script uses
+        a simple text-based interface to interact with the user. It sends a message
+        to the user, waits for a response, and then sends a follow-up message based
+        on the user's response. The script uses a `send_message` function to send
+        messages to the user, and a `receive_message` function to receive responses
+        from the user. The `close_conversation` function is used to close the conversation
+        and end the script.\\n\\nNote that this script is just a simple example, and
+        you may want to add more features or complexity to your script depending on
+        your specific use case. Additionally, you will need to implement the `send_message`
+        and `receive_message` functions to actually send and receive messages with
+        the user. These functions will depend on the specific platform or technology
+        you are using to interact with the user.\",\n      \"finish_reason\": \"stop\",\n
+        \     \"seed\": 4241006902048518700,\n      \"logprobs\": null,\n      \"index\":
+        0\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 1,\n    \"completion_tokens\":
+        352,\n    \"total_tokens\": 353\n  }\n}"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8f1927b078a87ac1-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 13 Dec 2024 21:47:53 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '2163'
+      etag:
+      - W/"873-iNSbapns5xSYfzwiSMuJPfaZhLc"
+      retry-after:
+      - '2'
+      x-api-call-end:
+      - '2024-12-13T21:47:53.671Z'
+      x-api-call-start:
+      - '2024-12-13T21:47:51.793Z'
+      x-api-received:
+      - '2024-12-13T21:47:51.775Z'
+      x-inference-version:
+      - v2
+      x-ratelimit:
+      - 'false'
+      x-ratelimit-limit:
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-remaining-tokens:
+      - '100000'
+      x-ratelimit-reset:
+      - '2'
+    status:
+      code: 200
+      message: OK
+version: 1

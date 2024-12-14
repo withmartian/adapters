@@ -1,0 +1,1816 @@
+interactions:
+- request:
+    body: '{"model": "mistralai/Mistral-7B-Instruct-v0.3", "prompt": "Hi", "stop":
+      "stop"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '79'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.together.xyz/completions
+  response:
+    body:
+      string: "{\n  \"id\": \"8f1931bcb99667f0-SJC\",\n  \"object\": \"text.completion\",\n
+        \ \"created\": 1734126883,\n  \"model\": \"mistralai/Mistral-7B-Instruct-v0.3\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"text\": \", I'm a newbie
+        here. I'm trying to make a simple game using the Unity engine. I'm using the
+        2D version of the engine. I'm trying to make a simple game where the player
+        can move left and right and jump. I've been following a tutorial on YouTube
+        and I've been able to get the player to move left and right, but I can't get
+        the player to jump. I've tried following the tutorial's instructions, but
+        I'm still having trouble. Here's my code:\\n\\n```\\nusing System.Collections;\\nusing
+        System.Collections.Generic;\\nusing UnityEngine;\\n\\npublic class PlayerController
+        : MonoBehaviour\\n{\\n    public float speed = 5f;\\n    public float jumpForce
+        = 10f;\\n\\n    private Rigidbody2D rb;\\n    private bool isGrounded;\\n\\n
+        \   void Start()\\n    {\\n        rb = GetComponent<Rigidbody2D>();\\n    }\\n\\n
+        \   void Update()\\n    {\\n        float move = Input.GetAxis(\\\"Horizontal\\\");\\n
+        \       rb.velocity = new Vector2(move * speed, rb.velocity.y);\\n\\n        isGrounded
+        = Physics2D.OverlapCircle(transform.position, 0.1f, LayerMask.GetMask(\\\"Ground\\\"));\\n\\n
+        \       if (Input.GetButtonDown(\\\"Jump\\\") && isGrounded)\\n        {\\n
+        \           rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);\\n
+        \       }\\n    }\\n}\\n```\\n\\nI've tried changing the jumpForce variable
+        to different values, but it doesn't seem to make a difference. I've also tried
+        changing the LayerMask in the Physics2D.OverlapCircle function, but that doesn't
+        seem to make a difference either. I'm not sure what I'm doing wrong. Any help
+        would be greatly appreciated.\\n\\nComment: Have you tried to debug the code?
+        Is the `isGrounded` variable true when you press the jump button?\\n\\nComment:
+        I haven't tried debugging the code yet, but I'll give it a try. Thanks for
+        the suggestion.\\n\\nComment: I've tried debugging the code and it looks like
+        the isGrounded variable is always false, even when the player is standing
+        on the ground. I'm not sure why that is.\\n\\nComment: I've also tried changing
+        the size of the circle in the OverlapCircle function, but that doesn't seem
+        to make a difference either.\\n\\nComment: I've also tried adding a collider
+        to the ground object, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the LayerMask to include other layers, but that didn't
+        seem to make a difference either.\\n\\nComment: I've also tried changing the
+        gravity scale in the Rigidbody2D component, but that didn't seem to make a
+        difference either.\\n\\nComment: I've also tried changing the size of the
+        player object, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the position of the player object, but that didn't
+        seem to make a difference either.\\n\\nComment: I've also tried changing the
+        name of the ground object, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the player object, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the layer that the ground object is on, but that didn't seem to make a
+        difference either.\\n\\nComment: I've also tried changing the name of the
+        layer that the player object is on, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the script that
+        is attached to the player object, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the script that
+        is attached to the ground object, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the variable that
+        is used to store the isGrounded value, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the function that
+        is called when the player jumps, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the Input.GetAxis
+        function that is used to get the horizontal input, but that didn't seem to
+        make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Input.GetButtonDown function that is used to get the jump input, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the rb variable that is used to store the Rigidbody2D
+        component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the move variable that is used to store
+        the player's horizontal input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb.velocity variable that is used
+        to set the player's velocity, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the isGrounded variable that is used
+        to store whether the player is on the ground or not, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Physics2D.OverlapCircle function that is used to check if the player
+        is on the ground, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the ForceMode2D.Impulse variable that
+        is used to apply the jump force to the player, but that didn't seem to make
+        a difference either.\\n\\nComment: I've also tried changing the name of the
+        LayerMask.GetMask function that is used to get the mask for the layers that
+        the OverlapCircle function should check, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the transform.position
+        variable that is used to store the player's position, but that didn't seem
+        to make a difference either.\\n\\nComment: I've also tried changing the name
+        of the Vector2 variable that is used to store the player's velocity, but that
+        didn't seem to make a difference either.\\n\\nComment: I've also tried changing
+        the name of the Vector2 variable that is used to store the jump force, but
+        that didn't seem to make a difference either.\\n\\nComment: I've also tried
+        changing the name of the Input.GetAxis function that is used to get the horizontal
+        input, but that didn't seem to make a difference either.\\n\\nComment: I've
+        also tried changing the name of the Input.GetButtonDown function that is used
+        to get the jump input, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the rb variable that is used to store
+        the Rigidbody2D component, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the speed variable that is used to control
+        the player's movement speed, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also tried changing the name of the jumpForce variable that is used to
+        control the player's jump force, but that didn't seem to make a difference
+        either.\\n\\nComment: I've also tried changing the name of the LayerMask variable
+        that is used to specify which layers the OverlapCircle function should check,
+        but that didn't seem to make a difference either.\\n\\nComment: I've also
+        tried changing the name of the transform variable that is used to store the
+        player's position, but that didn't seem to make a difference either.\\n\\nComment:
+        I've also\",\n      \"finish_reason\": \"length\",\n      \"seed\": 16080435356213037000,\n
+        \     \"logprobs\": null,\n      \"index\": 0\n    }\n  ],\n  \"usage\": {\n
+        \   \"prompt_tokens\": 2,\n    \"completion_tokens\": 32766,\n    \"total_tokens\":
+        32768\n  }\n}"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8f1931bcb99667f0-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 13 Dec 2024 21:58:01 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '135521'
+      etag:
+      - W/"21161-8tWy2qZdRK9t57QhKzQwImf3qSo"
+      retry-after:
+      - '2'
+      x-api-call-end:
+      - '2024-12-13T21:58:01.415Z'
+      x-api-call-start:
+      - '2024-12-13T21:54:43.355Z'
+      x-api-received:
+      - '2024-12-13T21:54:43.343Z'
+      x-inference-version:
+      - v2
+      x-ratelimit:
+      - 'false'
+      x-ratelimit-limit:
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-remaining-tokens:
+      - '99381'
+      x-ratelimit-reset:
+      - '2'
+    status:
+      code: 200
+      message: OK
+version: 1

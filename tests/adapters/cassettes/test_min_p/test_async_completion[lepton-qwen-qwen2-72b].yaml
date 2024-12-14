@@ -1,0 +1,77 @@
+interactions:
+- request:
+    body: '{"model": "qwen2-72b", "prompt": "Hi"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '38'
+      content-type:
+      - application/json
+      host:
+      - qwen2-72b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://qwen2-72b.lepton.run/api/v1/completions
+  response:
+    body:
+      string: '{"id":"cmpl-6oq2DWKpGCMZiXYVKMgdJh","object":"text_completion","created":1734146435,"model":"qwen2-72b","choices":[{"index":0,"text":"
+        I have a problem with my program. I have a file that contains a list of names
+        and their phone numbers. I want to write a program that reads the file and
+        then prints the names and phone numbers. The problem is that when I run the
+        program it only prints the last name and phone number. Can someone help me
+        figure out what I''m doing wrong?\n\n```\n#include <iostream>\n#include <fstream>\n#include
+        <string>\n\nusing namespace std;\n\nint main()\n{\n    ifstream fin;\n    fin.open(\"phonebook.txt\");\n    string
+        name;\n    string phone;\n    while (fin >> name >> phone)\n    {\n        cout
+        << name << \" \" << phone << endl;\n    }\n    fin.close();\n    return 0;\n}\n\n```\n\nYour
+        program is almost correct, but there are a few things to consider:\n\n1. **File
+        Format**: Ensure that the file `phonebook.txt` is formatted correctly. Each
+        line should contain a name followed by a phone number, separated by whitespace
+        (e.g., a space or tab).\n\n2. **Reading the File**: Your current code reads
+        the file line by line, extracting the name and phone number on each iteration
+        of the loop. If the file is formatted correctly, this should work as expected.\n\n3.
+        **","logprobs":null,"finish_reason":"length","audio":null}],"usage":{"prompt_tokens":1,"total_tokens":257,"completion_tokens":256}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8f1b0f170c99967c-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 14 Dec 2024 03:20:42 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1423'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '6536'
+    status:
+      code: 200
+      message: OK
+version: 1

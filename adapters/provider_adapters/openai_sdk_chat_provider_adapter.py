@@ -7,6 +7,8 @@ class OpenAIModel(Model):
     vendor_name: str = Vendor.openai.value
 
     supports_completion: bool = False
+    can_min_p: bool = False
+    can_top_k: bool = False
 
 
 MODELS: list[Model] = [
@@ -17,6 +19,7 @@ MODELS: list[Model] = [
         completion_length=16385,
         supports_completion=True,
         supports_chat=False,
+        supports_max_completion_tokens=False,
     ),
     OpenAIModel(
         name="gpt-3.5-turbo",
@@ -58,6 +61,12 @@ MODELS: list[Model] = [
         completion_length=16384,
     ),
     OpenAIModel(
+        name="gpt-4o-2024-11-20",
+        cost=Cost(prompt=2.50e-6, completion=10.00e-6),
+        context_length=128000,
+        completion_length=16384,
+    ),
+    OpenAIModel(
         name="gpt-4o-mini",
         cost=Cost(prompt=0.15e-6, completion=0.60e-6),
         context_length=128000,
@@ -79,8 +88,11 @@ MODELS: list[Model] = [
         supports_n=False,
         supports_vision=False,
         supports_json_output=False,
+        supports_max_tokens=False,
+        supports_stop=False,
         can_temperature=False,
         can_system=False,
+        can_top_p=False,
     ),
     OpenAIModel(
         name="o1-preview-2024-09-12",
@@ -92,8 +104,11 @@ MODELS: list[Model] = [
         supports_n=False,
         supports_vision=False,
         supports_json_output=False,
+        supports_max_tokens=False,
+        supports_stop=False,
         can_temperature=False,
         can_system=False,
+        can_top_p=False,
     ),
     OpenAIModel(
         name="o1-mini",
@@ -105,8 +120,11 @@ MODELS: list[Model] = [
         supports_n=False,
         supports_vision=False,
         supports_json_output=False,
+        supports_max_tokens=False,
+        supports_stop=False,
         can_temperature=False,
         can_system=False,
+        can_top_p=False,
     ),
     OpenAIModel(
         name="o1-mini-2024-09-12",
@@ -118,8 +136,11 @@ MODELS: list[Model] = [
         supports_n=False,
         supports_vision=False,
         supports_json_output=False,
+        supports_max_tokens=False,
+        supports_stop=False,
         can_temperature=False,
         can_system=False,
+        can_top_p=False,
     ),
 ]
 

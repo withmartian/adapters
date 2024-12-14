@@ -1,4 +1,4 @@
-from typing import Any, Dict
+from typing import Any
 
 from adapters.abstract_adapters.openai_sdk_chat_adapter import OpenAISDKChatAdapter
 from adapters.types import (
@@ -12,6 +12,10 @@ from openai.types.chat import ChatCompletionMessageParam
 
 class TogetherModel(Model):
     provider_name: str = Provider.together.value
+
+    supports_completion: bool = False
+    can_min_p: bool = False
+    can_top_k: bool = False
 
     def _get_api_path(self) -> str:
         return f"{self.vendor_name}/{self.name}"
@@ -80,6 +84,7 @@ MODELS: list[Model] = [
         vendor_name=Vendor.meta_llama.value,
         supports_json_output=False,
         supports_tools=False,
+        supports_max_completion_tokens=False,
     ),
     TogetherModel(
         name="Llama-3.2-90B-Vision-Instruct-Turbo",
@@ -88,6 +93,7 @@ MODELS: list[Model] = [
         vendor_name=Vendor.meta_llama.value,
         supports_json_output=False,
         supports_tools=False,
+        supports_max_completion_tokens=False,
     ),
     TogetherModel(
         name="Qwen2-72B-Instruct",
@@ -189,7 +195,7 @@ class TogetherSDKChatProviderAdapter(OpenAISDKChatAdapter):
 
     def _get_params(
         self, messages: list[ChatCompletionMessageParam], **kwargs: Any
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         params = super()._get_params(messages, **kwargs)
 
         # If the user has requested n messages, but not specified a temperature, we need to provide default temperature

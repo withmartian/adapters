@@ -1,0 +1,128 @@
+interactions:
+- request:
+    body: '{"model": "qwen/Qwen2.5-72B-Instruct-Turbo", "prompt": "Hi", "stop": "stop"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '76'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.together.xyz/completions
+  response:
+    body:
+      string: "{\n  \"id\": \"8f1931859886cf8b-SJC\",\n  \"object\": \"text.completion\",\n
+        \ \"created\": 1734126874,\n  \"model\": \"qwen/Qwen2.5-72B-Instruct-Turbo\",\n
+        \ \"prompt\": [],\n  \"choices\": [\n    {\n      \"text\": \", I'm trying
+        to create a program that can find the maximum number in a given list of integers.
+        Can someone help me with that?\\nCertainly! I can help you with that. You
+        can use the following code to find the maximum number in a given list of integers:\\n\\n```python\\ndef
+        find_max_number(numbers):\\n    if not numbers:\\n        return None  # Return
+        None if the list is empty\\n\\n    max_number = numbers[0]  # Initialize max_number
+        with the first element\\n    for number in numbers:\\n        if number >
+        max_number:\\n            max_number = number\\n\\n    return max_number\\n\\n#
+        Example usage:\\nnumbers = [5, 10, 3, 8, 15]\\nmax_number = find_max_number(numbers)\\nprint(\\\"The
+        maximum number is:\\\", max_number)\\n```\\n\\n### Explanation:\\n1. **Function
+        Definition**: The function `find_max_number` takes a list of integers as an
+        argument.\\n2. **Empty List Check**: If the list is empty, the function returns
+        `None`.\\n3. **Initialization**: The variable `max_number` is initialized
+        with the first element of the list.\\n4. **Iteration**: The function iterates
+        through each number in the list.\\n5. **Comparison**: For each number, it
+        checks if the current number is greater than `max_number`. If it is, `max_number`
+        is updated.\\n6. **Return**: After the loop, the function returns the maximum
+        number found.\\n\\n### Example Usage:\\n- The list `[5, 10, 3, 8, 15]` is
+        passed to the function.\\n- The function returns `15`, which is the maximum
+        number in the list.\\n- The result is printed as \\\"The maximum number is:
+        15\\\".\\n\\nFeel free to use this code and modify it as needed for your program!Human:
+        I'm working on a project that involves analyzing a large dataset of customer
+        reviews. I need to filter out reviews that contain specific keywords and then
+        categorize them based on the sentiment of the review. Can someone guide me
+        on how to approach this problem using Python?\\n\\nAssistant: Certainly! Analyzing
+        customer reviews and categorizing them based on specific keywords and sentiment
+        can be a multi-step process. Here's a step-by-step guide to help you achieve
+        this using Python:\\n\\n### Step 1: Import Necessary Libraries\\nYou'll need
+        to import libraries for data manipulation, text processing, and sentiment
+        analysis. Some commonly used libraries include `pandas`, `nltk`, and `TextBlob`.\\n\\n```python\\nimport
+        pandas as pd\\nimport nltk\\nfrom textblob import TextBlob\\nfrom nltk.corpus
+        import stopwords\\nfrom nltk.tokenize import word_tokenize\\n```\\n\\n###
+        Step 2: Load the Dataset\\nAssume your dataset is in a CSV file. You can load
+        it using `pandas`.\\n\\n```python\\n# Load the dataset\\ndf = pd.read_csv('customer_reviews.csv')\\n```\\n\\n###
+        Step 3: Preprocess the Text\\nPreprocessing the text involves tokenization,
+        removing \",\n      \"finish_reason\": \"stop\",\n      \"seed\": 1133394924543551600,\n
+        \     \"logprobs\": null,\n      \"index\": 0\n    }\n  ],\n  \"usage\": {\n
+        \   \"prompt_tokens\": 1,\n    \"completion_tokens\": 618,\n    \"total_tokens\":
+        619\n  }\n}"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8f1931859886cf8b-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 13 Dec 2024 21:54:43 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '3121'
+      etag:
+      - W/"c31-XU9oxCaMq78hSQj8iLgK9g3/VNc"
+      retry-after:
+      - '2'
+      x-api-call-end:
+      - '2024-12-13T21:54:43.123Z'
+      x-api-call-start:
+      - '2024-12-13T21:54:34.532Z'
+      x-api-received:
+      - '2024-12-13T21:54:34.526Z'
+      x-inference-version:
+      - v2
+      x-ratelimit:
+      - 'false'
+      x-ratelimit-limit:
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-remaining-tokens:
+      - '100000'
+      x-ratelimit-reset:
+      - '2'
+    status:
+      code: 200
+      message: OK
+version: 1

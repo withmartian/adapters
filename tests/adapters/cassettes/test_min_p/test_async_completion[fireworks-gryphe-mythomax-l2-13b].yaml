@@ -1,0 +1,97 @@
+interactions:
+- request:
+    body: '{"model": "accounts/fireworks/models/mythomax-l2-13b", "prompt": "Hi"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '70'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/completions
+  response:
+    body:
+      string: '{"id":"d7676429-3531-4422-ab49-8fe83336b649","object":"text_completion","created":1734146419,"model":"accounts/fireworks/models/mythomax-l2-13b","choices":[{"index":0,"text":"ppo
+        Campus is an American indie rock band from St. Paul, Minnesota","logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":2,"total_tokens":18,"completion_tokens":16}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8f1b0ead8f34967b-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 14 Dec 2024 03:20:19 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - inference-server;dur=177.0,total;dur=202.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '355'
+      fireworks-middleware-version:
+      - v2
+      fireworks-prompt-tokens:
+      - '2'
+      fireworks-sampling-options:
+      - '{"max_tokens": 16, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.121'
+      x-envoy-upstream-service-time:
+      - '123'
+      x-ratelimit-limit-requests:
+      - '60'
+      x-ratelimit-limit-tokens-generated:
+      - '3000'
+      x-ratelimit-limit-tokens-prompt:
+      - '30000'
+      x-ratelimit-over-limit:
+      - 'no'
+      x-ratelimit-remaining-requests:
+      - '59'
+      x-ratelimit-remaining-tokens-generated:
+      - '3000'
+      x-ratelimit-remaining-tokens-prompt:
+      - '29998'
+      x-request-id:
+      - d7676429-3531-4422-ab49-8fe83336b649
+    status:
+      code: 200
+      message: OK
+version: 1

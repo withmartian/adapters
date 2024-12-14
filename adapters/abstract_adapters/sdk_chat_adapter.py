@@ -3,7 +3,6 @@ from typing import (
     Any,
     AsyncGenerator,
     Callable,
-    Dict,
     Generator,
     Generic,
     Iterable,
@@ -201,13 +200,35 @@ class SDKChatAdapter(
                 f"JSON response format is not supported on {self.get_model().name}"
             )
 
+    def _get_kwargs(self, **kwargs: Any) -> dict[str, Any]:
+        if kwargs.get("stream") is NOT_GIVEN:
+            del kwargs["stream"]
+
+        # List of attribute flags and their corresponding kwargs
+        attributes = [
+            ("can_user", "user"),
+            ("can_min_p", "min_p"),
+            ("can_top_k", "top_k"),
+            ("can_top_p", "top_p"),
+            ("can_presence_penalty", "presence_penalty"),
+            ("can_repetition_penalty", "repetition_penalty"),
+            ("can_temperature", "temperature"),
+        ]
+
+        for attr_flag, kwarg_key in attributes:
+            if not getattr(self.get_model(), attr_flag, False) and kwarg_key in kwargs:
+                del kwargs[kwarg_key]
+
+        return delete_none_values(kwargs)
+
     # TODO: Refactor this big method
     # TODO: Check if a "system" message is between two "user" messages
     # pylint: disable=too-many-statements
     def _get_params(
         self, messages: list[ChatCompletionMessageParam], **kwargs: Any
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         self._verify(messages, **kwargs)
+        kwargs = self._get_kwargs(**kwargs)
 
         # Check if messages are empty
         if len(messages) == 0:
@@ -233,17 +254,6 @@ class SDKChatAdapter(
                             and content["text"].strip() == ""
                         ):
                             content["text"] = EMPTY_CONTENT
-
-        # Remove user if not supported
-        if not self.get_model().can_user and "user" in kwargs:
-            del kwargs["user"]
-
-        # Remove temperature if not supported
-        if (
-            kwargs.get("temperature") is not None
-            and self.get_model().can_temperature is False
-        ):
-            del kwargs["temperature"]
 
         # Add empty user message if assistant only
         if (
@@ -360,8 +370,19 @@ class SDKChatAdapter(
 
             messages = result
 
-        return {
+        params: dict[str, Any] = {
             "messages": messages,
+        }
+
+        if kwargs.get("max_tokens") is not None:
+            params["max_tokens"] = kwargs["max_tokens"]
+            del kwargs["max_tokens"]
+
+        if kwargs.get("stream") is not None:
+            params["stream"] = kwargs["stream"]
+            del kwargs["stream"]
+
+        params["extra_body"] = {
             **(
                 {"temperature": self._adjust_temperature(kwargs.get("temperature", 1))}
                 if kwargs.get("temperature") is not None
@@ -370,17 +391,7 @@ class SDKChatAdapter(
             **kwargs,
         }
 
-        # ====
-
-        return {
-            "messages": messages,
-            **(
-                {"temperature": self._adjust_temperature(kwargs.get("temperature", 1))}
-                if kwargs.get("temperature") is not None
-                else {}
-            ),
-            **kwargs,
-        }
+        return params
 
     def get_model(self) -> Model:
         if self._current_model is None:
@@ -425,11 +436,10 @@ class SDKChatAdapter(
             else llm_input
         )
 
-        params = self._get_params(messages, stream=stream, **kwargs)
+        params = delete_none_values(self._get_params(messages, stream=stream, **kwargs))
 
         response = await self._call_async()(
-            model=self.get_model()._get_api_path(),
-            **delete_none_values(params),
+            model=self.get_model()._get_api_path(), **params
         )
 
         if not stream:
@@ -481,12 +491,9 @@ class SDKChatAdapter(
             else llm_input
         )
 
-        params = self._get_params(messages, stream=stream, **kwargs)
+        params = delete_none_values(self._get_params(messages, stream=stream, **kwargs))
 
-        response = self._call_sync()(
-            model=self.get_model()._get_api_path(),
-            **delete_none_values(params),
-        )
+        response = self._call_sync()(model=self.get_model()._get_api_path(), **params)
 
         if not stream:
             return self._extract_response(request=llm_input, response=response)
@@ -531,7 +538,7 @@ class SDKChatAdapter(
             model=self.get_model()._get_api_path(),
             prompt=prompt,
             stream=stream,
-            **delete_none_values(kwargs),
+            extra_body=self._get_kwargs(**kwargs),
         )
 
         if not stream:
@@ -577,7 +584,7 @@ class SDKChatAdapter(
             model=self.get_model()._get_api_path(),
             prompt=prompt,
             stream=stream,
-            **delete_none_values(kwargs),
+            extra_body=self._get_kwargs(**kwargs),
         )
 
         if not stream:

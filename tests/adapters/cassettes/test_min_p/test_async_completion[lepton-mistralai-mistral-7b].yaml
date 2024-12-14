@@ -1,0 +1,75 @@
+interactions:
+- request:
+    body: '{"model": "mistral-7b", "prompt": "Hi"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '39'
+      content-type:
+      - application/json
+      host:
+      - mistral-7b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://mistral-7b.lepton.run/api/v1/completions
+  response:
+    body:
+      string: '{"id":"cmpl-C2YNzLkJqYxTsoQxGELDzk","object":"text_completion","created":1734146430,"model":"mistral-7b","choices":[{"index":0,"text":".\n\n##
+        Answer (1)\n\nI would say, if you have the code and you want to understand
+        it, just run it and see what happens. If you are in doubt about the order
+        of statements, you can use print statements to verify.\n\nIf you want to know
+        what this code is doing, it is defining a function that takes two arguments,
+        and if they are both the same, it returns `True`, otherwise it returns `False`.\n\nIf
+        you want to know how the code is doing this, the first line defines the function
+        `same_chars` and tells python to expect two arguments, which will be given
+        the names `a` and `b`.\n\nThe second line checks if `a` and `b` are equal,
+        using the `==` operator. If they are, it returns `True` and the function ends.\n\nIf
+        they are not equal, it starts a loop using the `for` statement. This loop
+        will loop through all the characters in the string `a`, one at a time. The
+        loop starts with `i` being set to the first character in `a`.\n\nThe `for`
+        loop checks if `i` is in the string `b`, using the `","logprobs":null,"finish_reason":"length","audio":null}],"usage":{"prompt_tokens":1,"total_tokens":257,"completion_tokens":256}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8f1b0ef34c8d1643-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 14 Dec 2024 03:20:32 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1254'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '2866'
+    status:
+      code: 200
+      message: OK
+version: 1

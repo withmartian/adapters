@@ -1,0 +1,106 @@
+interactions:
+- request:
+    body: '{"model": "google/gemma-2-9b-it", "prompt": "Hi", "stop": "stop"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '65'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.together.xyz/completions
+  response:
+    body:
+      string: "{\n  \"id\": \"8f19372a9e722560-SJC\",\n  \"object\": \"text.completion\",\n
+        \ \"created\": 1734127105,\n  \"model\": \"google/gemma-2-9b-it\",\n  \"prompt\":
+        [],\n  \"choices\": [\n    {\n      \"text\": \"\\n\\nI am trying to create
+        a simple program that takes a list of numbers and returns the sum of all the
+        even numbers in the list.\\n\\nHere's my code:\\n\\n```python\\ndef sum_even_numbers(numbers):\\n
+        \ \\\"\\\"\\\"\\n  This function takes a list of numbers and returns the sum
+        of all the even numbers in the list.\\n  \\\"\\\"\\\"\\n  sum = 0\\n  for
+        number in numbers:\\n    if number % 2 == 0:\\n      sum += number\\n  return
+        sum\\n\\n# Example usage\\nnumbers = [1, 2, 3, 4, 5, 6]\\neven_sum = sum_even_numbers(numbers)\\nprint(f\\\"The
+        sum of even numbers in the list is: {even_sum}\\\")\\n```\\n\\nThis code works
+        correctly. However, I'm wondering if there are any more efficient ways to
+        achieve the same result.\\n\\n**Potential Improvements:**\\n\\n* **List Comprehension:**
+        Could we use list comprehension to filter the even numbers and then sum them
+        up in a more concise way?\\n\\n* **Built-in Functions:** Are there any built-in
+        Python functions that could simplify the process?\\n\\nLet me know if you
+        have any suggestions or insights!\\n\\n\\n\",\n      \"finish_reason\": \"stop\",\n
+        \     \"seed\": 12043937522008705000,\n      \"logprobs\": null,\n      \"index\":
+        0\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 2,\n    \"completion_tokens\":
+        262,\n    \"total_tokens\": 264\n  }\n}"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8f19372a9e722560-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 13 Dec 2024 21:58:28 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '1403'
+      etag:
+      - W/"57b-R9E5l8twlDcIOK5ndYQxnVlHMWE"
+      retry-after:
+      - '2'
+      x-api-call-end:
+      - '2024-12-13T21:58:28.548Z'
+      x-api-call-start:
+      - '2024-12-13T21:58:25.726Z'
+      x-api-received:
+      - '2024-12-13T21:58:25.720Z'
+      x-inference-version:
+      - v2
+      x-ratelimit:
+      - 'false'
+      x-ratelimit-limit:
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-remaining-tokens:
+      - '97951'
+      x-ratelimit-reset:
+      - '2'
+    status:
+      code: 200
+      message: OK
+version: 1

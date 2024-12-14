@@ -1,0 +1,97 @@
+interactions:
+- request:
+    body: '{"model": "accounts/yi-01-ai/models/yi-large", "prompt": "Hi", "stop":
+      ["stop", "end"]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '87'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/completions
+  response:
+    body:
+      string: "{\"id\":\"8b2b03d0-0625-445f-8ead-50a7b0e9d148\",\"object\":\"text_completion\",\"created\":1734127186,\"model\":\"accounts/yi-01-ai/models/yi-large\",\"choices\":[{\"index\":0,\"text\":\"\uFF08\u4F60\u597D\uFF09\uFF0C\u56E0\u4E3A\u5B83\u4EEC\u5728\u4E0D\u540C\u7684\u6587\u5316\u548C\u8BED\u8A00\u4E2D\u6709\u7740\u76F8\u4F3C\u7684\u529F\u80FD\uFF0C\u88AB\",\"logprobs\":null,\"finish_reason\":\"length\"}],\"usage\":{\"prompt_tokens\":2,\"total_tokens\":18,\"completion_tokens\":16}}"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8f19391f785c67ac-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 13 Dec 2024 21:59:46 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - inference-server;dur=387.0,total;dur=493.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '365'
+      fireworks-middleware-version:
+      - v2
+      fireworks-prompt-tokens:
+      - '2'
+      fireworks-sampling-options:
+      - '{"max_tokens": 16, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.322'
+      x-envoy-upstream-service-time:
+      - '324'
+      x-ratelimit-limit-requests:
+      - '60'
+      x-ratelimit-limit-tokens-generated:
+      - '3000'
+      x-ratelimit-limit-tokens-prompt:
+      - '30000'
+      x-ratelimit-over-limit:
+      - 'no'
+      x-ratelimit-remaining-requests:
+      - '59'
+      x-ratelimit-remaining-tokens-generated:
+      - '3000'
+      x-ratelimit-remaining-tokens-prompt:
+      - '29998'
+      x-request-id:
+      - 8b2b03d0-0625-445f-8ead-50a7b0e9d148
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,99 @@
+interactions:
+- request:
+    body: '{"model": "accounts/fireworks/models/llama-v3p1-70b-instruct", "prompt":
+      "Hi", "top_p": 0.5}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '92'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/completions
+  response:
+    body:
+      string: "{\"id\":\"d5817cbd-920c-44e8-ba1c-9cf11b121d59\",\"object\":\"text_completion\",\"created\":1734146692,\"model\":\"accounts/fireworks/models/llama-v3p1-70b-instruct\",\"choices\":[{\"index\":0,\"text\":\"
+        l\xE0 g\xEC?\\nHi l\xE0 m\u1ED9t trong nh\u1EEFng t\u1EEB \u0111\u01B0\u1EE3c
+        s\u1EED d\u1EE5ng nhi\u1EC1u nh\u1EA5t trong ti\u1EBFng\",\"logprobs\":null,\"finish_reason\":\"length\"}],\"usage\":{\"prompt_tokens\":2,\"total_tokens\":18,\"completion_tokens\":16}}"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8f1b15559b3a16a6-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 14 Dec 2024 03:24:52 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - inference-server;dur=631.0,total;dur=736.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '389'
+      fireworks-middleware-version:
+      - v2
+      fireworks-prompt-tokens:
+      - '2'
+      fireworks-sampling-options:
+      - '{"max_tokens": 16, "temperature": 1.0, "top_k": 0, "top_p": 0.5, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.551'
+      x-envoy-upstream-service-time:
+      - '553'
+      x-ratelimit-limit-requests:
+      - '60'
+      x-ratelimit-limit-tokens-generated:
+      - '3000'
+      x-ratelimit-limit-tokens-prompt:
+      - '30000'
+      x-ratelimit-over-limit:
+      - 'no'
+      x-ratelimit-remaining-requests:
+      - '59'
+      x-ratelimit-remaining-tokens-generated:
+      - '3000'
+      x-ratelimit-remaining-tokens-prompt:
+      - '29998'
+      x-request-id:
+      - d5817cbd-920c-44e8-ba1c-9cf11b121d59
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,119 @@
+interactions:
+- request:
+    body: '{"model": "google/gemma-2-27b-it", "prompt": "Hi", "stop": "stop"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '66'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.together.xyz/completions
+  response:
+    body:
+      string: "{\n  \"id\": \"8f19373d8ec567b9-SJC\",\n  \"object\": \"text.completion\",\n
+        \ \"created\": 1734127108,\n  \"model\": \"google/gemma-2-27b-it\",\n  \"prompt\":
+        [],\n  \"choices\": [\n    {\n      \"text\": \",\\n\\nI'm trying to create
+        a simple program that takes a list of numbers as input and returns the sum
+        of all the even numbers in the list.\\n\\nHere's my code:\\n\\n```python\\ndef
+        sum_even_numbers(numbers):\\n  \\\"\\\"\\\"\\n  This function takes a list
+        of numbers and returns the sum of all the even numbers in the list.\\n  \\\"\\\"\\\"\\n
+        \ sum = 0\\n  for number in numbers:\\n    if number % 2 == 0:\\n      sum
+        += number\\n  return sum\\n\\n# Example usage\\nnumbers = [1, 2, 3, 4, 5,
+        6]\\neven_sum = sum_even_numbers(numbers)\\nprint(f\\\"The sum of even numbers
+        in the list is: {even_sum}\\\")\\n```\\n\\nThis code works correctly, but
+        I'm wondering if there's a more concise or efficient way to achieve the same
+        result using Python's built-in functions or list comprehensions.\\n\\nCan
+        you suggest any improvements?\\n\\nThanks!\\n\\nYou're right, there are more
+        concise ways to achieve this using Python's powerful features. Here's a version
+        using a list comprehension:\\n\\n```python\\ndef sum_even_numbers(numbers):\\n
+        \ \\\"\\\"\\\"\\n  This function takes a list of numbers and returns the sum
+        of all the even numbers in the list.\\n  \\\"\\\"\\\"\\n  return sum([number
+        for number in numbers if number % 2 == 0])\\n\\n# Example usage\\nnumbers
+        = [1, 2, 3, 4, 5, 6]\\neven_sum = sum_even_numbers(numbers)\\nprint(f\\\"The
+        sum of even numbers in the list is: {even_sum}\\\")\\n```\\n\\n**Explanation:**\\n\\n1.
+        **List Comprehension:**\\n   - `[number for number in numbers if number %
+        2 == 0]` creates a new list containing only the even numbers from the original
+        `numbers` list.\\n\\n2. **`sum()` Function:**\\n   - The `sum()` function
+        directly calculates the sum of all elements in the new list of even numbers.\\n\\n**Benefits:**\\n\\n-
+        **Conciseness:** This code is much shorter and more readable than the original
+        version.\\n- **Efficiency:** List comprehensions are generally considered
+        efficient in Python.\\n\\nLet me know if you have any other Python code snippets
+        you'd like to optimize!\",\n      \"finish_reason\": \"stop\",\n      \"seed\":
+        8412253405370817000,\n      \"logprobs\": null,\n      \"index\": 0\n    }\n
+        \ ],\n  \"usage\": {\n    \"prompt_tokens\": 2,\n    \"completion_tokens\":
+        511,\n    \"total_tokens\": 513\n  }\n}"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8f19373d8ec567b9-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 13 Dec 2024 21:58:39 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '2318'
+      etag:
+      - W/"90e-mFhZjDjx9yZvJ6V5CweOedWXvuQ"
+      retry-after:
+      - '2'
+      x-api-call-end:
+      - '2024-12-13T21:58:39.474Z'
+      x-api-call-start:
+      - '2024-12-13T21:58:28.751Z'
+      x-api-received:
+      - '2024-12-13T21:58:28.746Z'
+      x-inference-version:
+      - v2
+      x-ratelimit:
+      - 'false'
+      x-ratelimit-limit:
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-remaining-tokens:
+      - '99736'
+      x-ratelimit-reset:
+      - '2'
+    status:
+      code: 200
+      message: OK
+version: 1

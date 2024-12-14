@@ -1,0 +1,71 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "glm-4-0520",
+      "stop": "stop"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '88'
+      content-type:
+      - application/json
+      host:
+      - open.bigmodel.cn
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://open.bigmodel.cn/api/paas/v4/chat/completions
+  response:
+    body:
+      string: '{"error":{"message":"JSON parse error: Cannot construct instance of
+        `java.util.ArrayList` (although at least one Creator exists): no String-argument
+        constructor/factory method to deserialize from String value (''stop''); nested
+        exception is com.fasterxml.jackson.databind.exc.MismatchedInputException:
+        Cannot construct instance of `java.util.ArrayList` (although at least one
+        Creator exists): no String-argument constructor/factory method to deserialize
+        from String value (''stop'')\n at [Source: (PushbackInputStream); line: 1,
+        column: 82] (through reference chain: com.wd.paas.api.domain.v4.chat.ChatCompletionRequest[\"stop\"])","code":"400"}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Fri, 13 Dec 2024 21:17:23 GMT
+      Set-Cookie:
+      - acw_tc=784e2c9117341246432046812e1bbbd977ce1b6634e48d7dc79c0f52b9d1e2;path=/;HttpOnly;Max-Age=1800
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      X-LOG-ID:
+      - 202412140517234952f9e17e334c44
+    status:
+      code: 400
+      message: Bad Request
+version: 1

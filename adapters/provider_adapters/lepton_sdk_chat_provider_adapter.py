@@ -15,6 +15,9 @@ class LeptonModel(Model):
     can_system_multiple: bool = False
     can_repeating_roles: bool = False
 
+    can_min_p: bool = False
+    can_top_k: bool = False
+
 
 MODELS: list[Model] = [
     LeptonModel(

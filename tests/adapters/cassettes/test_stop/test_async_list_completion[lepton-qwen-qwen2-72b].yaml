@@ -1,0 +1,77 @@
+interactions:
+- request:
+    body: '{"model": "qwen2-72b", "prompt": "Hi", "stop": ["stop", "end"]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '63'
+      content-type:
+      - application/json
+      host:
+      - qwen2-72b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://qwen2-72b.lepton.run/api/v1/completions
+  response:
+    body:
+      string: '{"id":"cmpl-8aTgxe4PKgCGfNuEhL8ade","object":"text_completion","created":1734127194,"model":"qwen2-72b","choices":[{"index":0,"text":"
+        I have a class in which I have to calculate the area of a rectangle. I have
+        the constructor and the method but when I try to compile I get the error that
+        it cannot find symbol.\n\n```\npublic class Rectangle {\n\n    private double
+        length;\n    private double width;\n\n    public Rectangle(double l, double
+        w) {\n        length = l;\n        width = w;\n    }\n\n    public double
+        area() {\n        double area = length * width;\n        return area;\n    }\n}\n\n```\n\nI
+        am trying to calculate the area of a rectangle with length 4.5 and width 7.2.
+        Here is the code I am using to call the method:\n\n```\nRectangle rect = new
+        Rectangle(4.5, 7.2);\ndouble rectArea = rect.area();\nSystem.out.println(\"The
+        area of the rectangle is: \" + rectArea);\n\n```\n\nBut when I try to compile
+        it I get the error that it cannot find symbol for the area method. What am
+        I doing wrong?\n\nIt looks like you are encountering a \"cannot find symbol\"
+        error because the `area` method might not be recognized in your code. This
+        can happen due to several reasons such as incorrect class or method naming,
+        incorrect import statements, or issues with the build path","logprobs":null,"finish_reason":"length","audio":null}],"usage":{"prompt_tokens":1,"total_tokens":257,"completion_tokens":256}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8f1939528c071722-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 13 Dec 2024 22:00:00 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1412'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '6388'
+    status:
+      code: 200
+      message: OK
+version: 1

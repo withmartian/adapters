@@ -1,0 +1,61 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "llama-3.1-70b-instruct",
+      "stop": "stop"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '100'
+      content-type:
+      - application/json
+      host:
+      - api.perplexity.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.perplexity.ai/chat/completions
+  response:
+    body:
+      string: '{"error":{"message":"custom stop words are not implemented for completions.","type":"unsupported_parameter","code":400}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8f18fcc51939eb20-SJC
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '120'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 13 Dec 2024 21:18:33 GMT
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=X8QqDUkwtbKI75Tl.qL6xaJqDVgL6kMZkPynLmHTsNQ-1734124713-1.0.1.1-f8mIOR80HMc0UOeJSGUwe5bCT8Ps1mEjCe6BNwpyCEG_RvsIlJ_csQ.8lfzDvjLC9jNe8G5bzVUvhyASfuQY7w;
+        path=/; expires=Fri, 13-Dec-24 21:48:33 GMT; domain=.perplexity.ai; HttpOnly;
+        Secure; SameSite=None
+    status:
+      code: 400
+      message: Bad Request
+version: 1

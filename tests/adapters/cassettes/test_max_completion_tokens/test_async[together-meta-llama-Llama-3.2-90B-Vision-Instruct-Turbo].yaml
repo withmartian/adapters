@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: '{"messages": [{"role": "user", "content": "Hi"}], "model": "meta-llama/Llama-3.2-90B-Vision-Instruct-Turbo",
+      "max_completion_tokens": 10}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '137'
+      content-type:
+      - application/json
+      host:
+      - api.together.xyz
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.together.xyz/chat/completions
+  response:
+    body:
+      string: "{\n  \"error\": {\n    \"message\": \"[{'type': 'extra_forbidden',
+        'loc': ('body', 'max_completion_tokens'), 'msg': 'Extra inputs are not permitted',
+        'input': 10}]\",\n    \"type\": \"invalid_request_error\",\n    \"param\":
+        null,\n    \"code\": null\n  }\n}"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8f18f7827ed1cfbc-SJC
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '237'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 13 Dec 2024 21:14:58 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      etag:
+      - W/"ed-UZDCIYKsM89A0XSTEhhM6eGlHZM"
+      retry-after:
+      - '0'
+      x-api-call-start:
+      - '2024-12-13T21:14:58.367Z'
+      x-api-received:
+      - '2024-12-13T21:14:58.342Z'
+      x-inference-version:
+      - v2
+      x-ratelimit:
+      - 'false'
+      x-ratelimit-limit:
+      - '100'
+      x-ratelimit-limit-tokens:
+      - '100000'
+      x-ratelimit-remaining:
+      - '196'
+      x-ratelimit-remaining-tokens:
+      - '99854'
+      x-ratelimit-reset:
+      - '0'
+    status:
+      code: 400
+      message: Bad Request
+version: 1
