@@ -1,0 +1,86 @@
+interactions:
+- request:
+    body: '{"model": "Qwen/Qwen2.5-72B-Instruct", "prompt": "Hi", "max_completion_tokens":
+      10}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '83'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/completions
+  response:
+    body:
+      string: '{"id":"cmpl-727e619d51ed41e88ffda9ef93d9addb","object":"text_completion","created":1734145776,"model":"Qwen/Qwen2.5-72B-Instruct","choices":[{"index":0,"text":"
+        there i am trying to cross compile my c project for arm v6 which appears to
+        have been successful, i''ve not seen any compilation errors in the target
+        ./build\\_dir section. So when i scp all of the project files over to a rooted
+        raspberry pi and run the program i get a segfault, followed by a core dump.\n\nThe
+        program compiles without issue on the raspberry pi so i don''t think it''s
+        a project sourced segfault, what are the possible issues that could be causing
+        this? I''m using a custom SDK to do the cross compilation and have never had
+        much experience with embedded development but from my vantage point it would
+        appear to all be ticking along nicely and likely user error? I can''t be sure
+        though. \n\nThere''s no specific error beyond glibc detected \\*\\* double
+        free or corruption (!prev). Which i understand could be anything so if there''s
+        any other suggestions to help me debug this would be greatly appreciated.\n\nThanks!\nCross-compiling
+        can be tricky, and there are several potential issues that might be causing
+        the segmentation fault on the Raspberry Pi. Here are some common issues and
+        steps you can take to debug and resolve the problem:\n\n### 1. **Library Differences**\n   -
+        **Ensure Compatibility**: Make sure that all the libraries your program depends
+        on are available on the Raspberry Pi and are compatible with the ARMv6 architecture.\n   -
+        **Check versions**: Ensure that the versions of the libraries used during
+        cross-compilation match those on the Raspberry Pi.\n\n### 2. **Toolchain Issues**\n   -
+        **Check the Toolchain**: Ensure that the cross-compilation toolchain is correctly
+        set up and configured for ARMv6. Sometimes, toolchain mismatches can lead
+        to compatibility issues.\n   - **Verify Compilation Flags**: Double-check
+        the compilation flags to ensure they are appropriate for ARMv6. For example,
+        you might need to use `-march=armv6` or similar flags.\n\n### 3. **Binary
+        Compatibility**\n   - **Static vs Dynamic**: If your program is dynamically
+        linked, ensure that all required shared libraries are present on the Raspberry
+        Pi. Consider building your program statically to avoid library issues.\n   -
+        **Check Executable**: Use `file` to check the architecture of the compiled
+        binary and ensure it is indeed for ARMv6:\n     ```sh\n     file your_program\n     ```\n     It
+        should output something like:\n     ```\n     your_program: ELF 32-bit LSB
+        executable, ARM, EABI5 version 1 (SYSV), dynamically linked,","logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":1,"total_tokens":513,"completion_tokens":512,"estimated_cost":0.00020503}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2751'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 14 Dec 2024 03:09:36 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1

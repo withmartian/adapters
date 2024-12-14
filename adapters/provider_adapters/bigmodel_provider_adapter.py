@@ -19,10 +19,13 @@ class BigModelModel(Model):
     supports_tool_choice: bool = False
     supports_tool_choice_required: bool = False
     supports_n: bool = False
+    supports_stop: bool = False
 
     can_empty_content: bool = False
     can_system_only: bool = False
     can_assistant_only: bool = False
+    can_min_p: bool = False
+    can_top_k: bool = False
 
     properties: ModelProperties = ModelProperties(
         gdpr_compliant=False,

@@ -1,0 +1,72 @@
+interactions:
+- request:
+    body: '{"model": "mistral-7b", "prompt": "Hi", "top_p": 0.5}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '53'
+      content-type:
+      - application/json
+      host:
+      - mistral-7b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://mistral-7b.lepton.run/api/v1/completions
+  response:
+    body:
+      string: '{"id":"cmpl-NPYLNDYGqXVEiia2ACWxLo","object":"text_completion","created":1734146699,"model":"mistral-7b","choices":[{"index":0,"text":",
+        I''m trying to make a simple web app using Node.js and Express. I''m trying
+        to create a route that returns a JSON object. Here''s my code:\n\n```\nconst
+        express = require(''express'');\nconst app = express();\nconst port = 3000;\n\napp.get(''/'',
+        (req, res) => {\n    res.send(''Hello World!'');\n});\n\napp.get(''/api/data'',
+        (req, res) => {\n    const data = {\n        name: ''John Doe'',\n        age:
+        30,\n        city: ''New York''\n    };\n    res.json(data);\n});\n\napp.listen(port,
+        () => {\n    console.log(`App running on port ${port}.`);\n});\n```\n\nWhen
+        I run this code and go to `http://localhost:3000/api/data` in my browser,
+        I get the following error:\n\n```\nCannot GET /api/data\n```\n\nWhat am I
+        doing wrong?\n\nComment: It''s not a CORS issue, it''s a","logprobs":null,"finish_reason":"length","audio":null}],"usage":{"prompt_tokens":1,"total_tokens":257,"completion_tokens":256}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8f1b1587ab8d22ae-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 14 Dec 2024 03:25:02 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1021'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '2627'
+    status:
+      code: 200
+      message: OK
+version: 1

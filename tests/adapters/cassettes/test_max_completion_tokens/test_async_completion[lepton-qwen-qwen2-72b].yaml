@@ -1,0 +1,76 @@
+interactions:
+- request:
+    body: '{"model": "qwen2-72b", "prompt": "Hi", "max_completion_tokens": 10}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '67'
+      content-type:
+      - application/json
+      host:
+      - qwen2-72b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://qwen2-72b.lepton.run/api/v1/completions
+  response:
+    body:
+      string: '{"id":"cmpl-CxBRBsSEP2KqyX8PVL4JmN","object":"text_completion","created":1734145800,"model":"qwen2-72b","choices":[{"index":0,"text":",
+        I''m trying to convert a string to binary and then convert it to hex. I''ve
+        used this code:\n\n```python\nimport binascii\nh = ''hello world!''\nprint(binascii.b2a_hex(bin(ord(h[0]))))\n```\n\nBut
+        instead of getting the hex value for the binary representation of `h[0]`,
+        I''m getting an undesired output. How can I modify this code to get the desired
+        output, which should be `''68''` (since ''h'' in hex is ''68'')?\n\nTo achieve
+        your goal of converting a character to its binary representation and then
+        to its hexadecimal form, you need to properly understand the steps involved
+        and correct the usage of Python functions. Here''s an explanation of the issues
+        with your code and the right way to do it.\n\n### Issues with the Existing
+        Code\n\n1. The function `bin(ord(h[0]))` generates a binary string prefixed
+        with ''0b'', such as ''0b1101000''. However, this is not a raw byte sequence
+        that `binascii.b2a_hex()` expects.\n2. The `binascii.b2a_hex()` function converts
+        raw binary data to a hexadecimal representation. It requires the input to
+        be a byte","logprobs":null,"finish_reason":"length","audio":null}],"usage":{"prompt_tokens":1,"total_tokens":257,"completion_tokens":256}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8f1aff91e83e9e74-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 14 Dec 2024 03:10:06 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1302'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '6388'
+    status:
+      code: 200
+      message: OK
+version: 1

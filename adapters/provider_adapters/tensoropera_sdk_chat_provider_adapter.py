@@ -8,6 +8,7 @@ class TensorOperaModel(Model):
 
     supports_completion: bool = True
     supports_chat: bool = False
+    supports_max_completion_tokens: bool = False
 
 
 MODELS: list[Model] = [

@@ -1,0 +1,98 @@
+interactions:
+- request:
+    body: '{"model": "accounts/fireworks/models/llama-v3-70b-instruct", "prompt":
+      "Hi", "stop": ["stop", "end"]}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '101'
+      content-type:
+      - application/json
+      host:
+      - api.fireworks.ai
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/completions
+  response:
+    body:
+      string: '{"id":"6b51a88e-f143-40f7-99d4-813f579e5144","object":"text_completion","created":1734127187,"model":"accounts/fireworks/models/llama-v3-70b-instruct","choices":[{"index":0,"text":",
+        fellow readers! I hope you''re having an amazing day today! \nSo","logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":2,"total_tokens":18,"completion_tokens":16}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8f193926ddb367fa-SJC
+      Cf-Placement:
+      - local-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 13 Dec 2024 21:59:47 GMT
+      Server:
+      - cloudflare
+      Server-Timing:
+      - inference-server;dur=447.0,total;dur=482.0;desc="Total Response Time"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-length:
+      - '360'
+      fireworks-middleware-version:
+      - v2
+      fireworks-prompt-tokens:
+      - '2'
+      fireworks-sampling-options:
+      - '{"max_tokens": 16, "temperature": 1.0, "top_k": 0, "top_p": 1.0, "min_p":
+        0.0, "typical_p": 1.0, "frequency_penalty": 0.0, "presence_penalty": 0.0,
+        "repetition_penalty": 1.0, "mirostat_target": null, "mirostat_lr": 0.1}'
+      fireworks-server-processing-time:
+      - '0.365'
+      x-envoy-upstream-service-time:
+      - '367'
+      x-ratelimit-limit-requests:
+      - '60'
+      x-ratelimit-limit-tokens-generated:
+      - '3000'
+      x-ratelimit-limit-tokens-prompt:
+      - '30000'
+      x-ratelimit-over-limit:
+      - 'no'
+      x-ratelimit-remaining-requests:
+      - '59'
+      x-ratelimit-remaining-tokens-generated:
+      - '3000'
+      x-ratelimit-remaining-tokens-prompt:
+      - '29998'
+      x-request-id:
+      - 6b51a88e-f143-40f7-99d4-813f579e5144
+    status:
+      code: 200
+      message: OK
+version: 1

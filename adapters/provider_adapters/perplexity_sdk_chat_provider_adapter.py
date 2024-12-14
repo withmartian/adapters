@@ -10,6 +10,7 @@ class PerplexityModel(Model):
     supports_json_output: bool = False
     supports_tools: bool = False
     supports_n: bool = False
+    supports_stop: bool = False
 
     can_assistant_first: bool = False
     can_assistant_last: bool = False
@@ -20,6 +21,8 @@ class PerplexityModel(Model):
     can_empty_content: bool = False
     can_repeating_roles: bool = False
     can_system_multiple: bool = False
+    can_min_p: bool = False
+    can_top_k: bool = False
 
 
 MODELS: list[Model] = [

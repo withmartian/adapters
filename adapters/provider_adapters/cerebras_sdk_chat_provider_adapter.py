@@ -5,6 +5,11 @@ from adapters.types import Cost, Model, Provider, Vendor
 class CerebrasModel(Model):
     provider_name: str = Provider.cerebras.value
 
+    supports_max_completion_tokens: bool = False
+
+    can_min_p: bool = False
+    can_top_k: bool = False
+
     def _get_api_path(self) -> str:
         return f"{self.name}"
 

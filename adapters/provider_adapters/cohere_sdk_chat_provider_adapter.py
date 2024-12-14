@@ -37,6 +37,8 @@ from openai.types.chat.chat_completion_message_tool_call import (
     Function,
 )
 
+from openai.types.chat import ChatCompletionMessageParam
+
 
 class CohereModel(Model):
     provider_name: str = Provider.cohere.value
@@ -46,9 +48,14 @@ class CohereModel(Model):
     supports_n: bool = False
     supports_vision: bool = False
     supports_tools_choice: bool = False
+    supports_max_completion_tokens: bool = False
+    supports_stop: bool = False
 
     can_empty_content: bool = False
     can_system_only: bool = False
+    can_min_p: bool = False
+    can_top_p: bool = False
+    can_top_k: bool = False
 
     def _get_api_path(self) -> str:
         return self.name
@@ -198,6 +205,17 @@ class CohereSDKChatProviderAdapter(SDKChatAdapter[ClientV2, AsyncClientV2]):
 
     def _adjust_temperature(self, temperature: float) -> float:
         return temperature / 2
+
+    def _get_params(
+        self, messages: list[ChatCompletionMessageParam], **kwargs: Any
+    ) -> dict[str, Any]:
+        params = super()._get_params(messages, **kwargs)
+
+        # Cohere does not support extra_body
+        params = {**params, **params["extra_body"]}
+        del params["extra_body"]
+
+        return params
 
     def _extract_response(
         self, request: Any, response: ChatResponse

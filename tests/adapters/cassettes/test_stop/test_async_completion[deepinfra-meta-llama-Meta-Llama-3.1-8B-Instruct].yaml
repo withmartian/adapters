@@ -1,0 +1,84 @@
+interactions:
+- request:
+    body: '{"model": "meta-llama/Meta-Llama-3.1-8B-Instruct", "prompt": "Hi", "stop":
+      "stop"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '82'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/completions
+  response:
+    body:
+      string: '{"id":"cmpl-352055e3290a4433a11951fdae5b2c83","object":"text_completion","created":1734126369,"model":"meta-llama/Meta-Llama-3.1-8B-Instruct","choices":[{"index":0,"text":"
+        Felix, I agree with you. I have just checked my code and I do not set the
+        current index to zero and I still get an exception. I was going to do a similar
+        test you showed but you saved me the time. However, I would like to know more
+        about how the framework works internally. Does anyone know more about how
+        the `Add` method in `CollectionView` behaves when there are no items in the
+        collection? Thanks, Ian Ian, The internal behavior of the `Add` method in
+        `CollectionView` is implemented in the `AddCore` method, which is called from
+        `Add` as follows: ```C# protected virtual void AddCore(object item) {     int
+        insertAt = -1;     if (Collection == null)     {         Collection = new
+        ObservableCollection<T>();     }     if (insertAt == -1)     {         insertAt
+        = Count;     }     if (CanMoveCurrentToPosition(insertAt))     {         CurrentIndex
+        = insertAt;         Collection.Add(item);         MoveCurrentTo(insertAt);         OnCollectionChanged(CollectionChangedAction.Add,
+        item, insertAt);     }     else     {         Insert(InsertItemPosition.Both,
+        item);     } } ``` When there are no items in the collection, it creates a
+        new ObservableCollection. In the next line, it tries to determine the insert
+        position. However, `insertAt` is initialized to -1, and then compared to -1
+        in the next line, resulting in `insertAt` being set to `Count`, which is 0,
+        because there are no items in the collection. So, `insertAt` is 0. Then it
+        calls `CanMoveCurrentToPosition`, and if it returns true, it moves the current
+        position to 0 and adds the item. If it returns false, it calls `Insert`, which
+        adds the item at the beginning. This seems to be a bug in the framework, and
+        I agree with you that the Add method should not work with an empty collection.
+        To fix this, you could either check if the collection is empty before calling
+        `AddCore`, or modify the `AddCore` method to handle this case correctly. I
+        am not sure how the second solution can be implemented without changing the
+        public API of the `CollectionView` class. Here is a possible workaround, by
+        checking if the collection is empty before calling `AddCore` : ```C# private
+        void ItemAddHandler(object sender, NotifyCollectionChangedEventArgs e) {     CollectionView
+        collectionView = sender as CollectionView","logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":1,"total_tokens":513,"completion_tokens":512,"estimated_cost":2.563e-05}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2586'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 13 Dec 2024 21:46:09 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -185,12 +185,20 @@ class Model(BaseModel):
     supports_tools_choice_required: bool = True
     supports_json_output: bool = True
     supports_json_content: bool = True
+    supports_stop: bool = True
+    supports_max_tokens: bool = True
+    supports_max_completion_tokens: bool = True
 
     can_user: bool = True
     can_vision_multiple: bool = True
     can_repeating_roles: bool = True
     can_empty_content: bool = True
     can_temperature: bool = True
+    can_presence_penalty: bool = True
+    can_repetition_penalty: bool = True
+    can_top_p: bool = True
+    can_top_k: bool = True
+    can_min_p: bool = True
 
     can_system: bool = True
     can_system_only: bool = True

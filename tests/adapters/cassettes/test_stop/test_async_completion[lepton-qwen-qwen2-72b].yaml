@@ -1,0 +1,76 @@
+interactions:
+- request:
+    body: '{"model": "qwen2-72b", "prompt": "Hi", "stop": "stop"}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '54'
+      content-type:
+      - application/json
+      host:
+      - qwen2-72b.lepton.run
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://qwen2-72b.lepton.run/api/v1/completions
+  response:
+    body:
+      string: '{"id":"cmpl-zbxDFo5uTLaAXkucrQ8m6c","object":"text_completion","created":1734126437,"model":"qwen2-72b","choices":[{"index":0,"text":"
+        I have a table, where the first column of the table is a series of numbers.
+        I have a script that is looping through each row of this table, and if it
+        finds a number that meets a certain criteria, then it changes the background
+        of that row to red.\n\nHowever, I would also like to change the font color
+        of the number (in the first column of the table) to be red. I am doing this
+        in the same function, but I am only able to change the entire row''s background
+        to be red. I am unsure how to change the text color of the first cell in the
+        row. Is there a way to target the first cell in each row? Here is a snippet
+        of my code: \n\n```\nfor(i=0; i <= rows.length; i++)\n{\n    var row = rows[i];\n    if(row)\n    {\n        var
+        num = row.getElementsByTagName(\"td\")[0];\n        var num = Number(num.innerHTML);\n        var
+        rowId = row.getAttribute(\"id\");\n        var rowClass = row.className;\n\n        if(num
+        === 0)\n        {\n            row.style.backgroundColor = \"red\";\n            document.getElementById(rowId).innerHTML.style.color
+        = \"red\";\n        }\n    }\n}\n\n```\n\nThe following line of code is changing
+        the","logprobs":null,"finish_reason":"length","audio":null}],"usage":{"prompt_tokens":1,"total_tokens":257,"completion_tokens":256}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8f1926daff17232b-SJC
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 13 Dec 2024 21:47:24 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      content-length:
+      - '1394'
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '6395'
+    status:
+      code: 200
+      message: OK
+version: 1

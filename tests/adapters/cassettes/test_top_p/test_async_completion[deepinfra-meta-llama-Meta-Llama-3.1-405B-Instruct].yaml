@@ -1,0 +1,73 @@
+interactions:
+- request:
+    body: '{"model": "meta-llama/Meta-Llama-3.1-405B-Instruct", "prompt": "Hi", "top_p":
+      0.5}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '82'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/completions
+  response:
+    body:
+      string: '{"id":"cmpl-f00fcc9f56af4cbda45bf80db601c1d4","object":"text_completion","created":1734146636,"model":"meta-llama/Meta-Llama-3.1-405B-Instruct","choices":[{"index":0,"text":"<|start_header_id|>,
+        you can use the following command to convert a video file to a GIF:\n\n```bash\nffmpeg
+        -i input.mp4 -vf \"fps=10,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse\"
+        -loop 0 output.gif\n```\n\nHere''s a breakdown of the options used:\n\n* `-i
+        input.mp4` specifies the input video file.\n* `-vf` specifies the video filter.\n*
+        `fps=10` sets the frame rate to 10 frames per second.\n* `scale=320:-1` scales
+        the video to a width of 320 pixels, while maintaining the aspect ratio.\n*
+        `flags=lanczos` specifies the scaling algorithm to use.\n* `split[s0][s1]`
+        splits the video into two streams.\n* `[s0]palettegen[p]` generates a palette
+        from the first stream.\n* `[s1][p]paletteuse` applies the palette to the second
+        stream.\n* `-loop 0` sets the loop count to 0, which means the GIF will loop
+        indefinitely.\n* `output.gif` specifies the output file name.\n\nYou can adjust
+        the options to suit your needs. For example, you can change the frame rate,
+        scale, or palette generation algorithm.\n\nNote: This command assumes that
+        you have FFmpeg installed on your system. If you don''t have it installed,
+        you can download it from the official website: <https://ffmpeg.org/download.html>\n\nAlso,
+        keep in mind that converting a video to a GIF can result in a large file size,
+        depending on the length and quality of the video. You may want to consider
+        optimizing the GIF using tools like Gifsicle or ImageOptim.","logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":1,"total_tokens":367,"completion_tokens":366,"estimated_cost":0.00033030000000000006}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1773'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 14 Dec 2024 03:23:56 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1

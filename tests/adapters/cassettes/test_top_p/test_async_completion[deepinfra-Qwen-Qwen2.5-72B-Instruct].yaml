@@ -1,0 +1,81 @@
+interactions:
+- request:
+    body: '{"model": "Qwen/Qwen2.5-72B-Instruct", "prompt": "Hi", "top_p": 0.5}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '68'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/completions
+  response:
+    body:
+      string: '{"id":"cmpl-f0843b9d553d4cb69546548345260873","object":"text_completion","created":1734146685,"model":"Qwen/Qwen2.5-72B-Instruct","choices":[{"index":0,"text":"
+        all,\n\nI''m new to this forum and to C++ in general. I''m trying to create
+        a basic program that reads in a text file, and then prints out the number
+        of words in the file. I have been able to get the program to read in the file,
+        but I''m having trouble getting it to count the number of words. I have tried
+        using the .find function to find the spaces, but I can''t seem to get it to
+        work. Here is the code I have so far:\n\n```\n#include <iostream>\n#include
+        <fstream>\n#include <string>\n\nusing namespace std;\n\nint main()\n{\n    string
+        line;\n    ifstream myfile (\"example.txt\");\n    if (myfile.is_open())\n    {\n        while
+        ( getline (myfile,line) )\n        {\n            cout << line << ''\\n'';\n        }\n        myfile.close();\n    }\n\n    else
+        cout << \"Unable to open file\"; \n\n    return 0;\n}\n```\n\nAny help would
+        be greatly appreciated! Welcome to the forum and to C++! It''s great that
+        you''re working on reading a text file and counting the number of words. Let''s
+        extend your code to include the word counting functionality.\n\nTo count the
+        number of words in a file, you can use the `std::istringstream` class to break
+        each line into words. Here''s how you can modify your code to achieve this:\n\n```cpp\n#include
+        <iostream>\n#include <fstream>\n#include <string>\n#include <sstream> // For
+        std::istringstream\n\nusing namespace std;\n\nint main()\n{\n    string line;\n    ifstream
+        myfile(\"example.txt\");\n    int wordCount = 0;\n\n    if (myfile.is_open())\n    {\n        while
+        (getline(myfile, line))\n        {\n            cout << line << ''\\n'';\n\n            //
+        Use istringstream to split the line into words\n            istringstream
+        iss(line);\n            string word;\n            while (iss >> word)\n            {\n                wordCount++;\n            }\n        }\n        myfile.close();\n    }\n    else\n    {\n        cout
+        << \"Unable to open file\";\n    }\n\n    cout << \"Number of words: \" <<
+        wordCount << endl;\n\n    return 0;\n}\n```\n\n### Explanation:\n1. **Include
+        `<sstream>`**: This header is necessary for using `std::istringstream`.\n2.
+        **Initialize `wordCount`**: This variable will keep track of the total number
+        of words.\n3. **Read each line**: The `while (getline(myfile, line))` loop
+        reads each line from the file.\n4.","logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":1,"total_tokens":513,"completion_tokens":512,"estimated_cost":0.00020503}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2596'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 14 Dec 2024 03:24:45 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1

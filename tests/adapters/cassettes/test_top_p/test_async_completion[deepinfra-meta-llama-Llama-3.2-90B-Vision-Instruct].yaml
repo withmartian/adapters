@@ -1,0 +1,73 @@
+interactions:
+- request:
+    body: '{"model": "meta-llama/Llama-3.2-90B-Vision-Instruct", "prompt": "Hi", "top_p":
+      0.5}'
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      content-length:
+      - '83'
+      content-type:
+      - application/json
+      host:
+      - api.deepinfra.com
+      user-agent:
+      - AsyncOpenAI/Python 1.47.1
+      x-stainless-arch:
+      - arm64
+      x-stainless-async:
+      - async:asyncio
+      x-stainless-lang:
+      - python
+      x-stainless-os:
+      - MacOS
+      x-stainless-package-version:
+      - 1.47.1
+      x-stainless-runtime:
+      - CPython
+      x-stainless-runtime-version:
+      - 3.11.10
+    method: POST
+    uri: https://api.deepinfra.com/v1/openai/completions
+  response:
+    body:
+      string: '{"id":"cmpl-ac8265dfd2ab47daabf63f480b9f0211","object":"text_completion","created":1734146620,"model":"meta-llama/Llama-3.2-90B-Vision-Instruct","choices":[{"index":0,"text":"Question
+        is\n\n## Step 1: Understand the problem\nThe problem asks us to find the number
+        of positive integers less than or equal to 100 that are divisible by 2 or
+        3.\n\n## Step 2: Calculate the number of integers divisible by 2\nWe start
+        by finding the number of positive integers less than or equal to 100 that
+        are divisible by 2. This can be calculated by dividing 100 by 2, which gives
+        us 50.\n\n## Step 3: Calculate the number of integers divisible by 3\nNext,
+        we find the number of positive integers less than or equal to 100 that are
+        divisible by 3. This can be calculated by dividing 100 by 3 and taking the
+        floor of the result, which gives us 33.\n\n## Step 4: Calculate the number
+        of integers divisible by both 2 and 3\nHowever, we have counted the integers
+        that are divisible by both 2 and 3 twice. To correct this, we need to subtract
+        the number of integers that are divisible by both 2 and 3. This can be calculated
+        by dividing 100 by the least common multiple of 2 and 3, which is 6, and taking
+        the floor of the result, which gives us 16.\n\n## Step 5: Calculate the total
+        number of integers divisible by 2 or 3\nFinally, we add the number of integers
+        divisible by 2 and the number of integers divisible by 3, and then subtract
+        the number of integers divisible by both 2 and 3. This gives us 50 + 33 -
+        16 = 67.\n\nThe final answer is: $\\boxed{67}$","logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":1,"total_tokens":342,"completion_tokens":341,"estimated_cost":0.00013675000000000002}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1690'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 14 Dec 2024 03:23:40 GMT
+      server:
+      - uvicorn
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1
