@@ -1,4 +1,4 @@
-# Adapters Package Documentation
+# LLM Adapters Package Documentation
 
 ## Overview
 
