@@ -1,4 +1,4 @@
-# Adapters Package Documentation
+# LLM Adapters Package Documentation
 
 List of currently [supported models](https://withmartian.github.io/llm-adapters/)
 
@@ -54,15 +54,19 @@ poetry run pytest
 
 ```python
 from adapters import AdapterFactory
-from adapters.types import Conversation, ConversationRole, Turn
 
+# First component in model path is Provider, then Vendor, and last model name itself
 adapter = AdapterFactory.get_adapter_by_path("openai/openai/gpt-4o-mini")
 
-conversation = Conversation(
-    [Turn(role=ConversationRole.user, content="Hi")]
+adapter.execute_sync(
+    [
+        {role: "system", content: "You are a helpful assistant."},
+        {
+            role: "user",
+            content: "Write a haiku about recursion in programming.",
+        },
+    ]
 )
-
-adapter.execute_sync(conversation)
 ```
 
 Adapter paths follows the format `provider/vendor/model_name`. Use `AdapterFactory.get_supported_models()` to retrieve all supported models. For a given model, `model.get_path()` returns the adapter path.
